@@ -5,5 +5,7 @@ public class Main {
         System.out.println("안녕 자바!");
         // 2023/03/20 추가
         System.out.println("변경 내역 추가");
+        // 2023/03/20 재추가
+        System.out.println("혼자 변경 재 추가");
     }
 }
