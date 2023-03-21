@@ -2,49 +2,70 @@ package var;
 
 public class FlowControl {
     public static void main(String[] args) {
+        final int START = 3;
+        final int END = 10;
 
-        final int PERMIT_AGE = 18;
-        final int inputAge = 15;
+        int index = START;
 
-        // if 문을 만드는 방법
-        // 1. if를 작성하고 소괄호 () 를 작성합니다.
-        // 2. 소괄호 내부에 조건식을 작성합니다.
-        // 3. 중괄호 내부에는 조건이 만족된 경우 동자할 코드를 작성합니다.
-        if (PERMIT_AGE < inputAge) {
-            System.out.println("입장 가능하십니다!");
+        // for 문을 만드는 방법
+        // 1. for 를 작성하고 소괄호()를 작성후 중괄호 {} 를 작성한다.
+        // 1. 소괄호 내부는 아래와 같이 구성됩니다.
+        //      (초기화; 조건; 증감)
+        //     - 여기서 초기화란 for문을 최초로 만나는 순간에만 동작하게 됩니다.
+        //       그러므로 없어도 됩니다.
+        //     - 조건은 while if switch 등에서 봤던 조건식과 동일합니다.
+        //       조건을 만족하는 동안 for문이 반복됩니다.
+        //     - 증감의 경우에도 없어도 됩니다.
+        //       표현을 조금 더 예쁘게 만들어주기 위해 증감파트가 존재한다 봐도 무방합니다.
+        // 3. 중괄호 내에는 for 문을 반복하며 작업할 내용을 적어줍니다.
+
+        // 단순 반복 while문 / 가독성 좋은건 for문
+
+        // 중요한 것은 어찌되었든 for문은
+        // 조건 파트가 참인 동안은 언제든지 반복된다는 것입니다.
+        // 초기화나 증감파트는 결다리란 것이죠.
+        for (; index < END;) {
+            System.out.println("index = " + index++);
         }
-        else {
-            System.out.println("입장 불가능하십니다!");
-        }
-
-        final int PERMIT_KIDS = 13;
-
-        if (PERMIT_AGE < inputAge) {
-            System.out.println("성인용입니다!");
-        }
-        if (PERMIT_KIDS < inputAge) {
-            System.out.println("아동용입니다!");
-        }
-
-        // 만약 if, else if,   else if,   else if 형태로 코드가 작성되면
-        // 조건식을 첫번째 if가 만족되지 않았을때 else if 를 보게 되므로
-        // 기본적으로 해당 else if에서는 if 의 조건 또한 만족하지 않음을 내포하게 됩니다.
-        // 그리고 그 다음 else if에서는 맨 처음 if가 만족하지 않고, 그 다음 else if를 만족하지 않고,
-        // 그리고 현재의 else if 조건을 만족해야 합니다.
-
-        // 그러므로 depth (깊이)가 깊어질수록 코드를 파악하기 위한 혼동이 가중된다는 문제가 있습니다.
-        // 이와 같은 이유 때문에 코드를 작성할때 if, else if, else if 보다는
-        // 그냥 if, if, if 가 더 좋습니다. (우리는 서비스 개발자니까)
 
         /*
-        [비교 대상]
-        if (PERMIT_AGE < inputAge) {
-            System.out.println("성인용입니다!");
-        }
-        else if (PERMIT_KIDS < inputAge) {
-            System.out.println("아동용입니다!");
+         for (int index = START; index < END; index++) {
+            System.out.println("index = " + index);
         }
         */
+
+        // 루프를 돌면서 덧셈을 하려면 반드시 아래아 같이
+        // 외부에 0으로 초기화된 변수를 가지고 누산해야 합니다.
+        int sum = 0;
+        int count = 0;
+
+        for (int idx = START; idx <= END; idx++) {
+            // sum += idx;
+            // sum은 sum + idx라는 왜 값이 누산이 되는거야?
+            // '=' 연산자는 '~과 같다가 아닙니다.'
+            // 오른쪽에 있는 정보를 왼쪽에 대입합니다.
+            // '=' 연산자는 대입 연산자
+            sum = sum + idx;
+            System.out.println("count = " + (++count) + ", sum = " + sum);
+        }
+            System.out.println("3 ~ 10까지의 합: " + sum);
+
+        // 조건이 없으므로 무조건입니다.
+//        for (;;) {
+//            System.out.println("무한 반복");
+//        }
+
+        for (int i = START; i <= END; i++) {
+            // '%' 연산자는 나머지 연산자 입니다.
+            // (mod 2)와 동의어이며 이건 몰라도 됩니다.
+
+            // 현재 i 값을 2로 나눈 나머지가 0이냐를 묻는것이고
+            // 2로 나눈 나머지가 0이란 것은 짝수임을 의미합니다.
+            // 고로 이 로직은 3 ~ 10 사이의 홀수만 출력합니다.
+            if (i % 2 == 0) { continue; }  // continue 는 skip과 동일합니다.
+
+            System.out.println("i = " + i);
+        }
 
 
     }
