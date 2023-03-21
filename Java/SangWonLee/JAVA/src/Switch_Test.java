@@ -22,7 +22,7 @@ public class Switch_Test {
         boolean isLoop = true;
 
         while (isLoop) {
-            System.out.println("숫자를 입력하세요 : ");
+            System.out.println("숫자를 입력하세요 : "); // 숫자를 입력하게되면
             int inputNumber = scan.nextInt();
 
             switch (inputNumber){
@@ -43,7 +43,8 @@ public class Switch_Test {
                 default:
                     System.out.println("뭘 눌렀냐?");
                     break;
-            }
+            } // 각각의 케이스 별로 출력된다. 0 누르면 while문에 있는
+            // isLoop가 False가 되므로 종료
         }
     }
 }

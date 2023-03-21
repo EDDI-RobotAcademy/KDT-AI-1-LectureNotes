@@ -5,9 +5,9 @@ public class If_test {
         
         if(PERMIT_AGE < inputAge){
             System.out.println("입장 가능");
-        } else{
+        } else {
             System.out.println("입장 불가");
-        }
+        } //  조건이 PERMIT_AGE < inputAge 이므로 입장 가능 출력
 
         final int PERMIT_KIDS = 13;
 
@@ -16,15 +16,16 @@ public class If_test {
         
         if (PERMIT_AGE < inputAge) {
             System.out.println("성인용임");
-        }
+        } // 성인용임 출력
         if(PERMIT_KIDS < inputAge){
             System.out.println("아동용임");
-        }
+        } // 아동용임 출력
 
         if (PERMIT_AGE < inputAge) {
             System.out.println("성인용임");
         } else if(PERMIT_KIDS < inputAge){
             System.out.println("아동용임");
+            // 성인용임 출력
         } // 점점 복잡해지면서 혼동될 수 있다.
     }
 }

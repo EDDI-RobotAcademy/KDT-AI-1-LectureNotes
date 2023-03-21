@@ -19,6 +19,18 @@ public class For_Test {
             System.out.println("count = " + (++count + ", sum = " + sum));
         }
         System.out.println("3 ~ 10 까지의 합 : " + sum);
+/*
+        count = 1, sum = 3
+        count = 2, sum = 7
+        count = 3, sum = 12
+        count = 4, sum = 18
+        count = 5, sum = 25
+        count = 6, sum = 33
+        count = 7, sum = 42
+        count = 8, sum = 52
+        3 ~ 10 까지의 합 : 52
+ */
+
 //        for (;;){ // 조건이 없다는 뜻이라서 무한 반복된다.
 //            System.out.println("무한 반복");
         for (int i = START; i <= END; i++) {
@@ -27,6 +39,12 @@ public class For_Test {
             }
 
             System.out.println("i = " + i);
+            /*
+            i = 3
+            i = 5
+            i = 7
+            i = 9
+            */
         }
     }
 }

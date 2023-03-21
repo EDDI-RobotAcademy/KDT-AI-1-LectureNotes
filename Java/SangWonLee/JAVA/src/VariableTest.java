@@ -17,7 +17,7 @@ public class VariableTest {
         int grapeCount = 5;
         int totalCount = applCount + grapeCount;
 
-        System.out.println("totalCount = " + totalCount);
+        System.out.println("totalCount = " + totalCount); //totalCount = 8
 
 //      final을 사용하는 이유 : 상수로 고정시킬 수 있따는 이점이 있다.
 
@@ -27,6 +27,7 @@ public class VariableTest {
 
         System.out.println("프로랜서 세전 수입 : " + income +", 세후 : " + income
                 * (FULL_PERCENT - TAX) / FULL_PERCENT);
+        // 프로랜서 세전 수입 : 1000000, 세후 : 967000.0
 
 
 
