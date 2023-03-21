@@ -76,5 +76,7 @@ public class VariableTest {
         // 3을 대입하는 행위 자체를 차단하는 것이죠.
 
 
+
+
     }
 }
