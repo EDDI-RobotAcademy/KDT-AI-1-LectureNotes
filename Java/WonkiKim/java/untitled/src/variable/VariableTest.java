@@ -38,7 +38,7 @@ public class VariableTest {
         final float TAX = 3.3f;
         int income = 1000000;
 
-        System.out.println("프리랜서 세전 수입: " + income + ", 세후: " + (int)income * (FULL_PERCENT - TAX)/FULL_PERCENT);
+        System.out.println("프리랜서 세전 수입: " + income + ", 세후: " + (int)(income * (FULL_PERCENT - TAX)/FULL_PERCENT));
         /*[비교 대상]
         System.out.println("프리랜서 세전 수입: " + income + ", 세후: " + (int)income * (FULL_PERCENT - 3.3f)/FULL_PERCENT);
          */
@@ -48,12 +48,12 @@ public class VariableTest {
         // 클래스를 인스턴스화 하여 객체를 만들었고 이것이 불변이라면 무엇이 좋을까요?
 
         // TAX = 4.4f;
-        // 위 코드는 TAX가 final이기 때문에
+        // 위 코드는 TAX가 final이기 때문에 
         // 새로운 값을 대입하거나 덧셈, 뺄셈 등등이 불가능 합니다.
         // 결론적으로 입력되는 값을 변경하지 못하게 막음으로서
         // 원래 동작해야하는 동작의 무결성을 보장하게 됩니다.
-
-
+        
+        
         // 예) 1 - 예금, 2 - 출금, 3 - 조회
         // 회사 프로그램이 만들어져 있는 상태 ( 예금, 출금)
         // 신입이 조회를 만들고 있는 상황입니다.
@@ -63,7 +63,7 @@ public class VariableTest {
         // 출금을 했더니 조회가 되고
         //조회를 했더니 조회가 되는 끔직한 상황이 연출됩니다.
         // 이것을 원천 차단하는 방법으로서 final을 사용합니다.
-        // 3을 대입하는 행위 자체를 차단하는 것이죠.
+        // 3을 대입하는 행위 자체를 차단하죠.
     }
 
 }
