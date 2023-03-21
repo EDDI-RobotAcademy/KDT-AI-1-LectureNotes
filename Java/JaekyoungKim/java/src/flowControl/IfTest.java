@@ -29,7 +29,7 @@ public class IfTest {
             // 이와 같은 이유 때문에 코드를 작성할 때 if, else if 보단 if, if, if 가 더 좋다.
             //(서비스 개발자라는 전제를 두고)
 
-            
+
         }
         }
 
