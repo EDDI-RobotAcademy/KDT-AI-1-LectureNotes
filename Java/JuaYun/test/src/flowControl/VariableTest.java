@@ -1,4 +1,4 @@
-package variable;
+package flowControl;
 
 public class VariableTest {
     public static void main(String[] args) {
