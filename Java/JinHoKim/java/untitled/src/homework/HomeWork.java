@@ -2,12 +2,8 @@ package homework;
 
 public class HomeWork {
     public static void main(String[] args) {
-        final int START = 1;
-        final int END = 6;
-
-
-        final int Dice1 = (int)(Math.random() * END) + 1;
-        final int Dice2 = (int)(Math.random() * END) + 1;
+        final int Dice1 = (int)(Math.random() * 6) + 1;
+        final int Dice2 = (int)(Math.random() * 6) + 1;
         int randomValue = 0;
 
         System.out.println("Dice1 + Dice2 = " + (Dice1 + Dice2));
