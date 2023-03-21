@@ -43,9 +43,5 @@ public class IfTest {
         }else if (PERMIT_KIDS < inputAge){
             System.out.println("아동용입니다!");
         }*/
-
-        
-
-
     }
 }
