@@ -27,6 +27,7 @@ public class Switch_Test {
 
             switch (inputNumber){
                 case 0:
+                    // 숫자 0이 들어오는 경우 isLoop를 false로 바꿈
                     System.out.println("종료");
                     isLoop = false;
                     break;
