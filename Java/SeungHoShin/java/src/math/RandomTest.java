@@ -18,6 +18,7 @@ public class RandomTest {
 
 
         final int randomNumber = (int)(Math.random()*100) +1;
+        //(int)(Math.random()*MAX)+MIN;
 
         System.out.println("randomNumber="+ randomNumber);
 
