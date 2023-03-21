@@ -28,7 +28,7 @@ public class VariableTest {
         System.out.println("프로랜서 세전 수입 : " + income +", 세후 : " + income
                 * (FULL_PERCENT - TAX) / FULL_PERCENT);
 
-        
+
 
     }
 }
