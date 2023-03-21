@@ -4,7 +4,7 @@ public class Main {
         // 2023/03/21 추가
         System.out.println("테스트");
         //2023/03/21 추가
-        System.out.println("3차 테스트 입니다!");
+        System.out.println("3차 테스트 추가입니다!");
 
 
     }
