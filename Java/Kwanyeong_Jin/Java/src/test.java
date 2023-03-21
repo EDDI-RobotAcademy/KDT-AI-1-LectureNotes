@@ -1,4 +1,4 @@
-public class Main {
+public class test {
     public static void main(String[] args) {
         // sout == System.out.println --- 2023/03/20
         System.out.println("안녕 자바!");
