@@ -1,4 +1,4 @@
-public class Input_test {
+public class If_test {
     public static void main(String[] args) {
         final int PERMIT_AGE = 18;
         final int inputAge = 19;
