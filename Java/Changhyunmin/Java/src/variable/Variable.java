@@ -37,6 +37,7 @@ public class Variable {
         //  반면 TAX 상수에 숫자를 기입하고 이 상수를 사용한다면
         //  변동상황이 발생할 때 해당하는 TAX 수치값만
         //  한 번 변경하면 모든 상황을 바로 고칠수있다.
+        // 메서드 쪽으로 보면 int income만 사용해도 좋지만 DB관점에서는 final int income을 사용하면 좋다.
         final float FULL_PERCENT = 100;
         final float TAX = 3.3f;
         int income = 1000000;
