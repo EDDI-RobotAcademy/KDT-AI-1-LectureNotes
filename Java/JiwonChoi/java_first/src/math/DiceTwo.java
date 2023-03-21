@@ -3,8 +3,6 @@ package math;
 public class DiceTwo {
 
     public  static void main(String[] args) {
-//        final int START = 1;
-//        final int END = 6;
         final int MAX = 6;
         final int MIN = 1;
 
