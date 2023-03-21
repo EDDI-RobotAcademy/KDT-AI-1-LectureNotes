@@ -1,7 +1,4 @@
 package variable;
-
-import javax.sound.midi.Soundbank;
-
 public class Variable_Test {
     public static void main(String[] args) {
         System.out.println("variable(변수) 테스트");
