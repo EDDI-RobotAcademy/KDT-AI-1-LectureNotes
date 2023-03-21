@@ -47,6 +47,9 @@ public class VariableTest {
         final float TAX = 3.3f;
         int income = 1000000;
 
+        //매서드 관점에선 income 앞에 final이 들어가야 되지만 DB 관점에서 볼때
+        //income 매번 변하기 때문에 안쓴것.
+
         System.out.println("프리랜서 세전 수입: " + income +
                 ", 세후: " + income * (FULL_PERCENT - TAX) / FULL_PERCENT);
 
@@ -74,7 +77,7 @@ public class VariableTest {
         //  조회를 했더니 조회가 되는 끔찍한 상황이 연출됩니다.
         //  이것을 원천 차단하는 방법으로서 final을 사용합니다.
         //  3을 대입하는 행위 자체를 차단하는 것이죠.
-        
+
 
 
 
