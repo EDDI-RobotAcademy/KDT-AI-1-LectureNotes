@@ -50,7 +50,7 @@ class Age {
 
 public class ReviewTest3 {
     public static void main(String[] args) {
-        Person2 person = new Person2(
+        final Person2 person = new Person2(
                 new Name("애기"),
                 new Age(2));
 

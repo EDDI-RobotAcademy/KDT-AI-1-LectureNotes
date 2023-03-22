@@ -22,7 +22,7 @@ class Person {
 
 public class ReviewTest2 {
     public static void main(String[] args) {
-        Person person = new Person(3, "애기");
+        final Person person = new Person(3, "애기");
 
         System.out.println(person);
     }
