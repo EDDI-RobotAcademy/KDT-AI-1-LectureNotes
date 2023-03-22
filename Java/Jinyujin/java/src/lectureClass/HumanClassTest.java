@@ -1,4 +1,4 @@
-package homework;
+package lectureClass;
 
 class Human {
     private String name;
@@ -22,7 +22,7 @@ class Human {
     }
 }
 
-public class March22 {
+public class HumanClassTest {
     public static void main(String[] args) {
         final Human human = new Human("김이름", 20);
 
