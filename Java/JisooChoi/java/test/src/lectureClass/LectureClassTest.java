@@ -95,7 +95,11 @@ public class LectureClassTest {
         // 즉 내가 집중하는 주체가 무엇인가를 알 수 있도록 예쁘게 잘 표현해주는 것을 OOP라고 봐도 무방
 
         // 전구(LED)를 키는 상황을 생각해봅시다.
+
         final Led led = new Led();
+        // 왜 데이터 타입을 적는 곳에 class 이름이 오는 것이지?
+        // A : 클래스라는 것 자체가 커스텀 데이터 타입이기 때문이다.
+        //     여러분이 직접 커스텀 할 수 있는 데이터 타입이 클래스라 보면 된다.
 
         System.out.println("현재 전구 상태: "+(led.getIsTurnOn()? "켜짐" : "꺼짐"));
         led.setTurnOn(true);
