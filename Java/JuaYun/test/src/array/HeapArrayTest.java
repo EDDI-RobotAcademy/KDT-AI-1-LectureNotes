@@ -30,7 +30,7 @@ public class HeapArrayTest {
             System.out.printf("numberArray[%d] = %d\n", i, numberArray[i]);
             //System.out.println("numberArray[" + i + "] = " + numberArray[i]);
         }
-        
+
         System.out.println();
 
         for (final int num: numberArray) {
