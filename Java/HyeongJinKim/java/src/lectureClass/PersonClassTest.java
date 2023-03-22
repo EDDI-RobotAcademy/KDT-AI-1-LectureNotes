@@ -1,8 +1,8 @@
 package lectureClass;
 
 class Person {
-    private String isName;
-    private int isAge;
+    private final String isName;
+    private final int isAge;
 
     public Person() {
         this.isName = "김형진";
