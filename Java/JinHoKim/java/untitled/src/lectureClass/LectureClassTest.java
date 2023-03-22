@@ -22,6 +22,7 @@ class Led{
      */
     public Led() {
         this.isTurnOn = false;
+        System.out.println("생성자 호출");
     }
 
     /*
@@ -92,8 +93,10 @@ public class LectureClassTest {
 
         전구(Led)를 키는 상황을 생각해봅시다
          */
-
+        //생성자 호출하는 부분[ new Led() ]
+        System.out.println("생성자 호출 전");
         final Led led = new Led();
+        System.out.println("생성자 호출 후");
 
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
         led.setTurnOn(true);
