@@ -95,7 +95,7 @@ class Led {
     // 왜 entity에 setter를 쓰지 말라고 할까? - 구글링
     // 결론적으로 글로 풀었을 때 말이 안되는 행위를 만들지 않으면 된다
 
-    //... 도메인 서비스 관점에서는 setTurnOn때문에 골치일 것
+    //... 도메인 서비스 관점에서는 setTurnOn 때문에 골치일 것
 
     //... 리턴이 없어서 void
 }
@@ -119,11 +119,14 @@ public class LectureClassTest {
 
         // 전구(LED)를 키는 상황을 생각해봅시다.
         System.out.println("생성자 호출 전");
-        final Led led = new Led();
+        // 왜 데이터 타입을 적는 곳에 class 이름이 오는 것이지?
+        // A: 클래스라는 것 자체가 커스텀 데이터 타입이기 때문입니다.
+        //    여러분이 직접 커스텀할 수 있는 데이터 타입이 클래스라 보면 됩니다.
+        final Led led = new Led();                // <- 초기 생성 (꺼짐 - isTurnOn: false)
         System.out.println("생성자 호출 후");
         
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
-        led.setTurnOn(true);
+        led.setTurnOn(true);                      // <- 상태 변경 (켜짐 - isTurnOn: true)
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
 
     }
