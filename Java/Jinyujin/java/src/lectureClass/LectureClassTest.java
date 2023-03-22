@@ -28,6 +28,7 @@ class Led {
     //    기본값으로 전구를 꺼놓은 상태로 시작하게 됩니다.
     public Led() {
         this.isTurnOn = false;
+        System.out.println("생성자 호출");
     }
         //... default를 꺼져있는 상태로
 
@@ -94,7 +95,7 @@ class Led {
     // 왜 entity에 setter를 쓰지 말라고 할까? - 구글링
     // 결론적으로 글로 풀었을 때 말이 안되는 행위를 만들지 않으면 된다
 
-    //... 도메인 서비스 관점에서는 섹턴온때문에 골치일 것
+    //... 도메인 서비스 관점에서는 setTurnOn때문에 골치일 것
 
     //... 리턴이 없어서 void
 }
@@ -117,8 +118,10 @@ public class LectureClassTest {
         // 그냥 클래스 만든다고 OOP를 하는게 아니라 내가 집중하는 도메인에 부합하냐는 관점을 잘 설계하는 것이 OOP
 
         // 전구(LED)를 키는 상황을 생각해봅시다.
+        System.out.println("생성자 호출 전");
         final Led led = new Led();
-
+        System.out.println("생성자 호출 후");
+        
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
         led.setTurnOn(true);
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
