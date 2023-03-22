@@ -21,14 +21,15 @@ class Score {
         scores = new int[ITER];
     }
 
-    public void record(int iter, final int DICE_NUMBER) {
-        scores[iter] = DICE_NUMBER;
+    public void record(final int INDEX, final int DICE_NUMBER) {
+
+        scores[INDEX] = DICE_NUMBER;
     }
 
     public int getSumScore() {
         int sum = 0;
-        for (int score : this.scores) {
-            sum += score;
+        for (final int SCORE : this.scores) {
+            sum += SCORE;
         }
         return sum;
     }
@@ -47,6 +48,7 @@ class Game {
         for (int i = 0; i < this.ITER; i++) {
             final Dice dice = new Dice();
             final int DICE_NUMBER = dice.getDiceNumber();
+
             score.record(i, DICE_NUMBER);
             System.out.println((i + 1) + "번째 주사위의 눈: " + DICE_NUMBER);
         }
@@ -55,10 +57,10 @@ class Game {
     public void result() {
         final int TOTAL_SCORE = score.getSumScore();
 
-        //승리조건에 부합한다면 if statement 수행하고 void 리턴.
-        //부합하지 않다면 for 문을 끝내고 출력후 메소드 종료.
+        //승리조건에 부합한다면 if 안의 statement 수행하고 void 리턴.
+        //부합하지 않다면 for 문을 끝내고 패배 관련 출력후 메소드 종료.
 
-        for (int condition : WIN_CONDITIONS) {
+        for (final int condition : WIN_CONDITIONS) {
             if (TOTAL_SCORE % condition == 0) {
                 System.out.println("TOTAL SCORE: " + TOTAL_SCORE + " (으)로 ");
                 for (int conditionText : WIN_CONDITIONS) {
@@ -69,7 +71,7 @@ class Game {
             }
         }
         System.out.println("TOTAL SCORE: " + TOTAL_SCORE + "으로 ");
-        for (int conditionText : WIN_CONDITIONS) {
+        for (final int conditionText : WIN_CONDITIONS) {
             System.out.print(conditionText + ", ");
         }
         System.out.println("\b\b 중 한 개 이상의 수의 배수가 아니므로 패배입니다.");
