@@ -43,7 +43,7 @@ public class StackArrayTest {
 //        3. 콜론  + 배열명
 
         for (int num: numberArray){
-            System.out.printf("배열 원소 출력 : " + num);
+            System.out.println("배열 원소 출력 : " + num);
         }
 //        서비스가 커져 데이터 규모가 컸졌다면
 //        for(초기화; 조건; 증감)과 foreach중 무엇이 더 좋을까?
