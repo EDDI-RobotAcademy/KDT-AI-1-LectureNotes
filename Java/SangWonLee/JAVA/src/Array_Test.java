@@ -7,7 +7,6 @@ public class Array_Test {
 
         for (int i = START; i < numberArray.length; i++) {
             System.out.println(" 배열 출력 : " + numberArray[i]);
-
             /*
              배열 출력 : 1
              배열 출력 : 2
@@ -17,13 +16,9 @@ public class Array_Test {
              */
         }
         System.out.println();
-        
         // for의 변형 버전 foreach라고도 함
-
         for (int num : numberArray){
             System.out.println("배열 원소 출력 : " + num);
         }
-
-
     }
 }
