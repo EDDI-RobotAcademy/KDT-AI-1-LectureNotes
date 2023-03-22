@@ -2,8 +2,8 @@ package lectureClass;
 
 class Person{
     // 필드
-    final int age;
-    final String name;
+    private final int age;
+    private final String name;
 
     // 생성자
     public Person(int age, String name){
