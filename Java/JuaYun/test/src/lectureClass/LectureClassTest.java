@@ -25,6 +25,7 @@ class Led{
     //    기본값으로 전구를 꺼놓은 상태로 시작하게 됩니다.
     public Led() {
         this.isTurnOn = false;
+        System.out.println("생성자 호출");
     }
 
     // 클래스 내부에 기능을 수행하는 집합들을 매서드라고 부릅니다.
@@ -93,8 +94,10 @@ public class LectureClassTest {
         // 즉 내가 집중하는 주제가 무엇인가를 알 수 있도록 예쁘게 잘 표현해주는 것을 OOP라 봐도 무방합니다.
 
         // 전구(LED)를 키는 상황을 생각해봅시다.
-
+        // 생성자 호출하는 부분 [ new Led() ]
+        System.out.println("생성자 호출 전");
         final Led led = new Led();
+        System.out.println("생성자 호출 후");
 
         System.out.println("현재 전구 상태: " + (led.getIsTurnOn() ? "켜짐" : "꺼짐"));
         led.setTurnOn(true);
