@@ -11,10 +11,8 @@ public class StackArrayTest {
             당연히 전달력 및 표현력이 중요하다.
          3. 필요하다면 중괄호를 열고 초기화를 하거나
             또는 new 데이터타입 (1번) [] 형태로 Heap에 메모리 할당을 강제할 수 있다.
-        final int[] numberArray = { 1, 2, 3, 4, 5 };
-
          */
-
+        final int[] numberArray = { 1, 2, 3, 4, 5 };
 
         /*
          여기서 이야기 한 Heap과 대조되는 것이 Stack이다.
