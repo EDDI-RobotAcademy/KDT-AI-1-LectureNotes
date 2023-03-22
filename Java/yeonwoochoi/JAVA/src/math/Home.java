@@ -3,16 +3,27 @@ package math;
 public class Home {
     public static void main(String[] args) {
 
-        final  int dice1 = (int) (Math.random() * 100) + 1;
-        final  int dice2 = (int) (Math.random() * 100) + 1;
-        int sum = dice1 + dice2;
+        public class Dice {
+            public static void main(String[] args) {
 
-        System.out.println("두 주사위의 합: " + sum);
+                final int MAX = 6;
+                final int MIN = 1;
+                final int WINNER_DECISION_NUMBER = 4;
+                final int diceNum1 = (int) (Math.random() * (MAX - MIN + 1)) + MIN;
+                final int diceNum2 = (int) (Math.random() * (MAX - MIN + 1)) + MIN;
+                final int diceNumSum = diceNum1 + diceNum2;
 
-        if (sum % 4 == 0) {
-            System.out.println("승리");
-        } else {
-            System.out.println("패배");
+                System.out.println("두 주사위의 합: " + diceNumSum);
+
+                if (diceNumSum % WINNER_DECISION_NUMBER == 0) {
+                    System.out.println("승리");
+                } else {
+                    System.out.println("패배");
+                }
+            }
+
+
+
         }
 
     }
