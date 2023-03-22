@@ -11,6 +11,7 @@ class Dice {
     }
 }
 public class Homework2 {
+    
     public static void main(String[] args) {
         final Dice d1 = new Dice();
         final Dice d2 = new Dice();
