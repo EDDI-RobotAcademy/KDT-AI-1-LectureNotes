@@ -100,6 +100,7 @@ public class LectureClassTest {
         System.out.println("생성자 호출 전");
         final Led led = new Led();
         System.out.println("생성자 호출 후");
+        // led.isTurnOn = true;
 
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
         led.setTurnOn(true);
