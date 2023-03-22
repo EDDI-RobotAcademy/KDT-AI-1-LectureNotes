@@ -3,9 +3,6 @@ package math;
 public class Home {
     public static void main(String[] args) {
 
-        public class Dice {
-            public static void main(String[] args) {
-
                 final int MAX = 6;
                 final int MIN = 1;
                 final int WINNER_DECISION_NUMBER = 4;
@@ -20,11 +17,6 @@ public class Home {
                 } else {
                     System.out.println("패배");
                 }
-            }
-
-
-
-        }
-
+                
     }
 }
