@@ -1,3 +1,5 @@
+package Basic_Grammar;
+
 public class Random_Test {
     public static void main(String[] args) {
         final int randomNumber = (int)(Math.random() * 100) + 1;

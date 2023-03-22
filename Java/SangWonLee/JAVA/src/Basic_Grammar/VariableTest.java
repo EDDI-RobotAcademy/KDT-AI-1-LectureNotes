@@ -1,3 +1,5 @@
+package Basic_Grammar;
+
 public class VariableTest {
 
     public static void main(String[] args) {
