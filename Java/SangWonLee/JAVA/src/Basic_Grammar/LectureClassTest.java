@@ -1,5 +1,6 @@
+package Basic_Grammar;
 
-    class Led {
+class Led {
         private Boolean isTurnOn;
 
         public Led() {

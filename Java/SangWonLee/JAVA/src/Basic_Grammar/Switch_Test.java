@@ -1,3 +1,5 @@
+package Basic_Grammar;
+
 import java.util.Scanner;
 
 public class Switch_Test {
