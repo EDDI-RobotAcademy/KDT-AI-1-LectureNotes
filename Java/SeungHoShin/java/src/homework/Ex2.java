@@ -23,7 +23,7 @@ public class Ex2 {
         if (sum % WInner_decision_number == 0) {
             System.out.println("승리하셨습니다");
         } else {
-            System.out.println("패배하셨습니다.");
+            System.out.println("패배하셨습니다!!.");
 
 
         }
