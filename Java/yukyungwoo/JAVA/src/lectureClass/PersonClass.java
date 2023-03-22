@@ -1,29 +1,28 @@
 package lectureClass;
 
 class Person {
-    private int isAge
-    public Person() {
-        this.isAge = 100;
+    private Integer isAge;
+    private String isName;
+    public Person(Integer isAge, String isName) {
+        this.isAge = isAge;
+        this.isName = isName;
     }
 
     public int getAge () {
         return isAge;
 
     }
-
-    private String isName
-    public Person () {
-        this.isName = 홍길동;
-
-    }
     public String getName () {
-        return .isName;
+        return isName;
     }
 }
 
 public class PersonClass {
     public static void main(String[] args) {
+        Person person = new Person(3, "테스트");
 
+        System.out.println(person.getAge());
+        System.out.println(person.getName());
     }
 }
 
