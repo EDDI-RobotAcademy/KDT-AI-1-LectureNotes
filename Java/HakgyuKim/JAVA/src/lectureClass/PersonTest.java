@@ -28,4 +28,9 @@ class Person {
     }
 }
 
-
+public class PersonTest {
+    public static void main(String[] args) {
+        final Person PERSON1 = new Person(20, "홍길동");
+        System.out.println("이름은: " + PERSON1.getName() + ", 나이는: " + PERSON1.getAge());
+    }
+}
