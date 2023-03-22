@@ -72,19 +72,20 @@ class  Led {
     이런 관점으로 접근하면 setter를 완벽하게 제거할 수 있습니다.
     즉 필요하면 final 객체에 final 변수들을 설정해서 전달한다는 의미입니다.
      */
-
     /*
     *입력 관점에서 살펴봅시다!
                 3 -> [   ] -> 9     (입력타입 int)
         버튼을 누름 -> [   ] -> true  (입력 타입 Button class)
                1  -> [   ] -> "예금" (입력 타입 int)
-                   -> [   ] -> 20   (입력 타입 void)
+                   -> [   ] -> 20   (입력 타입 void) (소괄호 비워두면됨)
             참/거짓 -> [   ]          (입력타입 boolean)
      */
     public void setTurnOn(Boolean turnOn) {  //리턴이 없으므로 void
         isTurnOn = turnOn;
     }
 }
+
+
 public class LectureClassTest {
 
     public static void main(String[] args) {
@@ -101,11 +102,16 @@ public class LectureClassTest {
         Domain이라는 관점은 이렇게 클래스가 어떤 주제에 집중을 하고 있는지를 본다고 생각하면 됩니다.
         즉 내가 집중하는 주제가 무엇인가를 알 수 있도록 예쁘게 잘 표현해주는 것을 OOP라 봐도 무방합니다.
         전구를 키는 상황을 생각해봅시다.
-         */
-        final Led led = new Led();
+        생성자 호출하는 부분 [new Led()]
 
+        왜 데이터 타입을 적는 곳에 class 이름이 오는 것일까?
+        A. 클래스라는 것 자체가 커스텀 데이터 타입이기 때문입니다.
+           여러분이 직접 커스텀 할 수 있는 데이터 타입이 클래스라 보면 됩니다.
+         */
+        final Led led = new Led();      // <- 초기 생성(꺼짐 - isTurnOn: false)
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
-        led.setTurnOn(true);
+
+        led.setTurnOn(true);            // <- 상태 변경(켜짐 - isTurnOn: true)
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
 
     }
