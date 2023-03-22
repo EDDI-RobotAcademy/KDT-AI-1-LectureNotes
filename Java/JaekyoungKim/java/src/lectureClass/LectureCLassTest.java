@@ -15,6 +15,7 @@ package lectureClass;
 class Led{
     private Boolean isTurnOn;
 
+
     //생성자는 class의 이름과 같습니다.
     // 그리고 아래와 같이 리턴 타입이 없습니다.
     // 만드는 규칙이라면 아래와 같습니다.
@@ -26,6 +27,7 @@ class Led{
     //  기본값으로 전구를 꺼놓은 상태로 시작하게 됩니다.
     public Led() {
         this.isTurnOn = false;
+        System.out.println("생성자 호출");
     }
     // 클래스 내부에 기능을 수행하는 집합들을 메서드라고 부릅니다.
     // 매서드를 작성하는 방법
@@ -97,7 +99,12 @@ public class LectureCLassTest {
         // domain driven development
         // 잘만든 OOP란 무엇인가?
         //전구 키는 상황을 생가해봅시다.
+        System.out.println("생성자 호출 전");
         final Led led = new Led();
+        //왜 데이터 타입을 적는 곳에 class 이름이 오는 것이지?
+        // A:클래스라는 것 자체가 커스텀 데이터 타입이기 때문입니다.
+        //      여러분이 직접 커스텀 할 수 있는 데이터 타입이 클래스라 보면 됩니다.
+        System.out.println("생성자 호출 후");
 
         System.out.println("현재 전구 상태: "+(led.getTurnOn() ? "켜짐":"꺼짐"));
         led.setTurnOn(true);
