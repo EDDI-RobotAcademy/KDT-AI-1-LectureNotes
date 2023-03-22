@@ -16,7 +16,7 @@ public class Test1 {
         final int sum = RANDOM1 + RANDOM2 + RANDOM3 + RANDOM4;
         System.out.println("sum = " + sum);
 
-        if((sum & 4) ==0 & (sum & 3) ==0)
+        if((sum % 4) ==0 | (sum % 3) ==0)
             System.out.println("승리하였습니다.");
         else if ((sum % 4) != 0 & (sum % 3)  !=0)
             System.out.println("패배하였습니다.");
