@@ -25,6 +25,7 @@ class Led {
     //    기본값으로 전구를 꺼 놓은 상태로 시작하게 됩니다.
     public Led() {
         this.isTurnOn = false;
+        System.out.println("생성자 호출");
     }
 
     // 클래스 내부에 기능을 수행하는 집합들을 매서드라고 부릅니다.
@@ -36,7 +37,7 @@ class Led {
     // 4. 중괄호 내에서는 실제 매서드 이름에 해당하는 작업을 진행하면 됩니다.
     //    이 때 단순히 작업만 하고 정보 반환이 없다면 리턴 타입은 void 입니다.
     //    참/거짓을 반환한다면 Boolean 입니다.
-    //    숫자 등 이라면 Long(long)이나 Ineger(int)입니다.
+    //    숫자 등 이라면 Long(long)이나 Integer(int)입니다.
     //    무엇을 반환(리턴) 하느냐에 따라 적잘한 형태를 적어주면 됩니다.
 
     // * 도대체 리턴 된다는 것은 무엇을 의미하는가?
@@ -72,7 +73,7 @@ class Led {
     // * 입력 관점에서 살펴봅시다
     //    3    -> [   ] -> 9      (입력 타입 int)
     // 버튼 누름 -> [   ] -> true  (입력 타입 Botton Class)
-    //    1    -> [   ] -> "예금" (입력 타입 String)
+    //    1    -> [   ] -> "예금" (입력 타입 int)
     //         -> [   ] -> 20    (입력 타입 void)
     //  참/거짓 -> [   ]          (입력 타입 boolean)
     public void setTurnOn(Boolean isTurnOn) {
