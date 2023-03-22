@@ -27,6 +27,8 @@ class  Led {
     //      즉 현재는 new를 통해 만들어질 때
     //      기본값으로 전구를 꺼놓은 상태로 시작하게 됩니다.
     public Led(Boolean isTurnOn) {
+        // this는 Led 클래스 자기 자신임
+        // (좀 더 정확히는 new로 생성된 객체 자신)
         this.isTurnOn = false;
         System.out.println("생성자 호출");
     }
