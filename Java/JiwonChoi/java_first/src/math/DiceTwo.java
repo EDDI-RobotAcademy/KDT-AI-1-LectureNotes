@@ -6,8 +6,8 @@ public class DiceTwo {
         final int MAX = 6;
         final int MIN = 1;
 
-        final int RandomDice1 = (int)(Math.random() * 6) + 1;
-        final int RandomDice2 = (int)(Math.random() * 6) + 1;
+        final int RandomDice1 = (int)(Math.random() * MAX) + MIN;
+        final int RandomDice2 = (int)(Math.random() * MAX) + MIN;
 
         System.out.println("주사위1의 값은 " + RandomDice1 + "입니다.");
         System.out.println("주사위2의 값은 " + RandomDice2 + "입니다.");
