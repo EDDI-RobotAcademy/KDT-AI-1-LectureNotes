@@ -28,6 +28,7 @@ class  Led {
     //      기본값으로 전구를 꺼놓은 상태로 시작하게 됩니다.
     public Led(Boolean isTurnOn) {
         this.isTurnOn = false;
+        System.out.println("생성자 호출");
     }
 
     // 클래스 내부에 기능을 수행하는 집합들을 매서드라고 부릅니다.
@@ -44,7 +45,7 @@ class  Led {
 
     // * 도대체 리턴 된다는 것은 무엇을 의미 하는가 ?
     //       3 -> [    ] -> 9     (리턴타입 int or Long)
-    // 버튼 누름 -> [    ] -> true  (리턴타입 Boolean)
+    // 버튼 누름 -> [    ] -> true  (리턴타입 boolean)
     //       1 -> [    ] -> "예금" (리턴 타입 string)
     //  회원정보 -> [    ]          (리턴 타입 void --> 회원정보는 들어있는데 아무것도 없는 경우) == 정확히는 리턴하지 않음을 의미함
     //             [    ] -> 20   (리턴 타입 int)
@@ -77,7 +78,7 @@ class  Led {
     // 버튼 누름 -> [    ] -> true  (입력 타입 Button class)
     //       1 -> [    ] -> "예금" (입력 타입 int)
     //             [    ] -> 20    (입력 타입 void)
-    //   참/거짓 -> [    ]          (입력 타입 Boolean)
+    //   참/거짓 -> [    ]          (입력 타입 boolean)
     public void setTurnOn(Boolean turnOn) {
         isTurnOn = turnOn;
     }
@@ -98,11 +99,13 @@ public class LectureClassTest {
         // 즉 내가 집중하는 주제가 무엇인가를 알 수 있도록 예쁘게 잘 표현해주는 것을 OOP라 봐도 무방합니다.
 
         // 전구(LED)를 키는 상황을 생각해봅시다.
+        System.out.println("생성자 호출 전");
         final Led led = new Led(true);
+        System.out.println("생성자 호출 후");
 
-        System.out.println("현재 전구 상태" + (led.getTurnOn() ? "켜짐" : "꺼짐"));
+        System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
                 led.setTurnOn(true);
-        System.out.println("현재 전구 상태" + (led.getTurnOn() ? "켜짐" : "꺼짐"));
+        System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
 
     }
 }
