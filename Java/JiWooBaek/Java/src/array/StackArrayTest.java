@@ -76,7 +76,7 @@ public class StackArrayTest {
                 System.out.println("배열 원소 출력:" + num);
 
         }
-           
+
            // 비즈니스가 확장됨에 따라 서비스가 커졌고
             // 그에 따라 데이터의 규모도 커졌다 ( 여기선 배열에 정보가 많다고 가정)
            //이런 상황에서 for(초기화; 조건; 증감)과 foreach가 있다면 누가 더 좋을까?
