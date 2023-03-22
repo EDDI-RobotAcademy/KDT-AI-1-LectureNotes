@@ -8,7 +8,6 @@ public class dice {
         final int third_Win = 3; // 세번째 승리 조건
 
 
-
         for (int i = 0; i <= 10; i++) { // 10번 반복
 
             int diceSum = 0; // 시작 전 주사위 합 초기화
@@ -29,13 +28,14 @@ public class dice {
                 System.out.println(" - 3의 배수 - 대박!");
             } else { // 그 외의 것이라면
                 System.out.print(diceSum);
-                System.out.println(" - 패배 -");
             }
         }
     }
 }
+
 /*
 결과
+<<<<<<< HEAD
 8 - 4의 배수 - 승리!
 9 - 3의 배수 - 대박!
 6 - 3의 배수 - 대박!
