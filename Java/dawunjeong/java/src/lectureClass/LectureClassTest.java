@@ -12,7 +12,7 @@ package lectureClass;
     ---------------------
  */
 class Led {
-    private Boolean isTurnOn;
+    private Boolean isTurnOn; // isTurnOn이란 멤버 변수의 타입은 boolean이고 private으로 사용하겠다.
 
     // 생성자는 class의 이름과 같습니다.
     // 그리고 아래와 같이 리턴 타입이 없습니다. 주의!! void와 다르다.
@@ -24,7 +24,7 @@ class Led {
     //    즉 현재는 new를 통해 만들어질 때
     //    기본값으로 전구를 꺼놓은 상태로 시작하게 됩니다.
     public Led() {
-        this.isTurnOn = false; // 처음부터 불을 꺼둔다. default
+        this.isTurnOn = false; // 생성자, 처음부터 불을 꺼둔다. 멤버 변수의 초기 값은 false다.
     }
 
     // 클래스 내부에 기능을 수행하는 집합들을 매서드라고 부릅니다.
@@ -45,8 +45,8 @@ class Led {
     // 1 -> [     ] -> "예금" (리턴 타입 String)
     // 회원 정보 -> [     ]   (리턴 타입 void) == 정확히는 리턴하지 않음을 의미함
     //            [     ] -> 20  (리턴 타입 int) == 입력을 하지 않은 것
-    public Boolean getIsTurnOn () {
-        return isTurnOn;
+    public Boolean getIsTurnOn () { // 이게 매서드1
+        return isTurnOn; // 참/거짓으로 리턴하겠다. 지금 상태를 보여주는 것이니까 입력은 x, 리턴은 o
     }
 
     // 사실은 지가 지를 킬 수 없기 때문에 다른 객체의 도움을 받아야함
@@ -75,8 +75,8 @@ class Led {
     // 1        -> [     ] -> "예금" (입력 타입 Int)
     //             [     ] -> 20  (입력 타입 void)
     // 참/거짓   -> [     ]  (입력 타입 Boolean)
-    public void setIsTurnOn (Boolean isTurnOn) {
-        this.isTurnOn = isTurnOn;
+    public void setIsTurnOn (Boolean isTurnOn) { // 이게 매서드2
+        this.isTurnOn = isTurnOn; // 윗줄에서 입력받은 isTurnOn을 멤버변수 this.isTurnOn에 넣을 것이다.
     }
 }
 
@@ -95,10 +95,14 @@ public class LectureClassTest {
         // 즉 내가 집중하는 주제가 무엇인가를 알 수 있도록 예쁘게 잘 표현해주는 것을 OOP라 봐도 무방합니다.
 
         // 전구(LED)를 키는 상황을 생각해봅시다.
-        final Led led = new Led();
+        // 생성자 호출하는 부분 [new Led()]
+        // 왜 데이터 타입을 적는 곳에 class 이름이 오는 것이지 ?
+        // A : 클래스라는 것 자체가 커스텀 데이터 타입이기 때문입니다.
+        //     여러분이 직접 커스텀 할 수 있는 데이터 타입이 클래스라 보면 됩니다.
+        final Led led = new Led();      // <- 초기 생성(꺼짐 - isTurnOn: false)
 
         System.out.println("현재 전구 상태: " + (led.getIsTurnOn() ? "켜짐" : "꺼짐"));
-        led.setIsTurnOn(true);
+        led.setIsTurnOn(true);          // <- 상태 변경(켜짐 - isTurnOn: ture)
         System.out.println("현재 전구 상태: " + (led.getIsTurnOn() ? "켜짐" : "꺼짐"));
     }
 }
