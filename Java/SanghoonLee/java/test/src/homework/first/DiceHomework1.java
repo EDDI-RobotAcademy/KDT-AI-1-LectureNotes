@@ -1,4 +1,4 @@
-package homework;
+package homework.first;
 
 public class DiceHomework1 {
     public static void main(String[] args) {

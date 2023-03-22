@@ -1,4 +1,4 @@
-package homework;
+package homework.first;
 
 public class DiceHomework3 {
     // 가공된 버전을 좋아하는 분들이 있는 것 같음.
