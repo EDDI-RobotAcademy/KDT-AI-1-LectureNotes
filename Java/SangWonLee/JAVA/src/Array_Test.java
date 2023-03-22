@@ -23,7 +23,7 @@ public class Array_Test {
         for (int num : numberArray){
             System.out.println("배열 원소 출력 : " + num);
         }
-        
+
 
     }
 }
