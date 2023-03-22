@@ -28,10 +28,4 @@ class Person {
     }
 
 }
-    public class PersonTest {
-        public static void main(String[] args) {
-            final Person person = new Person(25, "shin");
-            System.out.println("나이는 : " + person.getAge() + ", 이름 : " + person.getName());
-        }
 
-}
