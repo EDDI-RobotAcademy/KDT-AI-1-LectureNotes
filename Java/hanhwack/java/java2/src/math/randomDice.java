@@ -5,33 +5,20 @@ public class randomDice {
 
         int sum = 0;
         final int MAX = 6;
-        int randomValue = 0;
-        final int diceNum = 2;
+        final int DICE_NUM = 2;  //주사위 갯수
 
-        for(int i = 1; i <= diceNum; i++) {
-            randomValue = (int)(Math.random() * MAX) + 1;
+        for(int i = 1; i <= DICE_NUM; i++) {
+            final int randomValue = (int)(Math.random() * MAX) + 1; //1~6 중 하나의 수
             sum += randomValue;
         }
 
-        System.out.println("주사위 " + diceNum+" 개의 합은 " +sum);
+        System.out.println("주사위 " + DICE_NUM+" 개의 합은 " +sum);
 
-        switch (sum) {
-            case 4:
-                System.out.println("승리!!!!");
-                break;
-
-            case 8:
-                System.out.println("승리!!!");
-                break;
-
-            case 12:
-                System.out.println("승리!!!");
-                break;
-
-                default:
-                System.out.println("패배");
-                break;
-
+        //승리 패배 판별
+        if(sum % 4 ==0) {
+            System.out.println("승리!!!");
+        } else {
+            System.out.println("패배");
         }
     }
 
