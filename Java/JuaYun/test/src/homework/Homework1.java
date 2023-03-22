@@ -1,8 +1,6 @@
 package homework;
 public class Homework1 {
     public static void main(String[] args) {
-        final int START = 0;
-        final int END = 6;
         final int MAX = 6;
         final int MIN = 1;
 
