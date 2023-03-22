@@ -31,7 +31,7 @@ public class RandomTest {
 
         // 5 ~ 15 표현
         for (int i = START; i < END; i++) {
-            randomValue = (int)(Math.random() * (MAX - MIN + 1)) + MIN; //%~15
+            randomValue = (int)(Math.random() * (MAX - MIN + 1)) + MIN; // 1 ~ 15
             System.out.println("i = " + i + ", randomValue = " + randomValue);
         }
 
