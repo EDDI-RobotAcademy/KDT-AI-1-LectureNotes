@@ -9,7 +9,7 @@ public class Test {
         final int RANDOM2 = (int)(Math.random() * 6) +1;
             System.out.println("RANDOM2 = " + RANDOM2);
 
-            int sum = RANDOM1 + RANDOM2;
+              int sum = RANDOM1 + RANDOM2;
                     System.out.println("sum = " + sum);
 
          if((sum & 4) ==0)
