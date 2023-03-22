@@ -9,6 +9,12 @@ public class HeapStackTest {
         // 내부에 배치하는 것에는 영향을 받지 않기 때문임.
         final int[] numberArray = new int[ALLOC_ARRAY_NUMBER];
 
+        // 아래와 같이 새로운 메모리를 할당해서 전달하는 것을 막고 있습니다.
+        // 조금 풀어보자면 객체를 상수화 하느냐
+        // 객체 내부의 값을 상수화 하느냐의 관점으로 봐야합니다.
+        // 현재 관점은 객체를 상수화하였기 때문에 다른 객체 대입이 막히는 모습입니다.
+        // numberArray = new int[8];
+
         for (int i = START; i < ALLOC_ARRAY_NUMBER; i++) {
             numberArray[i] = i + 1;
             // printf의 경우 format을 출력한다는 뜻으로 printf 입니다.
@@ -24,12 +30,6 @@ public class HeapStackTest {
             System.out.printf("numberArray[%d] = %d\n", i, numberArray[i]);
             //System.out.println("numberArray[" + i + "] = " + numberArray[i]);
         }
-
-        // 아래와 같이 새로운 메모리를 할당해서 전달하는 것을 막고 있습니다.
-        // 조금 풀어보자면 객체를 상수화 하느냐
-        // 객체 내부의 값을 상수화 하느냐의 관점으로 봐야합니다.
-        // 현재 관점은 객체를 상수화하였기 때문에 다른 객체 대입이 막히는 모습입니다.
-        // numberArray = new int[8];
 
         System.out.println();
 
