@@ -96,10 +96,15 @@ public class LectureClassTest {
         // 즉 내가 집중하는 주제가 무엇인가를 알 수 있도록 예쁘게 잘 표현해주는 것을 OOP라 봐도 무방합니다.
 
         // 전구(LED)를 켜는 상황을 생각해봅시다.
-        final Led led = new Led();
+        System.out.println("생성자 호출 전");
+        // 왜 데이터 타입을 적는 곳에 class 이름이 오는 것이지?
+        // A: 클래스라는 것 자체가 커스텀 데이터 타입이기 때문입니다.
+        //    여러분이 직접 커스텀 할 수 있는 데이터 타입이 클래스라 보면 됩니다.
+        final Led led = new Led();              // <- 초기 생성(꺼짐 - isTurnOn: false)
+        System.out.println("생성자 호출 후");
 
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
-        led.setTurnOn(true);
+        led.setTurnOn(true);                    // <- 상태 변경(켜짐 - isTurnOn: true)
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
     }
 }
