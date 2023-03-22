@@ -20,6 +20,6 @@ class Person {
 public class PersonClassTest {
     public static void main(String[] args) {
         final Person person = new Person();
-        System.out.println("나는 " + person.getName() + "이고 나이는 " + person.getAge() + "살이다.");
+        System.out.printf("나는 %s이고 나이는 %d살이다.", person.getName(),person.getAge());
     }
 }
