@@ -1,6 +1,6 @@
 package TEST;
 
-public class dice {
+public class dice_Uebung {
     public static void  main(String[] args ){
         final int MAX = 6;
         final int MIN = 1;

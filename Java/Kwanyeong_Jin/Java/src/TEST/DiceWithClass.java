@@ -25,16 +25,15 @@ package TEST;
 //}
 
 class Dice {
-    public int DICE_RES;
-//    final int MAX = 6;
-//    final int MIN = 1;
-
+    final int MAX = 6;
+    final int MIN = 1;
+    public int DiceRes;
     public Dice() {
-        this.DICE_RES = 1;
+
     }
     public int getResNum() {
-//        int DiceRes = (int)(Math.random() * MAX) + MIN;
-        return 1;
+        int DiceRes = (int)(Math.random() * MAX) + MIN;
+        return DiceRes;
     }
 }
 
@@ -64,9 +63,7 @@ class Dice {
 
 public class DiceWithClass {
     public static void main(String[] args) {
-//    Dice_GAME DiceGame = new DiceGame();
-//        System.out.printf(DiceGame());
-        Dice test = new Dice();
+        final Dice test = new Dice();
         System.out.println(test.getResNum());
     }
 }
