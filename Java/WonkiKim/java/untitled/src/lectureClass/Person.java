@@ -9,13 +9,13 @@ public class Person {
         this.setAge(age);
         System.out.println("이름: " + this.getName() + ", 나이: " + this.getAge());
     }
-    private int getAge() {
+    public int getAge() {
         return this.age;
     }
     public String getName(){
         return this.name;
     }
-    public void setAge(int age) {
+    private void setAge(int age) {
         this.age = age;
     }
     private void setName(String name) {
