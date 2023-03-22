@@ -23,7 +23,9 @@ class Led{
     //    기본값으로 전구를 꺼놓은 상태로 시작하게 됩니다.
     public Led() {
         this.isTurnOn = false;
+        System.out.println("생성자 호출");
     }
+
 
     public boolean isTurnOn() {
         return isTurnOn;
@@ -76,8 +78,10 @@ public class LectureClassTest {
         // 즉 내가 집중하는 주제가 무엇인가를 알 수 있도록 예쁘게 잘 표현해주는 것을 OOP라 봐도 무방합니다.
 
         // 전구(LED)를 키는 상황을 생각해봅시다.
+        //새성자 호출하는 부분
+        System.out.println("생성자 호출전");
         final Led led = new Led();
-
+        System.out.println("생성자 호출후");
 
 
         System.out.println("현재 전구 상태: " + (led.isTurnOn()? "켜짐" : "꺼짐"));
