@@ -30,19 +30,11 @@ public class DiceTest {
         System.out.println("네 번째 주사위 값: " + dice4.getDICE_NUM());
 
         if (DICE_SUM % GAME_SETTER1 == 0 || DICE_SUM % GAME_SETTER2 == 0) {
-            System.out.println("모든 주사위의 합은 " + DICE_SUM + " 이며 4와 3의 배수로 승리 하셨습니다.");
-
-        }
-        else if (DICE_SUM % GAME_SETTER1 == 0) {
-            System.out.println("모든 주사위의 합은 " + DICE_SUM + " 이며 4의 배수로 승리 하셨습니다.");
-
-        }
-        else if (DICE_SUM % GAME_SETTER2 == 0) {
-            System.out.println("모든 주사위의 합은 " + DICE_SUM + " 이며 3의 배수로 승리 하셨습니다.");
+            System.out.println("모든 주사위의 합은 " + DICE_SUM + " 이며 4혹은 3의 배수로 승리 하셨습니다.");
 
         }
         else {
-            System.out.println("모든 주사위의 합은 " + DICE_SUM + " 이며 3과 4의 배수가 아니므로 패배하셨습니다.");
+            System.out.println("모든 주사위의 합은 " + DICE_SUM + " 이며 4와 3의 배수가 아니므로 패배하셨습니다.");
         }
     }
 }
