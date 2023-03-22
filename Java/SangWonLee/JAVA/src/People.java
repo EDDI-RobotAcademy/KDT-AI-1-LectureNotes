@@ -42,7 +42,7 @@ public class People {
         p.setAge(18);
         p.setName("홍길동");
         p.setDream(false);
-        
+
         System.out.println("이 사람의 이름은 " + p.getName());
         System.out.println("이 사람의 나이는 " + p.getAge());
         System.out.println("이 사람의 꿈은 " + p.isDream());

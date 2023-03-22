@@ -20,5 +20,12 @@ public class Array_Test {
         for (int num : numberArray){
             System.out.println("배열 원소 출력 : " + num);
         }
+        /*
+        배열 원소 출력 : 1
+        배열 원소 출력 : 2
+        배열 원소 출력 : 3
+        배열 원소 출력 : 4
+        배열 원소 출력 : 5
+         */
     }
 }
