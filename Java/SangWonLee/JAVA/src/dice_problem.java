@@ -41,11 +41,7 @@ class Dice2 {
 
     }
 
-
-
-
-
-    public Dice2() {
+    public Dice2(int[] diceNumberArr, int totalScore) {
         this.diceNumberArr = diceNumberArr;
         this.totalScore = totalScore;
     }
