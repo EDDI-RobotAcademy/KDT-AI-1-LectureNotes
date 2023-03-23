@@ -44,7 +44,7 @@ public class DiceHomework1 {
                 // 그리고 MIN = 3, MAX = 6이면
                 // 현재 코드에선 3 ~ 8까지 표현되겠네 ?
                 //diceNumberArray3[i] = (int) (Math.random() * MAX + MIN);
-                diceNumberArray3[i] = Custom.generateNumber(MIN, MAX);
+                diceNumberArray3[i] = CustomRandom.generateNumber(MIN, MAX);
                 diceSum += diceNumberArray3[i];
             }
 

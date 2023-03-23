@@ -8,6 +8,14 @@ class RefectorGame {
     int diceSum = 0;
     int[] diceNumberArray3;
 
+    // Domain
+    public RefectorGame () {
+        // 굴리기 + 점수 합산
+        diceNumberArray3 = new int[MAX_DICE_NUMBER];
+        rollDice();         // Dice Domain
+        sumDiceNumber();    // Score Domain
+    }
+
     // 점수 합산
     private void sumDiceNumber() {
         for (int i = 0; i < MAX_DICE_NUMBER; i++) {
@@ -18,7 +26,7 @@ class RefectorGame {
     // 주사위 굴리기
     public void rollDice() {
         for (int i = 0; i < MAX_DICE_NUMBER; i++) {
-            diceNumberArray3[i] = Custom.generateNumber(MIN, MAX);
+            diceNumberArray3[i] = CustomRandom.generateNumber(MIN, MAX);
             //(int) (Math.random() * MAX + MIN);;
         }
     }
@@ -31,7 +39,6 @@ class RefectorGame {
             System.out.println("패배!");
         }
     }
-
 
     public class Refector {
         public static void main(String[] args) {

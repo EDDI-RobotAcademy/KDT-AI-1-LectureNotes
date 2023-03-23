@@ -1,4 +1,4 @@
-package var;
+package variable;
 
 public class StackArrayTest {
     public static void main(String[] args) {

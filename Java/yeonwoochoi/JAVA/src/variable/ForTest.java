@@ -1,6 +1,6 @@
-package var;
+package variable;
 
-public class FlowControl {
+public class ForTest {
     public static void main(String[] args) {
         final int START = 3;
         final int END = 10;

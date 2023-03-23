@@ -1,6 +1,6 @@
 package math;
 
-public class Home {
+public class HomeworkDiceGame1 {
     public static void main(String[] args) {
 
                 final int MAX = 6;

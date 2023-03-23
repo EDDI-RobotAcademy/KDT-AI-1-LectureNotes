@@ -1,6 +1,6 @@
 package homework;
 
-public class Custom {
+public class CustomRandom {
     final private static int MIN = 0;
     // static은 언제나 메모리에 상주함 (Stack도 Heap도 아님)
     // 그러므로 별도로 new를 할 필요 없이 사용할 수 있음

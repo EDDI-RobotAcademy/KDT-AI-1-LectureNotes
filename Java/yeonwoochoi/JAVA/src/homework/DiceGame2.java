@@ -21,7 +21,7 @@ class Person {
 
 }
 
-public class Homework {
+public class DiceGame2 {
     public static void main(String[] args) {
 
         final Person person = new Person();

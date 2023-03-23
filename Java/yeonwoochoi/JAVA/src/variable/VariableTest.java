@@ -1,6 +1,6 @@
-package var;
+package variable;
 
-public class Variable {
+public class VariableTest {
     public static void main(String[] args) {
         System.out.println("variable(변수) 테스트");
 
