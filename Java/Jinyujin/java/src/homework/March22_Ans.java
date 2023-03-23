@@ -2,7 +2,7 @@ package homework;
 
 import utility.random.CustomRandom;
 
-public class March22Ans {
+public class March22_Ans {
     public static void main(String[] args) {
 
         int diceNumber1 = (int)(Math.random() * 6 + 1);
