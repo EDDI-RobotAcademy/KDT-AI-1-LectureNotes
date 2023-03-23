@@ -20,7 +20,7 @@ public class HomeWorkFourth {
         int MAX = 6;
         int MIN = 1;
 
-        int diceSum = 0
+        int diceSum = 0;
 
         int[] diceNumberArray3 = new int[MAX_DICE_NUMBER];
         for (int i = 0; i < MAX_DICE_NUMBER; i++) {

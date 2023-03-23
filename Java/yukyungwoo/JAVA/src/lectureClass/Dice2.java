@@ -1,89 +1,82 @@
 package lectureClass;
 
+import java.io.StreamCorruptedException;
 import java.util.Arrays;
 
-class Game {
-    private final int GAME_NUMBER =4;
-    private final int[] array;
-    private final Score score;
-
-    public Game () {
-        this.array = new int[GAME_NUMBER];
-        int diceNumberSum = 0;
-
-        for (int i = 0 ; i <  array.length; i++) {
-            array[i] = new Dice ();
-            diceNumberSum += array[i].getDiceNumber();
-        }
-        this.score = new Score(diceNumberSum);
-
-    }
-    public Boolean checkWin () {
-        return score.checkWin();
-    }
-
-    @Override
-    public String toString() {
-        return "Game{" +
-                "array=" + Arrays.toString(array) +
-                ", score=" + score +
-                '}';
-    }
-}
-
 class Dice {
-    private final int diceNumber;
-    private final int MAX = 6;
-    private final int MIN = 1;
-
+    final private int MIN = 1;
+    final private int MAX = 6;
+    final private int diceNumber;
     public Dice () {
-        this.diceNumber = (int)(Math.random() * (MAX - MIN + 1)) + MIN;
+    this.diceNumber = (int) (Math.random() * (MAX - MIN +1)) +MIN;
     }
     public int getDiceNumber () {
         return diceNumber;
     }
-    // 주사위 굴리기
 
     @Override
     public String toString() {
         return "Dice{" +
                 "diceNumber=" + diceNumber +
                 '}';
-    }// 주사위 숫자 출력
+    }
 }
 
-class Score {
-    private final int WIN_DECISION1 = 3; //나머지 값을 위한 상수 결정을 위해
-    private final int WIN_DECISION2 = 4;
-    private final int totalScore;
+class Game {
+    final private int MAX_DICE = 4;
+    final private Dice[] diceArray;
+    final private Score score;
 
-    public Score(int totalScore) {
-        this.totalScore = totalScore;
-    }
+    public Game () {
+        this.diceArray = new  Dice[MAX_DICE];
+        int diceNumberSum = 0;
 
-
-
-    @Override
-    public String toString() {
-        return "Score{" +
-                "totalScore=" + totalScore +
-                '}';
-    }
-    public Boolean checkWin () {
-        if ((totalScore % WIN_DECISION1 == 0) ||
-                (totalScore % WIN_DECISION2 == 0)) {
-
-            return true;
+        for (int i = 0; i < diceArray.length; i++) {
+            diceArray[i] = new Dice();
+            diceNumberSum += diceArray[i].getDiceNumber();
         }
 
-        return false;
-
-
-
-
-
-
+        this.score = new Score(diceNumberSum);
     }
+    public Boolean checkWin () {
+        return score.checkWin();
+    }
+    @Override
+    public String toString() {
+        return "Game{" +
+                "diceArray=" + Arrays.toString(diceArray) +
+                '}';
+    }
+
+    class Score {
+        final private int WIN_DECISION1 = 3;
+        final private int WIN_DECISION2 = 4;
+        final private int totalScore;
+
+        public Score (int totalScore) {
+            this.totalScore = totalScore;
+        }
+
+        @Override
+        public String toString() {
+            return "Score{" +
+                    "totalScore=" + totalScore +
+                    '}';
+        }
+
+        public Boolean checkWin () {
+            if ((totalScore % WIN_DECISION1 == 0) ||
+                    (totalScore % score.WIN_DECISION2 == 0)) {
+                return true;
+            }
+            return false;
+        }
+    }
+
+
+}
+
+
 
 
 
@@ -91,6 +84,6 @@ class Score {
     public static void main(String[] args) {
         Game game = new Game();
         System.out.println(game);
-        System.out.println(game.checkWin() ? "승리!" : "패배!");
+        System.out.println(game.checkWin() ? "승리" : "패배");
+        }
     }
-}
