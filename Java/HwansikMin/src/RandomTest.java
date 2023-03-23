@@ -1,4 +1,4 @@
-package math;
+package math.RandomTest;
 public class RandomTest {
     public static void main(String[] args) {
         final int START = 0;
