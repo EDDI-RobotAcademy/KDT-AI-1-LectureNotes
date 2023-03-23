@@ -8,7 +8,9 @@ public class Game {
 
 public class diceNumber {
     public static void main(String[] args) {
-    final
+    final diceNumber diceNumber1 = new dice();
+
+
     }
 
 }
