@@ -2,59 +2,45 @@ package homework;
 
 import java.util.Scanner;
 
-    class Member{
-        final private String Id;
-        final private String Pw;
+    class Member {
+        private String id;
+        private String pw;
 
         public Member() {
-            this.Id = new Id().getId();
-            this.Pw = new Pw().getPw();
-        }
-    }
-    class Id {
-        String id;
-
-        public Id() {
-            this.id = id;
         }
 
         public String getId() {
             return id;
         }
 
-        public void setId(String id) {
-            this.id = id;
-        }
-    }
-
-    class Pw {
-        String pw;
-
-        public Pw() {
-            this.pw = pw;
+        public void setId(Scanner scan) {
+            System.out.print("아이디를 입력하세요: ");
+            this.id = scan.next();
         }
 
         public String getPw() {
             return pw;
         }
 
-        public void setPw(String pw) {
-            this.pw = pw;
+        public void setPw(Scanner scan) {
+            System.out.print("비밀번호를 입력하세요: ");
+            this.pw = scan.next();
         }
     }
-public class SignUp {
-    public static void main(String[] args) {
-        int loopCount = 2;
 
-        while (loopCount != 0) {
+    public class SignUp {
+        public static void main(String[] args) {
+            Member member = new Member();
             Scanner scan = new Scanner(System.in);
 
-            System.out.print("아이디를 입력하세요: ");
-            String inputId = scan.next();
+            System.out.println("회원가입");
+            member.setId(scan);
+            member.setPw(scan);
+
+            System.out.println("회원가입이 완료되었습니다.");
+            System.out.printf("ID: %s\nPW: %s", member.getId(), member.getPw());
         }
     }
-}
-
 
     /*
     회원(Member) 클래스를 만들어서
