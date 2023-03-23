@@ -15,7 +15,7 @@ public class RandomTest {
         //    실제 최대값 계산은 곱하기하는 값 + 최소값 - 1입니다.
         //    (아래에선 100 + 1 - 1로 100에 해당함)
         //    그러므로 1 ~ 100까지의 숫자를 만듭니다.
-        final int randomNumber = (int)(Math.random() * 100) + 1;
+        final int randomNumber = (int)(Math.random() * 100) + 1; // Math.random * 100 = 99.99999...
 
 
         System.out.println("randomNumber = " + randomNumber);

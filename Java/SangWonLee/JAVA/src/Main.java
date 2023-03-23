@@ -8,15 +8,11 @@ public class Main {
 
         // 2023/03/21 추가
         System.out.println("변경 내용 추가");
-<<<<<<< Updated upstream
-=======
+
         // 2023/03/21 변경 사항
         System.out.println("하하호호 오늘도 즐거운 하루");
         System.out.println("하하호호 오늘도 즐거운 하루");
         System.out.println("하하호호 오늘도 즐거운 하루");
-
->>>>>>> Stashed changes
-
 
 
     }
