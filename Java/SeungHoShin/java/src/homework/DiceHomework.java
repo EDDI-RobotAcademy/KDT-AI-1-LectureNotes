@@ -1,11 +1,13 @@
 package homework;
 
+import java.util.Scanner;
+
 class Dice{
     final private int diceNumber;
     final private int MAX =6;
     final private int MIN =1;
 
-    // private의 사용이유??
+
     public Dice(){
         this.diceNumber = (int)(Math.random()*MAX)+MIN;
 
@@ -49,10 +51,3 @@ class Game{
 
 
 
-
-
-public class DiceHomework {
-    public static void main(String[] args) {
-
-    }
-}
