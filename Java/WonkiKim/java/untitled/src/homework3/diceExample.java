@@ -3,20 +3,23 @@ package homework3;
 import java.util.ArrayList;
 
 class Game {
-
+    final private int[] rounds;
     final private Player player1;
     final private Player player2;
 
     public Game() {
         player1 = new Player();
         player2 = new Player();
+        rounds = new int[]{0, 1, 2};
     }
 
-    public void play(final int round) {
-        switch (round) {
-            case 1 -> playRound1();
-            case 2 -> playRound2();
-            case 3 -> playRound3();
+    public void play() {
+        for (int round : rounds) {
+            switch (round) {
+                case 0 -> playRound1();
+                case 1 -> playRound2();
+                case 2 -> playRound3();
+            }
         }
     }
 
@@ -49,11 +52,11 @@ class Game {
 
         if (player2.isQualification()) {
             diceOne2 = player2.rollDice(new SpecialDice());
-            if(diceOne2) {
+            if (diceOne2) {
                 player2.loseScore();
             }
         }
-        if(diceOne1) {
+        if (diceOne1) {
             player2.loseScore();
         }
     }
@@ -119,8 +122,9 @@ class Score {
     public Score() {
         scoreBoard = new ArrayList<>();
     }
+
     public void loseScore() {
-        scoreBoard.set(scoreBoard.size()-1, scoreBoard.get(scoreBoard.size()-1) - diceOneBonus);
+        scoreBoard.set(scoreBoard.size() - 1, scoreBoard.get(scoreBoard.size() - 1) - diceOneBonus);
     }
 
     public int getTotalScore() {
@@ -187,9 +191,7 @@ class SpecialDice extends Dice {
 public class diceExample {
     public static void main(String[] args) {
         Game game = new Game();
-        game.play(1);
-        game.play(2);
-        game.play(3);
+        game.play();
         game.result();
     }
 }
