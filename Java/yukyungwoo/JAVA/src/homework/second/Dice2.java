@@ -1,6 +1,5 @@
-package lectureClass;
+package homework.second;
 
-import java.io.StreamCorruptedException;
 import java.util.Arrays;
 
 class Dice {
