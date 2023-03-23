@@ -1,4 +1,4 @@
-package Homework;
+package homework;
 
 
 class Dice2 {
@@ -17,6 +17,8 @@ class Dice2 {
         return diceNumber;
 
     }
+
+
 
     public void setDiceNumber(int diceNumber) {
 
