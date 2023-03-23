@@ -1,3 +1,5 @@
+package HomeWork;
+
 public class dice {
 
     public static void main(String[] args) {
@@ -34,8 +36,9 @@ public class dice {
 }
 
 /*
+
 결과
-<<<<<<< HEAD
+
 8 - 4의 배수 - 승리!
 9 - 3의 배수 - 대박!
 6 - 3의 배수 - 대박!
@@ -47,4 +50,5 @@ public class dice {
 7 - 패배 -
 3 - 3의 배수 - 대박!
 12 - 12가 나오셨군요 - 대박승리!
+
  */

@@ -1,3 +1,5 @@
+package HomeWork;
+
 class Dice2 {
 
     final int START = 0;
@@ -41,7 +43,7 @@ class Dice2 {
 
     }
 
-    public Dice2(int[] diceNumberArr, int totalScore) {
+    public Dice2() {
         this.diceNumberArr = diceNumberArr;
         this.totalScore = totalScore;
     }
