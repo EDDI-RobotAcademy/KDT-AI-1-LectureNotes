@@ -1,7 +1,7 @@
 package homework;
 
 class Dice2 {
-    final int MAX_DICE = 4;
+    int MAX_DICE = 4;
     final int[] diceNumberArr = new int[MAX_DICE];
     int totalScore;
 
@@ -10,6 +10,15 @@ class Dice2 {
             diceNumberArr[i] = (int)(Math.random()*6)+1;
             totalScore += diceNumberArr[i];
         }
+    }
+
+    public Integer getMaxDice() {
+
+        return MAX_DICE;
+    }
+
+    public void getMaxDice(Integer MAX_DICE) {
+        this.MAX_DICE = MAX_DICE;
     }
     public Integer getTotalScore() {
 
@@ -27,6 +36,8 @@ public class ranDice2 {
     public static void main(String[] args) {
 
         final Dice2 dice = new Dice2();
+
+        System.out.println("주사위 " + dice.getMaxDice() +"개의 합은" + dice.getTotalScore());
 
         if (dice.getTotalScore() % 3 == 0 || dice.getTotalScore() % 4 == 0) {
             System.out.println("승리입니다");
