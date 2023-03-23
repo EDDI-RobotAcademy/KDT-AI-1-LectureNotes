@@ -41,10 +41,3 @@ import java.util.Scanner;
             System.out.printf("ID: %s\nPW: %s", member.getId(), member.getPw());
         }
     }
-
-    /*
-    회원(Member) 클래스를 만들어서
-    회원 가입을 진행해봅시다!
-    회원 이메일 주소와 비밀번호를 입력받습니다.
-    입력한 이메일 주소와 비밀번호가 올바르게 들어갔는지 확인해봅시다.
-    */
