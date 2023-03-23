@@ -24,7 +24,7 @@ class Person {
 }
 public class Example {
     public static void main(String[] args) {
-        final Person person = new Person(29, "홍길동");
+        final Person person = new Person(29,"홍길동");
 
         System.out.println(person.getAge());
         System.out.println(person.getName());
