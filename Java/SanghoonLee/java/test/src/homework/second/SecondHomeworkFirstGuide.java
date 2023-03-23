@@ -9,10 +9,12 @@ class Game {
     final private Score score;
 
     public Game() {
+        // 이 부분은 Dice 배열 몇 개를 사용하겠습니다.
         this.diceArray = new Dice[MAX_DICE];
         int diceNumberSum = 0;
 
         for (int i = 0; i < diceArray.length; i++) {
+            // 각 배열의 요소를 할당하겠습니다.
             diceArray[i] = new Dice();
             diceNumberSum += diceArray[i].getDiceNumber();
         }
@@ -24,6 +26,9 @@ class Game {
         return score.checkWin();
     }
 
+    // 정보 출력
+    // toString이 있으면
+    // System.out.println() 할 때 toString 내용이 출력됨
     @Override
     public String toString() {
         return "Game{" +
