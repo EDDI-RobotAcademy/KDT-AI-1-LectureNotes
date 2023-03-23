@@ -27,13 +27,13 @@ public class Dice {
         dice1.diceA = (int)(Math.random() * 6) + 1;
 
         Dice dice2 = new Dice();
-        dice1.diceB = (int)(Math.random() * 6) + 1;
+        dice2.diceB = (int)(Math.random() * 6) + 1;
 
         Dice dice3 = new Dice();
-        dice1.diceC = (int)(Math.random() * 6) + 1;
+        dice3.diceC = (int)(Math.random() * 6) + 1;
 
         Dice dice4 = new Dice();
-        dice1.diceD = (int)(Math.random() * 6) + 1;
+        dice4.diceD = (int)(Math.random() * 6) + 1;
 
         System.out.println("A주사위 + B주사위 + C주사위 + D주사위 = " + (diceA + diceB + diceC + diceD));
 
