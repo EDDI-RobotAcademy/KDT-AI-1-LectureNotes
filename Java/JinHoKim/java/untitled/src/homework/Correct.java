@@ -1,12 +1,13 @@
 package homework;
 
-public class Dice {
-    static int diceA;
-    static int diceB;
-    static int diceC;
-    static int diceD;
+class Dice {
+    private static int diceA;
+    private static int diceB;
+    private static int diceC;
+    private static int diceD;
+    int score;
 
-    public void setDiceA(int diceA) {
+    public void setDiceA() {
         this.diceA = diceA;
     }
 
@@ -22,7 +23,8 @@ public class Dice {
         this.diceD = diceD;
     }
 
-    public static void main(String[] args) {
+    public void Dice2 () {
+
         final Dice dice1 = new Dice();
         dice1.diceA = (int)(Math.random() * 6) + 1;
 
@@ -35,14 +37,31 @@ public class Dice {
         final Dice dice4 = new Dice();
         dice4.diceD = (int)(Math.random() * 6) + 1;
 
-        System.out.println("A주사위 + B주사위 + C주사위 + D주사위 = " + (diceA + diceB + diceC + diceD));
 
+
+    }
+
+    @Override
+    public String toString() {
+        return "Dice{" +
+                "score=" + score +
+                '}';
+    }
+
+    public boolean Game() {
         int diceSum = diceA + diceB + diceC + diceD;
 
         if (diceSum % 4 == 0 || diceSum % 3 == 0) {
-            System.out.println("승리");
+            return true;
         } else {
-            System.out.println("패배");
+            return false;
         }
     }
 }
+public class Correct {
+    public static void main(String[] args) {
+        Dice game1 = new Dice();
+        System.out.println(game1.Game()? "승리!" : "패배!");
+    }
+}
+
