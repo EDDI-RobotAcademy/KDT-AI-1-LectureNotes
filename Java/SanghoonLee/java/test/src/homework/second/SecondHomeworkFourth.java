@@ -22,6 +22,9 @@ public class SecondHomeworkFourth {
         int MAX_DICE_NUM = 12;
 
         int[] diceNumberArray2 = new int[MAX_DICE_NUM];
+
+        //  0  1  2   3  4  5  6 7 8  9 10 11
+        // [3][4][1] [6][1][2] [][][] [] [] []
         for (int i = 0; i < MAX_DICE_NUM; i++) {
             diceNumberArray2[i] = (int) (Math.random() * 6 + 1);
         }
