@@ -3,8 +3,8 @@ package homework.third;
 import java.util.Scanner;
 
 class Member{
-    Email email;
-    Key key;
+    final private Email email;
+    final private Key key;
 
     public Member(){
         this.email = new Email();
