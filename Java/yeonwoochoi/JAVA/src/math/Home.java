@@ -17,6 +17,6 @@ public class Home {
                 } else {
                     System.out.println("패배");
                 }
-                
+
     }
 }
