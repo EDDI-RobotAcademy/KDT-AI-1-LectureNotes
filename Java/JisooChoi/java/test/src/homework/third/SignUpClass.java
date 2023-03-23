@@ -3,35 +3,60 @@ package homework.third;
 import java.util.Scanner;
 
 class Member{
-    private String email = "";
-    private int num = 0;
+    Email email;
+    Key key;
 
-    public Member(String email, int num){
-        this.email = email;
-        this.num = num;
-
-        setEmailAndNum(email, num);
+    public Member(){
+        this.email = new Email();
+        this.key = new Key();
     }
 
-    public void setEmailAndNum(String email, int num) {
-        if((email != "") && (num != 0)){  // Q. int 타입의 null 표시는 어떻게 할 수 있나요 ?
-            System.out.println("올바르게 기입되었습니다.");
-        }
-        else{
-            System.out.println("빈칸 없이 기입해주세요.");
-        }
+    public void getMemberEmail(){
+        email.getEmail();
+    }
+
+    public void getMemberKey(){
+        key.getKey();
+    }
+
+    public void showEmailKey(){
+        System.out.println("입력하신 이메일: " +email.email+ ", 입력하신 비밀번호: " +key.key);
+    }
+}
+
+class Email{
+    String email = "";
+
+    public Email(){
+    }
+
+    public void getEmail() {
+        System.out.print("이메일: ");
+        Scanner scanEmail = new Scanner(System.in);
+
+        this.email = scanEmail.nextLine();
+    }
+}
+
+class Key{
+    int key;
+
+    public Key(){
+    }
+
+    public void getKey(){
+        System.out.print("비밀번호: ");
+        Scanner scanNum = new Scanner(System.in);
+
+        this.key = scanNum.nextInt();
     }
 }
 
 public class SignUpClass {
     public static void main(String[] args) {
-        System.out.println("이메일 주소와 비밀번호를 입력해주세요 > ");
-        Scanner scanEmail = new Scanner(System.in);
-        Scanner scanNum = new Scanner(System.in);
-
-        String email = scanEmail.nextLine();
-        int num = scanNum.nextInt();
-
-        Member hong = new Member(email, num);
+        Member member = new Member();
+        member.getMemberEmail();
+        member.getMemberKey();
+        member.showEmailKey();
     }
 }
