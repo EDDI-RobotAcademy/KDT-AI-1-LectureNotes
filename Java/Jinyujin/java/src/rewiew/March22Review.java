@@ -1,5 +1,7 @@
 package rewiew;
 
+import utility.random.CustomRandom;
+
 public class March22Review {
     public static void main(String[] args) {
         // 주사위 4개 선언
@@ -18,19 +20,27 @@ public class March22Review {
 //        }
 
         // 숫자는 변수 이름으로 지정해주자
-        int MIN = 1;
-        int MAX = 6;
+//        int MIN = 1;
+//        int MAX = 6;
         int DICE_MAX = 4;
         // 이렇게 해두면 min, max, dice_max에 지정된 수가 변해도 여기서 숫자만 바꿔주면 OK
         int diceSum = 0;
 
-        int[] diceNumberArray = new int[DICE_MAX];
-        for (int i = 0; i < diceNumberArray.length; i++) {
-            diceNumberArray[i] = (int) (Math.random() * MAX + MIN);
-            //주사위 숫자의 합까지 여기서 지정
-            diceSum = diceSum + diceNumberArray[i];
-            // == diceSum += diceNumberArray[i];
-        }
+//        int[] diceNumberArray = new int[DICE_MAX];
+//        for (int i = 0; i < diceNumberArray.length; i++) {
+//            diceNumberArray[i] = (int) (Math.random() * MAX + MIN);
+//            //주사위 숫자의 합까지 여기서 지정
+//            diceSum = diceSum + diceNumberArray[i];
+//            // == diceSum += diceNumberArray[i];
+
+
+        // 그런데 우리가 항상 MIN과 MAX 값을 따로 한 페이지에서 정해주어야 하는걸까? -> customrandom
+        // custom random을 활용한 새로운 코드
+        // 주사위 4개에 각각 1~6까지 넣는다는 사실을 기억하자
+        int[] diceNumberArray2 = new int[DICE_MAX];
+        for (int i = 0; i < diceNumberArray2.length; i++) {
+        diceNumberArray2[i] = CustomRandom.generateNumber(1, 6) ;
+        diceSum += diceNumberArray2[i];
 
         int WINNER_DECISION_NUMBER1 = 3;
         int WINNER_DECISION_NUMBER2 = 4;
@@ -42,7 +52,9 @@ public class March22Review {
         } else {
             System.out.println("패배!");
         }
+        }
+
+
+
     }
 }
-
-// 그런데 우리가 항상 MIN과 MAX 값을 따로 한 페이지에서 정해주어야 하는걸까? -> customrandom
