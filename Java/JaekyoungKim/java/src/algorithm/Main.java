@@ -1,27 +1,21 @@
 package algorithm;
 
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
-import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        int A = Integer.parseInt(br.readLine());
-        StringTokenizer st;
-        for (int i=0; i<A;i++){
-            st =new StringTokenizer(br.readLine()," ");
-            bw.write((Integer.parseInt(st.nextToken())+Integer.parseInt(st.nextToken()))+"\n");
+        int A = scanner.nextInt();
+        int B = A/4;
+        for (int i=0; i<B; i++){
+            System.out.print("long ");
         }
-        br.close();
-        bw.flush();
-        bw.close();
+
+        System.out.print("int");
+        // 4로 나눈 몫 만큼 long 을 출력하고 하나의 int를 출력함
+
+
 
 }}

@@ -1,6 +1,16 @@
 package homework;
+
+import java.util.Arrays;
 class Dice{
-    final int num;
+    public int getNum() {
+        return num;
+    }
+
+    public Dice(int num) {
+        this.num = num;
+    }
+
+    private final int num;
     public Dice() {
         final int MAX =6;
         final int MIN =1;
@@ -15,11 +25,12 @@ class Dice{
 public class diceClass {
     public static void main(String[] args) {
 
+
         final Dice dice1= new Dice();
         final Dice dice2= new Dice();
         final Dice dice3= new Dice();
         final Dice dice4= new Dice();
-        final int diceSum=(dice1.num+dice2.num+dice3.num+dice4.num);
+        final int diceSum=(dice1.getNum()+dice2.getNum()+dice3.getNum()+dice4.getNum());
         int diceDivison1=diceSum%3;
         int diceDivison2=diceSum%4;
 
