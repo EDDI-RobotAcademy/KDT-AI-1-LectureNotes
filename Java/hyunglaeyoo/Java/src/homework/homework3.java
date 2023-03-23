@@ -1,6 +1,6 @@
 package homework;
 
-import java.util.Scanner
+import java.util.Scanner;
 class Member{
     private String Email;
     private String Pw;
