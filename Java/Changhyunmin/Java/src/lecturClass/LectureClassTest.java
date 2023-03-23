@@ -80,12 +80,16 @@ public class LectureClassTest {
         // 전구(LED)를 키는 상황을 생각해봅시다.
         //새성자 호출하는 부분
         System.out.println("생성자 호출전");
-        final Led led = new Led();
+
+        //왜 데이터 타입을 적는곳에 class 이름이 오는 것이지?
+        //A: 클래스라는 것 자체가 커스텀 데이터 타입이기 때문입니다.
+        //  여러분들이 직접 커스텀 할 수 있는 데이터 타입이 클래스라 보면 됩니다.
+        final Led led = new Led(); //       <-초기 생성 (꺼짐 - isTurnOn:fales)
         System.out.println("생성자 호출후");
 
 
         System.out.println("현재 전구 상태: " + (led.isTurnOn()? "켜짐" : "꺼짐"));
-        led.isTurnOn(true);
+        led.isTurnOn(true);//               <-초기 생성 (꺼짐 - isTurnOn:true)
         System.out.println("현재 전구 상태: " + (led.isTurnOn()? "켜짐" : "꺼짐"));
     }
 }

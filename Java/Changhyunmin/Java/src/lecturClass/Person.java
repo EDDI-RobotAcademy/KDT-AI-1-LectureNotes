@@ -1,37 +1,58 @@
 package lecturClass;
+
+class Person2{
+    final private Name name;
+    final private Age age;
+
+    public Person2(final Name name,final Age age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person2{" +
+                "name=" + name +
+                ", age=" + age +
+                '}';
+    }
+}
+
 class Name{
-    private String isName;
-    public Name() {
-        this.isName = "장현민";
-        System.out.println("장현민");
+    final private String name;
 
-
+    public Name(final String name) {
+        this.name = name;
     }
 
-    public String getIsName() {
-        return isName;
-    }
-}
-
-class Age{
-    private Integer isAge;
-    public Age() {
-        this.isAge = 25;
-        System.out.println(25);
-
-    }
-
-    public Integer getIsAge() {
-        return isAge;
+    @Override
+    public String toString() {
+        return "Name{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
-public class Person {
-    public static void main(String[] args) {
 
-        final Name name = new Name();
-        final Age age = new Age();
+class Age {
+    final private Integer age;
 
-        System.out.println("이름: " + name.getIsName()
-                + ",나이: " + age.getIsAge());
+    public Age(final Integer age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Age{" +
+                "age=" + age +
+                '}';
+    }
+
+    public class Person {
+        public static void main(String[] args) {
+            Person2 pr = new Person2(
+                    new Name("장현민"),
+                    new Age(25));
+            System.out.println(pr);
+        }
     }
 }
