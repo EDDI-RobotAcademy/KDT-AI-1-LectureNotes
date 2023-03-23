@@ -2,29 +2,35 @@ package lectureClass;
 
 class Person {
 
-    private Integer isAge;
-    private String isName;
+    private Integer age;
+    private String name;
+    // 나이가 이름이 들어갈 변수 선언
 
+
+    //생성자 작성
+    //나이와 이름의 초기값 작성
     public Person() {
-        this.isAge = 15;
-        this.isName = "Han";
-        System.out.println("생성자 호춣");
+        this.age = 15;
+        this.name = "Han";
+        System.out.println("생성자 호출");
     }
 
     public Integer getAge() {
-        return isAge;
+        return age;
     }
 
     public void setAge(Integer age) {
-        isAge = age;
+        this.age = age;
     }
 
     public String getName() {
-        return isName;
+
+        return name;
     }
 
     public void setName(String name) {
-        isName = name;
+
+        this.name = name;
     }
 }
 
