@@ -38,7 +38,11 @@ class Dice {
 
 public class diceClass {
     public static void main(String[] args) {
-        Dice game1 = new Dice(4, 6, 0);
+        final int countDice = 4;
+        final int maxDice = 6;
+        final int startScore = 0;
+
+        Dice game1 = new Dice(countDice, maxDice, startScore);
         System.out.println(
                 "주사위 개수 :" + game1.getCOUNT_DICE() + "," +
                 "주사위 최대값 :" + game1.getMAX_DICE() + ",");
