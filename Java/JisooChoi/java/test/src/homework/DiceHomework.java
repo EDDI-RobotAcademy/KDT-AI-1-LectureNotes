@@ -1,6 +1,6 @@
 package homework;
 
-public class Test1 {
+public class DiceHomework {
     public static void main(String[] args) {
         final int MAX = 6;
         final int MIN = 1;
