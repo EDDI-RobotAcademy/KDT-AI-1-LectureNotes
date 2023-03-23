@@ -1,6 +1,6 @@
 package homework.second;
 
-import utility.random.CustomRandom;
+import utility.CustomRandom;
 
 public class SecondHomeworkFourth {
     public static void main(String[] args) {
@@ -14,9 +14,9 @@ public class SecondHomeworkFourth {
         // ->
         // 배열 만들고 싶은데?
         int[] diceNumberArray = new int [4];
-        for (int i : 0; i < diceNumberArray.length; i++) {
-            diceNumberArray[i] = (int) (Math.random() * 6 + 1);
-        }
+//        for (int i : 0; i < diceNumberArray.length; i++) {
+//            diceNumberArray[i] = (int) (Math.random() * 6 + 1);
+//        }
 
         // 어쨌든 배열을 만들었는데 숫자가 적혀있어서 싫음
         int MAX_DICE_NUM = 12;

@@ -1,4 +1,4 @@
-package utility.random;
+package utility;
 
 public class CustomRandom {
     final private static int MIN = 0;
