@@ -47,6 +47,7 @@ class Led{
 
      */
     public Boolean getTurnOn() {
+
         return isTurnOn;
     }
     /*
@@ -73,6 +74,7 @@ class Led{
        참/거짓 -> [    ] (입력 타입 boolean)
      */
     public void setTurnOn(Boolean turnOn) {
+
         this.isTurnOn = isTurnOn;
     }
 }

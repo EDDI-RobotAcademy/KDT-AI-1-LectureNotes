@@ -2,7 +2,17 @@ package homework;
 
 public class HomeWork {
 
-    public static void main(String[] args) {
+    public class Dice {
+        final int diceA = (int)(Math.random() * 6) + 1;
+        final int diceB = (int)(Math.random() * 6) + 1;
+        final int diceC = (int)(Math.random() * 6) + 1;
+        final int diceD = (int)(Math.random() * 6) + 1;
+
+    }
+
+
+
+    /*public static void main(String[] args) {
         final int diceA = (int)(Math.random() * 6) + 1;
         final int diceB = (int)(Math.random() * 6) + 1;
         final int diceC = (int)(Math.random() * 6) + 1;
@@ -20,6 +30,8 @@ public class HomeWork {
             System.out.println("패배");
         }
     }
+    */
+
 }
 
 
