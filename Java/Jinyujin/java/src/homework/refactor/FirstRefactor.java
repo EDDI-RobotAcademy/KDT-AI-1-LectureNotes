@@ -11,7 +11,6 @@ class FirstRefactorGame {
 
     public FirstRefactorGame() {
         // 굴리기 + 점수 합산을 같이 하고 있어서 문제 -> 위로빼
-
         diceNumberArray3 = new int[MAX_DICE_NUM2];
         rollDice();         // Dice Domain
         sumDiceNumber();    // Score Domain
@@ -23,7 +22,7 @@ class FirstRefactorGame {
     }
     public void rollDice () {
         for (int i = 0; i < MAX_DICE_NUM2; i++) {
-            diceSum += diceNumberArray3[i];
+            diceNumberArray3[i] = CustomRandom.generateNumber(MIN, MAX);
         }
     }
     public void checkWin () {
