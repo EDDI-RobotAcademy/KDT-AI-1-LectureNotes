@@ -1,4 +1,4 @@
-package homework;
+package homework.second;
 
 class Dice{
     // 필드
