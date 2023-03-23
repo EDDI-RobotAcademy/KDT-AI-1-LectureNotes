@@ -1,4 +1,4 @@
-package flowControl;
+package math;
 
 public class RandomTest {
     public static void main(String[] args) {

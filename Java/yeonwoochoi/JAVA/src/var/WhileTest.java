@@ -1,6 +1,6 @@
 package var;
 
-public class WileTest {
+public class WhileTest {
     public static void main(String[] args) {
         int idx = 0;
         final char ch = 'A';
