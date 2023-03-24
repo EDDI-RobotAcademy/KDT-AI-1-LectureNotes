@@ -37,11 +37,24 @@ public class Player {
         return diceNumberSum;
     }
 
+    public GameDice getSelectedGameDice(int index) {
+        return gameDices[index];
+    }
+
+    public GameScore getGameScore() {
+        return gameScore;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
                 ", gameDices=" + Arrays.toString(gameDices) +
+                ", gameScore=" + gameScore +
                 '}';
     }
 }
