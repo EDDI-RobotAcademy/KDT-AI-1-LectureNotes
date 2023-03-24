@@ -1,10 +1,10 @@
 package example;
 
-public class Member {
+class Member {
     private String email;
     private String password;
 
-    public Member (String s, String 비밀번호) {
+    public Member (String email, String password) {
         this.email = email;
         this.password = password;
 
