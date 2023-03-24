@@ -10,7 +10,7 @@ package rewiew.refactorReview;
 // 현재는 기능 분리를 하는 정도로
 
 
-import rewiew.CustomRandomReview;
+import rewiew.utility.random_Review.CustomRandomReview;
 
 class FirstRefactorGameReview {
     int MAX_DICE_NUM = 3;

@@ -1,4 +1,4 @@
-package Answer.March23;
+package Answer.March23_Dice3_Ans;
 
 public class GameScore {
     private int totalScore;

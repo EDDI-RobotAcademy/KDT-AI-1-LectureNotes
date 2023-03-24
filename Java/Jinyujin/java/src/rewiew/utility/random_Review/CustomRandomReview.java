@@ -1,4 +1,4 @@
-package rewiew;
+package rewiew.utility.random_Review;
 
 // Custom random 이란? 개발자가 직접 정의한 난수 생성기
 // (int) (Math.random() * MAX + MIN) 을 어디서든 쓸 수 있는 유틸리티로 만들어버리기

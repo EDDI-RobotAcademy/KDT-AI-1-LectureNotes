@@ -1,6 +1,5 @@
-package Answer.March23;
+package Answer.March23_Dice3_Ans;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Player {
