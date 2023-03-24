@@ -21,7 +21,7 @@ class Member {
     }
 
     public String getAddress() {
-        System.out.println("당신의 이메일 주소는 " + address +"입니다.");
+        System.out.println("당신의 이메일 주소는 " + address +"입니다. ");
         return address;
     }
 
