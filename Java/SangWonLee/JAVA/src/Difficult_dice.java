@@ -1,93 +1,59 @@
 import java.util.Arrays;
 
-class Result_Condition {
-
-    public boolean first_Condition() {
-        Dice d = new Dice();
-        System.out.println("asdflkjsadjfkldasfjlkfsdaklj");
-        if(d.getDice()[1] % 2 == 0){
-            return false;
-        }
-
-        return true;
-    }
-
-    public boolean third_Condition() {
-
-        return false;
-    }
-}
-
 class Dice {
-    int START = 0;
-    int dice_Number = 3;
-    int dice_MIN = 1;
-    int dice_MAX = 6;
-    int[] dice = new int[dice_Number];
-    boolean dice_Condition = true;
+    final int START = 0; // 시작 숫자
+    final int dice_MAX = 6; // 주사위 6까지
+    final int dice_MIN = 0; // 주사위 0부터
+    final int dice_number = 3; //주사위의 갯수
+    int dice1[] = new int[dice_number]; // 첫번째 사람의 주사위 배열
+    int dice2[] = new int[dice_number];; // 두번째 사람의 주사위 배열
+    int sum_dice1; // 첫번째 사람의 주사위 합
+    int sum_dice2; // 두번째 사람의 주사위 합
+    int all_dice[]; // 첫번째, 두번째 사람의 주사위 합의 배열
+
+    public int[] roll_dice( ) {
 
 
-    @Override
-    public String toString() {
-        return "Dice{" +
-                "dice=" + Arrays.toString(dice) +
-                '}';
-    }
+        for (int i = START; i < dice_number; i++) {
+            dice1[i] = (int) (Math.random() * (dice_MAX - dice_MIN + 1) + dice_MIN);
+            if (dice1[0] % 2 == 0) {
+                sum_dice1 = dice1[0];
+                System.out.println(sum_dice1);
+            } else {
+                for (int j = START; j < dice_number; j++) {
+                    sum_dice1 += dice1[j];
+                    System.out.println(sum_dice1);
+                }
 
-    public void roll_dice() {
-
-        Result_Condition rc = new Result_Condition();
-
-        for (int i = START; i < dice_Number; i++) {
-            dice[i] = (int) (Math.random() * (dice_MAX - dice_MIN + 1) + dice_MIN);
-            if (i == 0) {
-                rc.first_Condition();
             }
-                setDice(dice);
-
-
         }
-    }
-    public void dice_While() {
-        Result_Condition rc = new Result_Condition();
-
-        while (true) {
-            Dice dd = new Dice();
-            dd.roll_dice();
-            rc.first_Condition();
-            System.out.println(dd);
+        for (int i = START; i < dice_number; i++) {
+            dice2[i] = (int) (Math.random() * (dice_MAX - dice_MIN + 1) + dice_MIN);
+            if (dice2[0] % 2 == 0) {
+                sum_dice2 = dice2[0];
+                System.out.println(sum_dice2);
+            } else {
+                for (int j = START; j < dice_number; j++) {
+                    sum_dice2 += dice2[j];
+                    System.out.println(sum_dice2);
+                }
+            }
         }
+
+        all_dice = new int[]{sum_dice1, sum_dice2};
+
+        return all_dice;
     }
 
 
-
-    public Dice() {
-        this.dice_Number = dice_Number;
-        this.dice = dice;
-    }
-
-    public int getDice_Number() {
-        return dice_Number;
-    }
-
-    public void setDice_Number(int dice_Number) {
-        this.dice_Number = dice_Number;
-    }
-
-    public int[] getDice() {
-        return dice;
-    }
-
-    public void setDice(int[] dice) {
-        this.dice = dice;
-    }
 }
+
+
     public class Difficult_dice {
         public static void main(String[] args) {
 
             Dice d = new Dice();
-
-            d.dice_While();
+            d.roll_dice();
 
         }
     }
