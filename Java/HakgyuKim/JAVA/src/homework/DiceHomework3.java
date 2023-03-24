@@ -1,7 +1,5 @@
 package homework;
 
-import java.util.Arrays;
-
 class Dice {
     final private int MIN = 1;
     final private int MAX = 6;
@@ -20,10 +18,10 @@ class Game {
 
     final private int MAX_DICE = 3;
     final private int LOSE = -100;
-    private Dice[] player1DiceArray;
-    private Dice[] player2DiceArray;
-    final private Score player1Score;
-    final private Score player2Score;
+    private Dice[] player1DiceArray = new Dice[MAX_DICE];
+    private Dice[] player2DiceArray = new Dice[MAX_DICE];
+    private Score player1Score;
+    private Score player2Score;
 
     public Score getPlayer1Score() {
         return player1Score;
@@ -33,24 +31,27 @@ class Game {
         return player2Score;
     }
 
-    public Game() {
-        this.player1DiceArray = new Dice[MAX_DICE];
-        this.player2DiceArray = new Dice[MAX_DICE];
+    public int Game() {
+        player1DiceArray = new Dice[MAX_DICE];
+        player2DiceArray = new Dice[MAX_DICE];
+        final int DECISION_ODD = 2;
+        final int ODD = 1;
+        final int FIRST_DICE_INFO = 0;
         int player1DiceSum = 0;
         int player2DiceSum = 0;
 
-        for (int i = 0; i < player1DiceArray.length; i++) {
+
+
+        for (int i = 0; i < MAX_DICE; i++) {
             player1DiceArray[i] = new Dice();
-            if (player1DiceArray[0].getDiceNum() % 2 == 0) {
-                player1DiceSum += player1DiceArray[0].getDiceNum();
+            player1DiceSum = player1DiceArray[i].getDiceNum();
+
+            if (player1DiceArray[FIRST_DICE_INFO].getDiceNum() % DECISION_ODD == ODD) {
+                player1DiceSum += player1DiceArray[FIRST_DICE_INFO].getDiceNum();
             }
-
-            // 첫 주사위가 짝수면 가동하고 홀수면 가동하지 않는 것 같은데 되게 하는법을 모르겠습니다.
-
-            else {
-                player1DiceSum = player1DiceArray[0].getDiceNum() +
-                        player1DiceArray[1].getDiceNum() +
-                        player1DiceArray[2].getDiceNum();
+            if (player1DiceArray[2].getDiceNum() == Integer.parseInt(null)) {
+                return 0;
+            }
                 switch(player1DiceArray[2].getDiceNum()) {
                     case 1:
                         player1DiceSum += 3;
@@ -66,23 +67,24 @@ class Game {
                         break;
                 }
 
-            }
+
 
         }
 
-        for (int i = 0; i < player2DiceArray.length; i++) {
+        for (int i = 0; i < 3; i++) {
             player2DiceArray[i] = new Dice();
-            if (player2DiceArray[0].getDiceNum() % 2 == 0) {
-                player2DiceSum += player2DiceArray[0].getDiceNum();
+            player2DiceSum = player2DiceArray[i].getDiceNum();
+            if (player2DiceArray[FIRST_DICE_INFO].getDiceNum() % DECISION_ODD == ODD) {
+                player2DiceSum += player2DiceArray[FIRST_DICE_INFO].getDiceNum();
             }
-            else {
-                player2DiceSum = player2DiceArray[0].getDiceNum() +
-                                 player2DiceArray[1].getDiceNum() +
-                                 player2DiceArray[2].getDiceNum();
+            if (player2DiceArray[2].getDiceNum() == Integer.parseInt(null)) {
+                return 0;
+            }
+
                 switch(player2DiceArray[2].getDiceNum()) {
                     case 1:
-                        player1DiceSum -= 3;
                         player2DiceSum += 3;
+                        player1DiceSum -= 3;
                         break;
 
                     case 3:
@@ -94,10 +96,12 @@ class Game {
                         break;
                 }
 
-            }
+
+
         }
         this.player1Score = new Score(player1DiceSum);
         this.player2Score = new Score(player2DiceSum);
+        return DECISION_ODD;
     }
 }
 

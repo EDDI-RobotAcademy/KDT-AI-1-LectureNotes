@@ -60,7 +60,7 @@ class ThirdDiceGame {
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
 
 
-            // 확장성이 떨어지므로 개선 필요 -> 상대편 찾기 (1:1 상황)
+            // todo: 확장성이 떨어지므로 개선 필요 -> 상대편 찾기 (1:1 상황)
             int targetPlayerIndex = findTargetPlayerIndex(i);
 
             GameScore targetPlayerScore =
@@ -98,8 +98,10 @@ class ThirdDiceGame {
 
         if(firstPlayerScore.getTotalScore() > secondPlayerScore.getTotalScore()) {
             System.out.println("승자는: " + playerArray[0].getName());
-        } else {
+        } else if (secondPlayerScore.getTotalScore() > firstPlayerScore.getTotalScore()){
             System.out.println("승자는:" + playerArray[1].getName());
+        } else {
+            System.out.println("무승부");
         }
     }
 }
