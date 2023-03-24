@@ -43,7 +43,7 @@ class Dice2 {
 
 public class SecondHomeworkSecondGuide {
     public static void main(String[] args) {
-        Dice2 dice = new Dice2();
+        homework.second.homework.Dice2 dice = new homework.second.homework.Dice2();
         System.out.println(dice);
         System.out.println(dice.checkWin() ? "승리!" : "패배!");
     }

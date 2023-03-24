@@ -1,4 +1,4 @@
-package homework.third;
+package homework.third.homework;
 /*
 친구와 게임을 할 수 있습니다.
 

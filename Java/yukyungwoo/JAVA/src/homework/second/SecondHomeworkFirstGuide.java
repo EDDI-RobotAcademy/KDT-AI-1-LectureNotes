@@ -5,17 +5,17 @@ import java.util.Arrays;
 class Game {
 
     final private int MAX_DICE = 4;
-    final private Dice[] diceArray;
+    final private homework.second.homework.Dice[] diceArray;
     final private Score score;
 
     public Game() {
         // 이 부분은 Dice 배열 몇 개를 사용하겠습니다.
-        this.diceArray = new Dice[MAX_DICE];
+        this.diceArray = new homework.second.homework.Dice[MAX_DICE];
         int diceNumberSum = 0;
 
         for (int i = 0; i < diceArray.length; i++) {
             // 각 배열의 요소를 할당하겠습니다.
-            diceArray[i] = new Dice();
+            diceArray[i] = new homework.second.homework.Dice();
             diceNumberSum += diceArray[i].getDiceNumber();
         }
 
@@ -88,7 +88,7 @@ class Score {
 
 public class SecondHomeworkFirstGuide {
     public static void main(String[] args) {
-        Game game = new Game();
+        homework.second.homework.Game game = new homework.second.homework.Game();
         System.out.println(game);
         System.out.println(game.checkWin() ? "승리!" : "패배!");
     }
