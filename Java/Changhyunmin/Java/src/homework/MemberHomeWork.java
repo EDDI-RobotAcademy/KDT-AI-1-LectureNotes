@@ -8,7 +8,6 @@ public class MemberHomeWork {
         member.inputEmail();
         member.inputPassword();
         System.out.println(member);
-
     }
 
 }
