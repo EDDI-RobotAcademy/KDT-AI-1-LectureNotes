@@ -12,7 +12,7 @@ public class GameDice_Review {
     final int MIN = 1;
     final int MAX = 6;
 
-    public GameDice_Review(int diceNumber,) {
+    public GameDice_Review(int diceNumber) {
         for (int i = 0; i < MAX_DICE_NUMBER; i++) {
 
         }
