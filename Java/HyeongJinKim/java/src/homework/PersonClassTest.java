@@ -1,4 +1,4 @@
-package lectureClass;
+package homework;
 
 class Person {
     private final String isName;

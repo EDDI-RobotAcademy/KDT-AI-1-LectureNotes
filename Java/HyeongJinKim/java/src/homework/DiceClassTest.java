@@ -1,4 +1,4 @@
-package lectureClass;
+package homework;
 
 
 class Game { // 굳이 필요한가
@@ -9,12 +9,12 @@ class Game { // 굳이 필요한가
     }
 }
 
-class Dice {
+class Dice2 {
     final int MIN = 1;
     final int MAX = 6;
     final int diceNumber;
 
-    public Dice() {
+    public Dice2() {
         this.diceNumber = (int)(Math.random() * (MAX - MIN + 1) + MIN) ;
     }
     public int getDiceNumber() {
@@ -44,10 +44,10 @@ public class DiceClassTest {
         final Game game = new Game(2);
 
         for (int i = 0; i < game.GAME_ROUND; i++) {
-            final Dice dice1 = new Dice();
-            final Dice dice2 = new Dice();
-            final Dice dice3 = new Dice();
-            final Dice dice4 = new Dice();
+            final Dice2 dice1 = new Dice2();
+            final Dice2 dice2 = new Dice2();
+            final Dice2 dice3 = new Dice2();
+            final Dice2 dice4 = new Dice2();
 
             final Score scoreSum = new Score(dice1.getDiceNumber(),
                                              dice2.getDiceNumber(),
