@@ -1,6 +1,6 @@
 package homework.second;
 
-import utility.CustomRandom;
+import utility.random.CustomRandom;
 
 public class SecondHomeworkFourth {
     public static void main(String[] args) {

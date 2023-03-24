@@ -9,7 +9,6 @@ package homework.third;
 // class로 이메일 주소와 비밀번호 각각 정의(빈칸에 입력?)
 // 회원 등록으로 정보 업로딩
 // 로그인 확인_이메일 주소 및 비밀번호가 맞는지 if나 boolean으로 true, false 도출
-import 
 public class MemberSignup {
     public static void main(String[] args) {
 
