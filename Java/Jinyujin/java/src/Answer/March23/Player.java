@@ -4,8 +4,8 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Player {
-    // player를 만들었으면 얘한테만 일단 집중 - 용량 커져서? 따로 ㅁ만들었다고 하심 다시 묻기
-    // player에게 중요한게 뭐지?
+    // player를 만들었으면 얘한테만 일단 집중 - 보기에도 사후 관리하기에도 편하게 하기 위함
+    // player에게 필요한게 뭐지?
 
     final private String name; // 당연히 이름 있을 것
     final int MAX_DICE_NUMBER = 3;
@@ -41,6 +41,18 @@ public class Player {
             }
         }
         return diceNumberSum;
+    }
+
+    public GameDice getSelectedGameDice(int index) {
+        return gameDices[index];
+    }
+
+    public GameScore getGameScore() {
+        return gameScore;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
