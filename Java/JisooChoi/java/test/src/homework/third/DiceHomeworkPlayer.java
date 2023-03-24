@@ -27,10 +27,10 @@ class Game{
 
         // 세번째 주사위 특수기능
         thirdDiceArray = diceArray[DICE_NUM-1].diceNumber;
-        setDiceNumber(thirdDiceArray);
+        checkThirdDice(thirdDiceArray);
     }
 
-    public void setDiceNumber(int thirdDiceArray) {
+    public void checkThirdDice(int thirdDiceArray) {
         this.thirdDiceArray = thirdDiceArray;
 
         if (thirdDiceArray == 1) {
