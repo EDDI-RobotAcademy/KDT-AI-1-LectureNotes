@@ -41,7 +41,6 @@ class Dice {
         for (int i = START; i < dice_Number; i++) {
             dice[i] = (int) (Math.random() * (dice_MAX - dice_MIN + 1) + dice_MIN);
             if (i == 0) {
-            
                 rc.first_Condition();
             }
                 setDice(dice);
