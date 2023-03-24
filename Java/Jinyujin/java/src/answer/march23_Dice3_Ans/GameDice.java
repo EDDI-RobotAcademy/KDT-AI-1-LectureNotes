@@ -1,4 +1,4 @@
-package Answer.March23_Dice3_Ans;
+package answer.march23_Dice3_Ans;
 
 import utility.random.CustomRandom;
 

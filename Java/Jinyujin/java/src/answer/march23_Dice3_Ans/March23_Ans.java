@@ -1,4 +1,4 @@
-package Answer.March23_Dice3_Ans;
+package answer.march23_Dice3_Ans;
 
 // 친구 <- 추후 다수의 Player로 확장 가능성이 존재
 // 주사위

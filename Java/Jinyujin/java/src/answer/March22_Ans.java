@@ -1,4 +1,4 @@
-package Answer;
+package answer;
 
 import utility.random.CustomRandom;
 
