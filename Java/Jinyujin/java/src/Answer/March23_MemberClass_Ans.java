@@ -1,4 +1,4 @@
-package homework;
+package Answer;
 
 class MemberTestObject { //shift + f6 누르면 관련된 애들 다같이 바꿀 수 있음)
     final private String emali;
