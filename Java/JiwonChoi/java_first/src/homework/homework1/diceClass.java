@@ -1,8 +1,7 @@
-package homeWork;
+package homework.homework1;
 
-import homeWork.refacktor.randomNumber;
-import homeWork.refacktor.diceGame;
-import homeWork.refacktor.rollDice;
+import homework.homework1.refacktor.diceGame;
+import homework.homework1.refacktor.rollDice;
 class Dice {
     public Dice(int COUNT_DICE, int MAX_DICE, int startScore) {
         this.COUNT_DICE = COUNT_DICE;

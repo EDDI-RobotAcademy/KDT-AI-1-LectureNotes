@@ -1,4 +1,4 @@
-package homework3;
+package homework.homework3;
 
 
 class winnerCheck { //점수 더 높은사람이 win
