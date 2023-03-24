@@ -1,4 +1,4 @@
-package Answer;
+package Answer.March23_Dice3_Ans;
 
 // 친구 <- 추후 다수의 Player로 확장 가능성이 존재
 // 주사위
@@ -6,10 +6,6 @@ package Answer;
 // 게임
 // 지금 당장해야 하는 것에 집중! 그러다보면 뭘 구현해야 할지 생긴다
 // 모르겠는 질문은 그냥 막 던지기 OK!!!
-
-import Answer.March23_Dice3_Ans.GameDice;
-import Answer.March23_Dice3_Ans.GameScore;
-import Answer.March23_Dice3_Ans.Player;
 
 class ThirdDiceGame {
     // 일단 player 클래스에서 player만 만든 상태
