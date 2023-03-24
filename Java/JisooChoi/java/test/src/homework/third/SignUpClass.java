@@ -2,11 +2,11 @@ package homework.third;
 
 import java.util.Scanner;
 
-class Member{
+class MemberTest {
     final private Email email;
     final private Key key;
 
-    public Member(){
+    public MemberTest(){
         this.email = new Email();
         this.key = new Key();
     }
@@ -54,9 +54,9 @@ class Key{
 
 public class SignUpClass {
     public static void main(String[] args) {
-        Member member = new Member();
-        member.getMemberEmail();
-        member.getMemberKey();
-        member.showEmailKey();
+        MemberTest memberTest = new MemberTest();
+        memberTest.getMemberEmail();
+        memberTest.getMemberKey();
+        memberTest.showEmailKey();
     }
 }
