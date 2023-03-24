@@ -3,9 +3,10 @@ package homework.third;
 import java.util.Arrays;
 
 class Game3{
-    String player1, player2;
+    final String player1, player2;
     final int player1_thirdDice, player2_thirdDice;
     final int player1_score, player2_score;
+    int player1_resultScore , player2_resultScore;
     final int diceCount = 3;
     final int[] player1_diceArray = new int[diceCount];
     final int[] player2_diceArray = new int[diceCount];
@@ -32,16 +33,27 @@ class Game3{
             }
         }
 
-        this.player1_thirdDice = player1_diceArray[2];
-        this.player2_thirdDice = player2_diceArray[2];
+        this.player1_thirdDice = player1_diceArray[player1_diceArray.length-1];
+        this.player2_thirdDice = player2_diceArray[player2_diceArray.length-1];
         this.player1_score = new Score3(player1_diceArray).getTotalScore();
         this.player2_score = new Score3(player2_diceArray).getTotalScore();
     }
 
-    public void chk(){
-        valueCheck.thirdDiceCheck(player1_diceArray[2],player1);
-        valueCheck.thirdDiceCheck(player2_diceArray[2],player2);
+    public void resultScore(){
+        UpdateScore updateScore = new UpdateScore(player1_score,player2_score,
+                player1_thirdDice,player2_thirdDice);
 
+        this.player1_resultScore = updateScore.getPlayer1_resultScore();
+        this.player2_resultScore = updateScore.getPlayer2_resultScore();
+
+        System.out.println(player1+ "의 최종 점수 = " + player1_resultScore
+                + "," + player2 + "의 최종 점수 = " + player2_resultScore+"");
+
+        }
+    public void chk(){
+        resultScore();
+        valueCheck.thirdDiceCheck(player1_thirdDice,player1);
+        valueCheck.thirdDiceCheck(player2_thirdDice,player2);
 
         if(player1_thirdDice == 4){
             System.out.println(player1 + " 패배");
@@ -51,16 +63,6 @@ class Game3{
             System.out.println(player2 + "패배");
             return;
         }
-
-        UpdateScore updateScore = new UpdateScore(player1_score,player2_score,
-                player1_thirdDice,player2_thirdDice);
-
-        final int player1_resultScore = updateScore.getPlayer1_resultScore();
-        final int player2_resultScore = updateScore.getPlayer2_resultScore();
-
-        System.out.println(player1+ "의 최종 점수 = " + player1_resultScore
-                + "," + player2 + "의 최종 점수 = " + player2_resultScore+"");
-
 
         if(player1_resultScore > player2_resultScore){
             System.out.println(player1 + " 승리!");
