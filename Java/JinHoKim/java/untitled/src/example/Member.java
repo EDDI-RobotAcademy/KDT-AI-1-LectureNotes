@@ -1,28 +1,21 @@
 package example;
 
-import java.util.Scanner;
-
 public class Member {
-    String address;
-    int passWord;
+    private String email;
+    private String password;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public Member (String s, String 비밀번호) {
+        this.email = email;
+        this.password = password;
 
-        System.out.println("이메일 주소 입력하세요: ");
-        String str = sc.nextLine();
-
-        System.out.println("입력한 이메일: " + str);
-
-        if (str ){
-
-        }
-        
-
-        System.out.println("비밀번호를 입력하세요: ");
-        int PassWord = sc.nextInt();
-
-        System.out.println("입력한 비밀번호: " + PassWord);
     }
 
+    @Override
+    public String toString() {
+        return "Member{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
+
