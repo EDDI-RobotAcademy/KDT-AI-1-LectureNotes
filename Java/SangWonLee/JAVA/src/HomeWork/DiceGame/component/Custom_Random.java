@@ -1,3 +1,5 @@
+package HomeWork.DiceGame.component;
+
 public class Custom_Random {
 
     final private static int MIN = 0;

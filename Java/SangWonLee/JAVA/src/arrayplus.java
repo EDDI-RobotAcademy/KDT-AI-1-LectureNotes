@@ -1,4 +1,6 @@
 
+import HomeWork.DiceGame.component.Custom_Random;
+
 import java.util.Arrays;
 
 class TestArray {
