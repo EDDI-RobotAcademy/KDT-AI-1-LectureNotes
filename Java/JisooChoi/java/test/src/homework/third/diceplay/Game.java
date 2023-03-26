@@ -1,6 +1,6 @@
-package homework.third;
+package homework.third.diceplay;
 
-class Game{
+public class Game{
     final private Dice[] diceArray;
     final private int DICE_NUM = 3;
     Player playerMe = new Player();
@@ -18,10 +18,7 @@ class Game{
             }
             else{
                 System.out.println("첫 번째 주사위 값이 "+diceArray[i].diceNumber+"이고, 짝수가 아니므로 종료합니다.");
-                break;
-                // ★ 질문
-                // Q. 이 부분 때문에 java.lang.NullPointerException 오류가 뜨는 것 같은데 예외처리 하는 법을 모르겠습니다.
-                // Q. 첫 번째 배열의 수가 짝수가 아니면 break로 반복문을 나가라고 하였는데, 왜 오류가 뜨는 건가요?
+                return;
             }
         }
 
@@ -51,39 +48,3 @@ class Game{
     }
 }
 
-class Dice{
-    final private int MAX = 6;
-    final private int MIN = 1;
-    int diceNumber;
-
-    public Dice(){
-        this.diceNumber = (int)(Math.random() * MAX) + MIN;
-    }
-}
-
-class Player{
-    int score = 0;
-
-    public Player(){
-    }
-
-    public int case1TakeScoreMe(){
-        return  score += 3;
-    }
-    public int case1TakeScoreYou(){
-        return  score -= 3;
-    }
-    public int case2AddScoreMe(){
-        return  score += 2;
-    }
-    public int case2AddScoreYou(){
-        return  score -= 2;
-    }
-}
-
-public class DiceHomeworkPlayer {
-    public static void main(String[] args) {
-        System.out.println("--- 주사위 첫 번째 게임 ---");
-        Game diceGame = new Game();
-    }
-}
