@@ -44,20 +44,29 @@ package homework.third.homework;
 //
 //}
 
-class MemberObject {
-    final private String email;
-    final private String password;
+// 나중에 시도
+//class MemberProfile {
+//    final private int MAX_PROFILE = 2;
+//    final private MemberProfile[] profileArray;
+//
+//    public MemberProfile ( ) {
+//        this.profileArray = MemberProfile[MAX_PROFILE];
+//
+//        for (int i = 0; i < MAX_PROFILE; i++);
+//    }
+//}
+//
+//class ProfileNumber {
+//    final private int PROFILE_NUMBER1 = 0;
+//    final private int PROFILE_NUMBER2 = 1;
+//
+//}
 
-    public MemberObject(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-}
+
 
 public class Class2 {
     public static void main(String[] args) {
-        MemberObject member = new MemberObject("이메일", "비밀번호")
-        System.out.println(member);
+
     }
 
 
