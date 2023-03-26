@@ -6,8 +6,8 @@ public class Main {
 
         Student.yass duckso = new Student.yass("덕소고등학교 1학년 1반");
 
-        duckso.addStudent(new Student.student("asdf", 5 ,69));
-        duckso.addStudent(new Student.student("aerwewr", 4 ,27));
+//        duckso.addStudent(new Student.student("asdf", 5 ,69));
+//        duckso.addStudent(new Student.student("aerwewr", 4 ,27));
 
         Student.student choice1 = null;
         Student.student choice2 = null;
