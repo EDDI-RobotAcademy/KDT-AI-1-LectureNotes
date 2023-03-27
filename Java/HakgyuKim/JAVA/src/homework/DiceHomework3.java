@@ -49,9 +49,6 @@ class Game {
             if (player1DiceArray[FIRST_DICE_INFO].getDiceNum() % DECISION_ODD == ODD) {
                 player1DiceSum += player1DiceArray[FIRST_DICE_INFO].getDiceNum();
             }
-            if (player1DiceArray[2].getDiceNum() == Integer.parseInt(null)) {
-                return 0;
-            }
                 switch(player1DiceArray[2].getDiceNum()) {
                     case 1:
                         player1DiceSum += 3;
@@ -77,10 +74,6 @@ class Game {
             if (player2DiceArray[FIRST_DICE_INFO].getDiceNum() % DECISION_ODD == ODD) {
                 player2DiceSum += player2DiceArray[FIRST_DICE_INFO].getDiceNum();
             }
-            if (player2DiceArray[2].getDiceNum() == Integer.parseInt(null)) {
-                return 0;
-            }
-
                 switch(player2DiceArray[2].getDiceNum()) {
                     case 1:
                         player2DiceSum += 3;
