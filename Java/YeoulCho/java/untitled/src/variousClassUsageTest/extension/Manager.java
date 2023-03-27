@@ -57,6 +57,9 @@ public class Manager {
             }
 
             //System.out.println(tmpString + "@test.com");
+            //List 타입 변수.add() 를 통해
+            //List<데이터타입> 으로 만들었던 데이터타입들을 저장할 수 잇습니다.
+            // 그러므로 add 내부에서 new TESTMember()를 수행할 수 있습니다.
             memberList.add(new TestMember(
                     i, tmpString + "@test.com", "test"));
 
@@ -69,4 +72,44 @@ public class Manager {
             System.out.println(member);
         }
     }
+
+    public void addRandomProduct() {
+        //productName, String Vendor, int price
+        final int DAECHWUL_MIN = 1;
+        final int DAECHWUL_MAX = 10;
+
+        final String[] productNameArray = {"대출상품1","대출상품2","대출상품3"};
+        final String vendor = "DAECHWUL";
+        for( int i =0; i<productNameArray.length; i++){
+            int productIndex = CustomRandom.generateNumber(DAECHWUL_MIN,DAECHWUL_MAX);
+            int price = 100000000 * CustomRandom.generateNumber(DAECHWUL_MIN,DAECHWUL_MAX);
+            productList.add(new TestProduct(
+                    productNameArray[i], vendor, price));
+        }
+    }
+
+    public void printProductList () {
+        for (TestProduct product: productList) {
+            System.out.println(product);
+        }
+    }
+
+    public void buyRandomProduct() {
+        final int MIN = 0;
+        final int MAX = 4;
+        // List의 길이는 size()를 통해 구할 수 있습니다.
+        int productLength = productList.size();
+
+        for (int i = 0; i < productLength; i++) {
+            // List 타입에서 get(index)를 지정하면
+            // List에 저장된 특정 index의 정보를 얻게 됩니다.
+            TestProduct product = productList.get(
+                    CustomRandom.generateNumber(2));
+
+            product.setMemberId(
+                    CustomRandom.generateNumber(MIN, MAX));
+        }
+    }
 }
+
+

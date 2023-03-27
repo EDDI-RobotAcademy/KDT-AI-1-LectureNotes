@@ -5,6 +5,7 @@ public class TestMember {
     final private String email;
     final private String password;
 
+
     public TestMember(int memberId, String email, String password) {
         this.memberId = memberId;
         this.email = email;
