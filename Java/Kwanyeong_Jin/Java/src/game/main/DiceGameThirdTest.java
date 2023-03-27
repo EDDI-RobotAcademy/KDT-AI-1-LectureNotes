@@ -106,12 +106,10 @@ class ThirdDiceGame {
 public class DiceGameThirdTest {
     public static void main(String[] args) {
         GameDice test = new GameDice();
-
-
-//        ThirdDiceGame game = new ThirdDiceGame();
-//        System.out.println("점수 판정 이후");
-//        game.playGame();
-//        game.printResult();
-//        game.checkWinner();
+        ThirdDiceGame game = new ThirdDiceGame();
+        System.out.println("점수 판정 이후");
+        game.playGame();
+        game.printResult();
+        game.checkWinner();
     }
 }

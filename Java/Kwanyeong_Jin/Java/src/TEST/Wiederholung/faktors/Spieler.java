@@ -20,7 +20,6 @@ public class Spieler {
             if (wurfel[i].bekommwurflNum() % EVEN != EVEN_CHECK) {
                 break;
             }
-
         }
     }
 

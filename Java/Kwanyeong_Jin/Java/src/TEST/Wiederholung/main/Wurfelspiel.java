@@ -14,7 +14,6 @@ class Spiel {
 
 public class Wurfelspiel {
     public static void main(String[] args) {
-//        Spiel spiel = new Spiel();
-        Wurfel test = new Wurfel();
+
     }
 }
