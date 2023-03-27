@@ -35,7 +35,7 @@ public class Board {
 
 
             end_Board();
-//            sc.nextLine();
+            sc.nextLine();
         }
     }
 
