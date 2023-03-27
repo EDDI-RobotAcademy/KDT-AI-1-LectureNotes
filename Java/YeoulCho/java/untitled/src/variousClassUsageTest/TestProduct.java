@@ -15,7 +15,7 @@ public class TestProduct {
 
     public TestProduct(String productName, String vendor, int price, int memberId) {
         this.productName = productName;
-        Vendor = vendor;
+        this.Vendor = vendor;
         this.price = price;
         this.memberId = memberId;
     }
