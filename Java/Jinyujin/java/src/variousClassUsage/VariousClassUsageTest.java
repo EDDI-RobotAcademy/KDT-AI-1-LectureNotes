@@ -18,11 +18,15 @@ public class VariousClassUsageTest {
 
         // 2. 클래스간 정보 전달하기
         // 누가 이 상품을 샀냐? 관리했냐? 의 사용자 정보가 필요할 것 같아 보임
-        TestMember member = new TestMember(0, "test@test.com", "test");
-        TestMember member2 = new TestMember(1, "gogo@test.com", "test");
+        TestMember member = new TestMember(
+                0, "test@test.com", "test");
+        TestMember member2 = new TestMember(
+                1, "gogo@test.com", "test");
         // 0번은 실제 구매자, 1번은 구매하지 않음
 
-        TestProduct product = new TestProduct("이거", "저거브랜드", 5000, member.getMemberId());
+        TestProduct product = new TestProduct(
+                "이거", "저거브랜드",
+                5000, member.getMemberId());
 
         // setter를 사용할 땐 정말 필요한지 묻고 사용하기
         // - 아직 판단하긴 힘듬 그러니 일단 써도 상관없음

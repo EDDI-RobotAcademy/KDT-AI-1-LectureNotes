@@ -13,7 +13,7 @@ public class TestProduct {
     // 이렇게 하면 안되는 이유는? (서비스 회사들의 면접질문)
     // 데이터가 뭉쳐서 나가면 돈이 커짐
 
-    final private int memberId;
+    private int memberId;
     // 그래서 이게 필요
     // 정보 변경하지 못하게 하기 위해 final
 
@@ -21,6 +21,17 @@ public class TestProduct {
         this.productName = productName;
         this.vendor = vendor;
         this.price = price;
+        this.memberId = memberId;
+    }
+
+    public TestProduct(String productName, String vendor, int price) {
+        this.productName = productName;
+        this.vendor = vendor;
+        this.price = price;
+        this.memberId = -1; // 이 상품을 구매한 회원이 없을 때 뜨도록
+    }
+
+    public void setMemberId(int memberId) {
         this.memberId = memberId;
     }
 
