@@ -13,5 +13,11 @@ public class ExtensionVariousClassUsageTest {
         Manager manager = new Manager();
         manager.addRandomMember();
         manager.printMemberList();
+
+        manager.addRandomProduct();
+        manager.printProductList();
+
+        manager.buyRandomProduct();
+        manager.printProductList();
     }
 }
