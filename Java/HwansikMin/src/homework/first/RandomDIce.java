@@ -1,4 +1,4 @@
-package Assignment;
+package homework.first;
 
 public class RandomDIce {
     public static void main(String[] args) {
