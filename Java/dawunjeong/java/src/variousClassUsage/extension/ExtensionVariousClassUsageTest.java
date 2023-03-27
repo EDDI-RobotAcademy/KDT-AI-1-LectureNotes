@@ -1,12 +1,8 @@
 package variousClassUsage.extension;
-
 import variousClassUsage.TestMember;
-
 import java.util.ArrayList;
 import java.util.List;
-
 public class ExtensionVariousClassUsageTest {
-
     // 일단 여러명의 회원을 배치합시다.
     // 또한 여러개의 상품을 배치합시다.
     // 랜덤을 사용해서 랜덤한 특정 상품을 랜덤한 회원이 구매하게 만듭니다.
@@ -16,5 +12,10 @@ public class ExtensionVariousClassUsageTest {
         manager.addRandomMember();
         manager.printMemberList();
 
+        manager.addRandomProduct();
+        manager.printProductList();
+
+        manager.buyRandomProduct();
+        manager.printProductList();
     }
 }

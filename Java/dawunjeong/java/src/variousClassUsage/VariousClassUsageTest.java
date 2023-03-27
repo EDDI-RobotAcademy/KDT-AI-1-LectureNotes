@@ -21,7 +21,7 @@ public class VariousClassUsageTest {
 
         TestProduct product = new TestProduct(
                 "이거","저거브랜드",
-                5000, member.getMemberId());
+                5000);
 
         System.out.println("상품 구매 정보: " + product);
 
