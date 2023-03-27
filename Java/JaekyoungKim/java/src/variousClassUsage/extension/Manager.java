@@ -3,8 +3,6 @@ import utilityRandom.CustomRandom;
 import variousClassUsage.TestMember;
 import variousClassUsage.TestProduct;
 
-import javax.swing.text.html.HTML;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,8 +51,13 @@ public class Manager {
             for (int j=0;j<emailLength;j++){
                 tmpString+=(char) CustomRandom.generateNumber('a','z');
             }
-            System.out.println(tmpString+"@test.com");
-            memberList.add(new TestMember(i,tmpString+"test.com","test"))
+
+
+            //System.out.println(tmpString+"@test.com");
+            //List 타입 변수.add()를 통해
+            //List <데이터 타입>dmfh aksemfdjTejs epdlxj xkdlqemfdmf wjwkdgkf tn dlTtmqslek.
+            //그러므로 add 내부에서
+            memberList.add(new TestMember(i,tmpString+"test.com","test"));
         }
         TestMember member;
 
@@ -62,6 +65,40 @@ public class Manager {
     public void printMemberList(){
         for (TestMember member: memberList){
             System.out.println(member);
+        }
+    }
+
+
+    public void addRandomProduct() {
+        final int DAECHWUL_MIN=1;
+        final int DAECHWUL_MAX=10;
+        //String productNAme, String vendor, int price, int memberId
+        final String[] productNameArray= {"대출상품","대출상품2","대출상품3"};
+        final String vendor="DAECHWUL";
+        for (int i=0;i<productNameArray.length;i++){
+            int price = 10000000*CustomRandom.generateNumber(DAECHWUL_MIN,DAECHWUL_MAX);
+            productsList.add(new TestProduct(productNameArray[i],vendor,price));
+        }
+    }
+
+    public void printProductList() {
+        for (TestProduct product: productsList){
+            System.out.println(product);
+        }
+    }
+
+    public void buyRandomProduct() {
+        final int MIN=0;
+        final int MAX=4;
+        //list 의 길이는 size를 통해 구할 수 있습니다.
+        int productLength= productsList.size();
+        for (int i=0;i<productLength;i++){
+            // 리스트 타입에서 겟을 지정하며
+            // 리스트에 저장된 특정 인덱스의 정보를 얻게 됩니다.
+            TestProduct testProduct=productsList.get(CustomRandom.generateNumber(2));
+
+        testProduct.setMemberId(
+                CustomRandom.generateNumber(MIN,MAX));
         }
     }
 }
