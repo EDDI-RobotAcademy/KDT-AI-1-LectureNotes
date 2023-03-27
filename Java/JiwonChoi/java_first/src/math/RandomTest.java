@@ -6,7 +6,7 @@ public class RandomTest {
         final int START = 0;
         final int END = 100;
         final int Test_MAX = 77;
-        final int MAX = 77;
+        final int MAX = 15;
         final int MIN = 5;
         // 랜덤을 만드는 방법
         // 1. Math.random()을 작성한다.
@@ -23,7 +23,7 @@ public class RandomTest {
         int randomValue = 0;
 
         for (int i = START; i < END; i++ ) {
-            randomValue = (int)(Math.random() * MAX) + 1;
+            randomValue = (int)(Math.random() * Test_MAX) + 1; //1~77
             System.out.println("i = " + i + ", randomValue = " + randomValue);
         }
 
@@ -31,7 +31,7 @@ public class RandomTest {
 
         // 5 ~ 15 표현
         for (int i = START; i < END; i++) {
-            randomValue = (int)(Math.random() * (MAX - MIN + 1)) + MIN; // 1 ~ 15
+            randomValue = (int)(Math.random() * (MAX - MIN + 1)) + MIN; // 5 ~ 15
             System.out.println("i = " + i + ", randomValue = " + randomValue);
         }
 

@@ -7,6 +7,10 @@ class Game {
 class Dice2 {
     private int diceNumber;
 
+    public Dice2(int diceNumber) {
+        this.diceNumber = diceNumber;
+    }
+
     public Dice2() {
         this.diceNumber = diceNumber;
 
@@ -22,6 +26,7 @@ class Dice2 {
 
         System.out.println("주사위의 합: " + diceNumSum);
 
+        // 승자 판정
         if (diceNumSum % WINNER_DECISION_NUMBER1 == 0 ||
                 diceNumSum % WINNER_DECISION_NUMBER2 == 0) {
             System.out.println("승리");
@@ -34,6 +39,6 @@ public class DiceNum2 {
 
     public static void main(String[] args) {
 
-        final Dice2 dice1 = new Dice2();
+        final Dice2 dice2 = new Dice2();
     }
 }

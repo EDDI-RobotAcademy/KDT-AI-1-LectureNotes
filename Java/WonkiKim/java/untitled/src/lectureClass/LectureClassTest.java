@@ -50,10 +50,10 @@ class Led {
     // 사실은 지가 지를 킬 수 없기 때문에 다른 객체의 도움을 받아야 함
     // 사실 수십년간의 SW전문가들이 이러한 개념들을 정리하였고
     // 그 개념의 일환으로 탄생하게 된 개념이 Domain Service 개념입니다.
-    // Domain Service를 만들어서 얻ㄴㄴ 이점은
+    // Domain Service를 만들어서 얻는 이점은
     // 비즈니스 관점을 좀 더 명확하게 만들어 준다는 이점이 있습니다.
     // 실제로 전구를 키고 끄는 작업을 가지고 비즈니스를 할만한 것들이 많지는 않지만
-    // 그래도 Domain Service르르 나눠 본다면 아래와 같은 것들이 존재할 것입니다.
+    // 그래도 Domain Service를 나눠 본다면 아래와 같은 것들이 존재할 것입니다.
     // 켜기, 끄기, 깜빡이기
 
     // -> 조금 쉽게 접근해 보자면 Domain Service는
@@ -95,6 +95,9 @@ public class LectureClassTest {
 
         // 전구(LED)를 키는 상활을 생각해 봅시다.
         final Led led = new Led();
+        // 왜 데이터 타입을 적는 곳에 class 이름이 오는 것이지?
+        // A: 클래스라는 것 자체가 커스텀 데이터 타입이기 때문입니다.
+        //    여러분이 직접 커스텀 할 수 있는 데이터 타입이 클래스라 보면 됩니다.
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
         led.setTurnOn(true);
         System.out.println("현재 전구 상태: " + (led.getTurnOn() ? "켜짐" : "꺼짐"));
