@@ -1,4 +1,4 @@
-package flostControl;
+package flowControl;
 
 import java.util.Scanner;
 

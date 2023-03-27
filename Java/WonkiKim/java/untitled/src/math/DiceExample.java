@@ -20,5 +20,6 @@ public class DiceExample {
         } else {
             System.out.println(ITER + "개의 주사위의 합이 " + diceSum + "(으)로 패배입니다.");
         }
+
     }
 }

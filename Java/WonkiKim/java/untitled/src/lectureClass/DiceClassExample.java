@@ -1,5 +1,8 @@
 package lectureClass;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 class Dice {
     final private static int DICE_MAX = 6;
     final private static int DICE_MIN = 1;
@@ -15,15 +18,14 @@ class Dice {
 }
 
 class Score {
-    final private int[] scores;
+    final private ArrayList<Integer> scores;
 
     public Score(final int ITER) {
-        scores = new int[ITER];
+        scores = new ArrayList<>();
     }
 
-    public void record(final int INDEX, final int DICE_NUMBER) {
-
-        scores[INDEX] = DICE_NUMBER;
+    public void record(final int DICE_NUMBER) {
+        scores.add(DICE_NUMBER);
     }
 
     public int getSumScore() {
@@ -49,7 +51,7 @@ class Game {
             final Dice dice = new Dice();
             final int DICE_NUMBER = dice.getDiceNumber();
 
-            score.record(i, DICE_NUMBER);
+            score.record(DICE_NUMBER);
             System.out.println((i + 1) + "번째 주사위의 눈: " + DICE_NUMBER);
         }
     }
@@ -66,7 +68,7 @@ class Game {
                 for (int conditionText : WIN_CONDITIONS) {
                     System.out.print(conditionText + ", ");
                 }
-                System.out.print("\b\b 중 한 개 이상의 수의 배수이므로 승리입니다");
+                System.out.println("\b\b 중 한 개 이상의 수의 배수이므로 승리입니다");
                 return;
             }
         }
