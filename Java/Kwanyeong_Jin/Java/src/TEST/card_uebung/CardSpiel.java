@@ -26,7 +26,7 @@ public class CardSpiel {
 
 
     public void cardtake() {
-        final int TAKE_CARD_NUM = 4;
+        final int TAKE_CARD_NUM = 5;
         final int TAKE_CARD_FORM = 4;
         cardlistnum();
         for (int i = 0; i < TAKE_CARD_NUM; i++) {
