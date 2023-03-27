@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 public class SwitchTest {
     public static void main(String[] args) {
+        // Scanner는 키보드 입력 처리를 위해 사용하는 객체입니다.
+        // 여러분이 실제 서비스를 개발하면서 아래 코드를 사용할 일은 없지만
+        // 현재 콘솔 상황에서 사용자 입력을 받기 위해 아래 코드가 사용된다 보면 되겠습니다.
+        // 사용자 입력이란 구체적으로 키보드 입력을 의미합니다.
+        // System.in 이란 입력 시스템을 의미하므로 입력 장치에 해당하는 키보드를 의미한다 봐도 무방하겠습니다.
+
+        // 결론: 사람의 키보드 입력을 받고 싶으면 아래 코드 한 줄을 입력하세요.
         Scanner scan = new Scanner(System.in);
 
         // boolean: 참/거짓을 표현하는 자료형입니다.

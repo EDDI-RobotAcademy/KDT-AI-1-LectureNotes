@@ -9,7 +9,7 @@ public class RandomTest {
         final int MAX = 15;
         final int MIN = 5;
         // 랜덤을 만드는 방법
-        // 1. Math.random()을 작성합니다.
+        // 1. Math.utility.random()을 작성합니다.
         // 2. 최소값과 최대값을 확인합니다.
         // 3. 최소값은 더하기로 표기해주세요. (아래 코드에선 + 1)
         // 4. 최대값은 곱하기로 표기하고
