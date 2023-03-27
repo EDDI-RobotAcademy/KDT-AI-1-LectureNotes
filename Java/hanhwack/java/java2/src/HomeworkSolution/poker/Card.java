@@ -6,7 +6,7 @@ import java.util.List;
 public class Card {
     List <String> cardList = new ArrayList<>() ;
     public Card() {
-        String number = "";
+        String number = "" ;
         for (int i = 0; i < 12; i++) {
             if (i > 0 && i < 9) {
                 number = String.valueOf(i+1);
