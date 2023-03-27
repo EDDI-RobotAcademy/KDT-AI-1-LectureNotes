@@ -7,13 +7,12 @@ public class TestProduct {
     private int price;
     //상품을 구매할 때마다 사용자 정보가 매번 쌓임
     //private TestMember member;
-    final private int memberId;
+    private int memberId;
 
-    public TestProduct(String productName, String vendor, int price, int memberId) {
+    public TestProduct(String productName, String vendor, int price) {
         this.productName = productName;
         this.vendor = vendor;
         this.price = price;
-        this.memberId = memberId;
     }
 
     public void changePrice(int price) {

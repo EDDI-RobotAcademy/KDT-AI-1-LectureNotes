@@ -14,8 +14,7 @@ public class VariousClassUsageTest {
         //2. 클래스간 정보 전달하기
 
         TestMember member = new TestMember(0, "test@test.com", "test");
-        TestProduct product = new TestProduct("이거", "저거",
-                5000, member.getMemberId());
+        TestProduct product = new TestProduct("이거", "저거", 5000);
 
         System.out.println("상품 구매 정보: " + product);
 
