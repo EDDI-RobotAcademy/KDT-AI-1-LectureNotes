@@ -14,10 +14,6 @@ public class RefactorManager {
         productList = new ArrayList<>();
     }
 
-    // 랜덤한 이메일을 만들어줘야함
-    // 앞에 글자 4 ~ 8개 정도를 랜덤으로 뽑자!
-    // 뒤에는 @test.com을 붙이도록 한다.
-    // 5명 정도 만든다고 가정!
     public void addRandomMember() {
         final int MAX_MEMBER_NUMBER = 5;
 
@@ -46,9 +42,6 @@ public class RefactorManager {
     }
 
     public void addRandomProduct() {
-        final int MIN = 0;
-        final int MAX = 2;
-
         final int DAECHUL_MIN = 1;
         final int DAECHUL_MAX = 10;
 
