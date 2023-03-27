@@ -17,6 +17,8 @@ public class VariousClassUsageTest {
         // 2. 클래스간 정보 전달하기
         TestMember member = new TestMember(
                 0,"test@test.com", "test");
+        TestMember member2 = new TestMember(
+                1,"test@test.com", "test");
 
         TestProduct product = new TestProduct(
                 "이거", "저거브랜드",
