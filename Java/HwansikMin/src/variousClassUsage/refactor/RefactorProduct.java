@@ -17,9 +17,7 @@ public class RefactorProduct {
         this.memberIdList = new ArrayList<>();
     }
 
-    public void setMemberId(int memberId) {
-        memberIdList.add(memberId);
-    }
+    public void setMemberId(int memberId) { memberIdList.add(memberId); }
 
     @Override
     public String toString() {

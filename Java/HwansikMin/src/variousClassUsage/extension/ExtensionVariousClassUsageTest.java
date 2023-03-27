@@ -17,5 +17,9 @@ public class ExtensionVariousClassUsageTest {
         manager.printMemberList();
 
         manager.addRandomMember();
+        manager.printMemberList();
+
+        manager.buyRandomProduct();
+        manager.printProductList();
     }
 }
