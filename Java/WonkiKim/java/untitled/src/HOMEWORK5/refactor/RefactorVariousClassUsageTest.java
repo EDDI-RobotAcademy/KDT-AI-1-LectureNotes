@@ -1,5 +1,6 @@
 package HOMEWORK5.refactor;
 
+
 public class RefactorVariousClassUsageTest {
     public static void main(String[] args) {
         RefactorManager manager = new RefactorManager();

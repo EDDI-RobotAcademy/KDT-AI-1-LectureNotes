@@ -1,5 +1,6 @@
 package HOMEWORK5.refactor;
 
+
 public class RefactorMember {
     final private int memberId;
     final private String email;

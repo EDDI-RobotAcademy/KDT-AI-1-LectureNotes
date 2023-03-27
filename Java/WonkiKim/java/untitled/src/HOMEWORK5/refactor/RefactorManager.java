@@ -1,5 +1,6 @@
 package HOMEWORK5.refactor;
 
+
 import utility.random.CustomRandom;
 
 import java.util.ArrayList;

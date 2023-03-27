@@ -1,6 +1,5 @@
 package HOMEWORK5;
 
-
 import java.util.ArrayList;
 
 class Card{
