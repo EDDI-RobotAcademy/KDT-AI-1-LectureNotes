@@ -1,10 +1,5 @@
 package variousClassUsage.extension;
 
-import variousClassUsage.TestMember;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class ExtensionVariousClassUsageTest {
     public static void main(String[] args) {
         // 일단 여러명의 회원과 여러개의 상품을 배치
