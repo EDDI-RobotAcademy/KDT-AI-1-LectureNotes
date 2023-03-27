@@ -2,12 +2,13 @@ package TEST.card_uebung;
 
 import utility.random.CustomRandom;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CardSpiel {
-    String[] cardnum = new String[] {"A","2","3","4","5","6","7","8","9","J","Q","K"};
-    List<String> CardList;
-    List<String> CardTakeList;
+    char[] cardnum = new char[] {'A','2','3','4','5','6','7','8','9','J','Q','K'};
+    List<Character> CardList;
+    List<Character> CardTakeList;
 
     public CardSpiel() {
         CardTakeList = new ArrayList<>();
@@ -17,7 +18,7 @@ public class CardSpiel {
     public void cardlist() {
         this.cardnum = cardnum;
         this.CardList = CardList;
-        for (String cardn : cardnum)
+        for (char cardn : cardnum)
             CardList.add(cardn);
     }
 
@@ -32,8 +33,8 @@ public class CardSpiel {
         System.out.println(CardTakeList);
     }
 
-
 }
+
 
 
 
