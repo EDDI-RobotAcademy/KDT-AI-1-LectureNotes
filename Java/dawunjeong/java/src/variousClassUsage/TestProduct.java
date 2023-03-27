@@ -10,7 +10,7 @@ public class TestProduct {
     // TestProduct에 넣으면 쓸데없는 정보들이 계속 누적되는 것이다.
     // AWS에서 이런식으로 설계하면 몇 천만원 나옴 / 데이터가 방대해서
     // private TestMember member;
-    final private int memberId;
+    private int memberId;
 
     public TestProduct(String productName, String vendor, int price, int memberId) {
         this.productName = productName;
