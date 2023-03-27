@@ -58,6 +58,9 @@ public class Manager {
             }
 
             //System.out.println(tmpString + "@test.com");
+            // List 타입 변수.add()를 통해
+            // List<데이터타입> 으로 만들었던 데이터타입들을 저장할 수 있습니다.
+            // 그러므로 add 내부에서 new TestMember()를 수행할 수 있습니다.
 
             memberList.add(new TestMember(
                     i, tmpString + "@test.com", "test"));
@@ -67,6 +70,22 @@ public class Manager {
     public void printMemberList () {
         for (TestMember member: memberList) {
             System.out.println(member);
+        }
+    }
+
+    public void addRandomProduct() {
+        // productName, String vendor, int price
+        final int MIN = 0;
+        final int MAX = 2;
+
+        final int DAECHWUL_MIN = 1;
+        final int DAECHWUL_MAX =
+        final String[] productNameArray = { "대출상품1", "대출상품2", "대출상품3"};
+        final String vendor = "DAECHWUL";
+
+        for (int i; i < productNameArray.length; i++) {
+            int productIndex = CustomRandom.generateNumber(MIN, MAX);
+            int price = 10000000 * CustomRandom
         }
     }
 }

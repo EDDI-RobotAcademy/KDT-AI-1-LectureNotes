@@ -3,7 +3,8 @@ package variousClassUsage;
 public class VariousClassUsageTest {
     public static void main(String[] args) {
         // 1. 그냥 클래스 사용하기
-        /*TestProduct product = new TestProduct(
+        /*
+        TestProduct product = new TestProduct(
                 productName:"이거", vendor:"저거브랜드", price:5000);
 
         System.out.println("초기 상품: " + product);
