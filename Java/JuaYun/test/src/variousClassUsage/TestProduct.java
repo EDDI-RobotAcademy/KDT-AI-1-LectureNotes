@@ -18,15 +18,22 @@ public class TestProduct {
         this.memberId = memberId;
     }
 
-    // 가격을 변경하기 위해 changePrice를 생성
+    public TestProduct(String productName, String vendor, int price) {
+        this.productName = productName;
+        this.vendor = vendor;
+        this.price = price;
+    }
+
     public void changePrice(int price) {
         this.price = price;
     }
 
-   public void findMember(TestMember member) {
+    public void findMember(TestMember member) {
        System.out.println("상품 구매자를 찾습니다.");
 
-       // 이슈작성템플릿
+        // memberId는 현재 객체 자신이 가지고 있는 숫자입니다.
+        // member.getMemberId()는 외부에서 입력되어 들어온
+        // member가 가지고 있는 memberId 값입니다.
        if (memberId == member.getMemberId()) {
            System.out.println(member);
            return;
