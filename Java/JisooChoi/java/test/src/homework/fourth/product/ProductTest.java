@@ -1,4 +1,4 @@
-package homework.fifth.product;
+package homework.fourth.product;
 
 import java.util.Scanner;
 
