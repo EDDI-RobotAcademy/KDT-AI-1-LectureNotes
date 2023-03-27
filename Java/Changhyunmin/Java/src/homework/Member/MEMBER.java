@@ -18,12 +18,10 @@ public class MEMBER {
         System.out.println("비밀번호를 작성해주세요.");
         Password = sc.nextLine();
     }
-
     @Override
     public String toString() {
         return Name + "이메일: " + Email + '\n' +
                 "비밀번호: " + Password + '\n'+
                 "방갑습니다." + Name + "님";
     }
-
 }
