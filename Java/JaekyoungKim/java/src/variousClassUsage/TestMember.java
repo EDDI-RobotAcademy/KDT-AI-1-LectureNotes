@@ -1,5 +1,6 @@
 package variousClassUsage;
 
+
 public class TestMember {
     final private int memberId;
     final private String email;
