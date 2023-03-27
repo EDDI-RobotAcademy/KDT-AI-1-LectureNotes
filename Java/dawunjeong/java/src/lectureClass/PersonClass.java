@@ -1,33 +1,39 @@
 package lectureClass;
 
-class Person{
+class Person {
 
-    private int age;
-    private String name;
+    final private int age;
+    final private String name;
 
-    public Person(int age, String name){}
+    public Person(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
 
     public int getAge() {
-        return age = 1;
+        return age;
     }
 
     public String getName() {
-        return name = "홍길동";
+        return name;
     }
 
-    public void setAge (int age) {
-        this.age = age;
-    }
-    public void setName (String name) {
-        this.name = name;
-
+//    public void setAge(int age) {
+//        this.age = age;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//
+//    }
 }
 public class PersonClass {
     public static void main(String[] args) {
 
-        final Person person = new Person();
+        final Person person = new Person(1, "홍길동");
 
-        System.out.println(Person.setAge(2));
-        System.out.println(Person.setName("정다운"));
+//        person.setAge(2);
+//        person.setName("정다운");
+        System.out.println("나이는 " + person.getAge() + "세, 이름은 " + person.getName() + "입니다");
     }
 }

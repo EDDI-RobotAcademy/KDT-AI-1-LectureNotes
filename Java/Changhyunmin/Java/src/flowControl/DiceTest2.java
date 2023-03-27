@@ -16,6 +16,7 @@ public class DiceTest2 {
         //3. 4대신 final int GAME_WINNER_CHECK 으로 사용
 
         System.out.println("첫번째 주사위 = " + diceNumber1);
+        System.out.println("첫번째 주사위 = " + diceNumber1);
         System.out.println("두번째 주사위 = " + diceNumber2);
         System.out.println("두 주사위의 합 = " + diceSum);
 
