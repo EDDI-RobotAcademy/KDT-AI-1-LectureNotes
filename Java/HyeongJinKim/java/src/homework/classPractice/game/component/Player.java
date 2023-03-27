@@ -1,4 +1,4 @@
-package homework.game.component;
+package homework.classPractice.game.component;
 
 import java.util.Arrays;
 
