@@ -1,4 +1,4 @@
-package homework.fifth.memberProfile;
+package homework.fourth.memberProfile;
 
 public class Address {
     private String city;

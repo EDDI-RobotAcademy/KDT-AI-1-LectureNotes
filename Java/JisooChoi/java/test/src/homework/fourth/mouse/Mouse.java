@@ -1,4 +1,4 @@
-package homework.fifth.mouse;
+package homework.fourth.mouse;
 
 public class Mouse {
     //필드

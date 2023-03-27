@@ -1,4 +1,4 @@
-package homework.fifth.memberProfile;
+package homework.fourth.memberProfile;
 
 import java.util.Scanner;
 

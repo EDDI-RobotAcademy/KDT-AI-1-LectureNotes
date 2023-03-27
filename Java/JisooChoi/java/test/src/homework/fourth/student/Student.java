@@ -1,4 +1,4 @@
-package homework.fifth.student;
+package homework.fourth.student;
 
 public class Student {
     //필드

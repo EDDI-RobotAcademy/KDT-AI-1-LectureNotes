@@ -1,4 +1,4 @@
-package homework.fifth.mouse;
+package homework.fourth.mouse;
 
 import java.util.Scanner;
 

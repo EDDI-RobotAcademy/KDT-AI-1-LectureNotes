@@ -1,4 +1,4 @@
-package homework.fifth.board;
+package homework.fourth.board;
 
 import java.util.Scanner;
 
