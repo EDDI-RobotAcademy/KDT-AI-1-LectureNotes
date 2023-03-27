@@ -13,6 +13,7 @@ public class TestProduct {
         this.productName = productName;
         this.vendor = vendor;
         this.price = price;
+        this.memberId = -1;
     }
 
     public void changePrice(int price) {
@@ -25,6 +26,10 @@ public class TestProduct {
             System.out.println(member);
             return;
         }
+    }
+
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
     }
 
     @Override
