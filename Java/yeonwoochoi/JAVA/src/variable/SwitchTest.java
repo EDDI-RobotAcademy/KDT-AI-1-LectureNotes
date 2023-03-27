@@ -1,4 +1,4 @@
-package var;
+package variable;
 
 import java.util.Scanner;
 

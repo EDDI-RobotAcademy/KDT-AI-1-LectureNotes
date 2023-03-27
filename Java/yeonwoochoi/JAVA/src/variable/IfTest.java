@@ -1,6 +1,6 @@
-package var;
+package variable;
 
-public class If {
+public class IfTest {
     public static void main(String[] args) {
 
         final int PERMIT_AGE = 18;

@@ -1,6 +1,6 @@
 package array;
 
-public class HeapTest {
+public class HeapStackTest {
     public static void main(String[] args) {
         final int START = 0;
         final int ALLOC_ARRAY_NUMBER = 5;
