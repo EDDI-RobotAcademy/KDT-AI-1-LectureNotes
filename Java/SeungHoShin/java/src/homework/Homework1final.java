@@ -14,7 +14,10 @@ public class Homework1final {
 
         System.out.println("주사위 " + n + "개의 합은 " + sum + "입니다.");
 
-        if (sum % 4 == 0) {
+        final int game_vitory_condition1= 3;
+        final int game_vitory_condition2= 4;
+
+        if (sum % game_vitory_condition1 == 0 || sum%game_vitory_condition2==0) {
             System.out.println("승리하셨습니다.");
         } else {
             System.out.println("패배하셨습니다.");

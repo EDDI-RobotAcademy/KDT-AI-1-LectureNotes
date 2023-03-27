@@ -2,10 +2,16 @@ package lectureClass;
 
 class Person {
     private int personOld;
+//    public Person(){
+//        this.personOld = personOld;
+//        this.personName = personName;
+//    }
 
     public Person(){
-        this.personOld = personOld;
+        this.personOld = 00;
+        this.personName = "이름";
     }
+
     public int getPersonOld() {
         return personOld;
     }
@@ -21,9 +27,6 @@ class Person {
 
     private String personName;
 
-//    public Person() {
-//        this.personName = personName;     <<-- 얘를 넣으면 왜 동작이 안되는 걸까요?
-//    }
 
     public Person(String personName) {
         this.personName = personName;
@@ -43,6 +46,9 @@ class Person {
 
 public class personClass {
     public static void main(String[] args) {
+        final Person person = new Person();
+        System.out.println(person.getPersonName() + person.getPersonOld());
+
         final Person person1 = new Person();
         person1.setPersonName("김땡땡");
         person1.setPersonOld(20);
