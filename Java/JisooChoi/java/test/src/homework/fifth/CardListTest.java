@@ -23,4 +23,5 @@ public class CardListTest {
 
         System.out.println(cards);
     }
+
 }

@@ -13,4 +13,5 @@ public class Card {
                 "name='" + name + '\'' +
                 '}';
     }
+
 }
