@@ -1,10 +1,11 @@
-package homeworkReview.review.fifth;
+package homeworkReview;
 
 public class Card {
 
     final private CardPattern cardPattern;
 
     public Card(CardPattern cardPattern) {
+
         this.cardPattern = cardPattern;
     }
 

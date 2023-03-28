@@ -1,4 +1,4 @@
-package homeworkReview.review.fifth;
+package homeworkReview;
 
 public enum CardPattern {
     PATTERN_A("A", 1),
@@ -24,14 +24,17 @@ public enum CardPattern {
     }
 
     public String getName() {
+
         return name;
     }
 
     public int getValue() {
+
         return value;
     }
 
     public static CardPattern checkPatternByIndex (int index) {
+
         return patterns[index];
     }
 
