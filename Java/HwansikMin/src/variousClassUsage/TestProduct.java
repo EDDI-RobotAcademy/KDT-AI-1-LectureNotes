@@ -8,7 +8,7 @@ public class TestProduct {
 
     // 상품을 구매할 때마다 사용자 정보가 매번 쌓임
     //private TestMember member;
-    final private int memberId;
+    private int memberId;
 
     public TestProduct(String productName, String vendor, int price, int memberId) {
         this.productName = productName;
@@ -24,13 +24,9 @@ public class TestProduct {
         this.memberId = -1;
     }
 
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
-    }
+    public void setMemberId(int memberId) { this.memberId = memberId; }
 
-    public void changePrice(int price) {
-        this.price = price;
-    }
+    public void changePrice(int price) { this.price = price; }
 
     public void findMember(TestMember member) {
         System.out.println("상품 구매자를 찾습니다!");

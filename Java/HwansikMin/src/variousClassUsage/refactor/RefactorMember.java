@@ -11,9 +11,7 @@ public class RefactorMember {
         this.password = password;
     }
 
-    public int getMemberId() {
-        return memberId;
-    }
+    public int getMemberId() { return memberId; }
 
     @Override
     public String toString() {
