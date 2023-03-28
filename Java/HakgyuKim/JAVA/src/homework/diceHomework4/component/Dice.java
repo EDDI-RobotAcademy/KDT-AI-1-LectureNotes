@@ -14,4 +14,11 @@ public class Dice {
     public int getDiceNumber() {
         return diceNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Dice{" +
+                "diceNumber=" + diceNumber +
+                '}';
+    }
 }

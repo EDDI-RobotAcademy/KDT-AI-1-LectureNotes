@@ -16,14 +16,6 @@ public class Player {
         score = new Score(diceNumberSum);
     }
 
-    public List<Dice> getDiceList() {
-        return DiceList;
-    }
-
-    public Score getScore() {
-        return score;
-    }
-
     private int rollDice() {
         final int FIRST_DICE_INFO = 0;
         final int DECISION_EVEN = 2;
@@ -44,13 +36,26 @@ public class Player {
         } return diceNumberSum;
     }
 
-
-
+    public Dice getSelectedGameDice(int index) {
+        return DiceList.get(index);
+    }
 
     public String getName() {
         return name;
     }
 
+    public Score getScore() {
+        return score;
+    }
 
 
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", DiceList=" + DiceList +
+                ", score=" + score +
+                '}';
+    }
 }
