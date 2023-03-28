@@ -1,16 +1,16 @@
-package variousClassUsage.refactor;
+package homework.fifth.refactor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RefactorProduct {
+public class HomeworkProduct {
 
     final private String productName;
     final private String vendor;
-    private final int price;
+    private int price;
     private List<Integer> memberIDList;
 
-    public RefactorProduct(String productName, String vendor, int price){
+    public HomeworkProduct(String productName, String vendor, int price){
         this.productName = productName;
         this.vendor = vendor;
         this.price = price;
