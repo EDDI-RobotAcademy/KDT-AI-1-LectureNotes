@@ -1,4 +1,4 @@
-package variousClassUsageTest;
+package variousClassUsage;
 
 public class TestMember {
     final private int memberId;

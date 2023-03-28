@@ -1,6 +1,4 @@
-package variousClassUsageTest;
-
-import java.net.InetSocketAddress;
+package variousClassUsage;
 
 public class VariousClassUsageTest {
     public static void main(String[] args) {

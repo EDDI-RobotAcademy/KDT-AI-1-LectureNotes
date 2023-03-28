@@ -1,8 +1,8 @@
-package variousClassUsageTest.extension;
+package variousClassUsage.extension;
 
 import utility.random.CustomRandom;
-import variousClassUsageTest.TestMember;
-import variousClassUsageTest.TestProduct;
+import variousClassUsage.TestMember;
+import variousClassUsage.TestProduct;
 
 import java.util.ArrayList;
 import java.util.List;

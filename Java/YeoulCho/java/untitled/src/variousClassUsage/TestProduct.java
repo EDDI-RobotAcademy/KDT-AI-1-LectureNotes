@@ -1,6 +1,4 @@
-package variousClassUsageTest;
-
-import variousClassUsageTest.TestMember;
+package variousClassUsage;
 
 public class TestProduct {
     final private String productName;

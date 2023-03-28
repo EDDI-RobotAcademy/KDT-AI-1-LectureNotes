@@ -1,4 +1,4 @@
-package variousClassUsageTest.extension;
+package variousClassUsage.extension;
 
 public class ExtensionVariousClassUsageTest {
     // 일단 여러명의 회원을 배치합니다
