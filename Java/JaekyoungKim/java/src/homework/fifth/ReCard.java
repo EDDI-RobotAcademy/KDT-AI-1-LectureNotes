@@ -1,4 +1,4 @@
-package homework.fifth.review;
+package homework.fifth;
 
 public class ReCard {
     final private CardPattern cardPattern;

@@ -1,4 +1,4 @@
-package homework.fifth.review;
+package homework.fifth;
 
 public enum CardPattern {
     PATTERN_A("A", 1),
