@@ -17,15 +17,15 @@ public class TestProduct {
         this.memberId = memberId;
     }
 
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
-    }
-
     public TestProduct(String productName, String vendor, int price) {
         this.productName = productName;
         this.vendor = vendor;
         this.price = price;
         this.memberId = -1;
+    }
+
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
     }
 
     public void changePrice(int price) {

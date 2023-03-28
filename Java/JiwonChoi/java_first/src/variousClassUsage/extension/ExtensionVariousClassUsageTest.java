@@ -1,5 +1,10 @@
 package variousClassUsage.extension;
 
+import variousClassUsage.TestMember;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ExtensionVariousClassUsageTest {
 
     // 일단 여러명의 회원을 배치합시다.

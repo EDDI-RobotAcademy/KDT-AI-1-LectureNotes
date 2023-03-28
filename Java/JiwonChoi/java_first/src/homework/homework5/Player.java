@@ -1,12 +1,11 @@
 package homework.homework5;
-
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Player {
-    int playerNumber;
-    String name;
-    static int cardsCount;
-    int[] cards;
+    int playerNumber; //플레이어번호
+    String name; //이름
+    int cardsCount; //가진 카드 개수
+    ArrayList<Integer> cards; //가진 모든 랜덤카드 (배열)
 
     Player(int playerNumber, String name, int cardsCount){
         this.playerNumber = playerNumber;
@@ -14,32 +13,24 @@ public class Player {
         this.cardsCount = cardsCount;
     }
 
-    public Player(int[] cards) {
+    public void setCards(ArrayList<Integer> cards) {
         this.cards = cards;
     }
 
 
-    public int[] getCards() {
-        return cards;
-    }
-
-    public void setCards(int[] cards) {
-        this.cards = cards;
-    }
-
-    public static int getCardsCount() {
+    public int getCardsCount() {
         return cardsCount;
     }
 
-    public void divideCards() {
-    }
 
     @Override
     public String toString() {
-        return "Player{" +
-                "playerNumber=" + playerNumber +
-                ", name='" + name + '\'' +
-                ", cards=" + Arrays.toString(cards) +
-                '}';
+        return "플레이어" + playerNumber +
+                ":" + name +
+                ", cards=" + cards;
+    }
+
+    public void cards(ArrayList<Integer> arrayCards) {
     }
 }
+

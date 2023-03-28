@@ -1,6 +1,6 @@
 package homework.homework3_A.diceGame3.component;
 
-import  utility.random.CustomRandom;
+import utility.random.CustomRandom;
 
 public class GameDice {
     final private  int MIN = 1; //주사위 최소값

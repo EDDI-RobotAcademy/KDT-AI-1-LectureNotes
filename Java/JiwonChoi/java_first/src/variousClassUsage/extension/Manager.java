@@ -73,9 +73,6 @@ public class Manager {
     }
 
     public void addRandomProduct() {
-        //String productName, String vendor, int price
-        final int MIN = 0;
-        final int MAX = 2;
 
         final  int DAECHWUL_MIN = 1;
         final  int DAECHWUL_MAX = 10;
@@ -83,9 +80,8 @@ public class Manager {
         final String[] productNameArray = {"대출상품1", "대출상품2", "대출상품3"};
         final String vendor = "DAECHWUL";
 
-        for (int i = 0; i<productNameArray.length; i++) {
-            int productIndex = CustomRandom.generateNumber(MIN, MAX);
-            int price = 10000000 * CustomRandom.generateNumber(DAECHWUL_MIN,DAECHWUL_MAX);
+        for (int i = 0; i < productNameArray.length; i++) {
+            int price = 10000000 * CustomRandom.generateNumber(DAECHWUL_MIN, DAECHWUL_MAX);
             productList.add(new TestProduct(
                     productNameArray[i], vendor, price));
         }
@@ -106,11 +102,11 @@ public class Manager {
         for(int i = 0; i < productLength; i++){
             //list 타입에서 get(index)를 지정하면
             //list에 저장된 특정 index의 정보를 얻게 됩니다.
-           TestProduct product = productList.get(
-                   CustomRandom.generateNumber(2));
+            TestProduct product = productList.get(
+                    CustomRandom.generateNumber(2));
 
-             product.setMemberId (
-                     CustomRandom.generateNumber(MIN, MAX));
+            product.setMemberId (
+                    CustomRandom.generateNumber(MIN, MAX));
         }
     }
 }
