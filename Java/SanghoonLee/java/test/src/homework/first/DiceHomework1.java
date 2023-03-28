@@ -8,7 +8,6 @@ public class DiceHomework1 {
         final int MIN = 1;
         final int MAX = 6;
 
-        // 여기선 루프 돌면서 갱신하기 때문에 final이 없는 것임.
         int diceNumberSum = 0;
 
         for (int idx = 0; idx < DICE_NUMBER; idx++) {
