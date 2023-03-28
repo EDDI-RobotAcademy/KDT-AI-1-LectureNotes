@@ -1,6 +1,6 @@
 package enumTest;
 
-public class Pattern {
+public enum Pattern {
     ABCD("첫 번째 패턴", 1),
     EFG("두 번째 패턴", 2),
     HIJK("세 번째 패턴", 3),

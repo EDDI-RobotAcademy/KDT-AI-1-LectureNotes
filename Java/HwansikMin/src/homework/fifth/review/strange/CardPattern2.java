@@ -1,6 +1,6 @@
-package homework.fifth.review;
+package homework.fifth.review.strange;
 
-public enum CardPattern {
+public enum CardPattern2 {
     PATTERN_A("A", 1),
     PATTERN_2("2", 2),
     PATTERN_3("3", 3),
@@ -14,11 +14,10 @@ public enum CardPattern {
     PATTERN_Q("Q", 11),
     PATTERN_K("K", 12);
 
-    public static CardPattern[] patterns = CardPattern.values();
     final private String name;
     final private int value;
 
-    private CardPattern (String name, int value) {
+    private CardPattern2 (String name, int value) {
         this.name = name;
         this.value = value;
     }
@@ -29,10 +28,6 @@ public enum CardPattern {
 
     public int getValue() {
         return value;
-    }
-
-    public static CardPattern checkPatternByIndex (int index) {
-        return patterns[index];
     }
 
     @Override
