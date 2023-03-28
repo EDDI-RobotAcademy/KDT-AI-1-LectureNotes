@@ -13,5 +13,18 @@ public class EnumListTest {
         }
 
         System.out.println(cards);
+
+
+
+        System.out.println("enum과 foreach의 궁합");
+
+        List<Card> cardList = new ArrayList<>();
+
+        for (CardPattern pattern: CardPattern.values()) {
+            cardList.add(new Card(pattern));
+        }
+
+        System.out.println(cardList);
+
     }
 }
