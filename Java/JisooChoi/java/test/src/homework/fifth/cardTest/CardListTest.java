@@ -1,4 +1,6 @@
-package homework.fifth;
+package homework.fifth.cardTest;
+
+import homework.fifth.cardTest.Card;
 
 import java.util.ArrayList;
 import java.util.List;
