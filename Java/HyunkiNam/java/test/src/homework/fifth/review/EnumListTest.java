@@ -1,7 +1,5 @@
 package homework.fifth.review;
 
-import homework.fifth.Card;
-
 import java.util.ArrayList;
 import java.util.List;
 
