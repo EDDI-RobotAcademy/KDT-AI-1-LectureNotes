@@ -1,4 +1,4 @@
-package homework;
+package homework.classPractice;
 
 
 class Game { // 굳이 필요한가

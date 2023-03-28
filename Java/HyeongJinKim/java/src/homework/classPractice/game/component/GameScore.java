@@ -1,4 +1,4 @@
-package homework.game.component;
+package homework.classPractice.game.component;
 
 public class GameScore {
     private int totalScore;

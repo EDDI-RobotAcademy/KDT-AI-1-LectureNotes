@@ -1,4 +1,4 @@
-package homework;
+package homework.classPractice;
 
 class Person {
     private final String isName;
