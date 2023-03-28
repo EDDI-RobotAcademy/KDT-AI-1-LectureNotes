@@ -4,16 +4,9 @@ import java.util.Arrays;
 
 
 class Card {
-    String[] cardNumber;
 
-    {
-        cardNumber = new String[]{"A", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"};
-    }
+    final private String[] cardNumber={"A", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"};
 
-
-    public Card() {
-        this.cardNumber = cardNumber;
-    }
 
     public String[] getCardNumber() {
         for (int i = 0; i < cardNumber.length; i++) {
