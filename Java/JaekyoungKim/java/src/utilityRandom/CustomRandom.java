@@ -6,7 +6,7 @@ public class CustomRandom {
     // 그러므로 별도로 new 를 할 필요가 없이 사용 할 수있음
     // 대표적으로 main, Math.random. 같은 녀석들
 
-    private static int generateNumber (int min, int max){
+    public static int generateNumber (int min, int max){
         return (int) (Math.random()*(max-min)+1)+min;
     }
     public static int generateNumber(int max){
