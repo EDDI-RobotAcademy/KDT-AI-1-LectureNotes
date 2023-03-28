@@ -13,5 +13,18 @@ public class JavaEnumTest {
                     + ", value" + pattern.getValue());
         }
 
+        testPattern = Pattern.HIJK;
+
+        final Pattern comparePattern = Pattern.HIJK;
+        final Pattern wrongPattern = Pattern.EFG;
+
+        //아래와 같이 enum을 사용하면 패턴 매칭을 할 수도 있습니다.
+        // 같으면 0 다르면 0이 아닌 숫자가 나오게 됩니다.
+
+        System.out.println(testPattern.compareTo(comparePattern));
+        // testPattern과 comparePattern을 비교하겠다.
+        System.out.println(testPattern.compareTo(wrongPattern));
+        // testPattern과 wrongPattern을 비교하겠다.
+
     }
 }
