@@ -1,4 +1,4 @@
-package test.secondRefactor;
+package refactor;
 
 
 import utility.random.CustomRandom;

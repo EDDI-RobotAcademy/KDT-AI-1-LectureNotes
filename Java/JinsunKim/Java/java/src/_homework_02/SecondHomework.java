@@ -1,4 +1,4 @@
-package homework2;
+package _homework_02;
 
 class Dice2 {
 //    final int MAX_DICE = 4;
