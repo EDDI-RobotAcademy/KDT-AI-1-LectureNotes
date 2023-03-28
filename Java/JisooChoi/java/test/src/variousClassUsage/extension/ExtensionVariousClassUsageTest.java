@@ -15,10 +15,10 @@ public class ExtensionVariousClassUsageTest {
 
         manager.addRandomProduct();
         manager.printProductList();
-
-        System.out.println();
-
-        manager.buyRandomProduct();
-        manager.printProductList();
+//
+//        System.out.println();
+//
+//        manager.buyRandomProduct();
+//        manager.printProductList();
     }
 }
