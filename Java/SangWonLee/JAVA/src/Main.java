@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 
 public class Main {
@@ -96,6 +93,30 @@ public class Main {
 
 //        System.out.println(abcde);
 
+
+
+// String 객체를 관리하는 Vector 객체 생성
+        List<String> vec = new Vector<>();
+
+// 객체 추가
+        vec.add("abc");
+        vec.add("def");
+
+// 객체 제거
+        vec.remove(0);
+        System.out.println(vec);
+
+        List<String> LL = new LinkedList<>();
+
+        LL.add("샤샤");
+        LL.add("소소");
+        LL.add("식식");
+
+        System.out.println(LL);
+
+        LL.remove("소소");
+
+        System.out.println(LL);
 
 
 
