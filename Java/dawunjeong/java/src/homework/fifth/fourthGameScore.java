@@ -1,6 +1,5 @@
 package homework.fifth;
 public class fourthGameScore {
-
     private int totalScore;
 
     public fourthGameScore(int totalScore) {
@@ -11,6 +10,7 @@ public class fourthGameScore {
         this.totalScore -= stealScore;
         otherScore.totalScore += stealScore;
     }
+
     public void addScore(int buffScore) {
         this.totalScore += buffScore;
     }
