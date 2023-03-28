@@ -1,5 +1,8 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+
 
 public class Main {
 
@@ -38,6 +41,27 @@ public class Main {
         System.out.println(abcd);
         System.out.println(abcd.get(2) + abcd.get(3));
 
+        for (int i = 0; i < abcd.size(); i++) {
+            System.out.print(abcd.get(i) + " ");
+        }
+
+        System.out.println();
+        Iterator iter = abcd.iterator();
+        while (iter.hasNext()){
+            System.out.print(iter.next() + " ");
+        }
+        System.out.println();
+
+        ListIterator<String> listIter = abcd.listIterator(abcd.size());
+        while (listIter.hasPrevious()){
+            System.out.print(listIter.previous()+ " ");
+        }
+        System.out.println();
+
+
+
+
+
         List<String> abcdList = new ArrayList<>();
         
         abcdList.add("고고");
@@ -58,9 +82,19 @@ public class Main {
 
         System.out.println(abcdList);
         
-        
+//        ArrayList abcde = new ArrayList();
+//
+//        System.out.println(abcde.getClass().getName());
+//
+//        abcde.add("가나다");
+//        abcde.add("가나다라");
+//        abcde.add(1);
+//
+//        System.out.println(abcde.get(0).getClass().getName());
+//        System.out.println(abcde.get(2).getClass().getName());
 
 
+//        System.out.println(abcde);
 
 
 
