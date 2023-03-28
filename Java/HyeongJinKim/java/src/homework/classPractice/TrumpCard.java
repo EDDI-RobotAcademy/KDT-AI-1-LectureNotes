@@ -5,10 +5,10 @@ import java.util.List;
 
 class Cards {
     final int CARD_ACE = 0;
-    final int CARD_JACK = 11;
-    final int CARD_QUEEN = 12;
-    final int CARD_KING = 13;
-    final int CARD_SCALE = 14;
+    final int CARD_JACK = 10;
+    final int CARD_QUEEN = 11;
+    final int CARD_KING = 12;
+    final int CARD_SCALE = 13;
     List<String> cards;
 
     public Cards() {
