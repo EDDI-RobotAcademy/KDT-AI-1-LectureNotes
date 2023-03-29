@@ -3,61 +3,61 @@ package game;
 import game.Dice;
 import game.GameScore;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-    // Player(플레이어)에게 필요한게 뭐지 ?
-    public class Player {
-        final private int MAX_DICE_NUM = 3;
-        final private String name;
-        final private Dice[] gameDices = new Dice[MAX_DICE_NUM];
-        final private GameScore gameScore;
+// Player(플레이어)에게 필요한게 뭐지 ?
+public class Player {
+    final private int MAX_DICE_NUM = 3;
+    final private String name;
+    final private List<Dice> gameDiceList = new ArrayList<>();
+    final private GameScore gameScore;
 
-        public Player(String name) {
-            this.name = name;
+    public Player(String name) {
+        this.name = name;
+        int diceNumberSum = rollDice();
+        gameScore = new GameScore(diceNumberSum);
+    }
+    private int rollDice() {
+        final int FIRST_DICE_INFO = 0;
+        final int DECISION_EVEN = 2;
+        final int ODD = 1;
+        int diceNumberSum = 0;
 
-            int diceNumberSum = rollDice();
-            gameScore = new GameScore(diceNumberSum);
-        }
+        for (int i = 0; i < MAX_DICE_NUM; i++) {
+            gameDiceList.add(new Dice());
 
-        private int rollDice() {
-            final int FIRST_DICE_INFO = 0;
-            final int DECISION_EVEN = 2;
-            final int ODD = 1;
+            diceNumberSum += gameDiceList.get(i).getDiceNumber();
 
-            int diceNumberSum = 0;
-
-            for (int i = 0; i < MAX_DICE_NUM; i++) {
-                gameDices[i] = new Dice();
-
-                diceNumberSum += gameDices[i].getDiceNumber();
-
-                if (gameDices[FIRST_DICE_INFO].getDiceNumber() %
-                        DECISION_EVEN == ODD) {
-                    break;
-                }
+            if (gameDiceList.get(FIRST_DICE_INFO).getDiceNumber() %
+                    DECISION_EVEN == ODD) {
+                break;
             }
+        }
+        return diceNumberSum;
+    }
 
-            return diceNumberSum;
+    public Dice getSelectedGameDice(int index) {
+        if (gameDiceList.size() > index) {
+            return gameDiceList.get(index);
         }
 
-        public Dice getSelectedGameDice(int index) {
-            return gameDices[index];
-        }
+        return null;
+    }
 
-        public GameScore getGameScore() {
-            return gameScore;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        @Override
-        public String toString() {
-            return "Player{" +
-                    "name='" + name + '\'' +
-                    ", gameDices=" + Arrays.toString(gameDices) +
-                    ", gameScore=" + gameScore +
-                    '}';
-        }
+    public GameScore getGameScore() {
+        return gameScore;
+    }
+    public String getName() {
+        return name;
+    }
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", gameDiceList=" + gameDiceList +
+                ", gameScore=" + gameScore +
+                '}';
+    }
 }
