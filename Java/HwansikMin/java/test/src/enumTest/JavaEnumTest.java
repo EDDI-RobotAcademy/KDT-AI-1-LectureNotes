@@ -19,7 +19,7 @@ public class JavaEnumTest {
 
             // 아래와 같이 enum을 사용하면 패턴 매칭을 할 수도 있습니다.
             // 같으면 0 다르면 0이 아닌 숫자가 나오게 됩니다.
-            System.out.println(testPattern.compareTo(comparePattern));
-            System.out.println(testPattern.compareTo(wrongPattern));
+//            System.out.println(testPattern.compareTo(comparePattern));
+//            System.out.println(testPattern.compareTo(wrongPattern));
         }
 }

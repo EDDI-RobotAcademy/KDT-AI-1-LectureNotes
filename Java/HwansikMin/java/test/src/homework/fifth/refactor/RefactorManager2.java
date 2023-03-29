@@ -37,7 +37,7 @@ public class RefactorManager2 {
         }
 
         memberList.add(new RefactorMember(
-                SequenceGenerator.getCurrentSequenceMemberId(),
+                SequenceGenerator.getCurrentMemberId(),
                 tmpString + "@test.com", "test"));
     }
 

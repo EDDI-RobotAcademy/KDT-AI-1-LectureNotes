@@ -1,5 +1,5 @@
 package math;
-public class RandomTest {
+public class RandomTest_1 {
     public static void main(String[] args) {
         final int START = 0;
         final int END = 100;
