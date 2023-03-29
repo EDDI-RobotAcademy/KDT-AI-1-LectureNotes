@@ -45,6 +45,7 @@ public class friend {
 
         String nick=scanner.nextLine();
         System.out.println(nickName.get(nick));
+        System.out.println(nickName.containsKey("j리거"));
 
 
 
