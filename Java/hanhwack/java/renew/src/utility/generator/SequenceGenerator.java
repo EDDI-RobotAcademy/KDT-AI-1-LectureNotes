@@ -31,7 +31,11 @@ public class SequenceGenerator {
     // Value를 꺼내서 리턴하는 방식으로 구현
 
     public static int getSpecificEntityId (String entityName) {
+        // map 객체에서 get()은 Key값을 토대로 Value 값을 찾는 행위입니다.
+        // Key로 검색을 했으나 정보가 없다면 null을 return합니다
         if (entityNameMappedID.get(entityName) == null) {
+            // map 객체에서 put()은 put(key, Value) 형태로 출력합니다
+
             entityNameMappedID.put(entityName, 1) ;
             return 0;
         }
@@ -41,7 +45,9 @@ public class SequenceGenerator {
     }
 
     private static int findValueByKey (String entityName) {
+        // get()을 통해 Key값을 던지고 Value값을 얻습니다.
         int currentId = entityNameMappedID.get(entityName);
+        // put()을 통해 Key의 Value 값을 1 증가시킵니다
         entityNameMappedID.put(entityName, currentId + 1);
         return currentId ;
     }
