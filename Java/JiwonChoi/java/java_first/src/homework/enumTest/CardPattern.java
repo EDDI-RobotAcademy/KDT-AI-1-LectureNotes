@@ -14,7 +14,8 @@ public enum CardPattern {
     PATTERN_Q("Q", 11),
     PATTERN_K("K", 12);
 
-    static CardPattern[] patternValueList = CardPattern.values(); //patternValueList는 CardPattern(name, value)를 나열한 배열
+    public static CardPattern[] patternsList = CardPattern.values();
+    //patternsList는 CardPattern(name, value)를 나열한 배열
     String cardName;
     int value;
 
@@ -31,11 +32,13 @@ public enum CardPattern {
         return cardName;
     }
 
-    public static CardPattern patternName(int num) {
-        return
-        patternValueList[num];
+//    public static CardPattern patternName(int num) {
+//        return
+//        patternValueList[num];
+//    }
+    public static  CardPattern cheackPatternByIndex (int index) {
+        return patternsList[index];
     }
-
     @Override
     public String toString() {
         return "CardPattern{" +

@@ -7,7 +7,7 @@ public class listBasicQuestion {
         Player player1 = new Player(1, "김땡땡", 2); //플레이어 정보
         Player player2 = new Player(2, "이땡땡", 7);
 
-        ArrayList<Integer> arrayCards1 = new ArrayList<>();
+        ArrayList<String> arrayCards1 = new ArrayList<>();
         player1.cards(arrayCards1);
         cards.divideCards(arrayCards1, player1.getCardsCount()); //여러번 랜덤카드를 뽑는 함수
 
