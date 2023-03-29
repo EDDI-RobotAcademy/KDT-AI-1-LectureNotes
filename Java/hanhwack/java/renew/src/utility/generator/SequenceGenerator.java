@@ -35,7 +35,6 @@ public class SequenceGenerator {
         // Key로 검색을 했으나 정보가 없다면 null을 return합니다
         if (entityNameMappedID.get(entityName) == null) {
             // map 객체에서 put()은 put(key, Value) 형태로 출력합니다
-
             entityNameMappedID.put(entityName, 1) ;
             return 0;
         }
