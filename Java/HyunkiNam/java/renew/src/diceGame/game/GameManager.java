@@ -1,6 +1,6 @@
-package game;
+package diceGame.game;
 
-import player.Player;
+import diceGame.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
