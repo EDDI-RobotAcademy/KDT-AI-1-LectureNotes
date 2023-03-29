@@ -1,4 +1,4 @@
-package game;
+package diceGame.game;
 
 
 import utility.random.CustomRandom;
