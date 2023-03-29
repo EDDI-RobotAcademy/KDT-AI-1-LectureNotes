@@ -10,6 +10,9 @@ public class DiceNumber {
     public DiceNumber () {
         this.diceNumber = CustomRandom.generateNumber(MIN, MAX);
     }
+    public void getDiceNumber () {
+        return.diceNumber;
+    }
 
     @Override
     public String toString() {
