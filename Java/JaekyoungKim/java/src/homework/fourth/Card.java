@@ -1,4 +1,4 @@
-package homework.forth;
+package homework.fourth;
 
 import utilityRandom.CustomRandom;
 
