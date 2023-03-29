@@ -89,10 +89,18 @@ public class GameManager {
         GameScore firstPlayerScore = playerArray[0].getGameScore();
         GameScore secondPlayerScore = playerArray[1].getGameScore();
 
-        if (firstPlayerScore.getTotalScore() > secondPlayerScore.getTotalScore()) {
+        final int firstPlayerScoreTotalScore = firstPlayerScore.getTotalScore();
+        final int secondPlayerScoreTotalScore = secondPlayerScore.getTotalScore();
+
+        if (firstPlayerScoreTotalScore > secondPlayerScoreTotalScore) {
             System.out.println("승자: " + playerArray[0].getName());
-        } else {
-            System.out.println("승자: " + playerArray[1].getName());
+            return;
         }
+        if (firstPlayerScoreTotalScore < secondPlayerScoreTotalScore) {
+            System.out.println("승자: " + playerArray[1].getName());
+            return;
+        }
+
+        System.out.println("무승부");
     }
 }
