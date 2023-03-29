@@ -2,14 +2,17 @@ package diceGame.game;
 
 import diceGame.player.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameManager {
     final private int PLAYER_NUM = 2;
-    final private Player[] playerArray = new Player[PLAYER_NUM];
+    final private List<Player> playerList = new ArrayList<>();
 
     public GameManager() {
         for (int i = 0; i < PLAYER_NUM; i++) {
-            playerArray[i] = new Player("플레이어" + (i + 1));
-            System.out.println(playerArray[i]);
+            playerList.add(new Player("플레이어" + (i + 1)));
+            System.out.println(playerList.get(i));
         }
     }
 
@@ -29,7 +32,7 @@ public class GameManager {
         final int SPECIAL_DICE_INDEX = 3 - ARRAY_BIAS;
 
         Dice currentPlayerSpecialDice =
-                playerArray[playerIndex].getSelectedGameDice(SPECIAL_DICE_INDEX);
+                playerList.get(playerIndex).getSelectedGameDice(SPECIAL_DICE_INDEX);
 
         if (currentPlayerSpecialDice == null) { return 0; }
 
@@ -57,10 +60,10 @@ public class GameManager {
             int targetPlayerIndex = findTargetPlayerIndex(i);
 
             GameScore targetPlayerScore =
-                    playerArray[targetPlayerIndex].getGameScore();
+                    playerList.get(targetPlayerIndex).getGameScore();
 
             GameScore currentPlayerScore =
-                    playerArray[i].getGameScore();
+                    playerList.get(i).getGameScore();
 
             switch (currentPlayerSpecialDiceNumber) {
                 case STEAL:
@@ -80,24 +83,24 @@ public class GameManager {
 
     public void printResult() {
         for (int i = 0; i < PLAYER_NUM; i++) {
-            System.out.println(playerArray[i]);
+            System.out.println(playerList.get(i));
         }
     }
 
     public void checkWinner() {
         // TODO: 확장성 문제가 존재함 추후 사용자 숫자 증대시 리팩토링 필요
-        GameScore firstPlayerScore = playerArray[0].getGameScore();
-        GameScore secondPlayerScore = playerArray[1].getGameScore();
+        GameScore firstPlayerScore = playerList.get(0).getGameScore();
+        GameScore secondPlayerScore = playerList.get(1).getGameScore();
 
         final int firstPlayerScoreTotalScore = firstPlayerScore.getTotalScore();
         final int secondPlayerScoreTotalScore = secondPlayerScore.getTotalScore();
 
         if (firstPlayerScoreTotalScore > secondPlayerScoreTotalScore) {
-            System.out.println("승자: " + playerArray[0].getName());
+            System.out.println("승자: " + playerList.get(0).getName());
             return;
         }
         if (firstPlayerScoreTotalScore < secondPlayerScoreTotalScore) {
-            System.out.println("승자: " + playerArray[1].getName());
+            System.out.println("승자: " + playerList.get(1).getName());
             return;
         }
 
