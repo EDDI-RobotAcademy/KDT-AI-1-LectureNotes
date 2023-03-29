@@ -1,6 +1,7 @@
 package homework.third;
 
-import homework.third.Player;
+import java.util.ArrayList;
+import java.util.List;
 
 // 친구 <- 추후 다수의 Player로 확장 가능성이 존재
 // 주사위
@@ -9,11 +10,18 @@ import homework.third.Player;
 class ThirdDiceGame {
     final private int PLAYER_NUM = 2;
     final private Player[] playerArray = new Player[PLAYER_NUM];
+    List<Player> playerList=new ArrayList<>(PLAYER_NUM);
 
     public ThirdDiceGame() {
         for (int i = 0; i < PLAYER_NUM; i++) {
             playerArray[i] = new Player("플레이어" + (i + 1));
             System.out.println(playerArray[i]);
+        }
+    }
+    public void ThirdDiceGameList() {
+        for (int i = 0; i < PLAYER_NUM; i++) {
+            playerList.set(i, new Player("플레이어" + (i + 1)));
+            System.out.println(playerList.get(i));
         }
     }
     private int findTargetPlayerIndex(int currentPlayerIndex){
