@@ -1,6 +1,7 @@
 package homework.third;
 
 public class GameScore {
+    public int totalScore1;
     private int totalScore;
     public GameScore(int totalScore) {
         this.totalScore = totalScore;
