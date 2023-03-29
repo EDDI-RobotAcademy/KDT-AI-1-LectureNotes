@@ -1,7 +1,7 @@
-package player;
+package diceGame.player;
 
-import game.Dice;
-import game.GameScore;
+import diceGame.game.Dice;
+import diceGame.game.GameScore;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import java.util.List;
 public class Player {
     final private int MAX_DICE_NUM = 3;
     final private String name;
-    final private List<Dice> gameDicesList = new ArrayList<>();
+    final private List<Dice> gameDiceList = new ArrayList<>();
     final private GameScore gameScore;
 
     public Player(String name) {
@@ -29,11 +29,12 @@ public class Player {
         int diceNumberSum = 0;
 
         for (int i = 0; i < MAX_DICE_NUM; i++) {
-            gameDicesList.add(new Dice());
+            gameDiceList.add(new Dice());
 
-            diceNumberSum += gameDicesList.get(i).getDiceNumber();
+            diceNumberSum += gameDiceList.get(i).getDiceNumber();
 
-            if (gameDicesList.get(FIRST_DICE_INFO).getDiceNumber() % DECISION_EVEN == ODD) {
+            if (gameDiceList.get(FIRST_DICE_INFO).getDiceNumber() %
+                    DECISION_EVEN == ODD) {
                 break;
             }
         }
@@ -42,8 +43,8 @@ public class Player {
     }
 
     public Dice getSelectedGameDice(int index) {
-        if (gameDicesList.size() > index) {
-            return gameDicesList.get(index);
+        if (gameDiceList.size() > index) {
+            return gameDiceList.get(index);
         }
 
         return null;
@@ -61,9 +62,8 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", gameDicesList=" + gameDicesList +
+                ", gameDiceList=" + gameDiceList +
                 ", gameScore=" + gameScore +
                 '}';
     }
-
 }

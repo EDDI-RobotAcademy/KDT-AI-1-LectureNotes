@@ -1,6 +1,6 @@
-package game;
+package diceGame.game;
 
-import player.Player;
+import diceGame.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +11,12 @@ public class GameManager {
 
     public GameManager() {
         for (int i = 0; i < PLAYER_NUM; i++) {
-            playerList.add((new Player("플레이어" + (i + 1))));
+            playerList.add(new Player("플레이어" + (i + 1)));
             System.out.println(playerList.get(i));
         }
     }
 
-    private int findTargetPlayerIndex(int currentPlayerIndex) {
+    private int findTargetPlayerIndex (int currentPlayerIndex) {
         // 상대편 찾기 (1:1 상황)
         int targetPlayerIndex = 0;
 
@@ -27,16 +27,14 @@ public class GameManager {
         return targetPlayerIndex;
     }
 
-    private int findSpecialDiceNumber(int playerIndex) {
+    private int findSpecialDiceNumber (int playerIndex) {
         final int ARRAY_BIAS = 1;
         final int SPECIAL_DICE_INDEX = 3 - ARRAY_BIAS;
 
         Dice currentPlayerSpecialDice =
                 playerList.get(playerIndex).getSelectedGameDice(SPECIAL_DICE_INDEX);
 
-        if (currentPlayerSpecialDice == null) {
-            return 0;
-        }
+        if (currentPlayerSpecialDice == null) { return 0; }
 
         int currentPlayerSpecialDiceNumber =
                 currentPlayerSpecialDice.getDiceNumber();
@@ -56,9 +54,7 @@ public class GameManager {
         for (int i = 0; i < PLAYER_NUM; i++) {
             int currentPlayerSpecialDiceNumber = findSpecialDiceNumber(i);
 
-            if (currentPlayerSpecialDiceNumber == 0) {
-                continue;
-            }
+            if (currentPlayerSpecialDiceNumber == 0) { continue; }
 
             // TODO: 확장성이 떨어지므로 개선 필요 -> 상대편 찾기 (1:1 상황)
             int targetPlayerIndex = findTargetPlayerIndex(i);
