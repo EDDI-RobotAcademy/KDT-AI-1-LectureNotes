@@ -1,4 +1,4 @@
-package math;
+package lecture.math;
 
 public class RandomTest {
     public static void main(String[] args) {

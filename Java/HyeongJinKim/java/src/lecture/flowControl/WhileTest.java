@@ -1,4 +1,4 @@
-package flowControl;
+package lecture.lectureClass.flowControl;
 
 public class WhileTest {
     public static void main(String[] args) {

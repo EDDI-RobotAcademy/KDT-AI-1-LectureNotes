@@ -1,4 +1,4 @@
-package homework.classPractice.game.component;
+package homework.classPractice.game.diceGame3.component;
 
 import utility.random.CustomRandom;
 

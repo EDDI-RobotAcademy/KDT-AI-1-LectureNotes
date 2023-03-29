@@ -1,4 +1,4 @@
-package lectureClass;
+package lecture.lectureClass;
 
 // Led 클래스는 불이 켜졌다 혹은 꺼졌다만 관리하면 됩니다.
 // 클래스의 형태는 현재 아래와 같습니다.

@@ -1,4 +1,4 @@
-package flowControl;
+package lecture.lectureClass.flowControl;
 
 import java.util.Scanner;
 

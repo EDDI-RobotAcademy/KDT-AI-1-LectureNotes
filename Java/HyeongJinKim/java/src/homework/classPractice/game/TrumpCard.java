@@ -1,4 +1,4 @@
-package homework.classPractice;
+package homework.classPractice.game;
 
 import java.util.ArrayList;
 import java.util.List;

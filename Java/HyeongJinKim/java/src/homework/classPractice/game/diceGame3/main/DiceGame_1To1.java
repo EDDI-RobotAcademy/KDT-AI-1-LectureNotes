@@ -1,8 +1,8 @@
-package homework.classPractice.game.main;
+package homework.classPractice.game.diceGame3.main;
 
-import homework.classPractice.game.component.GameDice;
-import homework.classPractice.game.component.GameScore;
-import homework.classPractice.game.component.Player;
+import homework.classPractice.game.diceGame3.component.GameDice;
+import homework.classPractice.game.diceGame3.component.GameScore;
+import homework.classPractice.game.diceGame3.component.Player;
 
 class ThirdDiceGame {
     final private int PLAYER_NUM = 2;
