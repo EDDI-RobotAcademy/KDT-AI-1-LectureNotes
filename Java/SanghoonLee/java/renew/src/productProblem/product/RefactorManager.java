@@ -1,6 +1,6 @@
 package productProblem.product;
 
-import productProblem.member.RefactorMember;
+import productProblem.member.Member;
 import utility.generator.SequenceGenerator;
 import utility.random.CustomRandom;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RefactorManager {
-    List<RefactorMember> memberList;
+    List<Member> memberList;
     List<RefactorProduct> productList;
 
     public RefactorManager() {
@@ -35,13 +35,13 @@ public class RefactorManager {
             tmpString += (char) CustomRandom.generateNumber('a', 'z');
         }
 
-        memberList.add(new RefactorMember(
-                SequenceGenerator.getCurrentSequenceMemberId(),
+        memberList.add(new Member(
+                SequenceGenerator.getSpecificEntityId("Member"),
                 tmpString + "@test.com", "test"));
     }
 
     public void printMemberList () {
-        for (RefactorMember member: memberList) {
+        for (Member member: memberList) {
             System.out.println(member);
         }
     }
