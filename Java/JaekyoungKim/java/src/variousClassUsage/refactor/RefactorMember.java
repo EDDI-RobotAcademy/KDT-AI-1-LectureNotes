@@ -3,6 +3,7 @@ package variousClassUsage.refactor;
 
 public class RefactorMember {
     final private int memberId;
+    // 이 값을 static으로 할수는 없다.
     final private String email;
     final private String password;
 

@@ -19,7 +19,10 @@ public class VariousClassUsageTest {
 
         System.out.println("상품 정보 갱신" + product);
 
+        System.out.println();
         product.findMember(member);
+
+        System.out.println();
         product.findMember(member2);
     }
 }

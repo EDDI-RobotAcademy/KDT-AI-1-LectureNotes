@@ -31,6 +31,8 @@ public class Manager {
     // 1. List<데이터타입>을 작성합니다.
     // 2. 리스트 변수명을 적습니다.
     // 3. new ArrayList<>(); 를 작성하여 리스트 객체를 생성합니다.
+    // List<클래스타입> 변수명 = new ArrayList<>();
+
     List<TestMember> memberList;
     List<TestProduct> productList;
 

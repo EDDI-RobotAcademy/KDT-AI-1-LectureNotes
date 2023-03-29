@@ -26,7 +26,7 @@ public class ListTest {
         List<String> pokerHand = new ArrayList<>();
 
         for (int i = 0; i <POKER_HAND_SIZE; i++) {
-            pokerHand.add(i, pokercard.getPokerCard(CustomRandom.generateNumber(MAX)));
+            pokerHand.add(pokercard.getPokerCard(CustomRandom.generateNumber(MAX)));
         }
         System.out.println(pokerHand);
     }
