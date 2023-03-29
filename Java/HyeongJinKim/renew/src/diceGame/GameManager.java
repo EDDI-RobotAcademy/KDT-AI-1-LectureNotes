@@ -1,4 +1,4 @@
-package game;
+package diceGame;
 
 import player.Player;
 
@@ -19,14 +19,11 @@ public class GameManager {
     private int findTargetPlayerIndex (int currentPlayerIndex) {
         // 상대편 찾기 (1:1 상황)
         int targetPlayerIndex = 0;
-
         if (currentPlayerIndex == 0) {
             targetPlayerIndex = 1;
         }
-
         return targetPlayerIndex;
     }
-
     private int findSpecialDiceNumber (int playerIndex) {
         final int ARRAY_BIAS = 1;
         final int SPECIAL_DICE_INDEX = 3 - ARRAY_BIAS;
@@ -38,24 +35,18 @@ public class GameManager {
 
         int currentPlayerSpecialDiceNumber =
                 currentPlayerSpecialDice.getDiceNumber();
-
         return currentPlayerSpecialDiceNumber;
     }
-
     public void playGame() {
         final int STEAL = 1;
         final int BUFF = 3;
         final int DEATH = 4;
-
         final int STEAL_SCORE = 3;
         final int BUFF_SCORE = 2;
         final int DEATH_SCORE = -1;
-
         for (int i = 0; i < PLAYER_NUM; i++) {
             int currentPlayerSpecialDiceNumber = findSpecialDiceNumber(i);
-
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
-
             // TODO: 확장성이 떨어지므로 개선 필요 -> 상대편 찾기 (1:1 상황)
             int targetPlayerIndex = findTargetPlayerIndex(i);
 
@@ -69,11 +60,9 @@ public class GameManager {
                 case STEAL:
                     targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
                     break;
-
                 case BUFF:
                     currentPlayerScore.addScore(BUFF_SCORE);
                     break;
-
                 case DEATH:
                     currentPlayerScore.loseAll(DEATH_SCORE);
                     break;
@@ -103,7 +92,6 @@ public class GameManager {
             System.out.println("승자: " + playerList.get(1).getName());
             return;
         }
-
         System.out.println("무승부");
     }
 }

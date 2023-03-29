@@ -1,4 +1,4 @@
-package game;
+package diceGame;
 
 import utility.random.CustomRandom;
 
@@ -7,10 +7,9 @@ public class Dice {
     final private int MAX = 6;
     final private int diceNumber;
 
-    public Dice() {
-        this.diceNumber = CustomRandom.generateNumber(MIN, MAX);
+    public Dice(){
+        this.diceNumber = CustomRandom.generateNumber(MIN,MAX);
     }
-
     public int getDiceNumber() {
         return diceNumber;
     }
