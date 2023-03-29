@@ -3,13 +3,15 @@ package player;
 import game.Dice;
 import game.GameScore;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 // Player(플레이어)에게 필요한게 뭐지 ?
 public class Player {
     final private int MAX_DICE_NUM = 3;
     final private String name;
-    final private Dice[] gameDices = new Dice[MAX_DICE_NUM];
+    final private List<Dice> gameDiceList = new ArrayList<>();
     final private GameScore gameScore;
 
     public Player(String name) {
@@ -27,22 +29,34 @@ public class Player {
         int diceNumberSum = 0;
 
         for (int i = 0; i < MAX_DICE_NUM; i++) {
-            gameDices[i] = new Dice();
+            gameDiceList.add(new Dice());
+            // gameDices[i] = new Dice();
 
-            diceNumberSum += gameDices[i].getDiceNumber();
+            diceNumberSum += gameDiceList.get(i).getDiceNumber();
+            //diceNumberSum += gameDices[i].getDiceNumber();
 
-            if (gameDices[FIRST_DICE_INFO].getDiceNumber() %
+            if (gameDiceList.get(FIRST_DICE_INFO).getDiceNumber() %
                     DECISION_EVEN == ODD) {
                 break;
             }
+            /*if (gameDices[FIRST_DICE_INFO].getDiceNumber() %
+                    DECISION_EVEN == ODD) {
+                break;
+            }*/
         }
 
         return diceNumberSum;
     }
 
     public Dice getSelectedGameDice(int index) {
-        return gameDices[index];
+        if(gameDiceList.size() > index) {
+            return gameDiceList.get(index);
+        }
+        return null;
+        //return gameDices[index];
     }
+
+
 
     public GameScore getGameScore() {
         return gameScore;
@@ -56,7 +70,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", gameDices=" + Arrays.toString(gameDices) +
+                ", gameDiceList=" + gameDiceList +
                 ", gameScore=" + gameScore +
                 '}';
     }
