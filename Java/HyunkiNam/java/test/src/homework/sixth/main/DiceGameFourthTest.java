@@ -17,14 +17,7 @@ class FourthDiceGame{
         }
     }
 
-    public void calculateScore(){
-        final int STEAL = 1;
-        final int BUFF = 3;
-        final int DEATH = 4;
-
-        final int STEAL_SCORE = 3;
-        final int BUFF_SCORE = 2;
-        final int DEATH_SCORE = -1;
+    public void calculateFinalScore(){
 
         for(int i=0; i<PLAYER_NUM; i++){
             int currentPlayerSpecialNumber = getThirdDiceNumber(i);
@@ -35,22 +28,7 @@ class FourthDiceGame{
 
             int targetPlayerIndex = findTarget(i);
 
-            GameScore currentPlayerScore = players.get(i).getGameScore();
-            GameScore targetPlayerScore = players.get(targetPlayerIndex).getGameScore();
-
-            switch (currentPlayerSpecialNumber){
-                case STEAL:
-                    currentPlayerScore.stealScore(targetPlayerScore, STEAL_SCORE);
-                    break;
-
-                case BUFF:
-                    currentPlayerScore.buffScore(BUFF_SCORE);
-                    break;
-
-                case DEATH:
-                    currentPlayerScore.deathScore(DEATH_SCORE);
-                    break;
-            }
+            calculateScore(i, targetPlayerIndex, currentPlayerSpecialNumber);
         }
     }
 
@@ -58,7 +36,7 @@ class FourthDiceGame{
         final int ARRAY_BIAS = 1;
         final int SPECIAL_DICE_INDEX = 3 - ARRAY_BIAS;
 
-        return players.get(index).getGameDices().get(SPECIAL_DICE_INDEX);
+        return players.get(index).getGameDices().get(SPECIAL_DICE_INDEX).getDiceNumber();
     }
 
     private int findTarget(int index){
@@ -67,6 +45,35 @@ class FourthDiceGame{
             targetPlayerIndex = 1;
         }
         return targetPlayerIndex;
+    }
+
+    private void calculateScore(int index, int targetPlayerIndex, int currentPlayerSpecialNumber){
+
+        final int STEAL = 1;
+        final int BUFF = 3;
+        final int DEATH = 4;
+
+        final int STEAL_SCORE = 3;
+        final int BUFF_SCORE = 2;
+        final int DEATH_SCORE = -1;
+
+        GameScore currentPlayerScore = players.get(index).getGameScore();
+        GameScore targetPlayerScore = players.get(targetPlayerIndex).getGameScore();
+
+        switch (currentPlayerSpecialNumber) {
+            case STEAL:
+                currentPlayerScore.stealScore(targetPlayerScore, STEAL_SCORE);
+                break;
+
+            case BUFF:
+                currentPlayerScore.buffScore(BUFF_SCORE);
+                break;
+
+            case DEATH:
+                currentPlayerScore.deathScore(DEATH_SCORE);
+                break;
+        }
+
     }
 
     public void chkWin(){
@@ -79,7 +86,7 @@ class FourthDiceGame{
             System.out.println(players.get(1).getName() + " 승리");
         else
             System.out.println("비겼습니다");
-
+            
     }
 
     public void print(){
@@ -88,12 +95,13 @@ class FourthDiceGame{
                     + ", 점수 : " + players.get(i).getDiceNumber() + ", 최종 점수 : " + players.get(i).getGameScore().getTotalScore());
         }
     }
+
 }
 public class DiceGameFourthTest {
     public static void main(String[] args) {
         FourthDiceGame fourthDiceGame = new FourthDiceGame();
 
-        fourthDiceGame.calculateScore();
+        fourthDiceGame.calculateFinalScore();
         fourthDiceGame.print();
         fourthDiceGame.chkWin();
     }
