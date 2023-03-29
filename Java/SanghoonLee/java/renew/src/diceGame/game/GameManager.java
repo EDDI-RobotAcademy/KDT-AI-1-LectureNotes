@@ -1,6 +1,6 @@
-package game;
+package diceGame.game;
 
-import player.Player;
+import diceGame.player.Player;
 
 public class GameManager {
     final private int PLAYER_NUM = 2;

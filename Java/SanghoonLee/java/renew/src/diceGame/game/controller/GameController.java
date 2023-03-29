@@ -1,6 +1,6 @@
-package game.controller;
+package diceGame.game.controller;
 
-import game.GameManager;
+import diceGame.game.GameManager;
 
 public class GameController {
     public static void main(String[] args) {
