@@ -23,14 +23,38 @@ public class GameDice {
     // 주사위 넣는 객체 리스트가 Dice 타입이라, 동일 타입을 받을텐데
     // 그래서 객체 생성해서 넣어주어야 하는데 Dice에서 만들어준
     // diceNum을 어떻게 가져오지?
-    public void addDiceArray(){
-        for(int i = 0; i < diceNumArray.size(); i++){
-//            Dice dice = new Dice(); //★★★ 모르는 부분들
-//            dice.getDiceNum();
-
+    public int addDiceArray(){
+        final int FIRST_DICE_INFO = 0;
+        for(int i = 0; i < DICE_MAX_NUMBER; i++){
             diceNumArray.add(new Dice());
 
-            System.out.println("출력해보기 ! "+diceNumArray);
+            totalScore += diceNumArray.get(i).getDiceNum();
+
+            if(diceNumArray.get(FIRST_DICE_INFO).getDiceNum() % 2 == 1){
+                break;
+            }
+        }
+        return totalScore;
+    }
+
+    public void gamePlay(){
+        final int thirdDice = diceNumArray.size() - 1;
+
+        while(true){
+            if(diceNumArray.get(thirdDice).getDiceNum() == 1){
+                System.out.println("친구에게 점수 3점 빼앗기");
+                break;
+            }
+
+            if(diceNumArray.get(thirdDice).getDiceNum() == 3){
+                System.out.println("자신에게 2점 가산하기");
+                break;
+            }
+
+            if(diceNumArray.get(thirdDice).getDiceNum() == 4){
+                System.out.println("패배!");
+                break;
+            }
         }
     }
 
@@ -38,6 +62,7 @@ public class GameDice {
     public String toString() {
         return "GameDice{" +
                 "diceNumArray=" + diceNumArray +
+                ", totalScore=" + totalScore +
                 '}';
     }
 }
