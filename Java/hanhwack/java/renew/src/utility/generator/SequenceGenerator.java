@@ -32,7 +32,7 @@ public class SequenceGenerator {
 
     public static int getSpecificEntityId (String entityName) {
         if (entityNameMappedID.get(entityName) == null) {
-            entityNameMappedID.put(entityName, currentId + 1) ;
+            entityNameMappedID.put(entityName, 1) ;
             return 0;
         }
 

@@ -1,11 +1,11 @@
 package productProblem.member;
 
-public class RefactorMember {
+public class Member {
     final private int memberId;
     final private String email;
     final private String password;
 
-    public RefactorMember(int memberId, String email, String password) {
+    public Member(int memberId, String email, String password) {
         this.memberId = memberId;
         this.email = email;
         this.password = password;
