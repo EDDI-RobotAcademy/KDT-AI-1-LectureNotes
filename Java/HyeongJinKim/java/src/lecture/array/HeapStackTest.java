@@ -1,4 +1,4 @@
-package array;
+package lecture.lectureClass.array;
 
 public class HeapStackTest {
     public static void main(String[] args) {

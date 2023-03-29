@@ -1,4 +1,4 @@
-package homework.classPractice.game.component;
+package homework.classPractice.game.diceGame3.component;
 
 public class GameScore {
     private int totalScore;

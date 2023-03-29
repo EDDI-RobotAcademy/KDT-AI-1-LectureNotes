@@ -1,4 +1,4 @@
-package homework.classPractice.TrumpCardEnum;
+package homework.classPractice.game.diceGame3.TrumpCardEnum;
 
 import java.util.ArrayList;
 import java.util.List;

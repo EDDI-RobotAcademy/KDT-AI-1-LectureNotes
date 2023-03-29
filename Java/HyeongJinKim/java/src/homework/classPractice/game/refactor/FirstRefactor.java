@@ -1,4 +1,4 @@
-package homework.refactor;
+package homework.classPractice.game.refactor;
 
 import utility.random.CustomRandom;
 

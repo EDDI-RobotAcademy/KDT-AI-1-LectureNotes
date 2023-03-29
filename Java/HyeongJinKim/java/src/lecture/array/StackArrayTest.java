@@ -1,4 +1,4 @@
-package array;
+package lecture.lectureClass.array;
 
 public class StackArrayTest {
     public static void main(String[] args) {

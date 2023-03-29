@@ -1,7 +1,6 @@
-package homework.classPractice.game.component;
+package homework.classPractice.game.diceGame3.component;
 
 import java.util.Arrays;
-
 public class Player {
     final private int MAX_DICE_NUM = 3;
     final private String name;

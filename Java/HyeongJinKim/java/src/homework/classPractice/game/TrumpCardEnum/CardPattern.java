@@ -1,4 +1,4 @@
-package homework.classPractice.TrumpCardEnum;
+package homework.classPractice.game.diceGame3.TrumpCardEnum;
 
 public enum CardPattern {
     PATTERN_A("A", 1),
