@@ -1,4 +1,4 @@
-package player;
+package diceGame.player;
 
 import diceGame.Dice;
 import diceGame.GameScore;
@@ -41,7 +41,6 @@ public class Player {
         if (gameDiceList.size() > index) {
             return gameDiceList.get(index);
         }
-
         return null;
     }
 

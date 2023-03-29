@@ -1,18 +1,29 @@
 package diceGame;
 
-import player.Player;
+import diceGame.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class GameManager {
-    final private int PLAYER_NUM = 2;
+    private int PLAYER_NUM = 2;
     final private List<Player> playerList = new ArrayList<>();
+    final private Scanner scan = new Scanner(System.in);
 
     public GameManager() {
-        for (int i = 0; i < PLAYER_NUM; i++) {
-            playerList.add(new Player("플레이어" + (i + 1)));
-            System.out.println(playerList.get(i));
+        System.out.println("게임시작!");
+        System.out.println("플레이어 수를 입력해주세요(최소 2인)");
+        this.PLAYER_NUM = scan.nextInt();
+
+        if (PLAYER_NUM >= 2){
+            for (int i = 0; i < PLAYER_NUM; i++) {
+                playerList.add(new Player("플레이어" + (i + 1)));
+                System.out.println(playerList.get(i));
+            }
+        }
+        else {
+            System.out.println("올바른 숫자를 입력해주세요!");
         }
     }
 
@@ -43,14 +54,14 @@ public class GameManager {
         final int DEATH = 4;
         final int STEAL_SCORE = 3;
         final int BUFF_SCORE = 2;
-        final int DEATH_SCORE = -1;
+        final int DEATH_SCORE = -100;
         for (int i = 0; i < PLAYER_NUM; i++) {
             int currentPlayerSpecialDiceNumber = findSpecialDiceNumber(i);
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
             // TODO: 확장성이 떨어지므로 개선 필요 -> 상대편 찾기 (1:1 상황)
             int targetPlayerIndex = findTargetPlayerIndex(i);
 
-            GameScore targetPlayerScore =
+            GameScore PlayerScore =
                     playerList.get(targetPlayerIndex).getGameScore();
 
             GameScore currentPlayerScore =
@@ -58,11 +69,19 @@ public class GameManager {
 
             switch (currentPlayerSpecialDiceNumber) {
                 case STEAL:
-                    targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
+                    for (int j = 0; j < playerList.size(); j++){
+                        PlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
+                    }
+                    currentPlayerScore.addScore(STEAL_SCORE);
+                    currentPlayerScore.addScore(STEAL_SCORE);
                     break;
+                    // 모든 플레이어 STEAL_SCORE 감소 후
+                    // currentPlayer 점수 += STEAL_SCORE * 2
+
                 case BUFF:
                     currentPlayerScore.addScore(BUFF_SCORE);
                     break;
+
                 case DEATH:
                     currentPlayerScore.loseAll(DEATH_SCORE);
                     break;
@@ -78,20 +97,30 @@ public class GameManager {
 
     public void checkWinner() {
         // TODO: 확장성 문제가 존재함 추후 사용자 숫자 증대시 리팩토링 필요
-        GameScore firstPlayerScore = playerList.get(0).getGameScore();
-        GameScore secondPlayerScore = playerList.get(1).getGameScore();
-
-        final int firstPlayerScoreTotalScore = firstPlayerScore.getTotalScore();
-        final int secondPlayerScoreTotalScore = secondPlayerScore.getTotalScore();
-
-        if (firstPlayerScoreTotalScore > secondPlayerScoreTotalScore) {
-            System.out.println("승자: " + playerList.get(0).getName());
-            return;
+        List<Integer> ResultScoreList = new ArrayList<>();
+        for (int i = 0; i < playerList.size(); i++) {
+            GameScore ResultScore = playerList.get(i).getGameScore();
+            ResultScoreList.add(ResultScore.getTotalScore());
         }
-        if (firstPlayerScoreTotalScore < secondPlayerScoreTotalScore) {
-            System.out.println("승자: " + playerList.get(1).getName());
-            return;
+
+        int[] rank = new int[ResultScoreList.size()];
+        for (int i = 0; i < rank.length; i++) {
+            rank[i] = 1;
         }
-        System.out.println("무승부");
+        for (int i = 0; i < rank.length; i++){
+            for (int j = 0; j < rank.length; j++){
+                if (ResultScoreList.get(i) < ResultScoreList.get(j)){
+                    rank[i]++;
+                }
+            }
+        }
+        for (int i = 0; i < rank.length; i++){
+            if (ResultScoreList.get(i) != -100) {
+                System.out.println(rank[i] + " : " + rank[i] + "등");
+            }
+            else {
+                System.out.println(rank[i] + " : 패배");
+            }
+        }
     }
 }
