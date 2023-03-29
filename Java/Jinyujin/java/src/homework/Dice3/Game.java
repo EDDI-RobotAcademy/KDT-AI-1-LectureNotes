@@ -1,4 +1,4 @@
-package homework.March28;
+package homework.Dice3;
 
 // 게임판 벌이는 클래스
 public class Game {

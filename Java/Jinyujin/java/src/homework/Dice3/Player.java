@@ -1,4 +1,4 @@
-package homework.March28;
+package homework.Dice3;
 
 // 사용자 클래스
 // 사용자는 뭐가 필요할까?

@@ -1,4 +1,4 @@
-package homework.March28;
+package homework.Dice3;
 
 // 게임스코어 클래스
 public class GameScore {

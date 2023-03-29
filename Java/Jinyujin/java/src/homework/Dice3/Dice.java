@@ -1,4 +1,4 @@
-package homework.March28;
+package homework.Dice3;
 
 import utility.random.CustomRandom;
 

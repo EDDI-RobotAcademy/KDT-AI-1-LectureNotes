@@ -1,4 +1,4 @@
-package homework.March28;
+package homework.Dice3;
 
 // 친구와 게임 - 1:1 게임
 // 주사위를 3개 굴리기
