@@ -14,12 +14,6 @@ class PersonAgeMap {
         return personInfo.get(name);
     }
 
-    @Override
-    public String toString() {
-        return "PersonAgeMap{" +
-                "personInfo=" + personInfo +
-                '}';
-    }
 }
 
 public class PersonAge {

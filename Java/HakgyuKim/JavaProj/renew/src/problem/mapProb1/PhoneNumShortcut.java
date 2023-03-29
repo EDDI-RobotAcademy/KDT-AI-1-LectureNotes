@@ -14,12 +14,6 @@ class PhoneNumShortcutMap {
         return phoneNumInfo.get(phoneNum);
     }
 
-    @Override
-    public String toString() {
-        return "PhoneNumShortcutMap{" +
-                "phoneNumInfo=" + phoneNumInfo +
-                '}';
-    }
 }
 
 public class PhoneNumShortcut {
