@@ -17,7 +17,7 @@ class FourthDiceGame{
         }
     }
 
-    public void playGame(){
+    public void calculateScore(){
         final int STEAL = 1;
         final int BUFF = 3;
         final int DEATH = 4;
@@ -73,10 +73,13 @@ class FourthDiceGame{
         GameScore player1Score = players.get(0).getGameScore();
         GameScore player2Score = players.get(1).getGameScore();
 
-        if(player1Score.getTotalScore() > player2Score.getTotalScore()){
+        if(player1Score.getTotalScore() > player2Score.getTotalScore())
             System.out.println(players.get(0).getName() + " 승리");
-        }else
+        else if(player1Score.getTotalScore() < player2Score.getTotalScore())
             System.out.println(players.get(1).getName() + " 승리");
+        else
+            System.out.println("비겼습니다");
+
     }
 
     public void print(){
@@ -90,7 +93,7 @@ public class DiceGameFourthTest {
     public static void main(String[] args) {
         FourthDiceGame fourthDiceGame = new FourthDiceGame();
 
-        fourthDiceGame.playGame();
+        fourthDiceGame.calculateScore();
         fourthDiceGame.print();
         fourthDiceGame.chkWin();
     }
