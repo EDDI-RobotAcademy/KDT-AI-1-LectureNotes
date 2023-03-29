@@ -116,10 +116,10 @@ public class GameManager {
         }
         for (int i = 0; i < rank.length; i++){
             if (ResultScoreList.get(i) != -100) {
-                System.out.println(rank[i] + " : " + rank[i] + "등");
+                System.out.println("플레이어" + (i + 1) + ": " + rank[i] + "등");
             }
             else {
-                System.out.println(rank[i] + " : 패배");
+                System.out.println("플레이어" + (i + 1) + ": 패배");
             }
         }
     }
