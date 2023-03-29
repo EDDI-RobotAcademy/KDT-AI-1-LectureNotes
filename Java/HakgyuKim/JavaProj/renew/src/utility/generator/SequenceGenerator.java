@@ -21,7 +21,7 @@ public class SequenceGenerator {
     private static Map<String, Integer> entityNameMappedId = new HashMap<>();
 
     // 사용자가 임의의 id 값을 얻고자 할 때
-    // entit 이름에 해당하는 Key 값을 입력으로 넣어서
+    // entity 이름에 해당하는 Key 값을 입력으로 넣어서
     // 현재 entityNameMappedId에서 Key에 대응하는
     // Value를 꺼내서 리턴하는 방식으로 구현
     public static int getSpecificEntityId (String entityName) {
