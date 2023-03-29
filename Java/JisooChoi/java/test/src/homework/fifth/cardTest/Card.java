@@ -1,4 +1,4 @@
-package homework.fifth;
+package homework.fifth.cardTest;
 
 public class Card {
     final private String name;
