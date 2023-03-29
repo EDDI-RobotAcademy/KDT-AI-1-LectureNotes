@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 public class GameManager {
-    final private int PLAYER_NUM = 3;
+    final private int PLAYER_NUM = 10;
     final private List<Player> playerList = new ArrayList<>();
     final private TreeSet<Player> ranking = new TreeSet<>();
 
@@ -97,18 +97,20 @@ public class GameManager {
     }
 
     public void checkWinner() {
-        // TODO: 두명의 플레이어의 3번재 주사위가 4일경우, -1 또 다른 플레이어의 1주사위로 인한 -3 발생으로 인한 4주사위(무조건 패배) 제대로 작동 안함 이슈,
-
+        // TODO: 두명의 플레이어의 3번재 주사위가 4일경우, -1 또 다른 플레이어의 1주사위로 인한 -3 발생으로 4주사위(무조건 패배) 제대로 작동 안함,
+        int tie = 1;
         for (int i = 0; i < PLAYER_NUM; i++) {
             // 동점자 처리를 위해 i>0일때 바로 위 플레이어와 비교하여 동점자 처리
-            // TODO: 단, 동점자가 3명 이상일 경우는 제대로 작동 안함. -> Player 클래스에 rank 멤버변수 도입?
+            // 단, 동점자가 3명 이상일 경우는 제대로 작동 안함. -> 변수 tie 도입으로 해결
+            final int playerTotalScore = playerList.get(i).getGameScore().getTotalScore();
 
-            if ((i > 0) && playerList.get(i - 1).getGameScore().getTotalScore() == playerList.get(i).getGameScore().getTotalScore()) {
-                System.out.println((i) + "등: " + playerList.get(i).getName() +
-                        ", TotalScore: " + playerList.get(i).getGameScore().getTotalScore());
+            if ((i > 0) && playerList.get(i - 1).getGameScore().getTotalScore() == playerTotalScore) {
+                System.out.println(tie + "등: " + playerList.get(i).getName() +
+                        ", TotalScore: " + playerTotalScore);
             } else {
                 System.out.println((i + 1) + "등: " + playerList.get(i).getName() +
-                        ", TotalScore: " + playerList.get(i).getGameScore().getTotalScore());
+                        ", TotalScore: " + playerTotalScore);
+                tie = i + 1;
             }
         }
     }
