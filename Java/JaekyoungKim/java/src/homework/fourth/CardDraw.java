@@ -1,4 +1,4 @@
-package homework.forth;
+package homework.fourth;
 
 public class CardDraw {
     public static void main(String[] args) {
