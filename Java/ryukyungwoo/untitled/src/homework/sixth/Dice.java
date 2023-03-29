@@ -9,30 +9,26 @@ public class Dice {
     final private int MAX_DICE_NUM = 6;
     final private int MIN_DICE_NUM = 1;
     final private int HOW_MANY_DICES = 3;
-    final private int diceNumber;
+    private int diceNumber;
     List<Dice> diceList = new ArrayList<>();
-
+    public Dice(int diceNumber) {
+        this.diceNumber = diceNumber;
+    }
     public Dice () {
-
-        this.diceNumber = CustomRandom.generateNumber(MIN_DICE_NUM, MAX_DICE_NUM);
         for (int i = 0; i < HOW_MANY_DICES; i++) {
+            this.diceNumber = CustomRandom.generateNumber(MIN_DICE_NUM, MAX_DICE_NUM);
             diceList.add(new Dice(diceNumber));
         }
     }
 
-//    for (int i = 0; i < HOW_MANY_DICES; i++) {
-//        diceList.add(CustomRandom.generateNumber(MIN_DICE_NUM, MAX_DICE_NUM));
-//    }
-//    이 방식은 왜 안되는지
-
-
-    public Dice(int dice) {
-        this.diceNumber = dice;
+    public List<Dice> getDiceList() {
+        return diceList;
     }
+
     @Override
     public String toString() {
         return "Dice{" +
-                "dice=" + diceNumber +
+                "diceList=" + diceList +
                 '}';
     }
 
