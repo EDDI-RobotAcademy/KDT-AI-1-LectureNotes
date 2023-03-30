@@ -11,6 +11,6 @@ public class SecondDiceGame {
     public static void main(String[] args) {
         Game game = new Game();
         System.out.println(game);
-        System.out.println(game.checkWin() ? "승리" : "패배" );
+        game.Score();
     }
 }
