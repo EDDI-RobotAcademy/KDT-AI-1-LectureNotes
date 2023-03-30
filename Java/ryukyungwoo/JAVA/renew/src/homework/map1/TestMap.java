@@ -87,11 +87,15 @@ class FriendNicknameRealname {
     final String realname;
 
     public FriendNicknameRealname (String friendNickname, String realname) {
-        Map<String, Integer> mapSetNumberPhoneNumber = new HashMap<>();
+        Map<String, Integer> mapFriendNicknameRealname = new HashMap<>();
         this.friendNickname =friendNickname ;
         this.realname =realname ;
     }}
 public class TestMap {
     public static void main(String[] args) {
+        System.out.println(new NameAge("홍길동", 100));
+        System.out.println(new FriendNamePhoneNumber("홍길동", 8888));
+        System.out.println(new FriendNicknameRealname("홍길동", "고길동"));
+        System.out.println(new SetNumberPhoneNumber(1,8888));
     }
 }
