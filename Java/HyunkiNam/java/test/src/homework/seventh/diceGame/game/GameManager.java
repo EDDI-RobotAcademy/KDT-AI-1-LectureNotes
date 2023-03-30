@@ -18,16 +18,6 @@ public class GameManager {
         }
     }
 
-    private int findTargetPlayerIndex (int currentPlayerIndex) {
-        int targetPlayerIndex = currentPlayerIndex + 1;
-        int MAX_INDEX = PLAYER_NUM - 1;
-        if (currentPlayerIndex == (MAX_INDEX)) {
-            targetPlayerIndex = 0;
-        }
-
-        return targetPlayerIndex;
-    }
-
     private List<Integer> findTargetPlayerList (int currentPlayerIndex) {
         List<Integer> targetPlayerList = new ArrayList<>();
 
@@ -37,13 +27,6 @@ public class GameManager {
             }
             targetPlayerList.add(i);
         }
-
-        int targetPlayerIndex = currentPlayerIndex + 1;
-        int MAX_INDEX = PLAYER_NUM - 1;
-        if (currentPlayerIndex == (MAX_INDEX)) {
-            targetPlayerIndex = 0;
-        }
-
         return targetPlayerList;
     }
 
@@ -76,18 +59,14 @@ public class GameManager {
 
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
 
-            int targetPlayerIndex = findTargetPlayerIndex(i);
             List<Integer> targetPlayerList = findTargetPlayerList(i);
-            GameScore targetPlayerScore =
-                    playerList.get(targetPlayerIndex).getGameScore();
 
             GameScore currentPlayerScore =
                     playerList.get(i).getGameScore();
 
             switch (currentPlayerSpecialDiceNumber) {
                 case STEAL:
-                    currentPlayerScore.takeScore2(playerList, STEAL_SCORE, targetPlayerList);
-                    //targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
+                    currentPlayerScore.takeScore(playerList, STEAL_SCORE, targetPlayerList);
                     break;
 
                 case BUFF:
@@ -109,21 +88,6 @@ public class GameManager {
 
     public List<String> findWinnerPlayer(){
         List<String> winnerPlayerList = new ArrayList<>();
-
-        /*
-        int maxScore = 0;
-        for(int i=0; i<PLAYER_NUM; i++){
-            int score = playerList.get(i).getGameScore().getTotalScore();
-            if(maxScore < score){
-                maxScore = score;
-            }
-        }
-
-        for(int i=0; i<PLAYER_NUM; i++){
-            if(maxScore == playerList.get(i).getGameScore().getTotalScore()){
-                winnerPlayerList.add(playerList.get(i).getName());
-            }
-        }*/
 
         Collections.sort(playerList, new Comparator<Player>() {
             @Override

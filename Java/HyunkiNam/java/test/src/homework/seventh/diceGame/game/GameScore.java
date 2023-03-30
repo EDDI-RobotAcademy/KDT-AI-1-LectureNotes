@@ -11,12 +11,7 @@ public class GameScore {
         this.totalScore = totalScore;
     }
 
-    public void takeScore(GameScore otherScore, int stealScore) {
-        this.totalScore -= stealScore;
-        otherScore.totalScore += stealScore;
-    }
-
-    public void takeScore2(List<Player> player, int stealScore, List<Integer> playerList) {
+    public void takeScore(List<Player> player, int stealScore, List<Integer> playerList) {
         this.totalScore += stealScore;
         for(int i : playerList){
             player.get(i).getGameScore().totalScore -= stealScore;
