@@ -1,8 +1,5 @@
 package practice;
-
 import utility.random.CustomRandom;
-
-import java.util.Arrays;
 
 // 주사위 클래스
 // 이 클래스에선 이거에만 집중할 것
