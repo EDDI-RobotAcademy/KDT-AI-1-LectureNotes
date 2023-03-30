@@ -4,16 +4,16 @@ import java.util.HashMap;
 
 public class MapThree {
     public static void main(String[] args) {
-        HashMap<Integer, String> map = new HashMap<>();
+        HashMap<Integer, String> numberMap = new HashMap<>();
 
-        map.put(1, "010-1111-1111");
-        map.put(2, "010-2222-2222");
-        map.put(3, "010-3333-3333");
+        numberMap.put(1, "010-1111-1111");
+        numberMap.put(2, "010-2222-2222");
+        numberMap.put(3, "010-3333-3333");
 
-        System.out.println(map);
+        System.out.println(numberMap);
 
-        for(int i = 1; i <= map.size(); i++){
-            System.out.println(map.get(i));
+        for(int i = 1; i <= numberMap.size(); i++){
+            System.out.println(numberMap.get(i));
         }
     }
 }
