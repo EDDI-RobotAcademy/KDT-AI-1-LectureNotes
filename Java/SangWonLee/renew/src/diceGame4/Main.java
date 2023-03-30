@@ -14,8 +14,7 @@ public class Main {
         System.out.print("플레이어 수를 입력해주세요 : ");
         personNumber = sc.nextInt();
 
-        addPlayer player = new Player(personNumber);
-
+        Player player = new Player();
 
 
     }

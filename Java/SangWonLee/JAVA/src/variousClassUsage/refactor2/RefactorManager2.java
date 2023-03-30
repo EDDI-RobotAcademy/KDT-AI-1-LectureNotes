@@ -54,11 +54,11 @@ public class RefactorManager2 {
         final String[] productNameArray = {"대출상품1", "대출상품2", "대출상품3"};
         final String vendor = "DAECHWUL";
 
-        for (int i = 0; i < productNameArray.length; i++) {
-            int price = 10000000 * Custom_Random.generateNumber(DAECHWUL_MIN, DAECHWUL_MAX);
-            productList.add(new RefactorProduct(
-                    productNameArray[i], vendor, price));
-        }
+//        for (int i = 0; i < productNameArray.length; i++) {
+//            int price = 10000000 * Custom_Random.generateNumber(DAECHWUL_MIN, DAECHWUL_MAX);
+//            productList.add(new RefactorProduct(
+//                    productNameArray[i], vendor, price));
+//        }
     }
 
     public void printProductList() {
