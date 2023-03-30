@@ -1,9 +1,6 @@
 package homework.sixth.component;
 
-import utility.random.CustomRandom;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Player {
@@ -12,7 +9,7 @@ public class Player {
     final int diceNumber;
     final GameScore gameScore;
 
-    List<Integer> gameDices = new ArrayList<>(Arrays.asList(0,0,0));
+    List<GameDice> gameDices = new ArrayList<>();
 
     public Player(String name) {
         this.name = name;
@@ -22,21 +19,23 @@ public class Player {
 
     private int rollDice() {
         final int DICE_NUM = 3;
-        final int MIN = 1;
-        final int MAX = 6;
 
         int scoreSum = 0;
 
         final int FIRST_DICE_NUM = 0;
 
         for(int i = 0; i< DICE_NUM; i++){
-            int randomValue = CustomRandom.generateNumber(MIN,MAX);
-            gameDices.set(i,randomValue);
-            scoreSum += randomValue;
+            gameDices.add(new GameDice());
+        }
 
-            if(!evenCheck(FIRST_DICE_NUM)){
-                break;
+        if(!evenCheck(FIRST_DICE_NUM)){
+            for(int i=1; i<DICE_NUM; i++){
+                gameDices.get(i).setDiceNumber(0);
             }
+        }
+
+        for(int i=0; i<DICE_NUM; i++){
+            scoreSum += gameDices.get(i).getDiceNumber();
         }
 
         return scoreSum;
@@ -46,7 +45,7 @@ public class Player {
         final int DECISION_EVEN = 2;
         final int ODD = 1;
 
-        if(gameDices.get(FIRST_DICE_NUM) % DECISION_EVEN == ODD){
+        if(gameDices.get(FIRST_DICE_NUM).getDiceNumber() % DECISION_EVEN == ODD){
             return false;
         }
         return true;
@@ -56,9 +55,11 @@ public class Player {
         return name;
     }
 
-    public List<Integer> getGameDices() {
+    public List<GameDice> getGameDices() {
         return gameDices;
     }
+
+
 
     public int getDiceNumber() {
         return diceNumber;
