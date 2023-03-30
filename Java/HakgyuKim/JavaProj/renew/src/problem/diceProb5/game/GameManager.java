@@ -17,6 +17,8 @@ public class GameManager {
         }
     }
 
+
+    /*
     private int findTargetPlayerIndex (int currentPlayerIndex) {
         // 상대편 찾기 (1:1 상황)
         int targetPlayerIndex = currentPlayerIndex + 1;
@@ -24,6 +26,12 @@ public class GameManager {
             targetPlayerIndex = 0;
         }
         return targetPlayerIndex;
+    }
+
+     */
+
+    private int findCurrentPlayerIndex (int currentPlayerIndex) {
+        return currentPlayerIndex;
     }
 
     private int findSpecialDiceNumber (int playerIndex) {
@@ -55,17 +63,27 @@ public class GameManager {
 
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
 
+            int currentPlayerIndex = findCurrentPlayerIndex(i);
+
+            /*
             int targetPlayerIndex = findTargetPlayerIndex(i);
 
             GameScore targetPlayerScore =
                     playerList.get(targetPlayerIndex).getGameScore();
+             */
 
             GameScore currentPlayerScore =
                     playerList.get(i).getGameScore();
 
             switch (currentPlayerSpecialDiceNumber) {
                 case STEAL:
+                    /*
                     targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
+                     */
+                    for (int j = 0; j < PLAYER_NUM; j++) {
+                        playerList.get(j).getGameScore().takeScore(currentPlayerScore, STEAL_SCORE);
+                        if (j == currentPlayerIndex) {continue;}
+                    }
                     break;
 
                 case BUFF:
