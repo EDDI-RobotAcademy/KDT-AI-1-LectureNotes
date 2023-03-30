@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class GameManager {
-    final private int PLAYER_NUM = 3;
+    final private int PLAYER_NUM = 5;
     final private List<Player> playerList = new ArrayList<>();
 
     public GameManager() {
@@ -19,13 +19,9 @@ public class GameManager {
 
     private int findTargetPlayerIndex (int currentPlayerIndex) {
         // 상대편 찾기 (1:1 상황)
-        int targetPlayerIndex =0;
-        for (int i = 0; i < PLAYER_NUM; i++) {
-            currentPlayerIndex = i;
-            targetPlayerIndex = i+1;
-            if (currentPlayerIndex == PLAYER_NUM - 1) {
-                targetPlayerIndex = 0;
-            }
+        int targetPlayerIndex = currentPlayerIndex + 1;
+        if (currentPlayerIndex == PLAYER_NUM - 1) {
+            targetPlayerIndex = 0;
         }
         return targetPlayerIndex;
     }
@@ -59,7 +55,6 @@ public class GameManager {
 
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
 
-            // TODO: 확장성이 떨어지므로 개선 필요 -> 상대편 찾기 (1:1 상황)
             int targetPlayerIndex = findTargetPlayerIndex(i);
 
             GameScore targetPlayerScore =
@@ -91,7 +86,6 @@ public class GameManager {
     }
 
     public void checkWinner() {
-        // TODO: 확장성 문제가 존재함 추후 사용자 숫자 증대시 리팩토링 필요
         List<Integer> playerTotalScoreList = new ArrayList<>();
         for (int i = 0; i < PLAYER_NUM; i++) {
             playerTotalScoreList.add(playerList.get(i).getGameScore().getTotalScore());
