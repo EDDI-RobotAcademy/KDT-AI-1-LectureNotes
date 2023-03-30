@@ -1,5 +1,5 @@
 package homework.fifth.refactor;
-import generate.SequenceGenerator;
+import utilityRandom.generate.SequenceGenerator;
 import utilityRandom.CustomRandom;
 import variousClassUsage.TestMember;
 import variousClassUsage.TestProduct;

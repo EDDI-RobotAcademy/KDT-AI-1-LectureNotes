@@ -7,7 +7,7 @@ public class FourthDice {
     private final int MIN_NUM=1;
     final int new_Dice;
 
-    public FourthDice(int new_Dice) {
+    public FourthDice() {
         this.new_Dice = (int)(CustomRandom.generateNumber(MIN_NUM,MAX_NUM));
     }
 

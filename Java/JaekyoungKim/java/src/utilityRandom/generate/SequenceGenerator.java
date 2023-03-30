@@ -1,4 +1,4 @@
-package generate;
+package utilityRandom.generate;
 
 public class SequenceGenerator {
         private static int currentMemberID=0;
