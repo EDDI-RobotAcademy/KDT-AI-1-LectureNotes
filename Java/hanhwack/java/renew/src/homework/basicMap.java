@@ -22,7 +22,7 @@ public class basicMap {
         nameNumber.put(name2, 5905);
         int Number = nameNumber.get("Kim");
         speedNumber.put(shortNumber, 12);
-        int longNumber = speedNumber.get(12345678);
+        int longNumber = speedNumber.get(01);
         nickReal.put(nickName, "Son");
         String realName = nickReal.get("tall");
 
