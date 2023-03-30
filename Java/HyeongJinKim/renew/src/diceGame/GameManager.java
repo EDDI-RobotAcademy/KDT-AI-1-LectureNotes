@@ -3,11 +3,12 @@ package diceGame;
 import diceGame.player.Player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class GameManager {
-    private int PLAYER_NUM = 2;
+    final private int PLAYER_NUM;
     final private List<Player> playerList = new ArrayList<>();
     final private Scanner scan = new Scanner(System.in);
 
@@ -45,9 +46,7 @@ public class GameManager {
 
         if (currentPlayerSpecialDice == null) { return 0; }
 
-        int currentPlayerSpecialDiceNumber =
-                currentPlayerSpecialDice.getDiceNumber();
-        return currentPlayerSpecialDiceNumber;
+        return currentPlayerSpecialDice.getDiceNumber();
     }
     public void playGame() {
         final int STEAL = 1;
@@ -99,15 +98,13 @@ public class GameManager {
     public void checkWinner() {
         // TODO: 확장성 문제가 존재함 추후 사용자 숫자 증대시 리팩토링 필요
         List<Integer> ResultScoreList = new ArrayList<>();
-        for (int i = 0; i < playerList.size(); i++) {
-            GameScore ResultScore = playerList.get(i).getGameScore();
+        for (Player player : playerList) {
+            GameScore ResultScore = player.getGameScore();
             ResultScoreList.add(ResultScore.getTotalScore());
         }
 
         int[] rank = new int[ResultScoreList.size()];
-        for (int i = 0; i < rank.length; i++) {
-            rank[i] = 1;
-        }
+        Arrays.fill(rank, 1);
         for (int i = 0; i < rank.length; i++){
             for (int j = 0; j < rank.length; j++){
                 if (ResultScoreList.get(i) < ResultScoreList.get(j)){
