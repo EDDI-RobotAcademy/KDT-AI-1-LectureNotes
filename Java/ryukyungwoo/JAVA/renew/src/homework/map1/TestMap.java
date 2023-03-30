@@ -5,11 +5,13 @@ import java.util.Map;
 class NameAge {
     final String name;
     final int age;
-
+    Map<String, Integer> mapNameAge = new HashMap<>();
     public NameAge (String name, int age) {
-        Map<String, Integer> mapNameAge = new HashMap<>();
         this.name = name;
         this.age = age;
+    }
+    public int getAge (String name) {
+        return mapNameAge.get(name);
     }
 
     @Override
@@ -44,7 +46,8 @@ class FriendNamePhoneNumber {
                 "friendName='" + friendName + '\'' +
                 ", PhoneNumber=" + PhoneNumber +
                 '}';
-    }}
+    }
+}
 
 //    class SetNumberPhoneNumber {
 //    public static void main(String[] args) {
@@ -57,20 +60,19 @@ class FriendNamePhoneNumber {
 class SetNumberPhoneNumber {
     final int setNumber;
     final int phoneNumber;
-
     public SetNumberPhoneNumber (int setNumber, int phoneNumber) {
         Map<String, Integer> mapSetNumberPhoneNumber = new HashMap<>();
         this.setNumber =setNumber ;
         this.phoneNumber =phoneNumber ;
     }
-
     @Override
     public String toString() {
         return "SetNumberPhoneNumber{" +
                 "setNumber='" + setNumber + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 '}';
-    }}
+    }
+}
 
 //    class FriendNicknameRealname {
 //    public static void main(String[] args) {
@@ -85,12 +87,19 @@ class SetNumberPhoneNumber {
 class FriendNicknameRealname {
     final String friendNickname;
     final String realname;
-
     public FriendNicknameRealname (String friendNickname, String realname) {
         Map<String, Integer> mapFriendNicknameRealname = new HashMap<>();
         this.friendNickname =friendNickname ;
         this.realname =realname ;
-    }}
+    }
+    @Override
+    public String toString() {
+        return "FriendNicknameRealname{" +
+                "friendNickname='" + friendNickname + '\'' +
+                ", realname='" + realname + '\'' +
+                '}';
+    }
+}
 public class TestMap {
     public static void main(String[] args) {
         System.out.println(new NameAge("홍길동", 100));
