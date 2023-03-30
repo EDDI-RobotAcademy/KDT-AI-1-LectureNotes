@@ -9,7 +9,7 @@ public class GameScore {
 
     public void takeScore(GameScore otherScore, int stealScore) {
         this.totalScore -= stealScore;
-        otherScore.totalScore += stealScore;
+//        otherScore.totalScore += stealScore;
     }
 
     public void addScore(int buffScore) {

@@ -27,14 +27,15 @@ public class GameManager {
         }
     }
 
-    private int findTargetPlayerIndex (int currentPlayerIndex) {
-        // 상대편 찾기 (1:1 상황)
-        int targetPlayerIndex = 0;
-        if (currentPlayerIndex == 0) {
-            targetPlayerIndex = 1;
-        }
-        return targetPlayerIndex;
-    }
+//    private int findTargetPlayerIndex (int currentPlayerIndex) {
+//        // 상대편 찾기 (1:1 상황)
+//        int targetPlayerIndex = 0;
+//        if (currentPlayerIndex == 0) {
+//            targetPlayerIndex = 1;
+//        }
+//        return targetPlayerIndex;
+//    }
+
     private int findSpecialDiceNumber (int playerIndex) {
         final int ARRAY_BIAS = 1;
         final int SPECIAL_DICE_INDEX = 3 - ARRAY_BIAS;
@@ -59,10 +60,10 @@ public class GameManager {
             int currentPlayerSpecialDiceNumber = findSpecialDiceNumber(i);
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
             // TODO: 확장성이 떨어지므로 개선 필요 -> 상대편 찾기 (1:1 상황)
-            int targetPlayerIndex = findTargetPlayerIndex(i);
+//            int targetPlayerIndex = findTargetPlayerIndex(i);
 
-            GameScore PlayerScore =
-                    playerList.get(targetPlayerIndex).getGameScore();
+//            GameScore PlayerScore =
+//                    playerList.get(targetPlayerIndex).getGameScore();
 
             GameScore currentPlayerScore =
                     playerList.get(i).getGameScore();
@@ -70,13 +71,13 @@ public class GameManager {
             switch (currentPlayerSpecialDiceNumber) {
                 case STEAL:
                     for (int j = 0; j < playerList.size(); j++){
-                        PlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
+                        playerList.get(j).getGameScore().
+                                takeScore(playerList.get(j).getGameScore(), STEAL_SCORE);
                     }
-                    currentPlayerScore.addScore(STEAL_SCORE);
-                    currentPlayerScore.addScore(STEAL_SCORE);
+                    currentPlayerScore.addScore(STEAL_SCORE * PLAYER_NUM);
                     break;
                     // 모든 플레이어 STEAL_SCORE 감소 후
-                    // currentPlayer 점수 += STEAL_SCORE * 2
+                    // currentPlayer 점수 += STEAL_SCORE * PLAYER_NUM
 
                 case BUFF:
                     currentPlayerScore.addScore(BUFF_SCORE);
@@ -115,7 +116,7 @@ public class GameManager {
             }
         }
         for (int i = 0; i < rank.length; i++){
-            if (ResultScoreList.get(i) != -100) {
+            if (ResultScoreList.get(i) > -100) {
                 System.out.println("플레이어" + (i + 1) + ": " + rank[i] + "등");
             }
             else {
