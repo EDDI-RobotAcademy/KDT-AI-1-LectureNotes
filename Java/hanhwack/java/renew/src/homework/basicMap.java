@@ -26,10 +26,10 @@ public class basicMap {
         nickReal.put(nickName, "Son");
         String realName = nickReal.get("tall");
 
-        System.out.println("name : "+ name + " age :" + age);
-        System.out.println("name : "+ name2 + " Number :" + Number);
-        System.out.println("short number : "+ shortNumber + " long number :" + longNumber);
-        System.out.println("nick name : "+ nickName + " real name :" + realName);
+        System.out.println("name : "+ name + " age:" + age);
+        System.out.println("name : "+ name2 + " Number " + Number);
+        System.out.println("short number : "+ shortNumber + " long number:" + longNumber);
+        System.out.println("nick name : "+ nickName + " real name:" + realName);
 
     }
 }
