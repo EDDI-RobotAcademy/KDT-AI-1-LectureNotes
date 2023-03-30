@@ -3,53 +3,95 @@ package homework.map1;
 import java.util.HashMap;
 import java.util.Map;
 class NameAge {
-    public static void main(String[] args) {
+    final String name;
+    final int age;
+
+    public NameAge (String name, int age) {
         Map<String, Integer> mapNameAge = new HashMap<>();
-
-        final String name;
-        final int age;
-
-        mapNameAge.put("홍길동", 100);
-        System.out.println(mapNameAge);
+        this.name = name;
+        this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "NameAge{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
+//class FriendNamePhoneNumber {
+//        public static void main(String[] args) {
+//            Map<String, String> mapFriendNamePhoneNumber = new HashMap<>();
+//
+//            final String friendName;
+//            final String PhoneNumber;
+//        }
+//}
 class FriendNamePhoneNumber {
-        public static void main(String[] args) {
-            Map<String, String> mapFriendNamePhoneNumber = new HashMap<>();
+    final String friendName;
+    final int PhoneNumber;
 
-            final String friendName;
-            final String PhoneNumber;
+    public FriendNamePhoneNumber (String friendName, int PhoneNumber) {
+        Map<String, Integer> mapFriendNamePhoneNumber = new HashMap<>();
+        this.friendName = friendName;
+        this.PhoneNumber = PhoneNumber;
+    }
 
-            mapFriendNamePhoneNumber.put("홍길동", "01000000000");
-            System.out.println(mapFriendNamePhoneNumber);
-        }
-}
+    @Override
+    public String toString() {
+        return "FriendNamePhoneNumber{" +
+                "friendName='" + friendName + '\'' +
+                ", PhoneNumber=" + PhoneNumber +
+                '}';
+    }}
+
+//    class SetNumberPhoneNumber {
+//    public static void main(String[] args) {
+//        Map<Integer, String> mapSetNumberPhoneNumber = new HashMap<>();
+//
+//        final Integer setNumber;
+//        final String phoneNumber;
+//    }
+//
 class SetNumberPhoneNumber {
-    public static void main(String[] args) {
-        Map<Integer, String> mapSetNumberPhoneNumber = new HashMap<>();
+    final int setNumber;
+    final int phoneNumber;
 
-        final Integer setNumber;
-        final String phoneNumber;
-
-        mapSetNumberPhoneNumber.put(1,"홍길동");
-        System.out.println(mapSetNumberPhoneNumber);
+    public SetNumberPhoneNumber (int setNumber, int phoneNumber) {
+        Map<String, Integer> mapSetNumberPhoneNumber = new HashMap<>();
+        this.setNumber =setNumber ;
+        this.phoneNumber =phoneNumber ;
     }
-}
+
+    @Override
+    public String toString() {
+        return "SetNumberPhoneNumber{" +
+                "setNumber='" + setNumber + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                '}';
+    }}
+
+//    class FriendNicknameRealname {
+//    public static void main(String[] args) {
+//        Map<String, String> mapFriendNicknameRealname = new HashMap<>();
+//
+//        final String friendNickname;
+//        final String realname;
+//
+//    }
+//
+//}
 class FriendNicknameRealname {
-    public static void main(String[] args) {
-        Map<String, String> mapFriendNicknameRealname = new HashMap<>();
+    final String friendNickname;
+    final String realname;
 
-        final String friendNickname;
-        final String realname;
-
-        mapFriendNicknameRealname.put("홍길동", "홍길동");
-        System.out.println(mapFriendNicknameRealname);
-    }
-
-}
+    public FriendNicknameRealname (String friendNickname, String realname) {
+        Map<String, Integer> mapSetNumberPhoneNumber = new HashMap<>();
+        this.friendNickname =friendNickname ;
+        this.realname =realname ;
+    }}
 public class TestMap {
     public static void main(String[] args) {
-        System.out.println(new NameAge());
     }
 }
