@@ -2,8 +2,6 @@ package practice.practice2;
 
 import utility.random.CustomRandom;
 
-import java.util.List;
-
 public class Dice {
     // 주사위 랜덤 숫자 부여 - CustomRandom
 
