@@ -28,6 +28,25 @@ public class GameManager {
         return targetPlayerIndex;
     }
 
+    private List<Integer> findTargetPlayerList (int currentPlayerIndex) {
+        List<Integer> targetPlayerList = new ArrayList<>();
+
+        for(int i=0; i<PLAYER_NUM; i++){
+            if(i == currentPlayerIndex){
+                continue;
+            }
+            targetPlayerList.add(i);
+        }
+
+        int targetPlayerIndex = currentPlayerIndex + 1;
+        int MAX_INDEX = PLAYER_NUM - 1;
+        if (currentPlayerIndex == (MAX_INDEX)) {
+            targetPlayerIndex = 0;
+        }
+
+        return targetPlayerList;
+    }
+
     private int findSpecialDiceNumber (int playerIndex) {
         final int ARRAY_BIAS = 1;
         final int SPECIAL_DICE_INDEX = 3 - ARRAY_BIAS;
@@ -58,7 +77,7 @@ public class GameManager {
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
 
             int targetPlayerIndex = findTargetPlayerIndex(i);
-
+            List<Integer> targetPlayerList = findTargetPlayerList(i);
             GameScore targetPlayerScore =
                     playerList.get(targetPlayerIndex).getGameScore();
 
@@ -67,7 +86,8 @@ public class GameManager {
 
             switch (currentPlayerSpecialDiceNumber) {
                 case STEAL:
-                    targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
+                    currentPlayerScore.takeScore2(playerList, STEAL_SCORE, targetPlayerList);
+                    //targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
                     break;
 
                 case BUFF:
