@@ -31,7 +31,9 @@ public class GameManager {
         Dice currentPlayerSpecialDice =
                 playerList.get(playerIndex).getSelectedGameDice(SPECIAL_DICE_INDEX);
 
-        if (currentPlayerSpecialDice == null) { return 0; }
+        if (currentPlayerSpecialDice == null) {
+            return 0;
+        }
 
         int currentPlayerSpecialDiceNumber =
                 currentPlayerSpecialDice.getDiceNumber();

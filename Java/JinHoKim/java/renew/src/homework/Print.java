@@ -31,5 +31,6 @@ public class Print {
         System.out.println("1. 친구 별명과 실명을 map에 저장해서 출력해봅시다");
         System.out.println("친구 별명: " + map.get("NickName") + "\n" + "실명: " + map.get("FriendName"));
         System.out.println("");
+        // 6
     }
 }
