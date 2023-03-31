@@ -1,7 +1,5 @@
 package dicereview;
 
-import utility.random.CustomRandom;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +10,35 @@ public class DicePlayer {
     private int DICE_NUM = 3;
     private String name;
     List<DiceRandom> diceRandomList = new ArrayList<>();
+    private DiceScore diceScore;
 
     public DicePlayer(String name) {
         this.name = name;
+
         for (int i = 0; i < DICE_NUM; i++) {
-            diceRandomList.add(new DiceRandom(CustomRandom.generateNumber(DICE_NUM)));
+            // DiceRandom으로 이미 랜덤다이스를 뽑았기때문에
+            // 바로 class DiceRandom을 박아도됨
+            diceRandomList.add(new DiceRandom(DICE_NUM));
         }
+    }
+
+    public void DiceScore() {
+
+        int diceNumberSum = 0;
+        // 일단 주사위를 더한 값을 도출해내게 만들어보자
+        for (int i = 0; i < DICE_NUM; i++) {
+            diceRandomList.add(new DiceRandom(i));
+            diceNumberSum += diceRandomList.get(i).getDiceNumber();
+        }
+        int totalScore = diceNumberSum;
+    }
+
+    public static void main(String[] args) {
+        DicePlayer dicePlayer1 = new DicePlayer("플레이어1");
+        DicePlayer dicePlayer2 = new DicePlayer("플레이어1");
+        System.out.println("플레이어1: " + dicePlayer1);
+        System.out.println("플레이어2: " + dicePlayer2);
+
+
     }
 }

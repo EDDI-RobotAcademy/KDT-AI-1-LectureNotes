@@ -1,7 +1,5 @@
 package dicereview;
 
-import dice.Dice;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +11,7 @@ public class DiceGame {
     private int PLAYER_NUM = 2;
     List<DicePlayer> diceplayerList = new ArrayList<>();
 
-    public DiceGame(int PLAYER_NUM, int diceNumber) {
+    public DiceGame() {
         this.PLAYER_NUM = PLAYER_NUM;
 
         for (int i = 0; i < PLAYER_NUM; i++) {
@@ -22,9 +20,12 @@ public class DiceGame {
         }
     }
 
-    public static void main(String[] args) {
-        DicePlayer dicePlayer = new DicePlayer();
-        System.out.println();
+    @Override
+    public String toString() {
+        return "DiceGame{" +
+                "PLAYER_NUM=" + PLAYER_NUM +
+                ", diceplayerList=" + diceplayerList +
+                '}';
     }
 }
 
