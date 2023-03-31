@@ -1,0 +1,72 @@
+package practice.practice3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Game {
+    // 플레이어 두명의 주사위 합산 값을 확인
+    private List<Player> playerList = new ArrayList<>();
+    final private int PLAYER_COUNT = 2;
+    final private int HAVE_THIRD_DICE = 3;
+    final int LIST_BIAS = 1;
+    final int SPECIAL_DICE_INDEX = 3;
+
+    public Game() {
+        for (int i = 0; i < PLAYER_COUNT; i++) {
+            playerList.add(new Player());
+        }
+    }
+
+    public int findThirdDiceNumber (int playerIndex) {
+        // 먼저 세 번째 주사위 던졌는지 물어보기
+        // diceList의 사이즈 확인하기
+        if (playerList.get(playerIndex).getDiceList().size() == HAVE_THIRD_DICE) {
+            int thirdDiceNumber = playerList.get(playerIndex).getDiceList().get(
+                    SPECIAL_DICE_INDEX - LIST_BIAS).diceNumber2;
+            return thirdDiceNumber;
+        }
+        return 0;
+        // for 문은 오히려 복잡
+        // get(0) -> 0이 들어갔다 = index를 사용했다 - index를 사용할 수 있겠다 생각할 것
+    }
+
+    // 세 번째 주사위 특성 입력
+    public void playGame() {
+        final int STEAL = 1;
+        final int BUFF = 3;
+        final int DEATH = 4;
+
+        final int STEAL_SCORE = -3;
+        final int BUFF_SCORE = +2;
+        final int DEATH_SCORE = -999; // 무조건 패배를 위한 숫자 부여
+
+        for (int i = 0; i < PLAYER_COUNT; i++) {
+
+            if (findThirdDiceNumber(i) == BUFF) {
+                playerList.get(i).getScore().setTotalScore(
+                        playerList.get(i).getScore().getTotalScore() + BUFF_SCORE);
+                //totalScore += totalScore + 2
+                // i번째 플레이어의 스코어의 토탈스코어에
+                // i번째 플레이어의 스코어의 토탈스코어를 가져와서 2를 더해줘라
+            }
+            if (findThirdDiceNumber(i) == DEATH) {
+                playerList.get(i).getScore().setTotalScore(DEATH_SCORE);
+            }
+            if (findThirdDiceNumber(i) == STEAL) {
+                playerList.get(i).getScore().setTotalScore(
+                        playerList.get(i).getScore().getTotalScore() + STEAL_SCORE);
+            }
+            if (findThirdDiceNumber(i) == STEAL) {
+                playerList.get(i).getScore().setTotalScore(
+                        playerList.get(i).getScore().getTotalScore() - STEAL_SCORE);
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "playerList=" + playerList +
+                '}';
+    }
+}
