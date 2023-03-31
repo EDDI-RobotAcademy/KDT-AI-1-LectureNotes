@@ -21,7 +21,7 @@ public class Dice3Main {
         int playerDog = 2; // 플레이어 갯수
 
         Player player = new Player();
-//        player.addPlayer();
+        player.addPlayer();
 
         Dice dice1 = new Dice();
         Dice dice2 = new Dice();
@@ -44,22 +44,11 @@ public class Dice3Main {
 
 
 
-        System.out.println("결과 → " + score1.Score + "  :  " + score2.Score);
+        System.out.println("결과 → " + special.totalScore.get(0) + "  :  " + special.totalScore.get(1));
 
-        if (score1.Score > score2.Score) {
-            System.out.println(player.playerName1 + " 이(가) 승리했습니다. ");
-        }
-        if (score2.Score > score1.Score) {
-            System.out.println(player.playerName2 + " 이(가) 승리했습니다.");
-        }
-        if (score1.Score == score2.Score) {
-            if (score1.Score == -1) {
-                System.out.println("공동 패배 입니다.");
-            } else {
-                System.out.println("무승부 입니다.");
-            }
+        Versus vs = new Versus();
 
-        }
+        vs.pandan(special.totalScore,player.playerName1,player.playerName2);
 
 
     }

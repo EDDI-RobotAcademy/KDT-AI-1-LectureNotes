@@ -6,11 +6,7 @@ public class Score {
 
     int Score = 0;
 
-    public int getScore() {
-        return Score;
-    }
-
-    public void setScore(int score) {
+    public Score(int score) {
         Score = score;
     }
 
@@ -18,8 +14,6 @@ public class Score {
         for (int oneDice : doDice1) {
             Score += oneDice;
         }
-        System.out.println(Score);
-        setScore(Score);
     }
 
 
