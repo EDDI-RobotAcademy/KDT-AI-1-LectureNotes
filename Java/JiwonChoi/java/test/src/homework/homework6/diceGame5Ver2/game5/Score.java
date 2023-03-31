@@ -16,25 +16,25 @@ static void SumBousScore(ArrayList<Player> playerList){
 
         for (int i = 0; i<diceCount; i++) {
             //세번째다이스 넘버가
-            switch (playerList.get(i).diceArray[2].getDiceNumber()) {
+            switch (Player.diceArray[2].getDiceNumber()) {
                 //1이면
                 case 1:
-                    playerList.get(i).setAfterScore(getDiceSum() + 3);
+                    Player.setAfterScore(getDiceSum() + 3);
 
                     break;
 
                 //3이면
                 case 3:
-                    playerList.get(i).setAfterScore(getDiceSum() + 2);
+                    Player.setAfterScore(getDiceSum() + 2);
                     break;
 
                 //4면
                 case 4:
-                    playerList.get(i).setAfterScore(0);
+                    Player.setAfterScore(0);
                     break;
                 //아무것도 아니면
                 default:
-                    playerList.get(i).setAfterScore(getDiceSum());
+                    Player.setAfterScore(getDiceSum());
                     break;
             }
         }
