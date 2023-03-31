@@ -1,16 +1,23 @@
 package practice.dice3;
-import java.util.ArrayList;
-import java.util.List;
+
+import utility.random.CustomRandom;
+
 public class Dice {
-    final private int MAX_DICE_NUM = 6;
-    final private int MIN_DICE_NUM = 1;
-    final private int diceNumber; // 주사위 숫자
+    // 3. 다이스에 필요한거 숫자
+    final private int diceNumber;
+    // 4. 그리고 다이스의 최고값 최고값
+    final private int MAX_NUM = 6;
+    final private int MIN_NUM = 1;
+    // 5. 그리고 해야할 것
+    // 6. 주사위 굴리기
     public Dice () {
-        this.diceNumber =
-                (int)(Math.random()*(MAX_DICE_NUM - MIN_DICE_NUM + 1)) + MIN_DICE_NUM;
+        this.diceNumber = CustomRandom.generateNumber(MIN_NUM, MAX_NUM);
     }
-    public int getDiceNumber() {
-        return diceNumber;
+    // 7. 그리고 스트링으로 diceNumber만 내보내기
+    @Override
+    public String toString() {
+        return "Dice{" +
+                "diceNumber=" + diceNumber +
+                '}';
     }
-    // Dice 굴리기
 }
