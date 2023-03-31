@@ -7,7 +7,7 @@ public class RefactorProduct {
 
     final private String productName;
     final private String vendor;
-    private int price;
+    private final int price;
     private List<Integer> memberIDList;
 
     public RefactorProduct(String productName, String vendor, int price){

@@ -35,11 +35,3 @@ public class March29_Map {
         System.out.println("친구 별명: " + NameMap.get("친구 별명") + ", 친구 실명: " + NameMap.get("친구 실명"));
     }
 }
-
-
-
-
-
-
-
-

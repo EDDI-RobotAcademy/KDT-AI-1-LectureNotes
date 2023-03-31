@@ -59,9 +59,11 @@ public class Board {
                     break; // 스위치문 탈출
                 default:
                     System.out.println("다시 입력하세요.");
+
             }
         }
     }
+
 
 
     public static void main(String[] args) {
