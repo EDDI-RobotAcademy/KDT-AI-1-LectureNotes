@@ -75,6 +75,7 @@ public class ProductManager {
     public void searchBuyerInfo(String productName) {
         Map<String, List<Integer>> BuyerInfoMap = buyInfo.getBuyInfoMap();
         if(BuyerInfoMap.get(productName) == null){
+            System.out.println(productName + " 상품 구매자 없음");
             return;
         }
         int memberSize = BuyerInfoMap.get(productName).size();
