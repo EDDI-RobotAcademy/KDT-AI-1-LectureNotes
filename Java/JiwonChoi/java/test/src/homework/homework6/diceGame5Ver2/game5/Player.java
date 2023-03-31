@@ -8,8 +8,9 @@ public class Player {   //플레이어의 요소- 이름, 주사위배열, 이�
     Dice[] diceArray = new Dice[diceCount]; //다이스 총개수만큼의 배열 할당 현재 3개 ==> [ ][ ][ ]
     int AfterScore;
     Score playerScore;
-    int myIndex;
-    int targetIndex;
+    Target target;
+//    int myIndex;
+//    int targetIndex;
 
     public Dice[] getDiceArray() {
         return diceArray;
@@ -30,16 +31,27 @@ public class Player {   //플레이어의 요소- 이름, 주사위배열, 이�
         this.playerName = playerName;
     }
 
-    public void setMyIndex(int myIndex) {
-        this.myIndex = myIndex;
+    public String getPlayerName() {
+        return playerName;
+    }
+//    public void setMyIndex(int myIndex) {
+//        this.myIndex = myIndex;
+//    }
+//
+//    public int getMyIndex() {
+//        return myIndex;
+//    }
+//
+//    public void setTargetIndex(int targetIndex) {
+//        this.targetIndex = targetIndex;
+//    }
+
+    public Target getTarget() {
+        return target;
     }
 
-    public int getMyIndex() {
-        return myIndex;
-    }
-
-    public void setTargetIndex(int targetIndex) {
-        this.targetIndex = targetIndex;
+    public void setTarget(Target target) {
+        this.target = target;
     }
 
     @Override

@@ -1,8 +1,13 @@
 package homework.homework6.diceGame5Ver2.game5;
 public class Score {
     int beforeScore;
+    int finalScore;
 
     public Score() {
+    }
+
+    public void setFinalScore(int finalScore) {
+        this.finalScore = finalScore;
     }
 
     public void setBeforeScore(int beforeScore) {
