@@ -12,6 +12,7 @@ public class Player {
     final private String name;
     final private List<Dice> gameDiceList = new ArrayList<>();
     final private GameScore gameScore;
+    private int health = 100;
 
     public Player(String name) {
         this.name = name;
@@ -46,6 +47,10 @@ public class Player {
             return gameDiceList.get(index);
         }
         return null;
+    }
+
+    public int getHealth() {
+        return health;
     }
 
     public GameScore getGameScore() {
