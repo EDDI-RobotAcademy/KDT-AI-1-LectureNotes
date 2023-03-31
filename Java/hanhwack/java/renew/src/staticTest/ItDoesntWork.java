@@ -1,6 +1,6 @@
 package staticTest;
 
-class WorkTest() {
+class WorkTest {
     public static void main(String[] args) {
         System.out.println("gogo");
     }
