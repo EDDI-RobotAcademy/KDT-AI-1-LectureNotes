@@ -12,7 +12,7 @@ import java.util.Map;
 public class Manager {
     List<Member> memberList;
     List<Product> productList;
-    public Map<String, List<Integer>> productListMap = new HashMap<>();
+    public Map<String, List<Integer>> productBuyerIdMap = new HashMap<>();
 
     public Manager() {
         memberList = new ArrayList<>();
@@ -81,14 +81,14 @@ public class Manager {
             product.setMemberId(
                     CustomRandom.generateNumber(MAX));
 
-            productListMap.put(productList.get(randomProduct).getProductName(), product.getMemberIdList());
+            productBuyerIdMap.put(productList.get(randomProduct).getProductName(), product.getMemberIdList());
         }
     }
     public void getProductBuyerId (String productName) {
-        if (productListMap.get(productName) == null) {
+        if (productBuyerIdMap.get(productName) == null) {
             System.out.println("상품 구매자가 없습니다");
         } else {
-            System.out.println(productListMap.get(productName));
+            System.out.println(productBuyerIdMap.get(productName));
         }
     }
 }
