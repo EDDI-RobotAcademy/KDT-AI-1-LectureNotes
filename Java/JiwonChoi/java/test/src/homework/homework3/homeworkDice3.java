@@ -1,8 +1,5 @@
 package homework.homework3;
-
-
 import java.util.Arrays;
-
 import static homework.homework3.gameSet.diceCount;
 import static homework.homework3.gameSet.playersListSet;
 
@@ -15,43 +12,32 @@ class Player { //플레이어정보
     public Player(String playerName) { //플레이어 생성
         this.playerName = playerName;
     }
-
     public int getFinalScore() {
         return finalScore;
     }
-
     public void setFinalScore(int finalScore) {
         this.finalScore = finalScore;
     }
-
     public void setBeforeScore(int beforeScore) {
         this.beforeScore = beforeScore;
     }
-
     public int getBeforeScore() {
         return beforeScore;
     }
-
     public String getPlayerName() {
         return playerName;
     }
-
-    public int[] getPlayerDices() {
-        return playerDices;
-    }
-
     public void setPlayerDices(int[] playerDices) {
         this.playerDices = playerDices;
     }
 
     @Override
     public String toString() {
-        return "Player{" +
-                "playerName='" + playerName + '\'' +
-                ", playerDices=" + Arrays.toString(playerDices) +
-                ", beforeScore=" + beforeScore +
-                ", finalScore=" + finalScore +
-                '}';
+        return "playerName = " + playerName + '\n' +
+                "playerDices = " + Arrays.toString(playerDices) + '\n' +
+                "DicesSum = " + beforeScore + '\n' +
+                "+++++보너스 점수를 적용합니다.+++++"+ '\n' +
+                "Score = " + finalScore + '\n' ;
     }
 }
 
@@ -60,19 +46,22 @@ class gameSet { //게임 세팅
     static final int diceCount = 3; //다이스는 총 3개
     static Player[] playersListSet = new Player[2];
 
-    static void makePlayerList(Player _1p, Player _2p) {
+    public gameSet() {
+    }
+
+    static void makePlayerList(Player _1p, Player _2p) { //플레이어를 리스트에 넣기
         playersListSet[0] = _1p;
         playersListSet[1] = _2p;
     }
 
     public static void rollDice(Player player) { //주사위 굴리기
-        int[] playerDices = new int[diceCount];
-        for (int i = 0; i < diceCount; i++) {
-            playerDices[i] = (int) (Math.random() * 6) + 1;
-            player.setPlayerDices(playerDices); //[랜덤주사위1][랜덤주사위2][랜덤주사위3]플레이어 다이스배열 요소에 대입
+        int[] playerDices = new int[diceCount]; //다이스 수만큼 배열 생성 [  ][  ][  ]
+        for (int i = 0; i < diceCount; i++) { //다이스 수만큼 반복
+            playerDices[i] = (int) (Math.random() * 6) + 1; //다이스 배열에 랜덤숫자 저장
+            player.setPlayerDices(playerDices); //위 다이스 배열을 플레이어 다이스배열 요소에 저장
         }
 
-        if(playerDices[0] % 2 != 0){ //홀수면 [랜덤주사위1][0][0]
+        if(playerDices[0] % 2 != 0){ //첫번째 주사위가 홀수면 [랜덤주사위1][0][0]으로 만듬
             playerDices[1] = 0;
             playerDices[2] = 0;
         }
@@ -89,63 +78,71 @@ class Score{
         player.setBeforeScore(startScore);
     }
 
-    static void bonusScore(Player[] playersListSet){
+    static void bonusScore(Player[] playersListSet){ //3번째 다이스의 보너스점수 적용함수
         switch (playersListSet[0].playerDices[2]) { //플레이어1의 경우
-            case 1 :
-                int player1Dice1BonusScore = playersListSet[0].getBeforeScore() + 3;
-                playersListSet[0].setFinalScore(player1Dice1BonusScore);
 
-                int player2Dice1BonusScore = playersListSet[1].getBeforeScore() - 3;
-                playersListSet[1].setFinalScore(player2Dice1BonusScore);
-
-                playersListSet[1].setBeforeScore(player2Dice1BonusScore);
+            case 1 ://3번 다이스가 1인경우
+                int player1_Dice1BonusScore = playersListSet[0].getBeforeScore() + 3;
+                                            // = 플레이어1의      주사위합산점수에    보너스 3점-
+                playersListSet[0].setBeforeScore(player1_Dice1BonusScore);
+                                //-을 비포스코어에 저장
+                int player2_Dice1BonusScore = playersListSet[1].getBeforeScore() - 3;
+                                               // = 플레이어2의   주사위합산점수에    -3점
+                playersListSet[1].setBeforeScore(player2_Dice1BonusScore);
+                              //-을 비포스코어에 저장
                 break;
 
-            case 3 :
-                int player1Dice3BonusScore = playersListSet[0].getBeforeScore() + 2;
-                playersListSet[0].setFinalScore(player1Dice3BonusScore);
+            case 3 ://3번 다이스가 3인경우
+                int player1_Dice3BonusScore = playersListSet[0].getBeforeScore() + 2;
+                                            // = 플레이어1의      주사위합산점수에    보너스 2점-
+                playersListSet[0].setBeforeScore(player1_Dice3BonusScore);
+                                //-을 비포스코어에 저장
                 break;
 
-            case 4 :
-                int player1Dice4BonusScore = 0;
-                playersListSet[0].setFinalScore(player1Dice4BonusScore);
+            case 4 ://3번 다이스가 4인경우 - 무조건 패
+                int player1_Dice4BonusScore = 0;
+                // = 플레이어1의    주사위합산점수를 0으로
+                playersListSet[0].setBeforeScore(player1_Dice4BonusScore);
+                                //비포스코어에 저장
                 break;
 
-            default :
-                int player1DiceDefaultBonusScore = playersListSet[0].getBeforeScore();
-                playersListSet[0].setFinalScore( player1DiceDefaultBonusScore);
+            default ://이외 다이스들
+                int player1_DiceDefaultBonusScore = playersListSet[0].getBeforeScore();
+                                                    // = 플레이어1의    주사위합산점수를 그대로
+                playersListSet[0].setBeforeScore( player1_DiceDefaultBonusScore);
+                                //비포스코어에 저장
                 break;
+
         }
 
-        switch (playersListSet[1].playerDices[2]) { //플레이어2의 경우
-            case 1 :
-                int player2Dice1BonusScore = playersListSet[1].getBeforeScore() + 3;
-                playersListSet[1].setFinalScore(player2Dice1BonusScore);
+        switch (playersListSet[1].playerDices[2]) { //플레이어2의 경우 (위와 동일)
+            case 1 ://3번 다이스가 1인경우
+                int player2_Dice1BonusScore = playersListSet[1].getBeforeScore() + 3;
+                playersListSet[1].setBeforeScore(player2_Dice1BonusScore);
 
                 int player1Dice1BonusScore = playersListSet[0].getBeforeScore() - 3;
-                playersListSet[0].setFinalScore(player1Dice1BonusScore);
+                playersListSet[0].setBeforeScore(player1Dice1BonusScore);
                 break;
 
-            case 3 :
+            case 3 ://3번 다이스가 3인경우
                 int player2Dice3BonusScore = playersListSet[1].getBeforeScore() + 2;
-                playersListSet[1].setFinalScore(player2Dice3BonusScore);
+                playersListSet[1].setBeforeScore(player2Dice3BonusScore);
                 break;
 
-            case 4 :
+            case 4 ://3번 다이스가 4인경우 - 무조건 패
                 int player2Dice4BonusScore = 0;
-                playersListSet[1].setFinalScore(player2Dice4BonusScore);
+                playersListSet[1].setBeforeScore(player2Dice4BonusScore);
                 break;
 
-            default :
+            default ://이외 다이스들
                 int player2DiceDefaultBonusScore = playersListSet[1].getBeforeScore();
-                playersListSet[1].setFinalScore( player2DiceDefaultBonusScore);
+                playersListSet[1].setBeforeScore( player2DiceDefaultBonusScore);
                 break;
         }
 
-//        System.out.println("플레이어1의 점수 = " + playersListSet[0].getFinalScore() +
-//                '\n' +
-//                "플레이어2의 점수 = " + playersListSet[1].getFinalScore() +
-//                '\n');
+        //보너스스코어가 더해진 비포스코어를 각각의 파이널스코어에 넣어준다.
+        playersListSet[0].setFinalScore(playersListSet[0].getBeforeScore());
+        playersListSet[1].setFinalScore(playersListSet[1].getBeforeScore());
 
     }
 
@@ -153,22 +150,40 @@ class Score{
 
 }
 
+class WinnerCheak { //0이 무조건패배
 
-//class winnerCheck { //점수 더 높은사람이 win
-//    public static String winnerName(String _1p, String _2p, int _1pScore, int _2pScore) { //이름1,이름2, 점수1, 점수2 입력
-//        String winner;
-//        if(_1pScore < -998) {               //주사위 4가 나왔을때 큰 숫자를 빼서 지도록..
-//            winner = _2p + " 승리!(주사위 4)";
-//        } else if(_2pScore < -998) {
-//            winner = _1p + " 승리!(주사위 4)";
-//        } else if (_1pScore > _2pScore) {
-//            winner = _1p + " 승리!";
-//        } else if (_1pScore < _2pScore) {
-//            winner = _2p + " 승리!";
-//        } else {
-//            winner = "-무승부-";
-//        }
-//        return winner;
+
+    public WinnerCheak(Player[] playersListSet) {
+        // 둘다 세번째 다이스가 4면
+        if (playersListSet[0].playerDices[2] == 4 && playersListSet[1].playerDices[2] == 4) {
+            System.out.println("무승부 입니다.");
+        } // 둘 중 한명의 세번째 다이스가 4면
+        else if (playersListSet[0].playerDices[2] == 4 || playersListSet[1].playerDices[2] == 4) {
+            if(playersListSet[0].playerDices[2] == 4){  //플레이어1의 세번째 다이스가 0이면
+                System.out.println(playersListSet[0].getPlayerName() + "님 패배입니다."); // 플레이어1 패배
+            } else {System.out.println(playersListSet[1].getPlayerName() + "님 패배입니다.");}// 그렇지 않으면 플레이어2 패배
+        }// 둘 중 한명도 세번째 다이스가 4가 아니면
+        else {
+            if(playersListSet[0].getFinalScore() > playersListSet[1].getFinalScore()){  //플레이어1의 파이널스코어가 더 크면
+                System.out.println(playersListSet[0].getPlayerName() + "님의 승리 입니다.");
+            } else if (playersListSet[0].getFinalScore() < playersListSet[1].getFinalScore()) {//플레이어2의 파이널스코어가 더 크면
+                System.out.println(playersListSet[1].getPlayerName() + "님의 승리 입니다.");
+            } else if (playersListSet[0].getFinalScore() == playersListSet[1].getFinalScore()) {//플레이어1과 2의 파이널스코어가 같으면
+                System.out.println("무승부 입니다.");
+            }
+        }
+    }
+}
+
+//메인이 길어서 함수들 합쳐보려고 했는데 실패...
+//class GamePlay{
+//    public GamePlay(Player[] playersListSet) {
+//
+//        for(int i = 0; i < playersListSet.length; i++) {
+//        gameSet.rollDice(playersListSet[i]);
+//        Score.sumScore(playersListSet[i]);
+//        Score.bonusScore(playersListSet);
+//        new WinnerCheak(playersListSet);}
 //    }
 //}
 
@@ -194,19 +209,7 @@ public class homeworkDice3 {
         System.out.println(playersListSet[0]);
         System.out.println(playersListSet[1]);
 
-        //플레이어
-//        String _1p = "김땡땡";
-//        String _2p = "이땡땡";
-//
-//        //총점
-//        int[] score = gameSet.gamePlay(_1p,_2p);
-//        int _1pScore = score[0];
-//        int _2pScore = score[1];
-//        System.out.println('\n' +_1p + " -> " + _1pScore + "점");
-//        System.out.println(_2p + " -> " + _2pScore + "점");
-//
-//        //승자판단
-//        System.out.print("결과는 ");
-//        System.out.println(winnerCheck.winnerName(_1p, _2p, _1pScore, _2pScore));
+        new WinnerCheak(playersListSet);
+
     }
 }
