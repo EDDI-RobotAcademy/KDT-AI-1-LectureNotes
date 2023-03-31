@@ -8,11 +8,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Manager {
     List<Member> memberList;
     List<Product> productList;
-    public Map<String, List<Integer>> productBuyerIdMap = new HashMap<>();
+    final private Map<String, List<Integer>> productBuyerIdMap = new HashMap<>();
+    final private Map<Integer, Member> productBuyerInfoMap = new HashMap<>();
 
     public Manager() {
         memberList = new ArrayList<>();
@@ -24,6 +26,7 @@ public class Manager {
 
         for (int i = 0; i < MAX_MEMBER_NUMBER; i++) {
             addMember();
+            productBuyerInfoMap.put(i, memberList.get(i));
         }
     }
 
@@ -86,9 +89,25 @@ public class Manager {
     }
     public void getProductBuyerId (String productName) {
         if (productBuyerIdMap.get(productName) == null) {
-            System.out.println("상품 구매자가 없습니다");
+            System.out.println("상품 구매자가 없습니다.");
         } else {
-            System.out.println(productBuyerIdMap.get(productName));
+            List<Integer> productBuyerIdNoRep = productBuyerIdMap.get(productName)
+                    .stream().distinct().collect(Collectors.toList());
+            System.out.println(productBuyerIdNoRep);
+        }
+    }
+
+    public void getProductBuyerFullInfo (String productName) {
+        if (productBuyerIdMap.get(productName) == null) {
+            System.out.println("상품 구매자가 없습니다.");
+        } else {
+            int memberId = 0;
+            List<Integer> productBuyerIdNoRep = productBuyerIdMap.get(productName)
+                    .stream().distinct().collect(Collectors.toList());
+            for (int i =0; i < productBuyerIdNoRep.size(); i++) {
+                memberId = productBuyerIdNoRep.get(i);
+                System.out.println(productBuyerInfoMap.get(memberId));
+            }
         }
     }
 }

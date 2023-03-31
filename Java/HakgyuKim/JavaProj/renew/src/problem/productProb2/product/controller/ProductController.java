@@ -18,5 +18,6 @@ public class ProductController {
         manager.printProductList();
 
         manager.getProductBuyerId("대출상품1");
+        manager.getProductBuyerFullInfo("대출상품1");
     }
 }

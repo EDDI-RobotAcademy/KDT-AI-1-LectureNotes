@@ -15,6 +15,11 @@ public class Member {
         return memberId;
     }
 
+    public String getMemberInfoById (int memberId) {
+        return email;
+
+    }
+
     @Override
     public String toString() {
         return "TestMember{" +
