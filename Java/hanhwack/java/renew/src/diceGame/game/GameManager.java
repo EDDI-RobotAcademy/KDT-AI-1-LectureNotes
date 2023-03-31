@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
-    final private int PLAYER_NUM = 2;
+    final private int PLAYER_NUM = 5;
     final private List<Player> playerList = new ArrayList<>();
     //final private Player[] playerArray = new Player[PLAYER_NUM];
 
@@ -19,16 +19,29 @@ public class GameManager {
         }
     }
 
-    private int findTargetPlayerIndex (int currentPlayerIndex) {
+    /*private int findTargetPlayerIndex (int currentPlayerIndex) {
         // 상대편 찾기 (1:1 상황)
-        int targetPlayerIndex = 0;
+        /*int targetPlayerIndex = 0;
 
         if (currentPlayerIndex == 0) {
             targetPlayerIndex = 1;
         }
 
-        return targetPlayerIndex;
-    }
+        return targetPlayerIndex;*/
+
+        // 전체공격으로 변경
+        // 모든 플레이어를 대상으로 설정
+
+
+    private List<Integer> findAllTargetPlayerIndex (int currentPlayerIndex) {
+        List<Integer> targetPlayerIndexList = new ArrayList<Integer>();
+        for (int i = 0; i < playerList.size(); i++) {
+            if (i != currentPlayerIndex) {
+                targetPlayerIndexList.add(i);
+                }
+            }
+            return targetPlayerIndexList;
+        }
 
     private int findSpecialDiceNumber (int playerIndex) {
         final int ARRAY_BIAS = 1;
@@ -58,10 +71,11 @@ public class GameManager {
         for (int i = 0; i < PLAYER_NUM; i++) {
             int currentPlayerSpecialDiceNumber = findSpecialDiceNumber(i);
 
-            if (currentPlayerSpecialDiceNumber == 0) { continue; }
+            if (currentPlayerSpecialDiceNumber == 0) {
+                continue; }
 
-            // TODO: 확장성이 떨어지므로 개선 필요 -> 상대편 찾기 (1:1 상황)
-            int targetPlayerIndex = findTargetPlayerIndex(i);
+            //현재 스틸스코어 1인만가능 이를 전체공격으로 변환 필요
+            List<Integer> targetPlayerIndex = findAllTargetPlayerIndex(i);
 
             GameScore targetPlayerScore =
                     playerList.get(targetPlayerIndex).getGameScore();
@@ -72,9 +86,17 @@ public class GameManager {
                     //playerArray[i].getGameScore();
 
             switch (currentPlayerSpecialDiceNumber) {
-                case STEAL:
+                /*case STEAL:
                     targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
-                    break;
+                    break;*/
+                case STEAL:
+                    List<Integer> targetPlayerIndexList = findAllTargetPlayerIndex(i);
+                    for (int targetPlayerIndex : targetPlayerIndexList) {
+                        GameScore targetPlayerScore =
+                        playerList.get(targetPlayerIndex).getGameScore();
+                        targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
+                    }
+                     break;
 
                 case BUFF:
                     currentPlayerScore.addScore(BUFF_SCORE);

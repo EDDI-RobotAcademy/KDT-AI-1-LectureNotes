@@ -13,10 +13,12 @@ public class GameScore {
     }
 
     public void addScore(int buffScore) {
+
         this.totalScore += buffScore;
     }
 
     public void loseAll(int deathScore) {
+
         this.totalScore = deathScore;
     }
 
@@ -28,6 +30,7 @@ public class GameScore {
     }
 
     public int getTotalScore() {
+
         return totalScore;
     }
 }
