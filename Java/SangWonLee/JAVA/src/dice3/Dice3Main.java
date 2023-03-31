@@ -18,7 +18,7 @@ public class Dice3Main {
 
     public static void main(String[] args) {
 
-        int playerDog = 2; // 플레이어 갯수
+//        int playerDog = 2; // 플레이어 갯수
 
         Player player = new Player();
         player.addPlayer();
@@ -29,8 +29,8 @@ public class Dice3Main {
         List<Integer> doDice1 = dice1.rollDice();
         List<Integer> doDice2 = dice2.rollDice();
 
-        System.out.println(doDice1);
-        System.out.println(doDice2);
+        System.out.println(player.playerName1 + " 의 주사위는 : " + doDice1);
+        System.out.println(player.playerName2 + " 의 주사위는 : " + doDice2);
 
         Score score1 = new Score(doDice1);
         Score score2 = new Score(doDice2);
@@ -41,8 +41,6 @@ public class Dice3Main {
 
 
         special.goodDice(doDice1,doDice2,player.playerName1,player.playerName2,score1.Score,score2.Score);
-
-
 
         System.out.println("결과 → " + special.totalScore.get(0) + "  :  " + special.totalScore.get(1));
 
