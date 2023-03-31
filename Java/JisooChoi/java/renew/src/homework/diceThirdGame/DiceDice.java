@@ -5,7 +5,7 @@ import utility.random.CustomRandom;
 public class DiceDice {
     final private int MAX = 6;
     final private int MIN = 1;
-    int diceReturn;
+    private int diceReturn;
 
     public DiceDice(){
     }

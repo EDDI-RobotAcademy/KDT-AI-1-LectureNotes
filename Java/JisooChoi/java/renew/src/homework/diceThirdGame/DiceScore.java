@@ -1,7 +1,9 @@
 package homework.diceThirdGame;
 
 public class DiceScore {
-    int totalScore = 0;
+    private int totalScore = 0;
+
+    public DiceScore() {}
 
     public DiceScore(int totalScore){
         this.totalScore += totalScore;
