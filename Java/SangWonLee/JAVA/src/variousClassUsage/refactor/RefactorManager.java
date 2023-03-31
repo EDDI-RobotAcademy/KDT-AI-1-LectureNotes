@@ -2,6 +2,7 @@ package variousClassUsage.refactor;
 
 import variousClassUsage.Custom_Random;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,24 +41,30 @@ public class RefactorManager {
     }
 
     public void addRandomProduct() {
-        final int DAECHWUL_MIN = 1;
-        final int DAECHWUL_MAX = 10;
+        DecimalFormat df = new DecimalFormat("###,### ");
+        final int DAECHWUL_MIN = 100;
+        final int DAECHWUL_MAX = 10000;
 
         final String[] productNameArray = { "대출상품1", "대출상품2", "대출상품3" };
         final String vendor = "DAECHWUL";
 
         for (int i = 0; i < productNameArray.length; i++) {
-            int price = 10000000 * Custom_Random.generateNumber(DAECHWUL_MIN, DAECHWUL_MAX);
+            int price = 10000 * Custom_Random.generateNumber(DAECHWUL_MIN, DAECHWUL_MAX);
+            String dfPrice = df.format(price);
             productList.add(new RefactorProduct(
-                    productNameArray[i], vendor, price));
+                    productNameArray[i], vendor, dfPrice));
         }
     }
 
     public void printProductList () {
         for (RefactorProduct product: productList) {
             System.out.println(product);
+
         }
+        System.out.println();
     }
+
+
 
     public void buyRandomProduct() {
         final int MIN = 0;
