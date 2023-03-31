@@ -5,8 +5,13 @@ public class DiceScore {
 
     public DiceScore() {}
 
-    public DiceScore(int totalScore){
-        this.totalScore += totalScore;
+    public int totalScore(int score){
+        this.totalScore += score;
+        return totalScore;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
     }
 
     @Override

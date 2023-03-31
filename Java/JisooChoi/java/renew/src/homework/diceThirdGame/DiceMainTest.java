@@ -7,7 +7,6 @@ public class DiceMainTest {
 
         String winnerName = "";
         winnerName = game.winner();
-        System.out.println(game);
 
         // ★ 구현해야 할 부분
         // 1. 3번째 주사위 가지고 게임하기
