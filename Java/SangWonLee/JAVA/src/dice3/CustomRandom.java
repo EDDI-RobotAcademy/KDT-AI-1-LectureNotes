@@ -1,6 +1,6 @@
 package dice3;
 
-public class Custom_Random {
+public class CustomRandom {
 
     final private static int MIN = 0;
     // static은 언제나 메모리에 상주함 (Stack도 Heap도 아님)
