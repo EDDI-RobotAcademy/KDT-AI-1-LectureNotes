@@ -41,8 +41,9 @@ public class Member {
     public int getMemberId() {
         return memberId;
     }
-    public static  Map<Integer, MemberInfo> getMemberMap() {
-        return memberMap;
+
+    public static MemberInfo getMemberInfo(int memberId) {
+        return memberMap.get(memberId);
     }
 
     @Override

@@ -97,8 +97,8 @@ public class RefactorManager {
             System.out.println(product.getProductName() +"을 구매하신 고객님의 정보는 ");
             if (getMemberIdByingProduct(product).size() != 0) {
                 for(Integer i: getMemberIdByingProduct(product)){
-                    System.out.print("memberId = " + i+ " ");
-                    System.out.println(Member.getMemberMap().get(i));
+                    System.out.print("memberId = " + i+ ", ");
+                    System.out.println(Member.getMemberInfo(i));
                 }
             } else {
                 System.out.println("없습니다.");
