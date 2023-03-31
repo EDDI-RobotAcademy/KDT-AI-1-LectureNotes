@@ -8,6 +8,6 @@ public class DiceGameController {
         System.out.println("판정 후");
         gamemanager2.playGame2();
         gamemanager2.printResult();
-//        gamemanager2.checkWinner();
+        // gamemanager2.checkWinner();
     }
 }

@@ -15,17 +15,14 @@ public class GameManager2 {
         }
     }
 
-    // targetindex은 currentindex보다 +1씩 커지게
-    // target의 수는 플레이어 수의 -1만큼
-    public int[] findTargetPlayerIndex(int currentPlayerIndex){
+    public List<Integer> findTargetPlayerIndex(int currentPlayerIndex) {
+        List<Integer> targetPlayerIndexArray = new ArrayList<>();
 
-        int[] targetPlayerIndex = new int[(numOfPlayers-1)];
-        int i;
-
-        for(i = 0; i < (numOfPlayers - 1); i++){
-                targetPlayerIndex[i] = currentPlayerIndex + (i + 1);
-
-        } return targetPlayerIndex;
+        for(int i = 0; i < numOfPlayers; i++){
+            if (i == currentPlayerIndex) { continue; }
+            targetPlayerIndexArray.add(i);
+        }
+        return targetPlayerIndexArray;
     }
 
     public int findSpecialDiceNumber(int PlayerIndex){
@@ -57,20 +54,18 @@ public class GameManager2 {
             int currentPlayerSpecialDiceNumber = findSpecialDiceNumber(i);
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
 
-            int[] targetPlayerIndex = findTargetPlayerIndex(i);
+            List<Integer> findTargetPlayerIndex = findTargetPlayerIndex(i); // 타겟인덱스의 리스트
 
             GameScore2 currentGameScore = playersList.get(i).getGamescore2();
 
-            // 플레이어 수의 -1만큼 target score 배열
             GameScore2[] targetGameScore = new GameScore2[(numOfPlayers-1)];
             for(int j = 0; j < (numOfPlayers-1); j++) {
-                targetGameScore[j] = playersList.get(targetPlayerIndex[j]).getGamescore2();
+                targetGameScore[j] = playersList.get(findTargetPlayerIndex.get(j)).getGamescore2();
             }
 
             switch (currentPlayerSpecialDiceNumber) {
                 case STEAL:
-                    // target들의 값을 모두 뺏어와야 함
-                    // target의 수는 플레이어 수의 -1
+
                     for(int k = 0; k < (numOfPlayers-1); k++) {
                         targetGameScore[k].takeScore(currentGameScore, STEAL_SCORE);
                     }
@@ -92,9 +87,15 @@ public class GameManager2 {
             System.out.println(playersList.get(i));
         }
     }
-//    public void checkWinner() {
-//        // TODO: 확장성 문제가 존재함 추후 사용자 숫자 증대시 리팩토링 필요
-//
+    public void checkWinner() {
+
+        List<GameScore2> playerScoreList = null;
+        for (int i = 0; i < numOfPlayers; i++) {
+            playerScoreList = new ArrayList<>();
+            GameScore2 PlayersScore = playersList.get(i).getGamescore2();
+            playerScoreList.add(PlayersScore);
+        }
+
 //        GameScore2 firstPlayerScore = playersList.get(0).getGamescore2();
 //        GameScore2 secondPlayerScore = playersList.get(1).getGamescore2();
 //
@@ -109,8 +110,7 @@ public class GameManager2 {
 //            System.out.println("승자: " + playersList.get(1).getName());
 //            return;
 //        }
-//
-//        System.out.println("무승부");
-//    }
+
+    }
 
 }
