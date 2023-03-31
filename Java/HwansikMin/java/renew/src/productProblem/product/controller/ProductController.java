@@ -1,4 +1,4 @@
-package productProblem.controller;
+package productProblem.product.controller;
 
 import productProblem.product.RefactorManager;
 import utility.generator.SequenceGenerator;
