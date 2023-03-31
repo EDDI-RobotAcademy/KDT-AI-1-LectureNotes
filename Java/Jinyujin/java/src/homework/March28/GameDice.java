@@ -1,11 +1,13 @@
-package game;
+package homework.March28;
 
-public class Dice {
+import utility.random.CustomRandom;
+
+public class GameDice {
     final private int MIN = 1;
     final private int MAX = 6;
     final private int diceNumber;
 
-    public Dice() {
+    public GameDice() {
         this.diceNumber = CustomRandom.generateNumber(MIN, MAX);
     }
 
@@ -20,4 +22,3 @@ public class Dice {
                 '}';
     }
 }
-
