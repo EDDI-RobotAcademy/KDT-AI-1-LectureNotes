@@ -10,6 +10,22 @@ public class DiceScore {
         return totalScore;
     }
 
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    public void setSteal(int plus){
+        this.totalScore += plus;
+    }
+
+    public void loseSteal(int subtraction){
+        this.totalScore -= subtraction;
+    }
+
+    public void setBuff(int selfPlus){
+        this.totalScore += selfPlus;
+    }
+
     public int getTotalScore() {
         return totalScore;
     }

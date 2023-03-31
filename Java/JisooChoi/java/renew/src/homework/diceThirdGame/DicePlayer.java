@@ -6,7 +6,7 @@ public class DicePlayer {
     final private int DICE_MAX_NUM = 3;
     final private int[] diceArray;
     final private String name;
-    final private DiceDice diceArrayObject = new DiceDice(); //주사위 객체 생성
+    private DiceDice diceArrayObject = new DiceDice(); //주사위 객체 생성
 
     // --> * 각 플레이어의 세번째 수를 받아오려면 플레이어에게 누적 점수가 있어야 한다고 판단됨
     final private DiceScore diceGameScore = new DiceScore();
@@ -17,7 +17,7 @@ public class DicePlayer {
     }
 
     public int rollDice(int i){
-        return  diceArray[i] = diceArrayObject.randomDice();
+        return diceArray[i] = diceArrayObject.randomDice();
     }
 
     public int addScore(int diceArray){
@@ -27,6 +27,10 @@ public class DicePlayer {
 
     public String getName() {
         return name;
+    }
+
+    public DiceScore getDiceGameScore() {
+        return diceGameScore;
     }
 
     @Override

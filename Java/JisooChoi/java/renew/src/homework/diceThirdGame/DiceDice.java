@@ -13,8 +13,4 @@ public class DiceDice {
     public int randomDice(){
         return diceReturn = CustomRandom.generateNumber(MIN, MAX);
     }
-
-    public int getDiceReturn() {
-        return diceReturn;
-    }
 }
