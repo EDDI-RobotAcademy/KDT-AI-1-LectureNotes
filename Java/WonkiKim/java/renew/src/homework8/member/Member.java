@@ -1,26 +1,55 @@
 package homework8.member;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Member {
     final private int memberId;
-    final private String email;
-    final private String password;
+    final private MemberInfo memberInfo;
+    final static Map<Integer, MemberInfo> memberMap = new HashMap<>();
+
+    class MemberInfo {
+        final private String email;
+        final private String password;
+
+        MemberInfo(String email, String password) {
+            this.email = email;
+            this.password = password;
+        }
+        String getEmail() {
+            return email;
+        }
+        String getPassword() {
+            return password;
+        }
+
+        @Override
+        public String toString() {
+            return "MemberInfo{" +
+                    "email='" + email + '\'' +
+                    ", password='" + password + '\'' +
+                    '}';
+        }
+    }
 
     public Member(int memberId, String email, String password) {
         this.memberId = memberId;
-        this.email = email;
-        this.password = password;
+        this.memberInfo = new MemberInfo(email, password);
+        memberMap.put(memberId, memberInfo);
     }
 
     public int getMemberId() {
         return memberId;
     }
+    public static  Map<Integer, MemberInfo> getMemberMap() {
+        return memberMap;
+    }
 
     @Override
     public String toString() {
-        return "TestMember{" +
+        return "Member{" +
                 "memberId=" + memberId +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                ", memberInfo=" + memberInfo +
                 '}';
     }
 }

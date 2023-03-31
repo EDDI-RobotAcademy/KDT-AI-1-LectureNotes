@@ -7,22 +7,20 @@ import utility.generator.SequenceGenerator;
 
 public class ProductController {
     public static void main(String[] args) {
-        System.out.println(SequenceGenerator.getSpecificEntityId("Entity"));
-        System.out.println(SequenceGenerator.getSpecificEntityId("Entity"));
+        final int NUMBER_OF_MEMBER = 5;
 
         RefactorManager manager = new RefactorManager();
-        manager.addRandomMember();
+        manager.addManyMember(NUMBER_OF_MEMBER);
         manager.printMemberList();
 
         manager.addRandomProduct();
         manager.printProductList();
         manager.buyRandomProduct();
+
         System.out.println();
         System.out.println("구매후");
-        manager.printProductList();
 
-        manager.addMember();
-        manager.printMemberList();
+        manager.printProductList();
 
         manager.printMemberListPurchaseProduct();
         System.out.println();

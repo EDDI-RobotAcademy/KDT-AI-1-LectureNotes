@@ -7,20 +7,22 @@ import utility.random.CustomRandom;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class RefactorManager {
     List<Member> memberList;
     List<RefactorProduct> productList;
+
 
     public RefactorManager() {
         memberList = new ArrayList<>();
         productList = new ArrayList<>();
     }
 
-    public void addRandomMember() {
-        final int MAX_MEMBER_NUMBER = 5;
+    public void addManyMember(int numberOfMember) {
+        final int ADD_MEMBER_NUMBER = numberOfMember;
 
-        for (int i = 0; i < MAX_MEMBER_NUMBER; i++) {
+        for (int i = 0; i < ADD_MEMBER_NUMBER; i++) {
             addMember();
         }
     }
@@ -92,9 +94,12 @@ public class RefactorManager {
 
     public void printMemberListPurchaseProduct() {
         for(RefactorProduct product: getProductList()) {
-            System.out.print(product.getProductName() +"을 구매하신 고객님의 아이디는 ");
+            System.out.println(product.getProductName() +"을 구매하신 고객님의 정보는 ");
             if (getMemberIdByingProduct(product).size() != 0) {
-                System.out.println(getMemberIdByingProduct(product) + "님 입니다");
+                for(Integer i: getMemberIdByingProduct(product)){
+                    System.out.print("memberId = " + i+ " ");
+                    System.out.println(Member.getMemberMap().get(i));
+                }
             } else {
                 System.out.println("없습니다.");
             }
