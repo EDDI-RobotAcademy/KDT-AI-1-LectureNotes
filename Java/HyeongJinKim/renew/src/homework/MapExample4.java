@@ -3,7 +3,7 @@ package homework;
 import java.util.HashMap;
 import java.util.Map;
 
-public class mapExample4 {
+public class MapExample4 {
     public static void main(String[] args) {
         Map<String, String> nameNickname = new HashMap<>();
         nameNickname.put("김형진", "ㄱㅎㅈ");
