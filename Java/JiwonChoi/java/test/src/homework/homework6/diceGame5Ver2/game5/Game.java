@@ -42,6 +42,18 @@ public class Game {
             }
         }
     }
+    
+    void target (Player player1) {
+    	
+    	ArrayList<Player> targetList = new ArrayList<>();
+    	targetList = playerList;
+    	
+    	
+    	
+    }
+    	
+    	
+    }
 }
 
 class WinnerCheck {
