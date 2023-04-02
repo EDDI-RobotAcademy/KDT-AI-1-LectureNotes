@@ -8,23 +8,21 @@ public class Dice3Main {
         Player playerList = new Player();
         playerList.addPlayer();
 
-        Dice dice = new Dice((List<String>) playerList);
-
-        List<List<Integer>> allDiceNumber = dice.rollDice();
-
-        dice.diceSumList(allDiceNumber);
-
-        SpecialDice special = new SpecialDice(allDiceNumber);
+        Dice dice = new Dice(playerList.playerName);
+        dice.rollDice();
+        dice.diceSumList();
+//        dice.specialDiceList();
 
 
 
 
 
-        System.out.println("결과 → " + special.totalScore.get(0) + "  :  " + special.totalScore.get(1));
+
+//        System.out.println("결과 → " + .totalScore.get(0) + "  :  " + special.totalScore.get(1));
 
         Versus vs = new Versus();
 
-        vs.pandan(special.totalScore,playerList.playerName1,playerList.playerName2);
+//        vs.pandan(special.totalScore,playerList.playerName1,playerList.playerName2);
 
 
     }

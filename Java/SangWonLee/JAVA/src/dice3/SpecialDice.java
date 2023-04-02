@@ -10,7 +10,7 @@ public class SpecialDice {
 
     List<Integer> totalScore = new ArrayList<>();
 
-    public SpecialDice(List<List<Integer>> allDiceNumber) {
+    public SpecialDice() {
 
 
 

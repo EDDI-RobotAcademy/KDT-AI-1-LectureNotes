@@ -17,11 +17,6 @@ public class Player {
     Scanner sc = new Scanner(System.in);
     Scanner sc1 = new Scanner(System.in);
 
-
-    public List<String> getPlayerName() {
-        return playerName;
-    }
-
     public List<String> addPlayer() {
 
         System.out.print("몇 명이서 플레이 하실 겁니까? : ");
