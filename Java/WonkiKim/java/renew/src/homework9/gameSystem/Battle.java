@@ -31,6 +31,10 @@ public class Battle {
                     attack(player, monsterList);
                 }
             }
+            default -> {
+                System.out.println("잘못된 공격입니다.");
+                attack(player, monsterList);
+            }
         }
         if (monsterList.size() == 0) {
             annihilation = true;

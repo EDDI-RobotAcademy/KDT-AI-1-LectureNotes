@@ -18,12 +18,7 @@ public class Game {
         player = new Player();
         System.out.println("플레이어 생성");
 
-        System.out.println("체력: " + player.getStatus().getHp());
-        System.out.println("마력: " + player.getStatus().getMp());
-        System.out.println("완력: " + player.getStatus().getStrength());
-        System.out.println("민첩: " + player.getStatus().getAgility());
-        System.out.println("재주: " + player.getStatus().getAbility());
-        System.out.println("지능: " + player.getStatus().getIntellect());
+        player.printStatus();
     }
 
     public void makeMonster() {
@@ -59,12 +54,7 @@ public class Game {
         } else {
             System.out.println("플레이어가 승리하였습니다.");
             System.out.println("플레이어의 현재 스테이터스");
-            System.out.println("체력: " + player.getStatus().getHp());
-            System.out.println("마나: " + player.getStatus().getMp());
-            System.out.println("완력: " + player.getStatus().getStrength());
-            System.out.println("민첩: " + player.getStatus().getAgility());
-            System.out.println("재주: " + player.getStatus().getAbility());
-            System.out.println("지력: " + player.getStatus().getIntellect());
+            player.printStatus();
         }
     }
 
