@@ -28,8 +28,6 @@ public class GameManager {
         boolean characterCheckLive = true;
         boolean enemyCheckLive = true;
 
-
-
             while (characterCheckLive && enemyCheckLive) {
                 for (int i = 0; i < characterList.size(); i++) {
                     System.out.println(characterList.get(i).getName() + "의 차례");
@@ -55,8 +53,9 @@ public class GameManager {
 
                         characterList.get(i).characterNormalAtk(enemyList.get(targetEnemyIndex),
                                 characterList.get(i).getNormalAtkSkill().getSkillDamage());
-                        System.out.println(enemyList.get(targetEnemyIndex).getName() + " 의 남은 체력은 " +
-                                enemyList.get(targetEnemyIndex).getHealth());
+                        System.out.println(enemyList.get(targetEnemyIndex).getName() + "에게 " +
+                                characterList.get(i).getNormalAtkSkill().getSkillDamage() + " 피해를 줘 \n " +
+                                "남은 체력은 " + enemyList.get(targetEnemyIndex).getHealth());
                         break;
 
                     case 2:
@@ -65,8 +64,9 @@ public class GameManager {
                                 characterList.get(i).getWideAtkSkill().getSkillDamage());
 
                         for (int h = 0; h < enemyList.size(); h++) {
-                            System.out.println(enemyList.get(h).getName() + "의 남은 체력은 " +
-                                    enemyList.get(h).getHealth());
+                            System.out.println(enemyList.get(h).getName() + "에게 " +
+                                    characterList.get(i).getWideAtkSkill().getSkillDamage() + " 피해를 줘 \n " +
+                                    "남은 체력은 " + enemyList.get(h).getHealth());
                         }
                         break;
 
@@ -80,7 +80,9 @@ public class GameManager {
                 }
             }
                 enemyAtk();
-                characterCheckLive = characterStatus();
+                for (int k = 0; k < CHARACTER_NUM; k++) {
+                    characterCheckLive = characterStatus();
+                }
         }
     }
 
@@ -94,7 +96,7 @@ public class GameManager {
     }
 
     private int findTargetCharacterIndex () {
-        int targetCharacterIndex = CustomRandom.generateNumber(CHARACTER_NUM - 1);
+        int targetCharacterIndex = CustomRandom.generateNumber(characterList.size() - 1);
         return targetCharacterIndex;
     }
 
