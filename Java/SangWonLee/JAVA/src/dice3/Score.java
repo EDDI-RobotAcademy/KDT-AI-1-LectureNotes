@@ -4,8 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Score {
-    int START = 0;
-    int sumDice = 0;
-    List<Integer> sumDiceList = new ArrayList<>();
 
+    int score;
+
+
+    public Score(int score) {
+        this.score = score;
+
+    }
+
+    public int getScore() {
+        return score;
+    }
 }

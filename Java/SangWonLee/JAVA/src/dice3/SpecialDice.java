@@ -4,26 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpecialDice {
-    int stealScore = 3; // 뺏을 점수
-    int getScore = 2; // 얻을 점수
-    int defeatScore; // 질 점수
 
     List<Integer> totalScore = new ArrayList<>();
 
-    public SpecialDice() {
-
-
-
-
-
-
-
+    public SpecialDice(List<Score> sumDiceList) {
+        System.out.println(sumDiceList);
     }
 
+    public void stealScore() {
+        //    int stealScore = 3; // 뺏을 점수
+    }
 
-    public List<Integer> goodDice(List<List<Integer>> doDice1, List<List<Integer>> doDice2, String playerName1, String playerName2, int score1, int score2) {
+    public void eatScore() {
+        int getScore = 2; // 얻을 점수
+    }
 
-
+    public void defeatScore() {
+        //    int defeatScore; // 질 점수
+    }
 
 
 //        switch (doDice1.get(2)) {
@@ -65,10 +63,5 @@ public class SpecialDice {
 //                System.out.println("현재 → " + score1 + "  :  " + score2);
 //                break;
 //        }
-        totalScore.add(score1);
-        totalScore.add(score2);
 
-        return totalScore;
     }
-
-}
