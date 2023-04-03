@@ -14,19 +14,19 @@ public class DiceScore {
         return totalScore;
     }
 
-    public void stealScore(int totalScore) {
+    public void stealScore() {
         this.totalScore += 3;
     }
 
-    public void lostScore(int totalScore) {
+    public void lostScore() {
         this.totalScore -= 3;
     }
 
-    public void buffScore(int totalScore) {
+    public void buffScore() {
         this.totalScore += 2;
     }
 
-    public void deathScore(int totalScore) {
+    public void deathScore() {
         this.totalScore = -777;
     }
 

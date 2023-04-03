@@ -6,7 +6,6 @@ import java.util.Arrays;
 
 public class DiceDice {
     final public int[] diceArray = new int[3];
-    int thirdDice;
     final private int MAX = 6;
     final private int MIN = 1;
 
