@@ -3,36 +3,36 @@ package homework.diceThirdGame;
 public class DiceScore {
     private int totalScore = 0;
 
-    public DiceScore() {}
+    public DiceScore(){}
 
-    public int totalScore(int score){
-        this.totalScore += score;
+    public int totalDiceScore(int totalScore){
+        this.totalScore += totalScore;
         return totalScore;
-    }
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
-    }
-
-    public void setSteal(int plus){
-        this.totalScore += plus;
-    }
-
-    public void loseSteal(int subtraction){
-        this.totalScore -= subtraction;
-    }
-
-    public void setBuff(int selfPlus){
-        this.totalScore += selfPlus;
     }
 
     public int getTotalScore() {
         return totalScore;
     }
 
+    public void stealScore(int totalScore) {
+        this.totalScore += 3;
+    }
+
+    public void lostScore(int totalScore) {
+        this.totalScore -= 3;
+    }
+
+    public void buffScore(int totalScore) {
+        this.totalScore += 2;
+    }
+
+    public void deathScore(int totalScore) {
+        this.totalScore = -777;
+    }
+
     @Override
     public String toString() {
-        return "DiceScore{" +
+        return "Score{" +
                 "totalScore=" + totalScore +
                 '}';
     }

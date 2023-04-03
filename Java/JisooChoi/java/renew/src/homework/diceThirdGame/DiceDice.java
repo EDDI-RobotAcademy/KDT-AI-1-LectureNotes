@@ -2,15 +2,24 @@ package homework.diceThirdGame;
 
 import utility.random.CustomRandom;
 
+import java.util.Arrays;
+
 public class DiceDice {
+    final public int[] diceArray = new int[3];
+    int thirdDice;
     final private int MAX = 6;
     final private int MIN = 1;
-    private int diceReturn;
 
-    public DiceDice(){
-    }
+    public DiceDice() {}
 
     public int randomDice(){
-        return diceReturn = CustomRandom.generateNumber(MIN, MAX);
+        return CustomRandom.generateNumber(MIN, MAX);
+    }
+
+    @Override
+    public String toString() {
+        return "Dice{" +
+                "diceArray=" + Arrays.toString(diceArray) +
+                '}';
     }
 }
