@@ -1,27 +1,24 @@
 package homework.seventh;
 
+import utilityRandom.CustomRandom;
+
 import java.util.Scanner;
 
 public class Character {
     Scanner scanner=new Scanner(System.in);
-    String name=scanner.nextLine();
-    int power=30;
-    int nimbler=30;
-    int intelligence=40;
-    int talent=30;
+    String name;
+    int power= CustomRandom.generateNumber(10,15);
+    int nimbler=CustomRandom.generateNumber(10,15);
+    int intelligence=CustomRandom.generateNumber(10,15);
+    int talent=CustomRandom.generateNumber(10,15);
     int att=power*2;
     int mp=intelligence*4;
     int hp=(power*10)+(nimbler*7);
 
     public Character() {
-        this.name = name;
-        this.power = power;
-        this.nimbler = nimbler;
-        this.intelligence = intelligence;
-        this.talent = talent;
-        this.att = att;
-        this.mp = mp;
-        this.hp = hp;
+        System.out.println("당신의 이름을 정하세요!");
+        this.name = scanner.nextLine();
+
     }
 
     void showInfo(){
@@ -37,23 +34,26 @@ public class Character {
     System.out.println("마나: "+mp);
     }
     void attack(Monster m){
+        // 일반 공격
         int damage=att;
         m.hp-=damage;
         System.out.println(name+"의 공격으로 "+damage+"의 " +
-                "데미지를 입은"+m.name+"의 체력이 "+m.hp+"남았습니다.");
+                "데미지를 입은 "+m.name+"의 체력이 "+m.hp+"남았습니다.");
 
     }
     void headShot(Monster m){
+        //헤드샷
         int damage=att*2;
         m.hp-=damage;
         System.out.println(name+"의 헤드샷으로 "+damage+"의 " +
-                "데미지를 입은"+m.name+"의 체력이 "+m.hp+"남았습니다.");
+                "데미지를 입은 "+m.name+"의 체력이 "+m.hp+"남았습니다.");
     }
     void doubleAttack(Monster m){
+        //다중 공격 데미지가 약함
         int damage=att*9/10;
         m.hp-=damage;
         System.out.println(name+"의 더블 어택으로 "+damage+"의 " +
-                "데미지를 입은"+m.name+"의 체력이 "+m.hp+"남았습니다.");
+                "데미지를 입은 "+m.name+"의 체력이 "+m.hp+"남았습니다.");
 
     }
 
