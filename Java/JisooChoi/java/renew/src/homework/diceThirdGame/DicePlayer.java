@@ -1,7 +1,7 @@
 package homework.diceThirdGame;
 
 public class DicePlayer {
-    final DiceDice dice = new DiceDice(); // 플레이어 객체가 생성되면 주사위가 생성
+    final Dice dice = new Dice(); // 플레이어 객체가 생성되면 주사위가 생성
     final DiceScore score = new DiceScore(); // 점수도 가지고 있음
     final String name;
 
