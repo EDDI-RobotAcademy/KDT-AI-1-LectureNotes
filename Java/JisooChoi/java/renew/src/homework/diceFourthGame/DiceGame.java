@@ -47,16 +47,16 @@ public class DiceGame {
                 break;
             }
             if (player2.dice.diceList.size() == 3) {
-                if (player2.dice.diceList.get(3 - 1) == STEAL) {
+                if (player2.dice.diceList.get(THIRD_DICE) == STEAL) {
                     player2.score.stealScore();
                     player1.score.lostScore();
                 }
 
-                if (player2.dice.diceList.get(3 - 1) == BUFF) {
+                if (player2.dice.diceList.get(THIRD_DICE) == BUFF) {
                     player2.score.buffScore();
                 }
 
-                if (player2.dice.diceList.get(3 - 1) == DEATH) {
+                if (player2.dice.diceList.get(THIRD_DICE) == DEATH) {
                     player2.score.deathScore();
                 }
             }
