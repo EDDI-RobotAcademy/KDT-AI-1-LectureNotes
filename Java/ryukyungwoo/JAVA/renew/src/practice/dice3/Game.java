@@ -10,7 +10,11 @@ class GameManager {
     }
     public void SearchPlayer () {
     }
-    private void findSpecialDice (int selectedDice) {
+    private void findSpecialDice (int index) {
+//        playerList.getPlayerList(firstPlayerNumber).getDiceList(firstDiceDecisionNumber).getDiceNumber();
+        player.getDiceList(index).getDiceNumber();
+            // 다이스 멈추기
+        }
     }
 }
 public class Game {
