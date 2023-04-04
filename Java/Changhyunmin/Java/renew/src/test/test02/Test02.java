@@ -31,6 +31,5 @@ public class Test02 {
                 numberSequence.findConditionAndSumNumber(FOUR_TIMES_DECISION);
 
         System.out.println("1~100까지의 4의 배수 총합: "+foundNumberSequence4);
-
     }
 }

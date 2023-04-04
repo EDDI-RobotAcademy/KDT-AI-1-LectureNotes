@@ -35,7 +35,7 @@ public class RandomApple {
     public int calculateCost() {
         int tmpSum = 0;
 
-        for (int i = 0; i < tmpSum; i++){
+        for (int i = 0; i < appleCostList.size(); i++){
             tmpSum += appleCostList.get(i);
         }
         return tmpSum;
