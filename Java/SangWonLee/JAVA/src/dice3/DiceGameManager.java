@@ -13,7 +13,7 @@ public class DiceGameManager {
     List<Score> resultDiceList = new ArrayList<>(); // 총 결과 주사위 리스트
 
 
-    public List<Player> addPlayer() { // 플레이어 추가하기
+    public List<Player> addPlayer() throws InterruptedException { // 플레이어 추가하기
 
         Scanner sc = new Scanner(System.in); // 몇 명인지 물어볼 때에 쓰일 Scanner
         Scanner sc1 = new Scanner(System.in); // 플레이어 이름 입력에 쓰일 Scanner
@@ -22,7 +22,7 @@ public class DiceGameManager {
         int playerMany = sc.nextInt();
 
         int addStart = 1; // 플레이어 추가에 필요한 숫자
-        for (int i = addStart; i <= playerMany; i++){
+        for (int i = addStart; i <= playerMany; i++) {
             System.out.print(i + " 번 플레이어의 이름을 입력해주세요 : ");
             playerNameList.add(new Player(sc1.nextLine()));
 
@@ -31,15 +31,20 @@ public class DiceGameManager {
         System.out.println(playerNameList.get(0));
         System.out.println(playerNameList.get(0).getPlayerNameList());
 
-        for (int i = START; i < playerMany; i++){
-            System.out.println(i+1 + " 번째 선수의 이름은 !! " + playerNameList.get(i).getPlayerNameList() + " 입니다 !!");
+        for (int i = START; i < playerMany; i++) {
+            System.out.println(i + 1 + " 번째 선수의 이름은 !! " + playerNameList.get(i).getPlayerNameList() + " 입니다 !!");
         }
 
         System.out.println("----------------------------------------------------------");
-
-
+//        System.out.print("게임을 시작합니다.");
+//            for (int i = 0; i <= 3 ; i++) {
+//                Thread.sleep(1000);
+//                System.out.print("🎲");
+//            }
+//        System.out.println();
         return playerNameList;
     }
+
 
     public List<List<Dice>> rollDice() { // 주사위 굴리기
 
@@ -61,13 +66,14 @@ public class DiceGameManager {
             System.out.println(playerNameList.get(i).getPlayerNameList()
                     + " 님 현재 주사위 상태 : " + diceNumberList.get(i));
         }
+
         System.out.println("----------------------------------------------------------");
 
         return diceNumberList;
     }
 
 
-    public List<Score> diceSum() { // 주사위 점수 합치기
+    public List<Score> diceSum() throws InterruptedException { // 주사위 점수 합치기
 
         for (List<Dice> dice : diceNumberList) {
             int sumDice = START; // 주사위 합 초기화
@@ -83,6 +89,14 @@ public class DiceGameManager {
         }
         System.out.println("----------------------------------------------------------");
 
+//        System.out.print("특수 주사위 계산을 곧 시작합니다.");
+//        for (int i = 0; i <= 3 ; i++) {
+//            Thread.sleep(1000);
+//            System.out.print("🎲");
+//        }
+//        System.out.println();
+
+
         return scoreDiceList;
     }
 
@@ -90,22 +104,27 @@ public class DiceGameManager {
     public List<Score> specialDice() { // 세번째 주사위
 
         int thirdDice = 2; // 세번째 주사위를 찾을 때 쓰일 숫자.
-
+        int specialPersonIndex;
         SpecialDice specialDice = new SpecialDice(scoreDiceList);
 
         for (int i = START; i < diceNumberList.size(); i++) {
-            switch (diceNumberList.get(i).get(thirdDice).getDiceNumber()) {
-                case 1:
-                    // 훔치기를 할건데 광역 공격으로 할거임
-                    // 메소드를 만들어서
-                    specialDice.stealScore();
-                    break;
-                case 3:
-                    specialDice.eatScore();
-                    break;
-                case 4:
-                    specialDice.defeatScore();
-                    break;
+            if (diceNumberList.get(i).size() == 3) {
+                switch (diceNumberList.get(i).get(thirdDice).getDiceNumber()) {
+                    case 1 -> {
+                        // 훔치기를 할건데 광역 공격으로 할거임
+                        // 메소드를 만들어서
+                        specialPersonIndex = i;
+                        specialDice.stealScore(specialPersonIndex);
+                    }
+                    case 3 -> {
+                        specialPersonIndex = i;
+                        specialDice.eatScore(specialPersonIndex);
+                    }
+                    case 4 -> {
+                        specialPersonIndex = i;
+                        specialDice.defeatScore(specialPersonIndex);
+                    }
+                }
             }
         }
         return resultDiceList;

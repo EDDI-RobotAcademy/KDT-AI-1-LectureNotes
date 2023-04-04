@@ -1,7 +1,7 @@
 package dice3;
 
 public class Dice3Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
 
         DiceGameManager diceGameManager = new DiceGameManager();
