@@ -17,6 +17,9 @@ public class MultipleTargetAttack {
         if (CustomRandom2.generateNumber(0, HUNDREDTH) <= dexterity) {
             this.critical = true;
         }
+        else {
+            this.critical = false;
+        }
         if (this.critical) {
             this.multipleTargetAttackDMG =
                     CustomRandom2.generateNumber(min * CRITICAL_VALUE, max * CRITICAL_VALUE) + intelligence;

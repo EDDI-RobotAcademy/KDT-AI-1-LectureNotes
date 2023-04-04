@@ -17,6 +17,9 @@ public class SingleTargetAttack {
         if (CustomRandom2.generateNumber(0, HUNDREDTH) <= (dexterity * 2)) {
             this.critical = true;
         }
+        else {
+            this.critical = false;
+        }
         if (this.critical) {
             this.singleTargetAttackDMG =
                     CustomRandom2.generateNumber(min * CRITICAL_VALUE, max * CRITICAL_VALUE) + intelligence;

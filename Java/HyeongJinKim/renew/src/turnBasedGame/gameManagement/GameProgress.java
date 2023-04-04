@@ -98,8 +98,6 @@ public class GameProgress {
                     }
 
                 case MULTIPLESKILL:
-                    /* TODO: for Loop 몬스터 개체 수 만큼 돌리고 Loop 안에서 Random 함수 호출
-                             광역스킬도 개체별로 다른 데미지 줄 수 있을듯? 아마? */
                     if (multipleSkillCoolDown != 0) {
                         System.out.printf("쿨타임입니다. 남은 시간: %d턴\n", multipleSkillCoolDown);
                         continue;
@@ -116,12 +114,12 @@ public class GameProgress {
                         playerInfo.playerMultipleSkill(monsterList, mulipleDMGList);
                         for (int i = 0; i < monsterList.size(); i++) {
                             System.out.println("[ " + (i + 1) + "번 몬스터 ] 체력: " + monsterList.get(i).getHealthPoint());
-                            if (isCritical.get(i) == true) {
+                            if (isCritical.get(i)) {
                                 System.out.println("CRITICAL!!!");
                             }
+//                            System.out.println(MultipleTargetAttack.isCritical());
                             System.out.println("광역 스킬 공격으로 " + (i + 1) + "번 적에게 " + mulipleDMGList.get(i) + "의 데미지를 입혔습니다!");
                         }
-
                         multipleSkillCoolDown = 3;
                         break;
                     }

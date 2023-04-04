@@ -17,10 +17,14 @@ public class Attack {
         if (CustomRandom2.generateNumber(0, HUNDREDTH) <= dexterity) {
             this.critical = true;
         }
+        else {
+            this.critical = false;
+        }
         if (this.critical) {
             this.attackDMG =
                     CustomRandom2.generateNumber(min * CRITICAL_VALUE, max * CRITICAL_VALUE);
-        } else {
+        }
+        else {
             this.attackDMG =
                     CustomRandom2.generateNumber(min, max);
         }
