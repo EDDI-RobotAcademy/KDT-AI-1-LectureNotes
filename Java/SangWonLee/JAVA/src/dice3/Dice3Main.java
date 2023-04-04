@@ -4,7 +4,6 @@ public class Dice3Main {
     public static void main(String[] args) {
 
 
-
         DiceGameManager diceGameManager = new DiceGameManager();
         diceGameManager.addPlayer();
         diceGameManager.rollDice();
@@ -12,9 +11,7 @@ public class Dice3Main {
         diceGameManager.specialDice();
         diceGameManager.resultDice();
 
-
     }
-
 
 }
 

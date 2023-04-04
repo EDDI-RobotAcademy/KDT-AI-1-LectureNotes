@@ -5,14 +5,19 @@ import java.util.List;
 
 public class SpecialDice {
 
-    List<Integer> totalScore = new ArrayList<>();
+    List<Score> totalScore = new ArrayList<>();
 
-    public SpecialDice(List<Score> sumDiceList) {
-        System.out.println(sumDiceList);
+    public SpecialDice(List<Score> scoreDiceList) {
+        this.totalScore = scoreDiceList;
     }
 
+
     public void stealScore() {
+        System.out.println(totalScore);
         //    int stealScore = 3; // 뺏을 점수
+
+        System.out.println();
+
     }
 
     public void eatScore() {

@@ -1,8 +1,6 @@
 package dice3;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class DiceGameManager {
 
@@ -90,65 +88,48 @@ public class DiceGameManager {
 
 
     public List<Score> specialDice() { // 세번째 주사위
+
         int thirdDice = 2; // 세번째 주사위를 찾을 때 쓰일 숫자.
 
         SpecialDice specialDice = new SpecialDice(scoreDiceList);
 
-//        for (int i = START; i < diceNumberList.size(); i++) {
-//            switch (diceNumberList.get(i).get(thirdDice).getDiceNumber()) {
-//                case 1:
-//                    // 훔치기를 할건데 광역 공격으로 할거임
-//                    // 메소드를 만들어서
-//                    specialDice.stealScore();
-//                    break;
-//                case 3:
-//                    specialDice.eatScore();
-//                    break;
-//                case 4:
-//                    specialDice.defeatScore();
-//                    break;
-//            }
-//        }
+        for (int i = START; i < diceNumberList.size(); i++) {
+            switch (diceNumberList.get(i).get(thirdDice).getDiceNumber()) {
+                case 1:
+                    // 훔치기를 할건데 광역 공격으로 할거임
+                    // 메소드를 만들어서
+                    specialDice.stealScore();
+                    break;
+                case 3:
+                    specialDice.eatScore();
+                    break;
+                case 4:
+                    specialDice.defeatScore();
+                    break;
+            }
+        }
         return resultDiceList;
     }
 
     public void resultDice() {
-        int higherScore = scoreDiceList.get(START).getScore();
 
-        for (int i = 0; i < scoreDiceList.size(); i++){
-            if (scoreDiceList.get(i).getScore() > higherScore){
-                higherScore = scoreDiceList.get(i).getScore();
-                System.out.println(scoreDiceList.);
+        int highScore = scoreDiceList.get(START).getScore(); // 높은 점수 값을 넣어줄 공간
+        Score highScoreValue; //
+        int highScoreIndex = 0;
 
+        // 동점이면 앞에 있는 얘가 이기는 상황 발생
+        for (int i = 0; i < scoreDiceList.size(); i++) {
+            if (scoreDiceList.get(i).getScore() > highScore) {
+                highScore = scoreDiceList.get(i).getScore();
+                highScoreValue = scoreDiceList.get(i); // 높은 점수 일 때의 Value 값 저장
+                highScoreIndex = scoreDiceList.indexOf(highScoreValue); // 높은 점수 일 때의 Index 값 저장
             }
-
         }
-        System.out.println(higherScore);
+        System.out.println(highScore + " 의 점수로 " + playerNameList.get(highScoreIndex).getPlayerNameList() + " 님이 승리 하였습니다.");
 
     }
 
 }
-
-//        public void pandan(List<Integer> totalScore, String playerName1, String playerName2) {
-//
-//            if (totalScore.get(0) > totalScore.get(1)) {
-//                System.out.println(playerName1 + " 이(가) 승리했습니다. ");
-//            }
-//            if (totalScore.get(1) > totalScore.get(0)) {
-//                System.out.println(playerName2 + " 이(가) 승리했습니다.");
-//            }
-//            if (totalScore.get(0) == totalScore.get(1)) {
-//                if (totalScore.get(0) == -1) {
-//                    System.out.println("공동 패배 입니다.");
-//                } else {
-//                    System.out.println("무승부 입니다.");
-//                }
-//
-//            }
-//
-//        }
-
-
 
 
 
