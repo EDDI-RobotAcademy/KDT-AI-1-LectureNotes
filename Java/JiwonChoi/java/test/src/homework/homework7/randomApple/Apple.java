@@ -3,25 +3,20 @@ package homework.homework7.randomApple;
 import utility.random.CustomRandom;
 
 public class Apple {
+    int AppleCost_Min = 5000;
+    int AppleCost_Max = 10000;
+    int AppleCost = CustomRandom.generateNumber(AppleCost_Min, AppleCost_Max);
+
     public Apple() {
     }
-    int Applecost_Min = 5000;
-    int Applecost_Max = 10000;
-    int Applecost = CustomRandom.generateNumber(Applecost_Min, Applecost_Max);
-
-    public int getApplecost() {
-        return Applecost;
+    public int getAppleCost() {
+        return AppleCost;
     }
 
-    void takeApple(){
-        int appleCount_Min = 3;
-        int appleCount_Max = 5;
-        int appleCount = CustomRandom.generateNumber(appleCount_Min, appleCount_Max);
-
-        for (int i = 0 ; i<appleCount; i++) {
-           Apple apple =  new Apple();
-//           apple.getApplecost()
-        }
+    @Override
+    public String toString() {
+        return "사과 : " +
+                AppleCost +
+                "원";
     }
-
 }
