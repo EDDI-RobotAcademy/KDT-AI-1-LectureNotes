@@ -32,8 +32,12 @@ public class Monster implements Skill {
     }
 
     @Override
-    public void firstSkill(Monster target) {
+    public void firstSkill(Object target) {
+        System.out.println("스킬명: 돌진");
 
+        final int damage = (int) (strength * 2.3f + dexterity * 0.6f + agility * 1.3f);
+        int targetHp = ((GameCharacter)target).getHp();
+        ((GameCharacter)target).setHp(targetHp - damage);
     }
 
     @Override
