@@ -6,10 +6,9 @@ public class Apple {
     int applePrice;
     int apple; // 사과 갯수
 
-    public int applePriceGet() {
+    public void applePriceGet() {
         Random appleRandom = new Random();
         this.applePrice = appleRandom.generateNumber(5000, 10000);
-        return applePrice;
     }
 
     public void appleHarvest() {
