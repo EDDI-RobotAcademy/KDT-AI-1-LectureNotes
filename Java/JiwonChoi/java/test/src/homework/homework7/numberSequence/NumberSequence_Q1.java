@@ -19,7 +19,6 @@ public class NumberSequence_Q1 {
 
     }
 
-//    ArrayList <Integer> NumberList = new ArrayList<>();
 
 
 }
