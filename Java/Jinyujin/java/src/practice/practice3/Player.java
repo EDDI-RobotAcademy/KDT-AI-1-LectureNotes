@@ -12,6 +12,11 @@ public class Player {
         return diceSum;
     }
 
+    public int setDiceSum(int diceSum) {
+        this.diceSum = diceSum;
+        return diceSum;
+    }
+
     private int diceSum = 0;
     final private int FIRST_DICE_INFO = 0;
     final private int ODD = 1;
@@ -25,7 +30,9 @@ public class Player {
         return name;
     }
 
-    public Player() {
+    public Player(String name) {// 처음 생성할 때 정해지는 것들은 보통 안바뀌기에 생성자에서 선언 (이름 같은)
+         this.name = name;
+
         // 플레이어가 주사위를 굴려야해
         for (int i = 0; i < MAX_DICE_COUNT; i++) {
             diceList.add(new Dice());

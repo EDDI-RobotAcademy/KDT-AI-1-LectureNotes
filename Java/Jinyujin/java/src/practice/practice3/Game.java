@@ -13,7 +13,7 @@ public class Game {
 
     public Game() {
         for (int i = 0; i < PLAYER_COUNT; i++) {
-            playerList.add(new Player());
+            playerList.add(new Player("플레이어" + (i+1)));
             System.out.println(playerList.get(i));
         }
     }
@@ -52,6 +52,12 @@ public class Game {
 
             int currentPlayerIndex = findThirdDiceNumber(i);
             int opponentPlayerIndex = (currentPlayerIndex + 1) % PLAYER_COUNT;
+            // IndexOutOfBoundsException 에러 발생
+            // 리스트형 객체에서 선언되지 않은 요소를 get하는 경우
+            // int opponentPlayerIndex = (currentPlayerIndex + 1) % PLAYER_COUNT;
+            // 로 검색하여 해결
+            // 상대방 인덱스는 현재 플레이어 인덱스에 1을 더하고 그것을 플레이어 수만큼 나누어 주어야 함
+            // 왜?
 
             if (findThirdDiceNumber(i) == BUFF) {
                 playerList.get(i).getScore().setTotalScore(
@@ -63,21 +69,28 @@ public class Game {
             if (findThirdDiceNumber(i) == DEATH) {
                 playerList.get(i).getScore().setTotalScore(DEATH_SCORE);
             }
-            if (findThirdDiceNumber(i) == STEAL) {
-                playerList.get(currentPlayerIndex).getScore().setTotalScore(
-                        playerList.get(opponentPlayerIndex).getDiceSum() + STEAL_SCORE);
+            if (findThirdDiceNumber(i) == STEAL) { // 세 번째 주사위의 수가 1이라면
+
+                Player opponentPlayer = playerList.get(opponentPlayerIndex);
+                Player currentPlayer = playerList.get(currentPlayerIndex);
+
                 // 현재 플레이어의 스코어 클래스의 토탈스코어를 설정해라
-                // 상대방 플레이어의 주사위총합에 3점을 더해서
-                playerList.get(opponentPlayerIndex).getScore().setTotalScore(
-                        playerList.get(currentPlayerIndex).getDiceSum() - STEAL_SCORE);
-            }  // IndexOutOfBoundsException 에러 발생
-               // 리스트형 객체에서 선언되지 않은 요소를 get하는 경우
-            // int opponentPlayerIndex = (currentPlayerIndex + 1) % PLAYER_COUNT;
-            // 로 검색하여 해결
-            // 상대방 인덱스는 현재 플레이어 인덱스에 1을 더하고 그것을 플레이어 수만큼 나누어 주어야 함
-            // 왜?
+                // 상대방 플레이어의 주사위 숫자합에 3점 뺏기
+                // 현재 플레이어의 주사위 숫자합에 3점 추가
+                //playerList.get(opponentPlayerIndex).getScore().setTotalScore(
+                //        playerList.get(currentPlayerIndex).getDiceSum() - STEAL_SCORE);
+
+                currentPlayer.getScore().setTotalScore(currentPlayer.getDiceSum() + STEAL_SCORE);
+                // 현재 플레이어의 스코어의 토탈스코어를 설정해라
+                // 현재 플레이어의 주사위 합에 3을 더해서
+                opponentPlayer.getScore().setTotalScore(opponentPlayer.getDiceSum() - STEAL_SCORE);
+                // 상대 플레이어의 스코어의 토탈스코어를 설정해라
+                // 상대 플레이어의 주사위 합에 3을 빼서
+
+            }
         }
     }
+
 
     public void findResult() {
         for (int i = 0; i < PLAYER_COUNT; i++) {
@@ -86,7 +99,6 @@ public class Game {
     }
 
     public void checkWinner() {
-
         Score firstPlayerScore = playerList.get(0).getScore();
         Score secondPlayerScore = playerList.get(1).getScore();
 
