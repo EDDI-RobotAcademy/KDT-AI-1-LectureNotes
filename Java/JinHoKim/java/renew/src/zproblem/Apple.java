@@ -6,14 +6,17 @@ public class Apple {
     int applePrice;
     int apple; // 사과 갯수
 
-    public void applePriceGet() {
+    public int applePriceGet() {
         Random appleRandom = new Random();
         this.applePrice = appleRandom.generateNumber(5000, 10000);
+        return applePrice;
+
     }
 
-    public void appleHarvest() {
+    public int appleHarvest() {
         Random appleRandom2 = new Random();
         this.apple = appleRandom2.generateNumber(3, 5);
+        return apple;
     }
 
     @Override
