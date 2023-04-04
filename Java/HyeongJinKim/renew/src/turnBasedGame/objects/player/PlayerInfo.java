@@ -54,10 +54,9 @@ public class PlayerInfo {
         monster.setHealthPoint(monster.getHealthPoint() - singleTargetAttack);
     }
 
-    public void playerMultipleSkill (List<Monster> monsterList, int multipleTargetAttack) {
+    public void playerMultipleSkill (List<Monster> monsterList, List<Integer> mulipleDMGList) {
         for (int i = 0; i < monsterList.size(); i++) {
-            monsterList.get(i)
-                    .setHealthPoint(monsterList.get(i).getHealthPoint() - multipleTargetAttack);
+            monsterList.get(i).setHealthPoint(monsterList.get(i).getHealthPoint() - mulipleDMGList.get(i));
         }
     }
 

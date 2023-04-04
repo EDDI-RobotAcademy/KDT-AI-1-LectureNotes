@@ -6,7 +6,7 @@ public class SingleTargetAttack {
     private static double singleTargetAttackDMG;
     private double min;
     private double max;
-    private boolean critical = false;
+    private static boolean critical = false;
     final private int HUNDREDTH = 99;
     final double CORRECTION_VALUE = 8 / 10;
     final double CRITICAL_VALUE = 1.5;
@@ -29,6 +29,10 @@ public class SingleTargetAttack {
 
     public static double getSingleTargetAttackDMG() {
         return singleTargetAttackDMG;
+    }
+
+    public static boolean isCritical() {
+        return critical;
     }
 
     @Override

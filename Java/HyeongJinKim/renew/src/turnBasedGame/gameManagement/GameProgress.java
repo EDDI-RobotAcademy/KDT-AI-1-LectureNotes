@@ -56,16 +56,17 @@ public class GameProgress {
                     targetIndex = scan.nextInt();
                     if (targetIndex > monsterList.size()) {
                         System.out.println("올바른 대상이 아닙니다.");
-                        System.out.println("+------------------------------+");
-                        System.out.println("공격 대상을 입력하세요.");
+                        continue;
                     }
-                    enemyIndex = targetIndex - 1;
-                    playerInfo.playerAttack(monsterList.get(enemyIndex), (int) Attack.getAttackDMG());
-                    if (Attack.isCritical()) {
-                        System.out.println("CRITICAL!!!");
+                    else {
+                        enemyIndex = targetIndex - 1;
+                        playerInfo.playerAttack(monsterList.get(enemyIndex), (int) Attack.getAttackDMG());
+                        if (Attack.isCritical()) {
+                            System.out.println("CRITICAL!!!");
+                        }
+                        System.out.println(targetIndex + "번 몬스터를 공격해 " + (int) Attack.getAttackDMG() + "의 데미지를 입혔습니다!");
+                        break;
                     }
-                    System.out.println(targetIndex + "번 몬스터를 공격해 " + (int) Attack.getAttackDMG() + "의 데미지를 입혔습니다!");
-                    break;
 
                 case SINGLESKILL:
                     if (singleSkillCoolDown != 0) {
@@ -82,17 +83,18 @@ public class GameProgress {
                         targetIndex = scan.nextInt();
                         if (targetIndex > monsterList.size()) {
                             System.out.println("올바른 대상이 아닙니다.");
-                            System.out.println("+------------------------------+");
-                            System.out.println("공격 대상을 입력하세요.");
+                            continue;
                         }
-                        enemyIndex = targetIndex - 1;
-                        playerInfo.playerSingleSkill(monsterList.get(enemyIndex), (int) SingleTargetAttack.getSingleTargetAttackDMG());
-                        if (Attack.isCritical()) {
-                            System.out.println("CRITICAL!!!");
+                        else {
+                            enemyIndex = targetIndex - 1;
+                            playerInfo.playerSingleSkill(monsterList.get(enemyIndex), (int) SingleTargetAttack.getSingleTargetAttackDMG());
+                            if (SingleTargetAttack.isCritical()) {
+                                System.out.println("CRITICAL!!!");
+                            }
+                            System.out.println(targetIndex + "번 몬스터를 공격해 " + (int) SingleTargetAttack.getSingleTargetAttackDMG() + "의 데미지를 입혔습니다!");
+                            singleSkillCoolDown = 2;
+                            break;
                         }
-                        System.out.println(targetIndex + "번 몬스터를 공격해 " + (int) SingleTargetAttack.getSingleTargetAttackDMG() + "의 데미지를 입혔습니다!");
-                        singleSkillCoolDown = 2;
-                        break;
                     }
 
                 case MULTIPLESKILL:
@@ -103,17 +105,23 @@ public class GameProgress {
                         continue;
                     }
                     else {
-                        new MultipleTargetAttack(playerInfo.getStrength(), playerInfo.getDexterity(), playerInfo.getIntelligence());
                         SystemMessage.printMultipleSkillInfo();
-                        playerInfo.playerMultipleSkill(monsterList, (int) MultipleTargetAttack.getMultipleTargetAttackDMG());
+                        List<Integer> mulipleDMGList = new ArrayList<>();
+                        List<Boolean> isCritical = new ArrayList<>();
+                        for (int i = 0; i < monsterList.size(); i++) {
+                            new MultipleTargetAttack(playerInfo.getStrength(), playerInfo.getDexterity(), playerInfo.getIntelligence());
+                            mulipleDMGList.add((int) MultipleTargetAttack.getMultipleTargetAttackDMG());
+                            isCritical.add(MultipleTargetAttack.isCritical());
+                        }
+                        playerInfo.playerMultipleSkill(monsterList, mulipleDMGList);
                         for (int i = 0; i < monsterList.size(); i++) {
                             System.out.println("[ " + (i + 1) + "번 몬스터 ] 체력: " + monsterList.get(i).getHealthPoint());
+                            if (isCritical.get(i) == true) {
+                                System.out.println("CRITICAL!!!");
+                            }
+                            System.out.println("광역 스킬 공격으로 " + (i + 1) + "번 적에게 " + mulipleDMGList.get(i) + "의 데미지를 입혔습니다!");
                         }
 
-                        if (Attack.isCritical()) {
-                            System.out.println("CRITICAL!!!");
-                        }
-                        System.out.println("광역 스킬 공격으로 적들에게 " + (int) MultipleTargetAttack.getMultipleTargetAttackDMG() + "의 데미지를 입혔습니다!");
                         multipleSkillCoolDown = 3;
                         break;
                     }
@@ -121,10 +129,11 @@ public class GameProgress {
                 case STATUS:
                     System.out.println("+------------------------------+");
                     SystemMessage.printPlayerInfo();
-                    break;
+                    continue;
 
                 default:
                     System.out.printf("잘못된 입력입니다. %s ~ %s 사이의 정수를 입력해주세요.\n", ATTACK, STATUS);
+                    continue;
             }
 
             if (singleSkillCoolDown != 0) {
@@ -134,10 +143,10 @@ public class GameProgress {
                 multipleSkillCoolDown--;
             }
 
-            for (int i = 0; i < monsterList.size(); i++) {
+            for (int i = 0; i <= monsterList.size(); i++) {
                 checkDeadMonster = monsterCounter();
             }
-            if (attackType != 4) {
+            if (attackType == 1 || attackType == 2 || attackType == 3) {
                 monsterAttack();
             }
             checkDeadPlayer = playerStatus();

@@ -6,7 +6,7 @@ public class MultipleTargetAttack {
     private static double multipleTargetAttackDMG;
     private double min;
     private double max;
-    private boolean critical = false;
+    private static boolean critical = false;
     final private int HUNDREDTH = 99;
     final private double CORRECTION_VALUE = 6 / 10;
     final private double CRITICAL_VALUE = 1.3;
@@ -29,6 +29,10 @@ public class MultipleTargetAttack {
 
     public static double getMultipleTargetAttackDMG() {
         return multipleTargetAttackDMG;
+    }
+
+    public static boolean isCritical() {
+        return critical;
     }
 
     @Override
