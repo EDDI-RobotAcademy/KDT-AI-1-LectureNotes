@@ -9,11 +9,13 @@ public class Monster implements Skill {
     int dexterity;      // 재주
     int agility;        // 민첩
     int hp;
+    int status;
 
     final int START = 20;
     final int END = 30;
     final int HP_MIN = 200;
     final int HP_MAX = 300;
+    final public int DEATH = -777;
 
     public Monster () {
         this.strength = CustomRandom.generateNumber(START, END);
@@ -29,6 +31,14 @@ public class Monster implements Skill {
 
     public void setHp(int hp) {
         this.hp = hp;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override

@@ -8,6 +8,7 @@ public class InterfaceTest {
         System.out.println(rpgGame);
 
         rpgGame.playGame();
+        System.out.println(rpgGame);
     }
 
 }

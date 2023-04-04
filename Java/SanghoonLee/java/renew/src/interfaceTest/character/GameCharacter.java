@@ -10,11 +10,13 @@ public class GameCharacter implements Skill {
     int dexterity;      // 재주
     int agility;        // 민첩
     int hp;
+    int status;
 
     final int START = 10;
     final int END = 20;
     final int HP_MIN = 70;
     final int HP_MAX = 150;
+    final int DEATH = -777;
 
     public GameCharacter() {
         this.strength = CustomRandom.generateNumber(START, END);
@@ -30,6 +32,10 @@ public class GameCharacter implements Skill {
 
     public void setHp(int hp) {
         this.hp = hp;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     // interface를 implements 했다면
