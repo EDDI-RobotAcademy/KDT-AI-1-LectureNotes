@@ -51,7 +51,7 @@ public class Game {
         for (int i = 0; i < PLAYER_COUNT; i++) {
 
             int currentPlayerIndex = findThirdDiceNumber(i);
-            int opponentPlayerIndex = (currentPlayerIndex + 1);
+            int opponentPlayerIndex = (currentPlayerIndex + 1) % PLAYER_COUNT;
 
             if (findThirdDiceNumber(i) == BUFF) {
                 playerList.get(i).getScore().setTotalScore(
@@ -73,7 +73,11 @@ public class Game {
                 playerList.get(opponentPlayerIndex).getScore().setTotalScore(
                         playerList.get(currentPlayerIndex).getScore().getTotalScore() - STEAL_SCORE);
             }  // IndexOutOfBoundsException 에러 발생
-            // 리스트형 객체에서 선언되지 않은 요소를 get하는 경우
+               // 리스트형 객체에서 선언되지 않은 요소를 get하는 경우
+            // int opponentPlayerIndex = (currentPlayerIndex + 1) % PLAYER_COUNT;
+            // 로 검색하여 해결
+            // 상대방 인덱스는 현재 플레이어 인덱스에 1을 더하고 그것을 플레이어 수만큼 나누어 주어야 함
+            // 왜?
         }
     }
 
