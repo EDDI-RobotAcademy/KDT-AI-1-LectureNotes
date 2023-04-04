@@ -37,9 +37,11 @@ public class Monster {
     }
 
     void attck(Character c){
-        int dagmage=att;
-        c.hp-=dagmage;
-        System.out.println(name+"의 공격으로 "+dagmage+"의 데미지를 입어 "+c.hp+"의 체력이 남았습니다.");
+        if (this.hp>0) {
+            int dagmage = att;
+            c.hp -= dagmage;
+            System.out.println(name + "의 공격으로 " + dagmage + "의 데미지를 입어 " + c.hp + "의 체력이 남았습니다.");
+        }
 
     }
 }

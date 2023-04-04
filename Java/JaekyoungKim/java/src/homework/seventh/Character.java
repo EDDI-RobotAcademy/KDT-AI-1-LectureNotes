@@ -35,27 +35,29 @@ public class Character {
     }
     void attack(Monster m){
         // 일반 공격
-        int damage=att;
-        m.hp-=damage;
-        System.out.println(name+"의 공격으로 "+damage+"의 " +
-                "데미지를 입은 "+m.name+"의 체력이 "+m.hp+"남았습니다.");
-
+        if(m.hp>0) {
+            int damage = att;
+            m.hp -= damage;
+            System.out.println(name + "의 공격으로 " + damage + "의 " +
+                    "데미지를 입은 " + m.name + "의 체력이 " + m.hp + "남았습니다.");
+        }
     }
     void headShot(Monster m){
         //헤드샷
+        if(m.hp>0){
         int damage=att*2;
         m.hp-=damage;
         System.out.println(name+"의 헤드샷으로 "+damage+"의 " +
                 "데미지를 입은 "+m.name+"의 체력이 "+m.hp+"남았습니다.");
-    }
+    }}
     void doubleAttack(Monster m){
-        //다중 공격 데미지가 약함
-        int damage=att*9/10;
-        m.hp-=damage;
-        System.out.println(name+"의 더블 어택으로 "+damage+"의 " +
-                "데미지를 입은 "+m.name+"의 체력이 "+m.hp+"남았습니다.");
-
+        if(m.hp>0) {
+            //다중 공격 데미지가 약함
+            int damage = att * 9 / 10;
+            m.hp -= damage;
+            System.out.println(name + "의 더블 어택으로 " + damage + "의 " +
+                    "데미지를 입은 " + m.name + "의 체력이 " + m.hp + "남았습니다.");
+        }
     }
-
 
 }
