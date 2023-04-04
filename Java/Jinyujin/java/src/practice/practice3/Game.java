@@ -14,13 +14,21 @@ public class Game {
     public Game() {
         for (int i = 0; i < PLAYER_COUNT; i++) {
             playerList.add(new Player());
+            System.out.println(playerList.get(i));
         }
     }
 
     public int findThirdDiceNumber (int playerIndex) {
         // 먼저 세 번째 주사위 던졌는지 물어보기
         // diceList의 사이즈 확인하기
-        if (playerList.get(playerIndex).getDiceList().size() == HAVE_THIRD_DICE) {
+
+        List<Dice> diceList = playerList.get(playerIndex).getDiceList();
+
+        if (diceList != null && playerList.get(playerIndex).getDiceList().size() ==
+                HAVE_THIRD_DICE) {
+            // 위 코드가 null 인 경우 IndexOutOfBoundsException 오류 발생
+            // diceList != null 추가하여 해결
+
             int thirdDiceNumber = playerList.get(playerIndex).getDiceList().get(
                     SPECIAL_DICE_INDEX - LIST_BIAS).diceNumber2;
             return thirdDiceNumber;
@@ -36,11 +44,14 @@ public class Game {
         final int BUFF = 3;
         final int DEATH = 4;
 
-        final int STEAL_SCORE = -3;
-        final int BUFF_SCORE = +2;
+        final int STEAL_SCORE = 3;
+        final int BUFF_SCORE = 2;
         final int DEATH_SCORE = -999; // 무조건 패배를 위한 숫자 부여
 
         for (int i = 0; i < PLAYER_COUNT; i++) {
+
+            int currentPlayerIndex = findThirdDiceNumber(i);
+            int opponentPlayerIndex = (currentPlayerIndex + 1);
 
             if (findThirdDiceNumber(i) == BUFF) {
                 playerList.get(i).getScore().setTotalScore(
@@ -57,9 +68,29 @@ public class Game {
                         playerList.get(i).getScore().getTotalScore() + STEAL_SCORE);
             }
             if (findThirdDiceNumber(i) == STEAL) {
-                playerList.get(i).getScore().setTotalScore(
-                        playerList.get(i).getScore().getTotalScore() - STEAL_SCORE);
-            }
+                playerList.get(currentPlayerIndex).getScore().setTotalScore(
+                        playerList.get(opponentPlayerIndex).getScore().getTotalScore() + STEAL_SCORE);
+                playerList.get(opponentPlayerIndex).getScore().setTotalScore(
+                        playerList.get(currentPlayerIndex).getScore().getTotalScore() - STEAL_SCORE);
+            }  // IndexOutOfBoundsException 에러 발생
+            // 리스트형 객체에서 선언되지 않은 요소를 get하는 경우
+        }
+    }
+
+//    public void findResult() {
+//        for (int i = 0; i < PLAYER_COUNT; i++) {
+//            System.out.println(playerList.get(i));
+//        }
+//    }
+
+    public void checkWinner() {
+        Score firstPlayerScore = playerList.get(0).getScore();
+        Score secondPlayerScore = playerList.get(1).getScore();
+
+        if (firstPlayerScore.getTotalScore() > secondPlayerScore.getTotalScore()) {
+            System.out.println("승자: " + playerList.get(0).getName());
+        } else {
+            System.out.println("승자: " + playerList.get(1).getName());
         }
     }
 

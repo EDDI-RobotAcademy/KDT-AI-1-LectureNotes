@@ -16,6 +16,10 @@ public class Player {
         return diceList;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Player() {
         // 플레이어가 주사위를 굴려야해
         for (int i = 0; i < MAX_DICE_COUNT; i++) {
