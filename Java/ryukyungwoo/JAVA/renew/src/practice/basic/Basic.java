@@ -59,7 +59,7 @@ class Apple {
     public String toString() {
         return "Apple{" +
                 "applePrice=" + applePrice +
-                ", applePeice=" + applePiece +
+                ", applePiece=" + applePiece +
                 ", appleSum=" + appleSum +
                 '}';
     }
