@@ -38,10 +38,40 @@ public class RpgGame {
             // 누굴 타겟팅 할 것인가: 랜덤
             for (int characterIndex = 0; characterIndex < gameCharacterList.size(); characterIndex++) {
                 final GameCharacter gameCharacter = gameCharacterList.get(characterIndex);
-                final int targetMonsterIndex = CustomRandom.generateNumber(MONSTER_NUM - 1);
-                final Monster monster = monsterList.get(targetMonsterIndex);
+
+                Boolean isDeath = true;
+                int targetMonsterIndex = 0;
+                Monster monster = null;
+
+                do {
+                    targetMonsterIndex = CustomRandom.generateNumber(MONSTER_NUM - 1);
+                    monster = monsterList.get(targetMonsterIndex);
+                    isDeath = monster.getStatus() == monster.DEATH ? true : false;
+
+                    Boolean isEveryMonsterKilled = false;
+                    for (int monsterIdx = 0; monsterIdx < monsterList.size(); monsterIdx++) {
+                        final Monster tmpMonster = monsterList.get(monsterIdx);
+
+                        if (tmpMonster.getStatus() == tmpMonster.DEATH) {
+                            isEveryMonsterKilled = true;
+                        } else {
+                            isEveryMonsterKilled = false;
+                            break;
+                        }
+                    }
+
+                    if (isEveryMonsterKilled) { return; }
+
+                } while (isDeath);
 
                 gameCharacter.firstSkill(monster);
+
+                for (int monsterIndex = 0; monsterIndex < monsterList.size(); monsterIndex++) {
+                    final Monster selectedMonster = monsterList.get(monsterIndex);
+                    if (selectedMonster.getHp() <= 0) {
+                        selectedMonster.setStatus(selectedMonster.DEATH);
+                    }
+                }
             }
 
             System.out.println(monsterList);
