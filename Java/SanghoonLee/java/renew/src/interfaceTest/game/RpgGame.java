@@ -2,6 +2,7 @@ package interfaceTest.game;
 
 import interfaceTest.character.GameCharacter;
 import interfaceTest.character.Monster;
+import utility.random.CustomRandom;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +30,24 @@ public class RpgGame {
     }
 
     public void playGame() throws InterruptedException {
-        int round = 1;
+        int turn = 1;
         for (int i = 0; ; i++) {
-            System.out.println("현재 라운드: " + (round++));
+            System.out.println("현재 턴: " + (turn++));
+            
+            // 첫 번째 스킬은 타겟팅 스킬
+            // 누굴 타겟팅 할 것인가: 랜덤
+            for (int characterIndex = 0; characterIndex < gameCharacterList.size(); characterIndex++) {
+                final GameCharacter gameCharacter = gameCharacterList.get(characterIndex);
+                final int targetMonsterIndex = CustomRandom.generateNumber(MONSTER_NUM - 1);
+                final Monster monster = monsterList.get(targetMonsterIndex);
+
+                gameCharacter.firstSkill(monster);
+            }
+
+            System.out.println(monsterList);
+
+            // 두 번째 스킬은 광역 스킬
+            
             Thread.sleep(1000);
         }
     }

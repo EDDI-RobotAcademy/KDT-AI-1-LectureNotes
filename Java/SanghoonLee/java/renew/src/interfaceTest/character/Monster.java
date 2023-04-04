@@ -12,8 +12,8 @@ public class Monster implements Skill {
 
     final int START = 20;
     final int END = 30;
-    final int HP_MIN = 100;
-    final int HP_MAX = 200;
+    final int HP_MIN = 200;
+    final int HP_MAX = 300;
 
     public Monster () {
         this.strength = CustomRandom.generateNumber(START, END);
@@ -23,9 +23,17 @@ public class Monster implements Skill {
         this.hp = CustomRandom.generateNumber(HP_MIN, HP_MAX);
     }
 
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
     @Override
-    public float firstSkill() {
-        return 0;
+    public void firstSkill(Monster target) {
+
     }
 
     @Override
