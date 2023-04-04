@@ -4,6 +4,9 @@ import utilityRandom.CustomRandom;
 
 class Apple{
     final int price= CustomRandom.generateNumber(5000,10000);
+    //generateNumber (int min, int max){
+    //        return (int) (Math.random()*(max-min)+1)+min;
+    //    }
     final int appleYield=CustomRandom.generateNumber(3,5);
 
     final int sales=price*appleYield;
