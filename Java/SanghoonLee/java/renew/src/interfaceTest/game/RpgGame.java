@@ -46,6 +46,16 @@ public class RpgGame {
 
             System.out.println(monsterList);
 
+            for (int monsterIndex = 0; monsterIndex < monsterList.size(); monsterIndex++) {
+                final Monster monster = monsterList.get(monsterIndex);
+                final int targetCharacterIndex = CustomRandom.generateNumber(CHARACTER_NUMBER - 1);
+                final GameCharacter gameCharacter = gameCharacterList.get(targetCharacterIndex);
+
+                monster.firstSkill(gameCharacter);
+            }
+
+            System.out.println(gameCharacterList);
+
             // 두 번째 스킬은 광역 스킬
             
             Thread.sleep(1000);

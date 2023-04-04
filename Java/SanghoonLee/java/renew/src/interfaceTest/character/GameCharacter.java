@@ -24,15 +24,26 @@ public class GameCharacter implements Skill {
         this.hp = CustomRandom.generateNumber(HP_MIN, HP_MAX);
     }
 
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
     // interface를 implements 했다면
     // interface에 있는 껍데기 매서드들을 반드시 직접적으로 구현해줘야 합니다.
+
+    // Object는 모든 타입을 수용할 수 있습니다.
+    // int, float, Monster, GameCharacter, String 뭐가 되었든 전부 수용 가능합니다.
     @Override
-    public void firstSkill(Monster target) {
+    public void firstSkill(Object target) {
         System.out.println("스킬명: 흑염룡의 손톱");
 
         final int damage = (int) (strength * 2.3f + dexterity * 0.6f + agility * 1.3f);
-        int targetHp = target.getHp();
-        target.setHp(targetHp - damage);
+        int targetHp = ((Monster)target).getHp();
+        ((Monster)target).setHp(targetHp - damage);
     }
 
     @Override
