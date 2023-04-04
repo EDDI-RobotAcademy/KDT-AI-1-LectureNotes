@@ -8,7 +8,7 @@ public class GameController {
         System.out.println("점수 판정 이후");
         gameManager.playGame();
         gameManager.printResult();
-        gameManager.checkWinner();
+        // gameManager.checkWinner();
 
     }
 }
