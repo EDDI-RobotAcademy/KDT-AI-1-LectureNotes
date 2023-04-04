@@ -12,14 +12,17 @@ public class test {
         Game.rollThreeDices(Game.getPlayerList());
         Game.sumDices(Game.getPlayerList());
 
-        System.out.println(Game.getPlayerList().get(0));
-        System.out.println(Game.getPlayerList().get(1));
-        System.out.println(Game.getPlayerList().get(2));
-        System.out.println(Game.getPlayerList().get(3));
+        for (int i = 0 ; i < Game.playerList.size();i++) {
+            Game.findTargetPlayer(Game.getPlayerList().get(i));
+        }
 
-        System.out.println(Target.findTargetPlayer(Game.getPlayerList().get(0)));
+        Game.finalScore();
 
+        for (int i = 0 ; i < Game.playerList.size();i++) {
+            System.out.println(Game.getPlayerList().get(i));
+        }
 
+        Game.winnerCheck();
 
 
     }

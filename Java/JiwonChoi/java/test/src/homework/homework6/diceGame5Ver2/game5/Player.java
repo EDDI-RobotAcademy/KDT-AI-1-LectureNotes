@@ -6,11 +6,10 @@ import static homework.homework6.diceGame5Ver2.game5.Dice.diceCount;
 public class Player {   //플레이어의 요소- 이름, 주사위배열, 이전점수, 이후점수}
     String playerName;
     Dice[] diceArray = new Dice[diceCount]; //다이스 총개수만큼의 배열 할당 현재 3개 ==> [ ][ ][ ]
-    int AfterScore;
     Score playerScore;
-    Target target;
-//    int myIndex;
-//    int targetIndex;
+    String targetName;
+    int targetIndex;
+
 
     public Dice[] getDiceArray() {
         return diceArray;
@@ -34,32 +33,27 @@ public class Player {   //플레이어의 요소- 이름, 주사위배열, 이�
     public String getPlayerName() {
         return playerName;
     }
-//    public void setMyIndex(int myIndex) {
-//        this.myIndex = myIndex;
-//    }
-//
-//    public int getMyIndex() {
-//        return myIndex;
-//    }
-//
-//    public void setTargetIndex(int targetIndex) {
-//        this.targetIndex = targetIndex;
-//    }
 
-    public Target getTarget() {
-        return target;
+    public void setTargetIndex(int targetIndex) {
+        this.targetIndex = targetIndex;
     }
 
-    public void setTarget(Target target) {
-        this.target = target;
+    public void setTargetName(String targetName) {
+        this.targetName = targetName;
     }
 
     @Override
-    public String toString() {  //플레이어 출력시 문구
-        return  "PlayerName=" + playerName + '\n' +
-                "Dice=" + Arrays.toString(diceArray) + '\n' +
-                playerScore +
-                "TotalScore=" + AfterScore + '\n';
-    }
+    public String toString() {
+        return "Player{" +
+                "playerName='" + playerName + '\'' +
+                ", diceArray=" + Arrays.toString(diceArray) +
 
+                ", playerScore=" + playerScore +
+                ", targetName='" + targetName + '\'' +
+                '}';
+    }
 }
+
+
+
+

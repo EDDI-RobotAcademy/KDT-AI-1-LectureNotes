@@ -14,11 +14,20 @@ public class Score {
         this.beforeScore = beforeScore;
     }
 
+    public int getFinalScore() {
+        return finalScore;
+    }
+
     @Override
     public String toString() {
-        return "DiceSum=" + beforeScore + '\n';
+        return "Score{" +
+                "beforeScore=" + beforeScore +
+                ", finalScore=" + finalScore +
+                '}';
     }
 }
+
+
 
 
 

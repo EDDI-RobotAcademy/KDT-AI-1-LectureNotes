@@ -15,16 +15,13 @@ public class Dice {
         final int dice_Min = 1; //다이스 최소값
         Dice[] dices = new Dice[diceCount];
         for (int i = 0; i < diceCount; i++) {
-            int randomNumber = CustomRandom.generateNumber(dice_Max, dice_Min);
+            int randomNumber = CustomRandom.generateNumber(dice_Min, dice_Max);
             dices[i] = new Dice(randomNumber);
         }
 
         return dices;
     }
 
-    public Dice(String diceRound) {
-        this.diceRound = diceRound;
-    }
     public void setDiceNumber(int diceNumber) {
         this.diceNumber = diceNumber;
     }
