@@ -25,7 +25,6 @@ public class MultipleTargetAttack {
             this.multipleTargetAttackDMG =
                     CustomRandom2.generateNumber(min, max) + intelligence;
         }
-        System.out.println(this.critical);
     }
 
     public static double getMultipleTargetAttackDMG() {

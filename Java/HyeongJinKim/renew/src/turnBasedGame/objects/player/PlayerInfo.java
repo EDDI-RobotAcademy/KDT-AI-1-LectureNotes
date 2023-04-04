@@ -8,12 +8,9 @@ import turnBasedGame.objects.player.playerAttacks.SingleTargetAttack;
 import java.util.List;
 
 public class PlayerInfo {
-    private int healthPoint;
+    private static int healthPoint;
     private int strength;
-
-    /* TODO: agility에 영향받는 공격 회피율 만들어보기 */
     private int agility;
-
     private int dexterity;
     private int intelligence;
 
@@ -25,7 +22,7 @@ public class PlayerInfo {
     public PlayerInfo() {
         this.healthPoint = 100;
         this.strength = 10;
-        this.agility = 10;
+        this.agility = 20;
         this.dexterity = 8;
         this.intelligence = 10;
         this.attack = new Attack(strength, dexterity);
@@ -64,7 +61,7 @@ public class PlayerInfo {
         }
     }
 
-    public int getHealthPoint() {
+    public static int getHealthPoint() {
         return healthPoint;
     }
 

@@ -6,7 +6,7 @@ public class SystemMessage {
     static PlayerInfo playerInfo = new PlayerInfo();
 
     /* TODO: 관리하기 불편함
-    *   변수 불러와서 문자열 포매팅하기 */
+        변수 불러와서 문자열 포매팅하기 */
 
     public static void printChooseDifficulty() {
         System.out.println("게임 설명");
