@@ -20,6 +20,7 @@ public class GameCharacter implements Skill {
 
     // interface를 implements 했다면
     // interface에 있는 껍데기 매서드들을 반드시 직접적으로 구현해줘야 합니다.
+    // (밑의 second_skill처럼 아무것도 안해도 만들어져있어야 함)
     @Override
     public float first_skill() {
         return strength * 2.3f + dexterity * 0.6f + agility * 1.3f;
