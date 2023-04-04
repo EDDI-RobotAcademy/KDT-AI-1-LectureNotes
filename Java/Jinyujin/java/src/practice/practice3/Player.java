@@ -7,6 +7,11 @@ public class Player {
     private String name;
     private List<Dice> diceList = new ArrayList<>();
     final int MAX_DICE_COUNT = 3;
+
+    public int getDiceSum() {
+        return diceSum;
+    }
+
     private int diceSum = 0;
     final private int FIRST_DICE_INFO = 0;
     final private int ODD = 1;

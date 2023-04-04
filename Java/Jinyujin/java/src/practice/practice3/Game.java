@@ -64,14 +64,12 @@ public class Game {
                 playerList.get(i).getScore().setTotalScore(DEATH_SCORE);
             }
             if (findThirdDiceNumber(i) == STEAL) {
-                playerList.get(i).getScore().setTotalScore(
-                        playerList.get(i).getScore().getTotalScore() + STEAL_SCORE);
-            }
-            if (findThirdDiceNumber(i) == STEAL) {
                 playerList.get(currentPlayerIndex).getScore().setTotalScore(
-                        playerList.get(opponentPlayerIndex).getScore().getTotalScore() + STEAL_SCORE);
+                        playerList.get(opponentPlayerIndex).getDiceSum() + STEAL_SCORE);
+                // 현재 플레이어의 스코어 클래스의 토탈스코어를 설정해라
+                // 상대방 플레이어의 주사위총합에 3점을 더해서
                 playerList.get(opponentPlayerIndex).getScore().setTotalScore(
-                        playerList.get(currentPlayerIndex).getScore().getTotalScore() - STEAL_SCORE);
+                        playerList.get(currentPlayerIndex).getDiceSum() - STEAL_SCORE);
             }  // IndexOutOfBoundsException 에러 발생
                // 리스트형 객체에서 선언되지 않은 요소를 get하는 경우
             // int opponentPlayerIndex = (currentPlayerIndex + 1) % PLAYER_COUNT;
@@ -81,13 +79,14 @@ public class Game {
         }
     }
 
-//    public void findResult() {
-//        for (int i = 0; i < PLAYER_COUNT; i++) {
-//            System.out.println(playerList.get(i));
-//        }
-//    }
+    public void findResult() {
+        for (int i = 0; i < PLAYER_COUNT; i++) {
+            System.out.println(playerList.get(i));
+        }
+    }
 
     public void checkWinner() {
+
         Score firstPlayerScore = playerList.get(0).getScore();
         Score secondPlayerScore = playerList.get(1).getScore();
 
@@ -96,12 +95,5 @@ public class Game {
         } else {
             System.out.println("승자: " + playerList.get(1).getName());
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Game{" +
-                "playerList=" + playerList +
-                '}';
     }
 }

@@ -12,9 +12,9 @@ public class ThirdDiceGame {
     public static void main(String[] args) {
 
         Game game = new Game();
-//        System.out.println(game);
         game.playGame();
-//        game.findResult();
+        game.findResult();
         game.checkWinner(); // player name이 둘 다 null 값으로 발생하는 문제
+        // STEAL 이상하게 먹히는 문제
     }
 }
