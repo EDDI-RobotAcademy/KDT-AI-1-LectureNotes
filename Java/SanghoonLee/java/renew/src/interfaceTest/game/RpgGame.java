@@ -37,17 +37,19 @@ public class RpgGame {
             // 첫 번째 스킬은 타겟팅 스킬
             // 누굴 타겟팅 할 것인가: 랜덤
             for (int characterIndex = 0; characterIndex < gameCharacterList.size(); characterIndex++) {
-                final GameCharacter gameCharacter = gameCharacterList.get(characterIndex);
 
-                Boolean isDeath = true;
-                int targetMonsterIndex = 0;
-                Monster monster = null;
+                Boolean isDeath = true;         // 몬스터가 죽었는가 ?
+                int targetMonsterIndex = 0;     // 몬스터 인덱스
+                Monster monster = null;         // 몬스터 객체
 
                 do {
+                    // 랜덤 타겟 (선택 타겟이라면 Scanner로 입력 받도록 만드세요)
                     targetMonsterIndex = CustomRandom.generateNumber(MONSTER_NUM - 1);
                     monster = monsterList.get(targetMonsterIndex);
+                    // 몬스터가 죽었는가 ?
                     isDeath = monster.getStatus() == monster.DEATH ? true : false;
 
+                    // 모든 몬스터가 죽었는지 검사하는 루프
                     Boolean isEveryMonsterKilled = false;
                     for (int monsterIdx = 0; monsterIdx < monsterList.size(); monsterIdx++) {
                         final Monster tmpMonster = monsterList.get(monsterIdx);
@@ -60,12 +62,17 @@ public class RpgGame {
                         }
                     }
 
+                    // 몬스터를 다 잡았으면 루프(게임) 종료
                     if (isEveryMonsterKilled) { return; }
 
-                } while (isDeath);
+                } while (isDeath);  // 이 루프는 이미 죽은 몬스터를 또 패지 않도록 방지하기 위함
 
+                // 게임 캐릭터[n] 정보 가져오기
+                final GameCharacter gameCharacter = gameCharacterList.get(characterIndex);
+                // 캐릭터 단일 타겟팅 스킬 사용
                 gameCharacter.firstSkill(monster);
-
+                
+                // 루프 돌면서 몬스터가 죽었는지 검사함
                 for (int monsterIndex = 0; monsterIndex < monsterList.size(); monsterIndex++) {
                     final Monster selectedMonster = monsterList.get(monsterIndex);
                     if (selectedMonster.getHp() <= 0) {
