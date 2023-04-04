@@ -1,5 +1,7 @@
 package game;
 
+import utility.random.CustomRandom;
+
 public class Dice {
     final private int MIN = 1;
     final private int MAX = 6;

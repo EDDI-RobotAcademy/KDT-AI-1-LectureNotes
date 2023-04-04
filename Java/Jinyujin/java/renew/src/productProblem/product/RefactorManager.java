@@ -31,7 +31,7 @@ public class RefactorManager {
             tmpString += (char) CustomRandom.generateNumber('a', 'z');
         }
 
-        SequnceGenerator SequenceGenerator;
+        SequnceGenerator SequenceGenerator = null;
         memberList.add(new Member(
                 SequenceGenerator.getSpecificEntityId("Member"),
                 tmpString + "@test.com", "test"));

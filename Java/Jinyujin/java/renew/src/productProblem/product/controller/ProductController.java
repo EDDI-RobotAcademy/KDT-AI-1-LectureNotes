@@ -1,6 +1,7 @@
 package productProblem.product.controller;
 
 import productProblem.product.RefactorManager;
+import utility.generator.SequenceGenerator;
 
 public class ProductController {
     public static void main(String[] args) {
