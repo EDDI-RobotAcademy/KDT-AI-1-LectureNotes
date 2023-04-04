@@ -1,14 +1,11 @@
 package homework.homework7.numberSequence;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class NumberSequence {
+public class NumberSequence_Q1 {
 
     public static void main(String[] args) {
         ArrayList <Integer> NumberList = new ArrayList<>();
-
-        int sumNumber_1Q = 0;
 
         for(int i = 1; i < 101; i++){
             if(i % 2 == 0) {

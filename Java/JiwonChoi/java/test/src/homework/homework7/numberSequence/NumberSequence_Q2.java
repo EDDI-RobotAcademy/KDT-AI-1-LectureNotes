@@ -2,15 +2,13 @@ package homework.homework7.numberSequence;
 
 import java.util.ArrayList;
 
-public class NumberSequence_Q1 {
+public class NumberSequence_Q2 {
 
     public static void main(String[] args) {
         ArrayList <Integer> NumberList = new ArrayList<>();
 
-        int sumNumber_1Q = 0;
-
         for(int i = 1; i < 101; i++){
-            if(i % 2 == 0) {
+            if(i % 3 == 0) {
                 NumberList.add(i);
             }
         }
