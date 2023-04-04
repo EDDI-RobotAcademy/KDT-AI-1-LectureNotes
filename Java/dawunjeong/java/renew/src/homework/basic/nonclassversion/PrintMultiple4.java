@@ -1,4 +1,4 @@
-package homework.basic;
+package homework.basic.nonclassversion;
 
 public class PrintMultiple4 {
     public static void main(String[] args) {

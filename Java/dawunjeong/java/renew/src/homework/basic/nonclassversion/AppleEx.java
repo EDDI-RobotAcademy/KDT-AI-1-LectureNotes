@@ -1,4 +1,4 @@
-package homework.basic;
+package homework.basic.nonclassversion;
 
 import utility.random.CustomRandom;
 
@@ -16,9 +16,9 @@ public class AppleEx {
         applePrice = CustomRandom.generateNumber(PRICE_MIN, PRICE_MAX);
         appleNum = CustomRandom.generateNumber(APPLENUM_MIN, APPLENUM_MAX);
         totalPrice = applePrice * appleNum;
+
         System.out.println("사과의 가격: " + applePrice + "원");
         System.out.println("수확한 사과의 개수: " + appleNum + "개");
-
         System.out.println("수확한 사과의 전체 가격: " + totalPrice + "원");
 
     }
