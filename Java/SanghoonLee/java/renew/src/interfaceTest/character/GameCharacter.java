@@ -27,9 +27,12 @@ public class GameCharacter implements Skill {
     // interface를 implements 했다면
     // interface에 있는 껍데기 매서드들을 반드시 직접적으로 구현해줘야 합니다.
     @Override
-    public float firstSkill() {
+    public void firstSkill(Monster target) {
         System.out.println("스킬명: 흑염룡의 손톱");
-        return strength * 2.3f + dexterity * 0.6f + agility * 1.3f;
+
+        final int damage = (int) (strength * 2.3f + dexterity * 0.6f + agility * 1.3f);
+        int targetHp = target.getHp();
+        target.setHp(targetHp - damage);
     }
 
     @Override
