@@ -1,4 +1,4 @@
-package homework;
+package homework.basicProblem;
 
 class Random {
 
