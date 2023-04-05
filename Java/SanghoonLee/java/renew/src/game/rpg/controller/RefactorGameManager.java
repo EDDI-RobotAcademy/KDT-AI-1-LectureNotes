@@ -2,6 +2,7 @@ package game.rpg.controller;
 
 import game.rpg.characterModel.RefactorGameCharacter;
 import game.rpg.characterModel.RefactorMonster;
+import game.rpg.characterModel.Status;
 import utility.random.CustomRandom;
 
 import java.util.ArrayList;
@@ -50,7 +51,18 @@ public class RefactorGameManager {
         for (; ; turn++) {
             System.out.println("현재 턴: " + turn);
 
-            playerTurnBehavior();   // Ctrl + Alt + M
+            final Boolean isAllMonsterKilled = playerTurnBehavior();   // Ctrl + Alt + M
+            if (isAllMonsterKilled) {
+                System.out.println("Player 승리!");
+                break;
+            }
+
+            final Boolean isAllPlayerDeath = monsterTurnBehavior();
+            if (isAllPlayerDeath) {
+                System.out.println("Player 패배!");
+                break;
+            }
+
             printBattleInfo();
 
             Thread.sleep(1000);
@@ -58,19 +70,57 @@ public class RefactorGameManager {
     }
 
     private void printBattleInfo() {
+        System.out.println("캐릭터 상태 정보: ");
         System.out.println(characterList);
+        System.out.println();
+        System.out.println("몬스터 상태 정보: ");
         System.out.println(monsterList);
     }
 
-    private void playerTurnBehavior() {
-        for (int characterIdx = 0; characterIdx < CHARACTER_MAX_NUMBER; characterIdx++) {
+    private Boolean monsterTurnBehavior() {
+        final Boolean killedAllPlayer = true;
+
+        for (int monsterIdx = 0; monsterIdx < monsterList.size(); monsterIdx++) {
+            final RefactorMonster monster = monsterList.get(monsterIdx);
+
+            final int characterIdx = CustomRandom.generateNumber(characterList.size() - 1);
             final RefactorGameCharacter character = characterList.get(characterIdx);
 
-            final RefactorMonster monster = monsterList.get(
-                    CustomRandom.generateNumber(MONSTER_MAX_NUMBER - 1));
+            monster.targetingSkill(character);
+
+            if (character.decisionDeath()) {
+                characterList.remove(characterIdx);
+            }
+
+            if (characterList.size() == 0) {
+                return killedAllPlayer;
+            }
+        }
+
+        return false;
+    }
+
+    private Boolean playerTurnBehavior() {
+        final Boolean killedAllMonster = true;
+
+        for (int characterIdx = 0; characterIdx < characterList.size(); characterIdx++) {
+            final RefactorGameCharacter character = characterList.get(characterIdx);
+
+            final int monsterIdx = CustomRandom.generateNumber(monsterList.size() - 1);
+            final RefactorMonster monster = monsterList.get(monsterIdx);
 
             character.targetingSkill(monster);
+
+            if (monster.decisionDeath()) {
+                monsterList.remove(monsterIdx);
+            }
+
+            if (monsterList.size() == 0) {
+                return killedAllMonster;
+            }
         }
+
+        return false;
     }
 
     @Override
