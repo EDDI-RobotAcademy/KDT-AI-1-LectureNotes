@@ -15,8 +15,7 @@ public class Apple {
 
     @Override
     public String toString() {
-        return "사과 : " +
-                AppleCost +
+        return AppleCost +
                 "원";
     }
 }

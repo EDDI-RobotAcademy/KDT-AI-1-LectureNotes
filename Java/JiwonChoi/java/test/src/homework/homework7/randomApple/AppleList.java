@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class AppleList {
 
     ArrayList<Apple> apples;
-    int allApplesCost;
+    int applesCostSum;
 
     public AppleList() {
     }
@@ -17,12 +17,12 @@ public class AppleList {
     public ArrayList<Apple> getApples() {
         return apples;
     }
-    public void setAllApplesCost(int allApplesCost) {
-        this.allApplesCost = allApplesCost;
+    public void setApplesCostSum(int applesCostSum) {
+        this.applesCostSum = applesCostSum;
     }
 
 
-    void takeApple() {
+    public void takeApple() {
         int takenApple_Min = 3;
         int takenApple_Max = 5;
         int takenAppleRandomCount = CustomRandom.generateNumber(takenApple_Min, takenApple_Max);
@@ -34,19 +34,21 @@ public class AppleList {
         setApples(takenApples);
     }
 
-    void sumApplesCost() {
-        int sum = 0;
+    public void sumApplesCost() {
+        int tmpSum = 0;
         for (int i = 0; i < apples.size(); i++) {
-            sum += getApples().get(i).getAppleCost();
+            tmpSum += apples.get(i).getAppleCost();
         }
-        setAllApplesCost(sum);
+        setApplesCostSum(tmpSum);
     }
 
     @Override
     public String toString() {
         return "<<  사과 목록  >>" + '\n' +
-                apples + '\n' +
-                "전체 사과의 가격은 " + allApplesCost +
+
+                apples + '\n' + '\n' +
+
+                " >> 전체 사과의 가격은 " + applesCostSum +
                 "원입니다.";
     }
 }

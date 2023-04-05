@@ -34,7 +34,7 @@ public class NumberSequence {
     }
 
     public void DecisionNumberAndSumList(int decisionNum) { //START_NUM~END_NUM까지 decisionNum배수만 출력, 합산 출력
-        ArrayList<Integer> decisionNumberAndSumList1 = this.DecisionNumberList(decisionNum);
+        ArrayList<Integer> decisionNumberAndSumList1 = DecisionNumberList(decisionNum);
         int tmpSum = 0;
         for (int i = 0; i < decisionNumberAndSumList1.size(); i++) {
             tmpSum += decisionNumberAndSumList1.get(i);
