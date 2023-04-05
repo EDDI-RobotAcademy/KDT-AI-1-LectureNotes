@@ -38,7 +38,6 @@ public class FirstProb1 {
         }
         System.out.println(a + ": " + multipleSum);
     }
-
 }
 
 

@@ -14,6 +14,5 @@ public class FirstProbTest1 {
         firstProb1.printMultipleSum("4의 배수를 더한 결과를 출력", 4);
         System.out.println();
         firstProb1.printMultipleSum("6의 배수를 더한 결과를 출력", 6);
-        
     }
 }
