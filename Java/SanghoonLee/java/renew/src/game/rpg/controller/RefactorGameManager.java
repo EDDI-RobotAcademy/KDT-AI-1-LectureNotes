@@ -16,6 +16,8 @@ public class RefactorGameManager {
 
     final int MONSTER_MAX_NUMBER = 2;
     final int CHARACTER_MAX_NUMBER = 3;
+    final int ATTACKER_IS_PLAYER = 333;
+    final int ATTACKER_IS_MONSTER = 777;
 
     public RefactorGameManager() {
         final int PLAYER_HP_MIN = 70;
@@ -52,7 +54,7 @@ public class RefactorGameManager {
         for (; ; turn++) {
             System.out.println("현재 턴: " + turn);
 
-            final Boolean isAllMonsterKilled = turnBehavior(characterList, monsterList);
+            final Boolean isAllMonsterKilled = turnBehavior(characterList, monsterList, ATTACKER_IS_PLAYER);
             //final Boolean isAllMonsterKilled = playerTurnBehavior();   // Ctrl + Alt + M
             if (isAllMonsterKilled) {
                 System.out.println("Player 승리!");
@@ -72,7 +74,7 @@ public class RefactorGameManager {
         }
     }
 
-    private <T, U> Boolean turnBehavior (List<T> attackerList, List<U> defenderList) {
+    private <T, U> Boolean turnBehavior (List<T> attackerList, List<U> defenderList, int castingType) {
 
         Boolean isAllKilled = true;
 
@@ -82,13 +84,23 @@ public class RefactorGameManager {
             final U defender = defenderList.get(defenderIdx);
             final T attacker = attackerList.get(attackerIdx);
 
-            attacker.targetingSkill(defender);
-
-            if (defender.decisionDeath()) {
-                monsterList.remove(defenderIdx);
+            if (castingType == ATTACKER_IS_PLAYER) {
+                ((RefactorGameCharacter) attacker).targetingSkill(defender);
+            } else {
+                ((RefactorMonster) attacker).targetingSkill(defender);
             }
 
-            if (monsterList.size() == 0) {
+            if (castingType == ATTACKER_IS_PLAYER) {
+                if (((RefactorMonster) defender).decisionDeath()) {
+                    defenderList.remove(defenderIdx);
+                }
+            } else {
+                if (((RefactorGameCharacter) defender).decisionDeath()) {
+                    defenderList.remove(defenderIdx);
+                }
+            }
+
+            if (defenderList.size() == 0) {
                 return isAllKilled;
             }
         }
