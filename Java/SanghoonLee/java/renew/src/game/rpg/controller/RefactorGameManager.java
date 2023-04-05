@@ -17,9 +17,6 @@ public class RefactorGameManager {
     final int MONSTER_MAX_NUMBER = 2;
     final int CHARACTER_MAX_NUMBER = 3;
 
-    final int PLAYER_ATTACK = 333;
-    final int MONSTER_ATTACK = 777;
-
     public RefactorGameManager() {
         final int PLAYER_HP_MIN = 70;
         final int PLAYER_HP_MAX = 150;
@@ -55,8 +52,8 @@ public class RefactorGameManager {
         for (; ; turn++) {
             System.out.println("현재 턴: " + turn);
 
-            //final Boolean isAllMonsterKilled = turnBehavior(characterList, monsterList, PLAYER_ATTACK);
-            final Boolean isAllMonsterKilled = playerTurnBehavior();   // Ctrl + Alt + M
+            final Boolean isAllMonsterKilled = turnBehavior(characterList, monsterList);
+            //final Boolean isAllMonsterKilled = playerTurnBehavior();   // Ctrl + Alt + M
             if (isAllMonsterKilled) {
                 System.out.println("Player 승리!");
                 break;
@@ -75,15 +72,43 @@ public class RefactorGameManager {
         }
     }
 
-//    private Boolean turnBehavior(List<?> attackerList, List<?> defenderList, int casting) {
+    private <T, U> Boolean turnBehavior (List<T> attackerList, List<U> defenderList) {
+
+        Boolean isAllKilled = true;
+
+        for (int attackerIdx = 0; attackerIdx < attackerList.size(); attackerIdx++) {
+
+            final int defenderIdx = CustomRandom.generateNumber(defenderList.size() - 1);
+            final U defender = defenderList.get(defenderIdx);
+            final T attacker = attackerList.get(attackerIdx);
+
+            attacker.targetingSkill(defender);
+
+            if (defender.decisionDeath()) {
+                monsterList.remove(defenderIdx);
+            }
+
+            if (monsterList.size() == 0) {
+                return isAllKilled;
+            }
+        }
+
+        return false;
+    }
+
+//    private Boolean turnBehavior(List<RefactorGameCharacter> characterList,
+//                                 List<RefactorMonster> monsterList,
+//                                 Boolean isPlayerAttack) {
+//
 //        final Boolean allKill = true;
 //
-//        for (int attackerIdx = 0; attackerIdx < attackerList.size(); attackerIdx++) {
+//        for (int characterIdx = 0; characterIdx < characterList.size(); characterIdx++) {
 //            final int defenderIdx = CustomRandom.generateNumber(defenderList.size() - 1);
 //
-//            if (casting == PLAYER_ATTACK) {
-//                final RefactorMonster defender = (RefactorMonster) defenderList.get(defenderIdx);
-//                final RefactorGameCharacter attacker = (RefactorGameCharacter) attackerList.get(attackerIdx);
+//            final RefactorMonster defender = wannaGetAnyTypeListElement(defenderList, defenderIdx);
+//
+//            final RefactorMonster defender = (RefactorMonster) defenderList.get(defenderIdx);
+//            final RefactorGameCharacter attacker = (RefactorGameCharacter) attackerList.get(attackerIdx);
 //                attacker.targetingSkill(defender);
 //            } else if (casting == MONSTER_ATTACK) {
 //                final RefactorGameCharacter defender = (RefactorGameCharacter) defenderList.get(defenderIdx);

@@ -26,7 +26,7 @@ public class RefactorMonster extends CharacterModel implements Skill {
     }
 
     @Override
-    public void targetingSkill(Object target) {
+    public <T> void targetingSkill(T target) {
         final RefactorGameCharacter character = (RefactorGameCharacter) target;
         final int damage = (int) (getStrength() * 1.7f + getDexterity() * 2.5f + getAgility() * 0.6);
         character.calculateDamage(damage);
