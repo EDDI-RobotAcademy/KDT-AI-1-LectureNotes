@@ -1,4 +1,4 @@
-package practice.numProbReview;
+package practice.numProb.numProbReview;
 
 import java.util.List;
 
