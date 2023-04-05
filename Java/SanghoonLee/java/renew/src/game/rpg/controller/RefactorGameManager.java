@@ -2,6 +2,7 @@ package game.rpg.controller;
 
 import game.rpg.characterModel.RefactorGameCharacter;
 import game.rpg.characterModel.RefactorMonster;
+import game.rpg.characterModel.Skill;
 import game.rpg.characterModel.Status;
 import utility.random.CustomRandom;
 
@@ -15,6 +16,9 @@ public class RefactorGameManager {
 
     final int MONSTER_MAX_NUMBER = 2;
     final int CHARACTER_MAX_NUMBER = 3;
+
+    final int PLAYER_ATTACK = 333;
+    final int MONSTER_ATTACK = 777;
 
     public RefactorGameManager() {
         final int PLAYER_HP_MIN = 70;
@@ -51,12 +55,14 @@ public class RefactorGameManager {
         for (; ; turn++) {
             System.out.println("현재 턴: " + turn);
 
+            //final Boolean isAllMonsterKilled = turnBehavior(characterList, monsterList, PLAYER_ATTACK);
             final Boolean isAllMonsterKilled = playerTurnBehavior();   // Ctrl + Alt + M
             if (isAllMonsterKilled) {
                 System.out.println("Player 승리!");
                 break;
             }
 
+            //final Boolean isAllPlayerDeath = turnBehavior(characterList, monsterList, MONSTER_ATTACK);
             final Boolean isAllPlayerDeath = monsterTurnBehavior();
             if (isAllPlayerDeath) {
                 System.out.println("Player 패배!");
@@ -68,6 +74,44 @@ public class RefactorGameManager {
             Thread.sleep(1000);
         }
     }
+
+//    private Boolean turnBehavior(List<?> attackerList, List<?> defenderList, int casting) {
+//        final Boolean allKill = true;
+//
+//        for (int attackerIdx = 0; attackerIdx < attackerList.size(); attackerIdx++) {
+//            final int defenderIdx = CustomRandom.generateNumber(defenderList.size() - 1);
+//
+//            if (casting == PLAYER_ATTACK) {
+//                final RefactorMonster defender = (RefactorMonster) defenderList.get(defenderIdx);
+//                final RefactorGameCharacter attacker = (RefactorGameCharacter) attackerList.get(attackerIdx);
+//                attacker.targetingSkill(defender);
+//            } else if (casting == MONSTER_ATTACK) {
+//                final RefactorGameCharacter defender = (RefactorGameCharacter) defenderList.get(defenderIdx);
+//                final RefactorMonster attacker = (RefactorMonster) attackerList.get(attackerIdx);
+//                attacker.targetingSkill(defender);
+//            }
+//
+//            if (casting == PLAYER_ATTACK) {
+//                final RefactorMonster defender = (RefactorMonster) (defenderList.get(defenderIdx));
+//
+//                if (defender.decisionDeath()) {
+//                    defenderList.remove(defenderIdx);
+//                }
+//            } else {
+//                final RefactorGameCharacter defender = (RefactorGameCharacter) (defenderList.get(defenderIdx));
+//
+//                if (defender.decisionDeath()) {
+//                    defenderList.remove(defenderIdx);
+//                }
+//            }
+//
+//            if (defenderList.size() == 0) {
+//                return allKill;
+//            }
+//        }
+//
+//        return false;
+//    }
 
     private void printBattleInfo() {
         System.out.println("캐릭터 상태 정보: ");
