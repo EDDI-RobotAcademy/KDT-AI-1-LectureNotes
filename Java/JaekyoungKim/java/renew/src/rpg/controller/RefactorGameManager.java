@@ -18,9 +18,9 @@ public class RefactorGameManager {
     final int ATTACKER_IS_MONSTER = 777;
 
     public RefactorGameManager() {
-        final int PLAYER_HP_MIN = 70;
-        final int PLAYER_HP_MAX = 150;
-        final int PLAYER_STAT_MIN = 10;
+        final int PLAYER_HP_MIN = 100;
+        final int PLAYER_HP_MAX = 200;
+        final int PLAYER_STAT_MIN = 15;
         final int PLAYER_STAT_MAX = 20;
 
         final int MONSTER_HP_MIN = 200;
@@ -59,8 +59,8 @@ public class RefactorGameManager {
                 break;
             }
 
-            //final Boolean isAllPlayerDeath = turnBehavior(characterList, monsterList, MONSTER_ATTACK);
-            final Boolean isAllPlayerDeath = monsterTurnBehavior();
+            final Boolean isAllPlayerDeath = turnBehavior( monsterList,characterList, ATTACKER_IS_MONSTER);
+            //final Boolean isAllPlayerDeath = monsterTurnBehavior();
             if (isAllPlayerDeath) {
                 System.out.println("Player 패배!");
                 break;
@@ -82,21 +82,8 @@ public class RefactorGameManager {
             final U defender = defenderList.get(defenderIdx);
             final T attacker = attackerList.get(attackerIdx);
 
-            if (castingType == ATTACKER_IS_PLAYER) {
-                ((RefactorGameCharacter) attacker).targetingSkill(defender);
-            } else {
-                ((RefactorMonster) attacker).targetingSkill(defender);
-            }
-
-            if (castingType == ATTACKER_IS_PLAYER) {
-                if (((RefactorMonster) defender).decisionDeath()) {
-                    defenderList.remove(defenderIdx);
-                }
-            } else {
-                if (((RefactorGameCharacter) defender).decisionDeath()) {
-                    defenderList.remove(defenderIdx);
-                }
-            }
+            useTargetingSkill(castingType, defender, attacker);
+            decisionDeath(defenderList, castingType, defenderIdx, defender);
 
             if (defenderList.size() == 0) {
                 return isAllKilled;
@@ -104,6 +91,26 @@ public class RefactorGameManager {
         }
 
         return false;
+    }
+
+    private <U> void decisionDeath(List<U> defenderList, int castingType, int defenderIdx, U defender) {
+        if (castingType == ATTACKER_IS_PLAYER) {
+            if (((RefactorMonster) defender).decisionDeath()) {
+                defenderList.remove(defenderIdx);
+            }
+        } else {
+            if (((RefactorGameCharacter) defender).decisionDeath()) {
+                defenderList.remove(defenderIdx);
+            }
+        }
+    }
+
+    private <T, U> void useTargetingSkill(int castingType, U defender, T attacker) {
+        if (castingType == ATTACKER_IS_PLAYER) {
+            ((RefactorGameCharacter) attacker).targetingSkill(defender);
+        } else {
+            ((RefactorMonster) attacker).targetingSkill(defender);
+        }
     }
 
 //    private Boolean turnBehavior(List<RefactorGameCharacter> characterList,
@@ -156,7 +163,7 @@ public class RefactorGameManager {
         System.out.println(monsterList);
     }
 
-    private Boolean monsterTurnBehavior() {
+   /* private Boolean monsterTurnBehavior() {
         final Boolean killedAllPlayer = true;
 
         for (int monsterIdx = 0; monsterIdx < monsterList.size(); monsterIdx++) {
@@ -201,7 +208,7 @@ public class RefactorGameManager {
 
         return false;
     }
-
+*/
     @Override
     public String toString() {
         return "RefactorGameManager{" +
