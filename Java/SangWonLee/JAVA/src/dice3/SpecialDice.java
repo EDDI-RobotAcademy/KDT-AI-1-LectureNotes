@@ -23,10 +23,15 @@ public class SpecialDice {
     }
 
     public List<Score> eatScore(int specialPersonIndex) {
+
         int getScore = 2; // 얻을 점수
 
-        int tse = totalScore.get(specialPersonIndex).getScore() + getScore;
-        totalScore.set(specialPersonIndex, (Score) totalScore.get(tse));
+
+        int eatTotalScore = totalScore.get(specialPersonIndex).getScore() + getScore;
+        totalScore.get(specialPersonIndex).setScore(eatTotalScore);
+
+        System.out.println();
+
 
 
 

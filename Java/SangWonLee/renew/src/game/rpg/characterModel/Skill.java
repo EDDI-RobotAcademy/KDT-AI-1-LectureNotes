@@ -1,9 +1,6 @@
 package game.rpg.characterModel;
 
-import interfaceTest.character.Monster;
-
 public interface Skill {
 
-
-
+    public <T> void targetingSkill (T target);
 }

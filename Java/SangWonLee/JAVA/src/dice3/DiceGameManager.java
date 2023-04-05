@@ -107,6 +107,7 @@ public class DiceGameManager {
         int specialPersonIndex;
         SpecialDice specialDice = new SpecialDice(scoreDiceList);
 
+
         for (int i = START; i < diceNumberList.size(); i++) {
             if (diceNumberList.get(i).size() == 3) {
                 switch (diceNumberList.get(i).get(thirdDice).getDiceNumber()) {

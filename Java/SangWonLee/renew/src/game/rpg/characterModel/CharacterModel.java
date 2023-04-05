@@ -8,9 +8,7 @@ public class CharacterModel {
     private int dexterity;      // 재주
     private int agility;        // 민첩
     private int hp;             // hp
-    private int status;         // 상태
-    private final int DEATH = -777;
-    private final int NORMAL = 1;
+    private Status status;         // 상태
 
     public CharacterModel(int strength, int intelligent, int dexterity, int agility, int hp) {
         this.strength = strength;
@@ -19,7 +17,7 @@ public class CharacterModel {
         this.agility = agility;
         this.hp = hp;
 
-        this.status = NORMAL;
+        this.status = Status.NORMAL;
     }
 
     public int getHp() {
@@ -30,12 +28,41 @@ public class CharacterModel {
         this.hp = hp;
     }
 
-    public int getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public void calculateDamage (int damage) {
+        hp -= damage;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getIntelligent() {
+        return intelligent;
+    }
+
+    public int getDexterity() {
+        return dexterity;
+    }
+
+    public int getAgility() {
+        return agility;
+    }
+
+    public Boolean decisionDeath() {
+        if (getHp() <= 0) {
+            setStatus(Status.DEATH);
+            return true;
+        }
+
+        return false;
     }
 
     @Override
