@@ -2,6 +2,7 @@ package game.rpg.controller;
 
 import game.rpg.characterModel.RefactorGameCharacter;
 import game.rpg.characterModel.RefactorMonster;
+import utility.random.CustomRandom;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,16 +31,45 @@ public class RefactorGameManager {
 
         for (int i = 0; i < MONSTER_MAX_NUMBER; i++) {
             final RefactorMonster monster = new RefactorMonster(
-                    MONSTER_HP_MIN, MONSTER_HP_MAX, MONSTER_STAT_MIN, MONSTER_STAT_MAX);
-            
+                    MONSTER_STAT_MIN, MONSTER_STAT_MAX, MONSTER_HP_MIN, MONSTER_HP_MAX);
+
             monsterList.add(monster);
         }
 
         for (int i = 0; i < CHARACTER_MAX_NUMBER; i++) {
             final RefactorGameCharacter playCharacter = new RefactorGameCharacter(
-                    PLAYER_HP_MIN, PLAYER_HP_MAX, PLAYER_STAT_MIN, PLAYER_STAT_MAX);
+                    PLAYER_STAT_MIN, PLAYER_STAT_MAX, PLAYER_HP_MIN, PLAYER_HP_MAX);
 
             characterList.add(playCharacter);
+        }
+    }
+
+    public void playGame() throws InterruptedException {
+        int turn = 1;
+
+        for (; ; turn++) {
+            System.out.println("현재 턴: " + turn);
+
+            playerTurnBehavior();   // Ctrl + Alt + M
+            printBattleInfo();
+
+            Thread.sleep(1000);
+        }
+    }
+
+    private void printBattleInfo() {
+        System.out.println(characterList);
+        System.out.println(monsterList);
+    }
+
+    private void playerTurnBehavior() {
+        for (int characterIdx = 0; characterIdx < CHARACTER_MAX_NUMBER; characterIdx++) {
+            final RefactorGameCharacter character = characterList.get(characterIdx);
+
+            final RefactorMonster monster = monsterList.get(
+                    CustomRandom.generateNumber(MONSTER_MAX_NUMBER - 1));
+
+            character.targetingSkill(monster);
         }
     }
 
