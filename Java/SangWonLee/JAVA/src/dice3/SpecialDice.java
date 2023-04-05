@@ -13,9 +13,9 @@ public class SpecialDice {
 
 
     public void stealScore(int specialPersonIndex) {
-        for (int i = 0; i<totalScore.size(); i++ ) {
-            System.out.println(totalScore.get(i).getScore());
-        }
+//        for (int i = 0; i<totalScore.size(); i++ ) {
+//            System.out.println(totalScore.get(i).getScore());
+//        }
         //    int stealScore = 3; // 뺏을 점수
 
         System.out.println();
@@ -24,11 +24,14 @@ public class SpecialDice {
 
     public List<Score> eatScore(int specialPersonIndex) {
         int getScore = 2; // 얻을 점수
-        Score plusScore = (Score)(totalScore.get(specialPersonIndex).getScore() + getScore);
-//        Score abc = totalScore.get(specialPersonIndex).getScore();
-//        totalScore.set(specialPersonIndex, abc);
-//                totalScore.get(specialPersonIndex).getScore()) + getScore);
-totalScore.set(specialPersonIndex, (Score) totalScore.get(specialPersonIndex).getScore() + getScore);
+
+        int tse = totalScore.get(specialPersonIndex).getScore() + getScore;
+        totalScore.set(specialPersonIndex, (Score) totalScore.get(tse));
+
+
+
+
+
         for (int i = 0; i<totalScore.size(); i++ ) {
             System.out.print(totalScore.get(i).getScore() + " ");
         }
