@@ -34,7 +34,8 @@ public class Player {
 
             if (gameDiceList.get(FIRST_DICE_INFO).getDiceNumber() % DECISION_EVEN == ODD) {
                 break;
-                // 첫 번째 인덱스 위치에있는 주사위의 값이 1이면 홀 수기 때문에 게임 종료 break;하고 빠져나오기
+                // 1. 첫번째 주사위의 인덱스 주사위 값이 홀수인경우 지나가라
+                //2.  첫 번째 인덱스 위치에있는 주사위의 값이 1이면 홀 수기 때문에 게임 종료 break;하고 빠져나오기
             }
         }
         return diceNumberSum;
