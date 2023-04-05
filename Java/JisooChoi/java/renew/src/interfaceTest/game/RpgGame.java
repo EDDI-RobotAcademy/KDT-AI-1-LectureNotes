@@ -37,7 +37,6 @@ public class RpgGame {
             // 첫 번째 스킬은 타겟팅 스킬
             // 누굴 타겟팅 할 것인가: 랜덤
             for (int characterIndex = 0; characterIndex < gameCharacterList.size(); characterIndex++) {
-                final GameCharacter gameCharacter = gameCharacterList.get(characterIndex);
 
                 Boolean isDeath = true;
                 int targetMonsterIndex;
@@ -63,6 +62,8 @@ public class RpgGame {
                     if(isEveryMonsterKilled) {return; }
 
                 }  while(isDeath);
+
+                final GameCharacter gameCharacter = gameCharacterList.get(characterIndex);
 
                 gameCharacter.firstSkill(monster);
 
