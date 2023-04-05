@@ -4,7 +4,7 @@ import interfaceTest.Skill;
 import utility.random.CustomRandom;
 
 // 만들어 놓은 interface를 사용할 때 implements 인터페이스이름
-public class GameCharacter implements Skill {
+public class  GameCharacter implements Skill {
     int strength;       // 완력
     int intelligent;    // 지능
     int dexterity;      // 재주

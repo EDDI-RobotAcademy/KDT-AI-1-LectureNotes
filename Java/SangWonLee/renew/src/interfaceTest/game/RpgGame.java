@@ -50,7 +50,7 @@ public class RpgGame {
 
                     Boolean isEveryMonsterKilled = false; // 모든 몬스터가 DEATH 되었을 때 필요한 Boolean
                     for (int monsterIdx = 0; monsterIdx < monsterList.size(); monsterIdx++) { // monster list 한명한명 돌리기
-                        final Monster tmpMonster = monsterList.get(monsterIdx);
+                        final Monster tmpMonster = monsterList.get(monsterIdx); //
 
                         if (tmpMonster.getStatus() == tmpMonster.DEATH) {
                             isEveryMonsterKilled = true;
@@ -88,7 +88,7 @@ public class RpgGame {
 
             // 두 번째 스킬은 광역 스킬
 
-            Thread.sleep(1000);
+            Thread.sleep(1000); // 1초 대기
         }
     }
 

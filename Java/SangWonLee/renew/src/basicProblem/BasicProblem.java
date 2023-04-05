@@ -1,6 +1,6 @@
 package basicProblem;
 
-public class problemMain {
+public class BasicProblem {
 
     public static void main(String[] args) {
 
