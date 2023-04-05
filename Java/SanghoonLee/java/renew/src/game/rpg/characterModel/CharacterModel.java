@@ -38,6 +38,26 @@ public class CharacterModel {
         this.status = status;
     }
 
+    public void calculateDamage (int damage) {
+        hp -= damage;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getIntelligent() {
+        return intelligent;
+    }
+
+    public int getDexterity() {
+        return dexterity;
+    }
+
+    public int getAgility() {
+        return agility;
+    }
+
     @Override
     public String toString() {
         return "CharacterModel{" +
