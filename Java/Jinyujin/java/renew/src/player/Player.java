@@ -1,7 +1,7 @@
 package player;
 
-import game.Dice;
-import game.GameScore;
+import game.dice.Dice;
+import game.dice.GameScore;
 
 import java.util.ArrayList;
 import java.util.List;

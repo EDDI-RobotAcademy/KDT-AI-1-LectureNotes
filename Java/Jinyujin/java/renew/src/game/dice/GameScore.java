@@ -1,4 +1,4 @@
-package game;
+package game.dice;
 
 public class GameScore {
     private int totalScore;
