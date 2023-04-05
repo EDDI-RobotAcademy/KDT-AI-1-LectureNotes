@@ -3,33 +3,33 @@ package homework.diceGame.game;
 // 플레이어들의 게임 스코어
 
 public class GameScore2 {
-    private int gameScore;
+    private int totalScore;
 
-    public GameScore2(int gameScore) {
-        this.gameScore = gameScore;
+    public GameScore2(int totalScore) {
+        this.totalScore = totalScore;
     }
 
-    public int getGameScore() {
-        return gameScore;
+    public int getTotalScore() {
+        return totalScore;
     }
 
     public void takeScore(GameScore2 otherScore, int stealScore){
-        this.gameScore -= stealScore;
-        otherScore.gameScore += stealScore;
+        this.totalScore -= stealScore;
+        otherScore.totalScore += stealScore;
     }
 
     public void addScore(int buffScore){
-        this.gameScore += buffScore;
+        this.totalScore += buffScore;
     }
 
     public void loseAll(int deathScore){
-        this.gameScore = deathScore;
+        this.totalScore = deathScore;
     }
 
     @Override
     public String toString() {
         return "GameScore2{" +
-                "GameScore=" + gameScore +
+                "GameScore=" + totalScore +
                 '}';
     }
 }
