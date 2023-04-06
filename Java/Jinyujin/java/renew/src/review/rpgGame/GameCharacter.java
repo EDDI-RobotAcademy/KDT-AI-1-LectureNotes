@@ -1,4 +1,4 @@
-package review;
+package review.rpgGame;
 
 import InterfaceTest.character.Monster;
 import utility.random.CustomRandom;

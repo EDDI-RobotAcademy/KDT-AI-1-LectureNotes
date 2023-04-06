@@ -1,5 +1,7 @@
-package review;
+package review.rpgGame;
 
+import review.rpgGame.GameCharacter;
+import review.rpgGame.Monster;
 import utility.random.CustomRandom;
 
 import java.util.ArrayList;

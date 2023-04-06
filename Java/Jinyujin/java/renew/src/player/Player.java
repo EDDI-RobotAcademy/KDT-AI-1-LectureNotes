@@ -9,7 +9,7 @@ import java.util.List;
 public class Player {
     final private int MAX_DICE_NUM = 3;
     final private String name;
-    final private List<Dice> gameDiceList = new ArrayList<>();
+    final private List<Dice> gameRefactorDiceList = new ArrayList<>();
     final private GameScore gameScore;
 
     public Player(String name) {
@@ -27,11 +27,11 @@ public class Player {
         int diceNumberSum = 0;
 
         for (int i = 0; i < MAX_DICE_NUM; i++) {
-            gameDiceList.add(new Dice());
+            gameRefactorDiceList.add(new Dice());
 
-            diceNumberSum += gameDiceList.get(i).getDiceNumber();
+            diceNumberSum += gameRefactorDiceList.get(i).getDiceNumber();
 
-            if (gameDiceList.get(FIRST_DICE_INFO).getDiceNumber() %
+            if (gameRefactorDiceList.get(FIRST_DICE_INFO).getDiceNumber() %
                     DECISION_EVEN == ODD) {
                 break;
             }
@@ -41,8 +41,8 @@ public class Player {
     }
 
     public Dice getSelectedGameDice(int index) {
-        if (gameDiceList.size() > index) {
-            return gameDiceList.get(index);
+        if (gameRefactorDiceList.size() > index) {
+            return gameRefactorDiceList.get(index);
         }
 
         return null;
@@ -60,7 +60,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 ", name='" + name + '\'' +
-                ", gameDiceList=" + gameDiceList +
+                ", gameDiceList=" + gameRefactorDiceList +
                 ", gameScore=" + gameScore +
                 '}';
     }

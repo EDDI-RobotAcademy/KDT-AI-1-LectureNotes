@@ -1,4 +1,4 @@
-package review;
+package review.rpgGame;
 
 // 스킬 인터페이스 생성
 // 인터페이스라는 것은 아래와 같이 껍데기만 만들게 되어 있음

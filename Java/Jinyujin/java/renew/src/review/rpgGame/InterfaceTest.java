@@ -1,4 +1,4 @@
-package review;
+package review.rpgGame;
 
 public class InterfaceTest {
     // 게임을 구현하도록 하자

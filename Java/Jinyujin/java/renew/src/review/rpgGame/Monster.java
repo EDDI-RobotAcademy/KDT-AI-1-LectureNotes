@@ -1,4 +1,4 @@
-package review;
+package review.rpgGame;
 
 import utility.random.CustomRandom;
 
