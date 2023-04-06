@@ -4,17 +4,16 @@ import diceGame.game.Dice;
 import diceGame.game.GameScore;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 // Player(플레이어)에게 필요한게 뭐지 ?
-public class Player {
+public class RefactorPlayer {
     final private int MAX_DICE_NUM = 3;
     final private String name;
     final private List<Dice> gameDiceList = new ArrayList<>();
     final private GameScore gameScore;
 
-    public Player(String name) {
+    public RefactorPlayer(String name) {
         this.name = name;
 
         int diceNumberSum = rollDice();
