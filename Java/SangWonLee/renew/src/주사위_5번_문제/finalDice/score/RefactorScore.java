@@ -7,6 +7,7 @@ public class RefactorScore {
         this.totalScore = totalScore;
     }
 
+
     public void takeScore(RefactorScore otherScore, int stealScore) {
         this.totalScore -= stealScore;
         otherScore.totalScore += stealScore;
