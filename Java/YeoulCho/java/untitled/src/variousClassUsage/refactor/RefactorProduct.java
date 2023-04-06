@@ -22,6 +22,10 @@ public class RefactorProduct {
         memberIdList.add(memberId); //memberIdList에 memberId를 추가하겠다.
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
     @Override
     public String toString() {
         return "RefactorProduct{" +
