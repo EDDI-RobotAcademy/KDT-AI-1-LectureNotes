@@ -121,22 +121,5 @@ public class FinalDiceGameManager {
 
         System.out.println("승리: " + winner.getName());
         System.out.println("전적 상황: " + playerList);
-        // TODO: 확장성 문제가 존재함 추후 사용자 숫자 증대시 리팩토링 필요
-//        GameScore firstPlayerScore = playerList.get(0).getGameScore();
-//        GameScore secondPlayerScore = playerList.get(1).getGameScore();
-//
-//        final int firstPlayerScoreTotalScore = firstPlayerScore.getTotalScore();
-//        final int secondPlayerScoreTotalScore = secondPlayerScore.getTotalScore();
-//
-//        if (firstPlayerScoreTotalScore > secondPlayerScoreTotalScore) {
-//            System.out.println("승자: " + playerList.get(0).getName());
-//            return;
-//        }
-//        if (firstPlayerScoreTotalScore < secondPlayerScoreTotalScore) {
-//            System.out.println("승자: " + playerList.get(1).getName());
-//            return;
-//        }
-//
-//        System.out.println("무승부");
     }
 }
