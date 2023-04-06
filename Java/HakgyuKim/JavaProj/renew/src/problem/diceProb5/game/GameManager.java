@@ -18,9 +18,9 @@ public class GameManager {
     }
 
 
-    /*
+
     private int findTargetPlayerIndex (int currentPlayerIndex) {
-        // 상대편 찾기 (1:1 상황)
+        // 다음 플레이어 찾기 (마지막 순서면 1번 플레이어 찾기)
         int targetPlayerIndex = currentPlayerIndex + 1;
         if (currentPlayerIndex == PLAYER_NUM - 1) {
             targetPlayerIndex = 0;
@@ -28,7 +28,7 @@ public class GameManager {
         return targetPlayerIndex;
     }
 
-     */
+
 
     private int findCurrentPlayerIndex (int currentPlayerIndex) {
         return currentPlayerIndex;
@@ -56,7 +56,7 @@ public class GameManager {
 
         final int STEAL_SCORE = 3;
         final int BUFF_SCORE = 2;
-        final int DEATH_SCORE = -10;
+        final int DEATH_SCORE = 0;
 
         for (int i = 0; i < PLAYER_NUM; i++) {
             int currentPlayerSpecialDiceNumber = findSpecialDiceNumber(i);
@@ -81,8 +81,9 @@ public class GameManager {
                     targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
                      */
                     for (int j = 0; j < PLAYER_NUM; j++) {
-                        playerList.get(j).getGameScore().takeScore(currentPlayerScore, STEAL_SCORE);
                         if (j == currentPlayerIndex) {continue;}
+                        if (playerList.get(j).getGameScore().getTotalScore() < 2) {continue;}
+                        playerList.get(j).getGameScore().takeScore(currentPlayerScore, STEAL_SCORE);
                     }
                     break;
 
@@ -97,12 +98,25 @@ public class GameManager {
         }
     }
 
+    public void attack() {
+        for (int i = 0; i < PLAYER_NUM; i++) {
+            int currentPlayerIndex = findCurrentPlayerIndex(i);
+            int targetPlayerIndex = findTargetPlayerIndex(i);
+
+            int currentPlayerHealth = playerList.get(currentPlayerIndex).getHealth();
+            int targetPlayerHealth = playerList.get(targetPlayerIndex).getHealth() -
+                    playerList.get(currentPlayerIndex).getGameScore().getTotalScore();
+
+        }
+    }
+
     public void printResult() {
         for (int i = 0; i < PLAYER_NUM; i++) {
             System.out.println(playerList.get(i));
         }
     }
 
+    /*
     public void checkWinner() {
         List<Integer> playerTotalScoreList = new ArrayList<>();
         for (int i = 0; i < PLAYER_NUM; i++) {
@@ -115,4 +129,9 @@ public class GameManager {
             }
         }
     }
+    */
+
+    /*
+    public void
+     */
 }
