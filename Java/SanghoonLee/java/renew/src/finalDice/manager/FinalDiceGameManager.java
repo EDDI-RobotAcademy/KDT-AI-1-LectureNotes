@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class FinalDiceGameManager {
-    final private int PLAYER_NUM = 10;
+    final private int PLAYER_NUM = 20;
     final private List<RefactorDiceGamePlayer> playerList = new ArrayList<>();
 
     public FinalDiceGameManager() {
@@ -126,11 +126,26 @@ public class FinalDiceGameManager {
     public void printRank() {
         // 플레이어 랭킹 출력
         int rank = 1;
-        for (RefactorDiceGamePlayer player: playerList) {
+        int backupScore = 0;
+        int sameScoreCount = 0;
+        Boolean isSameScore = false;
+
+        for (int i = 0; i < playerList.size(); i++) {
+            isSameScore = false;
+
+            final RefactorDiceGamePlayer player = playerList.get(i);
+            final int currentScore = player.getGameScore().getTotalScore();
+            if (backupScore == currentScore) {
+                sameScoreCount++;
+                isSameScore = true;
+            } else { sameScoreCount = 0; }
+
             System.out.println(
-                    "순위: " + (rank++) +
-                    ", 점수: " + player.getGameScore().getTotalScore() +
+                    "순위: " + ((isSameScore) ? (rank++ - sameScoreCount) : (rank++))+
+                    ", 점수: " + currentScore +
                     ", 이름: " + player.getName());
+
+            backupScore = player.getGameScore().getTotalScore();
         }
     }
 }
