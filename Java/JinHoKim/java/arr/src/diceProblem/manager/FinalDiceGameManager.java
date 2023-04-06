@@ -1,9 +1,9 @@
-package diceProblem.finalDice.manager;
+package diceProblem.manager;
 
-import diceProblem.finalDice.dice.RefactorDice;
-import diceProblem.finalDice.player.RefactorDiceGamePlayer;
-import diceProblem.finalDice.score.RefactorScore;
-import utility.random.CustomRandom;
+import diceProblem.dice.RefactorDice;
+import diceProblem.player.RefactorDiceGamePlayer;
+import diceProblem.score.RefactorScore;
+import utility.CustomRandom;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +15,7 @@ public class FinalDiceGameManager {
 
     public FinalDiceGameManager() {
         for (int i = 0; i < PLAYER_NUM; i++) {
+            /*RefactorDiceGamePlayer playerList = new RefactorDiceGamePlayer("플레이어" + (i + 1));*/
             playerList.add(new RefactorDiceGamePlayer("플레이어" + (i + 1)));
             System.out.println(playerList.get(i));
         }
@@ -38,7 +39,6 @@ public class FinalDiceGameManager {
                 currentPlayerSpecialDice.getDiceNumber();
         return currentPlayerSpecialDiceNumber;
     }
-
     public void playGame() {
         for (int currentPlayerIdx = 0; currentPlayerIdx < PLAYER_NUM; currentPlayerIdx++) {
             final int currentPlayerSpecialDiceNumber = findSpecialDiceNumber(currentPlayerIdx);
@@ -54,11 +54,13 @@ public class FinalDiceGameManager {
                     currentPlayerScore);
         }
     }
-    private void applyAbilityOfSpecialDice( //
+
+    private void applyAbilityOfSpecialDice(
             int currentPlayerIdx,
             int currentPlayerSpecialDiceNumber,
             RefactorScore currentPlayerScore
     ) {
+
         final int STEAL = 1;
         final int BUFF = 3;
         final int DEATH = 4;
@@ -85,7 +87,6 @@ public class FinalDiceGameManager {
             System.out.println(playerList.get(i));
         }
     }
-
     public void checkWinner() {
 
         final int WINNER_IDX = 0;
@@ -110,4 +111,6 @@ public class FinalDiceGameManager {
         System.out.println("승리: " + winner.getName());
         System.out.println("전적 상황: " + playerList);
     }
+
+
 }
