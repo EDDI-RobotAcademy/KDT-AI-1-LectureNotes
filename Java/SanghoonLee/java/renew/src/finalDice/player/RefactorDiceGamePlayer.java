@@ -6,13 +6,13 @@ import finalDice.score.RefactorScore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RefactorPlayer implements Comparable<RefactorPlayer> {
+public class RefactorDiceGamePlayer implements Comparable<RefactorDiceGamePlayer> {
     final private int MAX_DICE_NUM = 3;
     final private String name;
     final private List<RefactorDice> diceList = new ArrayList<>();
     final private RefactorScore gameScore;
 
-    public RefactorPlayer(String name) {
+    public RefactorDiceGamePlayer(String name) {
         this.name = name;
 
         int diceNumberSum = rollEveryDicesIfWeCan();
@@ -66,7 +66,16 @@ public class RefactorPlayer implements Comparable<RefactorPlayer> {
     }
 
     @Override
-    public int compareTo(RefactorPlayer o) {
+    public int compareTo(RefactorDiceGamePlayer otherPlayer) {
+        final int otherPlayerTotalScore = otherPlayer.getGameScore().getTotalScore();
+        final int currentPlayerTotalScore = this.getGameScore().getTotalScore();
+
+        if (otherPlayerTotalScore < currentPlayerTotalScore) {
+            return 1;
+        } else if (otherPlayerTotalScore > currentPlayerTotalScore) {
+            return -1;
+        }
+
         return 0;
     }
 }
