@@ -2,31 +2,44 @@ package practice.firstProb2;
 
 import utility.Random;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FirstProb2 {
-    final int PRICE_START = 5000;
-    final int PRICE_END = 10000;
-    final int APPLE_NUM_START = 3;
-    final int APPLE_NUM_END = 5;
 
-    public int applePrice() {
-        int applePrice;
-        applePrice = Random.generateNumber(PRICE_START, PRICE_END);
-        return applePrice;
+    final int appleMinCost;
+    final int appleMaxCost;
+    final int ACQUIRE_MIN = 3;
+    final int ACQUIRE_MAX = 5;
+    int realAcquireNumber;
+    List<Integer> appleCostList;
+
+    public FirstProb2(int appleMinCost, int appleMaxCost) {
+        this.appleMinCost = appleMinCost;
+        this.appleMaxCost = appleMaxCost;
+
+        appleCostList = new ArrayList<>();
     }
 
-    public int appleGet() {
-        int appleNum;
-        appleNum = Random.generateNumber(APPLE_NUM_START, APPLE_NUM_END);
-        return appleNum;
-    }
+    public void acquireApples() {
 
-    public void totalPrice() {
-        int totalPrice = 0;
-        for (int i = 0; i < appleGet(); i++) {
-            totalPrice = applePrice() * appleGet();
+        realAcquireNumber = Random.generateNumber(ACQUIRE_MIN, ACQUIRE_MAX);
+
+        for (int i = 0; i < realAcquireNumber; i++) {
+            int randomAppleCost = Random.generateNumber(appleMinCost, appleMaxCost);
+            System.out.println("사과 가격: " + randomAppleCost);
+
+            appleCostList.add(randomAppleCost);
         }
-        System.out.println("수확하여 얻은 사과의 전체 가격: " + totalPrice);
+    }
+
+    public int calculateCost() {
+        int tmpSum = 0;
+
+        for (int i = 0; i < appleCostList.size(); i++) {
+            tmpSum += appleCostList.get(i);
+        }
+
+        return tmpSum;
     }
 }

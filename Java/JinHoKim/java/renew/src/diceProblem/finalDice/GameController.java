@@ -1,11 +1,12 @@
-package game.controller;
+package diceProblem.finalDice;
 
-import game.GameManager;
+import diceProblem.finalDice.manager.FinalDiceGameManager;
 
 public class GameController {
     public static void main(String[] args) {
-        GameManager gameManager = new GameManager();
+        FinalDiceGameManager gameManager = new FinalDiceGameManager();
         System.out.println("점수 판정 이후");
+
         gameManager.playGame();
         gameManager.printResult();
         gameManager.checkWinner();

@@ -1,12 +1,11 @@
-package appleProblem.randomApple;
+package zzPractice;
 
-import utility.random.CustomRandom;
+import utility.Random;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RandomApple {
-
+public class FirstProb2 {
     final int appleMinCost;
     final int appleMaxCost;
     final int ACQUIRE_MIN = 3;
@@ -14,7 +13,7 @@ public class RandomApple {
     int realAcquireNumber;
     List<Integer> appleCostList;
 
-    public RandomApple(int appleMinCost, int appleMaxCost) {
+    public FirstProb2(int appleMinCost, int appleMaxCost) {
         this.appleMinCost = appleMinCost;
         this.appleMaxCost = appleMaxCost;
 
@@ -22,24 +21,11 @@ public class RandomApple {
     }
 
     public void acquireApples() {
-
-        realAcquireNumber = CustomRandom.generateNumber(ACQUIRE_MIN, ACQUIRE_MAX);
-
+        realAcquireNumber = Random.generateNumber(ACQUIRE_MIN, ACQUIRE_MAX);
         for (int i = 0; i < realAcquireNumber; i++) {
-            int randomAppleCost = CustomRandom.generateNumber(appleMinCost, appleMaxCost);
+            int randomAppleCost = Random.generateNumber(appleMinCost, appleMaxCost);
             System.out.println("사과 가격: " + randomAppleCost);
-
             appleCostList.add(randomAppleCost);
         }
-    }
-
-    public int calculateCost() {
-        int tmpSum = 0;
-
-        for (int i = 0; i < appleCostList.size(); i++) {
-            tmpSum += appleCostList.get(i);
-        }
-
-        return tmpSum;
     }
 }

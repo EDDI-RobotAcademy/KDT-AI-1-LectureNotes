@@ -1,13 +1,13 @@
-package game;
+package diceProblem.finalDice.score;
 
-public class GameScore {
+public class RefactorScore {
     private int totalScore;
 
-    public GameScore(int totalScore) {
+    public RefactorScore(int totalScore) {
         this.totalScore = totalScore;
     }
 
-    public void takeScore(GameScore otherScore, int stealScore) {
+    public void takeScore(RefactorScore otherScore, int stealScore) {
         this.totalScore -= stealScore;
         otherScore.totalScore += stealScore;
     }
@@ -20,14 +20,14 @@ public class GameScore {
         this.totalScore = deathScore;
     }
 
+    public int getTotalScore() {
+        return totalScore;
+    }
+
     @Override
     public String toString() {
         return "GameScore{" +
                 "totalScore=" + totalScore +
                 '}';
-    }
-
-    public int getTotalScore() {
-        return totalScore;
     }
 }

@@ -1,14 +1,14 @@
-package zhomework6.game;
+package diceProblem.finalDice.dice;
 
-import zhomework6.utility.random.CustomRandom;
+import utility.random.CustomRandom;
 
-public class Dice {
+public class RefactorDice {
     final private int MIN = 1;
     final private int MAX = 6;
     final private int diceNumber;
 
-    public Dice() {
-        this.diceNumber = CustomRandom.generateNumber(MIN,MAX);
+    public RefactorDice() {
+        this.diceNumber = CustomRandom.generateNumber(MIN, MAX);
     }
 
     public int getDiceNumber() {
