@@ -1,20 +1,22 @@
 package dice3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Score {
 
-    int Score = 0;
+    int score;
 
     public Score(int score) {
-        Score = score;
+        this.score = score;
+
     }
 
-    public Score(List<Integer> doDice1) {
-        for (int oneDice : doDice1) {
-            Score += oneDice;
-        }
+    public void setScore(int score) {
+        this.score = score;
     }
 
-
+    public int getScore() {
+        return score;
+    }
 }

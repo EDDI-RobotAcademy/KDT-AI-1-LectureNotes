@@ -1,20 +1,21 @@
 package dice3;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Player {
-    String playerName1;
-    String playerName2;
 
-    Scanner sc1 = new Scanner(System.in);
-    Scanner sc2 = new Scanner(System.in);
+    String playerNameList; // 플레이어의 이름 리스트
 
-    public void addPlayer() {
-        System.out.print("플레이어 1 이름을 입력해주세요 : ");
-        playerName1 = sc1.nextLine();
-        System.out.print("플레이어 2 이름을 입력해주세요 : ");
-        playerName2 = sc2.nextLine();
+    public Player(String playerNameList) {
+        this.playerNameList = playerNameList;
 
     }
 
+    public String getPlayerNameList() {
+        return playerNameList;
+    }
+
 }
+

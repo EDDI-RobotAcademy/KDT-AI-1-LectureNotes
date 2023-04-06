@@ -118,6 +118,15 @@ public class Main {
 
         System.out.println(LL);
 
+        int[][] integerArray = new int[2][3];
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                integerArray[i][j] = 33;
+                System.out.printf("arr[%d][%d] = %d\n", i, j, integerArray[i][j]);
+            }
+        }
+
 
 
 

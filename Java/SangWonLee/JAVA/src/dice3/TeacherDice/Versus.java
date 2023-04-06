@@ -1,9 +1,8 @@
-package dice3;
+package dice3.TeacherDice;
 
 import java.util.List;
 
 public class Versus {
-
     public void pandan(List<Integer> totalScore, String playerName1, String playerName2) {
 
         if (totalScore.get(0) > totalScore.get(1)) {
