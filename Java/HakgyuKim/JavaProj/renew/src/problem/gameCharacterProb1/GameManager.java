@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GameManager {
-    final private int CHARACTER_NUM = 1;
-    final private int ENEMY_NUM = 2;
+    final private int CHARACTER_NUM = 3;
+    final private int ENEMY_NUM = 5;
     final private List<Character> characterList = new ArrayList<>();
     final private List<Enemy> enemyList = new ArrayList<>();
 
@@ -83,15 +83,19 @@ public class GameManager {
                 for (int k = 0; k < CHARACTER_NUM; k++) {
                     characterCheckLive = characterStatus();
                 }
+                characterCheckLive = characterStatus();
+
         }
     }
 
     private void enemyAtk() {
         for (int i = 0; i < enemyList.size(); i++) {
-            enemyList.get(i).enemyAtk(characterList.get(findTargetCharacterIndex()));
+            int targetCharacterIndex = findTargetCharacterIndex();
+            enemyList.get(i).enemyAtk(characterList.get(targetCharacterIndex));
             System.out.println(enemyList.get(i).getName() + " 이 " +
-                    characterList.get(findTargetCharacterIndex()).getName() + "을(를) 공격해 체력이" +
-                    characterList.get(findTargetCharacterIndex()).getHealth() + "이 되었습니다.");
+                    characterList.get(targetCharacterIndex).getName() + "을(를) 공격해 체력이" +
+                    characterList.get(targetCharacterIndex).getHealth() + "이 되었습니다.");
+            characterStatus();
         }
     }
 
