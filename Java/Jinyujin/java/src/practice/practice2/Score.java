@@ -7,7 +7,12 @@ public class Score {
     final private int WIN_DECISION_NUMBER2 = 4;
     private int totalSum;
 
-    public Score() {
+    public Score(int totalSum) {
+        this.totalSum = totalSum;
+    } // 이걸 생성해줘야 게임클래스에서 오류가 나지 않음
+      // score = new Score(diceSum); 이 부분
+
+    public void checkWinByScore() {
 
         if (totalSum % WIN_DECISION_NUMBER1 == 0 ||
                 totalSum % WIN_DECISION_NUMBER2 == 0) {

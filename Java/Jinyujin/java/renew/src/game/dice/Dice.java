@@ -1,4 +1,6 @@
-package game;
+package game.dice;
+
+import utility.random.CustomRandom;
 
 public class Dice {
     final private int MIN = 1;

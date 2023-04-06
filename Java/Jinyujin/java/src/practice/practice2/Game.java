@@ -9,6 +9,8 @@ public class Game {
     final private int MAX_DICE = 4;
     List<Dice> diceList = new ArrayList<>();
     private int diceSum = 0;
+    // 스코어 클래스에서 만든 totalSum에 대한 정보를 여기로 가져오자
+    private Score score;
 
     public Game() {
 
@@ -16,6 +18,11 @@ public class Game {
             diceList.add(new Dice());
             diceSum += diceList.get(i).diceNumber;
         }
+        score = new Score(diceSum);
+    }
+
+    public void checkWin() {
+        score.checkWinByScore();
     }
 
     @Override
