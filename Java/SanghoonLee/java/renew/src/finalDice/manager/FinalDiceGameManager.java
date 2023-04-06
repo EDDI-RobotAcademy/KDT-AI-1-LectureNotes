@@ -1,22 +1,21 @@
 package finalDice.manager;
 
-import diceGame.game.Dice;
-import diceGame.game.GameScore;
-import diceGame.player.RefactorPlayer;
+import finalDice.dice.RefactorDice;
+import finalDice.player.RefactorDiceGamePlayer;
+import finalDice.score.RefactorScore;
 import utility.random.CustomRandom;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 public class FinalDiceGameManager {
     final private int PLAYER_NUM = 3;
-    final private List<RefactorPlayer> playerList = new ArrayList<>();
+    final private List<RefactorDiceGamePlayer> playerList = new ArrayList<>();
 
     public FinalDiceGameManager() {
         for (int i = 0; i < PLAYER_NUM; i++) {
-            playerList.add(new RefactorPlayer("플레이어" + (i + 1)));
+            playerList.add(new RefactorDiceGamePlayer("플레이어" + (i + 1)));
             System.out.println(playerList.get(i));
         }
     }
@@ -35,7 +34,7 @@ public class FinalDiceGameManager {
         final int ARRAY_BIAS = 1;
         final int SPECIAL_DICE_INDEX = 3 - ARRAY_BIAS;
 
-        Dice currentPlayerSpecialDice =
+        RefactorDice currentPlayerSpecialDice =
                 playerList.get(playerIndex).getSelectedGameDice(SPECIAL_DICE_INDEX);
 
         if (currentPlayerSpecialDice == null) { return 0; }
@@ -52,7 +51,7 @@ public class FinalDiceGameManager {
 
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
 
-            final GameScore currentPlayerScore =
+            final RefactorScore currentPlayerScore =
                     playerList.get(currentPlayerIdx).getGameScore();
 
             applyAbilityOfSpecialDice(
@@ -65,7 +64,7 @@ public class FinalDiceGameManager {
     private void applyAbilityOfSpecialDice(
             int currentPlayerIdx,
             int currentPlayerSpecialDiceNumber,
-            GameScore currentPlayerScore
+            RefactorScore currentPlayerScore
     ) {
         final int STEAL = 1;
         final int BUFF = 3;
@@ -78,7 +77,7 @@ public class FinalDiceGameManager {
         switch (currentPlayerSpecialDiceNumber) {
             case STEAL:
                 final int targetPlayerIndex = findTargetPlayerIndex(currentPlayerIdx);
-                final GameScore targetPlayerScore =
+                final RefactorScore targetPlayerScore =
                         playerList.get(targetPlayerIndex).getGameScore();
                 targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
                 break;
@@ -101,8 +100,27 @@ public class FinalDiceGameManager {
 
     public void checkWinner() {
 
+        final int WINNER_IDX = 0;
+        final int SECOND_IDX = 1;
+
+        final int DRAW = 0;
+        // RefactorPlayer가 Comparable<RefactorPlayer>를 가지고 있어야 하는데
+        // Comparable<RefactorPlayer>가 없는데 왜 자꾸 sort 하려고 하냐면서 화내는 모습
+        // class diceGame.player.RefactorPlayer cannot be cast to class java.lang.Comparable
+        // (diceGame.player.RefactorPlayer is in unnamed module of loader 'app';
         Collections.sort(playerList, Collections.reverseOrder());
-        System.out.println(playerList);
+        RefactorDiceGamePlayer winner = playerList.get(WINNER_IDX);
+
+        // 무승부
+        RefactorDiceGamePlayer second = playerList.get(SECOND_IDX);
+
+        if (winner.compareTo(second) == DRAW) {
+            System.out.println("무승부!");
+            return;
+        }
+
+        System.out.println("승리: " + winner.getName());
+        System.out.println("전적 상황: " + playerList);
         // TODO: 확장성 문제가 존재함 추후 사용자 숫자 증대시 리팩토링 필요
 //        GameScore firstPlayerScore = playerList.get(0).getGameScore();
 //        GameScore secondPlayerScore = playerList.get(1).getGameScore();
