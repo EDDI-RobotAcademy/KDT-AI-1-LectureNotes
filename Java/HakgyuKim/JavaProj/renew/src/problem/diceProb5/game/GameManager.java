@@ -116,7 +116,7 @@ public class GameManager {
         }
     }
 
-    /*
+/*
     public void checkWinner() {
         List<Integer> playerTotalScoreList = new ArrayList<>();
         for (int i = 0; i < PLAYER_NUM; i++) {
@@ -129,7 +129,8 @@ public class GameManager {
             }
         }
     }
-    */
+ */
+
 
     /*
     public void
