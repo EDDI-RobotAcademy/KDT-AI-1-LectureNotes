@@ -39,6 +39,15 @@ public class DiceGameManager {
         final int SPECIAL_DICE_INDEX = 3 - ARRAY_BIAS;
 
         RefactorDice currentPlayerSpecialDice =
+                // currentPlayerSpecialDice 값이 null 값인지 유효한 값인지 판정해주거같음
                 playerList.get(playerIndex).getSelectedGameDice(SPECIAL_DICE_INDEX);
+
+        if (currentPlayerSpecialDice == null) { return 0; }
+
+        // currentPlayerSpecialDice 가 유효한 값이라면
+        // currentPlayerSpecialDiceNumber 반환
+        int currentPlayerSpecialDiceNumber =
+                currentPlayerSpecialDice.getDiceNumber();
+        return currentPlayerSpecialDiceNumber;
     }
 }
