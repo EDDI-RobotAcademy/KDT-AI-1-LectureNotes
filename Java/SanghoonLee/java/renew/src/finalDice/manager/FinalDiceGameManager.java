@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class FinalDiceGameManager {
-    final private int PLAYER_NUM = 3;
+    final private int PLAYER_NUM = 10;
     final private List<RefactorDiceGamePlayer> playerList = new ArrayList<>();
 
     public FinalDiceGameManager() {
@@ -121,5 +121,16 @@ public class FinalDiceGameManager {
 
         System.out.println("승리: " + winner.getName());
         System.out.println("전적 상황: " + playerList);
+    }
+
+    public void printRank() {
+        // 플레이어 랭킹 출력
+        int rank = 1;
+        for (RefactorDiceGamePlayer player: playerList) {
+            System.out.println(
+                    "순위: " + (rank++) +
+                    ", 점수: " + player.getGameScore().getTotalScore() +
+                    ", 이름: " + player.getName());
+        }
     }
 }
