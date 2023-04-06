@@ -1,4 +1,4 @@
-package homework.diceThirdGame;
+package homework.diceFourthGame;
 
 public class DiceScore {
     private int totalScore = 0;

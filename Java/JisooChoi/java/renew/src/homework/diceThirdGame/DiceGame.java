@@ -1,71 +1,78 @@
 package homework.diceThirdGame;
 
-import diceGame.player.Player;
-
-import java.util.Arrays;
-
 public class DiceGame {
-    final private DicePlayer player1 = new DicePlayer("Cat"); //게임을 하려면 사용자가 2명 필요함
-    final private DicePlayer player2 = new DicePlayer("Dog");
-    private int totalScore1 = 0;
-    private int totalScore2 = 0;
-    private int[] diceArray1;
-    private int[] diceArray2;
-    final private int DICE_MAX_NUM = 3;
+    final DicePlayer player1 = new DicePlayer("Cat");  // 게임 객체가 생성되면
+    final DicePlayer player2 = new DicePlayer("Dog");  // 플레이어 객체 2명이 생성됨
+    public DiceGame(){}
 
-    int totalScore;
-
-    public DiceGame(){
-        diceArray1 = new int[DICE_MAX_NUM]; //주사위 3개를 넣을 배열 생성
-        diceArray2 = new int[DICE_MAX_NUM]; //주사위 3개를 넣을 배열 생성
-    }
-
-    public void gamePlay() {
+    public void playGame() {
+        final int DICE_MAX_NUMBER = 3;
+        final int FIRST_DICE = 0;
         final int ODD = 1;
-        final int CONDITION_NUM = 2;
-        final int FIRST_CHECK_NUMBER = 0;
+        final int DICE_CONDITION = 2;
 
-        //플레이어 1
-        for(int i = 0; i < DICE_MAX_NUM; i++){
-            diceArray1[i] = player1.rollDice(i);
+        final int STEAL = 1;
+        final int BUFF = 3;
+        final int DEATH = 4;
 
-            // 총 합계
-            //(1) 각 점수를 플레이어 객체가 점수 객체에게 전달해서 반환 값을 줘 !
-            totalScore = player1.addScore(diceArray1[i]);
+        final int THIRD_DICE = 2;
 
-            if(diceArray1[FIRST_CHECK_NUMBER] % CONDITION_NUM == ODD){
+        for(int i = 0; i < DICE_MAX_NUMBER; i++){
+            player1.dice.diceArray[i] = player1.rollDice();
+
+            if(player1.dice.diceArray[FIRST_DICE] % DICE_CONDITION == ODD){
                 break;
+            }
+
+            if(player1.dice.diceArray[THIRD_DICE] == STEAL){
+                player1.score.stealScore();
+                player2.score.lostScore();
+            }
+
+            if(player1.dice.diceArray[THIRD_DICE] == BUFF){
+                player1.score.buffScore();
+            }
+
+            if(player1.dice.diceArray[THIRD_DICE] == DEATH){
+                player1.score.deathScore();
             }
         }
 
-        //플레이어 2
-        for(int i = 0; i < DICE_MAX_NUM; i++){
-            diceArray2[i] = player2.rollDice(i);
+        for(int i = 0; i < DICE_MAX_NUMBER; i++){
+            player2.dice.diceArray[i] = player2.rollDice();
 
-            // 총 합계
-            totalScore = player2.addScore(diceArray2[i]);
-
-            if(diceArray2[FIRST_CHECK_NUMBER] % CONDITION_NUM == ODD){
+            if(player2.dice.diceArray[FIRST_DICE] % DICE_CONDITION == ODD){
                 break;
             }
+
+            if(player2.dice.diceArray[3 - 1] == STEAL){
+                player2.score.stealScore();
+                player1.score.lostScore();
+            }
+
+            if(player2.dice.diceArray[3 - 1] == BUFF){
+                player2.score.buffScore();
+            }
+
+            if(player2.dice.diceArray[3 - 1] == DEATH){
+                player2.score.deathScore();
+            }
         }
-
-        System.out.println("player: "+player1);
-        System.out.println("player: "+player2);
-
-        // 이렇게 되면 어떤 기준으로 표적이 되고, 공격자가 되는지 ..? 모르겠다
-        thirdDicecheck(player1, player2); // 일단 호출
     }
 
-    // ★ --> 여기부터 다시 풀어보기
-    public void thirdDicecheck(DicePlayer target, DicePlayer attacker){
-
+    public DicePlayer win(DicePlayer player1, DicePlayer player2) {
+        // ★ 만약 결과가 무승부일 경우는 처리 못했다.
+        if(player1.score.getTotalScore() > player2.score.getTotalScore()){
+            return player1;
+        }
+        return player2;
     }
 
-    public String winner() {
-        return player1.getName(); // 임시
+    @Override
+    public String toString() {
+        return "Game{" +
+                "player1=" + player1 +
+                ",\n\t player2=" + player2 +
+                '}';
     }
-
-    // ★ --> 여기까지 다시 풀어야 하는 부분
-
 }

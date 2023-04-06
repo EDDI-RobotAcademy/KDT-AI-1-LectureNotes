@@ -1,4 +1,4 @@
-package homework.diceThirdGame;
+package homework.diceFourthGame;
 
 public class DicePlayer {
     final Dice dice = new Dice(); // 플레이어 객체가 생성되면 주사위가 생성

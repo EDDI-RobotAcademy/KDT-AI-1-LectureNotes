@@ -6,17 +6,18 @@ import diceGame.game.GameScore;
 import java.util.ArrayList;
 import java.util.List;
 
-// Player(플레이어)에게 필요한게 뭐지 ?
 public class Player {
     final private int MAX_DICE_NUM = 3;
     final private String name;
-    final private List<Dice> gameDiceList = new ArrayList<>(); // ▲ 1 첫 번째로 바꾸어 준 곳
+    final private List<Dice> gameDiceList = new ArrayList<>();
     final private GameScore gameScore;
 
     public Player(String name) {
         this.name = name;
 
+        // 플레이어는 생성되면서 주사위를 굴린다.
         int diceNumberSum = rollDice();
+        // 생성된 주사위의 합산 결과를 받아와서 바로 객체 생성
         gameScore = new GameScore(diceNumberSum);
     }
 
@@ -28,35 +29,20 @@ public class Player {
         int diceNumberSum = 0;
 
         for (int i = 0; i < MAX_DICE_NUM; i++) {
-            // ▲ 2
-            gameDiceList.add(new Dice());
+            gameDiceList.add(new Dice()); // 주사위 객체 생성
 
             diceNumberSum += gameDiceList.get(i).getDiceNumber();
+            // 각 주사위를 가져와서 합산해줌
 
-            if(gameDiceList.get(i).getDiceNumber() % DECISION_EVEN == ODD){
+            if(gameDiceList.get(FIRST_DICE_INFO).getDiceNumber() % DECISION_EVEN == ODD){
                 break;
             }
-
-            /*
-            gameDices[i] = new Dice();
-
-            diceNumberSum += gameDices[i].getDiceNumber();
-
-            if (gameDices[FIRST_DICE_INFO].getDiceNumber() %
-                    DECISION_EVEN == ODD) {
-                break;
-            }
-             */
         }
 
         return diceNumberSum;
     }
 
     public Dice getSelectedGameDice(int index) {
-        // ▲ 3번째
-        // return gameDiceList.get(index);
-        //return gameDices[index];
-
         // 유효성 검사 필요
         if(gameDiceList.size() > index){
             return gameDiceList.get(index);
