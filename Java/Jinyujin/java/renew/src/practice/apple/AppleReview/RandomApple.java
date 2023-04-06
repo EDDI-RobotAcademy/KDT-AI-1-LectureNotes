@@ -1,4 +1,4 @@
-package practice.Apple.AppleReview;
+package practice.apple.AppleReview;
 
 import utility.random.CustomRandom;
 

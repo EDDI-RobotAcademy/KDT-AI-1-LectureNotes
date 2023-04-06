@@ -1,4 +1,4 @@
-package practice.Apple;
+package practice.apple;
 
 import utility.random.CustomRandom;
 
