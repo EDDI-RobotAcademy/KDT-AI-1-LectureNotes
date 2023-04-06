@@ -74,11 +74,11 @@ public class RefactorDiceGamePlayer implements Comparable<RefactorDiceGamePlayer
         final int currentPlayerTotalScore = this.getGameScore().getTotalScore();
 
         if (otherPlayerTotalScore < currentPlayerTotalScore) {
-            return 1; // 만약 현재 플레이어 점수가 상대 점수보다 크면 양의 정수 반환
+            return 100; // 만약 현재 플레이어 점수가 상대 점수보다 크면 양의 정수 반환
         } else if (otherPlayerTotalScore > currentPlayerTotalScore) {
-            return -1; // 만약 현재 플레이어 점수가 상대 점수보다 작으면 음의 정수 반환
+            return 0; // 만약 현재 플레이어 점수가 상대 점수보다 작으면 음의 정수 반환
         }
 
-        return 0;
+        return 50;
     }
 }
