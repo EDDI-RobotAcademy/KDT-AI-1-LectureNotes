@@ -1,3 +1,5 @@
+package basicProblem;
+
 import java.util.*;
 import java.util.function.BiConsumer;
 

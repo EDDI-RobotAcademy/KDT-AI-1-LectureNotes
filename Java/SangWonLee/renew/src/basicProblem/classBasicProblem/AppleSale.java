@@ -1,4 +1,4 @@
-package basicProblem;
+package basicProblem.classBasicProblem;
 
 public class AppleSale {
     public int applePrice() throws InterruptedException {

@@ -1,4 +1,4 @@
-package basicProblem;
+package basicProblem.classBasicProblem;
 
 public class BasicProblemMain {
 
@@ -26,6 +26,7 @@ public class BasicProblemMain {
         AppleSale appleSale = new AppleSale();
 
         appleSale.appleTotalPrice(appleSale.applePrice(),appleSale.appleNumber());
+
 
 
 
