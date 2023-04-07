@@ -1,11 +1,9 @@
 package problems.prob1;
 
 public class Problem1 {
-    public class student {
-        private int age;
-        private String name;
-        private String major;
 
-
+    public static void main(String[] args) {
+        Student student = new Student(20, "han", "computer");
+        System.out.println(student);
     }
 }
