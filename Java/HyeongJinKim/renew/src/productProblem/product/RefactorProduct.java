@@ -5,8 +5,8 @@ import java.util.List;
 
 public class RefactorProduct {
 
-    final private String productName;
-    final private String vendor;
+    private String productName;
+    private String vendor;
     private int price;
     private List<Integer> memberIdList;
 
@@ -15,6 +15,14 @@ public class RefactorProduct {
         this.vendor = vendor;
         this.price = price;
         this.memberIdList = new ArrayList<>();
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public List<Integer> getMemberIdList() {
+        return memberIdList;
     }
 
     public void setMemberId(int memberId) {

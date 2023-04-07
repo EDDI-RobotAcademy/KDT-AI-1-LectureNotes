@@ -45,6 +45,11 @@ class RandomDiceList {
     }
 }
 
+// List<Player> playerList;
+// [0번 인덱스, 사용자 0] -> [1번 인덱스, 사용자 1]
+// Player가 List<Dice> 혹은 List<Integer>를 들고 있다면 ?
+// 사용자 0은 아래 정보를 가지고 있음
+// [0번 인덱스, 주사위 0] -> [1번 인덱스, 주사위 1] -> [2번 인덱스, 주사위 2]
 public class FirstDiceGameReview {
     public static void main(String[] args) {
         final int DICE_NUMBER = 3;

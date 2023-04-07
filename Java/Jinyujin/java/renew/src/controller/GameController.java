@@ -1,6 +1,6 @@
 package controller;
 
-import game.GameManager;
+import game.dice.GameManager;
 
 public class GameController {
 

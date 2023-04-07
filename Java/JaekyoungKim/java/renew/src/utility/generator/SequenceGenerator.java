@@ -30,15 +30,21 @@ public class SequenceGenerator {
     //static int 보다 조금 더 자동화 하기에 괜찮은 방식이 있다.
     //
 
-    public static int getSpecificENtityId (String entitiyName) {
+    public static int getSpecificEntityId (String entitiyName) {
+        //map 맵 객체에서 get()은 Key값을 토대로 Value값을 찾는 행위입니다.
+        //Key로 검색을 했으나 정보가 없다면 null을 리턴합니다.
         if (entityNameMappedId.get(entitiyName)==null){
             entityNameMappedId.put(entitiyName,1);
+            //map 객체에서 put()은 put(Key,Value) 형태로 동작합니다.
+
             return 0;
         }
         return findValueByKey(entitiyName);
     }
     private static int findValueByKey(String entityName){
+        //get을 통해 Key값을 던지고 Value 값을 얻습니다.
         int currentId=entityNameMappedId.get(entityName);
+        //put 을 통해 key 값을 1 증가 시킵니다.
         entityNameMappedId.put(entityName,currentId+1);
         return currentId;
 

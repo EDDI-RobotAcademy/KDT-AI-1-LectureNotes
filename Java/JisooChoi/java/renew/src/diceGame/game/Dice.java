@@ -1,6 +1,5 @@
 package diceGame.game;
 
-
 import utility.random.CustomRandom;
 
 public class Dice {
