@@ -1,4 +1,4 @@
-package game;
+package diceGame;
 import player.Player;
 
 import java.util.ArrayList;
