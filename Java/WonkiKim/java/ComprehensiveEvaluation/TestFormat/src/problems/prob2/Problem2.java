@@ -1,21 +1,11 @@
 package problems.prob2;
 
-class Coperation{
-    final private String name;
-    final private int sales;
-    final private int numberOfEmployee;
-    final private int AverageSalary;
+import customLibrary.pb2.Coperation;
 
-    public Coperation(String name, int sales, int numberOfEmployee, int AverageSalary) {
-        this.name = name;
-        this.sales = sales;
-        this.numberOfEmployee = numberOfEmployee;
-        this.AverageSalary = AverageSalary;
-    }
-}
+import java.util.Collections;
 
 public class Problem2 {
     public static void main(String[] args) {
-
+        Coperation coperation = new Coperation("SS", 100000000, 1000, 20000000);
     }
 }

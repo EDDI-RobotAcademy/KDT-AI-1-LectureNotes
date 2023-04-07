@@ -1,6 +1,6 @@
 package problems.prob21;
 
-import customLibrary.math.RandomGenerator;
+import customLibrary.pb21.Employee;
 
 public class Problem21 {
     public static void main(String[] args) {

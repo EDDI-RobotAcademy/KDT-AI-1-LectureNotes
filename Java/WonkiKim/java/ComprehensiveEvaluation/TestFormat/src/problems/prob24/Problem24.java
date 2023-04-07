@@ -1,16 +1,17 @@
 package problems.prob24;
 
-import customLibrary.math.RandomGenerator;
+import customLibrary.gasStation.GasStation;
+import customLibrary.gasStation.MyLocation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Problem24 {
     //24, 25, 26 문제 모두 작성.
-    final static float MAX_X = 100f;
-    final static float MIN_X = -100f;
-    final static float MAX_Y = 100f;
-    final static float MIN_Y = -100f;
+    public final static float MAX_X = 100f;
+    public final static float MIN_X = -100f;
+    public final static float MAX_Y = 100f;
+    public final static float MIN_Y = -100f;
 
     public static void main(String[] args) {
 
@@ -22,6 +23,11 @@ public class Problem24 {
         }
 
         GasStation nearestGasStation = myLocation.findNearestGasStation(gasStationList);
-
+        System.out.println(myLocation);
+        System.out.println();
+        System.out.println("nearest gasStation");
+        System.out.println(nearestGasStation);
+        System.out.println();
+        System.out.println(gasStationList);
     }
 }
