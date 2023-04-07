@@ -1,0 +1,33 @@
+package finalDice.score;
+
+public class RefactorScore {
+    private int totalScore;
+
+    public RefactorScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    public void takeScore(RefactorScore otherScore, int stealScore) {
+        this.totalScore -= stealScore;
+        otherScore.totalScore += stealScore;
+    }
+
+    public void addScore(int buffScore) {
+        this.totalScore += buffScore;
+    }
+
+    public void loseAll(int deathScore) {
+        this.totalScore = deathScore;
+    }
+
+    @Override
+    public String toString() {
+        return "GameScore{" +
+                "totalScore=" + totalScore +
+                '}';
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+}
