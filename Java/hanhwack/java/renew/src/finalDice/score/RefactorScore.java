@@ -1,6 +1,6 @@
 package finalDice.score;
 
-import diceGame.game.GameScore;
+
 
 public class RefactorScore {
     private int totalScore;
