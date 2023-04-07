@@ -1,6 +1,6 @@
 package problems.prob7;
 
-import prob7.AppleShop;
+import customLibrary.prob7.AppleShop;
 
 public class Problem7 {
     public static void main(String[] args) {

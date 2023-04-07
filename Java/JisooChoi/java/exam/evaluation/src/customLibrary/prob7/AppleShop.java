@@ -1,4 +1,4 @@
-package prob7;
+package customLibrary.prob7;
 
 public class AppleShop {
     // 사과를 한 개에 2000원씩 판다.
