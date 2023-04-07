@@ -1,6 +1,6 @@
 package problems.prob12;
 
-import customLibrary.math.RandomGenerator;
+import customLibrary.pb12.Student;
 
 import java.util.ArrayList;
 import java.util.Collections;

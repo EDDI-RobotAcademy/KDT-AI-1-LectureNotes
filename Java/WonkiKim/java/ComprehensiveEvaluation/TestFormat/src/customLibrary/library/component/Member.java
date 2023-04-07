@@ -1,4 +1,6 @@
-package problems.prob16;
+package customLibrary.library.component;
+
+import customLibrary.library.Library;
 
 import java.util.ArrayList;
 import java.util.List;

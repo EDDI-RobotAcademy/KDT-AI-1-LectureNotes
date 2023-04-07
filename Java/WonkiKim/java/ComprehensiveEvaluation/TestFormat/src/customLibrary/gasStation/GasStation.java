@@ -1,6 +1,7 @@
-package problems.prob24;
+package customLibrary.gasStation;
 
 import customLibrary.math.RandomGenerator;
+import problems.prob24.Problem24;
 
 public class GasStation {
     private float x;
@@ -19,5 +20,13 @@ public class GasStation {
 
     public float getLocationY() {
         return y;
+    }
+
+    @Override
+    public String toString() {
+        return "GasStation{" +
+                "x=" + x +
+                ", y=" + y +
+                '}'+'\n';
     }
 }

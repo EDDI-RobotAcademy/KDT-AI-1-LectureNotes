@@ -1,4 +1,4 @@
-package problems.prob27;
+package customLibrary.diceGame.component;
 
 import customLibrary.math.RandomGenerator;
 

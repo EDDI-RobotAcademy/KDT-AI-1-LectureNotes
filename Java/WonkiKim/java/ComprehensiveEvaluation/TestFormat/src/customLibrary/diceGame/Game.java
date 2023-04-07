@@ -1,5 +1,7 @@
-package problems.prob27;
+package customLibrary.diceGame;
 
+
+import customLibrary.diceGame.component.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;

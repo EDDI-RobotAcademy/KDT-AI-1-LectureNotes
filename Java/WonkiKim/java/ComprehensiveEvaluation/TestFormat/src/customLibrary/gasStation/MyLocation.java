@@ -1,6 +1,7 @@
-package problems.prob24;
+package customLibrary.gasStation;
 
 import customLibrary.math.RandomGenerator;
+import problems.prob24.Problem24;
 
 import java.util.List;
 
@@ -34,4 +35,11 @@ public class MyLocation {
         return (float) Math.sqrt(Math.pow(targetX - x, 2) + Math.pow(targetY - y, 2));
     }
 
+    @Override
+    public String toString() {
+        return "MyLocation{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

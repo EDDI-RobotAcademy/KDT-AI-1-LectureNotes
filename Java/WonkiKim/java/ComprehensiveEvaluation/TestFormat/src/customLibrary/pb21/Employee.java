@@ -1,8 +1,8 @@
-package problems.prob21;
+package customLibrary.pb21;
 
 import customLibrary.math.RandomGenerator;
 
-class Employee {
+public class Employee {
     private String name;
 
     @Override

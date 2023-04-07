@@ -1,4 +1,7 @@
-package problems.prob16;
+package customLibrary.library;
+
+import customLibrary.library.component.Book;
+import customLibrary.library.component.Member;
 
 import java.util.ArrayList;
 import java.util.HashMap;

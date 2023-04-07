@@ -1,4 +1,4 @@
-package problems.prob12;
+package customLibrary.pb12;
 
 import customLibrary.math.RandomGenerator;
 
