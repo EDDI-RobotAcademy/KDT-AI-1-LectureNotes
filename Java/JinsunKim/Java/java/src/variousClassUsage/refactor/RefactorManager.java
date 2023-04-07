@@ -1,8 +1,10 @@
 package variousClassUsage.refactor;
 
 
+import utility.generator.SequenceGenerator;
 import utility.random.CustomRandom;
-
+import variousClassUsage.refactor.RefactorMember;
+import variousClassUsage.refactor.RefactorProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,20 +21,25 @@ public class RefactorManager {
     public void addRandomMember() {
         final int MAX_MEMBER_NUMBER = 5;
 
+        for (int i = 0; i < MAX_MEMBER_NUMBER; i++) {
+            addMember();
+        }
+    }
+
+    public void addMember () {
         final int MIN_EMAIL_LENGTH = 4;
         final int MAX_EMAIL_LENGTH = 8;
 
-        for (int i = 0; i < MAX_MEMBER_NUMBER; i++) {
-            String tmpString = "";
-            int emailLength = CustomRandom.generateNumber(MIN_EMAIL_LENGTH, MAX_EMAIL_LENGTH);
+        String tmpString = "";
+        int emailLength = CustomRandom.generateNumber(MIN_EMAIL_LENGTH, MAX_EMAIL_LENGTH);
 
-            for (int j = 0; j < emailLength; j++) {
-                tmpString += (char) CustomRandom.generateNumber('a', 'z');
-            }
-
-            memberList.add(new RefactorMember(
-                    i, tmpString + "@test.com", "test"));
+        for (int j = 0; j < emailLength; j++) {
+            tmpString += (char) CustomRandom.generateNumber('a', 'z');
         }
+
+        memberList.add(new RefactorMember(
+                SequenceGenerator.getCurrentSequenceMemberId(),
+                tmpString + "@test.com", "test"));
     }
 
     public void printMemberList () {
