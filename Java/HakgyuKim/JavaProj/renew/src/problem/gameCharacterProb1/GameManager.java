@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GameManager {
-    final private int CHARACTER_NUM = 3;
+    final private int CHARACTER_NUM = 2;
     final private int ENEMY_NUM = 5;
     final private List<Character> characterList = new ArrayList<>();
     final private List<Enemy> enemyList = new ArrayList<>();
 
-    public GameManager () {
+    public GameManager() {
         for (int i = 0; i < CHARACTER_NUM; i++) {
             characterList.add(new Character("플레이어" + (i + 1)));
             System.out.println(characterList.get(i).getName());
@@ -28,10 +28,11 @@ public class GameManager {
         boolean characterCheckLive = true;
         boolean enemyCheckLive = true;
 
-            while (characterCheckLive && enemyCheckLive) {
-                for (int i = 0; i < characterList.size(); i++) {
-                    System.out.println(characterList.get(i).getName() + "의 차례");
+        while (characterCheckLive && enemyCheckLive) {
+            for (int i = 0; i < characterList.size(); i++) {
                 Scanner scanner = new Scanner(System.in);
+                System.out.println(characterList.get(i).getName() + "의 차례");
+
                 System.out.println("사용할 스킬은 선택하세요");
                 System.out.println("1. 단일 공격  2. 광역 공격");
 
@@ -53,9 +54,8 @@ public class GameManager {
 
                         characterList.get(i).characterNormalAtk(enemyList.get(targetEnemyIndex),
                                 characterList.get(i).getNormalAtkSkill().getSkillDamage());
-                        System.out.println(enemyList.get(targetEnemyIndex).getName() + "에게 " +
-                                characterList.get(i).getNormalAtkSkill().getSkillDamage() + " 피해를 줘 \n " +
-                                "남은 체력은 " + enemyList.get(targetEnemyIndex).getHealth());
+                        System.out.println(enemyList.get(targetEnemyIndex).getName() + " 의 남은 체력은 " +
+                                enemyList.get(targetEnemyIndex).getHealth());
                         break;
 
                     case 2:
@@ -64,29 +64,27 @@ public class GameManager {
                                 characterList.get(i).getWideAtkSkill().getSkillDamage());
 
                         for (int h = 0; h < enemyList.size(); h++) {
-                            System.out.println(enemyList.get(h).getName() + "에게 " +
-                                    characterList.get(i).getWideAtkSkill().getSkillDamage() + " 피해를 줘 \n " +
-                                    "남은 체력은 " + enemyList.get(h).getHealth());
+                            System.out.println(enemyList.get(h).getName() + "의 남은 체력은 " +
+                                    enemyList.get(h).getHealth());
                         }
                         break;
 
-                        // todo 1,2 번 외 누르면 턴이 그냥 스킵함
                     default:
                         System.out.println("스킬이 존재하지 않습니다. \n 다시 지정해 주세요");
+                        i--;
                         continue;
                 }
-                for (int l = 0; l < ENEMY_NUM; l++){
+
+                for (int l = 0; l < ENEMY_NUM; l++) {
                     enemyCheckLive = enemyStatus();
                 }
             }
-                enemyAtk();
-                for (int k = 0; k < CHARACTER_NUM; k++) {
-                    characterCheckLive = characterStatus();
-                }
-                characterCheckLive = characterStatus();
-
+            enemyAtk();
+            characterCheckLive = characterStatus();
         }
     }
+
+
 
     private void enemyAtk() {
         for (int i = 0; i < enemyList.size(); i++) {
@@ -99,7 +97,7 @@ public class GameManager {
         }
     }
 
-    private int findTargetCharacterIndex () {
+    private int findTargetCharacterIndex() {
         int targetCharacterIndex = CustomRandom.generateNumber(characterList.size() - 1);
         return targetCharacterIndex;
     }
@@ -116,7 +114,8 @@ public class GameManager {
         if (enemyList.size() == 0) {
             System.out.println("모든 적을 처치했습니다. \n 게임에 승리하셨습니다.");
             return false;
-        } return true;
+        }
+        return true;
     }
 
     private boolean characterStatus() {
@@ -129,6 +128,7 @@ public class GameManager {
         if (characterList.size() == 0) {
             System.out.println("모든 플레이어가 사망했습니다. \n 게임에 패배하셨습니다.");
             return false;
-        }return true;
+        }
+        return true;
     }
 }

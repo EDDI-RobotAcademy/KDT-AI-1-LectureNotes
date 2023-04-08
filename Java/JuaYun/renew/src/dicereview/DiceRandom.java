@@ -17,8 +17,6 @@ public class DiceRandom {
 
     @Override
     public String toString() {
-        return "DiceRandom{" +
-                "diceNumber=" + diceNumber +
-                '}';
+        return "diceNumber=" + diceNumber;
     }
 }

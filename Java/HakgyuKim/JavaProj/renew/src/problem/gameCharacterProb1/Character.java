@@ -1,6 +1,8 @@
 package problem.gameCharacterProb1;
 
 import problem.gameCharacterProb1.enemy.Enemy;
+import problem.gameCharacterProb1.enemy.EnemyModel;
+import problem.gameCharacterProb1.enemy.EnemyNormalAtk;
 import problem.gameCharacterProb1.skill.NormalAtk;
 import problem.gameCharacterProb1.skill.WideAtk;
 
@@ -43,7 +45,7 @@ public class Character {
 
     public void characterWideAtk (List<Enemy> enemyList, int wideAtkSkill) {
         for (int i = 0; i < enemyList.size(); i++) {
-            enemyList.get(i).setHealth(enemyList.get(i).getHealth() - wideAtkSkill);
+           enemyList.get(i).setHealth(enemyList.get(i).getHealth() - wideAtkSkill);
         }
     }
 
