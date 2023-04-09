@@ -103,6 +103,9 @@ class ThirdDiceGame {
         GameScore firstPlayerScore = playerArray[0].getGameScore();
         GameScore secondPlayerScore = playerArray[1].getGameScore();
 
+        /* 승자 판정할 때 Player의 점수를 얻기 위한 목적으로 getter 가 필요합니다.
+           고로 전체를 설계하고 쭉 진행한다는 개념 보다는
+           정말 필요한가 ? 라고 한 번 묻고 필요하다면 사용하는 방식이 좋습니다. */
         if (firstPlayerScore.getTotalScore() > secondPlayerScore.getTotalScore()) {
             System.out.println("승자: " + playerArray[0].getName());
         } else {
