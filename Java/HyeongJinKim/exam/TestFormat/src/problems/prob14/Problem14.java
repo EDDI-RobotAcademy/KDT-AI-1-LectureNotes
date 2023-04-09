@@ -1,11 +1,10 @@
 package problems.prob14;
 
-import customLibrary.CustomRandom;
+import customLibrary.numberDrawGame.NumberDrawGame;
 
 public class Problem14 {
     public static void main(String[] args) {
-        PickRandom pickRandom = new PickRandom();
-        pickRandom.setChoiceNumber();
-        pickRandom.isCheckWin();
+        final NumberDrawGame game = new NumberDrawGame();
+        game.play();
     }
 }

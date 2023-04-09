@@ -1,9 +1,13 @@
 package problems.prob2;
 
+import customLibrary.company.Company;
+
 public class Problem2 {
     public static void main(String[] args) {
-        Company company = new Company("MS", 10000000, 500, 100000);
-        System.out.println(company);
+        final Company company = new Company(
+                "상호명", 1000000000,
+                4, 100000000);
 
+        System.out.println(company);
     }
 }

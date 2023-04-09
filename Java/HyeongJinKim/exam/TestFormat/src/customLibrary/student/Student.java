@@ -1,21 +1,21 @@
-package problems.prob1;
+package customLibrary.student;
 
 public class Student {
-    private int age;
     private String name;
+    private int age;
     private String major;
 
-    public Student(int age, String name, String major) {
-        this.age = age;
+    public Student(String name, int age, String major) {
         this.name = name;
+        this.age = age;
         this.major = major;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "age=" + age +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
+                ", age=" + age +
                 ", major='" + major + '\'' +
                 '}';
     }
