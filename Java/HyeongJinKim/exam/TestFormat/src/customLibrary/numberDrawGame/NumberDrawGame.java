@@ -25,6 +25,7 @@ public class NumberDrawGame {
         for (int i = 0; i < CHANCE; i++) {
             System.out.print("3 ~ 33 사이의 숫자를 입력하세요: ");
             int userInputNumber = scanner.nextInt();
+//            System.out.println(userInputNumber);
 
             if (userInputNumber == winningNumber) {
                 System.out.println("승리하였습니다!");

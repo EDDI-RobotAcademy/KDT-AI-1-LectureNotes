@@ -35,5 +35,7 @@ public class Problem21 {
         for (int i = 0; i < 4; i++) {
             employeeList.add(new Employee(nameArray[i]));
         }
+        // 너무 많은 생각을 한 것 같다.
+        // 일단 작성해보기.
     }
 }

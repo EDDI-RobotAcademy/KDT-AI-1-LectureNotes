@@ -15,3 +15,6 @@ public class Problem24 {
         map.findShortest();
     }
 }
+
+// Sync를 안하고 주석을 달고 있었는데
+// 선생님께서 더 자세한 코드를 올려주셨다.
