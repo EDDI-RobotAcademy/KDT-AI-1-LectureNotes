@@ -3,29 +3,32 @@ package dicereview;
 import java.util.ArrayList;
 import java.util.List;
 
-// 시도할 것 리스트를 둘로 나눠서 그 안에 다이스 리스트를 집어넣기
-// 승자판정은 나중으로 일단 어떻게 만들어야 효율적인지 저 부분을 정확하게 알고 넘어가기
-// List로 for문을 돌릴땐 List내부의 이름을 사용하여 돌려야함
-// List안에 다른 class를 가져와야하기때문에 DiceGame안에 DicePlayerList를 만든다
+// 플레이어가 가지고 있는 것을 생각해보기
+// 주사위 이름 성적 이정도를 여기에 만들어보자
+// 성적은 좀 나중으로 미루기 지금은 이름과 주사위를 할당하는 것에 초점을 맞추자
 public class DiceGame {
-    private int PLAYER_NUM = 2;
-    List<DicePlayer> diceplayerList = new ArrayList<>();
+    private int DICE_NUM = 3;
+    private String name;
+    List<DiceRandom> diceRandomList = new ArrayList<>();
+    int diceScore = 0;
 
-    public DiceGame() {
-        this.PLAYER_NUM = PLAYER_NUM;
+    public DiceGame(String name) {
+        this.name = name;
 
-        for (int i = 0; i < PLAYER_NUM; i++) {
-            diceplayerList.add(new DicePlayer("플레이어" + (i + 1)));
-
+        for (int i = 0; i < DICE_NUM; i++) {
+            diceRandomList.add(new DiceRandom(DICE_NUM));
+            // 다이스의 합
+            diceScore += diceRandomList.get(i).getDiceNumber();
         }
     }
 
+    // 조건식 세우기
+
     @Override
     public String toString() {
-        return "DiceGame{" +
-                "PLAYER_NUM=" + PLAYER_NUM +
-                ", diceplayerList=" + diceplayerList +
+        return "name='" + name + '\'' +
+                ", diceRandomList=" + diceRandomList +
+                ", diceScore=" + diceScore +
                 '}';
     }
 }
-
