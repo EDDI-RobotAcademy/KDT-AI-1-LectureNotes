@@ -1,6 +1,6 @@
 package debugTest;
 
-import diceGame.player.Player;
+import diceGame.player.RefactorPlayer;
 import utility.random.CustomRandom;
 
 import java.util.ArrayList;
@@ -8,14 +8,14 @@ import java.util.List;
 
 public class DebugTestApp {
 
-    private static List<Player> playerList = new ArrayList<>();
+    private static List<RefactorPlayer> refactorPlayerList = new ArrayList<>();
 
     public static int findTargetPlayerIndex (int currentPlayerIndex) {
         boolean forControlWord = true;
         int TargetPlayerIndex = 0;
 
         for (;forControlWord; ) {
-            TargetPlayerIndex = CustomRandom.generateNumber(playerList.size());
+            TargetPlayerIndex = CustomRandom.generateNumber(refactorPlayerList.size());
 
             if (currentPlayerIndex == TargetPlayerIndex) {
                 continue;
@@ -25,9 +25,9 @@ public class DebugTestApp {
         return TargetPlayerIndex;
     }
     public static void main(String[] args) {
-        playerList.add(new Player("안녕1"));
-        playerList.add(new Player("안녕2"));
-        playerList.add(new Player("안녕3"));
+        refactorPlayerList.add(new RefactorPlayer("안녕1"));
+        refactorPlayerList.add(new RefactorPlayer("안녕2"));
+        refactorPlayerList.add(new RefactorPlayer("안녕3"));
 
         int targetPlayerIndex = findTargetPlayerIndex(0);
 
