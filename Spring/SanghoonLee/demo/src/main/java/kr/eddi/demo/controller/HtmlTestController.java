@@ -1,0 +1,38 @@
+package kr.eddi.demo.controller;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+// RestController 가 붙어 있으면 데이터를 JSON 이라는 형태로 내보내게 됩니다.
+// Web 상에서 데이터를 주고 받는 방식은 대부분 이 JSON 방식을 사용하게 됩니다.
+// 그러므로 데이터를 주고 받는 상황에서는 전부 RestController를 사용하게 됩니다.
+// 물론 Legacy Project의 경우 Backend와 Frontend가 결합되어 있습니다.
+// 이런 경우엔 Controller를 사용하게 됩니다.
+
+// 최신 트렌드는 Front쪽과 통신하기 위해 RestController로 Back을 구성합니다.
+@Slf4j
+@Controller
+@RequestMapping("/html-test")
+public class HtmlTestController {
+
+    @GetMapping("/print-time")
+    public String printTime (Locale locale, Model model) {
+        log.info("Is it Ok ?");
+
+        Date date = new Date();
+        DateFormat dateFormat =
+                DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+        String formattedDate = dateFormat.format(date);
+        model.addAttribute("serverTime", formattedDate);
+
+        return "printTime";
+    }
+}
