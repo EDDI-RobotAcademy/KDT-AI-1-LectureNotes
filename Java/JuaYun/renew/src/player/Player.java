@@ -1,10 +1,9 @@
 package player;
 
-import game.Dice;
-import game.GameScore;
+import diceGame.Dice;
+import diceGame.GameScore;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 // 배열을 리스트형태로 바꿈
