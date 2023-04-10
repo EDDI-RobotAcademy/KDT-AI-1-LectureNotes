@@ -12,6 +12,7 @@ import customLibrary.Random;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.stream.*;
 
 
@@ -26,10 +27,9 @@ class MyCoordinate {
 
     @Override
     public String toString() {
-        return "MyCoordinate{" +
-                "X=" + X +
-                ", Y=" + Y +
-                '}';
+        return "내 위치 : " +
+                "(" + X +
+                ", " + Y + ")";
     }
 }
 
@@ -50,6 +50,9 @@ class GasStationCoordinate {
     public void setDistance(double distance) {
         this.distance = distance;
     }
+    public double getDistance() {
+        return distance;
+    }
 
     public GasStationCoordinate(String gasStationName) {
         this.gasStationName = gasStationName;
@@ -57,9 +60,6 @@ class GasStationCoordinate {
         Y = Random.randomNumber(-100, 100);
     }
 
-    public double getDistance() {
-        return distance;
-    }
 
     public void distance(){
         int myCoordinatet_X = MyCoordinate.X;
@@ -104,30 +104,38 @@ public class Problem24 {
         MyCoordinate myCoordinate = new MyCoordinate();
         System.out.println(myCoordinate);
 
-
-
         myCoordinate.AddGasStation("gasStation1");
         myCoordinate.AddGasStation("gasStation2");
         myCoordinate.AddGasStation("gasStation3");
         myCoordinate.AddGasStation("gasStation4");
 
-        for(int i = 0 ; i < myCoordinate.nearGasStationsList.size(); i++){
+        for (int i = 0; i < myCoordinate.nearGasStationsList.size(); i++) {
             myCoordinate.nearGasStationsList.get(i).distance();
         }
         System.out.println(myCoordinate.nearGasStationsList);
 
 
-
         System.out.println("스트림을 이용한 정렬?????");
+        //Stream<GasStationCoordinate> gasStationsStream = null;
+        for (int i = 0; i < myCoordinate.nearGasStationsList.size(); i++) {
+            var gasStationsStream = List.of (
 
-        for(int i = 0 ; i < myCoordinate.nearGasStationsList.size(); i++){
-
-            Stream<GasStationCoordinate> gasStationsStream = Stream.of (
-                    myCoordinate.nearGasStationsList.get(i)
             );
-            gasStationsStream.sorted(Comparator.comparing(GasStationCoordinate::getDistance)).forEach(System.out::println);
+            
+
+//            gasStationsStream = Stream.of(
+//                    myCoordinate.nearGasStationsList.get(i)
+//            );
+//            gasStationsStream.sorted(Comparator.comparing(GasStationCoordinate::getDistance))
+//                    .forEach(System.out::println);
+            //gasStationsStream.sorted(Comparator.comparing(GasStationCoordinate::getDistance));
+            //.forEach(System.out::println)
 
         }
+        //gasStationsStream.sorted(Comparator.comparing(GasStationCoordinate::getDistance)).forEach(System.out::println);
+
+
+        //System.out.println(gasStationsStream);
 
     }
 }
