@@ -49,17 +49,24 @@ public class Manager {
     // 뒤에는 @test.com을 붙이도록 한다.
     // 5명 정도 만든다고 가정!
     public void addRandomMember() {
-        final int MAX_MEMBER_NUMBER = 5;
+        final int MAX_MEMBER_NUMBER = 5; // ◆ 사람 수 5명
 
-        final int MIN_EMAIL_LENGTH = 4;
-        final int MAX_EMAIL_LENGTH = 8;
+        final int MIN_EMAIL_LENGTH = 4; // ◆ 이메일은 최소 4문자 이상
+        final int MAX_EMAIL_LENGTH = 8; // ◆ 이메일은 최대 8문자 이하
 
         for(int i = 0; i < MAX_MEMBER_NUMBER; i++){
             String tmpString = "";
+            // ◆ 이메일 4이상 ~ 8 사이의 랜덤 정수 값을 변수에 할당
+            // ★ 랜덤으로 이메일 수를 ? 정해준다. 예를들어 5이다? 그러면 5글자만 들어갈 수 있음 !
             int emailLength = CustomRandom.generateNumber(MIN_EMAIL_LENGTH, MAX_EMAIL_LENGTH);
+            // System.out.println("emailLength의 값이 어캐들어오납 ? : "+emailLength);
 
+            // ◆ 위의 코드로 숫자형 랜덤 값이 들어왔으니, 이메일의 크기가 랜덤으로 정해졌음
+            // 위에서 5가 나왔다? 그러면 5글자만 들어갈 수 있으니까 그 안에 a부터 z까지의 랜덤의 글자가 나오고,
+            // ★ + 기호로 각 글자들이 연결된다! = > 예를 들어 a + j + e + n + s => ajens 이렇게 !!
             for(int j = 0; j < emailLength; j++){
                 tmpString += (char) CustomRandom.generateNumber('a', 'z');
+                // System.out.println("char 형으로 어떻게 들어가 있납 ? : "+tmpString );
             }
 
             // System.out.println(tmpString + "@test.com");
@@ -90,6 +97,8 @@ public class Manager {
     }
 
     public void printProductList(){
+        // productList 안에는 위의 코드에서 for문을 통해 add로 값을 넣어주었다.
+        // 그렇기에 값을 가진 productList의 요소 하나하나를 출력하라는 것이 된다.
         for(TestProduct product: productList){
             System.out.println(product);
         }
