@@ -12,6 +12,7 @@ class GiveMeAnything {
     // public RefactorGameCharacter canReturnAnyThing (List<RefactorGameCharacter>, int index)
     // 단점: 문법이 ........ 좀 괴랄하다.
     public <T> T canReturnAnyThing (List<T> inputList, int index) {
+
         return inputList.get(index);
     }
 }
