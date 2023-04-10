@@ -53,6 +53,8 @@ public class DiceGamePlayer {
     // DiceGameManager 에 세번째 조건을 만들기 위해서 생성했음
     // 자동적으로 이 부분에 매서드가 생성됨
     // 매개변수를 index 로 수정해줬음
+    // 이 함수는 주어진 인덱스에 해당하는 객체가 리스트에 있는 경우에만 반환하며,
+    // 그렇지 않은 경우에는 null을 반환
     public RefactorDice getSelectedGameDice(int index) {
         if (diceList.size() > index) {
             return diceList.get(index);
