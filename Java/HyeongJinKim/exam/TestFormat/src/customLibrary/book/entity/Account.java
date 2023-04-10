@@ -10,6 +10,8 @@ public class Account {
 
     public Account(String accountId, String password) {
         this.id = IdGenerator.getSpecificEntityId("Member");
+        // 13. Member id값 생성
+        //     마찬가지로 초기 0, 이후 1씩 증가
         this.accountId = accountId;
         this.password = password;
     }

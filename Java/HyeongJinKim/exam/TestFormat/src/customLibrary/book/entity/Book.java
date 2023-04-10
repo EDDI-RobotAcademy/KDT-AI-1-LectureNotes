@@ -13,6 +13,9 @@ public class Book {
 
     public Book(String bookName, int stockCount) {
         this.id = IdGenerator.getSpecificEntityId("Book");
+        // 4. Id 생성
+        //    초기 0, 이후 1씩 증가
+
         this.bookName = bookName;
         this.stockCount = stockCount;
 
