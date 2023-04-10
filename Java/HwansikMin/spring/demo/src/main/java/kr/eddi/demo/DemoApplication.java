@@ -1,4 +1,4 @@
-package ke.eddi_KDTAI1LectureNotes.demo;
+package kr.eddi.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

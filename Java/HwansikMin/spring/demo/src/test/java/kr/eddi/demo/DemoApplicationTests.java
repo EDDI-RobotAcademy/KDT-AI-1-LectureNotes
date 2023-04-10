@@ -1,4 +1,4 @@
-package ke.eddi_KDTAI1LectureNotes.demo;
+package kr.eddi.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -6,8 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class DemoApplicationTests {
 
-	@Test
-	void contextLoads() {
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
 	}
 
 }
