@@ -119,23 +119,17 @@ public class Problem24 {
         //Stream<GasStationCoordinate> gasStationsStream = null;
         for (int i = 0; i < myCoordinate.nearGasStationsList.size(); i++) {
             var gasStationsStream = List.of (
+                    myCoordinate.nearGasStationsList.get(0),
+                    myCoordinate.nearGasStationsList.get(1),
+                    myCoordinate.nearGasStationsList.get(2),
+                    myCoordinate.nearGasStationsList.get(3)
 
             );
-            
-
-//            gasStationsStream = Stream.of(
-//                    myCoordinate.nearGasStationsList.get(i)
-//            );
-//            gasStationsStream.sorted(Comparator.comparing(GasStationCoordinate::getDistance))
-//                    .forEach(System.out::println);
-            //gasStationsStream.sorted(Comparator.comparing(GasStationCoordinate::getDistance));
-            //.forEach(System.out::println)
+            gasStationsStream.stream().sorted(Comparator.comparing(GasStationCoordinate::getDistance))
+                    .collect(Collectors.toList());
 
         }
-        //gasStationsStream.sorted(Comparator.comparing(GasStationCoordinate::getDistance)).forEach(System.out::println);
 
-
-        //System.out.println(gasStationsStream);
 
     }
 }
