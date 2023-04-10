@@ -25,7 +25,7 @@ public class DiceGame {
         final int ODD = 1; // 나머지가 1일 때 쓰일 것
 
         for (int playerIdx = 0; playerIdx < playerList.size(); playerIdx++) {
-                // 플레이어 리스트 사이즈 만큼
+                // 플레이어 리스트 사이즈 만큼 (10번)
             final Player player = playerList.get(playerIdx);
             final Dice dice = player.getDice();
             final int diceNumber = dice.getDiceNumber();
@@ -45,12 +45,16 @@ public class DiceGame {
 
     private void removeDeadPlayer() {
         for (int j = 0; j < playerList.size(); j++) {
-            final Player player = playerList.get(j);
-            final Dice dice = player.getDice();
-            final int diceNumber = dice.getDiceNumber();
+            final Player player = playerList.get(j); // 플레이어 리스트 얻어오기
+            final Dice dice = player.getDice(); // 다이스 생성자
 
-            if (diceNumber <= 0) {
-                playerList.remove(j);
+            final int diceNumber = dice.getDiceNumber(); // 주사위 넘버 가져오기
+
+            if (diceNumber <= 0) { // 주사위 번호가 0보다 작다면
+                playerList.remove(j); // 지금 플레이어 리스트 제거
+                // 당황스러운 부분 발견
+                // 이렇게 playerList의 데이터를 지우게 되면, playerList.size() 가 작아지는 상황이 발생하면서,
+                // 10번 돌아가야할 for문이 5번 돌아가는 상황도 생긴다.
             }
         }
     }
