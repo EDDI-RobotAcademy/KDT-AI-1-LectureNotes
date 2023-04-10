@@ -103,7 +103,12 @@ public class BookLibrary {
 
     // 빌릴 수 있는지 없는지 확인
     private boolean canBorrowBook(int bookIdForBorrow) {
-        final Book book = bookList.get(bookIdForBorrow);
+        final Book book = bookList.get(bookIdForBorrow); // -> 형태가 낯섬(new가 없는디?)
+        // final Book book = new Book(); 객체 생성하고
+        // bookList.get(빌리고 싶은 책의 아이디 값); 리스트에 있는 책 가져와서
+        // book 에 넣어주어라
+
+        // 재고 확인
         final int stockCount = book.getStockCount();
 
         if (stockCount == 0) { return false; }
@@ -141,7 +146,7 @@ public class BookLibrary {
     }
 
     private int inputBookIdNumberForBorrow() {
-        System.out.print("빌리고 싶은 책의 id 번호를 입력하세요: ");
+        System.out.print("\n빌리고 싶은 책의 id 번호를 입력하세요: ");
         final int inputBookId = scanner.nextInt();
         scanner.nextLine();
         return inputBookId;
@@ -158,11 +163,14 @@ public class BookLibrary {
             final String searchedAccountId = searchedAccount.getAccountId();
             System.out.println("searchedAccountId: " + searchedAccountId);
 
+            // 기입한 아이디와 리스트에 들어간 아이디가 맞는 지 확인.
             if (searchedAccountId.equals(accountId)) {
                 return searchedAccount;
+                // 맞다면, 계정 정보를 리턴해주고
             }
         }
 
+        // 아니라면, 널 값을 리턴해주면 된다.
         return null;
     }
 
