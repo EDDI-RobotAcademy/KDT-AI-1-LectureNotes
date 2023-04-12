@@ -191,6 +191,7 @@
                     </li>
                 </ul>
             </fieldset>
+        </form>
 
         <form>
             <!-- 범주 테스트 -->
@@ -267,7 +268,7 @@
             <input type="submit" value="회원 가입">
             <!-- 입력을 잘못 했을때 초기화 합니다.-->
             <input type="reset" value="초기화">
-        </form>    
+        </form>
     </div>
 </template>
 
