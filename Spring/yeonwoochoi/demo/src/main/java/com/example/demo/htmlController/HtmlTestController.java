@@ -10,12 +10,12 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-// Slf4j는  log.info()에 정보를 출력하기 위한 목적으로 사용합니다.
+// Slf4j는 log.info()에 정보를 출력하기 위한 목적으로 사용합니다.
 // 아래와 같은 메세지가 나옵니다.
 // 2023-04-10T11:36:04.294+09:00  INFO 13520 ---
 // [nio-8080-exec-4] k.e.demo.controller.HtmlTestController   : Is it Ok ?
 // 나중에 프로젝트 할 때도 어디에서 문제 터졌는지 추적하기 위해 반드시 필요합니다.
-// 지금 작업이 어디까지 진행되었는지 파악을 할 수 있지 때문에 중요합니다.
+// 지금 작업이 어디까지 진행되었는지 파악을 할 수 있기 때문에 중요합니다.
 
 // RequestMapping 은 Domain을 분리하기 위한 목적으로 사용합니다.
 // 작업 예로 product/register, board.register 같은게 있다 가정해보자.
