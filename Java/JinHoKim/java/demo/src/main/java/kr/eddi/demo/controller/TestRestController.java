@@ -27,6 +27,6 @@ public class TestRestController {
     // Request(요청)을 하면 클라이언트
     @GetMapping("/first")
     public String firstTest () {
-        return "응 이건 첫 번째야!";
+        return "응 이건 첫 번째야 정말!";
     }
 }
