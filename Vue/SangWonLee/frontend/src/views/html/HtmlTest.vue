@@ -15,11 +15,8 @@
         <!-- 
 
             강제 스타일 먹이기는 아래와 같이 style="css속성"
-
             여기서 css 속성은 text-align으로
-
             글자를 정렬할 때 사용하며 디폴트로 center 정렬이였으나
-
             아래 function saveLocal .... 에 대해서는 left 정렬을 적용하는 작업입니다.
 
         -->
@@ -208,8 +205,8 @@
 
         </form>
 
-        <!-- 이메일 비번 입력하기 -->
 
+        <!-- 이메일 비번 입력하기 -->
         <form action="" style="text-align: left;">
             <fieldset>
                 <legend>로그인</legend>
@@ -227,14 +224,52 @@
         </form>
 
 
+        <form action="" style="text-align: left;">
+            <fieldset>
+                <legend>범주 테스트</legend>
+                <ul>
+                    <li>
+                        <label for="member"></label>
+                    <!--
+                        input type = "number" 를 통해 숫자를 인식
+                        value에 초기값, min은 최소값, max는 최대값,
+                        화살표 UI가 제공되는데 누를 때마다 이동하는 숫자의 크기는 step
+                    -->
 
+                        <input type="number" id="member" value="1" min="1" max="10" step="1">
+                    </li>
+                    <li>
+                        <label for="satify"></label>
+                        <!--
+                            range를 사용하면 막대바가 생성됨
+                            최솟값, 최댓값, 초기값, step 설정은 위의 number와 완벽하게 동일함
+                        -->
+                        <input type="range" id ="satisfy" value="1" min="1" max="5" step="1">
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
 
+            <form action="" style="text-align: left;">
+            <fieldset>
+                <legend>회원 가입</legend>
+                <ul>
+                    <li>
+                        <label for="email">email : </label>
+                        <input type="text" id="email">
+                    </li>
+                    <li>
+                        <label for="pwd">비밀번호 : </label>
+                        <input type="password" id="pwd">
+                    </li>
+                </ul>
+            </fieldset>
+            <input type="submit" value="회원 가입">
+            <!-- 입력을 잘못 했을 경우 정보를 초기화 -->
+            <input type="reset" value="초기화">
+        </form>
     </div>
-
 </template>
-
-
-
 
 <script>
 

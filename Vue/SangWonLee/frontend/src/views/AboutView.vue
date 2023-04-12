@@ -1,5 +1,4 @@
 <template>
-
   <!-- html 파트는 전부 이 template에서 관리함 -->
 
   <div class="about">
@@ -15,7 +14,6 @@
     <p>{{ msg }}</p>
 
   </div>
-
 </template>
 
 
@@ -35,7 +33,7 @@ export default {
 
   // 데이터는 말 그대로 *.vue 파일이 가지고 있는 데이터를 의미합니다.
 
-  data () {
+  data() {
 
     // return이 들어가 있어서 뭔가 싶지만 data를 표기할 때 사용하는 문법입니다.
 
@@ -47,7 +45,7 @@ export default {
 
     }
 
-  }  
+  }
 
 }
 
