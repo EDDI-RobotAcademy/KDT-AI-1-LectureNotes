@@ -73,7 +73,6 @@
                     <li>Domain Hexagon</li>
                 </ol>
             </li>
-
         </ul>
         <!--table은 표를 만들 때 사용 
         가장 기본 패턴으로 table- th-td형식을 사용함
@@ -90,7 +89,6 @@
                 <td>내용이</td>
                 <td>없어서</td>
                 <td>그랬나</td>
-                
             </tr>
         </table><br>
         <!-- colspan을 통해 합칠 열의 개수를 지정할 수 있음-->
@@ -188,18 +186,86 @@
             <li>
                 <label for="pwd">비밀번호: </label>
                 <input type="password" id="pwd">
-
             </li>
         </ul>
         </fieldset>
     </form>    
-
-
+    <!--범주 테스트-->
+    <form style="text-align: left;">
+        <fieldset>
+            <legend>범주 테스트</legend>
+                <ul>
+                    <li>
+                        <label for="member"></label>
+                        <!-- 
+                            input type="number"를 통해 숫자를 인식
+                            value에 초기값 ,min은 최소값, max는 최댓값,
+                            화살표 UI제공되는데 누를 때마다 수샂의 크기는 step
+                        -->
+                        <input type="number" id="member" value="1" min="1" max="10" step="1">
+                    </li>
+                    <li>
+                        <label for="satisfy"></label>
+                        <!--
+                            range를 사용하면 막대 바가 생성됨
+                            최솟값, 최대값, 초기값, step 설정은 위의 number와 완벽하게 동일함
+                        -->
+                        <input type="range" id="satisfy" value="1" min="1" max="5" step="1">
+                    </li>
+                </ul>
+        </fieldset>
+    </form>
+    <!-- email 및 password 기반 회원 가입-->
+    <form style="text-align: left;">
+        <fieldset>
+            <legend>회원 가입</legend>
+            <ul>
+                <li>
+                    <label for="email">email: </label>
+                    <input type="text" id="email">
+            </li>
+            <li>
+                <label for="pwd">비밀번호: </label>
+                <input type="password" id="pwd">
+            </li>
+        </ul>
+        </fieldset>
+        <input type="submit" value="회원 가입">
+        <!-- 입력을 잘못 했을때 초기화 합니다.-->
+        <input type="reset" value="초기화">
+    </form>   
+    <!--checkbox나 radio로 표현하기에 너무 많은 경우--> 
+    <form style="text-align: left;">
+        <fieldset>
+            <legend>과목 선택</legend>
+            <ul>
+                <li>
+                    <label for="subject" >과목: </label>
+                    <!--select의 경우 드롭다운 형태의 목록을 만들 수 있습니다.-->
+                    <select size="5" id="subject"  >
+                        <option value="archi">소프트웨어 아키텍처</option>
+                        <option value="ddd">DDD 설계</option>
+                        <option value="clean">Clean 아키텍처</option>
+                        <option value="hexagonal">Hexahonaml 아키텍처</option>
+                        <option value="msa">MSA 설계</option>
+                        <option value="rxjava">Reactive Java Programming</option>
+                        <option value="r2bc">R2DBC Reactiv DB System</option>
+                        <option value="jpa">Reactive에서 사용할 스 없는 jpa</option>
+                        <option value="mfe">Micro Frontend Service</option>
+                        <option value="edm">Event Driven MSA</option>
+                        <option value="kafka">Kafka 기반 메시지 브로커 시스템</option>
+                    </select>
+            </li>
+        </ul>
+        </fieldset>
+        <input type="submit" value="회원 가입">
+        <!-- 입력을 잘못 했을때 초기화 합니다.-->
+        <input type="reset" value="초기화">
+    </form>   
     </div>
 </template>
 <script>
 export default {
-
     
 }
 </script>
