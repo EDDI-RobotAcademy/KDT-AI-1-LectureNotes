@@ -23,8 +23,9 @@
         <p><strong>TypeScript</strong>, <b>javascript</b>, Python</p>
         <!-- em과 i는 모두 이탤릭체를 표현함 -->
         <p><em>Rust</em>, <i>C</i>, Verilog</p>
-        <!-- span은 줄바꿈이 없습니다 - 특정 스타일을 적용할 때 많이 사용하는 편 -->
+        <!-- mark로 형광팬 효과를 낼 수 있음 -->
         <h2>Python <mark>TensorFlow</mark></h2>
+        <!-- span은 줄바꿈이 없습니다 - 특정 스타일을 적용할 때 많이 사용하는 편 -->
         <p> Deep Learning <span style="color:green;">Keras</span></p>
         <!--
             u1은 Unordered List의 약자로 순서가 필요하지 않은 경우 사용
@@ -128,7 +129,7 @@
         <h1>Text Link 생성</h1>
         <a href="https://golang.org">Golang Homepage</a>
         <h1>이미지 링크 생성</h1>
-        <a herf="http://mario.nintendo.com/">
+        <a href="http://mario.nintendo.com/">
             <img src="@/assets/downloadImg/mario_run.png">
         </a>
         <!--
@@ -190,7 +191,83 @@
                     </li>
                 </ul>
             </fieldset>
+
+        <form>
+            <!-- 범주 테스트 -->
+            <fieldset>
+                <legend>범주테스트</legend>
+                <ul>
+                    <li>
+                        <label for="member"></label>
+                        <!--
+                            input type="number"를 통해 숫자를 인식
+                            value에 초기값, min은 최소값, max는 최대값,
+                            화살표 UI가 제공되는데 누를 때마다 이동하는 숫자의 크기는 step
+                        -->
+                        <input type="number" id="member" value="1" min="1" max="10" step="1">
+                    </li>
+                    <li>
+                        <label for="satisfy"></label>
+                        <!--
+                            range를 사용하면 막대 바가 생성됨
+                            최소값, 최대값, 초기값, step 설정은 위의 number와 완벽하게 동일함
+                        -->
+                        <input type="range" id="satisfy" value="1" min="1" max="5" step="1">
+                    </li>
+                </ul>
+            </fieldset>
         </form>
+            <!-- email 및 password 기반 회원 가입-->
+        <form style="text-align: left;">
+            <fieldset>
+                <legend>회원 가입</legend>
+                <ul>
+                    <li>
+                        <label for="email">email: </label>
+                        <input type="text" id="email">
+                    </li>
+                    <li>
+                        <label for="pwd">비밀번호: </label>
+                        <input type="password" id="pwd">
+                    </li>
+                </ul>
+                </fieldset>
+                <input type="submit" value="회원가입">
+                <!-- 입력을 잘못했을 경우 정보를 초기화 합니다 -->
+                <input type="reset" value="초기화">
+        </form>
+        <!-- checkbox, radio로 표현하기에 너무 많은 경우-->
+        <form style="text-align: left;">
+            <fieldset>
+                <legend>과목선택</legend>
+                <ul>
+                    <li>
+                        <label for="subject">과목: </label>
+                        <!--
+                            select의 경우엔 드롭 다운 형태의 목록을 만들 수 있습니다.
+                            multiple을 선택하여 여러 옵션들을 복수 선택할 수 있습니다.
+                            size는 눈에 보이는 리스트의 개수입니다.
+                        -->
+                        <select size="5" id="subject">
+                            <option value="architecture">소프트웨어 아키텍처</option>
+                            <option value="ddd">DDD 설계</option>
+                            <option value="clean">Clean 아키텍처</option>
+                            <option value="hexagonal">Hexagonal아키텍처</option>
+                            <option value="msa">MSA 설계</option>
+                            <option value="rxjava">Reactive Java Programming</option>
+                            <option value="r2dbc">R2DBC Reactive DB System</option>
+                            <option value="jpa">Reactive에서는 사용할 수 없는 JPA</option>
+                            <option value="mfe">Micro Frontend Service</option>
+                            <option value="edm">Event Driven MSA</option>
+                            <option value="kafka">Kafka 기반 메세지 브로커 시스템</option>
+                        </select>
+                    </li>
+                </ul>
+            </fieldset>
+            <input type="submit" value="회원 가입">
+            <!-- 입력을 잘못 했을때 초기화 합니다.-->
+            <input type="reset" value="초기화">
+        </form>    
     </div>
 </template>
 
