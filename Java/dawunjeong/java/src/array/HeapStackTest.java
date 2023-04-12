@@ -10,7 +10,7 @@ public class HeapStackTest {
        final int[] numberArray = new int[ALLOC_ARRAY_NUMBER];
 
        for (int i = START; i < ALLOC_ARRAY_NUMBER; i++) {
-           numberArray[i] = i + 1;
+           numberArray[i] = ++i;
            // printf의 경우 format을 출력한다는 뜻으로 printf입니다.
            // foramt은 %d의 경우 정수형(int)
            // %s의 경우 (String)인데 필요 없죠 java는 + 가 되니까요
@@ -33,8 +33,8 @@ public class HeapStackTest {
 
         System.out.println();
 
-        for (final int num: numberArray){
-            System.out.println("numberArray elem: " + num);
-        }
+//        for (final int num: numberArray){
+//            System.out.println("numberArray elem: " + num);
+//        }
     }
 }
