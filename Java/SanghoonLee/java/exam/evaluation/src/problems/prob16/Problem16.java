@@ -9,7 +9,6 @@ public class Problem16 {
         bookLibrary.registerAccount();
         bookLibrary.registerAccount();
 
-        //System.out.println(bookLibrary);
         bookLibrary.borrowBook();
         System.out.println(bookLibrary);
     }
