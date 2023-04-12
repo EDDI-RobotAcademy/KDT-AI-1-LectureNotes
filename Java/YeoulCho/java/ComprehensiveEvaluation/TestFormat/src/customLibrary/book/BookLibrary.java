@@ -68,7 +68,7 @@ public class BookLibrary {
             if (searchedAccount == null) {
                 System.out.println("잘못된 정보를 기입하였습니다! (다시 입력하세요)");
                 reDoProcess = true;
-                continue;
+                continue; //for문 다시 돌아가라
             }
 
             if (!searchedAccount.getPassword().equals(password)) {

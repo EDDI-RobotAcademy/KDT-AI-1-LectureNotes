@@ -37,24 +37,24 @@ public class ClassRoom {
 
         // 선생님은 동점자들의 순위표시하셨음
         int rank = 1;
-        int backupScore = 0;
+        int backupScore = 0; // 내 앞사람 점수
         int sameScoreCount = 0;
         Boolean isSameScore = false;
 
         for (int i = 0; i < MAX_STUDENT_NUMBER; i++) {
-            isSameScore = false;
+            isSameScore = false; // 일단 동점이냐? false라고 둬
 
-            final int currentScore = studentScoreList.get(i);
-            if (backupScore == currentScore) { //이해가 잘 안감...ㅠㅠ
-                sameScoreCount++;
-                isSameScore = true;
+            final int currentScore = studentScoreList.get(i); //currentScore는 studentScoreList의 0번째 점수 // 1번째 점수
+            if (backupScore == currentScore) { //첫 번째는 backupScore는 0 currentScore는 0번째 점수 //이때는 backupScore가 0번째 점수
+                sameScoreCount++; // 만약 둘이 동점이면 sameScoreCount증가 //1이 아닌 이유 동점자가 몇명이나 나올지 모르니까
+                isSameScore = true; // isSameScore도 true로 바뀜
             } else { sameScoreCount = 0; }
 
             System.out.println( //동점자가 나왔어? 그럼 순위는 증가하지 말아야지
                     "순위: " + ((isSameScore) ? (rank++ - sameScoreCount) : (rank++))+
-                            ", 점수: " + currentScore);
+                            ", 점수: " + currentScore); // 처음 isSameScore가 거짓이야 그래서 순위증가
 
-            backupScore = currentScore;
+            backupScore = currentScore; //이제 backupScore는 리스트의 0번째 점수
         }
 
 
