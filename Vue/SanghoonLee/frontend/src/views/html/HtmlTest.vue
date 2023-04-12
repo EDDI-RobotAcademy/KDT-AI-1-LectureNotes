@@ -113,9 +113,84 @@
                 <td colspan="3">주소</td>
             </tr>
         </table>
-        <!-- -->
+        <!--
+            Image를 추가하고 싶을 때는 아래와 같이 이미지가 위치하는 경로를 지정해주면 됩니다.
+            부가적으로 download로 확보 했는지 아니면
+            실질적으로 서비스 차원에서 사용자가 등록한 이미지인지 같은 것을 디렉토리 이름으로 구별하면 좋습니다.
+        -->
         <h2>Image</h2>
         <img src="@/assets/donwloadImg/mario_run.png">
+        <!-- figure로 image를 감싸고 figcaption을 달면 image에 대한 설명을 붙일 수 있습니다. -->
+        <figure>
+            <img src="@/assets/donwloadImg/mario_run.png">
+            <figcaption style="font-size: 32px;">마리오가 달린다!</figcaption>
+        </figure>
+        <h1>Text Link 생성</h1>
+        <a href="https://golang.org">Golang Homepage</a>
+        <h1>이미지 링크 생성</h1>
+        <a href="https://mario.nintendo.com/">
+            <img src="@/assets/donwloadImg/mario_run.png">
+        </a>
+        <!--
+            form 태그는 말 그대로 format(양식)을 지정해서 데이터를 전송합니다
+            method에 post를 지정할 수 있고 default 값은 get입니다.
+            input type에는 text, number, submit 등등이 올 수 있습니다.
+            text는 말 그대로 문자열, number는 숫자, submit은 등록 개념이라 보면 됩니다.
+            속성값 value를 통해 표기되는 형태를 지정할 수 있습니다.
+            추후 이 부분의 submit을 prevent 하여 vue가 axios 하도록 구성하게 됩니다.
+        -->
+        <form action="/">
+            <input type="text" value="찾을 값">
+            <input type="submit" value="찾기">
+        </form>
+        <!--
+            다중 선택(checkbox)
+            input type으로 checkbox를 사용하여 value 값에 선택한 값을 볼 수 있습니다.
+            javascript에서 어떤 값을 선택 했는지 처리할 수 있고
+            이를 토대로 vue쪽에 axios 하는 데이터를 처리할 수 있습니다.
+        -->
+        <h3>다중 선택</h3>
+        <form action="/" style="text-align: left;">
+            <li><input type="checkbox" value="grammar">Grammar</li>
+            <li><input type="checkbox" value="writing">Writing</li>
+            <li><input type="checkbox" value="reading">Reading</li>
+        </form>
+        <!--
+            단일 선택(radio)
+            input type으로 radio를 사용하여 value 값에 선택한 값을 볼 수 있습니다.
+            단일 선택이 되도록 명확하게 지정하려면
+            name값을 모두 같은 것으로 지정하여 중복 선택이 불가하게 만듭니다.
+            마찬가지로 javascript에서 어떤 값을 선택 했는지 처리할 수 있고
+            이를 토대로 vue쪽에 axios 하는 데이터를 처리할 수 있습니다.
+        -->
+        <h4>단일 선택</h4>
+        <form action="/" style="text-align: left;">
+            <li>
+                <label><input type="radio" name="subject" value="rust">Rust</label>
+            </li>
+            <li>
+                <label><input type="radio" name="subject" value="typescript">TypeScript</label>
+            </li>
+            <li>
+                <label><input type="radio" name="subject" value="Kotlin">Kotlin</label>
+            </li>
+        </form>
+        <!-- email 및 password(비밀번호) 입력이 필요한 상황 -->
+        <form style="text-align: left;">
+            <fieldset>
+                <legend>로그인</legend>
+                <ul>
+                    <li>
+                        <label for="email">이메일: </label>
+                        <input type="text" id="email">
+                    </li>
+                    <li>
+                        <label for="pwd">비밀번호: </label>
+                        <input type="password" id="pwd">
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
     </div>
 </template>
 
