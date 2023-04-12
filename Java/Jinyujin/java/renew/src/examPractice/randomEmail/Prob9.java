@@ -5,5 +5,4 @@ public class Prob9 {
         MakeRandomEmail makeRandomEmail = new MakeRandomEmail();
         makeRandomEmail.randomEmail();
     }
-
 }
