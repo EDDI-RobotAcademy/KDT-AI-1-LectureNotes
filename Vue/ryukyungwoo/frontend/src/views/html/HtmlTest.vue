@@ -191,6 +191,103 @@
                 </ul>
             </fieldset>
         </form>
+        <!-- 범주 테스트 -->
+        <form style="text-align: left;">
+            <fieldset>
+                <legend>범주 테스트</legend>
+                    <ul>
+                        <li>
+                            <label for="member"></label>
+                            <!--
+                                input type="number"를 통해 숫자를 인식
+                                value에 초기값, min은 최소값, max는 최대값,
+                                화살표 UI가 제공되는데 누를 때마다 이동하는 숫자의 크는 step
+                            -->
+                            <input type="number" id="member" value="1" min="1" max="10" step="1">
+                        </li>
+                        <li>
+                            <label for="satisfy"></label>
+                            <!--
+                                range를 사용하면 막대 바가 생성됨
+                                최소값, 최대값, 초기값, step 설정은 위의 number와 완벽하게 동일함
+                            -->
+                            <input type="range" id="satisfy" value="1" min="1" max="5" step="1">
+                        </li>
+                    </ul>
+                
+            </fieldset>
+        </form>    
+        <!-- email 및 passward(비밀번호) 기반 회원 가입-->
+        <form style="text-align: left;">
+            <fieldset>
+                <legend>회원 가입</legend>
+                <ul>
+                    <li>
+                        <label for="email">이메일: </label>
+                        <input type="text" id="email">
+                    </li>
+                    <li>
+                        <label for="pwd">비밀번호: </label>
+                        <input type="password" id="pwd">
+                    </li>
+                </ul>
+            </fieldset>
+
+            <input type="submit" value="회원 가입">
+            <!-- 입력을 잘못 했을 경우 정보를 초기화 합니다-->
+            <input type="reset" value="초기화">
+        </form>
+        <!-- checkbox, radio로 표현하기에 너무 많은 경우 -->
+        <form style="text-align: left;">
+            <fieldset>
+                <legend>과목 선택</legend>
+                <ul>
+                    <li>
+                        <label for="subjec">과목: </label>
+                        <select size="5" id="subject">
+ <!-- option에는 실제 배치하고 싶은 옵션 리스트를 작성합니다. -->
+ <option value="architecture">소프트웨어 아키텍처</option>
+                            <option value="ddd">DDD 설계</option>
+                            <option value="clean">Clean 아키텍처</option>
+                            <option value="hexagonal">Hexagonal 아키텍처</option>
+                            <option value="msa">MSA 설계</option>
+                            <option value="rxjava">Reactive Java Programming</option>
+                            <option value="r2dbc">R2DBC Reactive DB System</option>
+                            <option value="jpa">Reactive에서는 사용할 수 없는 JPA</option>
+                            <option value="mfe">Micro Frontend Service</option>
+                            <option value="edm">Event Driven MSA</option>
+                            <option value="kafka">Kafka 기반 메시지 브로커 시스템</option>
+                        </select>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+        <!-- progress bar 만들기 -->
+        <ul>
+            <li>
+                <label>10초 남았음</label>
+                <progress value="50" max="60"></progress>
+            </li>
+            <li>
+                <label>30% 채웠음</label>
+                <progress value="30" max="100"></progress>
+            </li>
+        </ul>
+        <!-- meter 만들기: 값의 크기를 표시-->
+        <ul>
+            <li>
+                <label>투명도 0.8</label>
+                <meter value="0.8"></meter>
+            </li>
+            <li>
+                <label>사용률 64%</label>
+                <meter min="0" max="100" value="64"></meter>
+            </li>
+            <li>
+                <label>트래픽 초과 까지</label>
+                <meter min="1024" max="16384" value="9277"></meter>
+            </li>            
+        </ul>
     </div>
 </template>
 
@@ -209,5 +306,10 @@ export default {
     }
     td {
         padding: 7px;
+    }
+    ul li {
+        list-style: none;
+        margin: 15px 0;
+        font-size: 16px;
     }
 </style>
