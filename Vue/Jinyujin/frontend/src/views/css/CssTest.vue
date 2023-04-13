@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <h1>Css Test</h1>
         <h2>Web Doc</h2>
@@ -101,7 +101,8 @@ export default {
         color: brown;
     }
     /* 글꼴 가져오기 */
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');    p.ns-font {
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');    
+    p.ns-font {
         font-family: 'Noto Sans KR', sans-serif;
         font-size: 30px;
     }

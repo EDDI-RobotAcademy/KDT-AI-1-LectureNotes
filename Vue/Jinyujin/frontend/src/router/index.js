@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// @는 현재 src 폴터를 의미함
+// @는 현재 src 폴더를 의미함
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
 import CssTest from '@/views/css/CssTest.vue'
