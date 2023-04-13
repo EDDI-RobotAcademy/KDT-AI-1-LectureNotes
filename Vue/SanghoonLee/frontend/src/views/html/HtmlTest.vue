@@ -266,6 +266,17 @@
                 </ul>
             </fieldset>
         </form>
+        <!-- progress bar 만들기 -->
+        <ul>
+            <li>
+                <label>10초 남았음</label>
+                <progress value="50" max="60"></progress>
+            </li>
+            <li>
+                <label>30% 채웠음</label>
+                <progress value="30" max="100"></progress>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -286,5 +297,10 @@ export default {
     }
     td {
         padding: 7px;
+    }
+    ul li {
+        list-style: none;
+        margin: 15px 0;
+        font-size: 16px;
     }
 </style>
