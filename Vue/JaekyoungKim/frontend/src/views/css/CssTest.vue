@@ -30,6 +30,32 @@
         <div class="box6"></div>
         <div class="box7"></div>
         <div class="box8"></div>
+        <section id="container">
+            <p>How much is it?</p>
+            <ul>
+                <li>Card</li>
+                <li>Money</li>
+                <li>Bank</li>
+            </ul>
+        </section>
+        <section id="container2">
+            <ul>
+                <li>A
+                    <ul>
+                        <li>B</li>
+                        <li>C</li>
+                        <li>D</li>
+                    </ul>
+                </li>
+                <li>E
+                    <ul>
+                        <li>F</li>
+                        <li>G</li>
+                        <li>H</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
     </div>
 </template>
 <script>
@@ -43,7 +69,7 @@ export default {
         color: orange;
     }
     p {
-        color: rgb(72, 102, 84);
+        color: rgb(20, 241, 108);
     }
     section {
         width: 96%;
@@ -166,5 +192,12 @@ export default {
 
 div{
     margin: 10px;
+}/* container 내의 모든 ul */
+#container ul{
+    border: 1px dotted blue;
+}/* container 바로 아래 ul */
+#container2 > ul{
+    border: 1px dotted rgb(28, 248, 248);
+
 }
     </style>
