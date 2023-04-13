@@ -268,6 +268,74 @@
             <!-- 입력을 잘못 했을 경우 정보를 초기화 -->
             <input type="reset" value="초기화">
         </form>
+
+<!-- checkbox, radio로 표현하기에 너무 많은 경우 -->
+        <form style="text-align: left;">
+            <fieldset>
+                <legend>과목 선택</legend>
+                <ul>
+                    <li>
+                        <label for="subject">과목: </label>
+                        <!--
+                            select의 경우엔 드롭 다운 형태의 목록을 만들 수 있습니다.
+                            multiple을 선택하여 여러 옵션들을 복수 선택 할 수 있습니다.
+                            size는 눈에 보이는 리스트의 개수입니다.
+                        -->
+                        <select size="5" id="subject" multiple>
+                            <!-- option에는 실제 배치하고 싶은 옵션 리스트를 작성합니다. -->
+                            <option value="architecture">소프트웨어 아키텍처</option>
+                            <option value="ddd">DDD 설계</option>
+                            <option value="clean">Clean 아키텍처</option>
+                            <option value="hexagonal">Hexagonal 아키텍처</option>
+                            <option value="msa">MSA 설계</option>
+                            <option value="rxjava">Reactive Java Programming</option>
+                            <option value="r2dbc">R2DBC Reactive DB System</option>
+                            <option value="jpa">Reactive에서는 사용할 수 없는 JPA</option>
+                            <option value="mfe">Micro Frontend Service</option>
+                            <option value="edm">Event Driven MSA</option>
+                            <option value="kafka">Kafka 기반 메시지 브로커 시스템</option>
+                        </select>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+        <!-- progress bar 만들기 -->
+        <ul>
+            <li>
+                <label>10초 남았음</label>
+                <progress value="50" max="60"></progress>
+            </li>
+            <li>
+                <label>30% 채웠음</label>
+                <progress value="30" max="100"></progress>
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <label for="">투명도 0.8</label>
+                <meter value = "0.8"></meter>
+            </li>
+
+            <li>
+                <label for="">사용률 64%</label>
+                <meter min="0" max="100" value="64"></meter>
+            </li>
+
+            <li>
+                <label for="">트래픽 초과까지</label>
+                <meter min="1024" max="16384" value="9277"></meter>
+            </li>
+        </ul>
+
+
+
+
+
+
+
+
+
     </div>
 </template>
 
@@ -296,5 +364,11 @@ th {
 
 td {
     padding: 7px;
+}
+
+ul li {
+    list-style: none;
+    margin: 15px 0;
+    font-size: 16px;
 }
 </style>
