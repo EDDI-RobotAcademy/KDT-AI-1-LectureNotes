@@ -314,7 +314,6 @@
         <label>사용률 64%</label>
         <meter min="0" max="100" value="64"></meter>
       </li>
-
       <li>
         <label>트래픽 초과까지</label>
         <meter min="1024" max="16384" value="9277"></meter>
