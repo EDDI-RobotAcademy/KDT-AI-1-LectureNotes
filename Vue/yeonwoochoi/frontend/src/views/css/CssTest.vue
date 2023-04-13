@@ -23,6 +23,14 @@
         <p class="align-center">가운데 정렬:ㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇ</p>
         <!-- justify 사용 권장 -->
         <p class="align-justify">양쪽 정렬:ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3">box-sizing = "content-box"</div>
+        <div class="box4">box-sizing = "border-box"</div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <div class="box7"></div>
+        <div class="box8"></div>
     </div>
 </template>
 
@@ -103,5 +111,60 @@ export default {
     }
     .align-justify {
         text-align: justify;
+    }
+    .box1 {
+        width: 400px;
+        height: 100px;
+        background-color: aqua;
+    }
+    .box2 {
+        width: 500px;
+        height: 100px;
+        background-color: royalblue;
+    }
+    /* box1 box2 간격 */
+    div {
+        margin: 10px;
+    }
+    /* content border 차이 */ 
+    .box3 {
+        box-sizing: content-box; /* 내용물에 맞추겠다는 의미 */
+        width: 300px;
+        height: 150px;
+        margin: 10px;
+        padding: 30px;
+        border: 2px solid red;
+    }
+    .box4 {
+        box-sizing: border-box; /* 전체 테두리에 맞추겠다는 의미 */
+        width: 300px;
+        height: 150px;
+        margin: 10px;
+        padding: 30px;
+        border: 2px solid red;
+    }
+    .box5 {
+        margin-right: 10px;
+        padding: 20px;
+        background: #0094ff;
+        float: left;
+    }
+    .box6 {
+        margin-right: 10px;
+        padding: 20px;
+        background: cadetblue;
+        float: left;
+    }
+    .box7 {
+        margin-right: 10px;
+        padding: 20px;
+        background: darkorchid;
+        float: left;
+    }
+    .box8 {
+        padding: 20px;
+        background: green;
+        float: right;
+        border: 1px solid black;
     }
 </style>
