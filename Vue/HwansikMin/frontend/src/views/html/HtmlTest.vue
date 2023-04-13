@@ -192,9 +192,8 @@
                 </ul>
             </fieldset>
         </form>
-
-        <form>
-            <!-- 범주 테스트 -->
+        <!-- 범주 테스트 -->
+        <form style="text-align: left;">
             <fieldset>
                 <legend>범주테스트</legend>
                 <ul>
@@ -218,7 +217,7 @@
                 </ul>
             </fieldset>
         </form>
-            <!-- email 및 password 기반 회원 가입-->
+        <!-- email 및 password 기반 회원 가입-->
         <form style="text-align: left;">
             <fieldset>
                 <legend>회원 가입</legend>
@@ -250,6 +249,7 @@
                             size는 눈에 보이는 리스트의 개수입니다.
                         -->
                         <select size="5" id="subject">
+                            <!-- option에는 실제 배치하고 싶은 옵션 리스트를 작성합니다. -->
                             <option value="architecture">소프트웨어 아키텍처</option>
                             <option value="ddd">DDD 설계</option>
                             <option value="clean">Clean 아키텍처</option>
@@ -265,10 +265,33 @@
                     </li>
                 </ul>
             </fieldset>
-            <input type="submit" value="회원 가입">
-            <!-- 입력을 잘못 했을때 초기화 합니다.-->
-            <input type="reset" value="초기화">
         </form>
+        <!-- progerss bar 만들기-->
+        <ul>
+            <li>
+                <label>10초 남았음</label>
+                <progerss value="50" max="60"></progerss>
+            </li>
+            <li>
+                <label>30% 채웠음</label>
+                <progress value="30" max="100"></progress>
+            </li>
+        </ul>
+        <!-- meter 만들기: 값의 크기를 표시 -->
+        <ul>
+            <li>
+                <label>투명도 0.8</label>
+                <meter value="0.8"></meter>
+            </li>
+            <li>
+                <label>사용률 64%</label>
+                <meter min="0" max="100" value="64"></meter>
+            </li>
+            <li>
+                <label>트래픽 초과까지</label>
+                <meter min="1024" max="16384" value="9277"></meter>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -289,5 +312,10 @@ export default {
     }
     td {
         padding: 7px;
+    }
+    ul li {
+        list-style: none;
+        margin: 15px 0;
+        font-size: 16px;   
     }
 </style>
