@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <p>Hello {{ message }}</p>
         <p>길이: {{ message.length }}</p>

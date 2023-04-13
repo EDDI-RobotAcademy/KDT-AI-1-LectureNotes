@@ -13,7 +13,8 @@
       <router-link to="/htmlTest">HtmlTest</router-link> |
       <router-link to="/cssTest">CssTest</router-link> |
       <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link> |
-      <router-link to="/vue-click-event-page">VueClickEventPage</router-link>
+      <router-link to="/vue-click-event-page">VueClickEventPage</router-link> |
+      <router-link to="/vue-input-event-page">VueInputEventPage</router-link>
     </nav>
     <router-view/>
   </div>
