@@ -11,6 +11,7 @@
       <h1>Test id</h1>
       <h2 class="accent">Accent Test</h2>
       <p>안녕! <sapn class="browntext">밤색임</sapn></p>
+      <p class="ns-font">한글 폰트 테스트 - 밤색임</p>
     </div>
   </div>
 </template>
@@ -46,5 +47,13 @@ h2.accent {
 }
 .browntext {
   color: brown;
+}
+/*
+폰트 적용
+https://fonts.google.com/
+*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap");
+.ns-font {
+  font-family: "Noto Sans KR", sans-serif;
 }
 </style>
