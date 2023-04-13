@@ -13,6 +13,11 @@
             <p>안녕! <span class="browntext">밤색이닷!</span></p>
             <p class="ns-font">한글 폰트 test - orange</p>
         </div>
+        <p><a href="https://threejs.org/"><b>Three.js</b></a></p>
+        <h1 class="shadow-option1">Micro-Front</h1>
+        <h1 class="shadow-option2">Micro-Front</h1>
+        <h1 class="shadow-option3">Micro-Front</h1>
+        <h1 class="shadow-option4">Micro-Front</h1>
     </div>
 </template>
 
@@ -52,10 +57,34 @@ export default {
         color: brown;
     }
     
-  @import url('https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap');
 
     .ns-font {
         font-family: 'Rubik Pixels', cursive;
         font-size: 30px;
+    }
+    /* 밑줄 없애기 */
+    a {
+        text-decoration: none;
+    }
+    .shadow-option1 {
+        color: orange;
+        text-shadow: 1px 1px;
+    }
+    .shadow-option2 {
+        text-shadow: 5px 5px 3px #000;
+    }
+    .shadow-option3 {
+        color: blue;
+        text-shadow: 7px -7px 5px #000;
+    }
+    .shadow-option4 {
+        background-color: #000;
+        color: #000;
+        text-shadow: 0 0 4px #ccc, 
+        0 -5px 4px #ff3, 
+        2px -10px 6px #fd3, 
+        -2px -15px 11px #f80, 
+        2px -19px 18px #f20;
     }
 </style>
