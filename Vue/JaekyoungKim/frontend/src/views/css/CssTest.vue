@@ -63,13 +63,13 @@ export default {
     
 }
 </script>
-<style>
+<style scoped>
     h2 {
         font-size: 20px;
         color: orange;
     }
     p {
-        color: rgb(20, 241, 108);
+        color: rgb(50, 211, 252);
     }
     section {
         width: 96%;
