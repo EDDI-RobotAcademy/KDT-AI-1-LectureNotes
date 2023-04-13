@@ -241,7 +241,9 @@
             <ul>
                 <li>
                     <label for="subject" >과목: </label>
-                    <!--select의 경우 드롭다운 형태의 목록을 만들 수 있습니다.-->
+                    <!--select의 경우 드롭다운 형태의 목록을 만들 수 있습니다.
+                    multiple을 선택하여 여러 옵션들을 복수 선택 할 수 있습니다.
+                    size는 눈에 보이는 리스트의 개수입니다.-->
                     <select size="5" id="subject"  >
                         <option value="archi">소프트웨어 아키텍처</option>
                         <option value="ddd">DDD 설계</option>

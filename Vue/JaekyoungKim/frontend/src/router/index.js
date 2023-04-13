@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
+import CssTest from '@/views/css/CssTest.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/htmlTest',
     name: 'HtmlTest',
     component: HtmlTest
+  },
+  {
+    path: '/cssTest',
+    name: 'CssTest',
+    component: CssTest
   },
 ]
 

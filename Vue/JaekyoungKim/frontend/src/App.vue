@@ -3,7 +3,8 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/htmlTest">HtmlTest</router-link>
+      <router-link to="/htmlTest">HtmlTest</router-link> |
+      <router-link to="/cssTest">CssTest</router-link>
       <!--router-link 파트는 UI엔진인 Vue에서 경로를 지정
       부가적으로 to라는 파라메터는 실제URL에 입력하는 경로가 됩니다"
       나타나는 형태는 text형태고 누르면 자동으로 URL을 입력한 경로를 보여줍니다
