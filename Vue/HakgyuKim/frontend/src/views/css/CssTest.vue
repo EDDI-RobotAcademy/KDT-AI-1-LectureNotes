@@ -26,6 +26,36 @@
         <div class="box2"></div>
         <div class="box3">box-sizing = "content=box"</div>
         <div class="box4">box-sizing = "border-box"</div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <div class="box7"></div>
+        <div class="box8"></div>
+        <section id="container">
+            <p>How much is it ?</p>
+            <ul>
+                <li>Card</li>
+                <li>Money</li>
+                <li>Bank</li>
+            </ul>
+        </section>
+        <section id="container2">
+            <ul>
+                <li>A
+                    <ul>
+                        <li>B</li>
+                        <li>C</li>
+                        <li>D</li>
+                    </ul>
+                </li>
+                <li>E
+                    <ul>
+                        <li>F</li>
+                        <li>G</li>
+                        <li>H</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
     </div>
 </template>
 
@@ -133,5 +163,37 @@ export default {
         margin: 10px;
         padding: 30px;
         border: 2px solid red
+    }
+    .box5 {
+        margin-right: 10px;
+        padding: 20px;
+        background: #0094ff;
+        float: left;
+    }
+    .box6 {
+        margin-right: 10px;
+        padding: 20px;
+        background: cadetblue;
+        float: left;
+    }
+    .box7 {
+        margin-right: 10px;
+        padding: 20px;
+        background: darkorchid;
+        float: left;
+    }
+    .box8 {
+        padding: 20px;
+        background: green;
+        float: right;
+        border: 1px solid black;
+    }
+    /* container 내의 모든 ul */
+    #container ul {
+        border: 1px dotted blue;
+    }
+    /* container 바로 하위의 ul만 적용 */
+    #container2 > ul {
+        border: 1px dotted darkcyan;
     }
 </style>
