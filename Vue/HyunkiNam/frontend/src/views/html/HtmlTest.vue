@@ -191,7 +191,80 @@
                 </ul>
             </fieldset>
         </form>
-        
+        <!-- 범주 테스트 -->
+        <form>
+            <fieldset>
+                <legend>범주 테스트</legend>
+                <ul>
+                    <li>
+                        <label for="member"></label>
+                        <!--
+                            input type="number"를 통해 숫자를 인식
+                            value에 초기값, min은 최솟값, max는 최댓값,
+                            화살표 UI가 제공되는데 누를 때마다 이동하는 숫자의 크기는 step
+                        -->
+                        <input type="number" id="member" value="1" min="1" max="10" step="1">
+                    </li>
+                    <li>
+                        <label for="member"></label>
+                        <!-- 
+                            range를 사용하면 막대 바가 생성됨
+                            최솟값, 최댓값, 초기값, step 설정은 위의 number와 동일
+                        -->
+                        <input type="range" id="satisfy" value="1" min="1" max="5" step="1">
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+        <form style="text-align: left;">
+            <!-- email 및 password(비밀번호) 기반 회원 가입 -->
+            <fieldset>
+                <legend>회원가입</legend>
+                <ul>
+                    <li>
+                        <label for="email">이메일 : </label>
+                        <input type="text" id="email">
+                    </li>
+                    <li>
+                        <label for="pwd">비밀번호 : </label>
+                        <input type="password" id="pwd">
+                    </li>
+                </ul>
+            </fieldset>
+
+            <input type="submit" value="회원 가입">
+            <!-- 입력을 잘못 했을 경우 정보를 초기화 -->
+            <input type="reset" value="초기화">
+        </form>
+        <!-- checkbox, radio로 표현하기에 너무 많은 경우 -->
+        <form style="text-align: left;">
+            <fieldset>
+                <legend>과목 선택</legend>
+                <ul>
+                    <li>
+                        <label for="subject">과목 : </label>
+                        <!-- select의 경우엔 드롭 다운 형태의 목록을 만들 수 있음
+                        multiple을 선택하여 여러 옵션들을 복수 선택 할 수 있음
+                        size는 눈에 보이는 리스트의 개수-->
+                        <select size="5" id="subject">
+                            <!-- option에는 실제 배치하고 싶은 옵션 리스트를 작성 -->
+                            <option value="archi">소프트웨어 아키텍처</option>
+                            <option value="ddd">DDD 설계</option>
+                            <option value="clan">Clean 아키텍처</option>
+                            <option value="hexagonal">Hexagonal 아키텍처</option>
+                            <option value="msa">MSA 설계</option>
+                            <option value="rxjava">Reactive Java Programming</option>
+                            <option value="r2dbc">R2DBC Reactive DB System</option>
+                            <option value="jpa">Reactive에서는 사용할 수 없는 JPA</option>
+                            <option value="mfe">Micro Frontend Service</option>
+                            <option value="edm">Event Driven MSA</option>
+                            <option value="kafka">Kafka 기반 메시지 브로커 시스템</option>
+                        </select>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+
     </div>
 </template>
 
