@@ -30,6 +30,14 @@
       양쪽 정렬:
       ㅇ너라ㅓ몬ㅇ로ㅇ노라ㅣㅓㄴ아ㅣㄹㅓㅏㅣㅇ너라ㅣㅓㅇ나ㅣ렁나ㅣ러ㅏㅣㅇ너라ㅣㅇ너라ㅣㅓㄴ아러ㅣㅏㅣㅇ러라ㅣㅓㄴ아ㅣ러ㅏㄴ이ㅓ리ㅏ
     </p>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3">box-sizing = "content-box"</div>
+    <div class="box4">box-sizing = "border-box"</div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+    <div class="box7"></div>
+    <div class="box8"></div>
   </div>
 </template>
 
@@ -105,5 +113,58 @@ a {
 }
 .align-justify {
   text-align: justify;
+}
+.box1 {
+  width: 400px;
+  height: 100px;
+  background-color: aqua;
+}
+.box2 {
+  width: 500px;
+  height: 100px;
+  background-color: royalblue;
+}
+div {
+  margin: 10px;
+}
+.box3 {
+  box-sizing: content-box;
+  width: 300px;
+  height: 150px;
+  margin: 10px;
+  padding: 30px;
+  border: 2px solid red;
+}
+.box4 {
+  box-sizing: border-box;
+  width: 300px;
+  height: 150px;
+  margin: 10px;
+  padding: 30px;
+  border: 2px solid red;
+}
+.box5 {
+  margin-right: 10px;
+  padding: 20px;
+  background: #0094ff;
+  float: left;
+}
+.box6 {
+  margin-right: 10px;
+  padding: 20px;
+  background: cadetblue;
+  float: left;
+}
+.box7 {
+  margin-right: 10px;
+  padding: 20px;
+  background: darkorchid;
+  float: left;
+}
+.box8 {
+  padding: 20px;
+  background: green;
+  float: right;
+  border: 1px solid black;
 }
 </style>
