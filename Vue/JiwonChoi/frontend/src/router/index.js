@@ -3,6 +3,11 @@ import VueRouter from 'vue-router'
 // @는 현재 src 폴더를 의미함
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
+import CssTest from '@/views/css/CssTest.vue'
+import VueDataBindingPage from '@/views/basic/binding/VueDataBindingPage.vue'
+import VueClickEventPage from '@/views/basic/event/VueClickEventPage.vue'
+import VueInputEventPage from '@/views/basic/event/VueInputEventPage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -25,6 +30,26 @@ const routes = [
     name: 'HtmlTest',
     component: HtmlTest
   },
+  {
+    path: '/cssTest',
+    name: 'CssTest',
+    component: CssTest
+  },
+  {
+    path: '/vue-data-binding-page',
+    name: 'VueDataBindingPage',
+    component: VueDataBindingPage
+  },
+  {
+    path: '/vue-click-event-page',
+    name: 'VueClickEventPage',
+    component: VueClickEventPage
+  },
+  {
+    path: '/vue-input-event-page',
+    name: 'VueInputEventPage',
+    component:VueInputEventPage
+  }
 ]
 
 const router = new VueRouter({
