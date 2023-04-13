@@ -13,6 +13,7 @@
             <p>안녕! <span class="browntext">밤색이닷!</span></p>
             <p class="ns-font">한글 폰트 테스트 - 밤색이닷!</p>
         </div>
+        <p><a href="https://threejs.org/"><b>Three.js</b></a></p>
     </div>
 </template>
 
@@ -59,5 +60,7 @@ export default {
         font-family: 'Noto Sans KR', sans-serif;
         font-size: 30px;
     }
-    
+    a {
+        text-decoration: none;
+    }
 </style>
