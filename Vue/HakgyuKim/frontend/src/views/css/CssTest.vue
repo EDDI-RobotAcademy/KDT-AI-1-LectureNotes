@@ -18,6 +18,10 @@
         <h1 class="shadow-option2">Micro-Frontend</h1>
         <h1 class="shadow-option3">Micro-Frontend</h1>
         <h1 class="shadow-option4">Micro-Frontend</h1>
+        <p class="align-right">오른쪽 정렬</p>
+        <p class="align-left">왼쪽 정렬</p>
+        <p class="align-center">가운데 정렬: ㅁㄷ구훅ㄷㅎㄴㄷㅎㄱㄷ흄ㅁㅈ ㄷㅐㅑㅋㅈ둘ㄿㅁㅈㄹㅈ모속소 놐ㅁ재로키;ㄷㅎㄹ캐주;ㅐ줄 ㅋ그ㅗ크ㅗㅋㄱㅋㄱ셔ㅛㅅ촐;</p>
+        <p class="align-justify">양쪽 정렬:  ㅁㄷ구훅ㄷㅎㄴㄷㅎㄱㄷ흄ㅁㅈ ㄷㅐㅑㅋㅈ둘ㄿㅁㅈㄹㅈ모속소 놐ㅁ재로키;ㄷㅎㄹ캐주;ㅐ줄 ㅋ그ㅗ크ㅗㅋㄱㅋㄱ셔ㅛㅅ촐;</p>
     </div>
 </template>
 
@@ -84,5 +88,17 @@ export default {
                      -2px -10px 4px #fd3, 
                      -2px -15px 11px #f80,
                      -2px -18px 8px red;
+    }
+    .align-left {
+        text-align: left;
+    }
+    .align-right {
+        text-align: right;
+    }
+    .align-center {
+        text-align: center;
+    }
+    .align-justify {
+        text-align: justify;
     }
 </style>
