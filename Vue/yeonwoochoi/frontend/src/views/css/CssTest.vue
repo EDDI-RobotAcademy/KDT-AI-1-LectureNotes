@@ -18,6 +18,11 @@
         <h1 class="shadow-option2">Micro-Front</h1>
         <h1 class="shadow-option3">Micro-Front</h1>
         <h1 class="shadow-option4">Micro-Front</h1>
+        <p class="align-right">오른쪽 정렬</p>
+        <p class="align-left">왼쪽 정렬</p>
+        <p class="align-center">가운데 정렬:ㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇ</p>
+        <!-- justify 사용 권장 -->
+        <p class="align-justify">양쪽 정렬:ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
     </div>
 </template>
 
@@ -86,5 +91,17 @@ export default {
         2px -10px 6px #fd3, 
         -2px -15px 11px #f80, 
         2px -19px 18px #f20;
+    }
+    .align-right {
+        text-align: right;
+    }
+    .align-left {
+        text-align: left;
+    }
+    .align-center {
+        text-align: center;
+    }
+    .align-justify {
+        text-align: justify;
     }
 </style>
