@@ -5,6 +5,7 @@ import HomeView from "@/views/HomeView.vue";
 import HtmlTest from "@/views/html/HtmlTest.vue";
 import CssTest from "@/views/css/CssTest.vue";
 import VueDataBindingPage from "@/views/basics/binding/VueDataBindingPage.vue";
+import VueClickEventPage from "@/views/basics/event/VueClickEventPage.vue";
 
 Vue.use(VueRouter);
 
@@ -20,8 +21,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    component: () => import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
     path: "/htmlTest",
@@ -37,6 +37,11 @@ const routes = [
     path: "/vue-data-binding-page",
     name: "VueDataBindingPage",
     component: VueDataBindingPage,
+  },
+  {
+    path: "/vue-click-event-page",
+    name: "VueClickEventPage",
+    component: VueClickEventPage,
   },
 ];
 

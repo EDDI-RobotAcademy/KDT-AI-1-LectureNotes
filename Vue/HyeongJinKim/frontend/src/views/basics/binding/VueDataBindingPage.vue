@@ -3,7 +3,7 @@
     <p>Hello {{ message }}</p>
     <p>길이: {{ message.length }}</p>
     <p>list[2]: {{ list[2] }}</p>
-    <p>lis[{{ number }}]: {{ list[number] }}</p>
+    <p>list[{{ number }}]: {{ list[number] }}</p>
   </div>
 </template>
 
