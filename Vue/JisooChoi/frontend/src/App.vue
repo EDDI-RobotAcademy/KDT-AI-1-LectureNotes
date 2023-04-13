@@ -10,7 +10,8 @@
         이 작업을 자동화 하려면 반드시 router/index.js에
         /htmlTest를 누가 보여줄 것인지 ★컴포넌트 등록★을 해야한다.
       -->
-      <router-link to="/htmlTest">HtmlTest</router-link>
+      <router-link to="/htmlTest">HtmlTest</router-link> |
+      <router-link to="/CssTest">CssTest</router-link>
     </nav>
     <router-view/>
   </div>
