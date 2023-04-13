@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
 import CssTest from '@/views/css/CssTest.vue'
+import VueDataBindingPage from '@/views/basics/binding/VueDataBindingPage.vue'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ const routes = [
     path: '/cssTest',
     name: 'CssTest',
     component: CssTest
+  },
+  {
+    path: '/vue-data-binding-page',
+    name: 'VueDataBindingPage',
+    component: VueDataBindingPage
   },
 ]
 
