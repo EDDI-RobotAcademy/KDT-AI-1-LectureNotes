@@ -22,6 +22,14 @@
         <p class="align-left">왼쪽 정렬</p>
         <p class="align-center">가운데 정렬: ㄴㅁㄹ어ㅏㅣㅣ ㅣㅣㅣ ㅣㅣㅣㅣ ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ; 험ㄴ;ㅣㅏ허ㅣ남 엏;ㄴㅁ어ㅏㅎ;ㅣ</p>
         <p class="align-justify">양쪽 정렬:  ㄴㅁㄹ어ㅏㅣㅣ ㅣㅣㅣ ㅣㅣㅣㅣ ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ; 험ㄴ;ㅣㅏ허ㅣ남 엏;ㄴㅁ어ㅏㅎ;ㅣ</p>
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3">box-sizing="content-box"</div>
+        <div class="box4">box-sizing="border-box"</div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <div class="box7"></div>
+        <div class="box8"></div>
     </div>
 </template>
 <script>
@@ -100,5 +108,63 @@ export default {
 }
 .align-justify{
     text-align: justify;
+}
+.box1{
+    width: 400px;
+    height: 100px;
+    background-color: aqua;
+
+}
+.box2{
+    width: 500px;
+    height: 100px;
+    background-color: crimson;
+
+}
+.box3{
+    box-sizing: content-box;
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    padding: 30px;
+    border: 2px solid #e40707;
+}
+.box4{
+    box-sizing: border-box;
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    padding: 30px;
+    border: 2px solid #e40707;
+
+}
+.box5{
+    margin: 10px;
+    padding: 20px;
+    background: #0094ff;
+    float: left;
+
+}
+.box6{
+    margin: 10px;
+    padding: 20px;
+    background: #5fa6d8;
+    float: left;
+}
+.box7{
+    margin: 10px;
+    padding: 20px;
+    background: #f01acc;
+    float: left;
+}
+.box8{
+    padding: 20px;
+    background: #3bdfeb;
+    float: right;
+    border: 1px solid black;
+}
+
+div{
+    margin: 10px;
 }
     </style>
