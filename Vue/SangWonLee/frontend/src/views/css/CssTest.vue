@@ -29,6 +29,45 @@
         <p class="align-center">가운데 정렬: 으아나ㅓㄹ아너 인오링ㅁ홈ㅇㄹ허밍림ㄴ 얾닝럼ㄴㅇ리멍 린ㅁㅇ러ㅣㅁ어밇 ㅁ얼힌ㅇㄹ 혼이ㅏㅓ ㄹ화ㅣㅇㄴㅀㄴ 일힌ㅇㄹ혼 잃노일혼 이랗ㄴ 힌ㅇㄹ회</p>
         <p class="align-justify">양쪽 정렬: 으아나ㅓㄹ아너 인오링ㅁ홈ㅇㄹ허밍림ㄴ 얾닝럼ㄴㅇ리멍 린ㅁㅇ러ㅣㅁ어밇 ㅁ얼힌ㅇㄹ 혼이ㅏㅓ ㄹ화ㅣㅇㄴㅀㄴ 일힌ㅇㄹ혼 잃노일혼 이랗ㄴ 힌ㅇㄹ회</p>
 
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3">box-sizing = "content-box"</div>
+        <div class="box4">box-sizing = "border-box"</div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <div class="box7"></div>
+        <div class="box8"></div>
+        <section id = "container">
+            <p>How much is it?</p>
+            <ul>
+                <li>Card</li>
+                <li>Money</li>
+                <li>Bank</li>
+            </ul>
+        </section>
+
+        <section id="container2">
+            <ul>
+                <li>A
+                    <ul>
+                        <li>B</li>
+                        <li>C</li>
+                        <li>D</li>
+                    </ul>
+                </li>
+                <li>E
+                    <ul>
+                        <li>F</li>
+                        <li>G</li>
+                        <li>H</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+
+
+
     </div>
    
 
@@ -123,4 +162,77 @@ a {
 
 .align-justify {
     text-align: justify;
-}</style>
+}
+
+.box1 {
+    width: 400px;
+    height: 100px;
+    background-color: aqua;
+}
+
+.box2 {
+    width: 500px;
+    height: 100px;
+    background-color: royalblue;
+}
+
+div {
+    margin: 10px;
+}
+
+.box3 {
+    box-sizing: content-box;
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    padding: 30px;
+    border: 2px solid red;
+}
+
+.box4 {
+    box-sizing: border-box;
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    padding: 30px;
+    border: 2px solid red;
+}
+
+.box5 {
+    margin-right: 10px;
+    padding: 20px;
+    background: #0094ff;
+    float: left;
+}
+
+.box6 {
+    margin-right: 10px;
+    padding: 20px;
+    background: cadetblue;
+    float: left;
+}
+
+.box7 {
+    margin-right: 10px;
+    padding: 20px;
+    background: darkorchid;
+    float: left;
+}
+
+.box8 {
+    padding: 20px;
+    background: green;
+    float: right;
+    border: 1px solid black;
+}
+
+/* container 내의 모든 ul */
+#container ul {
+    border: 1px dotted blue;
+}
+
+/* container 바로 하위의 ul만 적용 */
+#container2>ul {
+    border: 1px dotted darkcyan;
+}
+</style>
