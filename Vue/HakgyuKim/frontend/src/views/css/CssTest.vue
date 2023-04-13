@@ -22,6 +22,10 @@
         <p class="align-left">왼쪽 정렬</p>
         <p class="align-center">가운데 정렬: ㅁㄷ구훅ㄷㅎㄴㄷㅎㄱㄷ흄ㅁㅈ ㄷㅐㅑㅋㅈ둘ㄿㅁㅈㄹㅈ모속소 놐ㅁ재로키;ㄷㅎㄹ캐주;ㅐ줄 ㅋ그ㅗ크ㅗㅋㄱㅋㄱ셔ㅛㅅ촐;</p>
         <p class="align-justify">양쪽 정렬:  ㅁㄷ구훅ㄷㅎㄴㄷㅎㄱㄷ흄ㅁㅈ ㄷㅐㅑㅋㅈ둘ㄿㅁㅈㄹㅈ모속소 놐ㅁ재로키;ㄷㅎㄹ캐주;ㅐ줄 ㅋ그ㅗ크ㅗㅋㄱㅋㄱ셔ㅛㅅ촐;</p>
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3">box-sizing = "content=box"</div>
+        <div class="box4">box-sizing = "border-box"</div>
     </div>
 </template>
 
@@ -100,5 +104,34 @@ export default {
     }
     .align-justify {
         text-align: justify;
+    }
+    .box1 {
+        width: 400px;
+        height: 100px;
+        background-color: aqua;
+    }
+    .box2 {
+        width: 500px;
+        height: 100px;
+        background-color: pink;
+    }
+    div {
+        margin: 10px;
+    }
+    .box3 {
+        box-sizing: content-box;
+        width: 300px;
+        height: 150px;
+        margin: 10px;
+        padding: 30px;
+        border: 2px solid red
+    }
+    .box4 {
+        box-sizing: border-box;
+        width: 300px;
+        height: 150px;
+        margin: 10px;
+        padding: 30px;
+        border: 2px solid red
     }
 </style>
