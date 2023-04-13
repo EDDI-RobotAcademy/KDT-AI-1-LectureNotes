@@ -243,8 +243,13 @@
                 <ul>
                     <li>
                         <label for="subject">과목: </label>
-                        <!-- select의 경우엔 드롭 다운 형태의 목록을 만들 수 있습니다 -->
+                        <!-- 
+                            select의 경우엔 드롭 다운 형태의 목록을 만들 수 있습니다
+                            multiple을 선택하여 여러 옵션들을 볼수 선택 할 수 있습니다.
+                            size는 눈에 보이는 리스트의 개수입니다.
+                         -->
                         <select size="5" id="subject" multiple>
+                            <!-- option에는 실제 배치하고 싶은 옵션 리스트를 작성합니다. -->
                             <option value="archi">소프트웨어 아키택처</option>
                             <option value="ddd">DDD 설계</option>
                             <option value="clean">Clean 아키택처</option>
@@ -265,6 +270,32 @@
             <!-- 입력을 잘못 했을 경우 정보를 초기화 합니다-->
             <input type="reset" value="초기화">
         </form>
+        <!-- progress bar 만들기-->
+        <ul>
+            <li>
+                <label>10초 남았음</label>
+                <progress value="50" max="60"></progress>
+            </li>
+            <li>
+                <label>30% 채웠음</label>
+                <progress value="30" max="100"></progress>
+            </li>
+        </ul>
+        <!-- meter 만들기: 값의 크기를 표시-->
+        <ul>
+            <li>
+                <label>투명도 0.8</label>
+                <meter value="0.8"></meter>
+            </li>
+            <li>
+                <label>사용률 64%</label>
+                <meter min="0" max="100" value="64"></meter>
+            </li>
+            <li>
+                <label>트래픽 초과까지</label>
+                <meter min="1024" max="16384" value="9277"></meter>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -283,6 +314,11 @@ export default {
     }
     td {
         padding: 7px;
+    }
+    ul li {
+        list-style: none;
+        margin: 15px 0;
+        font-size: 16px;
     }
 
 </style>
