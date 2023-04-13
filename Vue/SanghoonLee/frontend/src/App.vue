@@ -10,7 +10,11 @@
         이 작업을 자동화 하려면 반드시 router/index.js에
         /htmlTest를 누가 보여줄 것인지 컴포넌트 등록을 해줘야 합니다.
       -->
-      <router-link to="/htmlTest">HtmlTest</router-link>
+      <router-link to="/htmlTest">HtmlTest</router-link> |
+      <router-link to="/cssTest">CssTest</router-link> |
+      <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link> |
+      <router-link to="/vue-click-event-page">VueClickEventPage</router-link> |
+      <router-link to="/vue-input-event-page">VueInputEventPage</router-link> |
     </nav>
     <router-view/>
   </div>
