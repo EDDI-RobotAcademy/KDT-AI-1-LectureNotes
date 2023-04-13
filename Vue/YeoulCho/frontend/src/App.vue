@@ -11,6 +11,8 @@
         /htmlTest를 누가 보여 줄 것인지 컴포넌트 등록을 해줘야합니다.
       -->
       <router-link to="/htmlTest">HtmlTest</router-link> |
+      <router-link to="/CssTest">CssTest</router-link> |
+      <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link> |
     </nav>
     <router-view/>
   </div>

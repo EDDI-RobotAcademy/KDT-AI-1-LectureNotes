@@ -198,6 +198,32 @@
         
             </fieldset>
         </form>
+        <!--progress bar 만들기-->
+        <ul>
+            <li>
+                <label>10초 남았음</label>
+                <progress value ="50" max="60"></progress>
+            </li>
+            <li>
+                <label>30% 채웠음</label>
+                <progress value ="30" max="100"></progress>
+            </li>
+        </ul>
+        <!--meter 만들기: 값의 크기를 표시-->
+        <ul>
+            <li>
+                <label>투명도 0.8</label>
+                <meter value="0.8"></meter>
+            </li>
+            <li>
+                <label>사용률 64%</label>
+                <meter min="0" max ="100" value="64"></meter>
+            </li>
+            <li>
+                <label>트래픽 초과까지</label>
+                <meter min="1024" max ="16384" value="9277"></meter>
+            </li>
+        </ul>
     </div>
 </template>
 <script>
@@ -216,5 +242,10 @@ th{
 }
 td{
     padding: 7px;
+}
+ ul li {
+        list-style: none;
+        margin: 15px 0;
+        font-size: 16px;
 }
 </style>

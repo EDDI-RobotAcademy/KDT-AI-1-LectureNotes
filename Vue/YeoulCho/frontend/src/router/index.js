@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 //@는 현재 src 폴더를 의미함
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
+import CssTest from '@/views/css/CssTest.vue'
+import VueDataBindingPage from '@/views/basics/binding/VueDataBindingPage.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +26,16 @@ const routes = [
     path: '/htmlTest',
     name: 'HtmlTest',
     component: HtmlTest
+  },
+  {
+    path: '/cssTest',
+    name: 'CssTest',
+    component: CssTest
+  },
+  {
+    path: '/vue-data-binding-page',
+    name: 'VueDataBindingPage',
+    component: VueDataBindingPage
   }
 
 ]
