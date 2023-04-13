@@ -1,7 +1,8 @@
 <template>
     <div>
+        <!-- @ 아래 methods가 동작 -->
         <p>{{ count }} 번 클릭했습니다!</p>
-        <button @click="clickHandler">카운트하기</button><br>
+        <button @click="clickHandler">카운트하기</button><br> <!-- <br> 개행 -->
         <button @click="alerthandler">경고 메세지 출력하기</button><br>
         <button @click.right="rightClickHandler">오른쪽 클릭</button> 
         <button @click.left="leftcliCkHandlerr">왼쪽 클릭</button> 
