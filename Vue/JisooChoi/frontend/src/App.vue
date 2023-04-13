@@ -11,7 +11,7 @@
         /htmlTest를 누가 보여줄 것인지 ★컴포넌트 등록★을 해야한다.
       -->
       <router-link to="/htmlTest">HtmlTest</router-link> |
-      <router-link to="/CssTest">CssTest</router-link>
+      <router-link to="/cssTest">CssTest</router-link>
     </nav>
     <router-view/>
   </div>

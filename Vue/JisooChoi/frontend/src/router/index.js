@@ -27,7 +27,7 @@ const routes = [
     component: HtmlTest
   },
   {
-    path: '/CssTest',
+    path: '/cssTest',
     name: 'CssTest',
     component: CssTest
   },
