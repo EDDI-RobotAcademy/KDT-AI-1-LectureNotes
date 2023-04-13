@@ -12,8 +12,17 @@
             <h2 class="accent"> </h2>
             <p>안녕! <span class="browntext">밤색이닷!</span></p>
             <p class="ns-font">한글 폰트 테스트 - 밤색이닷!</p>
-            <a href="https://threejs.org">Three.js</a>
         </div>
+        <p><a href="https://threejs.org"><b>Three.js</b></a></p>
+        <h1 class="shadow-option1">Micro-Frontend</h1>
+        <h1 class="shadow-option2">Micro-Frontend</h1>
+        <h1 class="shadow-option3">Micro-Frontend</h1>
+        <h1 class="shadow-option4">Micro-Frontend</h1>
+        <p class="align-right">오른쪽 정렬</p>
+        <p class="align-left">왼쪽 정렬</p>
+        <p class="align-center">가운데 정렬: 8ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ</p>
+        <p class="align-justify">양쪽 정렬: 8ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ</p>
+
     </div>
 </template>
 <script>
@@ -58,5 +67,38 @@ export default {
     }
     a {
         text-decoration: none;
+    }
+    .shadow-option1{
+        color: orange;
+        text-shadow: 1px 1px;
+    }
+    .shadow-option2{
+        text-shadow: 5px 5px 3px #000;
+    }
+    .shadow-option3{
+        color: blue;
+        text-shadow: 7px -7px 3px black;
+    }
+    .shadow-option4{
+        margin-top: 30;
+        background-color: black;
+        color: black;
+        text-shadow: 0 0 4px #ccc,
+        0 -5px 4px #ff3,
+        2px -10px 4px #fd3,
+        -2px -15px 11px #f80,
+        2px -19px 18px #f20;
+    }
+    .align-left{
+        text-align: left;
+    }
+    .align-right{
+        text-align: right;
+    }
+    .align-center{
+        text-align: center;
+    }
+    .align-justify{
+        text-align: justify;
     }
 </style>
