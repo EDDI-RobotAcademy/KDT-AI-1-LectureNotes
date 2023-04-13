@@ -12,6 +12,7 @@
             <h2 class="accent"> </h2>
             <p>안녕! <span class="browntext">밤색이닷!</span></p>
             <p class="ns-font">한글 폰트 테스트 - 밤색이닷!</p>
+            <a href="https://threejs.org">Three.js</a>
         </div>
     </div>
 </template>
@@ -54,5 +55,8 @@ export default {
     p.ns-font {
         font-family: 'Noto Sans KR', sans-serif;
         font-size: 30px;
+    }
+    a {
+        text-decoration: none;
     }
 </style>
