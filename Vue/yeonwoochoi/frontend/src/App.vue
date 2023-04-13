@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> | 
+      <router-link to="/">Home</router-link> |  
       <router-link to="/about">About</router-link> |
       <!-- 
       router-link 파트는 UI 엔진인 Vue에서 경로를 지정
@@ -10,7 +10,8 @@
       이 작업을 자동화 하려면 반드시 router/index.js 에
       /htmlTest를 누가 보여줄 것인지 컴포넌트 등록을 해줘야 합니다.
       -->
-      <router-link to="/htmlTest">HtmlTest</router-link>
+      <router-link to="/htmlTest">HtmlTest</router-link> |
+      <router-link to="/cssTest">CssTest</router-link> |
     </nav>
     <router-view/>
   </div>
