@@ -12,6 +12,7 @@ export default {
     data() {
         return {
             whichOneChecked: [],
+
         }
     },
 
