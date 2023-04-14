@@ -13,6 +13,7 @@ import VueInputEventPage from '@/views/basics/event/VueInputEventPage.vue'
 // 네이밍 이슈 존재 (왜 v-model에 대한 것을 두 번 표현 했는가)
 import DuplexWithModelPage from '@/views/basics/vModel/DuplexWithModelPage.vue'
 import VueCheckboxPage from '@/views/basics/vModel/VueCheckboxPage.vue'
+import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue'
 
 Vue.use(VueRouter)
 
@@ -64,6 +65,11 @@ const routes = [
     path: '/checkbox-test-page',
     name: 'VueCheckboxPage',
     component: VueCheckboxPage
+  },
+  {
+    path: '/multi-checkbox-test-page',
+    name: 'VueMultiCheckboxPage',
+    component: VueMultiCheckboxPage
   }
 ]
 
