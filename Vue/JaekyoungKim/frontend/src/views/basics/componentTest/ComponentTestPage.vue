@@ -13,9 +13,17 @@
         -->
         <global-component :initial-test="counter"/>
         <p>:initial-test는 v-bind:initial-test와 같습니다만 축약 표현입니다.</p>
+        <!--
+            public void localComponent(int number1, int number2){
+                System.out.println(number1*numer2);
+            }
+        -->
         <local-component :initial-value="number1" :initial-value2="number2"/><br>
+        <!-- 이후 값이 증가하던 말던 상관없음-->
         <button @click="plusNumber1">number1 증가</button>{{ number1 }}<br>
         <button @click="plusNumber2">number2 증가</button>{{ number2 }}<br>
+        
+ 
 
     </v-container>
 </template>
