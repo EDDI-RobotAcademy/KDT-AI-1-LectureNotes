@@ -18,6 +18,7 @@ export default {
     data() {
         return {
             whichOneChecked:[],
+            //멀티 체크는 배열을 사용해서 확인 
         }
     },
     

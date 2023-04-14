@@ -8,7 +8,7 @@
 export default {
     data(){
         return{
-        message: '양방향 캡핑이란 것이 요런 뜻입니다.',
+        message: '양방향 맵핑이란 것이 요런 뜻입니다.',
     }
 }}
 </script>
