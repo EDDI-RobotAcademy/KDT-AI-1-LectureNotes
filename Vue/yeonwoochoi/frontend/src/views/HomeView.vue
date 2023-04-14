@@ -1,5 +1,5 @@
 <template>
-  <v-conainer>
+  <v-container>
     <div>
       <nav>
         <router-link to="/">Home</router-link> |
@@ -20,9 +20,10 @@
         <router-link to="/vue-chackbox-page">chackbox 테스트 페이지</router-link> |
         <router-link to="/multi-checkbox-test-page">다중 checkbox 테스트 페이지</router-link> |
         <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> | 
+        <router-link to="/axios-test-page">axios 통신 테스트</router-link> | 
       </nav>
     </div>
-  </v-conainer>
+  </v-container>
 </template>
 
 <script>
