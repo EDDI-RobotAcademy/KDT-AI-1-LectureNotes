@@ -7,6 +7,10 @@ import CssTest from '@/views/css/CssTest.vue'
 import VueDataBindingPage from '@/views/basics/binding/VueDataBindingPage.vue'
 import VueClickEventPage from '@/views/basics/event/VueClickEventPage.vue'
 import VueInputEventPage from '@/views/basics/event/VueInputEventPage.vue'
+import DuplexWithModelPage from '@/views/basics/vModel/DuplexWithModelPage.vue'
+import VueChackboxPage from '@/views/basics/vModel/VueChackboxPage.vue'
+import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -51,6 +55,21 @@ const routes = [
     name: 'VueInputEventPage',
     component: VueInputEventPage
   },
+  {
+    path: '/duplex-with-model-page',
+    name: 'DuplexWithModelPage',
+    component: DuplexWithModelPage
+  },
+  {
+    path: '/vue-chackbox-page',
+    name: 'VueChackboxPage',
+    component: VueChackboxPage
+  },
+  {
+    path: '/multi-checkbox-test-page',
+    name: 'VueMultiCheckboxPage',
+    component: VueMultiCheckboxPage
+  }
 ]
 
 const router = new VueRouter({
