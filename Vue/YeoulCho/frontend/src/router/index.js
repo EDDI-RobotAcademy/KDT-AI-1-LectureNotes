@@ -17,7 +17,7 @@ import ComponentTestpage from '@/views/basics/componentTest/ComponentTestPage.vu
 
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
-import AddComponentPage from '@/views/basics/homework/AddComponentPage.vue'
+import AddComponentPage from '@/views/homework/AddComponentPage.vue'
 
 Vue.use(VueRouter)
 

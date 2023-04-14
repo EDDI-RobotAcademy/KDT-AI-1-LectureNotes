@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{ initialValue }} +{{ initialValue2 }} ={{ initialValue*initialValue2 }}
+        {{ initialValue }} +{{ initialValue2 }} ={{ initialValue*initialValue2}}
         
     </div>
 </template>
