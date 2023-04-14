@@ -4,12 +4,17 @@ import VueRouter from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
 import CssTest from '@/views/css/CssTest.vue'
+
 import VueDataBindingPage from '@/views/basics/binding/VueDataBindingPage.vue'
+
 import VueClickEventPage from '@/views/basics/event/VueClickEventPage.vue'
 import VueInputEventPage from '@/views/basics/event/VueInputEventPage.vue'
+
 import DuplexWithModelPage from '@/views/basics/vModel/DuplexWithModelPage'
 import VueCheckboxPage from '@/views/basics/vModel/VueCheckboxPage.vue'
 import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue'
+
+import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -66,6 +71,11 @@ const routes = [
     name: 'VueMultiCheckboxPage',
     component: VueMultiCheckboxPage
   },
+  {
+    path: '/global-component-test-page',
+    name: 'ComponentTestPage',
+    component: ComponentTestPage
+  }
 ]
 
 const router = new VueRouter({
