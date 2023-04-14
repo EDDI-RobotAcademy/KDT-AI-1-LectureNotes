@@ -25,6 +25,7 @@
 
 <script>
 
+// npm install axios --save-dev
 import axios from 'axios'
 
 export default {
@@ -37,7 +38,8 @@ export default {
     },
     methods: {
         onSubmit () {
-            axios.post('http://localhost:7777/vue-test', 
+            const {studentName, studentMajor, studentAge} = this
+            axios.post('http://localhost:7777/vue-test/receive-test', 
                     {studentName, studentMajor, studentAge})
             .then((res) => {
                 alert('데이터 전송 성공!')
