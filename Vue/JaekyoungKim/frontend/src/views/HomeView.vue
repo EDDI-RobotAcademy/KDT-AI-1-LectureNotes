@@ -19,6 +19,7 @@
             <router-link to="/duplex-model-test-page">textarea 테스트 페이지</router-link> |
             <router-link to="/vue-checkbox-page">checkbox 테스트 페이지</router-link> |
             <router-link to="/multi-checkbox-page">다중 checkbox 테스트 페이지</router-link> |
+            <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
         </nav></div>
       </v-container>
 </template>
