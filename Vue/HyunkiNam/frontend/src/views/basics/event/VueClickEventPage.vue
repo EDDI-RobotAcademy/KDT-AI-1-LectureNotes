@@ -26,7 +26,7 @@ export default {
             console.log(comment.clientX, comment.clientY)
         },
         leftClickHandler(comment){
-            console.log(comment)
+            console.log(comment.clientX, comment.clientY)
         }
     },
 }
