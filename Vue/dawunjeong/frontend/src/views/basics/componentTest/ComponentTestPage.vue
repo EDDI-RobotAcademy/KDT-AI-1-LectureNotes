@@ -23,22 +23,36 @@
             (메서드가 사용된 후 증가되기 때문에 영향을 주지 않음)
         -->
         <button @click="plusNumber1">number1 증가</button>{{ number1 }}<br>
-        <button @click="plusNumber2">number2 증가</button>{{ number2 }}<br>
+        <button @click="plusNumber2">number2 증가</button>{{ number2 }}<br><br>
+        <global-component-add :initial-value1="number3" :initial-value2="number4"/>
+        <p>덧셈을 수행할 수 있는 Global Component를 만들었습니다.</p>
+        <local-component-subtract :initial-value1="number5" :initial-value2="number6"/>
+        <p>뺄셈을 수행할 수 있는 Local Component를 만들었습니다.</p><br>
+        <local-component-multi/>
+        <p>곱셈을 수행할 수 있는 Local Component를 만들었습니다.</p><br>
     </v-container>
 </template>
 
 <script>
 import LocalComponent from '@/components/componentTest/LocalComponent.vue'
+import LocalComponentSubtract from '@/components/componentTest/LocalComponentSubtract.vue'
+import LocalComponentMulti from '@/components/componentTest/LocalComponentMulti.vue'
 
 export default {
     components: {
-        'local-component' : LocalComponent
+        'local-component' : LocalComponent,
+        'local-component-subtract' : LocalComponentSubtract,
+        'local-component-multi' : LocalComponentMulti,
     },
     data () {
         return {
             counter: 0,
             number1: 3,
             number2: 7,
+            number3: 2,
+            number4: 9,
+            number5: 7,
+            number6: 3,
         }
     },
     methods: {
