@@ -36,7 +36,8 @@ export default {
     },
     methods: {
         onSubmit() {
-            axios.post('http://localhost:7777/vue-test', 
+            const {studentName, studentMajor, studentAge} = this // 정보가 유지된다는 보장 없어서 추가
+            axios.post('http://localhost:7777/vue-test/receive-test', 
             {studentName, studentMajor, studentAge})
             .then((res) => {
                 alert('데이터 전송 성공!')
