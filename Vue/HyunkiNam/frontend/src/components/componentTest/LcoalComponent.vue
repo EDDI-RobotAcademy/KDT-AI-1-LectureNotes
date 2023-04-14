@@ -6,6 +6,8 @@
 <script>
 export default {
     name: "LocalComponent",
+    // :initial-value=number1 -> initialValue
+    // :initial-value2=number2 -> initialValue2
     props: {
         initialValue: Number,
         initialValue2: Number,

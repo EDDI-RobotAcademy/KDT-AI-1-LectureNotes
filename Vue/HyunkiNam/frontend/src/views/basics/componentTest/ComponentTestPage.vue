@@ -23,6 +23,7 @@
         <!-- 이후 값이 증가하던 말던 상관 없음 -->
         <button @click="plusNumber1">number1 증가</button>{{ number1 }}<br>
         <button @click="plusNumber2">number2 증가</button>{{ number2 }}<br>
+
     </v-container>
 </template>
 <script>
