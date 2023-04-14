@@ -1,4 +1,4 @@
-package com.example.demo.html.controller;
+package kr.eddi.demo.html.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
