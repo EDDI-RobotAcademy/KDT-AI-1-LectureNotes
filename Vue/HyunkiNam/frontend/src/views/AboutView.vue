@@ -16,13 +16,13 @@
 
 export default {
   // 데이터는 말 그대로 *.vue 파일이 가지고 있는 데이터를 의미합니다.
-  data () {
+  data() {
     // return이 들어가 있어서 뭔가 싶지만 data를 표기할 때 사용하는 문법입니다.
     return {
       // msg 변수에 문자열 "안녕, Vue.js" 가 배치되어 있는 상태입니다.
       msg: "안녕, 바꾸고 싶어 Vue.js!",
     }
-  }  
+  }
 }
 
 </script>

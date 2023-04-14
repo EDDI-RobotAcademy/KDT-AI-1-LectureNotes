@@ -10,27 +10,25 @@
 </template>
 <script>
 export default {
-    data () {
+    data() {
         return {
             count: 0
         }
     },
     methods: {
-        clickHandler(){
+        clickHandler() {
             this.count++
         },
-        alertHandler(){
+        alertHandler() {
             alert('누르지마!')
         },
-        rightClickHandler(comment){
+        rightClickHandler(comment) {
             console.log(comment.clientX, comment.clientY)
         },
-        leftClickHandler(comment){
+        leftClickHandler(comment) {
             console.log(comment.clientX, comment.clientY)
         }
     },
 }
 </script>
-<style >
-    
-</style>
+<style ></style>

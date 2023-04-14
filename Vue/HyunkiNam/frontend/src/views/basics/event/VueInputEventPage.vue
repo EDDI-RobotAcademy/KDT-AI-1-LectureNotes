@@ -5,13 +5,13 @@
 </template>
 <script>
 export default {
-    data () {
+    data() {
         return {
             message: '안녕'
         }
     },
     methods: {
-        handleInput(event){
+        handleInput(event) {
             console.log('event: ' + event)
             this.message = event.target.value
             console.log('event.target.value: ' + event.target.value)
@@ -19,6 +19,4 @@ export default {
     },
 }
 </script>
-<style>
-    
-</style>
+<style></style>

@@ -13,12 +13,10 @@ export default {
         initialValue2: Number,
     },
     data() {
-        return{
+        return {
             multipleResult: this.initialValue * this.initialValue2
         }
     }
 }
 </script>
-<style>
-    
-</style>
+<style></style>
