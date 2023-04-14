@@ -1,8 +1,8 @@
 <template >
     <div>
-        <p>Hello{{ message }}</p>
-        <p>길이{{ message.length }}</p>
-        <p>list[2]{{ list[2] }}</p>
+        <p>Hello {{ message }}</p>
+        <p>길이 {{ message.length }}</p>
+        <p>list[2]: {{ list[2] }}</p>
         <p>list[{{ number }}]: {{ list[number] }}</p>
     </div>
 </template>
