@@ -3,9 +3,11 @@
         <!--
             Vue vue = new Vue();
             vue.globalComponent(counter);
+
             public void globalComponent(int counter) {
                 initial-test = counter;
             }
+
             아래 코드는 위 코드와 동의어입니다.
             initial-test는 v-bind로 맵핑했음
         -->
@@ -16,11 +18,12 @@
                 System.out.println(number1 * number2);
             }
         -->
+        <!--              int number1, int number2 전달한거임 -->
         <local-component :initial-value="number1" :initial-value2="number2"/><br>
         <!-- 이후 값이 증가하던 말던 상관없음 -->
         <button @click="plusNumber1">number1 증가</button>{{ number1 }}<br>
         <button @click="plusNumber2">number2 증가</button>{{ number2 }}<br>
-    </v-container>
+   </v-container>
 </template>
 
 <script>
@@ -46,6 +49,7 @@ export default {
     }
 }
 </script>
+
 <style>
     
 </style>
