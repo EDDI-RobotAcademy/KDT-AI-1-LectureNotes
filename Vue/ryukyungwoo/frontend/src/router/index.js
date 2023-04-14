@@ -4,9 +4,21 @@ import VueRouter from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
 import CssTest from '@/views/css/CssTest.vue'
+
 import VueDataBindingPage from '@/views/basics/binding/VueDataBindingPage.vue'
+
 import VueClickEventPage from '@/views/basics/event/VueClickEventPage.vue'
 import VueInputEventPage from '@/views/basics/event/VueInputEventPage.vue'
+
+// 네이밍 이슈 존재 (왜 v-model에 대한 것을 두 번 표현 했는가)
+import DuplexWithModelPage from '@/views/basics/vModel/DuplexWithModelPage.vue'
+import VueCheckboxPage from '@/views/basics/vModel/VueCheckboxPage.vue'
+import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage'
+
+import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
+
+import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -48,6 +60,31 @@ const routes = [
     path: '/vue-input-event-page',
     name: 'VueInputEventPage',
     component: VueInputEventPage
+  },
+  {
+    path: '/duplex-model-test-page',
+    name: 'DuplexWithModelPage',
+    component: DuplexWithModelPage
+  }  ,
+  {
+    path: '/checkbox-test-page',
+    name: 'VueCheckboxPage',
+    component: VueCheckboxPage
+  },
+  {
+    path: '/multi-checkbox-test-page',
+    name: 'VueMultiCheckboxPage',
+    component: VueMultiCheckboxPage
+  },
+  {
+    path: '/global-component-test-page',
+    name: 'ComponentTestPage',
+    component: ComponentTestPage
+  },
+  {
+    path: '/axios-test-page',
+    name: 'DataSendTestPage',
+    component: DataSendTestPage
   }
 ]
 
