@@ -8,8 +8,9 @@
       <router-link to="/basics/binding">VueDataBindingPage</router-link> |
       <router-link to="/basics/event">VueClickEventPage</router-link> |
       <router-link to="/vue-input-event-page">VueInputEventPage</router-link> |
-      <router-link to="/duplex-model-test-page">v-modeol 테스트 페이지</router-link> |
-      <router-link to="/vue-checkbox-page">vue-checkbox-page</router-link>
+      <router-link to="/duplex-model-test-page">textarea 테스트 페이지</router-link> |
+      <router-link to="/vue-checkbox-page">checkbox 테스트 페이지</router-link> |
+      <router-link to="/multi-checkbox-page">multi checkbox 테스트 페이지</router-link>
       <!--router-link 파트는 UI엔진인 Vue에서 경로를 지정
       부가적으로 to라는 파라메터는 실제URL에 입력하는 경로가 됩니다"
       나타나는 형태는 text형태고 누르면 자동으로 URL을 입력한 경로를 보여줍니다
