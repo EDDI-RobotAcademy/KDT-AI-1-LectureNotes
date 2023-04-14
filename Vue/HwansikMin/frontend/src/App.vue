@@ -10,13 +10,21 @@
         이 작업을 자동화 하려면 반드시 router/index.js에
         /htmlTest를 누가 보여줄 것인지 컴포넌트 등록을 해줘야 합니다.
       -->
-      <router-link to="/htmlTest">HtmlTest</router-link>
+      <router-link to="/htmlTest">HtmlTest</router-link> |
+      <router-link to="/cssTest">CssTest</router-link> |
+      <router-link to="/vue-date-binding-page">VueDateBindingPage</router-link> |
+      <router-link to="/vue-click-event-page">VueClickEventPage</router-link> |
+      <router-link to="/vue-input-event-page">VueInputEventPage</router-link> |
+      <router-link to="/duplex-model-test-page">textarea 테스트 페이지</router-link> |
+      <router-link to="/checkbox-test-page">checkbox 테스트 페이지</router-link> |
+      <router-link to="/multi-checkbox-test-page">다중 checkbox 테스트 페이지</router-link> |
     </nav>
     <router-view/>
   </div>
 </template>
 
 <style scoped>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,4 +45,5 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>

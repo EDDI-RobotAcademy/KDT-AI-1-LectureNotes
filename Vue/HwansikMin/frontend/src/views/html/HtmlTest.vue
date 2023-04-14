@@ -28,18 +28,18 @@
         <!-- span은 줄바꿈이 없습니다 - 특정 스타일을 적용할 때 많이 사용하는 편 -->
         <p> Deep Learning <span style="color:green;">Keras</span></p>
         <!--
-            u1은 Unordered List의 약자로 순서가 필요하지 않은 경우 사용
+            ul은 Unordered List의 약자로 순서가 필요하지 않은 경우 사용
             li는 느낌 그대로 list에 해당함
         -->
-        <u1 style="text-align: left;">
+        <ul style="text-align: left;">
             <li>EDDI</li>
             <li>Electric Car</li>
             <li>MSA</li>
             <li>Deep Learning</li>
             <li>Distribution SerVer</li>
-        </u1>
+        </ul>
 
-        <u1 style="text-align: left;">
+        <ul style="text-align: left;">
             <li>Vue
                 <ol type="a" start="3">
                     <li>Vue Init</li>
@@ -77,7 +77,7 @@
                     <li>Domain Hexagon</li>
                 </ol>
             </li>
-        </u1>
+        </ul>
         <!--
             table은 표를 만들 때 사용
             가장 기본 패턴으로 table > tr > td 형식을 사용함
@@ -270,7 +270,7 @@
         <ul>
             <li>
                 <label>10초 남았음</label>
-                <progerss value="50" max="60"></progerss>
+                <progress value="50" max="60"></progress>
             </li>
             <li>
                 <label>30% 채웠음</label>
