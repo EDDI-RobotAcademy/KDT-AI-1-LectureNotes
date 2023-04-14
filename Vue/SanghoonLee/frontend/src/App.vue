@@ -15,6 +15,7 @@
       <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link> |
       <router-link to="/vue-click-event-page">VueClickEventPage</router-link> |
       <router-link to="/vue-input-event-page">VueInputEventPage</router-link> |
+      <router-link to="/duplex-model-test-page">v-model 테스트 페이지</router-link> |
     </nav>
     <router-view/>
   </div>
