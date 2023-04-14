@@ -5,10 +5,12 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 
 import GlobalComponent from '@/components/componentTest/GlobalComponent.vue'
+import PlusComponent from '@/components/homeworkComponent/PlusComponent.vue'
 
 Vue.config.productionTip = false
 
 Vue.component(GlobalComponent.name, GlobalComponent)
+Vue.component(PlusComponent.name, PlusComponent)
 
 new Vue({
   router,
