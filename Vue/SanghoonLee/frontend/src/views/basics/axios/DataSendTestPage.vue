@@ -25,6 +25,7 @@
 
 <script>
 
+// npm install axios --save-dev
 import axios from 'axios'
 
 export default {
