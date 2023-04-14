@@ -15,6 +15,10 @@ import DuplexWithModelPage from '@/views/basics/vModel/DuplexWithModelPage.vue'
 import VueCheckboxPage from '@/views/basics/vModel/VueCheckboxPage.vue'
 import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue'
 
+import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
+
+import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -72,6 +76,16 @@ const routes = [
     name: 'VueMultiCheckboxPage',
     component: VueMultiCheckboxPage
   },
+  {
+    path: '/component-test-page',
+    name: 'ComponentTestPage',
+    component: ComponentTestPage
+  },
+  {
+    path: '/axios-test-page',
+    name: 'DataSendTestPage',
+    component: DataSendTestPage
+  }
 ]
 
 const router = new VueRouter({
