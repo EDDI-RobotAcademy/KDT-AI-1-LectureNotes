@@ -35,9 +35,27 @@ public class ClassRoom {
     public void printRank() {
         //점수 정렬
         Collections.sort(studentScoreList, Collections.reverseOrder());
+        // Collections.sort(list); -> 오름차순 정렬
+        // Collections.sort(list, Collections.reverseOrder()); -> 내림차순 정렬
         System.out.println(studentScoreList);
 
-        // 순위 출력
+        // 중복을 방지하기 위함
+        boolean isSameScore = false;
+        int backupScore = 0;
+        int sameScoreCount = 0;
 
+        // 순위 출력
+        for (int i = 0; i < maxStudentNumber; i++) {
+            isSameScore = false;
+
+            final int currentScore = studentScoreList.get(i);
+            if (currentScore == backupScore) {
+                sameScoreCount++;
+                isSameScore = true;
+            } else {
+                sameScoreCount = 0;
+            }
+            System.out.println();
+        }
     }
 }
