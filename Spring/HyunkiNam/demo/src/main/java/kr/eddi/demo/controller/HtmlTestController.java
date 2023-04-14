@@ -1,4 +1,4 @@
-package kr.eddi.demo.html.controller;
+package kr.eddi.demo.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
