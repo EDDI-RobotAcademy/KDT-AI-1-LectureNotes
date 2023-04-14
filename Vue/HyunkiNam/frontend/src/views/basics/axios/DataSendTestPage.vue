@@ -32,21 +32,21 @@ export default {
         return{
             studentName: '',
             studentMajor: '',
-            studentAge: '',
+            studentAge: 0,
         }
     },
     methods: {
-        onsubmit(){
-            axios.post('http://localhost:8080/vue-test', {studentName, studentMajor, studentAge})
-                .then((rest =>{
+        onSubmit () {
+            axios.post('http://localhost:7777/vue-test', 
+                    {studentName, studentMajor, studentAge})
+                .then((res) => {
                     alert('데이터 전송 성공!')
                 })
-                .catch((rest)=>{
+                .catch((res) => {
                     alert('데이터 전송 실패!')
                 })
-            )
         }
-    },
+    }
     
 }
 </script>
