@@ -40,6 +40,7 @@ public class ClassRoom {
         System.out.println(studentScoreList);
 
         // 중복을 방지하기 위함
+        int rank = 1;
         boolean isSameScore = false;
         int backupScore = 0;
         int sameScoreCount = 0;
@@ -55,7 +56,8 @@ public class ClassRoom {
             } else {
                 sameScoreCount = 0;
             }
-            System.out.println();
+            System.out.println(isSameScore ?
+                    rank++ - sameScoreCount : rank++ + currentScore);
         }
     }
 }
