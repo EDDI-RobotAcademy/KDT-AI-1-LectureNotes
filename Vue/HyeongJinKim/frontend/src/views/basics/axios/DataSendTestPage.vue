@@ -4,15 +4,15 @@
       <table>
         <tr>
           <th>이름</th>
-          <th><input type="text" v-model="studentName" /></th>
+          <td><input type="text" v-model="studentName" /></td>
         </tr>
         <tr>
           <th>전공</th>
-          <th><input type="text" v-model="studentMajor" /></th>
+          <td><input type="text" v-model="studentMajor" /></td>
         </tr>
         <tr>
           <th>나이</th>
-          <th><input type="text" v-model="studentAge" /></th>
+          <td><input type="text" v-model="studentAge" /></td>
         </tr>
       </table>
 
@@ -24,8 +24,8 @@
 </template>
 
 <script>
+// npm install axios --save-dev
 import axios from "axios";
-
 export default {
   data() {
     return {
@@ -36,8 +36,9 @@ export default {
   },
   methods: {
     onSubmit() {
+      const { studentName, studentMajor, studentAge } = this;
       axios
-        .post("https://localhost:7777/vue-test", {
+        .post("http://localhost:7777/vue-test/receive-test", {
           studentName,
           studentMajor,
           studentAge,
@@ -54,7 +55,3 @@ export default {
 </script>
 
 <style></style>
-
-<!-- 
-    npm install axios --save-dev
- -->
