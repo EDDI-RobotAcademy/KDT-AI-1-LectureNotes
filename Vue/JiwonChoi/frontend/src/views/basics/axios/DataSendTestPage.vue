@@ -24,8 +24,10 @@
 </template>
 
 <script>
+
 // npm install axios --save-dev
 import axios from 'axios'
+
 export default {
     data () {
         return {
@@ -36,8 +38,7 @@ export default {
     },
     methods: {
         onSubmit () {
-            const {studentName, studentMajor, studentAge} = this
-            axios.post('http://localhost:7777/vue-test/receive-test', 
+            axios.post('http://localhost:7777/vue-test', 
                     {studentName, studentMajor, studentAge})
                 .then((res) => {
                     alert('데이터 전송 성공!')
@@ -48,6 +49,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>

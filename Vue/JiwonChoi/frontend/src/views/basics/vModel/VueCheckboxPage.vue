@@ -1,19 +1,23 @@
 <template>
     <div>
         <label>
-            <input type="checkbox" v-model="isChecked">{{isChecked}}
+            <input type="checkbox" v-model="isChecked"> {{ isChecked }}
         </label>
     </div>
 </template>
+
 <script>
+
 export default {
-    data(){
+    data () {
         return {
             isChecked: true,
         }
     }
 }
+
 </script>
+
 <style>
     
 </style>

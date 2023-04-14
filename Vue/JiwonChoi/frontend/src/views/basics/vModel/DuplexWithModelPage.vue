@@ -4,15 +4,19 @@
         <pre>{{ message }}</pre>
     </div>
 </template>
+
 <script>
+
 export default {
-    data(){
+    data () {
         return {
             message: '초기값',
         }
-    }
+    }    
 }
+
 </script>
-<style >
+
+<style>
     
 </style>

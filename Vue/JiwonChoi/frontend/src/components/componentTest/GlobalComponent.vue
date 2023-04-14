@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 export default {
     name: "GlobalComponent",
     // props가 바로 파라메터입니다.
@@ -23,6 +24,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>

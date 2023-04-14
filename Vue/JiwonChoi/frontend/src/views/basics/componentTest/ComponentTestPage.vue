@@ -3,9 +3,11 @@
         <!--
             Vue vue = new Vue();
             vue.globalComponent(counter);
+
             public void globalComponent(int counter) {
                 initial-test = counter;
             }
+
             아래 코드는 위 코드와 동의어입니다.
             initial-test는 v-bind로 맵핑했음
         -->
@@ -24,7 +26,9 @@
 </template>
 
 <script>
+
 import LocalComponent from '@/components/componentTest/LocalComponent.vue'
+
 export default {
     components: {
         'local-component': LocalComponent
@@ -45,6 +49,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>
