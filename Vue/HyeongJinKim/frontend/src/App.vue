@@ -16,7 +16,8 @@
       <router-link to="/vue-click-event-page">VueClickEventPage</router-link> |
       <router-link to="/vue-input-event-page">VueInputEventPage</router-link> |
       <router-link to="/duplex-model-test-page">textarea 테스트 페이지</router-link> |
-      <router-link to="/vue-checkbox-page">checkbox 테스트 페이지</router-link>
+      <router-link to="/vue-checkbox-page">checkbox 테스트 페이지</router-link> |
+      <router-link to="/vue-multi-checkbox-page">다중 checkbox 테스트 페이지</router-link>
     </nav>
     <router-view />
   </div>

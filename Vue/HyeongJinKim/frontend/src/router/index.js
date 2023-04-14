@@ -12,6 +12,7 @@ import VueInputEventPage from "@/views/basics/event/VueInputEventPage.vue";
 
 import DuplexModelTestPage from "@/views/basics/vModel/DuplexWithModelPage.vue";
 import VueCheckboxPage from "@/views/basics/vModel/VueCheckboxPage.vue";
+import VueMultiCheckboxPage from "@/views/basics/vModel/VueMultiCheckboxPage.vue";
 
 Vue.use(VueRouter);
 
@@ -63,6 +64,11 @@ const routes = [
     path: "/vue-checkbox-page",
     name: "VueCheckboxPage",
     component: VueCheckboxPage,
+  },
+  {
+    path: "/vue-multi-checkbox-page",
+    name: "VueMultiCheckboxPage",
+    component: VueMultiCheckboxPage,
   },
 ];
 
