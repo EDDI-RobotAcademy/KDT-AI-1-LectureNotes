@@ -1,27 +1,24 @@
 <template>
     <div>
-        {{ initialValue1 }} - {{ initialValue2 }} = {{ substractionResult }}
+        {{ initialValue1 }} + {{ initialValue2 }} = {{ AddResult }}         
     </div>
 </template>
-
 <script>
-
 export default {
-    name: "SubsLocalComponent",
-  
+    name: "AddGlobalComponent",
+
     props: {
         initialValue1: Number,
         initialValue2: Number,
     },
-    data () {
+    data() {
         return {
-            substractionResult: this.initialValue1 - this.initialValue2
+            AddResult: this.initialValue1 + this.initialValue2
         }
-    }
+    },
+    
 }
-
 </script>
-
 <style>
     
 </style>
