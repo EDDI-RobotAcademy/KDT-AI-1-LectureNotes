@@ -2,33 +2,31 @@
 
 <template>
     <div>
-        <p>
-            <input v-model.number="firstNum">
-            <input v-model.number="secondNum">
-        </p>
-        <p>
-            <button v-on:click = add(firstNum, secondNum)>덧셈계산</button>
-        </p>
-        <p>결과는 [{{ result }}]입니다.</p>
+        <!-- 일단 숫자 두 개 생성 -->
+        <input v-model="numberValue1">
+        <input v-model="numberValue2">
+        <!-- 더하기 버튼 클릭-->
+        <button @click="addNumbers">덧셈계산</button>
+        <!-- 덧셈 결과 출력 -->
+        <p>덧셈 결과는 {{ plusResult }} 입니다.</p>
     </div>
 </template>
 
 <script>
 export default {
-    name: "addNumberGlobalComponent",
-    // props가 바로 파라메터입니다.
-    // v-bind로 전달된 initial-test는 initialTest가 됩니다.
-    // '-'를 떼고 앞글자를 대문자로 변환합니다.
-    // Java의 표현 방식과 동일한 관습을 가지고 있습니다.
-    props: ['addNumber'], // java 파라메터 대신 props
+    name: "AddGlobalComponent",
+    props: ['numberValue1', 'numberValue2'], // java 파라메터 대신 props
     data() {
         return {
-            result: add(firstNum, secondNum),
+            // 숫자들 0으로 리턴
+            numberValue1 : 0,
+            numberValue2 : 0,
+            plusResult : 0,
         }
     },
     methods: {
-        addNumber() {
-            this.addNumber
+        addNumbers() {
+           this.plusResult = parseInt(this.numberValue1) + parseInt(this.numberValue2) // 숫자로 계산되도록 parseInt
         }
     }
 }
