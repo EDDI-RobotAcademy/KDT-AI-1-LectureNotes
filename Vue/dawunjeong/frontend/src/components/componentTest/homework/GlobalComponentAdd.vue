@@ -1,19 +1,19 @@
 <template>
     <div>
-        {{ subResult }}
+        <p>결과: {{ addResult }}</p>
     </div>
 </template>
 
 <script>
 export default {
-    name: "LocalComponentSubtract",
+    name: "GlobalComponentAdd",
     props: {
         initialValue1: Number,
         initialValue2: Number,
     },
     data () {
         return {
-            subResult: this.initialValue1 - this.initialValue2
+            addResult: this.initialValue1 + this.initialValue2
         }
     }
 }

@@ -6,7 +6,7 @@ import vuetify from './plugins/vuetify'
 
 // 동록하고자 하는 전역 컴포넌트
 import GlobalComponent from '@/components/componentTest/GlobalComponent.vue'
-import GlobalComponentAdd from '@/components/componentTest/GlobalComponentAdd.vue'
+import GlobalComponentAdd from '@/components/componentTest/homework/GlobalComponentAdd.vue'
 
 Vue.config.productionTip = false
 

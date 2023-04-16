@@ -17,6 +17,7 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
+import HomeworkPage from '@/views/basics/homework/HomeworkPage.vue'
 
 Vue.use(VueRouter)
 
@@ -83,6 +84,11 @@ const routes = [
     path: '/axios-test-page',
     name: 'DataSendTestPage',
     component: DataSendTestPage
+  },
+  {
+    path: '/homework-test-page',
+    name: 'HomeworkPage',
+    component: HomeworkPage
   }
 ]
 
