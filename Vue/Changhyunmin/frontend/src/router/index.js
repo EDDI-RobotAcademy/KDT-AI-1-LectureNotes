@@ -7,6 +7,12 @@ import CssTest from '@/views/css/CssTest'
 import VueDataBindingPage from '@/views/basics/binding/VueDataBindingPage'
 import VueClickEventPage from '@/views/basics/event/VueClickEventPage'
 import VueInputEventPage from '@/views/basics/event/VueInputEventPage'
+import DupixWithModelPage from '@/views/basics/vModel/DupixWithModelPage'
+import VueCheckboxPage from '@/views/basics/vModel/VueCheckboxPage'
+import VueMuiltiChcekboxPage from '@/views/basics/vModel/VueMuiltiChcekboxPage'
+import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
+import DataSendTestPage from '@/views/axios/DataSendTestPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -48,7 +54,33 @@ const routes = [
     path: '/vue-input-binding-page',
     name: 'VueInputEventPage',
     component: VueInputEventPage
+  },
+  {
+    path: '/dupix-with-model-page',
+    name: 'DupixWithModelPage',
+    component: DupixWithModelPage
+  },
+  {
+    path: '/vue-checkbox-page',
+    name: 'VueCheckboxPage',
+    component: VueCheckboxPage
+  },
+  {
+    path: '/vue-muilti-chcekbox-page',
+    name: 'VueMuiltiChcekboxPage',
+    component: VueMuiltiChcekboxPage
+  },
+  {
+    path: '/global-component-test-page',
+    name: 'ComponentTestPage',
+    component: ComponentTestPage
+  },
+  {
+    path: '/data-send-test-page',
+    name: 'DataSendTestPage',
+    component: DataSendTestPage
   }
+  
   
 ]
 
