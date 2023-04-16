@@ -21,6 +21,7 @@
       <router-link to="/multi-checkbox-test-page">다중checkbox 테스트</router-link> |
       <router-link to="/global-component-test-page" >전역 컴포넌트 테스트</router-link> |
       <router-link to="/data-send-test-page" >데이터 샌드 테스트</router-link> |
+      <router-link to="/homework1" >문제은행1</router-link> |
       </nav>
     </div>
   </v-container>
