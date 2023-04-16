@@ -45,6 +45,7 @@ public class HtmlTestController {
         String formattedDate = dateFormat.format(date); // 날짜 형식 생성
         // serverTime 속성에 만들어진 날짜 형식대입
         model.addAttribute("serverTime", formattedDate);
+        model.addAttribute("tmpData", "hello attribute!");
         // html코드 printTime.html호출 (resources/templates/printTime.html)
         return "printTime";
     }
