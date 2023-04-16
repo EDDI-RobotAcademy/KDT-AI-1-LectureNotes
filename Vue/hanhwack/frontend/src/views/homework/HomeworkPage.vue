@@ -2,7 +2,7 @@
     <v-container>
     
 
-        <local-component :initial-value="number1" :initial-value2="number2"/>
+        <subs-local-component :initial-value="number1" :initial-value2="number2"/>
 
     </v-container>        
     
