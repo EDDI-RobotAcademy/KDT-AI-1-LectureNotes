@@ -17,7 +17,7 @@ export default {
     },
     data () {
         return {
-            multipleResult: this.initialValue * this.initialValue2
+            multipleResult: this.initialValue + this.initialValue2
         }
     }
 }
