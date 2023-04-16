@@ -1,17 +1,17 @@
 <template>
     <v-container>
         <!-- Local 컴포넌트에서 만들어놓은 값 불러오기 -->
-        <local-component-minus :number-value1="number1" :number-value2="number2"/>
+        <local-component-all :number-value1="number1" :number-value2="number2"/>
     </v-container>
 </template>
 
 <script>
 
-import SubtractGlobalComponent from '@/components/componentsPractice/LocalComponentSubtract.vue'
+import MathLocalComponent from '@/components/componentsPractice/LocalComponentAll.vue'
 
 export default {
     components: {
-        'local-component-minus': SubtractGlobalComponent
+        'local-component-all': MathLocalComponent
     },
     data () {
         return {

@@ -5,7 +5,7 @@
         <!-- 일단 숫자 두 개 생성 -->
         <input v-model="numberValue1">
         <input v-model="numberValue2">
-        <!-- 더하기 버튼 클릭-->
+        <!-- 빼기 버튼 클릭-->
         <button @click="subtractNumbers">뺄셈계산</button>
         <!-- 뺄셈 결과 출력 -->
         <p>뺄셈 결과는 {{ subtractResult }} 입니다.</p>
