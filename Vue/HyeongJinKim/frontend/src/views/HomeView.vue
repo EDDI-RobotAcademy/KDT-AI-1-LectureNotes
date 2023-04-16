@@ -13,18 +13,26 @@
         -->
         <router-link to="/htmlTest">HtmlTest</router-link> |
         <router-link to="/cssTest">CssTest</router-link> |
-        <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link> |
-        <router-link to="/vue-click-event-page">VueClickEventPage</router-link> |
-        <router-link to="/vue-input-event-page">VueInputEventPage</router-link><br />
-        <router-link to="/duplex-model-test-page">textarea 테스트 페이지</router-link> |
-        <router-link to="/checkbox-test-page">checkbox 테스트 페이지</router-link> |
+        <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link>
+        |
+        <router-link to="/vue-click-event-page">VueClickEventPage</router-link>
+        | <router-link to="/vue-input-event-page">VueInputEventPage</router-link><br />
+        <router-link to="/duplex-model-test-page">textarea 테스트 페이지</router-link>
+        |
+        <router-link to="/checkbox-test-page">checkbox 테스트 페이지</router-link>
+        |
         <router-link to="/multi-checkbox-test-page"
           >다중 checkbox 테스트 페이지</router-link
         >
         |
-        <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
-        <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
+        <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link>
+        | <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
       </nav>
+    </div>
+    <br /><br />
+    <div>
+      <p>HOMEWORK</p>
+      <nav><router-link to="/vue-homework-page">Homework Main</router-link> |</nav>
     </div>
   </v-container>
 </template>

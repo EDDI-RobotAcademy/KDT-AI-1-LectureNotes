@@ -16,6 +16,9 @@ import ComponentTestPage from "@/views/basics/componentTest/ComponentTestPage.vu
 
 import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
 
+//
+import VueHomeworkPage from "@/views/basics/homework/VueHomeworkPage.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -81,6 +84,13 @@ const routes = [
     path: "/axios-test-page",
     name: "DataSendTestPage",
     component: DataSendTestPage,
+  },
+
+  //
+  {
+    path: "/vue-homework-page",
+    name: "VueHomeworkPage",
+    component: VueHomeworkPage,
   },
 ];
 

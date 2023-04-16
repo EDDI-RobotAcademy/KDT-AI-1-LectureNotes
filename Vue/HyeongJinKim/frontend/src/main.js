@@ -5,10 +5,12 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 
 import GlobalComponent from "@/components/componentTest/GlobalComponent.vue";
+import VueHomeworkGlobalComponent from "@/views/basics/homework/components/GlobalComponent";
 
 Vue.config.productionTip = false;
 
 Vue.component(GlobalComponent.name, GlobalComponent);
+Vue.component(VueHomeworkGlobalComponent.name, VueHomeworkGlobalComponent);
 
 new Vue({
   router,
