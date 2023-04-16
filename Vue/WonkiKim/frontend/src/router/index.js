@@ -17,6 +17,8 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 
+import HomeWork414View from '@/views/homework414/HomeWork414View.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -77,8 +79,12 @@ const routes = [
     path: '/global-component-test-page',
     name: 'ComponentTestPage',
     component: ComponentTestPage
+  },
+  {
+    path: '/home-work-414-view',
+    name: 'HomeWork414View',
+    component: HomeWork414View
   }
-
 
   
 ]
