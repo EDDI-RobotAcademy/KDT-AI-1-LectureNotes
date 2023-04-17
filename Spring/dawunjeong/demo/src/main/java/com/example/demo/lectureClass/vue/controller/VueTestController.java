@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.vue.controller;
 
+import com.example.demo.lectureClass.dicegame.game.GameManager;
 import com.example.demo.lectureClass.untility.random.CustomRandom;
 import com.example.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
 import lombok.extern.slf4j.Slf4j;
@@ -72,5 +73,16 @@ public class VueTestController {
         }
         log.info("getRandomDiceList() 요청!" + diceList);
         return diceNumberSum;
+    }
+    @GetMapping("/get-dice-game-manager")
+    public String getDiceGameManager () {
+        GameManager gameManager = new GameManager();
+        System.out.println("점수 판정 이후");
+        gameManager.playGame();
+        gameManager.printResult();
+        gameManager.checkWinner();
+        log.info("dicegame winner is " + gameManager.checkWinner());
+        // return gameManager.toString();
+        return gameManager.checkWinner();
     }
 }
