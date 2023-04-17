@@ -18,6 +18,8 @@ import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 import Homework1 from '@/views/homework/Homework1.vue'
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
 
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -94,6 +96,11 @@ const routes = [
     path: '/data-response-from-spring-page',
     name: 'DataResponseFromSpringPage',
     component: DataResponseFromSpringPage
+  },
+  {
+    path: '/vue-lifecycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
   }
 ]
 
