@@ -44,7 +44,7 @@ export default {
     "homework-minus-local-component": HomeworkMinusLocalComponent,
     "homework-multiple-local-component": HomeworkMultipleLocalComponent,
     "homework-calculator-local-component": HomeworkCalculatorLocalComponent,
-    LocalTaxBillCheckComponent
+    LocalTaxBillCheckComponent,
   },
   data() {
     return {
@@ -57,27 +57,4 @@ export default {
   methods: {},
 };
 </script>
-
-<style>
-input {
-  border: 2px solid orange;
-  background-color: white;
-  width: 150px;
-}
-
-.calculator-margin {
-  border: 2px solid orange;
-  border-radius: 10px;
-  width: 100px;
-  height: 30px;
-  margin-top: 5px;
-  background-color: rgb(253, 253, 61);
-  color: orange;
-}
-
-.local-box {
-  border: 3px dotted orange;
-  background-color: rgb(210, 255, 120);
-  margin-top: 20px;
-}
-</style>
+<style></style>
