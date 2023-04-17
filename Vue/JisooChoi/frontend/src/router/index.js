@@ -18,6 +18,9 @@ import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
 // 숙제
 import HomeworkComponentTest from "@/views/basics/homework/HomeworkComponentTest.vue";
 
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue';
+import VueLifeCycleTestPage from '@/views/lifeCycle/VueLifeCycleTestPage.vue';
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -90,6 +93,16 @@ const routes = [
     name: "HomeworkComponentTest",
     component: HomeworkComponentTest,
   },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
+    path: '/vue-lifecycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  }
 ];
 
 const router = new VueRouter({
