@@ -9,7 +9,7 @@
       <form>
         <input type="text" v-model.number="minusNumber1" /> -
         <input type="text" v-model.number="minusNumber2" /><br />
-        <button @click="clickMinus">뺄셈 연산</button>
+        <button class="calculator-margin" @click="clickMinus">뺄셈 연산</button>
       </form>
       뺄셈 결과는
       <homework-minus-local-component
@@ -65,7 +65,7 @@ input {
   width: 150px;
 }
 
-button {
+.calculator-margin {
   border: 2px solid orange;
   border-radius: 10px;
   width: 100px;

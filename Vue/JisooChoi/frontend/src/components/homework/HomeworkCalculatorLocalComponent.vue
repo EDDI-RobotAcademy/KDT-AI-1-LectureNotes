@@ -64,7 +64,7 @@ input {
   width: 150px;
 }
 
-button {
+.calculator-margin{
   border: 2px solid orange;
   border-radius: 10px;
   width: 100px;

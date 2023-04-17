@@ -4,7 +4,7 @@
     <form>
       <input type="text" v-model.number="multipleNumber2" />
     </form>
-    <button @click="clickMultiple">곱셈 연산</button>
+    <button class="calculator-margin" @click="clickMultiple">곱셈 연산</button>
     <p>{{ multipleResult }} 입니다.</p>
   </div>
 </template>
@@ -34,8 +34,7 @@ input {
   background-color: white;
   width: 150px;
 }
-
-button {
+.calculator-margin {
   border: 2px solid orange;
   border-radius: 10px;
   width: 100px;

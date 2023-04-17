@@ -5,7 +5,7 @@
       <p>수를 입력하고, "연산" 을 눌러주세요 !</p>
       <input type="text" v-model.number="num1" /> +
       <input type="text" v-model.number="num2" /><br />
-      <button @click="clickCounter">덧셈 연산</button>
+      <button class="calculator-margin" @click="clickCounter">덧셈 연산</button>
       <p>덧셈 결과는 {{ addValue }} 입니다.</p>
     </form>
   </div>
@@ -40,7 +40,7 @@ input {
   width: 150px;
 }
 
-button {
+.calculator-margin {
   border: 2px solid orange;
   border-radius: 10px;
   width: 100px;
