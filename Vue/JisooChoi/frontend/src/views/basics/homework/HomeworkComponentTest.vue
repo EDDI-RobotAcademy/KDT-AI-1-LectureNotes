@@ -1,7 +1,9 @@
 <template>
   <v-container>
+    <!-- 1번 문제 -->
     <homework-global-component :initialTest="add" />
 
+    <!-- 2번 문제 -->
     <div class="local-box">
       <p>2. 뺄셈 LocalComponent 입니다.</p>
       <form>
@@ -17,12 +19,17 @@
       입니다.
     </div>
 
+    <!-- 3번 문제 -->
     <homework-multiple-local-component :multipleValue1="multipleNumber1" />
 
+    <!-- 4번 문제 -->
     <homework-calculator-local-component
       :operation1="operationValue1"
       :operation2="operationValue2"
     />
+
+    <!-- 못 푼 5번 문제 -->
+    <local-tax-bill-check-component :input-amount="100000" />
   </v-container>
 </template>
 
@@ -30,12 +37,14 @@
 import HomeworkMinusLocalComponent from "@/components/homework/HomeworkMinusLocalComponent.vue";
 import HomeworkMultipleLocalComponent from "@/components/homework/HomeworkMultipleLocalComponent.vue";
 import HomeworkCalculatorLocalComponent from "@/components/homework/HomeworkCalculatorLocalComponent.vue";
+import LocalTaxBillCheckComponent from "@/components/homework/LocalTaxBillCheckComponent.vue";
 
 export default {
   components: {
     "homework-minus-local-component": HomeworkMinusLocalComponent,
     "homework-multiple-local-component": HomeworkMultipleLocalComponent,
     "homework-calculator-local-component": HomeworkCalculatorLocalComponent,
+    LocalTaxBillCheckComponent
   },
   data() {
     return {
