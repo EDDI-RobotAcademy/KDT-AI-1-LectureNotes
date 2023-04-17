@@ -14,6 +14,8 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
+import ProblemPage1 from '@/views/homework/problem1/ProblemPage.vue'
+
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
@@ -85,6 +87,11 @@ const routes = [
     path: '/axios-test-page',
     name: 'DataSendTestPage',
     component: DataSendTestPage
+  },
+  {
+    path: '/problem-page1',
+    name: 'ProblemPage1',
+    component: ProblemPage1
   },
   {
     path: '/random-dice-from-spring',
