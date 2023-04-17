@@ -12,6 +12,7 @@ import VueCheckboxPage from "@/views/basics/vModel/VueCheckboxPage.vue";
 import VueMultiCheckboxPage from "@/views/basics/vModel/VueMultiCheckboxPage.vue";
 import ComponentTestPage from "@/views/basics/componentTest/ComponentTestPage.vue";
 import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
+import ProblemPage1 from "@/views/homework/problem1/ProblemPage.vue";
 
 Vue.use(VueRouter);
 
@@ -81,6 +82,11 @@ const routes = [
     path: "/axios-test-page",
     name: "DataSendTestPage",
     component: DataSendTestPage,
+  },
+  {
+    path: "/problem-page1",
+    name: "ProblemPage1",
+    component: ProblemPage1,
   },
 ];
 
