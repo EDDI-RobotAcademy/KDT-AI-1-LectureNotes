@@ -13,15 +13,17 @@ import VueMultiCheckboxPage from "@/views/basics/vModel/VueMultiCheckboxPage.vue
 import ComponentTestPage from "@/views/basics/componentTest/ComponentTestPage.vue";
 import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
 
-// 숙제
+// 숙제1
 import HomeworkComponentTest from "@/views/basics/homework/HomeworkComponentTest.vue";
 
-import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue';
-import VueLifeCycleTestPage from '@/views/lifeCycle/VueLifeCycleTestPage.vue';
+import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpringPage.vue";
+import VueLifeCycleTestPage from "@/views/lifeCycle/VueLifeCycleTestPage.vue";
 
-// 테스트2
-import DataResponseFromSpringPageTest from '@/views/basics/axios/axiosTest/DataResponseFromSpringPageTest.vue';
+// 숙제2 (기본 문제)
+import VueBasicTest from "@/views/basics/homework/VueBasicTest.vue";
 
+// 숙제2 (심화 문제)
+import DataResponseFromSpringPageTest from "@/views/basics/axios/axiosTest/DataResponseFromSpringPageTest.vue";
 
 Vue.use(VueRouter);
 
@@ -96,20 +98,25 @@ const routes = [
     component: HomeworkComponentTest,
   },
   {
-    path: '/random-dice-from-spring',
-    name: 'DataResponseFromSpringPage',
-    component: DataResponseFromSpringPage
+    path: "/random-dice-from-spring",
+    name: "DataResponseFromSpringPage",
+    component: DataResponseFromSpringPage,
   },
   {
-    path: '/vue-lifecycle-test',
-    name: 'VueLifeCycleTestPage',
-    component: VueLifeCycleTestPage
+    path: "/vue-lifecycle-test",
+    name: "VueLifeCycleTestPage",
+    component: VueLifeCycleTestPage,
   },
   {
-    path: '/data-response-from-spring-test',
-    name: 'DataResponseFromSpringPageTest',
-    component: DataResponseFromSpringPageTest
-  }
+    path: "/data-response-from-spring-test",
+    name: "DataResponseFromSpringPageTest",
+    component: DataResponseFromSpringPageTest,
+  },
+  {
+    path: "/vue-basic-test",
+    name: "VueBasicTest",
+    component: VueBasicTest,
+  },
 ];
 
 const router = new VueRouter({

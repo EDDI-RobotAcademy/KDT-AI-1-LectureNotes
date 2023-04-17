@@ -38,12 +38,21 @@
         | <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
 
         <router-link to="/homework-global-component"
-          >Homework Component</router-link
+          >Vue 첫 번째 숙제</router-link
         >
         |
-        <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
-        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프사이클</router-link> |
-        <router-link to="/data-response-from-spring-test">Vue 두 번째 문제</router-link> |
+        <router-link to="/random-dice-from-spring"
+          >axios로 주사위 값 받기</router-link
+        >
+        |
+        <router-link to="/vue-lifecycle-test"
+          >게임으로 파악하는 라이프사이클</router-link
+        >
+        |
+        <router-link to="/vue-basic-test">Vue 두 번째 기본 숙제</router-link> |
+        <router-link to="/data-response-from-spring-test"
+          >Vue 두 번째 심화 문제</router-link
+        >|
       </nav>
     </div>
   </v-container>

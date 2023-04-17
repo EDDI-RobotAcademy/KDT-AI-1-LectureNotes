@@ -32,6 +32,13 @@ public class VueTestController {
         return CustomRandom.generateNumber(MIN, MAX);
     }
 
+    @GetMapping("/hello-send-test")
+    public String helloSendTest (@RequestParam("test")String sendData) {
+        log.info("helloSendTest() 요청!");
+        return sendData;
+    }
+
+
 //      여기에 주사위 값을 받아와서
 //      주사위1 + 주사위2 의 결과 짝/홀수 판명하는 것이 필요함.
 
