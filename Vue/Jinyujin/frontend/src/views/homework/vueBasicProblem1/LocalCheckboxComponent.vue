@@ -8,7 +8,6 @@
         </div>
         <div v-else>
             <p>체크되어 있지 않습니다</p>
-
         </div>
     </div>
 </template>

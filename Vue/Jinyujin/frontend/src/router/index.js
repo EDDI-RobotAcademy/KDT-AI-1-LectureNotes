@@ -28,7 +28,8 @@ import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.
 
 import ProblemPage2 from '@/views/homework/problem2/ProblemPage2.vue'
 
-import CheckboxTest from '@/views/homework/vueBasicProblem1/CheckboxTest.vue'
+import VueBasicProblem1 from '@/views/homework/vueBasicProblem1/VueBasicProblem1.vue'
+import HiSendTestPage from '@/views/homework/vueBasicProblem1/HiSendTestPage.vue'
 
 Vue.use(VueRouter)
 
@@ -122,10 +123,16 @@ const routes = [
     component: ProblemPage2
   },
   {
-    path: '/checkbox-test',
-    name: 'CheckboxTest',
-    component: CheckboxTest
+    path: '/vue-basic-problem1',
+    name: 'VueBasicProblem1',
+    component: VueBasicProblem1
   },
+  {
+    path: '/hi-send-test',
+    name: 'HiSendTestPage',
+    component: HiSendTestPage
+  },
+
 ]
 
 const router = new VueRouter({
