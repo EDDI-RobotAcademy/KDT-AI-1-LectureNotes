@@ -1,6 +1,7 @@
 <template>
   <div style="text-align: left">
-    <button @click="attackAll">전체 공격</button>
+    <button @click="addManyMonsters">몬스터 웨이브 추가</button><br />
+    <button @click="attackAll">전체 공격</button><br />
     <ul>
       <li v-for="(monster, index) in monsterList" :key="index">
         ID: {{ monster.id }}, name: {{ monster.name }}, HP: {{ monster.hp }}
@@ -47,6 +48,25 @@ export default {
         if (this.monsterList[i].hp <= 0) {
           this.monsterList.splice(i, 1);
         }
+      }
+    },
+    addManyMonsters() {
+      let count = 1;
+      for (let i = 0; i < 2; i++) {
+        count = 0;
+        let max = this.monsterList.reduce((a, b) => {
+          console.log("count: " + count++ + ", a: " + a + ", b: " + b.id);
+          return a > b.id ? a : b.id;
+        }, 0);
+
+        let idx = Math.floor(Math.random() * this.monsterBook.length);
+
+        this.monsterList.push({
+          id: max + 1,
+          monsterId: idx,
+          name: this.monsterBook[idx].name,
+          hp: this.monsterBook[idx].hp,
+        });
       }
     },
   },
