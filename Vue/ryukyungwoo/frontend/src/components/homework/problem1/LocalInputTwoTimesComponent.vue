@@ -24,7 +24,7 @@ export default {
     },
     methods: {
         handleInput (event) {
-            this.message = event.target.value
+            //this.message = event.target.value
             alert('event.target.value: ' + event.target.value)
         }
     }
