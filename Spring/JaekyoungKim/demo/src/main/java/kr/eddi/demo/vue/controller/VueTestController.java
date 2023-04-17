@@ -28,6 +28,34 @@ public class VueTestController {
 
         log.info("getRandomDice() 요청!");
 
-        return CustomRandom.generateNumber(MIN, MAX);
+        return (Integer) CustomRandom.generateNumber(MIN, MAX);
+    }
+    @GetMapping("/get-tempo-password")
+    public String getTempoPassword(){
+        final int MIN_EMAIL_LENGTH = 4;
+        final int MAX_EMAIL_LENGTH = 8;
+
+        String tmpString = "";
+        int emailLength = CustomRandom.generateNumber(MIN_EMAIL_LENGTH, MAX_EMAIL_LENGTH);
+
+        for (int j = 0; j < emailLength; j++) {
+            tmpString += (char) CustomRandom.generateNumber('a', 'z');
+    }return tmpString;
+}
+    @GetMapping("/random-dice-game")
+    public String getDiceGame(){
+        final int MIN = 1;
+        final int MAX = 6;
+        log.info("getDiceGame() 요청!");
+        final int DICE_ONE=CustomRandom.generateNumber(MIN, MAX);
+        final int DICE_TWO=CustomRandom.generateNumber(MIN, MAX);
+        String judgeString="";
+        if((DICE_ONE+DICE_TWO)%2==0){
+            judgeString=DICE_ONE+" 더하기 "+DICE_TWO+"는 "+"짝수로 승리";
+        }
+        if((DICE_ONE+DICE_TWO)%2!=0){
+            judgeString=DICE_ONE+" 더하기 "+DICE_TWO+"는 "+"홀수로 패배";
+        }
+        return judgeString;
     }
 }
