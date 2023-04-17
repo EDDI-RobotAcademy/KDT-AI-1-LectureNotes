@@ -21,6 +21,13 @@ public class TenYearsLaterSalary {
     }
 
     public void peopleSalary() {
-        System.out.println("10년 후 ");
+        // 10년 동안 연봉이 누적 상승인데..
+        int tenYearsLaterSalary = 0;
+
+        for (int i = 0; i < 10; i++) {
+            tenYearsLaterSalary = grownSalary * i;
+        }
+
+        System.out.println(tenYearsLaterSalary);
     }
 }
