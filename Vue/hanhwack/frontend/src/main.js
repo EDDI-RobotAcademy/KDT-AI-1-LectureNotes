@@ -7,6 +7,7 @@ import vuetify from './plugins/vuetify'
 // 등록하고자 하는 전역 컴포넌트
 import  GlobalComponent  from '@/components/componentTest/GlobalComponent.vue'
 import  AddGlobalComponent  from '@/components/componentTest/AddGlobalComponent.vue'
+import  GlobalAddComponent  from '@/components/homework/problem1/GlobalAddComponent.vue'
 
 
 Vue.config.productionTip = false
@@ -16,6 +17,7 @@ Vue.config.productionTip = false
 // Vue.component(이름, 컴포넌트) 형태라 보면 됨
 Vue.component(GlobalComponent.name, GlobalComponent)
 Vue.component(AddGlobalComponent.name, AddGlobalComponent)
+Vue.component(GlobalAddComponent.name, GlobalAddComponent)
 
 new Vue({
   router,

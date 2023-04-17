@@ -24,6 +24,9 @@
         
         <router-link to="/homework-page">Vue 문제 은행 [1]</router-link> |
 
+        <router-link to="/problem-page1">1번 연습 문제</router-link> |
+
+
         
         
       </nav>
