@@ -1,9 +1,11 @@
 <template>
     <div>
         <p>4번</p>
+        1번 숫자 = <input type="text" v-model="value1"><br>
+        2번 숫자 = <input type="text" v-model="value2"><br>
         <button @click="clickSum">더하기</button><br>
         <button @click="clickSub">빼기</button><br>
-        <button @click="clickMulti">곱하기</button>
+        <button @click="clickMulti">곱하기</button><br>
         <button @click="clickDiv">나누기</button>
         <p>결과는 : {{ result }}</p>
     </div>
@@ -12,27 +14,25 @@
 <script>
 export default {
     name: "CalculaterComponent",
-    props: {
-        value1: Number,
-        value2: Number
-    },
     data () {
         return {
-            result
+            value1: '',
+            value2: '',
+            result: 0
         }
     },
     methods: {
         clickSum () {
-            result = value1 + value2
+            this.result = parseInt(this.value1) + parseInt(this.value2)
         },
         clickSub () {
-            result = value1 - value2
+            this.result = parseInt(this.value1) - parseInt(this.value2)
         },
         clickMulti () {
-            result = value1 * value2
+            this.result = parseInt(this.value1) * parseInt(this.value2)
         },
         clickDiv () {
-            result = value1 / value2
+            this.result = parseInt(this.value1) / parseInt(this.value2)
         }
     }
 }

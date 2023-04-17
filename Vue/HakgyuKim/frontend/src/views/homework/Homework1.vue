@@ -1,19 +1,19 @@
 <template>
     <div>
         <p>
-            <SumComponent :value1="value1" :value2="value2"></SumComponent>
+            <SumComponent></SumComponent>
         </p>
         <p>
-            <subtract-component :value1="value1" :value2="value1"/>
+            <subtract-component/>
         </p>
         <p>
-            <times-two-component :number="value1"/>
+            <times-two-component/>
         </p>
         <p>
-            <calculater-component :value1="value1" :value2="value2"/>
+            <calculater-component/>
         </p>
         <p>
-            <checkbox-component :value="value1"/>
+            <checkbox-component :value="1000000"/>
         </p>
     </div>
 </template>
@@ -26,17 +26,11 @@ import CheckboxComponent from '@/components/homeworkComponent/CheckboxComponent.
 
 export default {
     components: {
-        'subtract-component': SubtractComponent,
-        'times-two-component': TimesTwoComponent,
-        'calculater-component': CalculaterComponent,
-        'checkbox-component': CheckboxComponent
+        SubtractComponent,
+        TimesTwoComponent,
+        CalculaterComponent,
+        CheckboxComponent
     },
-    data() {
-        return {
-        value1: 9,
-        value2: 3,
-        }
-    }
 }
 
 </script>

@@ -1,20 +1,19 @@
 <template>
     <div>
         <p>2번</p>
-        {{ subtractResult }}
+        1번 숫자 = <input type="text" v-model="value1"><br>
+        2번 숫자 = <input type="text" v-model="value2"><br>
+        뺄셈 값은 = {{ parseInt(value1) - parseInt(value2) }} 
     </div>
 </template>
 <script>
 
 export default {
     name: "SubtractComponent",
-    props: {
-        value1: Number,
-        value2: Number,
-    },
     data () {
         return {
-            subtractResult: value1 - value2,
+            value1: 0,
+            value2: 0
         }
     }
 }

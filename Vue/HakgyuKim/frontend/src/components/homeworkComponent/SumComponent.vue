@@ -1,7 +1,9 @@
 <template>
     <div>
         <p>1번</p>
-      {{ sumResult }}  
+        1번 숫자 = <input type="text" v-model="value1"><br>
+        2번 숫자 = <input type="text" v-model="value2"><br>
+        덧셈 값은 = {{ parseInt(value1) + parseInt(value2) }}  
     </div>
 </template>
 
@@ -9,13 +11,10 @@
 
 export default {
     name: "SumComponent",
-    props: {
-        value1: Number,
-        value2: Number,
-    },
     data () {
         return {
-            sumResult: value1 + value2,
+            value1: 0, 
+            value2: 0
         }
     }
 }
