@@ -1,8 +1,8 @@
 <template >
     <div>
         <p><input type="text" v-model="numberA"><input type="text" v-model="numberB"></p>
-        <button @onclick="minus">-</button>
-        {{ result }}
+      
+        {{ numberA-numberB }}
         
     </div>
 </template>
@@ -17,7 +17,7 @@ export default {
         return {
             numberA:0,
             numberB:0,
-            result:0
+    
         }
     },
     methods: {
