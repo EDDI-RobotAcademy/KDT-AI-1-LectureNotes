@@ -19,6 +19,8 @@ import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
 import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpringPage.vue";
 
 import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.vue";
+
+import DiceGamePage from "@/views/basics/axios/DiceGamePage.vue";
 //
 import VueHomeworkPage from "@/views/basics/homework/VueHomeworkPage.vue";
 
@@ -97,6 +99,11 @@ const routes = [
     path: "/vue-lifecycle-test",
     name: "VueLifeCycleTestPage",
     component: VueLifeCycleTestPage,
+  },
+  {
+    path: "/dice-game-page",
+    name: "DiceGamePage",
+    component: DiceGamePage,
   },
   //
   {
