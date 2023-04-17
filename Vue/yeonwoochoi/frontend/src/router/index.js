@@ -14,6 +14,10 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -81,7 +85,17 @@ const routes = [
     path: '/axios-test-page',
     name: 'DataSendTestPage',
     component: DataSendTestPage
-  }
+  },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
+    path: '/vue-life-cycle-test-page',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  },
 ]
 
 const router = new VueRouter({
