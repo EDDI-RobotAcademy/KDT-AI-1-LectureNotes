@@ -21,7 +21,8 @@
         <router-link to="/multi-checkbox-test-page">다중 checkbox 테스트 페이지</router-link> |
         <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
         <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
-        <router-link to="/homework-test-page">과제 테스트 페이지</router-link>
+        <router-link to="/homework-test-page">과제 테스트 페이지</router-link> |
+        <router-link to="/problem-page1">과제 풀이 페이지</router-link> |
       </nav>
     </div>
   </v-container>
