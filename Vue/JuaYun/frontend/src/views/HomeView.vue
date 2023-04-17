@@ -21,6 +21,8 @@
        <router-link to="/multi-checkbox-test-page">다중 checkbox 테스트 페이지</router-link> |
        <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
        <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
+       <router-link to="/problem-page1">문제은행</router-link> |
+       <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
       </nav>
     </div>
   </v-container>
