@@ -9,7 +9,7 @@
         <button @click="addNumbers">덧셈계산</button>
         <!-- 덧셈 결과 출력 -->
         <p>덧셈 결과는 {{ plusResult }} 입니다.</p>
-    </div>
+ComponentsHome    </div>
 </template>
 
 <script>

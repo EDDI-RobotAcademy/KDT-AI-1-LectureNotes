@@ -19,6 +19,7 @@ import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vu
 // import할 페이지가 뭔지 정확히 확인할 것! 아까 다른 데서 불러 오려고 해서 계속 오류났었음
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
+import ComponentTestHome from '@/views/basics/componentTest/ComponentTestHome.vue'
 
 Vue.use(VueRouter)
 
@@ -85,6 +86,11 @@ const routes = [
     path: '/axios-test-page',
     name: 'DataSendTestPage',
     component: DataSendTestPage
+  },
+  {
+    path: '/homework-test-page',
+    name: 'ComponentTestHome',
+    component: ComponentTestHome
   },
 ]
 

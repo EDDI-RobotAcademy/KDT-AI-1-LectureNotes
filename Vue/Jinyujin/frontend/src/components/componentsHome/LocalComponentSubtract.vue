@@ -14,7 +14,7 @@
 
 <script>
 export default {
-    name: "SubtractGlobalComponent",
+    name: "SubtractLocalComponent",
     props: ['numberValue1', 'numberValue2'], // java 파라메터 대신 props
     data() {
         return {

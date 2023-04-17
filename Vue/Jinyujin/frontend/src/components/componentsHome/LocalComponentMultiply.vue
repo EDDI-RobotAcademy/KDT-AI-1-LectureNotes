@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    name: "MultiplyGlobalComponent",
+    name: "MultiplyLocalComponent",
     props: ['numberValue'], 
     data() {
         return {
@@ -24,7 +24,7 @@ export default {
     },
     methods: {
         multiplyNumbers() {
-           this.multiplyResult = parseInt(this.numberValue) * 2 // 숫자로 계산되도록 parseInt
+           this.multiplyResult = parseInt(this.numberValue) * parseInt(2) // 숫자로 계산되도록 parseInt
         }
     }
 }
