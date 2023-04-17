@@ -1,8 +1,13 @@
 <template>
     <div style="text-align: left;">
+        <button @click="addMonster"> 몬스터 추가</button>
+        <button @click="attackAll">전체 공격</button>
         <ul>
             <li v-for="(monster,index) in monsterList" :key="index">
-            ID: {{ monster.id }}, name: {{ monster.name }}, HP: {{ monster.hp }}</li>
+            ID: {{ monster.id }}, name: {{ monster.name }}, HP: {{ monster.hp }}
+            <button @click="attackMonster(index)">일반 공격</button>
+           
+        </li>
         </ul>
     </div>
 </template>
@@ -30,6 +35,77 @@ export default {
             ]
         }
     },
+    methods: {
+        attackMonster(mosterIdx){
+            this.monsterList[mosterIdx].hp-=10
+
+        },
+        attackAll(){
+            for(let i=0;i<this.monsterList.length;i++){
+                this.monsterList[i].hp=this.monsterList[i].hp-100
+            }
+        },
+        checkKilledMonster(){
+            console.log('때리기 전: '+this.monsterList.length)
+            for(let i=0;i<this.monsterList.length;i++){
+                if(this.monsterList[i].hp<=0){
+                    this.monsterList.splice(i,1)
+                }
+                
+            }
+         console.log('때린 후: '+this.monsterList.length)
+        },
+        addMonster(){
+            let count=1;
+            for(let i=0;i<2;i++){
+                count=1;
+                //a,b 가 첫 번재 원소, 두 번째 원소에 해당합니다.
+                //마지막에 0을 배치해서 지속적으로 큰 숫자를 앞으로 땡기는 작업을 합니다.
+                let max= this.monsterList.reduce((a,b)=>{
+                    console.log('count: '+(count++)+', a: '+a+', b: '+b.id)
+                    return a>b.id?a:b.id
+                }, 0)
+                let idx=Math.floor(Math.random()*this.monsterBook.length)
+
+                this.monsterList.push({
+                    id:max+1,
+                    monsterID:idx,
+                    name:this.monsterBook[idx].name,
+                    hp: this.monsterBook[idx].hp
+                })
+            }
+        }
+    
+    },
+    beforeCreate() {
+        console.log('beforCreate() 동작!')
+        
+    },
+    created() {
+        console.log('created() 동작!')
+        
+    },
+    beforeMount() {
+        console.log('beforMount() 동작!')
+    },
+    mounted() {
+        console.log('mounted() 동작!')
+    },
+    beforeUpdate() {
+        console.log('beforUpdate() 동작!')
+        this.checkKilledMonster()
+
+    },
+    updated(){
+        console.log('updated() 동작!')
+    },
+    beforeDestroy(){
+        console.log('beforeDestory() 동작!')
+    },
+    destroyed(){
+        console.log('destroy() 동작')
+    },
+    
     
 }
 </script>
