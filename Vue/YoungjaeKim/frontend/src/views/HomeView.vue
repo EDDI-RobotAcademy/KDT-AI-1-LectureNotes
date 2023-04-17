@@ -20,6 +20,9 @@
         <router-link to="/checkbox-test-page">checkbox 테스트 페이지</router-link> |
         <router-link to="/multi-checkbox-test-page">다중 checkbox 테스트 페이지</router-link> |
         <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
+        <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
+        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프사이클</router-link> |
+        <router-link to="/problem1">문제 1번</router-link> |
       </nav>
     </div>
   </v-container>

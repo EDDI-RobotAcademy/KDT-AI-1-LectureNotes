@@ -6,6 +6,7 @@ import vuetify from './plugins/vuetify'
 
 // 등록하고자 하는 전역 컴포넌트
 import GlobalComponent from '@/components/componentTest/GlobalComponent.vue'
+//import GlobalAddComponent from '@/components/homework/problem1'
 
 Vue.config.productionTip = false
 
