@@ -34,11 +34,13 @@ public class VueTestController {
 
         return CustomRandom.generateNumber(MIN,MAX);
     }
+
+    // Vue 문제 은행 [ 2 ] 1번 문제
     @GetMapping("/get-random-dice-winner")
     public String getRandomDiceWin () {
         final int MIN = 1;
         final int MAX = 6;
-        String checkWin;
+        final String checkWin;
 
         int diceNumber = CustomRandom.generateNumber(MIN,MAX);
         if(diceNumber % 2 == 0){
@@ -46,43 +48,21 @@ public class VueTestController {
         } else {
             checkWin = "패배";
         }
-        log.info("getRandomDiceWin() 요청!" + diceNumber);
+        log.info("getRandomDiceWin() Request!" + diceNumber);
         return checkWin;
     }
-    @GetMapping("/get-random-dice-list")
-    public int getRandomDiceList () {
-        final int DICENUM = 3;
 
-        int diceNumberSum = 0;
-
-        final int FIRST_DICE_INFO = 0;
-        final int DECISION_EVEN = 2;
-        final int ODD = 1;
-
-        List<Integer> diceList = new ArrayList<>();
-
-        for(int i = 0; i < DICENUM; i++){
-            int diceNumber = getRandomDice();
-            diceList.add(diceNumber);
-
-            diceNumberSum += diceList.get(i);
-
-            if(diceList.get(FIRST_DICE_INFO) % DECISION_EVEN == ODD){
-                break;
-            }
-        }
-        log.info("getRandomDiceList() 요청!" + diceList);
-        return diceNumberSum;
-    }
+    // Vue 문제 은행 [ 2 ] 2번 문제
     @GetMapping("/get-dice-game-manager")
     public String getDiceGameManager () {
         GameManager gameManager = new GameManager();
-        System.out.println("점수 판정 이후");
+        System.out.println("After judging the score");
+
         gameManager.playGame();
         gameManager.printResult();
         gameManager.checkWinner();
-        log.info("dicegame winner is " + gameManager.checkWinner());
-        // return gameManager.toString();
+
+        log.info("Winner of Dicegame is " + gameManager.checkWinner());
         return gameManager.checkWinner();
     }
 }

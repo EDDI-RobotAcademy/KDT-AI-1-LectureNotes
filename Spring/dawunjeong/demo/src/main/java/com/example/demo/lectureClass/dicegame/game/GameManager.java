@@ -103,9 +103,8 @@ public class GameManager {
 
         final int DRAW = 0;
 
-        String winnerName;
-        // String loserName;
-        String draw;
+        final String winnerName;
+        final String draw;
 
         Collections.sort(playerList, Collections.reverseOrder());
         Player winner = playerList.get(WINNER_IDX);
@@ -121,32 +120,6 @@ public class GameManager {
         winnerName = winner.getName();
         return winnerName;
     }
-
-
-//    public String checkWinner() {
-//        GameScore firstPlayerScore = playerArray[0].getGameScore();
-//        GameScore secondPlayerScore = playerArray[1].getGameScore();
-//
-//        String winnerName;
-//        String loserName;
-//        String draw;
-//
-//        final int firstPlayerScoreTotalScore = firstPlayerScore.getTotalScore();
-//        final int secondPlayerScoreTotalScore = secondPlayerScore.getTotalScore();
-//
-//        if (firstPlayerScoreTotalScore > secondPlayerScoreTotalScore) {
-//            winnerName = playerArray[0].getName();
-//            return winnerName;
-//        }
-//        if (firstPlayerScoreTotalScore < secondPlayerScoreTotalScore) {
-//            loserName = playerArray[1].getName();
-//            return loserName;
-//        }
-//
-//        draw = "무승부";
-//        return draw;
-//    }
-
 
     @Override
     public String toString() {
