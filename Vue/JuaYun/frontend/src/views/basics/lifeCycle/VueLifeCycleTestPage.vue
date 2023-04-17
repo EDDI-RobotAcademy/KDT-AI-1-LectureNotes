@@ -37,7 +37,7 @@ export default {
         attackMonster (monsterIdx) {
             this.monsterList[monsterIdx].hp -= 10
         },
-        attackAll () {
+        attackAll () { 
             for (let i = 0; i < this.monsterList.length; i++) {
                 this.monsterList[i].hp = this.monsterList[i].hp - 100
             }
@@ -58,6 +58,7 @@ export default {
                 // a, b가 첫 번째 원소, 두 번째 원소에 해당합니다.
                 // 마지막에 0을 배치해서 지속적으로 큰 숫자를 앞으로 땡기는 작업을 진행합니다.
                 let max = this.monsterList.reduce((a, b) => {
+                    // 콘솔에 보여지는 값
                     console.log('count: ' + (count++) + ', a: ' + a + ', b: ' + b.id)
                     return a > b.id ? a : b.id
                 }, 0)
