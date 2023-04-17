@@ -23,6 +23,8 @@
       <router-link to="/axios-test-page"> axios 통신 테스트</router-link> |
       <router-link to="/component-homework-test-page"> 과제</router-link> |
       <router-link to="/problem1-page"> 1번 연습 문제</router-link> |
+      <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
+      <router-link to="/vue-lifecycle-test">axios로 주사위 값 받기</router-link> |
     </nav>
   </div>
 </v-containter> 
