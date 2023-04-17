@@ -36,4 +36,33 @@ public class VueTestController {
 
         return CustomRandom.generateNumber(MIN, MAX);
     }
+
+    @GetMapping("/get-dice-result")
+    public String getDiceResult() {
+        final int MIN = 1;
+        final int MAX = 6;
+        int addDice = 0;
+        String diceResult = "";
+
+        for(int i=0; i < 2; i++) {
+            int dice ;
+            dice = CustomRandom.generateNumber(MIN, MAX);
+            addDice += dice;
+        }
+        if (addDice % 2 == 0) {
+            diceResult = "win";
+
+        }else {
+            diceResult = "lose";
+        }
+
+        log.info("getDiceResult() 요청!");
+
+        log.info(diceResult);
+
+        return diceResult;
+
+
+
+    }
 }
