@@ -23,6 +23,8 @@ import HomeworkPage from '@/views/homework/HomeworkPage.vue'
 
 import ProblemPage1 from '@/views/homework/problem1/ProblemPage.vue'
 
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
+
 
 
 Vue.use(VueRouter)
@@ -100,7 +102,12 @@ const routes = [
     path: '/problem-page1',
     name: 'ProblemPage1',
     component: ProblemPage1
-  }
+  },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
 
 
   

@@ -26,6 +26,8 @@
 
         <router-link to="/problem-page1">1번 연습 문제</router-link> |
 
+        <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
+
 
         
         
