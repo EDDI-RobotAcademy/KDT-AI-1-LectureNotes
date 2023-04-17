@@ -15,6 +15,7 @@ import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
 import ProblemPage1 from "@/views/homework/problem1/ProblemPage.vue";
 import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpringPage.vue";
 import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.vue";
+import EvenOddTest from "@/views/homework/basic_problem/EvenOddTest";
 
 Vue.use(VueRouter);
 
@@ -99,6 +100,11 @@ const routes = [
     path: "/vue-lifecycle-test",
     name: "VueLifeCycleTestPage",
     component: VueLifeCycleTestPage,
+  },
+  {
+    path: "/even-odd-test",
+    name: "EvenOddTest",
+    component: EvenOddTest,
   },
 ];
 
