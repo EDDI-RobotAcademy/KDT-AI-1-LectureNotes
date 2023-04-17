@@ -2,7 +2,7 @@
     <div>
         <br>
         <h3>Vue 문제 은행 2</h3>
-        <p> 1번 </p>
+        <p> 1번</p>
         <button type="submit" @click="onSubmit">버튼</button>
         <p>
             {{ result }}
@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         onSubmit() {
-            axios.get('http://localhost:7777/vue-test/win-condition-is-even')
+            axios.get('http://localhost:7777/homework/win-condition-is-even')
                 .then((res) => {
                     this.result = res.data
                 })
