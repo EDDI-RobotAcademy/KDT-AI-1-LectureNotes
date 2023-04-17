@@ -5,6 +5,9 @@ import com.example.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("/vue-test")
@@ -44,5 +47,30 @@ public class VueTestController {
         }
         log.info("getRandomDiceWin() 요청!" + diceNumber);
         return checkWin;
+    }
+    @GetMapping("/get-random-dice-list")
+    public int getRandomDiceList () {
+        final int DICENUM = 3;
+
+        int diceNumberSum = 0;
+
+        final int FIRST_DICE_INFO = 0;
+        final int DECISION_EVEN = 2;
+        final int ODD = 1;
+
+        List<Integer> diceList = new ArrayList<>();
+
+        for(int i = 0; i < DICENUM; i++){
+            int diceNumber = getRandomDice();
+            diceList.add(diceNumber);
+
+            diceNumberSum += diceList.get(i);
+
+            if(diceList.get(FIRST_DICE_INFO) % DECISION_EVEN == ODD){
+                break;
+            }
+        }
+        log.info("getRandomDiceList() 요청!" + diceList);
+        return diceNumberSum;
     }
 }

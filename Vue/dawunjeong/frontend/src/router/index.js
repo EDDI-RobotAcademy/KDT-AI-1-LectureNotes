@@ -26,6 +26,7 @@ import ProblemPage1 from '@/views/homeworkSolve/problem1/ProblemPage.vue'
 
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
 import DiceDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceDataResponseFromSpringPage.vue'
+import DiceGameDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceGameDataResponseFromSpringPage.vue'
 
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
@@ -119,6 +120,11 @@ const routes = [
     path: '/random-dice-check-win-from-spring',
     name: 'DiceDataResponseFromSpringPage',
     component: DiceDataResponseFromSpringPage
+  },
+  {
+    path: '/random-dice-game-from-spring',
+    name: 'DiceGameDataResponseFromSpringPage',
+    component: DiceGameDataResponseFromSpringPage
   },
 ]
 
