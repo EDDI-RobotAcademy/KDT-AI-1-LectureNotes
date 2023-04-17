@@ -22,6 +22,8 @@
     <router-link to="/vue-muilti-chcekbox-page">VueMuiltiChcekboxPage</router-link>|
     <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |    
     <router-link to="/data-send-test-page">DataSendTestPage</router-link> |    
+    <router-link to="/global-component">덧셈계산기</router-link> |    
+    <router-link to="/local-component">계산기</router-link> |    
   </nav>
   </div>  
   </v-container>

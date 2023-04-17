@@ -12,6 +12,8 @@ import VueCheckboxPage from '@/views/basics/vModel/VueCheckboxPage'
 import VueMuiltiChcekboxPage from '@/views/basics/vModel/VueMuiltiChcekboxPage'
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 import DataSendTestPage from '@/views/axios/DataSendTestPage.vue'
+import GlobalComponent from '@/views/homeworks/globaComponent/GlobalComponent.vue'
+import LocalComponent from '@/views/homeworks/localComponent/LocalComponent.vue'
 
 Vue.use(VueRouter)
 
@@ -79,6 +81,16 @@ const routes = [
     path: '/data-send-test-page',
     name: 'DataSendTestPage',
     component: DataSendTestPage
+  },
+  {
+    path: '/global-component',
+    name: 'GlobalComponent',
+    component: GlobalComponent
+  },
+  {
+    path: '/local-component',
+    name: 'LocalComponent',
+    component: LocalComponent
   }
   
   
