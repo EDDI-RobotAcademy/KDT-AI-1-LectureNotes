@@ -20,7 +20,7 @@ export default {
     data() {
         return {
             receivedWinLoss: '',
-            gameResult: ''
+            gameResult: '',
         }
     },
     methods: {
@@ -36,7 +36,7 @@ export default {
         playGame () {
             axios.get('http://localhost:7777/dice-game/play-game')
             .then((res) => {
-            this.gameResult = console.log(res);
+            this.gameResult = res.data
         })
         .catch((res) => {
             alert('데이터 전송 실패!')
