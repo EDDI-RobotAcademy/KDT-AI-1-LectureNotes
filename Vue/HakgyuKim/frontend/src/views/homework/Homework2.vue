@@ -1,8 +1,14 @@
 <template>
     <div>
+        1번 <br>
         <button type="submit" @click="onSubmit">주사위 굴리기</button>
         <p>
             결과는:  {{ receivedWinLoss }}
+        </p>
+        2번 <br>
+        <button type="submit" @click="playGame">게임 플레이</button>
+        <p>
+            결과는: {{ gameResult }}
         </p>
     </div>
 </template>
@@ -14,6 +20,7 @@ export default {
     data() {
         return {
             receivedWinLoss: '',
+            gameResult: ''
         }
     },
     methods: {
@@ -25,7 +32,16 @@ export default {
         .catch((res) => {
             alert('데이터 전송 실패!')
         })
-    }
+    },
+        playGame () {
+            axios.get('http://localhost:7777/dice-game/play-game')
+            .then((res) => {
+            this.gameResult = console.log(res);
+        })
+        .catch((res) => {
+            alert('데이터 전송 실패!')
+        })
+        }
 }
 }
 </script>
