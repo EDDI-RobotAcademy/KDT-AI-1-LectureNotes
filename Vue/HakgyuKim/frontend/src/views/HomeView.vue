@@ -23,7 +23,8 @@
       <router-link to="/data-send-test-page" >데이터 샌드 테스트</router-link> |
       <router-link to="/homework1" >문제은행1</router-link> |
       <router-link to="/data-response-from-spring-page">주사위 굴리기</router-link> |
-      <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link>
+      <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
+      <router-link to="/homework2">주사위로 핪으로 승패 정하기</router-link>
       </nav>
     </div>
   </v-container>

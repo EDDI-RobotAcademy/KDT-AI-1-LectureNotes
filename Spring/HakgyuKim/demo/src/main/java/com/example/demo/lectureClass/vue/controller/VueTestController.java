@@ -31,4 +31,22 @@ public class VueTestController {
 
         return CustomRandom.generateNumber(MIN, MAX);
     }
+
+    @GetMapping("/roll-two-dice")
+    public String rollTwoDice () {
+        final int MIN = 1;
+        final int MAX = 6;
+        log.info("rollTwoDice() 요청!");
+        int dice1 = CustomRandom.generateNumber(MIN, MAX);
+        int dice2 = CustomRandom.generateNumber(MIN, MAX);
+        int diceSum = dice1 + dice2;
+        if (diceSum % 2 == 0) {
+            return ("주사위 1: " + dice1 +
+                    ", 주사위 2: " + dice2 +
+                    ", 주사위의 핪: " + diceSum + ", 승리!!");
+        }
+        return ("주사위 1: " + dice1 +
+                ", 주사위 2: " + dice2 +
+                ", 주사위의 핪: " + diceSum + ", 패배!!");
+    }
 }
