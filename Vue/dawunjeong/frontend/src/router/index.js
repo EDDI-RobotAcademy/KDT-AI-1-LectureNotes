@@ -25,6 +25,7 @@ import HomeworkPage from '@/views/basics/homework/HomeworkPage.vue'
 import ProblemPage1 from '@/views/homeworkSolve/problem1/ProblemPage.vue'
 
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
+import DiceDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceDataResponseFromSpringPage.vue'
 
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
@@ -113,7 +114,12 @@ const routes = [
     path: '/vue-lifecycle-test',
     name: 'VueLifeCycleTestPage',
     component: VueLifeCycleTestPage
-  }
+  },
+  {
+    path: '/random-dice-check-win-from-spring',
+    name: 'DiceDataResponseFromSpringPage',
+    component: DiceDataResponseFromSpringPage
+  },
 ]
 
 const router = new VueRouter({

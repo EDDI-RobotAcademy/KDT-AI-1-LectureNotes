@@ -30,4 +30,19 @@ public class VueTestController {
 
         return CustomRandom.generateNumber(MIN,MAX);
     }
+    @GetMapping("/get-random-dice-winner")
+    public String getRandomDiceWin () {
+        final int MIN = 1;
+        final int MAX = 6;
+        String checkWin;
+
+        int diceNumber = CustomRandom.generateNumber(MIN,MAX);
+        if(diceNumber % 2 == 0){
+            checkWin = "승리";
+        } else {
+            checkWin = "패배";
+        }
+        log.info("getRandomDiceWin() 요청!" + diceNumber);
+        return checkWin;
+    }
 }
