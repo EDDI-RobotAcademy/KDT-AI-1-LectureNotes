@@ -1,7 +1,8 @@
-@@ -0,0 +1,28 @@
 <template>
     <div>
-        <button @click="addCounter">{{ counterValue }}</button>
+        <p>기초 1번문제</p>
+        <p>7 + 3 =</p>
+        {{ addResult }}
     </div>
 </template>
 
@@ -11,17 +12,15 @@ export default {
     props: ['initialTest'],
     data () {
         return {
-            counterValue: this.initialTest,
+            addResult: this.initialTest,
         }
     },
-    methods: {
-        addCounter () {
-            this.counterValue++
-        }
-    }
+    
 }
 </script>
 
 <style>
+    
+</style>
     
 </style>

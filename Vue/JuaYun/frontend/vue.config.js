@@ -5,6 +5,6 @@ module.exports = defineConfig({
     'vuetify'
   ],
   chainWebpack: config => {
-    config.module.rules.delete('eslint');
-  },
+    config.module.rules.delete('eslint')
+  }
 })
