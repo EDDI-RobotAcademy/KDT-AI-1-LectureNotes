@@ -50,9 +50,7 @@
         >
         |
         <router-link to="/vue-basic-test">Vue 두 번째 기본 숙제</router-link> |
-        <router-link to="/data-response-from-spring-test"
-          >Vue 두 번째 심화 문제</router-link
-        >|
+        <router-link to="/vue-prob-test">Vue 두 번째 문제 은행</router-link>|
       </nav>
     </div>
   </v-container>

@@ -37,22 +37,15 @@ public class VueTestController {
         log.info("helloSendTest() 요청!");
         return sendData;
     }
+    
+    @GetMapping("/get-dice-add-result")
+    public String getDiceAddResult (@RequestParam("number")int diceResultNum) {
+        log.info("getDiceResult() 요청!");
 
-
-//      여기에 주사위 값을 받아와서
-//      주사위1 + 주사위2 의 결과 짝/홀수 판명하는 것이 필요함.
-
-//    @GetMapping("/get-dice-add-result")
-//    public String getDiceResult (int 주사위1, int 주사위2) {
-//
-//    int addNumber = 0;
-//    addNumber = 주사위1 + 주사위2
-//
-//    if(addNumber % 2 == 0){
-//         return "짝수";
-//    }
-//
-//        return "홀수";
-//    }
+        if(diceResultNum % 2 == 0){
+             return "짝수이므로 패배!";
+        }
+            return "홀수이므로 승리!";
+        }
 
 }

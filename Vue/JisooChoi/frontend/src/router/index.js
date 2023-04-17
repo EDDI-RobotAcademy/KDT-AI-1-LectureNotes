@@ -20,10 +20,10 @@ import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpr
 import VueLifeCycleTestPage from "@/views/lifeCycle/VueLifeCycleTestPage.vue";
 
 // 숙제2 (기본 문제)
-import VueBasicTest from "@/views/basics/homework/VueBasicTest.vue";
+import VueBasicTest from "@/views/basics/homework/homeworkVueSecondTest/VueBasicTest.vue";
 
 // 숙제2 (심화 문제)
-import DataResponseFromSpringPageTest from "@/views/basics/axios/axiosTest/DataResponseFromSpringPageTest.vue";
+import VueProbTest from "@/views/basics/homework/homeworkVueSecondTest/VueProbTest.vue";
 
 Vue.use(VueRouter);
 
@@ -108,9 +108,9 @@ const routes = [
     component: VueLifeCycleTestPage,
   },
   {
-    path: "/data-response-from-spring-test",
-    name: "DataResponseFromSpringPageTest",
-    component: DataResponseFromSpringPageTest,
+    path: "/vue-prob-test",
+    name: "VueProbTest",
+    component: VueProbTest,
   },
   {
     path: "/vue-basic-test",
