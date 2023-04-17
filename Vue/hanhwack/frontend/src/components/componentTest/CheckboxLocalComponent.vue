@@ -13,11 +13,13 @@
     </div>
 </template>
 <script>
+import { Output } from 'webpack-chain'
+
 export default {
     name: "checkboxLocalComponent",
     props: {
        
-       
+        inputNumber: Number,
         outputNumber: Number,
     },
     data () {
@@ -32,10 +34,12 @@ export default {
         
         handleInput (event) {
           
-            this.outputNumber = event.target.value 
+            
             if(this.decrease) {
-                outputNumber: outputNumber * 0.9
-            }
+                inputNumber: event.target.value * 0.9
+                outputNumber: inputNumber
+            },
+            
            
         }
     },
