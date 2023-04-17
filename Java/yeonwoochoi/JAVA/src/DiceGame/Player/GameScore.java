@@ -7,7 +7,9 @@ public class GameScore {
     }
 
     public void takeScore(GameScore otherScore, int stealScore) {
+        // 총 점수에서 스틸(3) 수 만큼 - 하기
         this.totalScore -= stealScore;
+        // 또 다른거에 총 점수에서 스틸(3) 수 만큼 + 하기
         otherScore.totalScore += stealScore;
     }
 
