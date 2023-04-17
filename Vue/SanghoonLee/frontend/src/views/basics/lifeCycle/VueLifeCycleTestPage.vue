@@ -54,7 +54,7 @@ export default {
         },
         addManyMonsters () {
             let count = 1
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 100; i++) {
                 count = 1
                 // a, b가 첫 번째 원소, 두 번째 원소에 해당합니다.
                 // 마지막에 0을 배치해서 지속적으로 큰 숫자를 앞으로 땡기는 작업을 진행합니다.
