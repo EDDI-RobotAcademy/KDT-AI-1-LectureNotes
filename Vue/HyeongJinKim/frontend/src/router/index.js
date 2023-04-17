@@ -16,6 +16,9 @@ import ComponentTestPage from "@/views/basics/componentTest/ComponentTestPage.vu
 
 import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
 
+import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpringPage.vue";
+
+import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.vue";
 //
 import VueHomeworkPage from "@/views/basics/homework/VueHomeworkPage.vue";
 
@@ -85,7 +88,16 @@ const routes = [
     name: "DataSendTestPage",
     component: DataSendTestPage,
   },
-
+  {
+    path: "/random-dice-from-spring",
+    name: "DataResponseFromSpringPage",
+    component: DataResponseFromSpringPage,
+  },
+  {
+    path: "/vue-lifecycle-test",
+    name: "VueLifeCycleTestPage",
+    component: VueLifeCycleTestPage,
+  },
   //
   {
     path: "/vue-homework-page",
