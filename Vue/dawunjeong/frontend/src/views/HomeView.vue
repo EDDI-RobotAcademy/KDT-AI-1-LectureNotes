@@ -24,6 +24,7 @@
         <router-link to="/homework-test-page">과제 테스트 페이지</router-link> |
         <router-link to="/problem-page1">과제 풀이 페이지</router-link> |
         <router-link to="/random-dice-from-spring">axios로 주사위 데이터 받기</router-link> |
+        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프사이클</router-link> |
       </nav>
     </div>
   </v-container>

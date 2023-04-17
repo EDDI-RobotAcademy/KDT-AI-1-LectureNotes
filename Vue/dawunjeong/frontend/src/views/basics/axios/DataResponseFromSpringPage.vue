@@ -18,6 +18,8 @@ export default {
     },
     methods: {
         onSubmit () {
+            // 아래와 같이 데이터에 대한 요청은 Front에서
+            // 데이터를 처리해서 전달하는 것은 Back으로 분리할 수 있습니다.
             axios.get('http://localhost:7777/vue-test/get-random-dice')
             .then((res) => {
                 alert('요청에 대한 응답 데이터: ' + res.data)
