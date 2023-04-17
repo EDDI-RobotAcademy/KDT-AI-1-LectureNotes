@@ -20,6 +20,7 @@ import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vu
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
 import ComponentTestHome from '@/views/basics/componentTest/ComponentTestHome.vue'
+import ProblemPage1 from '@/views/homework/problem1/ProblemPage1.vue'
 
 Vue.use(VueRouter)
 
@@ -91,6 +92,11 @@ const routes = [
     path: '/homework-test-page',
     name: 'ComponentTestHome',
     component: ComponentTestHome
+  },
+  {
+    path: '/problem-page1',
+    name: 'ProblemPage1',
+    component: ProblemPage1
   },
 ]
 
