@@ -11,6 +11,10 @@
         <local-calculate-component :first-value="3" :second-value="2" :third-value="`-`"/>
         <local-calculate-component :first-value="3" :second-value="2" :third-value="`*`"/>
         <local-calculate-component :first-value="3" :second-value="2" :third-value="`/`"/>
+        <!-- 5. Local Component 내에 checkbox가 존재합니다.
+                v-bind로 전달할 데이터는 숫자입니다.
+                checkbox가 체크되면 10%를 차감하는 형태로 만들어봅시다. -->
+                <local-tax-bill-check-component :input-amount="1000000"/>
     </div>
 </template>
 <script>
@@ -18,13 +22,15 @@ import GlobalAddComponent from '@/components/homework/problem1/GlobalAddComponen
 import LocalSubComponent from '@/components/homework/problem1/LocalSubComponent.vue'
 import LocalInputTwoTimesComponent from '@/components/homework/problem1/LocalInputTwoTimesComponent.vue'
 import LocalCalculateComponent from '@/components/homework/problem1/LocalCalculateComponent.vue'
-
+import LocalTaxBillCheckComponent from '@/components/homework/problem1/LocalTaxBillCheckComponent.vue'
 
 export default {
     components: { GlobalAddComponent,
                   LocalSubComponent, 
                   LocalInputTwoTimesComponent, 
                   LocalCalculateComponent,
+                  LocalTaxBillCheckComponent,
+
  
     }
 }
