@@ -5,20 +5,20 @@ import customLibrary.CustomRandom;
 public class Dice {
     final int MIN_NUM = 1;
     final int MAX_NUM = 12;
-    final int diceNumber;
+    final int randomDiceNumber;
 
     public Dice(){
-        this.diceNumber = CustomRandom.generateNumber(MIN_NUM,MAX_NUM);
+        this.randomDiceNumber = CustomRandom.generateNumber(MIN_NUM,MAX_NUM);
     }
 
-    public int getDiceNumber() {
-        return diceNumber;
+    public int getRandomDiceNumber() {
+        return randomDiceNumber;
     }
 
     @Override
     public String toString() {
         return "Dice{" +
-                "diceNumber=" + diceNumber +
+                "randomDiceNumber=" + randomDiceNumber +
                 '}';
     }
 }
