@@ -16,6 +16,7 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage'
 
 import HomeworkPage from '@/views/homework/HomeworkPage.vue'
 
@@ -86,10 +87,17 @@ const routes = [
     component: DataSendTestPage
   },
   {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
     path: '/homework-page',
     name: 'HomeworkPage',
     component: HomeworkPage
   },
+
+
 ]
 
 const router = new VueRouter({
