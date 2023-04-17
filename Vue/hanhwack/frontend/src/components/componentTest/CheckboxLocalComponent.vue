@@ -38,7 +38,7 @@ export default {
             if(this.decrease) {
                 inputNumber: event.target.value * 0.9
                 outputNumber: inputNumber
-            },
+            }
             
            
         }
