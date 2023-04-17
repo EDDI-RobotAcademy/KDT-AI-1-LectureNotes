@@ -24,6 +24,8 @@ import HomeworkPage from '@/views/basics/homework/HomeworkPage.vue'
 // 선생님 과제 풀이 페이지
 import ProblemPage1 from '@/views/homeworkSolve/problem1/ProblemPage.vue'
 
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -99,6 +101,11 @@ const routes = [
     path: '/problem-page1',
     name: 'ProblemPage1',
     component: ProblemPage1
+  },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
   }
 ]
 

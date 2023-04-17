@@ -23,6 +23,7 @@
         <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
         <router-link to="/homework-test-page">과제 테스트 페이지</router-link> |
         <router-link to="/problem-page1">과제 풀이 페이지</router-link> |
+        <router-link to="/random-dice-from-spring">axios로 주사위 데이터 받기</router-link> |
       </nav>
     </div>
   </v-container>
