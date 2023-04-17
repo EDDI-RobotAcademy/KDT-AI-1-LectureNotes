@@ -23,6 +23,8 @@
         <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
         <router-link to="/random-dice-from-spring">axios 주사위 값 받기</router-link> |
         <router-link to="/homework-page">문제 은행</router-link> |
+        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
+
 
       </nav>
     </div>

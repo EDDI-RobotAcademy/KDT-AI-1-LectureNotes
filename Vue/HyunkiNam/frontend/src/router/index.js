@@ -19,6 +19,7 @@ import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage'
 
 import HomeworkPage from '@/views/homework/HomeworkPage.vue'
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
 Vue.use(VueRouter)
 
@@ -96,8 +97,11 @@ const routes = [
     name: 'HomeworkPage',
     component: HomeworkPage
   },
-
-
+  {
+    path: '/vue-lifecycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  },
 ]
 
 const router = new VueRouter({
