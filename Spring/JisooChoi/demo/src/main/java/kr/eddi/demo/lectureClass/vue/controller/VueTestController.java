@@ -37,7 +37,7 @@ public class VueTestController {
         log.info("helloSendTest() 요청!");
         return sendData;
     }
-    
+
     @GetMapping("/get-dice-add-result")
     public String getDiceAddResult (@RequestParam("number")int diceResultNum) {
         log.info("getDiceResult() 요청!");
