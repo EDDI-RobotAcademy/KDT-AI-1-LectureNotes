@@ -22,6 +22,7 @@
       <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
       <router-link to="/axios-test-page"> axios 통신 테스트</router-link> |
       <router-link to="/component-homework-test-page"> 과제</router-link> |
+      <router-link to="/problem1-page"> 1번 연습 문제</router-link> |
     </nav>
   </div>
 </v-containter> 
