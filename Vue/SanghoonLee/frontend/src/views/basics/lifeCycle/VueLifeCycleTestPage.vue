@@ -1,12 +1,15 @@
 <template lang="">
     <div style="text-align: left;">
+        <button @click="attackAll">전체 공격</button>
         <ul>
             <li v-for="(monster, index) in monsterList" :key="index">
                 ID: {{ monster.id }}, name: {{ monster.name }}, HP: {{ monster.hp }}
+                <button @click="attackMonster(index)">일반 공격</button>
             </li>
         </ul>
     </div>
 </template>
+
 <script>
 export default {
     data () {
@@ -29,9 +32,44 @@ export default {
                 { id: 3, name: '슬라임', hp: 30 },
             ]
         }
+    },
+    methods: {
+        attackMonster (monsterIdx) {
+            this.monsterList[monsterIdx].hp -= 10
+        },
+        attackAll () {
+            for (let i = 0; i < this.monsterList.length; i++) {
+                this.monsterList[i].hp = this.monsterList[i].hp - 100
+            }
+        }
+    },
+    beforeCreate () {
+        console.log('beforeCreate() 동작!')
+    },
+    created () {
+        console.log('created() 동작!')
+    },
+    beforeMount () {
+        console.log('beforeMount() 동작!')
+    },
+    mounted () {
+        console.log('mounted() 동작!')
+    },
+    beforeUpdate () {
+        console.log('beforeUpdate() 동작!')
+    },
+    updated () {
+        console.log('updated() 동작!')
+    },
+    beforeDestroy () {
+        console.log('beforeDestroy() 동작!')
+    },
+    destroyed () {
+        console.log('destroyed() 동작!')
     }
 }
 </script>
+
 <style lang="">
     
 </style>
