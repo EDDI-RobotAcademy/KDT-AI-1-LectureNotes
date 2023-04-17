@@ -41,6 +41,14 @@ export default {
             for (let i = 0; i < this.monsterList.length; i++) {
                 this.monsterList[i].hp = this.monsterList[i].hp - 100
             }
+        },
+        checkKilledMonster () {
+            console.log('길이: ' + this.monsterList.length)
+            for (let i = 0; i < this.monsterList.length; i++) {
+                if (this.monsterList[i].hp <= 0) {
+                    this.monsterList.splice(i, 1)
+                }
+            }
         }
     },
     beforeCreate () {
@@ -57,6 +65,8 @@ export default {
     },
     beforeUpdate () {
         console.log('beforeUpdate() 동작!')
+
+        this.checkKilledMonster()
     },
     updated () {
         console.log('updated() 동작!')
