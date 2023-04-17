@@ -53,24 +53,36 @@ public class VueHomework2 {
         final int BUFF_NUMBER = 3;
         final int DEATH_NUMBER = 4;
 
-        final int DEATH_SCORE = - 999;
+        final int STEAL_SCORE = 3;
+        final int BUFF_SCORE = 2;
+        final int DEATH_SCORE = -999;
 
         // 주사위 3개 생성
         // 주사위 3개 합 생성
         int diceSum = 0;
+        int totalScore;
 
-        // 첫 번째 주사위가 홀수라면 멈춰라
+        // 주사위 굴리기
         for (int i = 0; i < DICE_COUNT; i++) {
             diceSum = diceList.get(CustomRandom.generateNumber(MIN, MAX));
 
+            // 첫 번째 주사위가 홀수라면 멈춰라
             if (diceList.get(FIRST_DICE_INFO) % EVEN_DECISION == ODD) {
                 break;
             }
             if (diceList.get(THIRD_DICE_INFO) == DEATH_NUMBER) {
-//                playerList.get(0) == DEATH_SCORE;
-
+//                playerList.get(i)의 점수는 DEATH_SCORE;
+            }
+            if (diceList.get(THIRD_DICE_INFO) == BUFF_NUMBER) {
+                // i번째 플레이어 점수에 2점 추가
+            }
+            if (diceList.get(THIRD_DICE_INFO) == STEAL_NUMBER) {
+                // 상대 플레이어 점수에서 3점 빼고
+                // 현재 플레이어 점수에서 3점 더해라
             }
         }
+
+        // 최종점수 나타내기
 
         return null;
     }

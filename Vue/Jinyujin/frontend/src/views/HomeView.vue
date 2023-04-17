@@ -26,6 +26,7 @@
         <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
         <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
         <router-link to="/homework2">Vue 문제 은행 [2]</router-link> |
+        <router-link to="/checkbox-test">Vue 문제 은행 [2]</router-link> |
       </nav>
     </div>
   </v-container>

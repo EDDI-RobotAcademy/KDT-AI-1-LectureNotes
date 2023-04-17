@@ -28,6 +28,8 @@ import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.
 
 import ProblemPage2 from '@/views/homework/problem2/ProblemPage2.vue'
 
+import CheckboxTest from '@/views/homework/vueBasicProblem1/CheckboxTest.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -118,6 +120,11 @@ const routes = [
     path: '/homework2',
     name: 'ProblemPage2',
     component: ProblemPage2
+  },
+  {
+    path: '/checkbox-test',
+    name: 'CheckboxTest',
+    component: CheckboxTest
   },
 ]
 
