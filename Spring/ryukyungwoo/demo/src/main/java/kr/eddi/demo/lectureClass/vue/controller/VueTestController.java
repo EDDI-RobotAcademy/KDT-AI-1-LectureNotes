@@ -31,4 +31,28 @@ public class VueTestController {
 
         return CustomRandom.generateNumber(MIN, MAX);
     }
+
+    @GetMapping("/dice-1-homework")
+    public String dice1Homework () {
+        final int MIN = 1;
+        final int MAX = 6;
+        final int HOW_MANY_DICES = 2;
+        int sumDicesNumber = 0;
+
+        for (int i = 0; i < 2; i++) {
+            sumDicesNumber += CustomRandom.generateNumber(MIN, MAX);
+        }
+
+        if (sumDicesNumber % 2 == 0) {
+            return "승리";
+        } else {
+            return "패배";
+        }
+    }
+
+    @GetMapping("/dice-2-homework")
+    public String dice2Homework () {
+
+    }
+
 }
