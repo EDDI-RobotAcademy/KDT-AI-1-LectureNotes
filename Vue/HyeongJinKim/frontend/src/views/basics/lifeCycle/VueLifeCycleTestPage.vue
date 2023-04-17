@@ -46,6 +46,7 @@ export default {
     checkKilledMonster() {
       for (let i = 0; i < this.monsterList.length; i++) {
         if (this.monsterList[i].hp <= 0) {
+          // hp가 0이하인 요소를 1개 제거함
           this.monsterList.splice(i, 1);
         }
       }
@@ -53,14 +54,18 @@ export default {
     addManyMonsters() {
       let count = 1;
       for (let i = 0; i < 2; i++) {
-        count = 0;
+        count = 1;
+        // a, b가 첫 번째 원소, 두 번째 원소에 해당합니다.
+        // 마지막에 0을 배치해서 지속적으로 큰 숫자를 앞으로 땡기는 작업을 진행합니다.
         let max = this.monsterList.reduce((a, b) => {
           console.log("count: " + count++ + ", a: " + a + ", b: " + b.id);
           return a > b.id ? a : b.id;
         }, 0);
 
+        // JavaScript에서 랜덤값 활용 (몬스터 도감 개수만큼)
         let idx = Math.floor(Math.random() * this.monsterBook.length);
 
+        // 도감내 존재하는 임의의 몬스터를 추가함
         this.monsterList.push({
           id: max + 1,
           monsterId: idx,
