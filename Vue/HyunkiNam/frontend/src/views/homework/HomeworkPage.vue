@@ -6,6 +6,7 @@
         <calculate-component />
         <checkbox-component :num="number1" />
         <win-condition-is-even />
+        <dice-game-component />
     </v-container>
 </template>
 <script>
@@ -15,6 +16,7 @@ import MultipleTwoComponent from '@/components/homeworkComponent/MultipleTwoComp
 import CalculateComponent from '@/components/homeworkComponent/CalculateComponent.vue';
 import CheckboxComponent from '@/components/homeworkComponent/CheckboxComponent.vue';
 import WinConditionIsEven from '@/components/homeworkComponent/WinConditionIsEven.vue';
+import DiceGameComponent from '@/components/homeworkComponent/DiceGameComponent.vue';
 
 export default {
     components: {
@@ -22,7 +24,8 @@ export default {
         MultipleTwoComponent,
         CalculateComponent,
         CheckboxComponent,
-        WinConditionIsEven
+        WinConditionIsEven,
+        DiceGameComponent
     },
     data() {
         return {

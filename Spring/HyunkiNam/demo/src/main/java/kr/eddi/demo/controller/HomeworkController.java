@@ -1,15 +1,20 @@
 package kr.eddi.demo.controller;
 
+import kr.eddi.demo.homework.GameManager;
+import kr.eddi.demo.homework.Player;
 import kr.eddi.demo.lectureClass.vue.controller.utility.random.CustomRandom;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
+import java.util.List;
+
 @RestController
 @RequestMapping("/homework")
-public class HomeworkEvenController {
+public class HomeworkController {
 
-    @GetMapping("win-condition-is-even")
+    @GetMapping("/win-condition-is-even")
     public StringBuilder winConditionIsEVEN(){
         final int MIN = 1;
         final int MAX = 6;
@@ -30,5 +35,14 @@ public class HomeworkEvenController {
         }
         sb.append(" 패배");
         return sb;
+    }
+
+    @GetMapping("/dice-game")
+    public String diceGame(){
+        GameManager gameManager = new GameManager();
+
+        gameManager.playGame();
+
+        return String.valueOf(gameManager.printPlayerList()) +" 승자 : "+ String.valueOf(gameManager.checking());
     }
 }
