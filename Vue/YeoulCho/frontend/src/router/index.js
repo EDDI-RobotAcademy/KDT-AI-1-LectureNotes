@@ -23,6 +23,10 @@ import Problem1Page from "@/views/homework/problem1/Problem1Page.vue"
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
 
 import VueLifecycleTestPage from '@/views/basics/lifeCycle/VueLifecycleTestPage'
+
+import Problem2Page from "@/views/homework/problem2/Problem2Page.vue"
+import Problem2dot2Page from "@/views/homework/problem2/problem2-2/Problem2-2.vue"
+import BasicProblemPage from "@/views/homework/basicProblem/BasicProblem.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -109,6 +113,21 @@ const routes = [
     path: '/vue-lifecycle-test',
     name: 'VueLifecycleTestPage',
     component: VueLifecycleTestPage
+  },
+  {
+    path: '/problem2-page',
+    name: 'Problem2Page',
+    component: Problem2Page
+  },
+  {
+    path: '/problem2-2-page',
+    name: 'Problem2-2Page',
+    component: Problem2dot2Page
+  },
+  {
+    path: '/basic-problem',
+    name: 'BasicProblemPage',
+    component: BasicProblemPage
   }
 
 

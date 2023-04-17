@@ -8,7 +8,7 @@
   
 </template>
 <script>
-import NavigationMenuPage from '@/views/basics/layout/navigation/NavigationMenuPage.vue.js';
+import NavigationMenuPage from '@/views/basics/layout/navigation/NavigationMenuPage.vue';
 export default {
   components: {
     NavigationMenuPage
