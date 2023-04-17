@@ -21,6 +21,7 @@
 
 <script>
 
+// GlobalComponent는 import를 해주지 않아도 값이 나와야 한다 (main.js에서 꼭 추가해줘야 함)
 import LocalSubtractComponent from '@/components/homework/problem1/LocalSubtractComponent.vue'
 import LocalInputTwoTimesComponent from '@/components/homework/problem1/LocalInputTwoTimesComponent.vue'
 import LocalCalculateComponent from '@/components/homework/problem1/LocalCalculateComponent.vue'

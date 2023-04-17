@@ -22,6 +22,10 @@ import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 import ComponentTestHome from '@/views/basics/componentTest/ComponentTestHome.vue'
 import ProblemPage1 from '@/views/homework/problem1/ProblemPage1.vue'
 
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
+
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -97,6 +101,16 @@ const routes = [
     path: '/problem-page1',
     name: 'ProblemPage1',
     component: ProblemPage1
+  },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
+    path: '/vue-lifecycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
   },
 ]
 
