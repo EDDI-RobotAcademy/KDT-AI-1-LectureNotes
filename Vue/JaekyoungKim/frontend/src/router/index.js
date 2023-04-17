@@ -11,6 +11,10 @@ import VueCheckboxPage from '@/views/basics/vModel/VueCheckboxPage.vue'
 import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue'
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
+import HomeworkPage from '@/views/homework/HomeworkPage.vue'
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage'
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -77,7 +81,24 @@ const routes = [
     path: '/data-send-test-page',
     name: 'DataSendTestPage',
     component: DataSendTestPage
-  }
+  },
+  {
+    path: '/homework-page',
+    name: 'HomeworkPage',
+    component: HomeworkPage
+  },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
+    path: '/life-cycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  },
+
+
 ]
 
 const router = new VueRouter({

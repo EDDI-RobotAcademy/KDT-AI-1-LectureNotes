@@ -23,6 +23,7 @@
             <router-link to="/data-send-test-page">데이터 전송 테스트 페이지</router-link> |
             <router-link to="/homework-page">숙제 페이지</router-link> |
             <router-link to="/random-dice-from-spring">주사위 받아오기</router-link> |
+            <router-link to="/life-cycle-test">몬스터 정보</router-link>
         </nav></div>
       </v-container>
 </template>
