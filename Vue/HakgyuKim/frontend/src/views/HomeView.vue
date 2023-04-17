@@ -22,6 +22,7 @@
       <router-link to="/global-component-test-page" >전역 컴포넌트 테스트</router-link> |
       <router-link to="/data-send-test-page" >데이터 샌드 테스트</router-link> |
       <router-link to="/homework1" >문제은행1</router-link> |
+      <router-link to="/data-response-from-spring-page">주사위 굴리기</router-link>
       </nav>
     </div>
   </v-container>

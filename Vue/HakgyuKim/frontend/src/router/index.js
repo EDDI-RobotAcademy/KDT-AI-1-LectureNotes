@@ -16,6 +16,7 @@ import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vu
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
 import Homework1 from '@/views/homework/Homework1.vue'
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
 
 
 Vue.use(VueRouter)
@@ -88,6 +89,11 @@ const routes = [
     path: '/homework1',
     name: 'Homework1',
     component: Homework1
+  },
+  {
+    path: '/data-response-from-spring-page',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
   }
 ]
 
