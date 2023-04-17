@@ -1,19 +1,15 @@
 package com.example.demo.homework;
 
 import com.example.demo.lectureClass.utility.random.CustomRandom;
-import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Slf4j
 @RestController
 @RequestMapping("/vue-homework")
-public class VueHomework {
+public class VueHomework1 {
     @GetMapping("/roll-two-dice") // 그냥 달라고 요청하는 거니까 파라메터 필요 없음
     public String getRandomDice() {
         final int MIN = 1;
