@@ -5,7 +5,6 @@ import kr.eddi.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -34,14 +33,24 @@ public class VueTestController {
 
         return CustomRandom.generateNumber(MIN, MAX);
     }
+
     @GetMapping("/get-random-dices")
     public List<Integer> getRandomDices () {
         final int MIN = 1;
         final int MAX = 6;
-        final int DICENUMBER = 2;
+        int DICENUMBER = 2;
 
         log.info("getRandomDice() 요청!");
 
         return CustomRandom.generateNumberArr(MIN, MAX, DICENUMBER);
+    }
+
+    @GetMapping("/play-dice-game")
+    public void getGameInfo () {
+    }
+
+    @GetMapping("/get-hello")
+    public String getHello() {
+        return "Spring: 나도 안녕";
     }
 }

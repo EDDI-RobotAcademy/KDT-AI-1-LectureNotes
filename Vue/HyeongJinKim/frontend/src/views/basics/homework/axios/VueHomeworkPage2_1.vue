@@ -1,12 +1,12 @@
 <template>
   <div>
-    <button type="submit" @click="onSubmit">주사위 굴리기</button><br />
+    <button type="submit" @click="onSubmit">주사위 굴리기</button><br /><br />
     <p>
       수신된 주사위 번호: {{ diceArray }}<br />
       두 주사위의 합은 {{ diceArray[0] + diceArray[1] }}<br />
     </p>
-    <div v-if="(diceArray[0] + diceArray[1]) % 2 == 0">승리</div>
-    <div v-else>패배</div>
+    <div v-if="(diceArray[0] + diceArray[1]) % 2">패배</div>
+    <div v-else>승리</div>
   </div>
 </template>
 
@@ -16,7 +16,6 @@ export default {
   data() {
     return {
       diceArray: [],
-      diceNumber: 2,
     };
   },
   methods: {

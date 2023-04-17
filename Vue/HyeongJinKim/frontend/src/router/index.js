@@ -20,9 +20,11 @@ import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpr
 
 import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.vue";
 
-import DiceGamePage from "@/views/basics/axios/DiceGamePage.vue";
 //
 import VueHomeworkPage from "@/views/basics/homework/VueHomeworkPage.vue";
+import VueHomeworkPage2_1 from "@/views/basics/homework/axios/VueHomeworkPage2_1.vue";
+import VueHomeworkPage2_2 from "@/views/basics/homework/axios/VueHomeworkPage2_2.vue";
+import VueBasicProbs from "@/views/basics/homework/VueBasicProbs.vue";
 
 Vue.use(VueRouter);
 
@@ -100,16 +102,26 @@ const routes = [
     name: "VueLifeCycleTestPage",
     component: VueLifeCycleTestPage,
   },
-  {
-    path: "/dice-game-page",
-    name: "DiceGamePage",
-    component: DiceGamePage,
-  },
   //
   {
     path: "/vue-homework-page",
     name: "VueHomeworkPage",
     component: VueHomeworkPage,
+  },
+  {
+    path: "/vue-homework-page2_1",
+    name: "VueHomeworkPage2_1",
+    component: VueHomeworkPage2_1,
+  },
+  {
+    path: "/vue-homework-page2_2",
+    name: "VueHomeworkPage2_2",
+    component: VueHomeworkPage2_2,
+  },
+  {
+    path: "/vue-basic-probs",
+    name: "VueBasicProbs",
+    component: VueBasicProbs,
   },
 ];
 
