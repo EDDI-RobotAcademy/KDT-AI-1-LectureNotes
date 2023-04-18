@@ -1,13 +1,5 @@
 <template lang="">
     <div>
-        <button @click="appleMinus">사과</button>
-        <button @click="applePlus"></button>
-        <p>{{ appleCount }} 개 사과를 담았습니다</p>
-        <br>
-        <button @click="watermelonMinus">수박</button>
-        <button @click="watermelonPlus"></button>
-        <br>
-        <p>{{ watermelonCount }} 개 수박을 담았습니다</p>
         <table>
             <tr>
                 <th>사과 개수</th>
