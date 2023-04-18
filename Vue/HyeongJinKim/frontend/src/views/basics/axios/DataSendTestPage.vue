@@ -60,8 +60,8 @@ export default {
       // GetMapping은 정보가 URL에 전부 노출됩니다.
       axios
         .post("http://localhost:7777/vue-test/receive-test", {
-          studentName,
-          studentMajor,
+          // studentName,
+          // studentMajor,
           studentAge,
         })
         .then((res) => {

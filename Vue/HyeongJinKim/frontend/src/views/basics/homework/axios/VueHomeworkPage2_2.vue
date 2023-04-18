@@ -32,14 +32,6 @@ export default {
     };
   },
   methods: {
-    startTwoTimesDiceGame() {
-      axios.get("http://localhost:7777/dice-game/firstGame").then((res) => {
-        //this.result = res.data
-        //console.log('result: ' + res.data)
-        this.result = res.data.result;
-        this.playingNumber = res.data.winnerNumber;
-      });
-    },
     startDiceGameWithComputer() {
       axios.get("http://localhost:7777/dice-game/secondGame").then((res) => {
         console.log(res);
