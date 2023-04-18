@@ -11,7 +11,6 @@ import AddGlobalComponent from '@/components/componentTest/AddGlobalComponent.vu
 //과제- 전역 컴포넌트
 import GlobalAddComponent from "@/components/homework/problem1/GlobalAddComponent.vue"
 
-
 Vue.config.productionTip = false
 
 //Vue 객체 전체에 GlobalComponent를 등록하는 과정
@@ -20,6 +19,7 @@ Vue.component(GlobalComponent.name, GlobalComponent)
 Vue.component(AddGlobalComponent.name, AddGlobalComponent)
 
 Vue.component(GlobalAddComponent.name, GlobalAddComponent)
+
 
 new Vue({
   router,
