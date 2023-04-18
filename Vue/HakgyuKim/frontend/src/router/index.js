@@ -21,6 +21,7 @@ import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpr
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 import Homework2 from '@/views/homework/Homework2.vue'
 import HomeworkBasic1 from '@/views/homework/HomeworkBasic1.vue'
+import Homework2Answer from '@/views/homework/answer/Homework2Answer.vue'
 
 Vue.use(VueRouter)
 
@@ -112,6 +113,11 @@ const routes = [
     path: '/homework-basic1',
     name: 'HomeworkBasic1',
     component: HomeworkBasic1
+  },
+  {
+    path: '/homework2-answer',
+    name: 'Homework2Answer',
+    component: Homework2Answer
   }
 ]
 

@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/homework-basic1")
 public class HomeworkBasic1Controller {
-String hello;
+String test;
 
     @PostMapping("/receive-hello")
     public void receiveHello (@RequestBody String hello) {
         log.info("received data: " + hello);
-        this.hello = hello;
+        this.test = hello;
     }
 
     @GetMapping("/get-hello")
     public String getHello () {
-        return (hello);
+        return test;
     }
 }
