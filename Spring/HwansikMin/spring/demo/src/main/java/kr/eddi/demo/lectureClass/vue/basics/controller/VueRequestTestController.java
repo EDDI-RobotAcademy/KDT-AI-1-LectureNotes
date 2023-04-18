@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/vue-test")
-public class VueTestController {
+@RequestMapping("/vue-request-test")
+public class VueRequestTestController {
 
     /*
     실제 @RequestMapping("/vue-test")와 @PostMapping("/receive-test")로 URL 경로가 만들어짐
