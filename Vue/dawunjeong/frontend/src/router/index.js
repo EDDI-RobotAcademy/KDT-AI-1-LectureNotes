@@ -30,6 +30,8 @@ import DiceGameDataResponseFromSpringPage from '@/views/basics/axios/homework/Di
 
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
+import Problem2Page from '@/views/homeworkSolve/problem2/Problem2Page.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -125,6 +127,11 @@ const routes = [
     path: '/random-dice-game-from-spring',
     name: 'DiceGameDataResponseFromSpringPage',
     component: DiceGameDataResponseFromSpringPage
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
   },
 ]
 

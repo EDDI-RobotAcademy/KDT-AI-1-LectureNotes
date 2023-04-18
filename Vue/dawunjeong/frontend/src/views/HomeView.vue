@@ -27,6 +27,7 @@
         <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프사이클</router-link> |
         <router-link to="/random-dice-check-win-from-spring">axios로 주사위 승패 판정하기</router-link> |
         <router-link to="/random-dice-game-from-spring">axios로 1:1 주사위 게임하기</router-link> |
+        <router-link to="/problem-page2">2번 연습 문제</router-link> |
       </nav>
     </div>
   </v-container>
