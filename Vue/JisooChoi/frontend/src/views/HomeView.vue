@@ -51,6 +51,8 @@
         |
         <router-link to="/vue-basic-test">Vue 두 번째 기본 숙제</router-link> |
         <router-link to="/vue-prob-test">Vue 두 번째 문제 은행</router-link>|
+
+        <router-link to="/problem-page2">Vue 두 번째 문제 은행 리뷰 페이지</router-link>|
       </nav>
     </div>
   </v-container>
