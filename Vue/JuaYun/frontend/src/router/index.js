@@ -21,6 +21,8 @@ import DataSendTestPage from '@/views/axios/DataSendTestPage.vue'
 import ProblemPage1 from '@/views/homework/problem1/ProblemPage.vue'
 import DataResponseFromSpringPage from '@/views/axios/DataResponseFromSpringPage.vue'
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
+import ProblemPage from '@/views/homework/problem1/ProblemPage.vue'
 
 
 
@@ -104,7 +106,18 @@ const routes = [
     path: '/vue-lifecycle-test',
     name: 'VueLifeCycleTestPage',
     component: VueLifeCycleTestPage
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
+  },
+  {
+    path: '/problem-page',
+    name: 'ProblemPage',
+    component: ProblemPage
   }
+
 
 
 ]
