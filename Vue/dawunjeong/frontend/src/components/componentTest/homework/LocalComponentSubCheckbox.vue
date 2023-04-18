@@ -1,7 +1,7 @@
 <template>
     <div>
-        <input type="number" v-model.number="number"> 
-        <label><input type="checkbox" v-model="isChecked" @change="subNumber">10% 차감</label>
+        숫자 입력: <input type="number" v-model.number="number" style="text-align: center; width: 60px;"> 
+        <label><input type="checkbox" v-model="isChecked" @change="subNumber" style="margin-left: 10px;">10% 차감</label>
         <p>결과: {{ resultNumber }}</p>
     </div>
 </template>
