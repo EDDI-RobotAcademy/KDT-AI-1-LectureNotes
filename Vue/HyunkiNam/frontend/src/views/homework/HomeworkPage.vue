@@ -7,6 +7,10 @@
         <checkbox-component :num="number1" />
         <win-condition-is-even />
         <dice-game-component />
+        <is-checkbox-component />
+        <check-even-odd-component />
+        <send-hello-component />
+        <dice-game-two-times />
     </v-container>
 </template>
 <script>
@@ -17,6 +21,10 @@ import CalculateComponent from '@/components/homeworkComponent/CalculateComponen
 import CheckboxComponent from '@/components/homeworkComponent/CheckboxComponent.vue';
 import WinConditionIsEven from '@/components/homeworkComponent/WinConditionIsEven.vue';
 import DiceGameComponent from '@/components/homeworkComponent/DiceGameComponent.vue';
+import IsCheckboxComponent from '@/components/homeworkComponent/IsCheckboxComponent.vue';
+import CheckEvenOddComponent from '@/components/homeworkComponent/CheckEvenOddComponent.vue';
+import SendHelloComponent from '@/components/homeworkComponent/SendHelloComponent.vue';
+import DiceGameTwoTimes from '@/components/HomeworkSolutionComponent/DiceGameTwoTimes.vue';
 
 export default {
     components: {
@@ -25,7 +33,11 @@ export default {
         CalculateComponent,
         CheckboxComponent,
         WinConditionIsEven,
-        DiceGameComponent
+        DiceGameComponent,
+        IsCheckboxComponent,
+        CheckEvenOddComponent,
+        SendHelloComponent,
+        DiceGameTwoTimes
     },
     data() {
         return {

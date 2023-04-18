@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/homework")
 public class HomeworkController {
-
+    String str;
     @GetMapping("/win-condition-is-even")
     public StringBuilder winConditionIsEVEN(){
         final int MIN = 1;
@@ -44,13 +44,16 @@ public class HomeworkController {
     }
 
     @PostMapping("/send-hello")
-    public void receiveHello(String hello){
+    public void receiveHello(@RequestBody String hello){
         log.info("received data: " + hello);
+        this.str = hello.substring(hello.indexOf(":\"")+2,hello.indexOf("}")-1);;
+
+        System.out.println(str);
     }
 
-    @PostMapping("/receive-test")
-    public void receiveTest (@RequestBody VueRequestTestDataForm vueRequestTestDataForm){
-        log.info("received data: " + vueRequestTestDataForm);
+    @GetMapping("/get-message")
+    public String receiveTest(){
+        return str;
     }
 
 
