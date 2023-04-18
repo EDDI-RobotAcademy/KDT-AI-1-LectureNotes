@@ -24,8 +24,11 @@ import VueBasicTest from "@/views/basics/homework/problem2/VueBasicTest.vue";
 
 // 숙제2 (심화 문제)
 import VueProbTest from "@/views/basics/homework/problem2/VueProbTest.vue";
-
 import Problem2Page from "@/views/basics/homework/review/Problem2Page.vue";
+
+// 숙제3 (과일가게)
+import Vueprob3 from "@/views/basics/homework/problem3/Vueprob3.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -119,9 +122,14 @@ const routes = [
     component: VueBasicTest,
   },
   {
-    path: '/problem-page2',
-    name: 'Problem2Page',
-    component: Problem2Page
+    path: "/problem-page2",
+    name: "Problem2Page",
+    component: Problem2Page,
+  },
+  {
+    path: "/problem-page3",
+    name: "Vueprob3",
+    component: Vueprob3,
   },
 ];
 
