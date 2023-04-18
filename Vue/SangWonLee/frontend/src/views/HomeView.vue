@@ -25,6 +25,7 @@
         <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
         <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
         <router-link to="/even-odd-test">짝수인지 홀수인지 알아보기</router-link> |
+        <router-link to="/problem-page2">2번 연습 문제</router-link> |
 
       </nav>
     </div>

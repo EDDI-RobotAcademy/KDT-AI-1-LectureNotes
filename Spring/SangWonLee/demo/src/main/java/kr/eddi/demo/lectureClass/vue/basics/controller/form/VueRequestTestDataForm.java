@@ -1,4 +1,4 @@
-package kr.eddi.demo.lectureClass.vue.controller.form;
+package kr.eddi.demo.lectureClass.vue.basics.controller.form;
 
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;

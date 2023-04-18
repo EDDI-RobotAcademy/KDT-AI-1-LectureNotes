@@ -16,6 +16,7 @@ import ProblemPage1 from "@/views/homework/problem1/ProblemPage.vue";
 import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpringPage.vue";
 import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.vue";
 import EvenOddTest from "@/views/homework/basic_problem/EvenOddTest";
+import Problem2Page from "@/views/homework/problem2/Problem2Page.vue";
 
 Vue.use(VueRouter);
 
@@ -105,6 +106,11 @@ const routes = [
     path: "/even-odd-test",
     name: "EvenOddTest",
     component: EvenOddTest,
+  },
+  {
+    path: "/problem-page2",
+    name: "Problem2Page",
+    component: Problem2Page,
   },
 ];
 
