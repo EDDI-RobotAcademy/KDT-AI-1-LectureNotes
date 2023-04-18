@@ -21,7 +21,6 @@ public class DiceGameManager {
     }
 
     /* 멀티 플레이 */
-    /* 멀티 플레이 */
     public DiceGameManager(int playerNum, int diceMaxNumber) {
         playerList = new ArrayList<>();
 
