@@ -32,6 +32,8 @@ import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.
 
 import Problem2Page from '@/views/homeworkSolve/problem2/Problem2Page.vue'
 
+import BuyFruitPage from '@/views/homework/problem3/BuyFruitPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -132,6 +134,11 @@ const routes = [
     path: '/problem-page2',
     name: 'Problem2Page',
     component: Problem2Page
+  },
+  {
+    path: '/buy-fruit-page',
+    name: 'BuyFruitPage',
+    component: BuyFruitPage
   },
 ]
 
