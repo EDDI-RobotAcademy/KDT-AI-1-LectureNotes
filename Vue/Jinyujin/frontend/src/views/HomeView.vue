@@ -30,6 +30,7 @@
         <router-link to="/hi-send-test">안녕 보내기 테스트</router-link> |
         <router-link to="/hi-response-test">안녕 받기 테스트</router-link> |
         <router-link to="/problem-page2">2번 연습 문제</router-link> |
+        <router-link to="/fruit-price-sum">과일 가격 총합 구하기</router-link> |
       </nav>
     </div>
   </v-container>

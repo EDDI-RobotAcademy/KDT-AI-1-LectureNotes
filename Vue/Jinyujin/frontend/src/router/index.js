@@ -34,6 +34,8 @@ import HiResponsePage from '@/views/basics/axios/HiResponsePage.vue'
 
 import Problem2Page from '@/views/basics/solved/problem2/Problem2Page.vue'
 
+import FruitPriceSum from '@/views/homework/buyFruits/FruitPriceSum.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -144,6 +146,11 @@ const routes = [
     path: '/problem-page2',
     name: 'Problem2Page',
     component: Problem2Page
+  },
+  {
+    path: '/fruit-price-sum',
+    name: 'FruitPriceSum',
+    component: FruitPriceSum
   },
 
 ]
