@@ -14,16 +14,16 @@ import ComponentTestPage from "@/views/basics/componentTest/ComponentTestPage.vu
 import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
 
 // 숙제1
-import HomeworkComponentTest from "@/views/basics/homework/HomeworkComponentTest.vue";
+import HomeworkComponentTest from "@/views/basics/homework/problem1/HomeworkComponentTest.vue";
 
 import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpringPage.vue";
 import VueLifeCycleTestPage from "@/views/lifeCycle/VueLifeCycleTestPage.vue";
 
 // 숙제2 (기본 문제)
-import VueBasicTest from "@/views/basics/homework/homeworkVueSecondTest/VueBasicTest.vue";
+import VueBasicTest from "@/views/basics/homework/problem2/VueBasicTest.vue";
 
 // 숙제2 (심화 문제)
-import VueProbTest from "@/views/basics/homework/homeworkVueSecondTest/VueProbTest.vue";
+import VueProbTest from "@/views/basics/homework/problem2/VueProbTest.vue";
 
 Vue.use(VueRouter);
 

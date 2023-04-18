@@ -34,16 +34,16 @@
 </template>
 
 <script>
-import HomeworkMinusLocalComponent from "@/components/homework/HomeworkMinusLocalComponent.vue";
-import HomeworkMultipleLocalComponent from "@/components/homework/HomeworkMultipleLocalComponent.vue";
-import HomeworkCalculatorLocalComponent from "@/components/homework/HomeworkCalculatorLocalComponent.vue";
-import LocalTaxBillCheckComponent from "@/components/homework/LocalTaxBillCheckComponent.vue";
+import HomeworkMinusLocalComponent from "@/components/homework/problem1/HomeworkMinusLocalComponent.vue";
+import HomeworkMultipleLocalComponent from "@/components/homework/problem1/HomeworkMultipleLocalComponent.vue";
+import HomeworkCalculatorLocalComponent from "@/components/homework/problem1/HomeworkCalculatorLocalComponent.vue";
+import LocalTaxBillCheckComponent from "@/components/homework/problem1/LocalTaxBillCheckComponent.vue";
 
 export default {
   components: {
-    "homework-minus-local-component": HomeworkMinusLocalComponent,
-    "homework-multiple-local-component": HomeworkMultipleLocalComponent,
-    "homework-calculator-local-component": HomeworkCalculatorLocalComponent,
+    HomeworkMinusLocalComponent,
+     HomeworkMultipleLocalComponent,
+    HomeworkCalculatorLocalComponent,
     LocalTaxBillCheckComponent,
   },
   data() {
