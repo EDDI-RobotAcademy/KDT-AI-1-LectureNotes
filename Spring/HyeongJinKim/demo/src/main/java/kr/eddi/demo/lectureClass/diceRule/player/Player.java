@@ -1,52 +1,56 @@
 package kr.eddi.demo.lectureClass.diceRule.player;
-
 import kr.eddi.demo.lectureClass.diceRule.Dice;
-import kr.eddi.demo.lectureClass.diceRule.GameScore;
-
+import lombok.Getter;
+import lombok.ToString;
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
+@ToString
 public class Player {
-    final private int MAX_DICE_NUM = 3;
-    final private String name;
-    final private List<Dice> gameDiceList = new ArrayList<>();
-    final private GameScore gameScore;
+    private List<Dice> diceList;
+    private int diceSum;
+    private String name;
 
-    public Player(String name) {
-        this.name = name;
-        int diceNumberSum = rollDice();
-        gameScore = new GameScore(diceNumberSum);
+    public Player(int diceMaxNumber) {
+        diceList = new ArrayList<>();
+
+        for (int i = 0; i < diceMaxNumber; i++) {
+            diceList.add(new Dice());
+        }
     }
-    private int rollDice() {
-        final int FIRST_DICE_INFO = 0;
-        final int DECISION_EVEN = 2;
+
+    public Player(int diceMaxNumber, int conditionDiceIdx, int nameIdx) {
+        diceList = new ArrayList<>();
+        diceSum = 0;
+
+        name = "player" + nameIdx;
+
+        final int EVEN_DICISION = 2;
         final int ODD = 1;
-        int diceNumberSum = 0;
 
-        for (int i = 0; i < MAX_DICE_NUM; i++) {
-            gameDiceList.add(new Dice());
+        for (int i = 0; i < diceMaxNumber; i++) {
+            final Dice dice = new Dice();
+            diceList.add(dice);
 
-            diceNumberSum += gameDiceList.get(i).getDiceNumber();
+            diceSum += dice.getDiceNumber();
 
-            if (gameDiceList.get(FIRST_DICE_INFO).getDiceNumber() %
-                    DECISION_EVEN == ODD) {
-                break;
+            if (i == conditionDiceIdx) {
+                if (dice.getDiceNumber() % EVEN_DICISION == ODD) {
+                    break;
+                }
             }
         }
-        return diceNumberSum;
     }
 
-    public Dice getSelectedGameDice(int index) {
-        if (gameDiceList.size() > index) {
-            return gameDiceList.get(index);
+    public Dice getDice (int idx) {
+        if (diceList.size() - 1 < idx) {
+            return null;
         }
-        return null;
+
+        return diceList.get(idx);
     }
 
-    public GameScore getGameScore() {
-        return gameScore;
-    }
-    public String getName() {
-        return name;
+    public void setDiceSum (int score) {
+        this.diceSum = score;
     }
 }

@@ -1,7 +1,7 @@
 package kr.eddi.demo.lectureClass.vue.controller;
 
 import kr.eddi.demo.lectureClass.diceRule.Dice;
-import kr.eddi.demo.lectureClass.diceRule.GameManager;
+import kr.eddi.demo.lectureClass.diceRule.DiceGameManager;
 import kr.eddi.demo.lectureClass.diceRule.player.Player;
 import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
 import kr.eddi.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
@@ -47,30 +47,6 @@ public class VueTestController {
         log.info("getRandomDice() 요청!");
 
         return CustomRandom.generateNumberArr(MIN, MAX, DICENUMBER);
-    }
-
-    @GetMapping("/first-dice-check")
-    public int getDiceNumber (List<Integer> myDiceArray) {
-        final int MAX_DICE_NUM = 3;
-        final int FIRST_DICE_INFO = 0;
-        final int DECISION_EVEN = 2;
-        final int ODD = 1;
-        int diceNumberSum = 0;
-
-        for (int i = 0; i < MAX_DICE_NUM; i++) {
-            diceNumberSum += myDiceArray.get(i);
-
-            if (myDiceArray.get(FIRST_DICE_INFO) % DECISION_EVEN == ODD) {
-                break;
-            }
-        }
-        return diceNumberSum;
-    }
-
-    @GetMapping("/dice-rule")
-    public List<Player> getGameManager () {
-        GameManager gameManager = new GameManager();
-        return gameManager.playGame();
     }
 
     @GetMapping("/get-hello")
