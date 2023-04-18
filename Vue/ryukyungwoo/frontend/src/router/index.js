@@ -26,7 +26,7 @@ import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpr
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage'
 
 import Dice1Homework from '@/views/homework/problem2/Dice1.vue'
-import Dice1Homework from '@/views/homework/problem2/Dice2.vue'
+import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
 
 Vue.use(VueRouter)
 
@@ -115,9 +115,9 @@ const routes = [
     component: Dice1Homework
   },
   {
-    path: '/dice-2-homework',
-    name: 'Dice2Homework',
-    component: Dice2Homework
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
   }
 ]
 
