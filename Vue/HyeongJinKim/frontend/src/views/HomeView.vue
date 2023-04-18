@@ -38,6 +38,7 @@
         <router-link to="/vue-homework-page2_1">Vue 문제 은행 [2] - 1</router-link> |
         <router-link to="/vue-homework-page2_2">Vue 문제 은행 [2] - 2</router-link> |
         <router-link to="/vue-basic-probs">Vue 기본 문제 [1]</router-link> |
+        <router-link to="/vue-homework-page3">Vue 문제 은행 [3]</router-link> |
       </nav>
     </div>
   </v-container>

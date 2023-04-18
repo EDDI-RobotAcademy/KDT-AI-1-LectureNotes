@@ -2,6 +2,7 @@ package kr.eddi.demo.lectureClass.vue.controller;
 
 import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
 import kr.eddi.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
+import kr.eddi.demo.lectureClass.vue.controller.form.shop.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,5 +49,19 @@ public class VueTestController {
     @GetMapping("/get-hello")
     public String getHello() {
         return "Spring: 나도 안녕";
+    }
+
+    @GetMapping("/buy-apple")
+    public int buyApple(@RequestParam("appleCountData")Integer appleCountData) {
+        AppleResponseForm appleResponseForm = new AppleResponseForm();
+        int applesPrice = appleResponseForm.getApplesPrice(appleCountData);
+        return applesPrice;
+    }
+
+    @GetMapping("/buy-watermelon")
+    public int buyWatermelon(@RequestParam("watermelonCountData")Integer watermelonCountData) {
+        WatermelonResponseForm watermelonResponseForm = new WatermelonResponseForm();
+        int watermelonsPrice = watermelonResponseForm.getWatermelonsPrice(watermelonCountData);
+        return watermelonsPrice;
     }
 }
