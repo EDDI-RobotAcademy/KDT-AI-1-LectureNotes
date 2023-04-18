@@ -1,5 +1,6 @@
 package kr.eddi.demo.lectureClass.vue.problem.controller;
 
+import kr.eddi.demo.lectureClass.vue.problem.controller.form.MultiPlayerWinnerResponseForm;
 import kr.eddi.demo.lectureClass.vue.problem.controller.form.WinnerResponseForm;
 import kr.eddi.demo.lectureClass.vue.problem.dice.DiceGameManager;
 import lombok.extern.slf4j.Slf4j;
@@ -32,5 +33,26 @@ public class VueProblem2Controller {
 
         log.info("responseForm: " + responseForm);
         return responseForm;
+    }
+
+    @GetMapping("/secondGame")
+    public MultiPlayerWinnerResponseForm doSecondGame () {
+        log.info("secondGame()");
+
+        final int DICE_NUM = 3;
+        final int PLAYER_NUM = 2;
+
+        DiceGameManager diceGameManager = new DiceGameManager(PLAYER_NUM, DICE_NUM);
+        log.info("diceGameManager: " + diceGameManager);
+
+        diceGameManager.applyCondition();
+        log.info("after condition process - diceGameManager: " + diceGameManager);
+
+        MultiPlayerWinnerResponseForm multiPlayerWinnerResponseForm = new MultiPlayerWinnerResponseForm(
+                diceGameManager.checkWinner(),
+                diceGameManager.getPlayerList()
+        );
+
+        return multiPlayerWinnerResponseForm;
     }
 }
