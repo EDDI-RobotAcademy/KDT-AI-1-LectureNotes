@@ -69,7 +69,7 @@ public class HomeworkManager {
     // 어떤 멤버가 어떤 상품을 구매했는지 확인하는 코드
     public void buyRandomProduct() {
         final int MIN = 0;
-        int MEMBER_NUM = memberList.size();
+        int MEMBER_NUM = memberList.size(); // MIN 1에서 MAX 5가 될 수 있다
 
         int productLength = productList.size();
 
@@ -78,7 +78,7 @@ public class HomeworkManager {
                     CustomRandom.generateNumber(2)); // 상품 3개 중 하나 가져오기?
 
             product.setMemberId(
-                    CustomRandom.generateNumber(MIN, (MEMBER_NUM-1))); // 멤버 중 1명 선택?
+                    CustomRandom.generateNumber(MIN, (MEMBER_NUM-1))); // 멤버 0부터 4 중 1명 선택
         }
     }
 }

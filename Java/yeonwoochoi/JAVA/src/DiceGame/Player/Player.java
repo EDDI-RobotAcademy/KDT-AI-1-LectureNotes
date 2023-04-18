@@ -3,9 +3,10 @@ package DiceGame.Player;
 import java.util.Arrays;
 
     public class Player {
-        final private int MAX_DICE_NUM = 3;
-        final private String name;
-        final private GameDice[] gameDices = new GameDice[MAX_DICE_NUM];
+        final private int MAX_DICE_NUM = 3; // 주사위 3개
+        final private String name; // 플레이어 1, 2
+
+        final private List<GameDice> gameDices = new ArrayList<>(); // 주사위 객체 생성
         final private GameScore gameScore;
 
         public Player(String name) {
@@ -16,7 +17,7 @@ import java.util.Arrays;
         }
 
         private int rollDice() {
-            final int FIRST_DICE_INFO = 0;
+            final int FIRST_DICE_INFO = 0; // 첫번째 주사위 정보
             final int DECISION_EVEN = 2;
             final int ODD = 1;
 

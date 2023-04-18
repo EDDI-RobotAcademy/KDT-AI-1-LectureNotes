@@ -17,6 +17,5 @@ public class Letter {
 
         System.out.println(printMe);
     }
-
 }
 
