@@ -16,6 +16,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     data () {
         return {
@@ -36,7 +37,7 @@ export default {
         watermelonPlus () {
             this.watermelonCount ++
         },
-        purchaseAlertHandler () {
+        purchaseAlertHandler (appleCount, watermelonCount) {
             if (2 < this.appleCount) {
                 alert('이 이상은 구매할 수 없습니다!')}
             if (4 < this.watermelonCount) {
@@ -46,7 +47,11 @@ export default {
         onSubmit () {
             const {} = this
             axios.post('http://localhost:7777/vue-test/receive-test', 
-                    {})                
+                    {appleCount, watermelonCount})        
+                    .then((res) => {
+                    this.appleCount = res.data
+                    this.watermelonCount = res.data
+                })        
         }
     }
 </script>
