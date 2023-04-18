@@ -1,7 +1,7 @@
-package com.example.demo.lectureClass.dicegame.player;
+package com.example.demo.lectureClass.vue.homework.dicegame.player;
 
-import com.example.demo.lectureClass.dicegame.game.Dice;
-import com.example.demo.lectureClass.dicegame.game.GameScore;
+import com.example.demo.lectureClass.vue.homework.dicegame.game.Dice;
+import com.example.demo.lectureClass.vue.homework.dicegame.game.GameScore;
 
 import java.util.ArrayList;
 import java.util.List;

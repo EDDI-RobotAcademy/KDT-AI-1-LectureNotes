@@ -18,7 +18,7 @@ export default {
     },
     methods: {
         onSubmit () {
-            axios.get('http://localhost:7777/vue-test/get-random-dice-winner')
+            axios.get('http://localhost:7777/vue-homework/get-random-dice-winner')
             .then((res) => {
                 alert('요청에 대한 응답 데이터: ' + res.data)
                 this.receivedWin = res.data

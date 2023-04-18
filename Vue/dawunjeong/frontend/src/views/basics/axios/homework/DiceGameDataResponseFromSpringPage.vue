@@ -18,7 +18,7 @@ export default {
     },
     methods: {
         onSubmit () {
-            axios.get('http://localhost:7777/vue-test/get-dice-game-manager')
+            axios.get('http://localhost:7777/vue-homework/get-dice-game-manager')
             .then((res) => {
                 alert('요청에 대한 응답 데이터: ' + res.data)
                 this.receivedDiceGameWinner = res.data

@@ -1,10 +1,9 @@
-package com.example.demo.lectureClass.dicegame.game;
+package com.example.demo.lectureClass.vue.homework.dicegame.game;
 
-import com.example.demo.lectureClass.dicegame.player.Player;
+import com.example.demo.lectureClass.vue.homework.dicegame.player.Player;
 import com.example.demo.lectureClass.untility.random.CustomRandom;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.dicegame.game;
+package com.example.demo.lectureClass.vue.homework.dicegame.game;
 
 public class GameScore {
     private int totalScore;
