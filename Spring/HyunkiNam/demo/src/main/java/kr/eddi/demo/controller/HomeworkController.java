@@ -1,5 +1,7 @@
 package kr.eddi.demo.controller;
 
+import kr.eddi.demo.controller.form.BuyFruitForm;
+import kr.eddi.demo.controller.form.BuyListDataForm;
 import kr.eddi.demo.homework.GameManager;
 import kr.eddi.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
 import kr.eddi.demo.lectureClass.vue.controller.utility.random.CustomRandom;
@@ -11,6 +13,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/homework")
 public class HomeworkController {
     String str;
+    int apple = 0;
+    int watermelon = 0;
+
+    int apple2 = 0;
+    int watermelon2 = 0;
     @GetMapping("/win-condition-is-even")
     public StringBuilder winConditionIsEVEN(){
         final int MIN = 1;
@@ -56,5 +63,36 @@ public class HomeworkController {
         return str;
     }
 
+    @PostMapping("buy-apple")
+    public void buyApple(){
+        apple++;
+    }
+
+    @PostMapping("buy-watermelon")
+    public void buyWatermelon(){
+        watermelon++;
+    }
+
+    @PostMapping("buy-fruit")
+    public void buyApple2(@RequestBody BuyFruitForm buyFruitForm){
+        this.apple2 = buyFruitForm.getApple2();
+        this.watermelon2 = buyFruitForm.getWatermelon2();
+    }
+
+    @GetMapping("get-buy-list")
+    public BuyListDataForm getBuyList(){
+        int buyPriceSum = (apple * 2000) + (watermelon * 10000);
+        BuyListDataForm buyListDataForm = new BuyListDataForm(apple, watermelon, buyPriceSum);
+
+        return buyListDataForm;
+    }
+
+    @GetMapping("get-buy-list2")
+    public BuyListDataForm getBuyList2(){
+        int buyPriceSum = (apple2 * 2000) + (watermelon2 * 10000);
+        BuyListDataForm buyListDataForm2 = new BuyListDataForm(apple2, watermelon2, buyPriceSum);
+
+        return buyListDataForm2;
+    }
 
 }

@@ -11,6 +11,7 @@
         <check-even-odd-component />
         <send-hello-component />
         <dice-game-two-times />
+        <buy-fruit-component />
     </v-container>
 </template>
 <script>
@@ -25,6 +26,7 @@ import IsCheckboxComponent from '@/components/homeworkComponent/IsCheckboxCompon
 import CheckEvenOddComponent from '@/components/homeworkComponent/CheckEvenOddComponent.vue';
 import SendHelloComponent from '@/components/homeworkComponent/SendHelloComponent.vue';
 import DiceGameTwoTimes from '@/components/HomeworkSolutionComponent/DiceGameTwoTimes.vue';
+import BuyFruitComponent from '@/components/homeworkComponent/BuyFruitComponent.vue';
 
 export default {
     components: {
@@ -37,7 +39,8 @@ export default {
         IsCheckboxComponent,
         CheckEvenOddComponent,
         SendHelloComponent,
-        DiceGameTwoTimes
+        DiceGameTwoTimes,
+        BuyFruitComponent
     },
     data() {
         return {
