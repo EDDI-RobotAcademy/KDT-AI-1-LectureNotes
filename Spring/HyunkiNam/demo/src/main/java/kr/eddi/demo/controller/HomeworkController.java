@@ -1,15 +1,12 @@
 package kr.eddi.demo.controller;
 
 import kr.eddi.demo.homework.GameManager;
-import kr.eddi.demo.homework.Player;
+import kr.eddi.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
 import kr.eddi.demo.lectureClass.vue.controller.utility.random.CustomRandom;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.List;
-
+@Slf4j
 @RestController
 @RequestMapping("/homework")
 public class HomeworkController {
@@ -45,4 +42,16 @@ public class HomeworkController {
 
         return String.valueOf(gameManager.printPlayerList()) +" 승자 : "+ String.valueOf(gameManager.checking());
     }
+
+    @PostMapping("/send-hello")
+    public void receiveHello(String hello){
+        log.info("received data: " + hello);
+    }
+
+    @PostMapping("/receive-test")
+    public void receiveTest (@RequestBody VueRequestTestDataForm vueRequestTestDataForm){
+        log.info("received data: " + vueRequestTestDataForm);
+    }
+
+
 }
