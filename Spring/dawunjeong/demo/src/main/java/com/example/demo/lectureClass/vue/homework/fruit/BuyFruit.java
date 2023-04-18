@@ -1,12 +1,12 @@
 package com.example.demo.lectureClass.vue.homework.fruit;
 
-public class BuyFruitList {
+public class BuyFruit {
     final private int applePrice = 3000;
     final private int waterMelonPrice = 5000;
     private int appleTotalPrice;
     private int waterMelonTotalPrice;
 
-    public BuyFruitList() {
+    public BuyFruit() {
     }
 
     public int totalApplePrice (int appleNum) {
