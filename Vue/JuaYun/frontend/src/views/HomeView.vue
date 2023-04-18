@@ -26,6 +26,7 @@
        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
        <router-link to="/problem-page2">주사위게임</router-link> |
        <router-link to="/problem-page">체크박스</router-link> |
+       <router-link to="/problem-page3">과일계산하기</router-link> |
       </nav>
     </div>
   </v-container>
