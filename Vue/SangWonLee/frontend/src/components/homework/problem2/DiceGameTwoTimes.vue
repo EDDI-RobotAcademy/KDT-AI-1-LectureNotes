@@ -39,6 +39,8 @@ export default {
         startTwoTimesDiceGame() {
             axios.get('http://localhost:7777/dice-game/firstGame')
                 .then((res) => {
+                    // res는 axios.get 메소드에서 성공적으로 응답했을 때를 알려줌.
+
                     //this.result = res.data
                     //console.log('result: ' + res.data)
                     this.result = res.data.result

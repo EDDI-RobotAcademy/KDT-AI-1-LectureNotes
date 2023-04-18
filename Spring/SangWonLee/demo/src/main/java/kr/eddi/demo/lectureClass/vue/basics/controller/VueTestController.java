@@ -4,6 +4,7 @@ import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
 import kr.eddi.demo.lectureClass.vue.basics.controller.form.VueRequestTestDataForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import kr.eddi.demo.lectureClass.vue.basics.controller.form.VueRequestRequestOne;
 
 @Slf4j
 @RestController
@@ -22,6 +23,13 @@ public class VueTestController {
     public void receiveTest (@RequestBody VueRequestTestDataForm vueRequestTestDataForm) {
         log.info("received data: " + vueRequestTestDataForm);
     }
+
+    @PostMapping("/send-one")
+    public void sendOne (@RequestBody VueRequestRequestOne vueRequestRequestOne) {
+        log.info("received data: " + vueRequestRequestOne);
+    }
+
+
 
     @GetMapping("/get-random-dice")
     public Integer getRandomDice () {

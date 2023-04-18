@@ -17,6 +17,7 @@ import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpr
 import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.vue";
 import EvenOddTest from "@/views/homework/basic_problem/EvenOddTest";
 import Problem2Page from "@/views/homework/problem2/Problem2Page.vue";
+// Problem2Page.vue 컴포넌트를 가져온다.
 
 Vue.use(VueRouter);
 
