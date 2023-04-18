@@ -21,7 +21,7 @@
         <router-link to="/multi-checkbox-test-page">다중 checkbox 테스트 페이지</router-link> |
         <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
         <router-link to="/home-work-414-view">homework414</router-link> |
-        
+        <router-link to="/home-work-418-view">homework418</router-link>
       </nav>
     </div>
   </v-container>
