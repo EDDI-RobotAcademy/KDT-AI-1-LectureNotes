@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.homework.basic1.answer.problem2.controller;
 
+import com.example.demo.lectureClass.homework.basic1.answer.problem2.controller.form.MultiPlayerWinnerResponseForm;
 import com.example.demo.lectureClass.homework.basic1.answer.problem2.controller.form.WinnerResponseForm;
 import com.example.demo.lectureClass.homework.basic1.answer.problem2.dice.DiceGameManager;
 import lombok.extern.slf4j.Slf4j;
@@ -27,5 +28,27 @@ public class VueProblem2Controller {
                 diceGameManager.checkWinIfSumEven(tmpSum));
 
         return responseForm;
+    }
+
+    @GetMapping("/secondGame")
+    public MultiPlayerWinnerResponseForm doSecondGame () {
+        log.info("secondGame()");
+
+        final int DICE_NUM = 3;
+        final int PLAYER_NUM = 2;
+
+        DiceGameManager diceGameManager = new DiceGameManager(PLAYER_NUM, DICE_NUM);
+        log.info("diceGameManager:" + diceGameManager);
+
+        diceGameManager.applyCondition();
+        log.info("after condition process : " + diceGameManager);
+
+        MultiPlayerWinnerResponseForm multiPlayerWinnerResponseForm = new MultiPlayerWinnerResponseForm(
+                diceGameManager.checkWinner(),
+                diceGameManager.getPlayerList()
+        );
+
+
+        return multiPlayerWinnerResponseForm;
     }
 }
