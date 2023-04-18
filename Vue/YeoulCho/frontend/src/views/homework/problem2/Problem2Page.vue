@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button type="submit" @click="onSubmit">2개의 주사위 굴리기</button>
+        <button color= "black" type="submit" @click="onSubmit">2개의 주사위 굴리기</button>
         <p>
             수신된 주사위의 합: {{ receivedDiceNubmer }} <br>
             결과: {{ result }}
@@ -24,6 +24,7 @@ export default {
                     this.receivedDiceNubmer = res.data
                     if(res.data %2 ==0){
                         this.result = "주사위 합이 짝수이므로 승리";
+                        console.log(res.data);
                     } else{
                     this.result = "주사위 합이 홀수이므로 패배";}
                 })

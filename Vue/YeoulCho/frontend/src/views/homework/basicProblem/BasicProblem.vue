@@ -1,7 +1,7 @@
 <template >
     <div>
         <h3>1. 체크박스</h3>            
-        <local-checkbox-component ischecked="true"/>   
+        <local-checkbox-component ischecked1="true" ischecked2="false"/>   
     
     <h3>2. 짝수? 홀수?</h3>
     <input type="text" @change ="Input">
@@ -34,7 +34,7 @@ export default {
         LocalCheckboxComponent,}, 
     data(){
         return{
-            message: '안녕',
+            message: '',
             receivedMessage: ''
         }
     },    

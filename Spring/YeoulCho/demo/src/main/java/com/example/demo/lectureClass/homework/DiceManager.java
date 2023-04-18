@@ -13,7 +13,7 @@ public class DiceManager {
     }
 
     public DiceManager() {
-        this.randomDiceNumber = randomDiceNumber;
+         rollDice();
     }
     public int sumTwoDicel(){
         DiceManager d1 = new DiceManager();

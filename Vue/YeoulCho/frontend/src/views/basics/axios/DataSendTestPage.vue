@@ -64,6 +64,7 @@ export default {
 
                     {studentName, studentMajor,studentAge})
                 .then((res) => {
+                    console.log(res)
                     alert('데이터 전송 성공!')
                 })
                 .catch((res) => {

@@ -2,8 +2,6 @@ package com.example.demo.vue.controller;
 
 
 import com.example.demo.lectureClass.homework.DiceManager;
-import com.example.demo.lectureClass.homework.problem2dot2.DiceGame;
-import com.example.demo.lectureClass.homework.problem2dot2.GameDice;
 import com.example.demo.lectureClass.utility.random.CustomRandom;
 
 import com.example.demo.vue.controller.form.VueRequestTestDataForm;
@@ -44,21 +42,9 @@ public class VueTestController {
         DiceManager d1 = new DiceManager();
         DiceManager d2 = new DiceManager();
         int tmpSum = d1.randomDiceNumber +d2.randomDiceNumber;
+        System.out.println(tmpSum);
         return tmpSum;}
 
-    @GetMapping("/get-problem-2-2")
-    public String problem2dot2(DiceGame gamedice) {
-        final int MIN = 1;
-        final int MAX = 6;
-        int diceNumber = CustomRandom.generateNumber(MIN, MAX);
-
-            //        DiceGame game = new DiceGame();
-            //        System.out.println("점수 판정 이후");
-            //        game.playGame();
-            //        game.printResult();
-            //        game.checkWinner();
-        return gamedice.toString();
-    }
     @PostMapping("/basic-problem-test") //안녕 메시지 받기 //404오류
     public void basicProblemTest (@RequestBody VueRequestTest vueRequestTest) {
         log.info("received data: " + vueRequestTest);
