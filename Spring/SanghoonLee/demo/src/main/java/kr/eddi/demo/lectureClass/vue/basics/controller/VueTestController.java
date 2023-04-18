@@ -1,7 +1,7 @@
-package kr.eddi.demo.lectureClass.vue.controller;
+package kr.eddi.demo.lectureClass.vue.basics.controller;
 
 import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
-import kr.eddi.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
+import kr.eddi.demo.lectureClass.vue.basics.controller.form.VueRequestTestDataForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
