@@ -1,7 +1,7 @@
-package kr.eddi.demo.lectureClass.vue.controller;
+package kr.eddi.demo.lectureClass.vue.basics.controller;
 
 import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
-import kr.eddi.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
+import kr.eddi.demo.lectureClass.vue.basics.controller.form.VueRequestTestDataForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +17,6 @@ public class VueTestController {
     또한 주의할 부분이 있는데 VueRequestTestDataForm은 vue가 전송한 양식을 동일하게 유지하고 있어야 합니다.
     전송한 이름에 해당하는 studentName, studentAge 같은 정보가 정확하게 일치해야 합니다.
      */
-
     @PostMapping("/receive-test")
     public void receiveTest (@RequestBody VueRequestTestDataForm vueRequestTestDataForm) {
         log.info("received data: " + vueRequestTestDataForm);
