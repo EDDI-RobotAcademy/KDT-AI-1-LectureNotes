@@ -13,20 +13,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class VueProblem3Controller {
 
     @GetMapping("/purchase-apple")
-    public FruitForm purchaseApple() {
+    public int purchaseApple() {
         log.info("purchase-apple()");
         Fruit fruitApplePurchase = new Fruit();
+        int appleTotalPrice =
         fruitApplePurchase.purchaseApple(3);
 
-        return fruitApplePurchase;
+        return appleTotalPrice;
 
     }
 
     @GetMapping("/purchase-watermelon")
-    public FruitForm purchaseApple() {
+    public int purchaseWatermelon() {
         log.info("purchase-watermelon()");
         Fruit fruitWatermelonPurchase = new Fruit();
 
+        int watermelonTotalPrice =
         fruitWatermelonPurchase.purchaseWatermelon(5);
+        return watermelonTotalPrice;
     }
 }
