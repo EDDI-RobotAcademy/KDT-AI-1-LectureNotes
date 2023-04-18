@@ -6,5 +6,5 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 public class ResponseHiTest {
-    final private String hello;
+    final private String sayHello;
 }

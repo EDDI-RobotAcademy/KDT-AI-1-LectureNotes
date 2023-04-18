@@ -29,7 +29,8 @@ import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.
 import ProblemPage2 from '@/views/homework/problem2/ProblemPage2.vue'
 
 import VueBasicProblem1 from '@/views/homework/vueBasicProblem1/VueBasicProblem1.vue'
-import HiSendTestPage from '@/views/homework/vueBasicProblem1/HiSendTestPage.vue'
+import HiSendTestPage from '@/views/basics/axios/HiSendTestPage.vue'
+import HiResponsePage from '@/views/basics/axios/HiResponsePage.vue'
 
 Vue.use(VueRouter)
 
@@ -131,6 +132,11 @@ const routes = [
     path: '/hi-send-test',
     name: 'HiSendTestPage',
     component: HiSendTestPage
+  },
+  {
+    path: '/hi-response-test',
+    name: 'HiResponsePage',
+    component: HiResponsePage
   },
 
 ]

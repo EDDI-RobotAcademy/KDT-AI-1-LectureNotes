@@ -28,6 +28,7 @@
         <router-link to="/homework2">Vue 문제 은행 [2]</router-link> |
         <router-link to="/vue-basic-problem1">Vue 기본 문제 [1]</router-link> |
         <router-link to="/hi-send-test">안녕 보내기 테스트</router-link> |
+        <router-link to="/hi-response-test">안녕 받기 테스트</router-link> |
       </nav>
     </div>
   </v-container>
