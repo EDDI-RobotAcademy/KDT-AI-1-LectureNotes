@@ -29,6 +29,7 @@
         <router-link to="/vue-basic-problem1">Vue 기본 문제 [1]</router-link> |
         <router-link to="/hi-send-test">안녕 보내기 테스트</router-link> |
         <router-link to="/hi-response-test">안녕 받기 테스트</router-link> |
+        <router-link to="/problem-page2">2번 연습 문제</router-link> |
       </nav>
     </div>
   </v-container>

@@ -32,6 +32,8 @@ import VueBasicProblem1 from '@/views/homework/vueBasicProblem1/VueBasicProblem1
 import HiSendTestPage from '@/views/basics/axios/HiSendTestPage.vue'
 import HiResponsePage from '@/views/basics/axios/HiResponsePage.vue'
 
+import Problem2Page from '@/views/basics/solved/problem2/Problem2Page.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -137,6 +139,11 @@ const routes = [
     path: '/hi-response-test',
     name: 'HiResponsePage',
     component: HiResponsePage
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
   },
 
 ]
