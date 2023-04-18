@@ -58,6 +58,7 @@ export default {
             // 이후 Spring 자체에 @RequestMapping("vue-test") 와
             // @PostMapping("receive-test")에 의해 아래와 같은 URL 경로가 만들어집니다.
             // 아래 경로로 위에서 만든 객체 정보를 전송하는 작업에 해당합니다.
+            
             // PostMapping, GetMapping이 주된 방식이며
             // GetMapping은 정보가 URL에 전부 노출됩니다.
             axios.post('http://localhost:7777/vue-test/receive-test', 
