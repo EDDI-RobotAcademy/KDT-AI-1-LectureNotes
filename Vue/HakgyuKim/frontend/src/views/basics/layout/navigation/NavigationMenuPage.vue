@@ -16,21 +16,25 @@
         https://pictogrammers.com/library/mdi/?welcome
         아이콘 따올때 맨 앞에 mdi 키워드가 붙어야 합니다.
       -->
-      <v-btn text @click="clickToggle">
-        <span>테스트</span>
-        <v-icon right>mdi-hand-back-left-outline</v-icon>
+      <v-btn href="https://zoom.us/j/99591291759?pwd=VS9QY1RuRWswenRXSTlmWlRrbW9Ldz09" target="_blank">
+        <span>줌 참여</span>
+        <v-icon right>mdi-monitor-account</v-icon>
       </v-btn>
-      <v-btn text @click="signUp">
-        <span>회원가입</span>
-        <v-icon right>mdi-account-plus-outline</v-icon>
+      <v-btn href="https://github.com/EDDI-RobotAcademy/KDT-AI-1-LectureNotes" target="_blank">
+        <span>github</span>
+        <v-icon right>mdi-github</v-icon>
       </v-btn>
-      <v-btn text @click="signIn">
-        <span>로그인</span>
-        <v-icon right>mdi-login</v-icon>
+      <v-btn href="https://www.notion.so/eddi-robot-academy/c1038c896dbd410287d8feeef8c8fd20" target="_blank">
+        <span>notion</span>
+        <v-icon right>mdi-book-open-variant</v-icon>
       </v-btn>
-      <v-btn text @click="signOut">
-        <span>로그아웃</span>
-        <v-icon right>mdi-exit-to-app</v-icon>
+      <v-btn href="https://app.slack.com/client/T04B9JMKZ2R/browse-channels" target="_blank">
+        <span>slack</span>
+        <v-icon right>mdi-slack</v-icon>
+      </v-btn>
+      <v-btn href="https://cafe.naver.com/eddicorp" target="_blank">
+        <span>카페</span>
+        <v-icon right>mdi-coffee</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -70,23 +74,12 @@ export default {
       return {
         navigation_drawer: false,
         links: [
-          { icon: 'mdi-home', text: 'Home', route: '/' }
+          { icon: 'mdi-home', text: 'Home', route: '/' },
+          { icon: 'mdi-human-greeting', text: 'About', route: '/about'}
         ],
       }
     },
     methods: {
-      clickToggle () {
-        alert('토글')
-      },
-      signUp () {
-        alert('회원가입')
-      },
-      signIn () {
-        alert('로그인')
-      },
-      signOut () {
-        alert('로그아웃')
-      },
       goToHome () {
         router.push('/')
       }
