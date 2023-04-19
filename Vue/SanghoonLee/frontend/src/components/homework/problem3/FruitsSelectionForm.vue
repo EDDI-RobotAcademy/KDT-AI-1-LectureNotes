@@ -10,6 +10,10 @@
         </table>
         <v-btn color="primary" @click="calculateFruitsForOrder">과일 가격 계산</v-btn>
         <p>최종 가격: {{ totalPrice }}</p>
+        <v-divider></v-divider>
+        <h3>Review에 따른 또 다른 답안</h3>
+        <v-btn color="primary" @click="otherCalculateFruitsForOrder">과일 가격 계산</v-btn>
+        <p>최종 가격: {{ otherTotalPrice }}</p>
     </div>
 </template>
 
@@ -24,6 +28,7 @@ export default {
         return {
             fruitsListForPrint: this.kindsOfFruits,
             totalPrice: 0,
+            otherTotalPrice: 0,
         }
     },
     methods: {
@@ -46,6 +51,23 @@ export default {
                 .then((res) => {
                     console.log('result: ' + res.data)
                     this.totalPrice = res.data
+                })
+        },
+        otherCalculateFruitsForOrder () {
+            const { fruitsListForPrint } = this
+            alert('orderedFruitsList: ' + JSON.stringify(fruitsListForPrint))
+
+            console.log('appleCount: ' + fruitsListForPrint[0].count)
+            console.log('watermelonCount: ' + fruitsListForPrint[1].count)
+
+            axios.post('http://localhost:7777/buy-fruit/get-price-sum',
+                { 
+                    appleCount: fruitsListForPrint[0].count,
+                    watermelonCount: fruitsListForPrint[1].count,
+                })
+                .then((res) => {
+                    console.log('result: ' + res.data)
+                    this.otherTotalPrice = res.data
                 })
         },
     }
