@@ -20,7 +20,7 @@ import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vu
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
 import ComponentTestHome from '@/views/basics/componentTest/ComponentTestHome.vue'
-import ProblemPage1 from '@/views/homework/problem1/ProblemPage1.vue'
+import ProblemPage1 from '@/views/basics/solved/problem1/ProblemPage1.vue'
 
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
 
@@ -35,6 +35,7 @@ import HiResponsePage from '@/views/basics/axios/HiResponsePage.vue'
 import Problem2Page from '@/views/basics/solved/problem2/Problem2Page.vue'
 
 import FruitPriceSum from '@/views/homework/buyFruits/FruitPriceSum.vue'
+import Problem3Page from '@/views/basics/solved/problem3/Problem3Page.vue'
 
 Vue.use(VueRouter)
 
@@ -151,6 +152,11 @@ const routes = [
     path: '/fruit-price-sum',
     name: 'FruitPriceSum',
     component: FruitPriceSum
+  },
+  {
+    path: '/problem-page3',
+    name: 'Problem3Page',
+    component: Problem3Page
   },
 
 ]
