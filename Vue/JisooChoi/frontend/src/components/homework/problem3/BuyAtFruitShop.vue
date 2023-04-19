@@ -11,7 +11,8 @@
       </h4>
       <p>{{ fruitName }} 가격: {{ fruitCost }}</p>
       <v-btn color="primary" @click="buyApple">사과 구매하기</v-btn><br /><br />
-      <v-btn color="primary" @click="buyWaterMelon">수박 구매하기</v-btn>
+      <v-btn color="primary" @click="buyWaterMelon">수박 구매하기</v-btn><br /><br />
+      <v-btn color="primary" @click="buyFruits">과일 모두 구매하기</v-btn>
     </div>
     <br />
   </div>
@@ -42,6 +43,14 @@ export default {
           this.fruitCost = res.data.sumNumber;
         });
     },
+    buyFruits() {
+      axios
+        .get("http://localhost:7777/fruit-shop/buy-fruits")
+        .then((res) => {
+          this.fruitName = res.data.fruitName;
+          this.fruitCost = res.data.sumNumber;
+        });
+    }
   },
 };
 </script>

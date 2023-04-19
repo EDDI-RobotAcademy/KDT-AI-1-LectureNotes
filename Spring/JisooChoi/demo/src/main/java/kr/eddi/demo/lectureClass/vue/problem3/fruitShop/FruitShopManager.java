@@ -9,9 +9,4 @@ import lombok.ToString;
 public class FruitShopManager {
     // 사과와 수박이 있어야 한다.
     Fruit fruit = new Fruit();
-
-    public FruitShopManager() {
-    }
-
-
 }

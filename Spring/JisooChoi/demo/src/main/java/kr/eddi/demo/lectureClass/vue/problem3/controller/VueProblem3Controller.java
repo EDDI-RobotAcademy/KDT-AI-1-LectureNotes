@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-
 @Slf4j
 @RestController
 @RequestMapping("fruit-shop")
@@ -52,4 +50,27 @@ public class VueProblem3Controller {
         return buyFruitResponseForm;
     }
 
+    @GetMapping("buy-fruits")
+    public BuyFruitResponseForm buyFruits() {
+        log.info("buy-fruits()");
+
+        FruitShopManager fruitShopManager = new FruitShopManager();
+        log.info("fruitShopManager: "+fruitShopManager);
+
+        int buySumCost = fruitShopManager.getFruit().getApple().appleBuyCost() +
+                fruitShopManager.getFruit().getWaterMelon().waterMelonBuyCost();
+
+        String watermelonName = fruitShopManager.getFruit().getWaterMelon().getName();
+        String appleName = fruitShopManager.getFruit().getApple().getName();
+
+        String allName = watermelonName + appleName;
+
+
+        BuyFruitResponseForm buyFruitResponseForm = new BuyFruitResponseForm(
+                buySumCost,
+                allName
+        );
+
+        return buyFruitResponseForm;
+    }
 }
