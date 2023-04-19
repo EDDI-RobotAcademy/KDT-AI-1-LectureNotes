@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // @는 현재 src 폴더를 의미함
+
+import PracticePage from '@/views/practice/PracticePage.vue'
+import KakaoAPIPage from '@/views/practice/KakaoAPIPage.vue'
+
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
 import CssTest from '@/views/css/CssTest.vue'
@@ -101,6 +105,16 @@ const routes = [
     path: '/vue-lifecycle-test',
     name: 'VueLifeCycleTestPage',
     component: VueLifeCycleTestPage
+  },
+  {
+    path: '/practice-page',
+    name: 'PracticePage',
+    component: PracticePage
+  },
+  {
+    path: '/kakao-api-page',
+    name: 'KakaoAPIPage',
+    component: KakaoAPIPage
   },
 ]
 

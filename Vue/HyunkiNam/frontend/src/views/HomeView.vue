@@ -24,6 +24,8 @@
         <router-link to="/random-dice-from-spring">axios 주사위 값 받기</router-link> |
         <router-link to="/homework-page">문제 은행</router-link> |
         <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
+        <router-link to="/practice-page">연습</router-link> |
+        <router-link to="/kakao-api-page">API 사용</router-link> |
 
 
       </nav>
