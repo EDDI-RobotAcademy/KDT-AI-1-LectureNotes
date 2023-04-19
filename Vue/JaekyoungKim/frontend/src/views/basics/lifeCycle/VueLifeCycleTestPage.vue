@@ -65,8 +65,10 @@ export default {
                     console.log('count: '+(count++)+', a: '+a+', b: '+b.id)
                     return a>b.id?a:b.id
                 }, 0)
+                
+                //JavaScript에서 랜덤값 활용 (몬스터 도감 개수만큼)
                 let idx=Math.floor(Math.random()*this.monsterBook.length)
-
+                //도감내 존재하는 임의의 몬스터 추가함
                 this.monsterList.push({
                     id:max+1,
                     monsterID:idx,

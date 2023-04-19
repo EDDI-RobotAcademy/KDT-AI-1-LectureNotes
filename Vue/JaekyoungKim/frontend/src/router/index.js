@@ -18,6 +18,7 @@ import PostNumPage from '@/views/homework/PostNumPage.vue'
 import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
 import MyFolderPage from '@/views/homework/myfolder/MyFolderPage.vue'
 import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
+import April from '@/views/html/April.vue'
 
 
 Vue.use(VueRouter)
@@ -120,6 +121,10 @@ const routes = [
   path: '/fruits-page',
   name: 'Problem3Page',
   component: Problem3Page
+},{
+  path: '/april',
+  name: 'April',
+  component: April
 },
 
 

@@ -6,7 +6,6 @@
         <p>포도 :<input type="number" v-model="grapeAmount"></p>
         <button type="submit">button</button>
         <br>
-        <v-btn color="primary" @click="allPrice">총 가격 표출 하기</v-btn>
         <p>{{ allFruitsPrice }}</p>
         </form>
     </div>

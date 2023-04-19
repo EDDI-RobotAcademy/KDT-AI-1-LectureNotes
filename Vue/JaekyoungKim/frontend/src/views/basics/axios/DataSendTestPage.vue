@@ -2,7 +2,7 @@
     <div>
         <!--form 태를 사용해서 양식을 만들었음
             @submit.prevent="onsubmit"을 사용해서
-            button type ="submit"이 동작하지 않게 만ㄷ르었음
+            button type ="submit"이 동작하지 않게 만들었음
 
         -->
         <form @submit.prevent="onSubmit">
@@ -16,15 +16,15 @@
                     <td><input type="text" v-model="studentMajor"></td>
                 </tr>
                 <tr>
-                    <th>나이</th>
-                    <td><input type="text" v-model="studentAge"></td>
+                    <th>숫자</th>
+                    <td><input type="text" v-model="numberA"></td>
                 </tr>
             </table>
 
             <div>
                 <button type="submit">전송</button>
-            </div>
-        </form>
+            </div><br>
+            </form>
     </div>
 </template>
 <script>
@@ -34,12 +34,13 @@ export default {
         return {
             studentName: '',
             studentMajor: '',
-            studentAge: 0
+            numberA: 0,
+          
         }
     },
     methods: {
         /* 
-        위 쪽의 template 파트 hrml은 전부 v-model로 연겨로디어 있어 사요자 입력에 다라 갑시 바뀝니다.
+        위 쪽의 template 파트 html은 전부 v-model로 연결되어 있어 사용자 입력에 따라 값이 바뀝니다.
         그러므로 this를 통해서 입력된 값들을 전달 할 수 있습니다.
         this가 data()에 있는 name, major, age를 모두 포함하기 때문입니다.
         const{정보} =this를 통해서 특정 정보를 객체화 할 수 있습니다.
@@ -47,7 +48,7 @@ export default {
         */
         
         onSubmit () {
-            const {studentName, studentMajor, studentAge} = this
+            const {studentName, studentMajor,numberA} = this
             //axios.post를 통해서 Spring의 @postmapping URL 정보로 전송합니다.
             //실제 SPring  파트에서 *.yaml을 통해서 server port7777 지정했습니다.
             //그러므로 아래와 같이 localhost:7777로 보내는 것은 Spring에게 데이터를 전송함을 의미합니다.
@@ -58,14 +59,15 @@ export default {
             //PostMapping, GetMapping이ㅏ 주된 방식이며
             //GetMapping은 정보가 url에 노출이 됩니다. 그렇기 때문에 사용자 정보는 포스트로 보냅니다.
             axios.post('http://localhost:7777/vue-test/receive-test', 
-                    {studentName, studentMajor, studentAge})
+                    {studentName, studentMajor,numberA})
                 .then((res) => {
                     alert('데이터 전송 성공!')
                 })
                 .catch((res) => {
                     alert('데이터 전송 실패!')
                 })
-        }
+        },
+    
     }
 }
 </script>
