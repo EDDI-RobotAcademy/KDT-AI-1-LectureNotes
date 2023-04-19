@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 // @는 현재 src 폴더를 의미함
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
-import HtmlTest2 from '@/views/html2/HtmlTest2.vue'
 import CssTest from '@/views/css/CssTest.vue'
 
 import VueDataBindingPage from '@/views/basics/binding/VueDataBindingPage.vue'
@@ -19,6 +18,19 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
+
+import ProblemPage1 from '@/views/homework/problem1/ProblemPage.vue'
+import ProblemPage1_1 from '@/views/homework/problem1S/ProblemPage1_1.vue'
+
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
+
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
+import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
+import Problem2Page2 from '@/views/homework/problem2S/Problem2Page2.vue'
+
+import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
+
 
 Vue.use(VueRouter)
 
@@ -40,11 +52,6 @@ const routes = [
     path: '/htmlTest',
     name: 'HtmlTest',
     component: HtmlTest
-  },
-  {
-    path: '/htmlTest2',
-    name: 'HtmlTest2',
-    component: HtmlTest2
   },
   {
     path: '/cssTest',
@@ -90,8 +97,42 @@ const routes = [
     path: '/axios-test-page',
     name: 'DataSendTestPage',
     component: DataSendTestPage
+  },
+  {
+    path: '/problem-page1',
+    name: 'ProblemPage1',
+    component: ProblemPage1
+  },
+  {
+    path: '/problem-page1-1',
+    name: 'ProblemPage1_1',
+    component: ProblemPage1_1
+  },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
+    path: '/vue-lifecycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
+  },
+  {
+    path: '/problem-page22',
+    name: 'Problem2Page2',
+    component: Problem2Page2
+  },
+  {
+    path: '/problem-page3',
+    name: 'Problem3Page',
+    component: Problem3Page
   }
-
 
   
 ]

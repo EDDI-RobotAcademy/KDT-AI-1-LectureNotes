@@ -314,6 +314,7 @@ export default {
         padding: 7px;
     }
     ul li {
+        list-style: none;
         margin: 15px 0;
         font-size: 16px;
     }

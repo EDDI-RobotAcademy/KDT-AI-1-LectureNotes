@@ -12,7 +12,6 @@
           /htmlTest를 누가 보여줄 것인지 컴포넌트 등록을 해줘야 합니다.
         -->
         <router-link to="/htmlTest">HtmlTest</router-link> |
-        <router-link to="/htmlTest2">HtmlTest2</router-link> |
         <router-link to="/cssTest">CssTest</router-link> |
         <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link> |
         <router-link to="/vue-click-event-page">VueClickEventPage</router-link> |
@@ -22,8 +21,16 @@
         <router-link to="/multi-checkbox-test-page">다중 checkbox 테스트 페이지</router-link> |
         <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
         <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
+        <router-link to="/problem-page1">1번 연습 문제</router-link> |
+        <router-link to="/problem-page1-1">1번 연습 문제 연습</router-link> |
 
+        <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
+        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
         
+        <router-link to="/problem-page2">2번 연습 문제</router-link> |
+        <router-link to="/problem-page22">2번 연습 문제 연습</router-link> |
+
+        <router-link to="/problem-page3">3번 연습 문제</router-link> |
         
       </nav>
     </div>
