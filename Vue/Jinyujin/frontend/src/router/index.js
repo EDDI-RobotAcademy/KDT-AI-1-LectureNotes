@@ -37,6 +37,8 @@ import Problem2Page from '@/views/basics/solved/problem2/Problem2Page.vue'
 import FruitPriceSum from '@/views/homework/buyFruits/FruitPriceSum.vue'
 import Problem3Page from '@/views/basics/solved/problem3/Problem3Page.vue'
 
+import DiceGame3 from '@/views/homework/diceGame3/DiceGame3.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -157,6 +159,11 @@ const routes = [
     path: '/problem-page3',
     name: 'Problem3Page',
     component: Problem3Page
+  },
+  {
+    path: '/dice-game3',
+    name: 'DiceGame3',
+    component: DiceGame3
   },
 
 ]

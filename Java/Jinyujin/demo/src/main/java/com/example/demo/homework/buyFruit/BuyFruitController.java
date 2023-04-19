@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/buy-fruit")
-public class buyFruitController {
+public class BuyFruitController {
 
     @PostMapping("/get-price-sum")
     public Integer buyFruitController(@RequestBody FruitForm fruitForm) {

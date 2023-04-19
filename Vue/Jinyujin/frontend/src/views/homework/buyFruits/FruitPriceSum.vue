@@ -32,10 +32,11 @@ export default {
     methods: {
         getPriceSum() {
             axios.post('http://localhost:7777/buy-fruit/get-price-sum',
-            {appleCount: this.appleCount, watermelonCount: this.watermelonCount}) //form으로 보내는 것
+            {appleCount: this.appleCount, watermelonCount: this.watermelonCount}) // Spring - form으로 데이터를 보내는 것
                 .then((res) => {
-                    this.appleCount = res.data.appleCount
-                    this.watermelonCount = res.data.watermelonCount
+                    // 여기가 Spring에서 데이터를 받아오는 애들 처리하는 곳
+                    // this.appleCount = res.data.appleCount
+                    // this.watermelonCount = res.data.watermelonCount
                     this.priceSum = res.data
                 })
         },     
