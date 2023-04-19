@@ -6,14 +6,12 @@
         숫자: <input type="text" v-model="value"> <br>
         숫자는: {{ valueResult }} <br>
         <p>
-            <form @submit.prevent="onSubmit">
                 <input type="text" v-model="hello"> <br>
-                <button type="submit">인사 하기</button>
-            </form>
+                <button type="submit" @click="onSubmit">인사 하기</button>
         </p>
         <br>
         <p>
-            <button type="submit" @click="getHello">인사 받기</button>
+            <button type="submit" @click="getHello">인사 받기</button> <br>
             {{ helloFromSpring }}
         </p>
     </div>
@@ -29,12 +27,13 @@ export default {
             value: 0,
             valueResult: '',
             hello: '안녕',
-            helloFromSpring: ''
+            helloFromSpring: '',
         }
     },
     methods: {
         onSubmit () {
             const {hello} = this
+            console.log('hello: ' + hello)
             axios.post('http://localhost:7777/homework-basic1/receive-hello', 
                     {hello})
                 .then((res) => {
