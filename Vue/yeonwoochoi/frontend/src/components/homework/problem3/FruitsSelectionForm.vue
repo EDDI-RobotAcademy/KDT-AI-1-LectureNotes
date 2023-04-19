@@ -19,6 +19,8 @@ export default {
     props: {
         kindsOfFruits: Array,
     },
+    // Vue 객체내에 배치되는 지역 변수
+    // (class라 생각해도 무방)
     data () {
         return {
             fruitsListForPrint: this.kindsOfFruits,
@@ -27,13 +29,17 @@ export default {
     },
     methods: {
         calculateFruitsForOrder () {
+            // javascript 문법 에서 ‘{ blablabla }’ 형태는 객체를 만드는 행위
+            // const : 불변 객체를 만든다는 의미 (const 붙은 데이터들을 한 번 초기화하고 유지, 
+            // 이 값은 변경이 불가능한 고정값으로 유지)
+            // this : 자기 자신의 객체에 해당
             const { fruitsListForPrint } = this
             alert('orderedFruitsList: ' + JSON.stringify(fruitsListForPrint))
             console.log('appleName: ' + fruitsListForPrint[0].name)
             console.log('appleCount: ' + fruitsListForPrint[0].count)
             console.log('watermelonName: ' + fruitsListForPrint[1].name)
             console.log('watermelonCount: ' + fruitsListForPrint[1].count)
-            
+
             axios.post('http://localhost:7777/fruits-test/calculate',
                 { 
                     appleName: fruitsListForPrint[0].name,
