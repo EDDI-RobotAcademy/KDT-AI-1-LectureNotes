@@ -14,13 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class buyFruitController {
 
     @GetMapping("/get-price-sum")
-    public FruitForm buyFruitController(@RequestBody FruitForm fruitForm) {
+    public Integer buyFruitController(@RequestBody FruitForm fruitForm) {
         // 전송 잘 되는지 알아보자 - 잘됨
 //        log.info("all good?");
 
-        GetFruitsPrice getFruitsPrice = new GetFruitsPrice(fruitForm.getAppleCount(), fruitForm.getWatermelonCount());
+        final int APPLE_PRICE = 2000;
+        final int WATERMELON_PRICE = 10000;
 
-        return fruitForm;
+        int priceSum = (fruitForm.getAppleCount() * APPLE_PRICE) +
+                (fruitForm.getWatermelonCount() * WATERMELON_PRICE);
+
+        return priceSum;
     }
 }
 

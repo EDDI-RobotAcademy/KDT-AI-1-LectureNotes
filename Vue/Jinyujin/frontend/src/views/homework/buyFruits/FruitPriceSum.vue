@@ -34,10 +34,8 @@ export default {
             axios.get('http://localhost:7777/buy-fruit/get-price-sum')
                 .then((res) => {
                     this.priceSum = res.data.priceSum
-                    this.appleCount = res.data.appleCount
-                    this.watermelonCount = res.data.watermelonCount
                 })
-        }
+        },     
     },
 }
 </script>
