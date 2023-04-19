@@ -4,7 +4,7 @@
         <button @click="attackAll">전체 공격</button><br>
         <ul>
             <li v-for="(monster, index) in monsterList" :key="index">
-            ID: {{monster.ID}}, name {{monster.name}}, HP: {{monster.hp}}
+            ID: {{monster.id}}, name {{monster.name}}, HP: {{monster.hp}}
             <button @click="attackMonster(index)">일반공격</button>
         </li>
         </ul>

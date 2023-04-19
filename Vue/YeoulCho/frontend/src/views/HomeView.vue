@@ -28,7 +28,8 @@
       <router-link to="/problem2-page"> 2번 연습 문제</router-link> |
       <router-link to="/problem2-2page"> 2번-2 연습 문제</router-link> |
       <router-link to="/basic-problem">vue 기본 문제</router-link> |
-      <router-link to="/problem3-page">vue 3번 문제</router-link> |
+      <router-link to="/problem3-page">vue 3번 문제</router-link> |<br>
+      <router-link to="/Study-page">공부하자</router-link> |<br>
     </nav>
   </div>
 </v-container> 

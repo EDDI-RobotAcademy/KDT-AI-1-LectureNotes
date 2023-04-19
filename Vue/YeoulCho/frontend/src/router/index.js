@@ -28,6 +28,8 @@ import Problem2Page from "@/views/homework/problem2/Problem2Page.vue"
 import Problem22Page from "@/views/homework/problem2/problem2re/Problem2.vue"
 import BasicProblemPage from "@/views/homework/basicProblem/BasicProblem.vue"
 import Problem3Page from "@/views/homework/problem3/Problem3Page.vue"
+
+import StudyPage from "@/views/homework/study/Study.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -134,6 +136,11 @@ const routes = [
     path: '/problem3-page',
     name: 'Problem3Page',
     component: Problem3Page
+  },
+  {
+    path: '/study-page',
+    name: 'StudyPage',
+    component: StudyPage
   }
 
 

@@ -21,8 +21,8 @@ export default {
     
     data(){
         return{
-       ischecked1: true,
-       ischecked2: true,
+       ischecked1: false,
+       ischecked2: false,
     }
 }
         

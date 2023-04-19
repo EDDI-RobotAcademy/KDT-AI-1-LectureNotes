@@ -1,7 +1,9 @@
 <template >
     <div>
         <h3>1. 체크박스</h3>            
-        <local-checkbox-component ischecked1="true" ischecked2="false"/>   
+        <local-checkbox-component :ischecked1="false" :ischecked2="false"/>
+        <h3>1-2. 체크박스</h3>            
+        <local-checkbox-component2/>   
     
     <h3>2. 짝수? 홀수?</h3>
     <input type="text" @change ="Input">
@@ -17,8 +19,7 @@
         <button type="submit" @click="onSubmit2">메세지 가져오기</button>
         <p>
             수신된 메세지: {{ receivedMessage }}
-        </p>
-
+        </p>     
     </div>
     
     
@@ -27,15 +28,19 @@
 
 <script>
 import LocalCheckboxComponent from "@/components/homework/problem2/LocalCheckboxcomponent.vue"
+import LocalCheckboxComponent2 from "@/components/homework/problem2/LocalCheckboxComponent2.vue"
 import axios from 'axios'
 
-export default {
+export default {   
     components: {
-        LocalCheckboxComponent,}, 
+        LocalCheckboxComponent,
+        LocalCheckboxComponent2}, 
     data(){
         return{
             message: '',
-            receivedMessage: ''
+            receivedMessage: '',
+            v1: true,
+            v2: false,
         }
     },    
     methods: {        
