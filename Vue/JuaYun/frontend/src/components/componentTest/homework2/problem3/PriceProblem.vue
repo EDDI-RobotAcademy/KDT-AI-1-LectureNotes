@@ -15,14 +15,17 @@ import axios from 'axios';
 export default {
     data () {
         return {
-            applePrice: 0,
-            watermelonPrice: 0,
+            apple: 0,
+            watermelon: 0,
             result: 0,
+            applePrice: 0,
+            watermelon: 0,
         }
     },
     methods: {
         AllPrice () {
-            axios.get('http://localhost:7777/apple-watermelon/result')
+            axios.get('http://localhost:7777/apple-watermelon/result',
+            {apple: this.apple, watermelon: this.watermelon})
             .then((res) => {
                 console.log('applePrice: ' + res.data.applePrice)
                 console.log('watermelonPrice: ' + res.data.watermelonPrice)

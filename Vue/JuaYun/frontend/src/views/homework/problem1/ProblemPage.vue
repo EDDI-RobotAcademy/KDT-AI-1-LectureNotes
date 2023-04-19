@@ -1,18 +1,15 @@
 <template lang="">
     <div>
-        <label> 
-            <input type="checkbox" v-model="isChecked"> {{ isChecked }}
-        </label>
+        <local-check-box/>
     </div>
 </template>
 
 <script>
+import LocalCheckBox from '@/components/componentTest/homework2/problem1/LocalCheckBox.vue'
 
 export default {
-    data() {
-        return {
-            isChecked: true,
-        }
+    components: {
+        LocalCheckBox,
     }
 }
 </script>

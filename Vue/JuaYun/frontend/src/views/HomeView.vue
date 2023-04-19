@@ -27,6 +27,7 @@
        <router-link to="/problem-page2">주사위게임</router-link> |
        <router-link to="/problem-page">체크박스</router-link> |
        <router-link to="/problem-page3">과일계산하기</router-link> |
+       <router-link to="/problem3-page">선생님의 과일계산하기</router-link> |
       </nav>
     </div>
   </v-container>
