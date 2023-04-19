@@ -6,7 +6,7 @@ public class WaterMelon {
     final private String name;
 
     public WaterMelon() {
-        this.cost = 1000;
+        this.cost = 10000;
         this.num = 5;
         this.name = "수박";
     }

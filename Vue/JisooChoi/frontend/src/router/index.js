@@ -28,6 +28,7 @@ import Problem2Page from "@/views/basics/homework/review/Problem2Page.vue";
 
 // 숙제3 (과일가게)
 import Vueprob3 from "@/views/basics/homework/problem3/Vueprob3.vue";
+import Problem3Page from "@/views/basics/homework/review/problem3/Problem3Page.vue";
 
 Vue.use(VueRouter);
 
@@ -130,6 +131,11 @@ const routes = [
     path: "/problem-page3",
     name: "Vueprob3",
     component: Vueprob3,
+  },
+  {
+    path: "/problem-3page",
+    name: "Problem3Page",
+    component: Problem3Page,
   },
 ];
 

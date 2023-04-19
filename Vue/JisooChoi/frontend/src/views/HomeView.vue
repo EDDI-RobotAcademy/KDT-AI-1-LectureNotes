@@ -58,6 +58,9 @@
         <router-link to="/problem-page3"
           >Vue 세 번째 문제 - 과일가게</router-link
         >|
+        <router-link to="/problem-3page"
+          >Vue 세 번째 문제 리뷰 - 과일가게</router-link
+        >|
       </nav>
     </div>
   </v-container>
