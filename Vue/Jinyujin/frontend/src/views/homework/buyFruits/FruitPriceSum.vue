@@ -31,9 +31,12 @@ export default {
     },
     methods: {
         getPriceSum() {
-            axios.get('http://localhost:7777/buy-fruit/get-price-sum')
+            axios.post('http://localhost:7777/buy-fruit/get-price-sum',
+            {appleCount: this.appleCount, watermelonCount: this.watermelonCount}) //form으로 보내는 것
                 .then((res) => {
-                    this.priceSum = res.data.priceSum
+                    this.appleCount = res.data.appleCount
+                    this.watermelonCount = res.data.watermelonCount
+                    this.priceSum = res.data
                 })
         },     
     },
