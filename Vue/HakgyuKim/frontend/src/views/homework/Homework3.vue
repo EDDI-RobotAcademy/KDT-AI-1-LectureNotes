@@ -40,18 +40,7 @@ export default {
                 console.log(res.data)
 
             })
-        },
-
-        buyWatermelon() {
-            axios.get('http://localhost:7777/fruit-problem/buyWatermelon')
-            .then((res) => {
-                this.boughtWatermelons += res.data.watermelonCount
-                this.totalPrice += res.data.watermelonPrice
-                console.log(res.data)
-
-            })
-        }
-    
+        }, 
 }
 }
 
