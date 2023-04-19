@@ -89,7 +89,8 @@
         alert('로그아웃')
       },
       goToHome () {
-        router.push('/')
+        // router.push('/')
+        router.go()
       }
     }
   }
