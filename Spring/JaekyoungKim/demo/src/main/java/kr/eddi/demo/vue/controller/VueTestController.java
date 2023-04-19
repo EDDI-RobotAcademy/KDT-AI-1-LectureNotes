@@ -15,11 +15,26 @@ public class VueTestController {
         또한 주의할 부분이 있는데 VueRequestTestDataForm은 vue가 전송한 양식을 동일하게 유지하고 있어야 합니다.
         전송한 이름에 해당하는 studentName, studentAge 같은 정보가 정확하게 일치해야 합니다.
    */
-
+    int abx=0;
     @PostMapping("/receive-test")
     public void receiveTest (@RequestBody VueRequestTestDataForm vueRequestTestDataForm) {
         log.info("received data: " + vueRequestTestDataForm);
+        getNum(vueRequestTestDataForm);
     }
+@GetMapping("/get-num")
+    public Integer getNum(VueRequestTestDataForm vueRequestTestDataForm) {
+        int abx= vueRequestTestDataForm.getNumberA();
+        return (Integer)abx;
+    }
+//    @PostMapping("/num-test")
+//    public void receiveTest (@RequestBody NumForm numForm) {
+//        log.info("received data: " + numForm);
+//    }
+//    @GetMapping("/get-num")
+//    public Integer getNum(){
+//        abx=
+//        return (Integer) abx;
+//    }
 
     @GetMapping("/get-random-dice")
     public Integer getRandomDice () {
@@ -58,4 +73,7 @@ public class VueTestController {
         }
         return judgeString;
     }
+
+
+
 }
