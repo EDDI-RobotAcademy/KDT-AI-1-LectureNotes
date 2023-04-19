@@ -2,7 +2,8 @@ package kr.eddi.demo.lectureClass.vue.controller;
 
 import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
 import kr.eddi.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
-import kr.eddi.demo.lectureClass.vue.controller.form.shop.*;
+import kr.eddi.demo.lectureClass.vue.controller.form.shop.AppleResponseForm;
+import kr.eddi.demo.lectureClass.vue.controller.form.shop.WatermelonResponseForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,17 +52,27 @@ public class VueTestController {
         return "Spring: 나도 안녕";
     }
 
-    @GetMapping("/buy-apple")
-    public int buyApple(@RequestParam("appleCountData")Integer appleCountData) {
-        AppleResponseForm appleResponseForm = new AppleResponseForm();
-        int applesPrice = appleResponseForm.getApplesPrice(appleCountData);
-        return applesPrice;
+//    @GetMapping("/buy-apple")
+//    public int buyApple(@RequestParam("appleCountData")Integer appleCountData) {
+//        AppleResponseForm appleResponseForm = new AppleResponseForm();
+//        int applesPrice = appleResponseForm.getApplesPrice(appleCountData);
+//        return applesPrice;
+//    }
+//
+//    @GetMapping("/buy-watermelon")
+//    public int buyWatermelon(@RequestParam("watermelonCountData")Integer watermelonCountData) {
+//        WatermelonResponseForm watermelonResponseForm = new WatermelonResponseForm();
+//        int watermelonsPrice = watermelonResponseForm.getWatermelonsPrice(watermelonCountData);
+//        return watermelonsPrice;
+//    }
+    @PostMapping("/buy-apple")
+    public Integer buyApple(@RequestBody AppleResponseForm appleResponseForm) {
+        final int APPLE_COST = 2000;
+        return appleResponseForm.getAppleCountData() * APPLE_COST;
     }
-
-    @GetMapping("/buy-watermelon")
-    public int buyWatermelon(@RequestParam("watermelonCountData")Integer watermelonCountData) {
-        WatermelonResponseForm watermelonResponseForm = new WatermelonResponseForm();
-        int watermelonsPrice = watermelonResponseForm.getWatermelonsPrice(watermelonCountData);
-        return watermelonsPrice;
+    @PostMapping("/buy-watermelon")
+    public Integer buyWatermelon(@RequestBody WatermelonResponseForm watermelonResponseForm) {
+        final int WATERMELON_COST = 10000;
+        return watermelonResponseForm.getWatermelonCountData() * WATERMELON_COST;
     }
 }

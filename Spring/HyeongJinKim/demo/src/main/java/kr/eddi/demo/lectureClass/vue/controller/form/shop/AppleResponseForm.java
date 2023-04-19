@@ -1,14 +1,22 @@
 package kr.eddi.demo.lectureClass.vue.controller.form.shop;
 
-import lombok.RequiredArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@Getter
 @ToString
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
+@NoArgsConstructor
 public class AppleResponseForm {
-    final int APPLE_PRICE = 2000;
-    public int getApplesPrice(int appleCount) {
-        int applesPrice = APPLE_PRICE * appleCount;
-        return applesPrice;
+//    final int APPLE_PRICE = 2000;
+//    public int getApplesPrice(int appleCount) {
+//        int applesPrice = APPLE_PRICE * appleCount;
+//        return applesPrice;
+//    }
+    private Integer appleCountData;
+
+    public AppleResponseForm(Integer appleCountData) {
+        this.appleCountData = appleCountData;
     }
 }
