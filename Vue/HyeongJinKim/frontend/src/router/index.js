@@ -24,8 +24,8 @@ import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.
 import VueHomeworkPage from "@/views/basics/homework/VueHomeworkPage.vue";
 import VueHomeworkPage2_1 from "@/views/basics/homework/axios/VueHomeworkPage2_1.vue";
 import VueHomeworkPage2_2 from "@/views/basics/homework/axios/VueHomeworkPage2_2.vue";
-import VueHomeworkPage3 from "@/views/basics/homework/axios/VueHomeworkPage3.vue";
-import VueHomeworkPage3Copy from "@/views/basics/homework/axios/VueHomeworkPage3Copy.vue";
+import VueHomeworkPage3 from "@/views/basics/homework/axios/vueHomeworkPage3/VueHomeworkPage3GetMapping.vue";
+import VueHomeworkPage3Copy from "@/views/basics/homework/axios/vueHomeworkPage3/VueHomeworkPage3PostMapping.vue";
 import VueBasicProbs from "@/views/basics/homework/VueBasicProbs.vue";
 
 Vue.use(VueRouter);

@@ -8,11 +8,11 @@ import lombok.ToString;
 @ToString
 //@RequiredArgsConstructor
 @NoArgsConstructor
-public class AppleResponseForm {
-    final int APPLE_PRICE = 2000;
+public class AppleResponseForm2 {
 
-    public int getApplesPrice(int appleCount) {
-        int applesPrice = APPLE_PRICE * appleCount;
-        return applesPrice;
+    private Integer appleCountData;
+
+    public AppleResponseForm2(Integer appleCountData) {
+        this.appleCountData = appleCountData;
     }
 }

@@ -68,7 +68,7 @@ export default {
     buyApple() {
       const { appleCount } = this;
       axios
-        .post("http://localhost:7777/vue-test/buy-apple", {
+        .post("http://localhost:7777/vue-test/buy-apple2", {
           appleCountData: appleCount,
         })
         .then((res) => {
@@ -78,7 +78,7 @@ export default {
     buyWatermelon() {
       const { watermelonCount } = this;
       axios
-        .post("http://localhost:7777/vue-test/buy-watermelon", {
+        .post("http://localhost:7777/vue-test/buy-watermelon2", {
           watermelonCountData: watermelonCount,
         })
         .then((res) => {
