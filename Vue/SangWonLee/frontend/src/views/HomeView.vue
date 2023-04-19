@@ -12,6 +12,7 @@
           /htmlTest를 누가 보여줄 것인지 컴포넌트 등록을 해줘야 합니다.
         -->
         <router-link to="/htmlTest">HtmlTest</router-link> |
+        <router-link to="/htmlTest2">htmlTest2</router-link> |
         <router-link to="/cssTest">CssTest</router-link> |
         <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link> |
         <router-link to="/vue-click-event-page">VueClickEventPage</router-link> |
@@ -27,6 +28,7 @@
         <router-link to="/even-odd-test">짝수인지 홀수인지 알아보기</router-link> |
         <router-link to="/problem-page2">2번 연습 문제</router-link> |
         <!-- HomeView에서 버튼을 만든다. 그 다음 index.js로 이동. -->
+        <router-link to="/problem-page3">3번 연습 문제</router-link> |
 
       </nav>
     </div>
