@@ -4,7 +4,7 @@
         <table v-for="(fruits, index) in this.fruitsListForPrint" :key="index">
             <tr>
                 <td>
-                    {{ fruits.name }}: <input type="number" v-model="fruits.min"/>
+                    {{ fruits.name }}: <input type="number" v-model="fruits.count"/>
                 </td>
             </tr>
         </table>

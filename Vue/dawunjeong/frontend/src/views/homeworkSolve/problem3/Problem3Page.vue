@@ -18,8 +18,8 @@ export default {
     data () {
         return {
             kindsOfFruits: [
-                { "name": "apple", "count": 3 }, 
-                { "name": "watermelon", "count": 5 }
+                { "name": "apple", "count": 0 }, 
+                { "name": "watermelon", "count": 0 }
             ]
         }
     }
