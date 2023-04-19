@@ -24,6 +24,9 @@ import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.
 
 import Problem1 from '@/views/basics/axios/Problem1.vue'
 
+import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
+import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -104,7 +107,17 @@ const routes = [
     path: '/problem1',
     name: 'Problem1',
     component: Problem1
-  }
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
+  },
+  {
+    path: '/problem-page3',
+    name: 'Problem3Page',
+    component: Problem3Page
+  },
 ]
 
 const router = new VueRouter({
