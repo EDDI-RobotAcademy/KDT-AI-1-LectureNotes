@@ -24,6 +24,9 @@ export default {
         AllPrice () {
             axios.get('http://localhost:7777/apple-watermelon/result')
             .then((res) => {
+                console.log('applePrice: ' + res.data.applePrice)
+                console.log('watermelonPrice: ' + res.data.watermelonPrice)
+                console.log('result: ' + res.data.priceSum)
                 this.applePrice = res.data.applePrice
                 this.watermelonPrice = res.data.watermelonPrice
                 this.result = res.data.priceSum
