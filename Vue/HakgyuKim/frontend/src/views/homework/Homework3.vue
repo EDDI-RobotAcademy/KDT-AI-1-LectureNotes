@@ -2,12 +2,12 @@
     <div>
         <h3>과일 구매</h3>
         <form @submit.prevent="buyApple">
-                구매할 사과 개수: <input type="text" v-model="appleCount"> <br>
-                구매할 수박 개수: <input type="text" v-model="watermelonCount"> <br>
-                <v-btn color="primary" type="submit">담기</v-btn>
+                구매할 사과 개수: <input type="number" v-model="appleCount" value="1" min="1" max="10" step="1"><br>
+                구매할 수박 개수:  <input type="range" v-model="watermelonCount" value="1" min="1" max="10" step="1"> <br>
+                <v-btn color="secondary" type="submit">담기</v-btn>
         </form>
         <p>구매 총량: 사과 {{ appleCount }} 개, 수박 {{ watermelonCount }} 개</p>
-            <v-btn color="primary" @click="getTotalPrice">가격 확인하기</v-btn>
+            <v-btn color="secondary" @click="getTotalPrice">가격 확인하기</v-btn>
         <p>가격: {{ totalPrice }}</p>
     </div>
 </template>
@@ -18,8 +18,8 @@ import axios from 'axios';
 export default {
     data () {
         return {
-            appleCount: 0,
-            watermelonCount: 0,
+            appleCount: 1,
+            watermelonCount: 1,
             totalPrice: 0,
         }
     },
