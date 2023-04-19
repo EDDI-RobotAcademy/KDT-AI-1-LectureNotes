@@ -16,7 +16,7 @@ public class FruitController {
     List<Apple> appleList = new ArrayList<>();
     List<Watermelon> watermelonList = new ArrayList<>();
 
-    @PostMapping("/appleCount")
+    @PostMapping("/buyFruit")
     public void appleCount (@RequestBody FruitProblemForm fruitProblemForm) {
         log.info("received data: " + fruitProblemForm);
         appleList.clear();
@@ -27,7 +27,6 @@ public class FruitController {
         for (int i = 0; i < fruitProblemForm.getWatermelonCount(); i++) {
             watermelonList.add(new Watermelon());
         }
-        System.out.println(appleList.size());
     }
 
     @GetMapping("/total-price")

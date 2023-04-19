@@ -26,7 +26,7 @@ export default {
     methods: {
         buyApple() {
             const{appleCount, watermelonCount} = this
-            axios.post('http://localhost:7777/fruit-problem/appleCount',
+            axios.post('http://localhost:7777/fruit-problem/buyFruit',
             {appleCount, watermelonCount})
             .then((res) => {
                     alert('담기 성공!')
