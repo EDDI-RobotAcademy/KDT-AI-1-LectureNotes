@@ -1,6 +1,6 @@
-package com.example.demo.lectureClass.vue.controller.vue.player;
+package com.example.demo.lectureClass.vue.player;
 
-import com.example.demo.lectureClass.vue.controller.vue.dice.Dice;
+import com.example.demo.lectureClass.vue.dice.Dice;
 import lombok.Getter;
 import lombok.ToString;
 

@@ -25,9 +25,9 @@ import LocalInputTwoTimesComponent from '@/components/homework/problem1/LocalInp
 import LocalCalculateComponent from '@/components/homework/problem1/LocalCalculateComponent.vue'
 import LocalTaxBillCheckComponent from '@/components/homework/problem1/LocalTaxBillCheckComponent.vue'
 export default {
-    components: { 
-        LocalSubComponent, 
-        LocalInputTwoTimesComponent, 
+    components: {
+        LocalSubComponent,
+        LocalInputTwoTimesComponent,
         LocalCalculateComponent,
         LocalTaxBillCheckComponent,
     },

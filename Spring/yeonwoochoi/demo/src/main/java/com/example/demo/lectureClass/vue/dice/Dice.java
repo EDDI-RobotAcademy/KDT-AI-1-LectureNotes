@@ -1,6 +1,6 @@
-package com.example.demo.lectureClass.vue.controller.vue.dice;
+package com.example.demo.lectureClass.vue.dice;
 
-import com.example.demo.lectureClass.vue.controller.utility.random.CustomRandom;
+import com.example.demo.lectureClass.utility.random.CustomRandom;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;

@@ -1,8 +1,8 @@
-package com.example.demo.lectureClass.vue.controller.vue.basics.controller.form;
+package com.example.demo.lectureClass.vue.problem.controller;
 
-import com.example.demo.lectureClass.vue.controller.vue.dice.DiceGameManager;
-import com.example.demo.lectureClass.vue.controller.vue.problem.controller.form.MultiPlayerWinnerResponseForm;
-import com.example.demo.lectureClass.vue.controller.vue.problem.controller.form.WinnerResponseForm;
+import com.example.demo.lectureClass.vue.dice.DiceGameManager;
+import com.example.demo.lectureClass.vue.problem.controller.form.MultiPlayerWinnerResponseForm;
+import com.example.demo.lectureClass.vue.problem.controller.form.WinnerResponseForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

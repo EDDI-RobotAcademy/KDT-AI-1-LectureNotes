@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.vue.controller.vue.problem.controller.form;
+package com.example.demo.lectureClass.vue.problem.controller.form;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

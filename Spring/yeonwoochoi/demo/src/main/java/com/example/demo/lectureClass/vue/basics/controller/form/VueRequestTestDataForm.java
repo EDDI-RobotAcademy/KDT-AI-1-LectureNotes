@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.vue.controller.form;
+package com.example.demo.lectureClass.vue.basics.controller.form;
 
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
@@ -10,7 +10,6 @@ import lombok.ToString;
 // 자동으로 초기화 해주는 것이 RequiredArgsConstructor에 해당함
 @RequiredArgsConstructor
 public class VueRequestTestDataForm {
-
     final private String studentName;
     final private String studentMajor;
     final private Integer studentAge;

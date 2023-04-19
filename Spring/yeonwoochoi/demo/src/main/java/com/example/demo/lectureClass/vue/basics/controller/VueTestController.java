@@ -1,7 +1,7 @@
-package com.example.demo.lectureClass.vue.controller;
+package com.example.demo.lectureClass.vue.basics.controller;
 
-import com.example.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
-import com.example.demo.lectureClass.vue.controller.utility.random.CustomRandom;
+import com.example.demo.lectureClass.vue.basics.controller.form.VueRequestTestDataForm;
+import com.example.demo.lectureClass.utility.random.CustomRandom;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

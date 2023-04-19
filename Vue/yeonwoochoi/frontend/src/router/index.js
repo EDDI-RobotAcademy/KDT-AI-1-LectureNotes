@@ -20,6 +20,7 @@ import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpr
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
 import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
+import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
 
 Vue.use(VueRouter)
 
@@ -108,6 +109,11 @@ const routes = [
     path: '/problem-page2',
     name: 'Problem2Page',
     component: Problem2Page
+  },
+  {
+    path: '/problem-page3',
+    name: 'Problem3Page',
+    component: Problem3Page
   },
 ]
 const router = new VueRouter({

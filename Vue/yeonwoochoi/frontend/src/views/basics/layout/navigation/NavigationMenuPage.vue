@@ -19,7 +19,7 @@
         
         아이콘 따올때 맨 앞에 mdi 키워드가 붙어야 합니다.
       -->
-      <v-btn text @click="clickToggle">
+    <v-btn text @click="clickToggle">
         <span>테스트</span>
         <v-icon right>mdi-hand-back-left-outline</v-icon>
       </v-btn>
@@ -68,31 +68,31 @@
 <script>
 import router from '@/router'
 export default {
-    data () {
-      return {
-        navigation_drawer: false,
-        links: [
-          { icon: 'mdi-home', text: 'Home', route: '/' }
-        ],
-      }
-    },
-    methods: {
-      clickToggle () {
-        alert('토글')
-      },
-      signUp () {
-        alert('회원가입')
-      },
-      signIn () {
-        alert('로그인')
-      },
-      signOut () {
-        alert('로그아웃')
-      },
-      goToHome () {
-        router.push('/')
-      }
+  data() {
+    return {
+      navigation_drawer: false,
+      links: [
+        { icon: 'mdi-home', text: 'Home', route: '/' }
+      ],
     }
+  },
+  methods: {
+    clickToggle() {
+      alert('토글')
+    },
+    signUp() {
+      alert('회원가입')
+    },
+    signIn() {
+      alert('로그인')
+    },
+    signOut() {
+      alert('로그아웃')
+    },
+    goToHome() {
+      router.push('/')
+    }
+  }
 }
 </script>
 

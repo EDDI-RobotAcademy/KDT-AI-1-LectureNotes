@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.vue.controller.utility.random;
+package com.example.demo.lectureClass.utility.random;
 
 public class CustomRandom {
     final private static int MIN = 0;
