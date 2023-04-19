@@ -29,6 +29,7 @@
         <router-link to="/random-dice-game-from-spring">axios로 1:1 주사위 게임하기</router-link> |
         <router-link to="/problem-page2">2번 연습 문제</router-link> |
         <router-link to="/buy-fruit-page">과일 구매하기</router-link> |
+        <router-link to="/problem-page3">3번 연습 문제</router-link> |
       </nav>
     </div>
   </v-container>

@@ -18,21 +18,19 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
-// 과제 페이지
-import HomeworkPage from '@/views/basics/homework/HomeworkPage.vue'
-
-// 선생님 과제 풀이 페이지
-import ProblemPage1 from '@/views/homeworkSolve/problem1/ProblemPage.vue'
-
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
-import DiceDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceDataResponseFromSpringPage.vue'
-import DiceGameDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceGameDataResponseFromSpringPage.vue'
-
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
-import Problem2Page from '@/views/homeworkSolve/problem2/Problem2Page.vue'
-
+// 과제 페이지
+import HomeworkPage from '@/views/basics/homework/HomeworkPage.vue'
+import DiceDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceDataResponseFromSpringPage.vue'
+import DiceGameDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceGameDataResponseFromSpringPage.vue'
 import BuyFruitPage from '@/views/homework/problem3/BuyFruitPage.vue'
+
+// 과제 선생님 풀이 페이지
+import ProblemPage1 from '@/views/homeworkSolve/problem1/ProblemPage.vue'
+import Problem2Page from '@/views/homeworkSolve/problem2/Problem2Page.vue'
+import Problem3Page from '@/views/homeworkSolve/problem3/Problem3Page.vue'
 
 Vue.use(VueRouter)
 
@@ -139,6 +137,11 @@ const routes = [
     path: '/buy-fruit-page',
     name: 'BuyFruitPage',
     component: BuyFruitPage
+  },
+  {
+    path: '/problem-page3',
+    name: 'Problem3Page',
+    component: Problem3Page
   },
 ]
 
