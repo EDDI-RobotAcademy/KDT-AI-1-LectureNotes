@@ -1,13 +1,13 @@
 <template>
     <div>
-        <h3>사과</h3>
+        <h3>과일 구매</h3>
         <form @submit.prevent="buyApple">
-                구매할 사과 개수: <input type="text" v-model="boughtApples"> <br>
-                <button type="submit">구매하기</button>
-            </form>
-        <h3>수박</h3>
-        <v-btn color="primary" @click="buyWatermelon">구매하기</v-btn>
-        <p>구매 총량: 사과 {{ boughtApples }} 개, 수박 {{ boughtWatermelons }} 개</p>
+                구매할 사과 개수: <input type="text" v-model="appleCount"> <br>
+                구매할 수박 개수: <input type="text" v-model="watermelonCount"> <br>
+                <v-btn color="primary" type="submit">담기</v-btn>
+        </form>
+        <p>구매 총량: 사과 {{ appleCount }} 개, 수박 {{ watermelonCount }} 개</p>
+            <v-btn color="primary" @click="getTotalPrice">가격 확인하기</v-btn>
         <p>가격: {{ totalPrice }}</p>
     </div>
 </template>
@@ -18,21 +18,25 @@ import axios from 'axios';
 export default {
     data () {
         return {
-            boughtApples: 0,
-            boughtWatermelons: 0,
+            appleCount: 0,
+            watermelonCount: 0,
             totalPrice: 0,
         }
     },
     methods: {
         buyApple() {
-            const{boughtApples} = this
-            axios.post('http://localhost:7777/fruit-problem/appleCount')
+            const{appleCount, watermelonCount} = this
+            axios.post('http://localhost:7777/fruit-problem/appleCount',
+            {appleCount, watermelonCount})
             .then((res) => {
-                    alert('구매 성공!')
+                    alert('담기 성공!')
                 })
-            axios.get('http://localhost:7777/fruit-problem/buyApple')
+        },
+
+        getTotalPrice() {
+            axios.get('http://localhost:7777/fruit-problem/total-price')
             .then((res) => {
-                this.totalPrice += res.data.applePrice
+                this.totalPrice = res.data
                 console.log(res.data)
 
             })

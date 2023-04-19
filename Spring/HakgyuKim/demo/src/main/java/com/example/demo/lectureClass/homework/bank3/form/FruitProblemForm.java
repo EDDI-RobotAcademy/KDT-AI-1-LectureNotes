@@ -8,5 +8,6 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @Getter
 public class FruitProblemForm {
-
+    private Integer appleCount;
+    private Integer watermelonCount;
 }

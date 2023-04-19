@@ -5,4 +5,5 @@ import lombok.Getter;
 @Getter
 public class Apple {
     final private int price = 2000;
+
 }
