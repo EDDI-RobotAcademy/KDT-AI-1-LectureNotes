@@ -1,4 +1,4 @@
-package com.example.demo.practice;
+package com.example.demo.practice.diceGame3;
 
 import com.example.demo.lectureClass.utility.random.CustomRandom;
 import lombok.Getter;

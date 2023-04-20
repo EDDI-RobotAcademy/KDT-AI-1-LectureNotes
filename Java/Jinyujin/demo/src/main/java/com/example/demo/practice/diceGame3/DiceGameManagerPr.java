@@ -1,6 +1,5 @@
-package com.example.demo.practice;
+package com.example.demo.practice.diceGame3;
 
-import com.example.demo.lectureClass.vue.problem.player.Player;
 import lombok.Getter;
 import lombok.ToString;
 

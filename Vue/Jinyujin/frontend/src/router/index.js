@@ -39,6 +39,8 @@ import Problem3Page from '@/views/basics/solved/problem3/Problem3Page.vue'
 
 import DiceGame3 from '@/views/homework/diceGame3/DiceGame3.vue'
 
+import MakeCharacter from '@/views/homework/character/MakeCharacter.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -164,6 +166,11 @@ const routes = [
     path: '/dice-game3',
     name: 'DiceGame3',
     component: DiceGame3
+  },
+  {
+    path: '/make-character',
+    name: 'MakeCharacter',
+    component: MakeCharacter
   },
 
 ]

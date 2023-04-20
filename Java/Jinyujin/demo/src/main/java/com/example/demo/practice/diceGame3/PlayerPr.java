@@ -1,9 +1,9 @@
-package com.example.demo.practice;
+package com.example.demo.practice.diceGame3;
 
+import com.example.demo.practice.diceGame3.DicePr;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
