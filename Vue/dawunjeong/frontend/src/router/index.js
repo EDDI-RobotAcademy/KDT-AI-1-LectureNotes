@@ -26,6 +26,7 @@ import HomeworkPage from '@/views/basics/homework/HomeworkPage.vue'
 import DiceDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceDataResponseFromSpringPage.vue'
 import DiceGameDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceGameDataResponseFromSpringPage.vue'
 import BuyFruitPage from '@/views/homework/problem3/BuyFruitPage.vue'
+import GameCharacterPage from '@/views/homework/problem4/GameCharacterPage.vue'
 
 // 과제 선생님 풀이 페이지
 import ProblemPage1 from '@/views/homeworkSolve/problem1/ProblemPage.vue'
@@ -142,6 +143,11 @@ const routes = [
     path: '/problem-page3',
     name: 'Problem3Page',
     component: Problem3Page
+  },
+  {
+    path: '/game-character-page',
+    name: 'GameCharacterPage',
+    component: GameCharacterPage
   },
 ]
 

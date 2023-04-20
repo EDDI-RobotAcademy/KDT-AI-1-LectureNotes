@@ -1,0 +1,82 @@
+<template lang="">
+    <div>
+        <h1>캐릭터 게임</h1>
+        <div id="createCharacter">
+            <v-btn color="red" @click="addAccount">게임 캐릭터 생성</v-btn>
+            <p></p>
+            <div v-if="showCreatAccount">
+                <div>
+                    <p>이메일 입력: <input type="email" v-model="emailInfo"></p>
+                    <p>비밀번호 입력: <input type="password" v-model="passwordInfo"></p>
+
+                    <p>입력한 이메일과 비밀번호를 확인해주세요. 
+                        <h4>이메일: {{ emailInfo }}<br>
+                            비밀번호: {{ passwordInfo }}</h4>
+                    </p>
+
+                    <p>
+                        <v-btn color="primary" @click="complete">완료</v-btn>
+                        <h3>생성된 계정 정보(이메일, 비밀번호): {{ accountInfo }}</h3>
+                    </p>
+                </div>
+
+                <div id="playGame">
+                <p></p>    
+                <v-btn color="red" @click="showCharacterStatus">PLAY!!!</v-btn>
+                    <div v-if="showStatus">
+                        <p>게임 캐릭터의 상태:<br>
+                        <li>
+                            strength: {{characterStatus[0]}}
+                            intelligent: {{characterStatus[1]}}
+                            dexterity: {{characterStatus[2]}}
+                            agility: {{characterStatus[3]}}
+                            hp: {{characterStatus[4]}}
+                        </li>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+    data () {
+        return {
+            showCreatAccount: false,
+            showStatus: false,
+            emailInfo: '',
+            passwordInfo: '',
+            accountInfo: [],
+            characterStatus: [],
+        }
+    },
+    methods: {
+        addAccount () {
+            this.showCreatAccount = !this.showCreatAccount;
+        },
+        complete () {
+            axios.post('http://localhost:7777/character-game/add-character',
+            { email: this.emailInfo, password: this.passwordInfo })
+            .then((res) => {
+                alert('데이터 전송!')
+                this.accountInfo = res.data
+            })
+        },
+        showCharacterStatus () {
+            this.showStatus = true
+            axios.get('http://localhost:7777/character-game/create-character-status')
+                .then((response) => {
+                    this.characterStatus = response.data;
+            })
+        }
+    }
+}
+</script>
+
+<style lang="">
+    
+</style>
