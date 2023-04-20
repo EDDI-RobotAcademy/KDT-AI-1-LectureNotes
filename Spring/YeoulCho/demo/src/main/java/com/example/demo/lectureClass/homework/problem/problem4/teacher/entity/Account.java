@@ -17,4 +17,8 @@ public class Account {
         this.userEmail = email;
         this.userPassword = password;
     }
+
+    public Long getId() {
+        return id;
+    }
 }

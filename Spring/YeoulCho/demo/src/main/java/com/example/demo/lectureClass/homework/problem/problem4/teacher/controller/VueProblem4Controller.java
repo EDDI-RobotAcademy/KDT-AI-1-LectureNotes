@@ -3,14 +3,18 @@ package com.example.demo.lectureClass.homework.problem.problem4.teacher.controll
 import com.example.demo.lectureClass.homework.problem.problem4.teacher.entity.Account;
 import com.example.demo.lectureClass.homework.problem.problem4.teacher.entity.CharacterStatus;
 import com.example.demo.lectureClass.homework.problem.problem4.teacher.form.AccountCreationForm;
+import com.example.demo.lectureClass.homework.problem.problem5.LoginForm;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Slf4j
 @RestController
+@Getter
 @RequestMapping("/test-account")
 public class VueProblem4Controller {
     private static long accountNumber =1; //전역 어떨때 씁니까? 모두 공유하는 변수
@@ -27,6 +31,7 @@ public class VueProblem4Controller {
         accountNumber++; //위 코드다음 accountNumber 증가
         accountList.add(account); //accountList에 account 추가
 
+
         final CharacterStatus characterStatus = new CharacterStatus(account.getId());
         characterStatusList.add(characterStatus);
         return true;
@@ -36,5 +41,16 @@ public class VueProblem4Controller {
     public CharacterStatus getCharacterStatus(){
         return characterStatusList.get(0);
     }
+    @PostMapping("/test-login")
+    public String Login(@RequestBody LoginForm loginForm){
+        log.info("loginInfo: " + loginForm);
+        String targetUserEmail="";
+        for(int i=0; i<accountList.size();i++){
+        if(accountList.get(i).getId() == loginForm.getId()){
+            targetUserEmail +=accountList.get(i).getUserEmail();
+        }}
+        return targetUserEmail;
+    }
+    
 
 }
