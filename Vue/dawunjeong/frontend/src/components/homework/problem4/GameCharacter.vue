@@ -6,17 +6,17 @@
             <p></p>
             <div v-if="showCreatAccount">
                 <div>
-                    <p>이메일 입력: <input type="email" v-model="emailInfo"></p>
-                    <p>비밀번호 입력: <input type="password" v-model="passwordInfo"></p>
+                    <p>이메일 입력: <input type="email" v-model="email"></p>
+                    <p>비밀번호 입력: <input type="password" v-model="password"></p>
 
                     <p>입력한 이메일과 비밀번호를 확인해주세요. 
-                        <h4>이메일: {{ emailInfo }}<br>
-                            비밀번호: {{ passwordInfo }}</h4>
+                        <h4>이메일: {{ email }}<br>
+                            비밀번호: {{ password }}</h4>
                     </p>
 
                     <p>
                         <v-btn color="primary" @click="complete">완료</v-btn>
-                        <h3>생성된 계정 정보(이메일, 비밀번호): {{ accountInfo }}</h3>
+                        <h3>생성된 계정 정보: {{ accountInfo }}</h3>
                     </p>
                 </div>
 
@@ -48,19 +48,21 @@ export default {
         return {
             showCreatAccount: false,
             showStatus: false,
-            emailInfo: '',
-            passwordInfo: '',
+
+            email: '',
+            password: '',
+
             accountInfo: [],
             characterStatus: [],
         }
     },
     methods: {
         addAccount () {
-            this.showCreatAccount = !this.showCreatAccount;
+            this.showCreatAccount = true
         },
         complete () {
             axios.post('http://localhost:7777/character-game/add-character',
-            { email: this.emailInfo, password: this.passwordInfo })
+            { email: this.email, password: this.password })
             .then((res) => {
                 alert('데이터 전송!')
                 this.accountInfo = res.data

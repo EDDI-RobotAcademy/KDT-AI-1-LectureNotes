@@ -1,35 +1,44 @@
 package com.example.demo.lectureClass.vue.homework.controller;
 
-import com.example.demo.lectureClass.vue.homework.charactergame.CharacterModel;
+import com.example.demo.lectureClass.vue.homework.charactergame.Account;
+import com.example.demo.lectureClass.vue.homework.charactergame.CharacterStatus;
 import com.example.demo.lectureClass.vue.homework.controller.form.CharacterGameAccountForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Slf4j
 @RestController
 @RequestMapping("/character-game")
 public class VueHomework4Controller {
+
+    private static int accountNumber = 1;
+    private static List<Account> accountList = new ArrayList<>();
+    private static List<CharacterStatus> characterStatusList = new ArrayList<>();
+
+
     @PostMapping("/add-character")
-    public String[] receivedAccountInfo (@RequestBody CharacterGameAccountForm characterGameAccountForm) {
+    public CharacterGameAccountForm createAccount (@RequestBody CharacterGameAccountForm characterGameAccountForm) {
         log.info("received data: " + characterGameAccountForm);
 
-        String[] accountInfo = new String[2];
-        accountInfo[0] = characterGameAccountForm.getEmail();
-        accountInfo[1] = characterGameAccountForm.getPassword();
+        Account account = characterGameAccountForm.toAccount(accountNumber);
+        accountNumber++;
+        accountList.add(account);
 
-        return accountInfo;
+        CharacterStatus character = new CharacterStatus(account.getId());
+        characterStatusList.add(character);
+
+        return characterGameAccountForm;
     }
 
     @GetMapping("/create-character-status")
     public int[] createCharacterStatus () {
-        CharacterModel character = new CharacterModel();
-        int[] characterStatus;
-        characterStatus = character.getCharacterStatus();
+        log.info("characterStatus: " + Arrays.toString(characterStatusList.get(0).getCharacterStatus()));
+        log.info("whatIsYourId: " + characterStatusList.get(0).getAccountId());
 
-        log.info("characterStatus: " + Arrays.toString(characterStatus));
-
-        return characterStatus;
+        return characterStatusList.get(0).getCharacterStatus();
     }
 }
