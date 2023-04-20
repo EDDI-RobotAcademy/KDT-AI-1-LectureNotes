@@ -11,11 +11,11 @@ import java.util.List;
 @Getter
 @ToString
 public class GameManager {
-    Character character;
+    List<Character> characterList = new ArrayList<>();
     List<Enemy> enemyList = new ArrayList<>();
 
-    public GameManager (String playerEmail, String playerPassword) {
-        character = new Character(playerEmail, playerPassword);
+    public GameManager () {
+
     }
 
     public void addEnemy () {

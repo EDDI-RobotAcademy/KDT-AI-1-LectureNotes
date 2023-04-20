@@ -1,13 +1,16 @@
-package com.example.demo.lectureClass.homework.bank4.form;
+package com.example.demo.lectureClass.homework.bank4.account;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 @Getter
-@RequiredArgsConstructor
 @ToString
-public class CharacterMakeForm {
+@RequiredArgsConstructor
+public class Account {
+
+    final private Long id;
     final private String email;
     final private String password;
+
 }

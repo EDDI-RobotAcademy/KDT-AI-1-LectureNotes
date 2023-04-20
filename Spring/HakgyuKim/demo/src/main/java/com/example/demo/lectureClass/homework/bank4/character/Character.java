@@ -7,8 +7,8 @@ import lombok.ToString;
 @ToString
 @Getter
 public class Character {
-    final private String email;
-    final private String password;
+    final private String name;
+    final private int characterId;
     private int health;
     private int strength;
     private int dexterity;
@@ -20,9 +20,11 @@ public class Character {
     final private int STATUS_MIN = 2;
     final private int STATUS_MAX = 10;
 
-    public Character(String email, String password) {
-        this.email = email;
-        this.password = password;
+    private int singleAtkDmg = (int) (5 + strength * 1.3);
+
+    public Character(String name, int characterId) {
+        this.name = name;
+        this.characterId = characterId;
         this.health = CustomRandom.generateNumber(HEALTH_MIN, HEALTH_MAX);
         this.strength = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
         this.dexterity = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
