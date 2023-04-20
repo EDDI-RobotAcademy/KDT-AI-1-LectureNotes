@@ -30,6 +30,7 @@
       <router-link to="/basic-problem">vue 기본 문제</router-link> |
       <router-link to="/problem3-page">vue 3번 문제</router-link> |<br>
       <router-link to="/Study-page">공부하자</router-link> |<br>
+      <router-link to="/Problem4-page">4번 연습문제</router-link> |
     </nav>
   </div>
 </v-container> 
