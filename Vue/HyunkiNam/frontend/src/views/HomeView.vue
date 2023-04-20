@@ -26,6 +26,7 @@
         <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
         <router-link to="/practice-page">연습</router-link> |
         <router-link to="/kakao-api-page">API 사용</router-link> |
+        <router-link to="/problem4-page">문제 은행4</router-link> |
 
 
       </nav>

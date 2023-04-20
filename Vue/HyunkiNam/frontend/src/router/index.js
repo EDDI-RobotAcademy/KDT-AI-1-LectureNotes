@@ -23,7 +23,9 @@ import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage'
 
 import HomeworkPage from '@/views/homework/HomeworkPage.vue'
+import Problem4Page from '@/views/homework/Problem4Page.vue'
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -115,6 +117,11 @@ const routes = [
     path: '/kakao-api-page',
     name: 'KakaoAPIPage',
     component: KakaoAPIPage
+  },
+  {
+    path: '/problem4-page',
+    name: 'Problem4Page',
+    component: Problem4Page
   },
 ]
 
