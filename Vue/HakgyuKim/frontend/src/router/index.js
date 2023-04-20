@@ -24,6 +24,7 @@ import HomeworkBasic1 from '@/views/homework/HomeworkBasic1.vue'
 import Homework2Answer from '@/views/homework/answer/Homework2Answer.vue'
 
 import Homework3 from '@/views/homework/Homework3.vue'
+import Homework4 from '@/views/homework/Homework4.vue'
 
 Vue.use(VueRouter)
 
@@ -125,6 +126,11 @@ const routes = [
     path: '/homework3',
     name: 'Homework3',
     component: Homework3
+  },
+  {
+    path: '/homework4',
+    name: 'Homework4',
+    component: Homework4
   }
 ]
 

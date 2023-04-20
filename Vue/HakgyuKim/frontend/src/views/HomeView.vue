@@ -27,7 +27,8 @@
       <router-link to="/homework2">주사위로 핪으로 승패 정하기</router-link> |
       <router-link to="/homework-basic1">기본문제1</router-link> |
       <router-link to="/homework2-answer">숙제 2 정답</router-link> |
-      <router-link to="/homework3">문제 은행3</router-link>
+      <router-link to="/homework3">문제 은행3</router-link> |
+      <router-link to="/homework4">문제 은행4</router-link>
       </nav>
     </div>
   </v-container>
