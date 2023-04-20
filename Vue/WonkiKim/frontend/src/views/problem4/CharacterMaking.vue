@@ -17,7 +17,7 @@
         </v-container>
 
         <v-container v-if="statusView">
-            <p id="characterStatus">{{characterStatus}}</p>
+            <p id="characterStatus">{{character}}</p>
             <v-btn @click="home">다시</v-btn>
         </v-container>
 
@@ -39,7 +39,8 @@ export default {
 
             email: "",
             password: "",
-            characterStatus: ""
+            character: "",
+            characterId: 0,
         }
     },
     methods: {
@@ -55,9 +56,11 @@ export default {
             axios.post('http://localhost:7777/problem4/make-character',
                 {email, password})
                 .then((res) => {
-                    console.log("데이터 전송 성공")
+                    console.log("캐릭터 생성 성공")
+                    this.characterId = res.data.id;
+                    this.character = res.data.character;
                 }).catch((res) => {
-                console.log("데이터 전송 실패")
+                console.log("캐릭터 생성 실패")
             });
 
         },

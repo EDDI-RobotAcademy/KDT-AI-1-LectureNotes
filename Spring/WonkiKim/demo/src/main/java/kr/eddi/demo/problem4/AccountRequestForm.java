@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @RequiredArgsConstructor
-public class IdRequestForm {
+public class AccountRequestForm {
     String email;
     String password;
 }
