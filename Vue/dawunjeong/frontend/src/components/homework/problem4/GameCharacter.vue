@@ -8,22 +8,14 @@
                 <div>
                     <p>이메일 입력: <input type="email" v-model="email"></p>
                     <p>비밀번호 입력: <input type="password" v-model="password"></p>
-
-                    <p>입력한 이메일과 비밀번호를 확인해주세요. 
-                        <h4>이메일: {{ email }}<br>
-                            비밀번호: {{ password }}</h4>
-                    </p>
-
-                    <p>
-                        <v-btn color="primary" @click="complete">완료</v-btn>
-                        <h3>생성된 계정 정보: {{ accountInfo }}</h3>
-                    </p>
+                    <p><v-btn color="primary" @click="complete">생성</v-btn></p>
                 </div>
 
                 <div id="playGame">
                 <p></p>    
                 <v-btn color="red" @click="showCharacterStatus">PLAY!!!</v-btn>
                     <div v-if="showStatus">
+                        <p></p>
                         <p>게임 캐릭터의 상태:<br>
                         <li>
                             strength: {{characterStatus[0]}}
@@ -65,6 +57,7 @@ export default {
             { email: this.email, password: this.password })
             .then((res) => {
                 alert('데이터 전송!')
+                alert(JSON.stringify(res.data.email) + '님 가입이 완료되었습니다.')
                 this.accountInfo = res.data
             })
         },
