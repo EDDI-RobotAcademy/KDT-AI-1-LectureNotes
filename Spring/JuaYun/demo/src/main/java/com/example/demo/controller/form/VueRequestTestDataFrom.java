@@ -1,4 +1,7 @@
-package com.example.demo.lectureClass.vue.controller.form;
+package com.example.demo.controller.form;
+
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @ToString
 @RequiredArgsConstructor

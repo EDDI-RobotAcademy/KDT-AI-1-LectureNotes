@@ -33,7 +33,7 @@ export default {
             console.log('appleCount: ' + fruitsListForPrint[0].count)
             console.log('watermelonName: ' + fruitsListForPrint[1].name)
             console.log('watermelonCount: ' + fruitsListForPrint[1].count)
-            axios.post('http://localhost:7777/fruits-test/calculate',
+            axios.get('http://localhost:7777/fruits-test/calculate',
                 { 
                     appleName: fruitsListForPrint[0].name,
                     appleCount: fruitsListForPrint[0].count,

@@ -1,6 +1,7 @@
-package com.example.demo.lectureClass.vue.controller;
+package com.example.demo.controller;
 
-import com.example.demo.lectureClass.vue.controller.form.VueRequestTestDataFrom;
+import com.example.demo.controller.form.VueRequestTestDataFrom;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
