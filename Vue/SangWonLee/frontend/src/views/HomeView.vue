@@ -29,6 +29,11 @@
         <router-link to="/problem-page2">2번 연습 문제</router-link> |
         <!-- HomeView에서 버튼을 만든다. 그 다음 index.js로 이동. -->
         <router-link to="/problem-page3">3번 연습 문제</router-link> |
+        <router-link to="/vue-basic-problem-1">Vue 기본 문제 1</router-link> |
+        <router-link to="/vue-basic-problem-2">Vue 기본 문제 2</router-link> |
+        <router-link to="/vue-basic-problem-3">Vue 기본 문제 3</router-link> |
+        <router-link to="/vue-basic-problem-4">Vue 기본 문제 4</router-link> |
+        <router-link to="/problem-page4">4번 연습 문제</router-link> |
 
       </nav>
     </div>
