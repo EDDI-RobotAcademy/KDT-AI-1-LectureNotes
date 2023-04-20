@@ -22,9 +22,6 @@ public class MakeGameAccount {
         // 게임캐릭터 status 정보 넘기기
         log.info("Charactet status: " + charactetModelForm);
 
-//        ChangeCharacterStatus changeCharacterStatus = new ChangeCharacterStatus();
-//        changeCharacterStatus.ShowStatus();
-
         return charactetModelForm;
     }
 }

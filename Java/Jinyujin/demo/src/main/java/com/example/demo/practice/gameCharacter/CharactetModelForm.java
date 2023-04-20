@@ -10,10 +10,10 @@ import lombok.ToString;
 @RequiredArgsConstructor
 public class CharactetModelForm {
 
-    final int START = 10;
-    final int END = 20;
-    final int HP_MIN = 70;
-    final int HP_MAX = 150;
+    final static int START = 10;
+    final static int END = 20;
+    final static int HP_MIN = 70;
+    final static int HP_MAX = 150;
 
     private Integer strength = CustomRandom.generateNumber(START, END);       // 완력
     private Integer intelligent = CustomRandom.generateNumber(START, END);    // 지능

@@ -7,7 +7,7 @@
 <template lang="">
     <div>
         <!-- 캐릭터 생성 버튼 만들기 -->
-        <v-btn @click="toggleCharacterForm">캐릭터 생성</v-btn><br>
+        <v-btn color="white" @click="toggleCharacterForm">캐릭터 생성</v-btn><br>
         <!-- makeCharacter() 메서드 만들어주기 -->
         <!-- 버튼 클릭 시 이메일 패스워드 입력하도록 -->
         <!-- form과 v-if이용 -->
@@ -19,7 +19,17 @@
             <!-- 완료 누르면 백엔드에서 캐릭터 계정 생성 -->
             <!-- 완료 버튼 캐릭터 생성 버튼 안에 넣어주기 -->
             <v-btn @click="makeCharacterComplete">완료</v-btn>
+            <form v-if="isButton">
+                <p>
+                    {{ email }}님, 가입을 환영합니다!
+                </p>
+            </form>
         <!-- makeCharacterBack() 메서드에서 서버와 통신하도록 -->
+        <!-- 완료 버튼 누르면 환영합니다 메세지 출력되도록 하기 -->
+        <!-- 
+            isPressButton은 이미 위에서 눌리기 때문에 한꺼번에 열림
+            좋은 방법이 뭐가 있을까? 
+        -->
         </form>
     </div>
 </template>
@@ -37,6 +47,7 @@ export default {
             // form은 닫혀 있게 하기 위해서 false값을 기본으로 둔다
             email:'email@eddi.com',
             password:'password입력',
+            isButton: false,
         }
     },
     methods: {
@@ -44,7 +55,7 @@ export default {
             this.isPressButton = true;
         },
         makeCharacterComplete() {
-            this.isPressButton = true;
+            this.isButton = true;
             axios.post('http://localhost:7777/lets-show/character',
             {email: this.email, password: this.password}) // 계정 생성해주기
             // 이거는 만든 페이지에서 설정해주는 것이지 
