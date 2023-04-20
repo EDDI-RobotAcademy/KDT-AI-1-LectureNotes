@@ -1,12 +1,15 @@
 package kr.eddi.demo.controller;
 
-import kr.eddi.demo.controller.form.BuyFruitForm;
-import kr.eddi.demo.controller.form.BuyListDataForm;
+import kr.eddi.demo.controller.character.Character;
+import kr.eddi.demo.controller.form.*;
 import kr.eddi.demo.homework.GameManager;
-import kr.eddi.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
 import kr.eddi.demo.lectureClass.vue.controller.utility.random.CustomRandom;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @RestController
@@ -18,6 +21,9 @@ public class HomeworkController {
 
     int apple2 = 0;
     int watermelon2 = 0;
+
+    List<Character> characterList = new ArrayList<>();
+
     @GetMapping("/win-condition-is-even")
     public StringBuilder winConditionIsEVEN(){
         final int MIN = 1;
@@ -93,6 +99,35 @@ public class HomeworkController {
         BuyListDataForm buyListDataForm2 = new BuyListDataForm(apple2, watermelon2, buyPriceSum);
 
         return buyListDataForm2;
+    }
+
+    @PostMapping("create-character")
+    public boolean createCharacter(@RequestBody CharacterInfoForm characterInfoForm){
+        for(int i=0; i<characterList.size(); i++){
+            if(Objects.equals(characterList.get(i).getUser_email(), characterInfoForm.getUser_email())){
+                return false;
+            }
+        }
+        characterList.add(
+                new Character(characterInfoForm.getUser_email(), characterInfoForm.getUser_password()));
+        System.out.println(characterList);
+        return true;
+    }
+
+    @GetMapping("get-character-status")
+    public CharacterStatusForm getCharacterInfo(@RequestParam(value = "playerIdx") String playerIdx){
+
+        int playerIndex = Integer.parseInt(playerIdx)-1;
+
+        String user_email = characterList.get(playerIndex).getUser_email();
+        int strength = characterList.get(playerIndex).getStrength();
+        int dexterity = characterList.get(playerIndex).getDexterity();
+        int intellect = characterList.get(playerIndex).getIntellect();
+
+        CharacterStatusForm characterStatusForm = new CharacterStatusForm(user_email, strength, dexterity, intellect);
+        System.out.println(characterStatusForm);
+
+        return characterStatusForm;
     }
 
 }

@@ -12,6 +12,7 @@
         <send-hello-component />
         <dice-game-two-times />
         <buy-fruit-component />
+        <character-component />
     </v-container>
 </template>
 <script>
@@ -27,6 +28,7 @@ import CheckEvenOddComponent from '@/components/homeworkComponent/problem2/Check
 import SendHelloComponent from '@/components/homeworkComponent/problem2/SendHelloComponent.vue';
 import DiceGameTwoTimes from '@/components/HomeworkSolutionComponent/DiceGameTwoTimes.vue';
 import BuyFruitComponent from '@/components/homeworkComponent/problem3/BuyFruitComponent.vue';
+import CharacterComponent from '@/components/homeworkComponent/problem4/CharacterComponent.vue';
 
 export default {
     components: {
@@ -40,7 +42,8 @@ export default {
         CheckEvenOddComponent,
         SendHelloComponent,
         DiceGameTwoTimes,
-        BuyFruitComponent
+        BuyFruitComponent,
+        CharacterComponent,
     },
     data() {
         return {
