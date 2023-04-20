@@ -55,11 +55,17 @@
         <router-link to="/problem-page2"
           >Vue 두 번째 문제 은행 리뷰 페이지</router-link
         >|
-        <router-link to="/problem-page3"
+        <router-link to="/problem-page3-alone"
           >Vue 세 번째 문제 - 과일가게</router-link
         >|
         <router-link to="/problem-3page"
           >Vue 세 번째 문제 리뷰 - 과일가게</router-link
+        >|
+        <router-link to="/vue-problem-4page-alone"
+          >Vue 네 번째 문제 - 캐릭터</router-link
+        >|
+        <router-link to="/vue-problem-4page"
+          >Vue 네 번째 문제 리뷰 - 캐릭터</router-link
         >|
       </nav>
     </div>

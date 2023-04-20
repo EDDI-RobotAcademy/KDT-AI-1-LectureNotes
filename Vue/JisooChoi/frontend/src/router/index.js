@@ -30,6 +30,10 @@ import Problem2Page from "@/views/basics/homework/review/Problem2Page.vue";
 import Vueprob3 from "@/views/basics/homework/problem3/Vueprob3.vue";
 import Problem3Page from "@/views/basics/homework/review/problem3/Problem3Page.vue";
 
+// 문제 은행 4
+import VueProb4 from "@/views/basics/homework/problem4/VueProb4.vue";
+import Problem4Page from "@/views/basics/homework/review/problem4/Problem4Page.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -128,7 +132,7 @@ const routes = [
     component: Problem2Page,
   },
   {
-    path: "/problem-page3",
+    path: "/problem-page3-alone",
     name: "Vueprob3",
     component: Vueprob3,
   },
@@ -136,6 +140,16 @@ const routes = [
     path: "/problem-3page",
     name: "Problem3Page",
     component: Problem3Page,
+  },
+  {
+    path: "/vue-problem-4page-alone",
+    name: "VueProb4",
+    component: VueProb4,
+  },
+  {
+    path: "/vue-problem-4page",
+    name: "Problem4Page",
+    component: Problem4Page,
   },
 ];
 
