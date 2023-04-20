@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Slf4j
+@Slf4j`
 @RestController
 @RequestMapping("/fruits-test")
 public class VueProblem3Controller {
