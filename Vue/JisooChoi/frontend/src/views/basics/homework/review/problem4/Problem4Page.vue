@@ -1,27 +1,26 @@
 <template lang="">
-    <div>
-        <game-account-creation/>
-        <game-account-status-load/>
-    </div>
+  <div>
+    <game-account-creation />
+    <game-account-login />
+    <game-account-status-load />
+  </div>
 </template>
 
 <script>
-
-import GameAccountCreation from '@/components/homework/problem4/review/GameAccountCreation.vue';
-import GameAccountStatusLoad from '@/components/homework/problem4/review/GameAccountStatusLoad.vue';
+import GameAccountCreation from "@/components/homework/problem4/review/GameAccountCreation.vue";
+import GameAccountStatusLoad from "@/components/homework/problem4/review/GameAccountStatusLoad.vue";
+import GameAccountLogin from "@/components/homework/problem4/review/GameAccountLogin.vue";
 
 export default {
-    components: {
-        GameAccountCreation,
-        GameAccountStatusLoad
-    },
-    data () {
-        return {
-        }
-    }
-}
+  components: {
+    GameAccountCreation,
+    GameAccountLogin,
+    GameAccountStatusLoad,
+  },
+  data() {
+    return {};
+  },
+};
 </script>
 
-<style lang="">
-    
-</style>
+<style lang=""></style>
