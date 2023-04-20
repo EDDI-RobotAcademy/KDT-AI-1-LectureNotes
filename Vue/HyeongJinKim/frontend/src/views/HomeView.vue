@@ -44,8 +44,8 @@
           >Vue 문제 은행 [3] - PostMapping</router-link
         >
         |
-        <router-link to="/vue-homework-page4">Vue 문제 은행 [4]</router-link>
-        |
+        <router-link to="/vue-homework-page4">Vue 문제 은행 [4]</router-link> |
+        <router-link to="/vue-homework-page5">Vue 문제 은행 [5]</router-link> |
       </nav>
     </div>
   </v-container>

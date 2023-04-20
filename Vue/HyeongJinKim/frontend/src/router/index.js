@@ -27,6 +27,7 @@ import VueHomeworkPage2_2 from "@/views/basics/homework/axios/VueHomeworkPage2_2
 import VueHomeworkPage3 from "@/views/basics/homework/axios/vueHomeworkPage3/VueHomeworkPage3GetMapping.vue";
 import VueHomeworkPage3Copy from "@/views/basics/homework/axios/vueHomeworkPage3/VueHomeworkPage3PostMapping.vue";
 import VueHomeworkPage4 from "@/views/basics/homework/axios/VueHomeworkPage4.vue";
+import VueHomeworkPage5 from "@/views/basics/homework/axios/VueHomeworkPage5.vue";
 import VueBasicProbs from "@/views/basics/homework/VueBasicProbs.vue";
 
 Vue.use(VueRouter);
@@ -135,6 +136,11 @@ const routes = [
     path: "/vue-homework-page4",
     name: "VueHomeworkPage4",
     component: VueHomeworkPage4,
+  },
+  {
+    path: "/vue-homework-page5",
+    name: "VueHomeworkPage5",
+    component: VueHomeworkPage5,
   },
   {
     path: "/vue-basic-probs",

@@ -8,11 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @RequiredArgsConstructor
-public class AccountCreationForm {
-    final private String newEmail;
-    final private String newPw;
-
-    public Account toAccount(int accountId) {
-        return new Account(accountId, newEmail, newPw);
-    }
+public class AccountLogInForm {
+    final private String userEmail;
+    final private String userPw;
 }

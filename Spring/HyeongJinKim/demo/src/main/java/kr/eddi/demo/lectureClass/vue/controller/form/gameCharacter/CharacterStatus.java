@@ -8,18 +8,22 @@ import lombok.ToString;
 @Getter
 public class CharacterStatus {
 
+    private Boolean gender;
+    private int characterId;
+
     private int strength;
     private int dexterity;
     private int intelligence;
-    private int whosAccountId;
 
-    public CharacterStatus(int accountId) {
+    public CharacterStatus(Boolean gender, int characterId) {
         final int STATUS_MIN = 1;
         final int STATUS_MAX = 10;
+
+        this.gender = gender;
+        this.characterId = characterId;
+
         this.strength = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
         this.dexterity = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
         this.intelligence = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
-
-        this.whosAccountId = accountId;
     }
 }

@@ -7,9 +7,12 @@ import lombok.ToString;
 @Getter
 @ToString
 @AllArgsConstructor
-public class Account {
+public class Character {
 
-    private int accountId;
-    private String newEmail;
-    private String newPw;
+    private Boolean gender;
+    private int characterId;
+
+    private int strength;
+    private int dexterity;
+    private int intelligence;
 }
