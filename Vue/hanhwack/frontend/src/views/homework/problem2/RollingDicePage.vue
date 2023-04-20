@@ -1,11 +1,8 @@
 <template>
     <div>
         <button type="submit" @click="onSubmit">주사위 굴리기</button>
-        <p>
+        <p>승부의 결과는: {{receivedDiceResult}} </p>
         
-            승부의 결과는: {{ receivedDiceResult }}
-            
-        </p>
     </div>
 </template>
 
@@ -15,7 +12,7 @@ export default {
     data () {
         return {
            
-            receivedDiceResult: '',
+            receivedDiceResult: 'an',
 
         }
     },

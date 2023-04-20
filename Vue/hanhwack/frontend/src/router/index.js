@@ -26,6 +26,8 @@ import ProblemPage1 from '@/views/homework/problem1/ProblemPage.vue'
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 import RollingDicePage from '@/views/homework/problem2/RollingDicePage.vue'
+import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
+
 
 
 
@@ -125,10 +127,12 @@ const routes = [
     path: '/rolling-dice-page',
     name: 'RollingDicePage',
     component: RollingDicePage
-  }
-
-
-
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
+  },
   
 ]
 
