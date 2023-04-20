@@ -8,7 +8,7 @@
     <hr />
 
     <h1>A</h1>
-    <table border="1">
+    <table>
       <th>상품명</th>
       <th>단가</th>
       <th>수량</th>
