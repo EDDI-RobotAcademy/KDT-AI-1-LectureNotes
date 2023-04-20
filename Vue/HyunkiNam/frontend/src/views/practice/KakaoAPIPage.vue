@@ -46,6 +46,15 @@ export default {
             };
 
             this.map = new window.kakao.maps.Map(container, options);
+            this.loadMarker();
+        },
+        loadMarker() {
+            const markerPosition = new window.kakao.maps.LatLng(37.498993, 127.032909);
+            const marker = new window.kakao.maps.Marker({
+                position: markerPosition,
+            });
+
+            marker.setMap(this.map);
         }
     }
 
