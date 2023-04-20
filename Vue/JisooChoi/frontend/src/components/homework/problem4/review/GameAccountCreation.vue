@@ -1,35 +1,45 @@
 <template lang="">
     <div>
-        <v-btn color="primary" @click="createCharacter">캐릭터 생성</v-btn>
+        <v-btn color="primary" @click="readyToCreateCharacter">캐릭터 생성</v-btn>
         <div v-if="isPressedButton">
             <div>
-                이메일: <input type="text" v-madel="email"/><br>
-                비밀번호: <input type="password" v-madel="password"/>
+                <label>
+                    이메일: <input type="text" v-model="email"/>
+                </label><br/>
+                <label>
+                    비밀번호: <input type="password" v-model="password"/>
+                </label><br/>
             </div>
-            <v-btn color="purple" @click="processCreateChearacter">
-                완료
-            </v-btn>
+            <v-btn color="purple" @click="processCreateCharacter">완료</v-btn>
         </div>
 
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data (){
         return{
             email: '',
+            password: '',
             isPressedButton: false,
         }
     },
     methods: {
-        createCharacter () {
+        readyToCreateCharacter () {
             this.isPressedButton = true
             alert('캐릭터 생성 준비!')
         },
-        processCreateChearacter() {
+        processCreateCharacter () {
             this.isPressedButton = false
             alert('캐릭터 생성 요청 완료!')
+
+            const { email, password } = this
+            axios.post('http://localhost:7777/test-account/create', { email, password })
+                .then((res) => {
+                    alert('생성 요청 완료!')
+                })
         }
     }
 }
