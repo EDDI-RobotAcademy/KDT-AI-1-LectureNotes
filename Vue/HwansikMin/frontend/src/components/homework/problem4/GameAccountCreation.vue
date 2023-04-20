@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     data () {
         return {
@@ -30,7 +32,12 @@ export default {
         },
         processCreateCharacter () {
             this.isPressedButton = false
-            alert('캐릭터 생성 요청 완료!')
+
+            const { email, password } = this
+            axios.post('http://localhost:7777/test-account/create', { email, password })
+                .then((res) => {
+                    alert('생성 요청 완료!')
+                })
         }
     }
 }
