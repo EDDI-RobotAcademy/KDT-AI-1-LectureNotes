@@ -33,9 +33,23 @@
             isPressButton은 이미 위에서 눌리기 때문에 한꺼번에 열림
             좋은 방법이 뭐가 있을까? 
         -->
+        <div>
+            <!-- 로그인 했을 때 이메일 주소 보여주기 -->
+            <label>
+                <p></p>
+            Id입력: <input type="id" v-model="id"><br>
+            Password입력: <input type="password" v-model="password"><br>
+            <p></p>
+            </label>
+            <v-btn @click="showEmail">로그인</v-btn>
+            <p></p>
+            <form v-if="isLoginButton"> 
+                <p>당신의 이메일 주소는 {{ email }}입니다</p>
+            </form>
+        </div>
+        <!-- 계정 선택하는 방법 -->
         </form>
         <p></p>
-
     </div>
 </template>
 
@@ -50,9 +64,11 @@ export default {
         return {
             isPressButton: false,
             // form은 닫혀 있게 하기 위해서 false값을 기본으로 둔다
-            email:'email@eddi.com',
-            password:'password입력',
+            email: 'email@eddi.com',
+            password: 'password입력',
             isButton: false,
+            id: 'id입력',
+            isLoginButton: false,
         }
     },
     methods: {
@@ -62,11 +78,14 @@ export default {
         makeCharacterComplete() {
             this.isButton = true;
             axios.post('http://localhost:7777/lets-show/character',
-            {email: this.email, password: this.password}) // 계정 생성해주기
+            {email: this.email, password: this.password, id: this.id}) // 계정 생성해주기
             // 이거는 만든 페이지에서 설정해주는 것이지 
             // 메인페이지로 가져가는 것이 아님!!!
             .then((res) => {
             })
+        },
+        showEmail() {
+            this.isLoginButton = true;
         },
     },
 }

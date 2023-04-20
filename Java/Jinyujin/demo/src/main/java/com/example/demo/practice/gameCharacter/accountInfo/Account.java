@@ -2,7 +2,6 @@ package com.example.demo.practice.gameCharacter.accountInfo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 @Getter
@@ -12,6 +11,7 @@ public class Account {
     // CharacterAccountForm은 처음에 계정을 입력할 때의 form이기 때문에 final을 써주어야함
     // 여기에서는 이 사람 저 사람의 계정이 모이는 것이기 때문에 final을 써주면 안된다
     // 계정들의 저장소라고 생각하면 되려나?
+    // 계정 정보를 따로 관리하는 클래스라고 생각하면 된다
 
     private Long id;
     // 아이디니까 더 많은 값을 저장할 수 있는 Long 타입으로 으로 선언

@@ -15,6 +15,7 @@ public class CharacterAccountForm {
     final private String password;
 
     public Account toAccount(Long accountId) {
+
         return new Account(accountId, email, password);
     } // 이렇게 리턴하는 방법도 있구나
 }
