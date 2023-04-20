@@ -8,6 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 public class CharacterStatusForm {
+    final private String email;
     final private int health;
     final private int strength;
     final private int dexterity;

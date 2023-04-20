@@ -14,38 +14,33 @@ import java.util.List;
 @RestController
 @RequestMapping("/character-problem")
 public class GameCharacterController {
-    List<Enemy> enemyList;
-    Character character;
+    GameManager gameManager;
 
     @PostMapping("/makeCharacter")
     public void makeCharacter(@RequestBody CharacterMakeForm characterMakeForm) {
         log.info("data: " + characterMakeForm);
-        character = new Character(characterMakeForm.getEmail(),
+        gameManager = new GameManager(characterMakeForm.getEmail(),
                 characterMakeForm.getPassword());
     }
 
     @GetMapping("/getCharacterStatus")
     public CharacterStatusForm getCharacterStatus() {
         CharacterStatusForm characterStatusForm = new CharacterStatusForm(
-                character.getHealth(),
-                character.getStrength(),
-                character.getDexterity(),
-                character.getIntelligence(),
-                character.getSkill()
+                gameManager.getCharacter().getEmail(),
+                gameManager.getCharacter().getHealth(),
+                gameManager.getCharacter().getStrength(),
+                gameManager.getCharacter().getDexterity(),
+                gameManager.getCharacter().getIntelligence(),
+                gameManager.getCharacter().getSkill()
         );
-        log.info("info: " + character);
         log.info("info: " + characterStatusForm);
         return characterStatusForm;
     }
 
     @GetMapping("/bringEnemy")
     public List<Enemy> bringEnemyList () {
-        final int EnemyCount = 3;
-        enemyList = new ArrayList<>();
-
-        for(int i = 0; i < EnemyCount; i++) {
-            enemyList.add(new Enemy());
-        }
-        return enemyList;
+        gameManager.addEnemy();
+        System.out.println(gameManager.getEnemyList());
+        return gameManager.getEnemyList();
     }
 }

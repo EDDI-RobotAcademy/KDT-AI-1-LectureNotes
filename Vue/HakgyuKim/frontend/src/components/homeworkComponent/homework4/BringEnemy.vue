@@ -1,0 +1,43 @@
+<template>
+    <div>
+        <form @submit.prevent="bringEnemy">
+            <fieldset>
+                <legend><v-btn color="blue" type="submit">몬스터 생성</v-btn></legend>
+                <v-list>
+                    <v-list-item v-for="(enemy, index) in enemyList">
+                        <v-list-item-content>
+                            <v-list-item-title>
+                            {{ enemy.name }} , 체력: {{ enemy.health }}
+                            </v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </fieldset>
+        </form>
+    </div>
+</template>
+<script>
+
+import axios from 'axios';
+
+export default {
+    data () {
+        return {
+            enemyList: []
+        }
+    },
+    methods: {
+        bringEnemy () {
+            axios.get('http://localhost:7777/character-problem/bringEnemy')
+            .then((res) => {
+                this.enemyList = res.data
+                console.log(res.data)
+            })
+        }
+    }
+    
+}
+</script>
+<style>
+    
+</style>
