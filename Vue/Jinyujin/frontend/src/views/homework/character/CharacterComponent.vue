@@ -7,15 +7,18 @@
 <template lang="">
     <div>
         <!-- 캐릭터 생성 버튼 만들기 -->
-        <v-btn color="white" @click="toggleCharacterForm">캐릭터 생성</v-btn><br>
+        <v-btn color="primary" @click="toggleCharacterForm">캐릭터 생성</v-btn><br>
+        <p></p>
         <!-- makeCharacter() 메서드 만들어주기 -->
         <!-- 버튼 클릭 시 이메일 패스워드 입력하도록 -->
         <!-- form과 v-if이용 -->
         <form v-if="isPressButton">
+            <p></p>
             <label >
             Email입력: <input type="email" v-model="email"><br>
             Password입력: <input type="password" v-model="password"><br>
             </label>
+            <p></p>
             <!-- 완료 누르면 백엔드에서 캐릭터 계정 생성 -->
             <!-- 완료 버튼 캐릭터 생성 버튼 안에 넣어주기 -->
             <v-btn @click="makeCharacterComplete">완료</v-btn>
@@ -31,6 +34,8 @@
             좋은 방법이 뭐가 있을까? 
         -->
         </form>
+        <p></p>
+
     </div>
 </template>
 
