@@ -15,10 +15,15 @@ import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
 import ProblemPage1 from "@/views/homework/problem1/ProblemPage.vue";
 import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpringPage.vue";
 import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.vue";
-import EvenOddTest from "@/views/homework/basic_problem/EvenOddTest";
+import EvenOddTest from "@/views/homework/basicProblem/EvenOddTest";
 import Problem2Page from "@/views/homework/problem2/Problem2Page.vue";
 // Problem2Page.vue 컴포넌트를 가져온다.
 import Problem3Page from "@/views/homework/problem3/Problem3Page.vue";
+import VueBasicProblem1 from "@/views/homework/basicProblem/VueBasicProblem1.vue";
+import VueBasicProblem2 from "@/views/homework/basicProblem/VueBasicProblem2.vue";
+import VueBasicProblem3 from "@/views/homework/basicProblem/VueBasicProblem3.vue";
+import VueBasicProblem4 from "@/views/homework/basicProblem/VueBasicProblem4.vue";
+import Problem4Page from "@/views/homework/problem4/Problem4Page.vue";
 
 Vue.use(VueRouter);
 
@@ -118,6 +123,31 @@ const routes = [
     path: "/problem-page3",
     name: "Problem3Page",
     component: Problem3Page,
+  },
+  {
+    path: "/vue-basic-problem-1",
+    name: "VueBasicProblem1",
+    component: VueBasicProblem1,
+  },
+  {
+    path: "/vue-basic-problem-2",
+    name: "VueBasicProblem2",
+    component: VueBasicProblem2,
+  },
+  {
+    path: "/vue-basic-problem-3",
+    name: "VueBasicProblem3",
+    component: VueBasicProblem3,
+  },
+  {
+    path: "/vue-basic-problem-4",
+    name: "VueBasicProblem4",
+    component: VueBasicProblem4,
+  },
+  {
+    path: "/problem-page4",
+    name: "Problem4Page",
+    component: Problem4Page,
   },
 ];
 
