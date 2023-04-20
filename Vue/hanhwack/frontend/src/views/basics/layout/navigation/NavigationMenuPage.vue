@@ -90,7 +90,8 @@
         alert('로그아웃')
       },
       goToHome () {
-        router.push('/')
+        // 자기 참조 형태에서 push()는 오류가 발생하므로 go()로 변경함
+        router.go('/')
       }
     }
       
