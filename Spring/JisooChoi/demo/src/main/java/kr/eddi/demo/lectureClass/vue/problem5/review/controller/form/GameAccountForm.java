@@ -13,7 +13,7 @@ public class GameAccountForm {
     final private String email;
     final private String password;
 
-    public GameAccount toAccount(Long accountId) {
+    public GameAccount toGameAccount(Long accountId) {
         return new GameAccount(accountId, email, password);
     }
 }

@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <v-btn color="primary" @click="readyToCreateCharacter">캐릭터 생성</v-btn>
+        <v-btn color="primary" @click="readyToCreateCharacter">계정 생성</v-btn>
         <div v-if="isPressedButton">
             <div>
                 <label>
@@ -14,6 +14,7 @@
         </div>
     </div>
 </template>
+
 <script>
 import axios from 'axios';
 export default {
@@ -27,7 +28,6 @@ export default {
     methods: {
         readyToCreateCharacter () {
             this.isPressedButton = true
-            alert('캐릭터 생성 준비!')
         },
         processCreateCharacter () {
             this.isPressedButton = false
@@ -44,6 +44,7 @@ export default {
     }
 }
 </script>
+
 <style lang="">
     
 </style>

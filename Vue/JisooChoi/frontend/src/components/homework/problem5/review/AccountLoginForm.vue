@@ -10,7 +10,7 @@
                     비밀번호: <input type="password" v-model="password"/>
                 </label><br/>
             </div>
-            <v-btn color="purple" @click="processLogin">완료</v-btn>
+            <v-btn color="purple" @click="processLogin">로그인</v-btn>
         </div>
     </div>
 </template>
@@ -32,20 +32,23 @@ export default {
         },
         processLogin () {
             this.isPressedButton = false
-
             const { email, password } = this
             axios.post('http://localhost:7777/bmp-account/login', { email, password })
                 .then((res) => {
                     if (res.data.isSuccessForLogin) {
                         alert('로그인 완료!')
                         this.accountId = res.data.gameAccountId
-                        console.log('accountId: '+this.accountId);
-
+                        console.log('accountId: ' + this.accountId)
+                        localStorage.setItem("loginUserInfo", res.data.gameAccountId)
                     } else {
                         alert('로그인 실패!')
                     }
                 })
         }
+    },
+    mounted () {
+        this.accountId = localStorage.getItem("loginUserInfo")
+        console.log('현재 accountId: ' + this.accountId)
     }
 }
 </script>

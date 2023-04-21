@@ -38,7 +38,7 @@
         | <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
 
         <router-link to="/homework-global-component"
-          >Vue 첫 번째 숙제</router-link
+          >Vue 문제은행 1</router-link
         >
         |
         <router-link to="/random-dice-from-spring"
@@ -49,26 +49,26 @@
           >게임으로 파악하는 라이프사이클</router-link
         >
         |
-        <router-link to="/vue-basic-test">Vue 두 번째 기본 숙제</router-link> |
-        <router-link to="/vue-prob-test">Vue 두 번째 문제 은행</router-link>|
+        <router-link to="/vue-basic-test">Vue 문제은행 2-1</router-link> |
+        <router-link to="/vue-prob-test">Vue 문제은행 2-2</router-link>|
 
         <router-link to="/problem-page2"
-          >Vue 두 번째 문제 은행 리뷰 페이지</router-link
+          >Vue 문제은행 2 [Review]</router-link
         >|
         <router-link to="/problem-page3-alone"
-          >Vue 세 번째 문제 - 과일가게</router-link
+          >Vue 문제은행 3</router-link
         >|
         <router-link to="/problem-3page"
-          >Vue 세 번째 문제 리뷰 - 과일가게</router-link
+          >Vue 문제은행 3 [Review]</router-link
         >|
         <router-link to="/vue-problem-4page-alone"
-          >Vue 네 번째 문제 - 캐릭터</router-link
+          >Vue 문제은행 4</router-link
         >|
         <router-link to="/vue-problem-4page"
-          >Vue 네 번째 문제 리뷰 - 캐릭터</router-link
+          >Vue 문제은행 4 [Review]</router-link
         >|
         <router-link to="/vue-problem-5page"
-          >Vue 다섯 번째 문제 리뷰 - 캐릭터</router-link
+          >Vue 문제은행 5 [Review]</router-link
         >|
       </nav>
     </div>
