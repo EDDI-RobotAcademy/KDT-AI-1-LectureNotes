@@ -23,15 +23,15 @@
                 <span>테스트</span>
                 <v-icon right>mdi-hand-back-left-outline</v-icon>
             </v-btn>
-            <v-btn text @click="signUp">
+            <v-btn v-if="!isLogin" text @click="signUp">
                 <span>회원가입</span>
                 <v-icon right>mdi-account-plus-outline</v-icon>
             </v-btn>
-            <v-btn text @click="signIn">
+            <v-btn v-if="!isLogin" text @click="signIn">
                 <span>로그인</span>
                 <v-icon right>mdi-login</v-icon>
             </v-btn>
-            <v-btn text @click="signOut">
+            <v-btn v-if="isLogin" text @click="signOut">
                 <span>로그아웃</span>
                 <v-icon right>mdi-exit-to-app</v-icon>
             </v-btn>
@@ -74,7 +74,9 @@ export default {
             navigation_drawer: false,
             links: [
                 { icon: 'mdi-home', text: 'Home', route: '/'}
-            ]
+            ],
+            accountId: 0,
+            isLogin: false,
         }
     },
     methods: {
@@ -82,18 +84,26 @@ export default {
             alert('토글')
         },
         signUp () {
-            alert('회원가입')
+            router.push('/game-character-page')
         },
         signIn () {
-            alert('로그인')
+            router.push('/game-character-page')
+            this.isLogin = true
         },
         signOut () {
-            alert('로그아웃')
+            localStorage.removeItem("loginUserInfo")
+            this.isLogin = false
         },
         goToHome () {
             router.push('/')
         }
+    },
+    mounted () {
+        this.accountId = localStorage.getItem("loginUserInfo")
+        if (this.accountId > 0) {
+        this.isLogin = true
     }
+  } 
 }
 </script>
 

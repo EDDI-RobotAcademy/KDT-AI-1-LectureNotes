@@ -7,10 +7,10 @@ import lombok.ToString;
 @Getter
 @ToString
 @NoArgsConstructor
-public class SelectAccountForm {
+public class FindAccountForm {
     private int accountId;
 
-    public SelectAccountForm(int accountId) {
+    public FindAccountForm(int accountId) {
         this.accountId = accountId;
     }
 }
