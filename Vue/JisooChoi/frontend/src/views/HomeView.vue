@@ -67,6 +67,9 @@
         <router-link to="/vue-problem-4page"
           >Vue 네 번째 문제 리뷰 - 캐릭터</router-link
         >|
+        <router-link to="/vue-problem-5page"
+          >Vue 다섯 번째 문제 리뷰 - 캐릭터</router-link
+        >|
       </nav>
     </div>
   </v-container>

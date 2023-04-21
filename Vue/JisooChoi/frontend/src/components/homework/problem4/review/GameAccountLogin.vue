@@ -17,7 +17,7 @@
     -->
     <h2 v-if="hello">{{ helloUser }}님 반갑습니다.</h2>
     <div v-if="isUserInfo">
-      아이디: <input type="text" v-model="userId" /> <br />
+      이메일: <input type="text" v-model="loginUserEmail" /> <br />
       비밀번호:<input type="password" v-model="userPw" /><br />
       <v-btn color="yellow" @click="userLogin">로그인</v-btn>
     </div>
@@ -31,7 +31,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      userId: "",
+      loginUserEmail: "",
       userPw: "",
       isUserInfo: false,
       isLogin: true,
@@ -46,10 +46,10 @@ export default {
       this.isLogin = false;
     },
     userLogin() {
-      const { userId, userPw } = this;
+      const { loginUserEmail, userPw } = this;
       axios
         .post("http://localhost:7777/test-account/find-user", {
-          userId,
+          loginUserEmail,
           userPw,
         })
         .then((res) => {

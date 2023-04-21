@@ -10,6 +10,6 @@ import lombok.ToString;
 @RequiredArgsConstructor
 public class AccountLoginForm {
 
-    final private String userId;
+    final private String loginUserEmail;
     final private String userPw;
 }

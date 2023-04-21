@@ -1,7 +1,7 @@
 <template lang="">
   <div>
-    <game-account-creation />
     <game-account-login />
+    <game-account-creation />
     <game-account-status-load />
   </div>
 </template>

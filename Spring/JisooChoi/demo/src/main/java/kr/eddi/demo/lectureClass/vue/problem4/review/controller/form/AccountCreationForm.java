@@ -16,6 +16,4 @@ public class AccountCreationForm {
     public Account toAccount(Long accountId) {
         return new Account(accountId, email, password);
     }
-
-
 }

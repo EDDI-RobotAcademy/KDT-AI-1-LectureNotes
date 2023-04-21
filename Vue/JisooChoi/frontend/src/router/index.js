@@ -34,6 +34,10 @@ import Problem3Page from "@/views/basics/homework/review/problem3/Problem3Page.v
 import VueProb4 from "@/views/basics/homework/problem4/VueProb4.vue";
 import Problem4Page from "@/views/basics/homework/review/problem4/Problem4Page.vue";
 
+// 문제 은행 5
+import Problem5Page from "@/views/basics/homework/problem5/review/Problem5Page.vue";
+
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -150,6 +154,11 @@ const routes = [
     path: "/vue-problem-4page",
     name: "Problem4Page",
     component: Problem4Page,
+  },
+  {
+    path: "/vue-problem-5page",
+    name: "Problem5Page",
+    component: Problem5Page,
   },
 ];
 

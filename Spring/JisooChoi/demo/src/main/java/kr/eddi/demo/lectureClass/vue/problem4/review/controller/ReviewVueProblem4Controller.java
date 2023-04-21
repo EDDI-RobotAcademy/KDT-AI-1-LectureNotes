@@ -41,8 +41,8 @@ public class ReviewVueProblem4Controller {
         log.info("AccountLoginForm()이 잘 전달되는지 확인: " +accountLoginForm);
 
         for(int i = 0; i< accountList.size(); i++){
-            if(accountList.get(i).getPassword().equals(accountLoginForm.getUserPw())){
-                log.info("기존에 존재한 아이디: "+accountList.get(i).getEmail() + ", 현재 내가 입력한 아이디: "+ accountLoginForm.getUserId());
+            if(accountList.get(i).getEmail().equals(accountLoginForm.getLoginUserEmail())){
+                log.info("기존에 존재한 아이디: "+accountList.get(i).getEmail() + ", 현재 내가 입력한 아이디: "+ accountLoginForm.getLoginUserEmail());
                 return accountList.get(i).getEmail();
             }
         }
