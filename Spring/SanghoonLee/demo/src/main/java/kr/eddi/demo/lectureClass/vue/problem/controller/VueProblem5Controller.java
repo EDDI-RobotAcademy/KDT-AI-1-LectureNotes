@@ -35,6 +35,27 @@ public class VueProblem5Controller {
         return true;
     }
 
+    @PostMapping("/login")
+    public LoginResponseForm gameAccountLogin (@RequestBody GameAccountForm gameAccountForm) {
+        log.info("gameAccountLogin()");
+
+        final Long LOGIN_FAILED_ACCOUND_ID = 0L;
+
+        for (int i = 0; i < gameAccountList.size(); i++) {
+            final GameAccount searchedGameAccount = gameAccountList.get(i);
+            final String searchedGameAccountEmail = searchedGameAccount.getEmail();
+
+            if (searchedGameAccountEmail.equals(gameAccountForm.getEmail())) {
+                if (searchedGameAccount.getPassword().equals(gameAccountForm.getPassword())) {
+                    return new LoginResponseForm(true, searchedGameAccount.getId());
+                }
+                return new LoginResponseForm(false, LOGIN_FAILED_ACCOUND_ID);
+            }
+        }
+
+        return new LoginResponseForm(false, LOGIN_FAILED_ACCOUND_ID);
+    }
+
     private boolean checkDuplicatedEmail(GameAccount gameAccount) {
         for (int i = 0; i < gameAccountList.size(); i++) {
             final GameAccount searchedGameAccount = gameAccountList.get(i);
