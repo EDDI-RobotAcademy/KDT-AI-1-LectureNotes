@@ -21,8 +21,8 @@ import java.util.Map;
 public class Problem5Controller {
 
     private static long accountNumber = 1; //전역 어떨때 씁니까? 모두 공유하는 변수
-    private static Map<Long, Account> accountMap = new HashMap();
-    private static Map<Long, CharacterStatus> characterStatusMap = new HashMap();
+    private static Map<Long, Account> accountMap = new HashMap<>();
+    private static Map<Long, CharacterStatus> characterStatusMap = new HashMap<>();
 
     @PostMapping("/create") //vue에서 post 했을때 정보가 accountCreationForm으로 들어가)
     public boolean createAccount(@RequestBody AccountCreationForm accountCreationForm) {
@@ -30,8 +30,7 @@ public class Problem5Controller {
 
 
         final Account account = accountCreationForm.toAccount(accountNumber);
-        accountNumber++;
-        accountMap.put(accountNumber, account);
+        accountMap.put(accountNumber++, account);
 
 
         final CharacterStatus characterStatus = new CharacterStatus(account.getId());
@@ -41,18 +40,28 @@ public class Problem5Controller {
 
     @GetMapping("/get-status")
     public CharacterStatus getCharacterStatus() {
-        return characterStatusMap.get(1);
+        return characterStatusMap.get(accountNumber);
     }
 
     @PostMapping("/test-login")
-    public String Login(@RequestBody LoginForm loginForm) {
+    public LoginResponseForm Login(@RequestBody LoginForm loginForm) {
         log.info("loginInfo: " + loginForm);
-        String targetUserEmail = "";
+
+        log.info(accountMap.toString());
+        log.info(String.valueOf(loginForm.getId()));
+        log.info(String.valueOf(accountMap.get(Long.valueOf(loginForm.getId()))));
+
+        String targetUserEmail = accountMap.get(loginForm.getId()).getUserEmail();
+
+        log.info(targetUserEmail);
+        LoginResponseForm loginResponseForm=null;
         if (accountMap.containsKey(loginForm.getId())) {
-            targetUserEmail = accountMap.get(loginForm.getId()).getUserEmail();
+            loginResponseForm = new LoginResponseForm(targetUserEmail);
         }
-        return targetUserEmail;
+
+        return loginResponseForm;
     }
+
 } //todo 수정하라 캐릭터고를 수 있게
 //    @GetMapping("/choose-character")
 //    public ChooseCharacter chooseCharacter(){

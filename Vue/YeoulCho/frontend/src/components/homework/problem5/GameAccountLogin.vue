@@ -9,7 +9,8 @@
                 <label>password: <input type="password" v-model="userPassword"/> </label>
             </tr>
             <div v-if="checked">유저의 이메일주소는: {{checkedEmail}} <br>
-            <label>계정을 골라 봅시다</label></div>
+            <label>계정을 선택해주세요</label>
+            </div>
         </table>
     </div>
 </template>
@@ -36,9 +37,11 @@ export default {
             .then((res)=>{
             alert('로그인 성공')
             this.checked=true
-            this.checkedEmail=res.data})
+            this.checkedEmail=res.data.userEmail})
             .catch((res)=>{
             alert('로그인 실패')})
+            
+            
             
 
         }
