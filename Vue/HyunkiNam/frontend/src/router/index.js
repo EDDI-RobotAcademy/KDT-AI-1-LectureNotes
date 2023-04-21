@@ -24,6 +24,7 @@ import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpr
 
 import HomeworkPage from '@/views/homework/HomeworkPage.vue'
 import Problem4Page from '@/views/homework/Problem4Page.vue'
+import Problem5Page from '@/views/homework/Problem5Page.vue'
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
 
@@ -122,6 +123,11 @@ const routes = [
     path: '/problem4-page',
     name: 'Problem4Page',
     component: Problem4Page
+  },
+  {
+    path: '/problem5-page',
+    name: 'Problem5Page',
+    component: Problem5Page
   },
 ]
 

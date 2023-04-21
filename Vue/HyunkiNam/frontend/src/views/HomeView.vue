@@ -27,6 +27,7 @@
         <router-link to="/practice-page">연습</router-link> |
         <router-link to="/kakao-api-page">API 사용</router-link> |
         <router-link to="/problem4-page">문제 은행4</router-link> |
+        <router-link to="/problem5-page">문제 은행5</router-link> |
 
 
       </nav>
