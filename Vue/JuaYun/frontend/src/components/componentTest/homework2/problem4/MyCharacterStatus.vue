@@ -1,7 +1,7 @@
 <template>
   <div>
     <p></p>
-    <!--@click="Play = true" ture를 지우니  -->
+    <!-- @click="Play = true" ture가 있었기 때문에 정보를 받아오지 못함 -->
     <v-btn color="primary" @click="Play">플레이</v-btn>
     <div v-if="Button">
       <p>체력: {{ hp }}</p>
@@ -29,7 +29,10 @@ export default {
     },
     methods: {
         Play () {
-            // this.Button = true
+            // v-if를 사용할때 필수적으로 사용
+            // this.Button = true 이부분을 주석처리하면 콘솔에는 받아오지만
+            // 웹페이지창에는 뜨지 않음
+            this.Button = true
             axios.get('http://localhost:7777/character-test/status')
             .then((res) => {
                 console.log('hp: ' + res.data.hp)
