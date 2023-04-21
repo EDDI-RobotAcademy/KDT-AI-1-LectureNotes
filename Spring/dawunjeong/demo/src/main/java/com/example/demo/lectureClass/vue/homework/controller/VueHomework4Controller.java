@@ -23,7 +23,7 @@ public class VueHomework4Controller {
 
     @PostMapping("/add-character")
     public CharacterGameAccountForm createAccount (@RequestBody CharacterGameAccountForm characterGameAccountForm) {
-        log.info("received data: " + characterGameAccountForm);
+        log.info("signUp info: " + characterGameAccountForm);
 
         Account account = characterGameAccountForm.toAccount(accountNumber);
         accountNumber++;
@@ -44,23 +44,34 @@ public class VueHomework4Controller {
     }
 
     @PostMapping("/check-account")
-    public String checkAccount (@RequestBody CharacterGameAccountForm characterGameAccountForm) {
-        log.info("received data: " + characterGameAccountForm);
-        String yourEmail = characterGameAccountForm.getEmail();
-        String registeredEmail = accountList.get(0).getEmail();
-        if(yourEmail.equals(registeredEmail)) {
-            yourEmail = characterGameAccountForm.getEmail();
-        } else {
-            yourEmail = null;
-        }
-        return yourEmail;
+    public boolean checkAccount (@RequestBody CharacterGameAccountForm characterGameAccountForm) {
+        log.info("signIn info: " + characterGameAccountForm);
+        String inputEmail = characterGameAccountForm.getEmail();
+        String inputPassword = characterGameAccountForm.getPassword();
+
+        boolean isRegisteredUser = false;
+
+        for(int i = 0; i < accountList.size(); i++) {
+            if(inputEmail.equals(accountList.get(i).getEmail()) && inputPassword.equals(accountList.get(i).getPassword())) {
+                isRegisteredUser = true;
+            } log.info("isRegisteredUser: " + isRegisteredUser);
+        } return isRegisteredUser;
     }
+
     @PostMapping("/get-account")
     public int showAccount (@RequestBody SelectAccountForm selectAccountForm) {
-        log.info("showAccount");
-        log.info("selectAccountForm.getAccountId(): " + selectAccountForm.getAccountId());
-        log.info("accountList.get(selectAccountForm.getAccountId()): " + accountList.get(selectAccountForm.getAccountId()));
         int selectedAccount = accountList.get(selectAccountForm.getAccountId()).getId();
         return selectedAccount;
+    }
+    @PostMapping("/get-account-list")
+    public List<Account> showAccountList (@RequestBody CharacterGameAccountForm characterGameAccountForm) {
+        List<Account> yourAccountList = new ArrayList<>();
+
+        for(int i = 0; i < accountList.size(); i++) {
+            if(characterGameAccountForm.getEmail().equals(accountList.get(i).getEmail())) {
+                yourAccountList.add(accountList.get(i));
+            }
+        }
+        return yourAccountList;
     }
 }

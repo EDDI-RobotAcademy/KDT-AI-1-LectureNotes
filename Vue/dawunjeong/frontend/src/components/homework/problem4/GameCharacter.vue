@@ -2,20 +2,18 @@
     <div>
         <h1>캐릭터 게임</h1>
         <div id="createCharacter">
-            <v-btn color="red" @click="addAccount">게임 캐릭터 생성</v-btn>
-            <p></p>
+            <p><v-btn color="red" @click="addAccount">게임 캐릭터 생성</v-btn></p>
             <div v-if="showCreatAccount">
                 <div>
                     <p>이메일 입력: <input type="email" v-model="email"></p>
                     <p>비밀번호 입력: <input type="password" v-model="password"></p>
                     <p><v-btn color="primary" @click="complete">생성</v-btn></p>
+                    <p><hr style="width: 400px; margin: auto;"></p>
                 </div>
 
-                <div id="playGame">
-                <p></p>    
-                <v-btn color="red" @click="showCharacterStatus">PLAY!!!</v-btn>
+                <div id="playGame"> 
+                <p><v-btn color="red" @click="showCharacterStatus">PLAY!!!</v-btn></p>
                     <div v-if="showStatus">
-                        <p></p>
                         <p>게임 캐릭터의 상태:<br>
                         <li>
                             strength: {{characterStatus[0]}}
@@ -25,6 +23,7 @@
                             hp: {{characterStatus[4]}}
                         </li>
                         </p>
+                        <p><hr style="width: 400px; margin: auto;"></p>
                     </div>
                 </div>
             </div>
@@ -55,17 +54,17 @@ export default {
         complete () {
             axios.post('http://localhost:7777/character-game/add-character',
             { email: this.email, password: this.password })
-            .then((res) => {
+            .then((res1) => {
                 alert('데이터 전송!')
-                alert(JSON.stringify(res.data.email) + '님 가입이 완료되었습니다.')
-                this.accountInfo = res.data
+                alert(JSON.stringify(res1.data.email) + '님 가입이 완료되었습니다.')
+                this.accountInfo = res1.data
             })
         },
         showCharacterStatus () {
             this.showStatus = true
             axios.get('http://localhost:7777/character-game/create-character-status')
-                .then((response) => {
-                    this.characterStatus = response.data;
+                .then((res2) => {
+                    this.characterStatus = res2.data;
             })
         }
     }

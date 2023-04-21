@@ -1,7 +1,7 @@
 <template lang="">
     <div>
-        캐릭터 생성<game-character/>
-        로그인<game-login/>
+        <game-character/>
+        <game-login/>
     </div>
 </template>
 
