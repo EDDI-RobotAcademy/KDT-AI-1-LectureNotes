@@ -1,6 +1,7 @@
 package kr.eddi.demo.lectureClass.vue.problem.controller;
 
 import kr.eddi.demo.lectureClass.vue.problem.controller.form.GameAccountForm;
+import kr.eddi.demo.lectureClass.vue.problem.controller.form.LoginResponseForm;
 import kr.eddi.demo.lectureClass.vue.problem.entity.GameAccount;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ public class VueProblem5Controller {
     public Boolean createGameAccount (@RequestBody GameAccountForm gameAccountForm) {
         log.info("createGameAccount()");
 
-        final GameAccount gameAccount = gameAccountForm.toGameAccount(gameAccountId);
+        final GameAccount gameAccount = gameAccountForm.toGameAccount(gameAccountId++);
 
         if (checkDuplicatedEmail(gameAccount))
             return false;
