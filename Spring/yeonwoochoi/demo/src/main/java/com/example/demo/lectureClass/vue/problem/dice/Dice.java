@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.vue.dice;
+package com.example.demo.lectureClass.vue.problem.dice;
 
 import com.example.demo.lectureClass.utility.random.CustomRandom;
 import lombok.Getter;
