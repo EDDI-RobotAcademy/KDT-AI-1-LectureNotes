@@ -4,21 +4,18 @@ package com.example.demo.lectureClass.homework.problem.problem5;
 import com.example.demo.lectureClass.homework.problem.problem4.teacher.entity.Account;
 import com.example.demo.lectureClass.homework.problem.problem4.teacher.entity.CharacterStatus;
 import com.example.demo.lectureClass.homework.problem.problem4.teacher.form.AccountCreationForm;
-import com.example.demo.lectureClass.homework.problem.problem5.LoginForm;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Slf4j
 @RestController
 @Getter
 @RequestMapping("/test-account")
-public class Problem5Controller {
+public class Problem5Controller_problem4controllerChange {
 
     private static long accountNumber = 1; //전역 어떨때 씁니까? 모두 공유하는 변수
     private static Map<Long, Account> accountMap = new HashMap<>();

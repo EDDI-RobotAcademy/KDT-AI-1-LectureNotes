@@ -32,6 +32,7 @@ import Problem3Page from "@/views/homework/problem3/Problem3Page.vue"
 import StudyPage from "@/views/homework/study/Study.vue"
 import Problem4Page from "@/views/homework/problem4/Problem4Page.vue"
 import Problem5Page from "@/views/homework/problem5/Problem5Page.vue"
+import Problem5Page2 from "@/views/homework/problem5/Problem5Page2.vue"
 
 Vue.use(VueRouter)
 
@@ -154,6 +155,11 @@ const routes = [
     path: '/problem5-page',
     name: 'Problem5Page',
     component: Problem5Page
+  },
+  {
+    path: '/problem5-page2',
+    name: 'Problem5Page2',
+    component: Problem5Page2
   }
 
 
