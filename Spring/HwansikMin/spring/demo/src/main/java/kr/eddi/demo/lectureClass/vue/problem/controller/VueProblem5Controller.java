@@ -25,7 +25,7 @@ public class VueProblem5Controller {
     public Boolean createGameAccount (@RequestBody GameAccountForm gameAccountForm) {
         log.info("createGameAccount()");
 
-        final GameAccount gameAccount = gameAccountForm.toGameAccount(gameAccountId);
+        final GameAccount gameAccount = gameAccountForm.toGameAccount(gameAccountId++);
 
         if (checkDuplicatedEmail(gameAccount))
             return false;
