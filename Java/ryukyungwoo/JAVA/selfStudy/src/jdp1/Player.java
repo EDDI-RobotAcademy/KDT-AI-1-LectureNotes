@@ -7,8 +7,8 @@ public class Player {
     List<Dice> diceList;
     final private int HOW_MANY_DICES = 3;
     public Player () {
+        diceList = new ArrayList<>();
         for (int i = 0; i < HOW_MANY_DICES; i++) {
-            diceList = new ArrayList<>();
             diceList.add(new Dice());
         }
     }

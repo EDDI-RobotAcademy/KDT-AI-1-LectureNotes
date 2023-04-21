@@ -8,8 +8,8 @@ public class PlayerList {
     private String name;
     final private int HOW_MANY_PLAYERS = 2;
     public PlayerList () {
+        playerList = new ArrayList<>();
         for (int i = 0; i < HOW_MANY_PLAYERS; i++) {
-            playerList = new ArrayList<>();
             playerList.add(new Player());
             name = "플레이어" + (i + 1);
         }
