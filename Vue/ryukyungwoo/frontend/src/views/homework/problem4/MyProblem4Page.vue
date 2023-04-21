@@ -1,18 +1,18 @@
 <template lang="">
     <div>
-
+        <my-create-character/>
     </div>
 </template>
 
 <script>
-import CreateCharacter from '@/components/homework/problem4/CreateCharacter.vue'
+import MyCreateCharacter from '@/components/homework/problem4/MyCreateCharacter.vue';
 export default {
-    comments: {
-        CreateCharacter,
+    components: {
+        MyCreateCharacter,
     },
     data () {
         return {
-            
+
         }
     }
 }

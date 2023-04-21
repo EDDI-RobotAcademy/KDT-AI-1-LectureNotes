@@ -22,15 +22,15 @@
         <span>테스트</span>
         <v-icon right>mdi-hand-back-left-outline</v-icon>
       </v-btn>
-      <v-btn text @click="signUp">
+      <v-btn v-if="!isLogin" text @click="signUp">
         <span>회원가입</span>
         <v-icon right>mdi-account-plus-outline</v-icon>
       </v-btn>
-      <v-btn text @click="signIn">
+      <v-btn v-if="!isLogin" text @click="signIn">
         <span>로그인</span>
         <v-icon right>mdi-login</v-icon>
       </v-btn>
-      <v-btn text @click="signOut">
+      <v-btn v-if="isLogin" text @click="signOut">
         <span>로그아웃</span>
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
@@ -67,31 +67,41 @@
 <script>
 import router from '@/router'
 export default {
-    data () {
-      return {
-        navigation_drawer: false,
-        links: [
-          { icon: 'mdi-home', text: 'Home', route: '/' }
-        ],
-      }
-    },
-    methods: {
-      clickToggle () {
-        alert('토글')
-      },
-      signUp () {
-        alert('회원가입')
-      },
-      signIn () {
-        alert('로그인')
-      },
-      signOut () {
-        alert('로그아웃')
-      },
-      goToHome () {
-        router.push('/')
-      }
+  data () {
+    return {
+      navigation_drawer: false,
+      links: [
+        { icon: 'mdi-home', text: 'Home', route: '/' }
+      ],
+      accountId: 0,
+      isLogin: false,
     }
+  },
+  methods: {
+    clickToggle () {
+      alert('토글')
+    },
+    signUp () {
+      router.push('/problem-page5')
+    },
+    signIn () {
+      router.push('/problem-page5')
+    },
+    signOut () {
+      localStorage.removeItem("loginUserInfo")
+      this.isLogin = false
+    },
+    goToHome () {
+      // 자기 참조 형태에서 push()는 오류가 발생하므로 go()로 변경함
+      router.push('/')
+    }
+  },
+  mounted () {
+    this.accountId = localStorage.getItem("loginUserInfo")
+    if (this.accountId > 0) {
+      this.isLogin = true
+    }
+  }
 }
 </script>
 

@@ -1,4 +1,5 @@
 <template lang="">    
+<div>        
     <div>
         <p>e-mail: </p>
         <textarea v-model="email"></textarea>
@@ -10,11 +11,25 @@
     <div>
         <v-btn color="primary" @click="creatCharacterButton">캐릭터 생성</v-btn>
     </div>
-    <div>
+
+    <div v-if="isSuccessToGetData">    
         <p>
-            만들어진 캐릭터: {{ createdCharacter }}
+            아이디: {{ getemail }}
         </p>
-    </div>
+        <p>
+            힘: {{ strength }},        
+        </p>
+        <p>
+            민첩: {{ dexterity }},            
+        </p>
+        <p>
+            지능: {{ intelligence }},
+        </p>
+        <p> 
+            운: {{ luck }}
+        </p>
+    </div>    
+</div>
 </template>
 
 <script>
@@ -22,8 +37,14 @@ import axios from 'axios';
 export default {
     data () {
         return {
+            getemail: '',
             email: '',
-            password: ''
+            password: '',
+            strength: 0,
+            dexterity: 0,
+            intelligence: 0,
+            luck: 0,
+            isSuccessToGetData: false
         }
     },
     methods: {
@@ -38,7 +59,12 @@ export default {
             )
             .then((res) => {
                 console.log('createdCharacter ' + res.data)
-                this.creatCharacter = res.data
+                this.getemail = res.data.email
+                this.strength = res.data.strength
+                this.dexterity = res.data.dexterity
+                this.intelligence = res.data.intelligence
+                this.luck = res.data.luck
+                this.isSuccessToGetData = true
             })
             .catch((res) => {
                 alert('데이터 전송 실패!')

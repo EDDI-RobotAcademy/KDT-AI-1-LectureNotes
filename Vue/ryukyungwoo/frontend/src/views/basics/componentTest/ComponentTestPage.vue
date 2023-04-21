@@ -11,14 +11,14 @@
             아래 코드는 위 코드와 동의어입니다.
             initail-test는 v-bind로 맵핑했음.
         -->
-        <global-component :initial-test="counter"/>
+        <global-component :initial-test="counter" />
         <p>:initail-test는 v-bind:initial-test와 같습니다만 축약표현 입니다.</p>
         <!-- 
             public void localComponent(int number1, int number2) {
                 System.out.println(number1 * number2);
             }
         -->
-        <local-component :initial-value="number1" :initial-value2="number2"/><br>
+        <local-component :initial-value="number1" :initial-value2="number2" /><br>
         <!-- 이후 값이 증가하던 말던 상관없음 -->
         <button @click="plusNumber1">number1 증가</button>{{ number1 }}<br>
         <button @click="plusNumber2">number2 증가</button>{{ number2 }}<br>
@@ -33,7 +33,7 @@ export default {
     components: {
         'local-component': LocalComponent
     },
-    data () {
+    data() {
         return {
             counter: 0,
             number1: 3,
@@ -41,16 +41,14 @@ export default {
         }
     },
     methods: {
-        plusNumber1 () {
+        plusNumber1() {
             this.number1++
         },
-        plusNumber2 () {
+        plusNumber2() {
             this.number2++
         }
     }
 }
 </script>
 
-<style>
-    
-</style>
+<style></style>

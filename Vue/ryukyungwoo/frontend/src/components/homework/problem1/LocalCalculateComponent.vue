@@ -34,6 +34,7 @@ export default {
             this.result = this.firstValue / this.secondValue
         }
     }
+    
 }
 </script>
 <style lang="">

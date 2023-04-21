@@ -29,6 +29,8 @@ import Dice1Homework from '@/views/homework/problem2/Dice1.vue'
 import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
 import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
 import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
+import MyProblem4Page from '@/views/homework/problem4/MyProblem4Page.vue'
+
 
 Vue.use(VueRouter)
 
@@ -130,6 +132,11 @@ const routes = [
     path: '/problem-page4',
     name: 'Problem4Page',
     component: Problem4Page
+  },
+  {
+    path: '/my-problem-page4',
+    name: 'MyProblem4Page',
+    component: MyProblem4Page
   }
 ]
 

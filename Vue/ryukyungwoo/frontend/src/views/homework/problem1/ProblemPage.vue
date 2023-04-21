@@ -18,14 +18,16 @@
     </div>
 </template>
 <script>
+
 import LocalSubComponent from '@/components/homework/problem1/LocalSubComponent.vue'
 import LocalInputTwoTimesComponent from '@/components/homework/problem1/LocalInputTwoTimesComponent.vue'
 import LocalCalculateComponent from '@/components/homework/problem1/LocalCalculateComponent.vue'
 import LocalTaxBillCheckComponent from '@/components/homework/problem1/LocalTaxBillCheckComponent.vue'
+
 export default {
-    components: { 
-        LocalSubComponent, 
-        LocalInputTwoTimesComponent, 
+    components: {
+        LocalSubComponent,
+        LocalInputTwoTimesComponent,
         LocalCalculateComponent,
         LocalTaxBillCheckComponent,
     },
