@@ -25,9 +25,9 @@ public class VueProblem5Controller {
 //    "email": "test@test.com" ,
 //    "password" : "test"
 //}
-// 포스트맨에 이메일을 직접 설정해줘야 오류가 나지않고 돌아간다.
+// 포스트맨에 위와 같은 형태로 이메일을 직접 설정해줘야 오류가 나지않고 돌아간다.
     @PostMapping("/create")
-    // 이메일 중복판정을 위해 Boolean으로 설정
+    // 이메일 중복판정을 위해 Boolean 으로 설정
     public Boolean createGameAccount(@RequestBody GameAccountForm gameAccountForm) {
         log.info("createGameAccount()");
 
