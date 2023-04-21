@@ -27,6 +27,7 @@
         <router-link to="/problem-page2">2번 연습 문제</router-link> |
         <router-link to="/problem-page3">3번 연습 문제</router-link> |
         <router-link to="/problem-page4">4번 연습 문제</router-link> |
+        <router-link to="/problem-page5">5번 연습 문제</router-link> |
         
       </nav>
     </div>
