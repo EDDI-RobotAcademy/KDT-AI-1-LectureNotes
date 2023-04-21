@@ -45,7 +45,8 @@ export default {
     },
     methods: {
         bringCharacter () {
-            axios.get('http://localhost:7777/character-problem/getCharacterStatus')
+            axios.get('http://localhost:7777/character-problem/createCharacter',
+            { params: { accountId: localStorage.getItem('loginUserInfo')}})
             .then((res) => {
                 this.email = res.data.email,
                 this.health = res.data.health,
