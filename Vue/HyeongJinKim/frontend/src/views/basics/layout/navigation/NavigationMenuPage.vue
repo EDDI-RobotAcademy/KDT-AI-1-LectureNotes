@@ -88,18 +88,25 @@ export default {
       alert("토글");
     },
     signUp() {
-      alert("회원가입");
+      router.push("/vue-homework-page5");
     },
     signIn() {
-      alert("로그인");
+      router.push("/vue-homework-page5");
     },
     signOut() {
-      alert("로그아웃");
+      localStorage.removeItem("signInUserInfo");
+      // this.createCharState = false;
     },
     goToHome() {
       // 자기 참조 형태에서 push()는 오류가 발생하므로 go()로 변경함
       router.go("/");
     },
+  },
+  mounted() {
+    this.myAccountId = localStorage.getItem("signInUserInfo");
+    if (this.myAccountId > 0) {
+      // this.createCharState = true;
+    }
   },
 };
 </script>

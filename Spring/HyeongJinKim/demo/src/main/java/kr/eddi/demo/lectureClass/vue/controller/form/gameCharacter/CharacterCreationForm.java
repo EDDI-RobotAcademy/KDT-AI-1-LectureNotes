@@ -1,5 +1,6 @@
 package kr.eddi.demo.lectureClass.vue.controller.form.gameCharacter;
 
+import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
@@ -9,16 +10,28 @@ import lombok.ToString;
 @RequiredArgsConstructor
 public class CharacterCreationForm {
 
-    private Boolean gender;
-    private int characterId;
-
+    private String selectedGender;
     private int strength;
     private int dexterity;
     private int intelligence;
+    private int characterId;
+    private int accountId;
 
-    public Character toCharacter(Boolean gender, int characterId) {
+    public CharacterCreationForm(String gender, int characterId, int accountId) {
+        final int STATUS_MIN = 1;
+        final int STATUS_MAX = 10;
+
+        this.selectedGender = gender;
+        this.strength = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
+        this.dexterity = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
+        this.intelligence = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
+        this.characterId = characterId;
+        this.accountId = accountId;
+    }
+    public Character toCharacter(String gender, int characterId, int accountId) {
         return new Character(
-                gender, characterId, strength, dexterity, intelligence
+                gender, strength, dexterity, intelligence, characterId, accountId
         );
     }
+
 }

@@ -9,10 +9,10 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Character {
 
-    private Boolean gender;
-    private int characterId;
-
+    private String selectedGender;
     private int strength;
     private int dexterity;
     private int intelligence;
+    private int characterId;
+    private int accountId;
 }

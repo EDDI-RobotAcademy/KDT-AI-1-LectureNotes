@@ -48,21 +48,31 @@
 
       <div v-else>
         <p>로그인 중인 계정: {{ myEmail }}</p>
+        <br />
+        <p>Account ID: {{ myAccountId }}</p>
+        <br />
+        <div v-if="myCharId.length == 0">
+          <p>등록된 캐릭터가 없습니다.</p>
+        </div>
+        <div v-else>
+          <p>Character ID: {{ myCharId }}</p>
+        </div>
         <div>
-          <v-btn class="pink white--text" @click="charDetails">캐릭터 생성</v-btn>
-          <v-btn color="primary" @click="startGame">플레이</v-btn>
+          <v-btn color="primary" @click="charDetails">캐릭터 생성</v-btn>
+          <v-btn color="primary" @click="getCharList">캐릭터 선택</v-btn>
+          <v-btn class="pink white--text" @click="startGame">플레이</v-btn>
         </div>
         <div v-if="createCharState">
           <h4>캐릭터 성별 선택</h4>
           <form action="/" style="text-align: center">
             <li>
               <label>
-                <input type="radio" v-model="selectedGender" value="true" />남성
+                <input type="radio" v-model="selectedGender" value="male" />남성
               </label>
             </li>
             <li>
               <label>
-                <input type="radio" v-model="selectedGender" value="false" />여성
+                <input type="radio" v-model="selectedGender" value="female" />여성
               </label>
             </li>
           </form>
@@ -91,7 +101,6 @@ export default {
       signInState: false,
       signUpState: false,
       createCharState: false,
-      selectedGender: true,
       showCharInfo: false,
 
       userEmail: "",
@@ -100,12 +109,16 @@ export default {
       newPw: "",
       verifyPw: "",
       myEmail: "",
+      characterGender: "",
+      selectedGender: "male",
 
       strength: 0,
       intelligence: 0,
       dexterity: 0,
       characterId: 0,
-      characterGender: "",
+      myAccountId: 0,
+
+      myCharId: [],
     };
   },
   methods: {
@@ -135,10 +148,15 @@ export default {
           if (res.data.isCurrentInfo) {
             this.setAccountPhase = false;
             this.myEmail = res.data.userEmailInfo;
+            this.myAccountId = res.data.userIdInfo;
+            localStorage.setItem("signInUserInfo", res.data.userIdInfo);
           } else if (!res.data.isCurrentInfo) {
             alert("이메일 또는 비밀번호를 확인해주세요.");
           }
         });
+      // ,mounted() {
+      //   this.myAccountId = localStorage.getItem("")
+      // };
     },
 
     signUp() {
@@ -168,19 +186,31 @@ export default {
       this.createCharState = false;
     },
 
+    getCharList() {
+      const { myAccountId } = this;
+      axios
+        .post("http://localhost:7777/new-character/get-character-id", {
+          myAccountId,
+        })
+        .then((res) => {
+          this.myCharId = res.data;
+        });
+    },
+
     startGame() {
-      this.showCharInfo = true;
-      axios.get("http://localhost:7777/new-character/get-character-info").then((res) => {
-        this.strength = res.data.strength;
-        this.intelligence = res.data.intelligence;
-        this.dexterity = res.data.dexterity;
-        this.characterId = res.data.characterId;
-        if (res.data.gender) {
-          this.characterGender = "여성";
-        } else {
-          this.characterGender = "남성";
-        }
-      });
+      axios
+        .get("http://localhost:7777/new-character/get-character-info")
+        .then((res) => {
+          this.strength = res.data.strength;
+          this.intelligence = res.data.intelligence;
+          this.dexterity = res.data.dexterity;
+          this.characterId = res.data.characterId;
+          this.showCharInfo = true;
+          this.characterGender = res.data.selectedGender;
+        })
+        .catch((res) => {
+          alert("캐릭터가 없습니다! 먼저 캐릭터를 생성해주세요!");
+        });
     },
   },
 };

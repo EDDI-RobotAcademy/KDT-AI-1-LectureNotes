@@ -13,4 +13,5 @@ import java.util.List;
 public class AccountMultiResponseForm {
     final private Boolean isCurrentInfo;
     final private String userEmailInfo;
+    final private Integer userIdInfo;
 }
