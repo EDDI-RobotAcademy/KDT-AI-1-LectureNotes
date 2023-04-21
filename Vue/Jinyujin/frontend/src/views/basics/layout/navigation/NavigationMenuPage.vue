@@ -27,15 +27,20 @@
           <span>테스트</span>
           <v-icon right>mdi-hand-back-left-outline</v-icon>
         </v-btn>
-        <v-btn text @click="signUp">
+        <v-btn v-if="!isLogin" text @click="signUp">
           <span>회원가입</span>
           <v-icon right>mdi-account-plus-outline</v-icon>
         </v-btn>
-        <v-btn text @click="signIn">
+        <v-btn v-if="!isLogin" text @click="signIn">
           <span>로그인</span>
           <v-icon right>mdi-login</v-icon>
         </v-btn>
-        <v-btn text @click="signOut">
+        <v-btn v-if="isLogin" text @click="signOut"> 
+          <!-- 
+            먼저 회원가입과 로그인 버튼 뜨고 로그아웃은 로그인 된 후 떠도 된다
+            그래서 일단 회원가입과 로그인 버튼만 뜨게 하고 로그아웃은 숨겨놓음
+            아래 마운트에서 로그인이 되었다면 로그아웃이 뜨도록 설정
+          -->
           <span>로그아웃</span>
           <v-icon right>mdi-exit-to-app</v-icon>
         </v-btn>
@@ -79,6 +84,8 @@
           links: [
             { icon: 'mdi-home', text: 'Home', route: '/' }
           ],
+          gameId: 0,
+          isLogin: false,
         }
       },
       methods: {
@@ -87,9 +94,11 @@
         },
         signUp () {
           alert('회원가입')
+          router.push('/make-character')
         },
         signIn () {
           alert('로그인')
+          router.push('/make-character')
         },
         signOut () {
           alert('로그아웃')
@@ -97,7 +106,14 @@
         goToHome () {
           router.push('/')
         }
-      }
+      },
+      mounted() {
+        // gameId가 0보다 클 경우 로그아웃 창 뜰 수 있도록
+        this.gameId = localStorage.getItem("logInUserInfo")
+        if (this.gameId > 0) {
+          this.isLogin = true
+        }
+      },
   }
   </script>
   

@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @AllArgsConstructor // 여기선 이거 사용!
 @ToString
-public class Account {
+public class GameAccount {
     // CharacterAccountForm은 처음에 계정을 입력할 때의 form이기 때문에 final을 써주어야함
     // 여기에서는 이 사람 저 사람의 계정이 모이는 것이기 때문에 final을 써주면 안된다
     // 계정들의 저장소라고 생각하면 되려나?

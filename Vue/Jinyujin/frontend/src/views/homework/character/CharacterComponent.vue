@@ -18,35 +18,16 @@
             Email입력: <input type="email" v-model="email"><br>
             Password입력: <input type="password" v-model="password"><br>
             </label>
+            <v-btn color="primary" @click="makeCharacterComplete">완료</v-btn><br>
             <p></p>
             <!-- 완료 누르면 백엔드에서 캐릭터 계정 생성 -->
             <!-- 완료 버튼 캐릭터 생성 버튼 안에 넣어주기 -->
-            <v-btn @click="makeCharacterComplete">완료</v-btn>
-            <form v-if="isButton">
-                <p>
-                    {{ email }}님, 가입을 환영합니다!
-                </p>
-            </form>
         <!-- makeCharacterBack() 메서드에서 서버와 통신하도록 -->
         <!-- 완료 버튼 누르면 환영합니다 메세지 출력되도록 하기 -->
         <!-- 
             isPressButton은 이미 위에서 눌리기 때문에 한꺼번에 열림
             좋은 방법이 뭐가 있을까? 
         -->
-        <div>
-            <!-- 로그인 했을 때 이메일 주소 보여주기 -->
-            <label>
-                <p></p>
-            Id입력: <input type="id" v-model="id"><br>
-            Password입력: <input type="password" v-model="password"><br>
-            <p></p>
-            </label>
-            <v-btn @click="showEmail">로그인</v-btn>
-            <p></p>
-            <form v-if="isLoginButton"> 
-                <p>당신의 이메일 주소는 {{ email }}입니다</p>
-            </form>
-        </div>
         <!-- 계정 선택하는 방법 -->
         </form>
         <p></p>
@@ -64,10 +45,9 @@ export default {
         return {
             isPressButton: false,
             // form은 닫혀 있게 하기 위해서 false값을 기본으로 둔다
-            email: 'email@eddi.com',
-            password: 'password입력',
+            email: 'test@test.com',
+            password: 'test',
             isButton: false,
-            id: 'id입력',
             isLoginButton: false,
         }
     },
@@ -78,14 +58,16 @@ export default {
         makeCharacterComplete() {
             this.isButton = true;
             axios.post('http://localhost:7777/lets-show/character',
-            {email: this.email, password: this.password, id: this.id}) // 계정 생성해주기
+            {email: this.email, password: this.password}) // 계정 생성해주기
             // 이거는 만든 페이지에서 설정해주는 것이지 
             // 메인페이지로 가져가는 것이 아님!!!
             .then((res) => {
+                if (res.data) {
+                    alert('계정 생성 완료!')
+                } else {
+                    alert('동일한 계정이 이미 존재합니다')
+                }
             })
-        },
-        showEmail() {
-            this.isLoginButton = true;
         },
     },
 }
