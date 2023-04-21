@@ -2,6 +2,8 @@ package kr.eddi.demo.lectureClass.vue.problem.controller;
 
 import kr.eddi.demo.lectureClass.vue.problem.controller.form.GameAccountForm;
 import kr.eddi.demo.lectureClass.vue.problem.controller.form.LoginResponseForm;
+import kr.eddi.demo.lectureClass.vue.problem.controller.form.RequestAccountIdForm;
+
 import kr.eddi.demo.lectureClass.vue.problem.entity.GameAccount;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,6 +58,16 @@ public class VueProblem5Controller {
         return new LoginResponseForm(false, LOGIN_FAILED_ACCOUND_ID);
     }
 
+    @PostMapping("/find-account-info")
+    public String findAccountInfo (@RequestBody RequestAccountIdForm requestAccountIdForm) {
+        final int LIST_BIAS = 1;
+        log.info("findAccountInfo()");
+
+        final GameAccount foundGameAccount = gameAccountList.get(
+                (int) (requestAccountIdForm.getGameAccountId() - LIST_BIAS));
+
+        return foundGameAccount.getEmail();
+    }
     private boolean checkDuplicatedEmail(GameAccount gameAccount) {
         for (int i = 0; i < gameAccountList.size(); i++) {
             final GameAccount searchedGameAccount = gameAccountList.get(i);
