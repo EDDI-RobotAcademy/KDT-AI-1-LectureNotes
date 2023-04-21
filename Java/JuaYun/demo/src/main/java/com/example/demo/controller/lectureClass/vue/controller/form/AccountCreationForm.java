@@ -14,6 +14,7 @@ public class AccountCreationForm {
     final private String password;
 
     public Account toAccount(Long accountId) {
+        // accountId 계정의 갯수
         return new Account(accountId, email, password);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.demo.controller.lectureClass.vue.controller;
 
 import com.example.demo.controller.lectureClass.vue.controller.form.GameAccountForm;
+import com.example.demo.controller.lectureClass.vue.controller.form.LoginResponseForm;
+import com.example.demo.controller.lectureClass.vue.controller.form.RequestAccountIdForm;
 import com.example.demo.controller.lectureClass.vue.entity.GameAccount;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +33,8 @@ public class VueProblem5Controller {
     public Boolean createGameAccount(@RequestBody GameAccountForm gameAccountForm) {
         log.info("createGameAccount()");
 
-        final GameAccount gameAccount = gameAccountForm.toGameAccount(gameAccountId);
+
+        final GameAccount gameAccount = gameAccountForm.toGameAccount(gameAccountId++);
 
         // 이메일 중복체크
         for (int i = 0; i < gameAccountList.size(); i++) {
@@ -39,12 +42,47 @@ public class VueProblem5Controller {
             final String searchedGameAccountEmail = searchedGameAccount.getEmail();
 
             if (gameAccount.getEmail().equals(searchedGameAccountEmail)) {
-                return false;
+                return true;
             }
         }
 
         gameAccountList.add(gameAccount);
 
-        return true;
+        return false;
+    }
+
+    @PostMapping("/login")
+    // 이메일 중복판정을 위해 Boolean 으로 설정
+    public LoginResponseForm gameAccountLogin (@RequestBody GameAccountForm gameAccountForm) {
+        log.info("gameAccountLogin()");
+
+        final Long LOGIN_FAILED_ACCOUNT_ID = 0L;
+
+        // 이메일확인
+        for (int i = 0; i < gameAccountList.size(); i++) {
+            final GameAccount searchedGameAccount = gameAccountList.get(i);
+            final String searchedGameAccountEmail = searchedGameAccount.getEmail();
+
+            if (searchedGameAccountEmail.equals(gameAccountForm.getEmail())) {
+                if (searchedGameAccount.getPassword().equals(gameAccountForm.getPassword())) {
+                    return new LoginResponseForm(true, searchedGameAccount.getId());
+                }
+                // 계정이 없어서 false
+                return new LoginResponseForm(false, LOGIN_FAILED_ACCOUNT_ID);
+            }
+        }
+
+        return new LoginResponseForm(false, LOGIN_FAILED_ACCOUNT_ID);
+    }
+
+    @PostMapping("/find-account-info")
+    public String findAccountInfo (@RequestBody RequestAccountIdForm requestAccountIdForm) {
+        final int LIST_BIAS = 1;
+        log.info("findAccountInfo()");
+
+        final GameAccount foundGameAccount = gameAccountList.get(
+                (int) (requestAccountIdForm.getGameAccountId() - LIST_BIAS));
+
+        return foundGameAccount.getEmail();
     }
 }

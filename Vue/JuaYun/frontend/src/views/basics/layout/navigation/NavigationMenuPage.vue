@@ -22,15 +22,16 @@
           <span>테스트</span>
           <v-icon right>mdi-hand-back-left-outline</v-icon>
         </v-btn>
-        <v-btn text @click="signUp">
+        <!--!는 부정-->
+        <v-btn v-if="!isLogin" text @click="signUp">
           <span>회원가입</span>
           <v-icon right>mdi-account-plus-outline</v-icon>
         </v-btn>
-        <v-btn text @click="signIn">
+        <v-btn v-if="!isLogin" text @click="signIn">
           <span>로그인</span>
           <v-icon right>mdi-login</v-icon>
         </v-btn>
-        <v-btn text @click="signOut">
+        <v-btn v-if="isLogin" text @click="signOut">
           <span>로그아웃</span>
           <v-icon right>mdi-exit-to-app</v-icon>
         </v-btn>
@@ -74,6 +75,8 @@
           links: [
             { icon: 'mdi-home', text: 'Home', route: '/' }
           ],
+          accountId: 0,
+          isLogin: false
         }
       },
       methods: {
@@ -81,16 +84,23 @@
           alert('토글')
         },
         signUp () {
-          alert('회원가입')
+          // 원래 이런식으로 하면 안되지만 일단 생성했음
+          router.push("/problem-page5")
         },
         signIn () {
-          alert('로그인')
+          router.push("/problem-page5")
         },
         signOut () {
-          alert('로그아웃')
+          localStorage.removeItem("loginUserInfo")
         },
         goToHome () {
           router.push('/')
+        }
+      },
+      mounted () {
+        this.accountId = localStorage.getItem("loginUserInfo")
+        if (this.accountId > 0) {
+          this.isLogin = true
         }
       }
   }
