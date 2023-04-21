@@ -14,7 +14,10 @@
         </div>
     </div>
 </template>
+
 <script>
+import axios from 'axios'
+
 export default {
     data () {
         return {
@@ -34,7 +37,7 @@ export default {
             const { email, password } = this
             axios.post('http://localhost:7777/bmp-account/create', { email, password })
                 .then((res) => {
-                    if (res) {
+                    if (res.data) {
                         alert('계정 생성 완료!')
                     } else {
                         alert('동일한 계정이 이미 존재합니다')
@@ -44,6 +47,7 @@ export default {
     }
 }
 </script>
+
 <style lang="">
     
 </style>

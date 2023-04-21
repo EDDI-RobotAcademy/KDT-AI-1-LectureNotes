@@ -28,6 +28,7 @@ import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.
 import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
 import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
 import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
+import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 
 Vue.use(VueRouter)
 
@@ -125,6 +126,11 @@ const routes = [
     name: 'Problem4Page',
     component: Problem4Page
   },
+  {
+    path: '/problem-page5',
+    name: 'Problem5Page',
+    component: Problem5Page
+  }
 
   
 ]
