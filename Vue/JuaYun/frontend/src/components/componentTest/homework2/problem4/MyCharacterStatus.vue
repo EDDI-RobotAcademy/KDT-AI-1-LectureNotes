@@ -1,8 +1,9 @@
 <template>
   <div>
     <p></p>
-    <v-btn color="primary" @click="Play=true">플레이</v-btn>
-    <div v-if="Play">
+    <!--@click="Play = true" ture를 지우니  -->
+    <v-btn color="primary" @click="Play">플레이</v-btn>
+    <div v-if="Button">
       <p>체력: {{ hp }}</p>
       <p>힘: {{ strength }}</p>
       <p>지능: {{ intelligent }}</p>
@@ -18,7 +19,7 @@ import axios from 'axios'
 export default {
     data () {
         return {
-            Play: false,
+            Button: false,
             hp: 0,
             strength: 0,
             intelligent: 0,
@@ -28,10 +29,8 @@ export default {
     },
     methods: {
         Play () {
-            axios.post('http://localhost:7777/character-test/status',{
-                hp: this.hp, strength: this.strength, intelligent: this.intelligent,
-                dexterity: this.dexterity, agility: this.agility
-            })
+            // this.Button = true
+            axios.get('http://localhost:7777/character-test/status')
             .then((res) => {
                 console.log('hp: ' + res.data.hp)
                 console.log('strength: ' + res.data.strength)

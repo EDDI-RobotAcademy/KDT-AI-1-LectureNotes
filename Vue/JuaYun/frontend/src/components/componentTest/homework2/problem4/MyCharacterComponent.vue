@@ -10,8 +10,10 @@
      <div v-if="PressedButton">
         <div>
           <input type="text" v-model="Email">이메일<br>
-          <input type="text" v-model="Password">비밀번호<br>
+          <input type="password" v-model="Password">비밀번호<br>
         </div>
+        <!-- CharacterData=true쪽의 문제였음 아마도 위 캐릭터 생성코드를
+        복사하는 과정에서 지우지않고 그대로 두는 바람에 문제가 생긴것-->
         <v-btn color="primary" @click="CharacterData">완료</v-btn>
     </div>
    </div>
