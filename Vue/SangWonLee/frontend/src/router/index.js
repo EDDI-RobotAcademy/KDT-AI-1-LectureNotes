@@ -24,6 +24,7 @@ import VueBasicProblem2 from "@/views/homework/basicProblem/VueBasicProblem2.vue
 import VueBasicProblem3 from "@/views/homework/basicProblem/VueBasicProblem3.vue";
 import VueBasicProblem4 from "@/views/homework/basicProblem/VueBasicProblem4.vue";
 import Problem4Page from "@/views/homework/problem4/Problem4Page.vue";
+import Problem3OfBank from "@/views/homework/problem3OfBank/Problem3OfBankPage.vue"
 
 Vue.use(VueRouter);
 
@@ -148,6 +149,11 @@ const routes = [
     path: "/problem-page4",
     name: "Problem4Page",
     component: Problem4Page,
+  },
+  {
+    path: "/problem-bank-3",
+    name: "Problem3OfBank",
+    component: Problem3OfBank,
   },
 ];
 

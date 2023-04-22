@@ -34,6 +34,7 @@
         <router-link to="/vue-basic-problem-3">Vue 기본 문제 3</router-link> |
         <router-link to="/vue-basic-problem-4">Vue 기본 문제 4</router-link> |
         <router-link to="/problem-page4">4번 연습 문제</router-link> |
+        <router-link to="/problem-bank-3">문제 은행 3번 (backlog 작성 하면서 해보기)</router-link> |
 
       </nav>
     </div>
