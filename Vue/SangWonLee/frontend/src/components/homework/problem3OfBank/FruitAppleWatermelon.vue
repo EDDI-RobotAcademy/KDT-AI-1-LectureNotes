@@ -24,12 +24,15 @@
     </div>
 </template>
 <script>
+
+import axios from 'axios'
+
 export default {
     data() {
         return {
             appleNumber: '',
             watermelonNumber: '',
-            isPressedButton: false
+            isPressedButton: false,
         }
     },
     methods: {
@@ -41,6 +44,17 @@ export default {
         processFruitNumber() {
             this.isPressedButton = false
             alert('확인합니다. 계산하겠습니다!')
+            const { appleNumber, watermelonNumber } = this
+            axios.post('http://localhost:7777/apple-watermelon/Number', { appleNumber, watermelonNumber })
+                .then((res) => {
+                    if (res) {
+                        alert('값을 성공적으로 전송했습니다.')
+                    } else {
+                        alert('에러 발생')
+                    }
+                })
+
+
 
         },
 
