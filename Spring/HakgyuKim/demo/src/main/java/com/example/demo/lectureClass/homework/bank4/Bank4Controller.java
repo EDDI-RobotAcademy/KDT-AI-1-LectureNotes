@@ -3,6 +3,7 @@ package com.example.demo.lectureClass.homework.bank4;
 import com.example.demo.lectureClass.homework.bank4.account.Account;
 import com.example.demo.lectureClass.homework.bank4.character.Character;
 import com.example.demo.lectureClass.homework.bank4.enemy.Enemy;
+import com.example.demo.lectureClass.homework.bank4.form.AccountSpecifyForm;
 import com.example.demo.lectureClass.homework.bank4.form.CharacterStatusForm;
 import com.example.demo.lectureClass.homework.bank4.form.AccountCreationForm;
 import com.example.demo.lectureClass.homework.bank4.form.LoginForm;
@@ -53,20 +54,22 @@ public class Bank4Controller {
 
 
 
-    @GetMapping("/createCharacter")
-    public CharacterStatusForm getCharacterStatus(@RequestParam ("accountId")long id) {
-        int accountIdx = (int)id - 1;
-        Account currentAccount = accountList.get(accountIdx);
+    @PostMapping("/createCharacter")
+    public CharacterStatusForm getCharacterStatus(@RequestBody AccountSpecifyForm accountSpecifyForm) {
+        final int LIST_BIAS = 1;
+        Account currentAccount = accountList.get(
+                accountSpecifyForm.getAccountId() - LIST_BIAS);
+
         int characterNum = currentAccount.getCharacterList().size() + 1;
-        currentAccount.getCharacterList().add(new Character("캐릭터" + characterNum, characterNum));
+        currentAccount.getCharacterList().add(new Character(characterNum));
 
         CharacterStatusForm characterStatusForm = new CharacterStatusForm(
-                currentAccount.getCharacterList().get(characterNum).getName(),
-                currentAccount.getCharacterList().get(characterNum).getHealth(),
-                currentAccount.getCharacterList().get(characterNum).getStrength(),
-                currentAccount.getCharacterList().get(characterNum).getDexterity(),
-                currentAccount.getCharacterList().get(characterNum).getIntelligence(),
-                currentAccount.getCharacterList().get(characterNum).getSkill()
+                currentAccount.getEmail(),
+                currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getHealth(),
+                currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getStrength(),
+                currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getDexterity(),
+                currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getIntelligence(),
+                currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getSkill()
         );
 
         log.info("info: " + characterStatusForm);
