@@ -2,7 +2,7 @@
     <div>
         <form @submit.prevent="bringCharacter">
             <fieldset>
-                <legend><v-btn color="secondary" type="submit">플레이</v-btn></legend>
+                <legend><v-btn color="secondary" type="submit">캐릭터 생성</v-btn></legend>
                 <ul style="text-align: left;">
                     <li>
                         <p>{{ email }}님의 캐릭터 스테이터스:</p>
@@ -41,12 +41,14 @@ export default {
             dexterity: 0,
             intelligence: 0,
             skill: 0,
+            accountId: localStorage.getItem('loginUserInfo')
         }
     },
     methods: {
         bringCharacter () {
-            axios.get('http://localhost:7777/character-problem/createCharacter',
-            { params: { accountId: localStorage.getItem('loginUserInfo')}})
+            const{accountId} =  this
+            axios.post('http://localhost:7777/character-problem/createCharacter',
+            {accountId})
             .then((res) => {
                 this.email = res.data.email,
                 this.health = res.data.health,
