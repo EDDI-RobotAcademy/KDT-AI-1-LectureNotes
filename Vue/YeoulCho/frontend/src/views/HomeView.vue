@@ -32,6 +32,7 @@
       <router-link to="/Study-page">공부하자</router-link> |<br>
       <router-link to="/Problem4-page">4번 연습문제</router-link> |
       <router-link to="/Problem5-page">5번 연습문제(혼자 도전)</router-link> |
+      <router-link to="/Problem5-page2">5번 연습문제 복습</router-link> |
     </nav>
   </div>
 </v-container> 

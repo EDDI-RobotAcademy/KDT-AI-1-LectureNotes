@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @Getter
-@RequestMapping("/test-account")
+@RequestMapping("/test-account122")
 public class VueProblem4Controller {
     private static long accountNumber =1; //전역 어떨때 씁니까? 모두 공유하는 변수
     private static List<Account> accountList =new ArrayList<>();

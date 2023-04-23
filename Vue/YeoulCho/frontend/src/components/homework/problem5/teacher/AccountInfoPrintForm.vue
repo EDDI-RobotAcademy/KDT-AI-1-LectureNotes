@@ -14,7 +14,7 @@ export default {
     },
     created(){
         let accountId= localStorage.getItem("loginUserInfo")
-        axios.post("http://localhost:7777/bmp-account/lookup",
+        axios.post("http://localhost:7777/bmp-account/find-account-info",
         {accountId: accountId})
         .then((res)=>{
             this.email= res.data
