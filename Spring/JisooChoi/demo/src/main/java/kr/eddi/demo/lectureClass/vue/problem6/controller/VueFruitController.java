@@ -16,15 +16,14 @@ public class VueFruitController {
     final int watermelonBasicCost = 10000;
 
     @PostMapping("/buy")
-    public Integer buyFruitResultCost (@RequestBody FruitCostForm fruitCostForm){
+    public FruitCostForm buyFruitResultCost (@RequestBody FruitCostForm fruitCostForm){
         log.info("buyFruitResultCost() 확인");
 
         // 과일 가격 계산하기
         int appleResult = fruitCostForm.getAppleNum() * appleBasicCost;
         int watermelonResult = fruitCostForm.getWatermelonNum() * watermelonBasicCost;
+        fruitCostForm.totalFruitCost= appleResult + watermelonResult;
 
-        int totalCost = appleResult + watermelonResult;
-
-        return totalCost;
+        return fruitCostForm;
     }
 }
