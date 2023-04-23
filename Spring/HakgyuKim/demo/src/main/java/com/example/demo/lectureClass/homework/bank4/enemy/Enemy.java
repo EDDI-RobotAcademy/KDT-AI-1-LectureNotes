@@ -10,5 +10,4 @@ import lombok.ToString;
 public class Enemy {
     final private String name = "고블린";
     private int health = 20;
-
 }

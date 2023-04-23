@@ -20,7 +20,6 @@ import java.util.List;
 public class Bank4Controller {
     private static Long accountNumber = 1L;
     List<Account> accountList = new ArrayList<>();
-    GameManager gameManager;
 
     @PostMapping("/create")
     public boolean createAccount(@RequestBody AccountCreationForm accountCreationForm) {
@@ -77,10 +76,11 @@ public class Bank4Controller {
     }
 
 
-    @GetMapping("/bringEnemy")
-    public List<Enemy> bringEnemyList () {
-        gameManager.addEnemy();
-        System.out.println(gameManager.getEnemyList());
-        return gameManager.getEnemyList();
+    @PostMapping("/bringEnemy")
+    public List<Enemy> bringEnemyList (@RequestBody AccountSpecifyForm accountSpecifyForm) {
+        final int LIST_BIAS = 1;
+        Account currentAccount = accountList.get(accountSpecifyForm.getAccountId() -LIST_BIAS);
+        currentAccount.addEnemy();
+        return currentAccount.getEnemyList();
     }
 }
