@@ -16,13 +16,19 @@ public class PlayerList {
     }
 
     public List<Player> getPlayerList() {
+
         return playerList;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
     public String toString() {
         return "PlayerList{" +
                 "playerList=" + playerList +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
