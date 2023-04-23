@@ -3,10 +3,15 @@
     <!-- 아래 링크를 참고하여 본인 취향의 Navigation Bar를 만들 수 있습니다.
          https://vuetifyjs.com/en/components/app-bars/ -->
     <v-app-bar color="dark" app dark>
-      <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer"/>
+      <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer" />
       <v-btn @click="goToHome">
-        <v-img class="mx-2" src="@/assets/logo.png"
-                max-height="40" max-width="40" contain>
+        <v-img
+          class="mx-2"
+          src="@/assets/logo.png"
+          max-height="40"
+          max-width="40"
+          contain
+        >
         </v-img>
         <v-toolbar-title class="text-uppercase text--darken-4">
           <span>EDDI</span>
@@ -34,7 +39,6 @@
         <span>로그아웃</span>
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
-  
     </v-app-bar>
     <v-navigation-drawer app v-model="navigation_drawer">
       <v-list-item>
@@ -44,9 +48,14 @@
         </v-list-item-content>
       </v-list-item>
       <v-divider></v-divider>
-      
+
       <v-list nav dense>
-        <v-list-item v-for="(link, index) in links" :key="link.index" router :to="link.route">
+        <v-list-item
+          v-for="(link, index) in links"
+          :key="link.index"
+          router
+          :to="link.route"
+        >
           <v-list-item-action>
             <v-icon>
               {{ link.icon }}
@@ -63,46 +72,45 @@
   </nav>
 </template>
 <script>
-import router from '@/router'
+import router from "@/router";
 export default {
-  data () {
+  data() {
     return {
       navigation_drawer: false,
-      links: [
-        { icon: 'mdi-home', text: 'Home', route: '/' }
-      ],
+      links: [{ icon: "mdi-home", text: "Home", route: "/" }],
       accountId: 0,
       isLogin: false,
-    }
+    };
   },
   methods: {
-    clickToggle () {
-      alert('토글')
+    clickToggle() {
+      alert("토글");
     },
-    signUp () {
-      router.push('/vue-problem-5page')
+    signUp() {
+      router.push("/vue-problem-5page");
     },
-    signIn () {
-      router.push('/vue-problem-5page')
+    signIn() {
+      router.push("/vue-problem-5page");
     },
-    signOut () {
-      localStorage.removeItem("loginUserInfo")
-      this.isLogin = false
+    signOut() {
+      // 로그아웃 버튼을 누르면 localStorage의 값을 제거해준다.
+      // window.localStorage.removeItem(key);
+      localStorage.removeItem("loginUserInfo");
+      this.isLogin = false;
     },
-    goToHome () {
+    goToHome() {
       // 자기 참조 형태에서 push()는 오류가 발생하므로 go()로 변경함
-      router.push('/')
+      router.push("/");
+    },
+  },
+  mounted() {
+    this.accountId = localStorage.getItem("loginUserInfo");
+    if (this.accountId > 0) {
+      // 로그인이 된 상태라면 로그인과 회원가입을 보여주지 말아라.
+      this.isLogin = true;
     }
   },
-  mounted () {
-    this.accountId = localStorage.getItem("loginUserInfo")
-    if (this.accountId > 0) {
-      this.isLogin = true
-    }
-  }
-}
+};
 </script>
 
-<style lang="">
-    
-</style>
+<style lang=""></style>

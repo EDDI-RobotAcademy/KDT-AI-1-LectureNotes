@@ -10,6 +10,7 @@ import lombok.ToString;
 @RequiredArgsConstructor
 public class AccountLoginForm {
 
+    // Vue에서 정보를 받을 때는 Form
     final private String loginUserEmail;
     final private String userPw;
 }
