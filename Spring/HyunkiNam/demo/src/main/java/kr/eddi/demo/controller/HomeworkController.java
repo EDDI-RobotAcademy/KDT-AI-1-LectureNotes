@@ -2,14 +2,13 @@ package kr.eddi.demo.controller;
 
 import kr.eddi.demo.controller.character.Character;
 import kr.eddi.demo.controller.form.*;
+import kr.eddi.demo.controller.product.ProductOrder;
 import kr.eddi.demo.homework.GameManager;
 import kr.eddi.demo.lectureClass.vue.controller.utility.random.CustomRandom;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Slf4j
 @RestController
@@ -130,4 +129,22 @@ public class HomeworkController {
         return characterStatusForm;
     }
 
+    Map<Integer, ProductOrder> productOrderMap = new HashMap<>();
+
+    @PostMapping("product-order")
+    public void productOrder(@RequestBody ProductOrderInfo productOrderInfo){
+
+        ProductOrder productOrder = new ProductOrder(
+                productOrderInfo.getOrderNumber(), productOrderInfo.getCustomerName(), productOrderInfo.getCustomerAddress()
+                , productOrderInfo.getCustomerPhoneNumber(), productOrderInfo.getTotalPrice());
+
+        productOrderMap.put(productOrderInfo.getOrderNumber(), productOrder);
+    }
+
+    @PostMapping("/find-product-order")
+    public ProductOrder findProductOrder(@RequestBody FindProductOrderInfo findProductOrderInfo){
+
+        return productOrderMap.get(findProductOrderInfo.getFindOrderInfoNumber());
+
+    }
 }

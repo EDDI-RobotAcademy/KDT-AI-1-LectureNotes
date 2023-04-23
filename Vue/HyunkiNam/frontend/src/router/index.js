@@ -25,6 +25,8 @@ import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpr
 import HomeworkPage from '@/views/homework/HomeworkPage.vue'
 import Problem4Page from '@/views/homework/Problem4Page.vue'
 import Problem5Page from '@/views/homework/Problem5Page.vue'
+import ProductImagePage from '@/views/homework/ProductImagePage.vue'
+import ProductOrderPage from '@/views/homework/ProductOrderPage.vue'
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
 
@@ -129,6 +131,18 @@ const routes = [
     name: 'Problem5Page',
     component: Problem5Page
   },
+  {
+    path: '/product-image-page',
+    name: 'ProductImagePage',
+    component: ProductImagePage
+  },
+  {
+    path: '/product-order-page',
+    name: 'ProductOrderPage',
+    component: ProductOrderPage
+  },
+
+
 ]
 
 const router = new VueRouter({
