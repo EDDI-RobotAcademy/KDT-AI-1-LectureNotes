@@ -14,4 +14,14 @@ public class DecisionDice {
     public int DecisionThirdDice () {
         return player.getDiceList().get(THIRD_DICE).getDiceNumber();
     }
+
+    public int CalculateScoreFromThirdDiceNumber () {
+        PlayerList playerList = new PlayerList();
+        DecisionPlayer decisionPlayer = new DecisionPlayer();
+        if (DecisionThirdDice() == 1) {
+            for (int i = 0; i < playerList.getPlayerList().size(); i++) {
+                decisionPlayer.CurrentPlayer(i).
+            }
+        }
+    }
 }

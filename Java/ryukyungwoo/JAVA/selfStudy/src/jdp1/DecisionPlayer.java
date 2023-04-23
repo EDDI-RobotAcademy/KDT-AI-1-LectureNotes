@@ -3,8 +3,8 @@ package jdp1;
 public class DecisionPlayer {
     private Player decisionPlayerNumber;
     PlayerList playerList = new PlayerList();
-    public void CurrentPlayer (int idx) {
-        decisionPlayerNumber = playerList.getPlayerList().get(idx);
+    public Player CurrentPlayer (int idx) {
+        return decisionPlayerNumber = playerList.getPlayerList().get(idx);
     }
 
     public Player TargetPlayer () {
