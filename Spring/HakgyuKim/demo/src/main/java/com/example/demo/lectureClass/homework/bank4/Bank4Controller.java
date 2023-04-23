@@ -3,10 +3,7 @@ package com.example.demo.lectureClass.homework.bank4;
 import com.example.demo.lectureClass.homework.bank4.account.Account;
 import com.example.demo.lectureClass.homework.bank4.character.Character;
 import com.example.demo.lectureClass.homework.bank4.enemy.Enemy;
-import com.example.demo.lectureClass.homework.bank4.form.AccountSpecifyForm;
-import com.example.demo.lectureClass.homework.bank4.form.CharacterStatusForm;
-import com.example.demo.lectureClass.homework.bank4.form.AccountCreationForm;
-import com.example.demo.lectureClass.homework.bank4.form.LoginForm;
+import com.example.demo.lectureClass.homework.bank4.form.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -68,7 +65,8 @@ public class Bank4Controller {
                 currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getStrength(),
                 currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getDexterity(),
                 currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getIntelligence(),
-                currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getSkill()
+                currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getSkill(),
+                characterNum
         );
 
         log.info("info: " + characterStatusForm);
@@ -81,6 +79,20 @@ public class Bank4Controller {
         final int LIST_BIAS = 1;
         Account currentAccount = accountList.get(accountSpecifyForm.getAccountId() -LIST_BIAS);
         currentAccount.addEnemy();
+        return currentAccount.getEnemyList();
+    }
+
+    @PostMapping("/getEnemyList")
+    public List<Enemy> getEnemyList (@RequestBody AccountSpecifyForm accountSpecifyForm) {
+        final int LIST_BIAS = 1;
+        Account currentAccount = accountList.get(accountSpecifyForm.getAccountId() -LIST_BIAS);
+        return currentAccount.getEnemyList();
+    }
+
+    @PostMapping("/singleAtk")
+    public List<Enemy> singleAtk (@RequestBody SingleAtkForm singleAtkForm) {
+        final int LIST_BIAS = 1;
+        Account currentAccount = accountList.get(singleAtkForm.getAccountId() -LIST_BIAS);
         return currentAccount.getEnemyList();
     }
 }

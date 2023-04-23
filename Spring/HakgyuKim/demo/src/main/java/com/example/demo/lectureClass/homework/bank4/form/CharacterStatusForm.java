@@ -14,4 +14,5 @@ public class CharacterStatusForm {
     final private int dexterity;
     final private int intelligence;
     final private int skill;
+    final private int characterIdx;
 }
