@@ -23,12 +23,15 @@ import axios from 'axios';
 export default {
     data () {
         return {
-            enemyList: []
+            enemyList: [],
+            accountId: localStorage.getItem('loginUserInfo')
         }
     },
     methods: {
         bringEnemy () {
-            axios.get('http://localhost:7777/character-problem/bringEnemy')
+            const{accountId} =  this
+            axios.post('http://localhost:7777/character-problem/bringEnemy',
+            {accountId})
             .then((res) => {
                 this.enemyList = res.data
                 console.log(res.data)
