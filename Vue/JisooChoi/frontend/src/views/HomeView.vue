@@ -52,24 +52,16 @@
         <router-link to="/vue-basic-test">Vue 문제은행 2-1</router-link> |
         <router-link to="/vue-prob-test">Vue 문제은행 2-2</router-link>|
 
-        <router-link to="/problem-page2"
-          >Vue 문제은행 2 [Review]</router-link
-        >|
-        <router-link to="/problem-page3-alone"
-          >Vue 문제은행 3</router-link
-        >|
-        <router-link to="/problem-3page"
-          >Vue 문제은행 3 [Review]</router-link
-        >|
-        <router-link to="/vue-problem-4page-alone"
-          >Vue 문제은행 4</router-link
-        >|
+        <router-link to="/problem-page2">Vue 문제은행 2 [Review]</router-link>|
+        <router-link to="/problem-page3-alone">Vue 문제은행 3</router-link>|
+        <router-link to="/problem-3page">Vue 문제은행 3 [Review]</router-link>|
+        <router-link to="/vue-problem-4page-alone">Vue 문제은행 4</router-link>|
         <router-link to="/vue-problem-4page"
           >Vue 문제은행 4 [Review]</router-link
         >|
         <router-link to="/vue-problem-5page"
           >Vue 문제은행 5 [Review]</router-link
-        >|
+        >| <router-link to="/vue-prob6">Vue 문제은행 6</router-link>|
       </nav>
     </div>
   </v-container>
