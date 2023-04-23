@@ -17,8 +17,18 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 
-import HomeWork414View from '@/views/homework414/HomeWork414View.vue'
-import HomeWork418View from '@/views/homework418/HomeWork418View.vue'
+import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
+
+import ProblemPage1 from '@/views/homework/problem1/ProblemPage.vue'
+
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
+
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
+import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
+import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
+import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
+import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 
 Vue.use(VueRouter)
 
@@ -82,14 +92,44 @@ const routes = [
     component: ComponentTestPage
   },
   {
-    path: '/home-work-414-view',
-    name: 'HomeWork414View',
-    component: HomeWork414View
+    path: '/axios-test-page',
+    name: 'DataSendTestPage',
+    component: DataSendTestPage
   },
   {
-    path: '/home-work-418-view',
-    name: 'HomeWork418View',
-    component: HomeWork418View
+    path: '/problem-page1',
+    name: 'ProblemPage1',
+    component: ProblemPage1
+  },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
+    path: '/vue-lifecycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
+  },
+  {
+    path: '/problem-page3',
+    name: 'Problem3Page',
+    component: Problem3Page
+  },
+  {
+    path: '/problem-page4',
+    name: 'Problem4Page',
+    component: Problem4Page
+  },
+  {
+    path: '/problem-page5',
+    name: 'Problem5Page',
+    component: Problem5Page
   }
 
   
