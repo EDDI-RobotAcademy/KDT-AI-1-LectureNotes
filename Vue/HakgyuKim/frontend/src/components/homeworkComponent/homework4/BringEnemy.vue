@@ -12,11 +12,7 @@
                         </v-list-item-content>
                     </v-list-item>
                 </v-list>
-                <legend>
-                <v-btn color="red" block rounded size="large" @click="singleAtk">공격</v-btn>
-            </legend>
             </fieldset>
-            
         </form>
     </div>
 </template>
@@ -33,13 +29,6 @@ export default {
     methods: {
         bringEnemy () {
             axios.get('http://localhost:7777/character-problem/bringEnemy')
-            .then((res) => {
-                this.enemyList = res.data
-                console.log(res.data)
-            })
-        },
-        singleAtk () {
-            axios.get('http://localhost:7777/character-problem/singleAtk')
             .then((res) => {
                 this.enemyList = res.data
                 console.log(res.data)
