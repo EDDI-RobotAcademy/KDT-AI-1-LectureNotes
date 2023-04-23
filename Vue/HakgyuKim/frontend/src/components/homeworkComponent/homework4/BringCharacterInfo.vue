@@ -40,15 +40,14 @@ export default {
             strength: 0,
             dexterity: 0,
             intelligence: 0,
-            skill: 0,
-            accountId: localStorage.getItem('loginUserInfo')
+            skill: 0, 
         }
     },
     methods: {
         bringCharacter () {
-            const{accountId} =  this
+            let accountId = localStorage.getItem('loginUserInfo')
             axios.post('http://localhost:7777/character-problem/createCharacter',
-            {accountId})
+            {accountId : accountId})
             .then((res) => {
                 this.email = res.data.email,
                 this.health = res.data.health,

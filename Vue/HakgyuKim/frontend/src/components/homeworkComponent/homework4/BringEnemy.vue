@@ -24,14 +24,13 @@ export default {
     data () {
         return {
             enemyList: [],
-            accountId: localStorage.getItem('loginUserInfo')
         }
     },
     methods: {
         bringEnemy () {
-            const{accountId} =  this
+            let accountId = localStorage.getItem('loginUserInfo')
             axios.post('http://localhost:7777/character-problem/bringEnemy',
-            {accountId})
+            {accountId : accountId})
             .then((res) => {
                 this.enemyList = res.data
                 console.log(res.data)
