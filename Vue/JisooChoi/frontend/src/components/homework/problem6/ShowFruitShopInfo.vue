@@ -7,7 +7,6 @@
   <div>
     <h2>과일 가게 문제 - backlog</h2>
     <v-btn color="primary" @click="buyFruitBtn">과일 구매</v-btn>
-    <p>{{ isApplePush }}</p>
     <div v-if="isApplePush">
       <table>
         <tr>
@@ -32,8 +31,6 @@
       </table>
       <v-btn color="orange" @click="isBuy">구매하기</v-btn>
       <br />
-
-      <h4>내 장바구니 [ ]</h4>
       <p>
         구매 품목은 {{ buyFruitName }}이며, 수량은
         {{ appleNum + watermelonNum }}개 입니다.
@@ -64,17 +61,16 @@ export default {
       this.isApplePush = !this.isApplePush;
     },
     isBuy() {
-      const { appleNum, appleName, watermelonNum, watermelonName } = this;
+      const { appleNum, watermelonNum, totalFruitCost } = this;
       axios
         .post("http://localhost:7777/fruit-shop/buy", {
           appleNum,
-          appleName,
           watermelonNum,
-          watermelonName,
+          totalFruitCost,
         })
         .then((res) => {
           alert("데이터 전송 완료!");
-          this.totalFruitCost = res.data;
+          this.totalFruitCost = res.data.totalFruitCost;
         });
     },
   },
