@@ -13,5 +13,7 @@ public class FruitCostForm {
 
     final private int appleNum;
     final private int watermelonNum;
+    public String myFruit;
     public int totalFruitCost;
+
 }
