@@ -1,6 +1,8 @@
 package kr.eddi.demo.lectureClass.vue.problem4.controller;
 
+import kr.eddi.demo.lectureClass.vue.problem4.controller.form.GameSignInForm;
 import kr.eddi.demo.lectureClass.vue.problem4.controller.form.GameSignUpForm;
+import kr.eddi.demo.lectureClass.vue.problem4.game.Account;
 import kr.eddi.demo.lectureClass.vue.problem4.game.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -14,35 +16,46 @@ import java.util.List;
 public class VueProblem4Controller {
 
     // 회원가입 하는 사람들의 정보를 넣을 리스트
-    private List<Member> memberList = new ArrayList<>();
+    private static List<Member> memberList = new ArrayList<>();
     // 리스트에 넣어 줄 회원 숫자
-    private Long memberUniqueNum = 0L;
+    private static Long memberUniqueNum = 0L;
 
     @PostMapping("/signUp")
     public Boolean gameSignUp (@RequestBody GameSignUpForm gameSignUpForm){
         log.info("gameSignUp()");
 
-        checkedUserSignUp(gameSignUpForm);
+        // 사용자가 입력한 아이디와 비밀번호의 정보를 가진 member 객체 생성
+        Member member = gameSignUpForm.memberListAddInfo(memberUniqueNum++);
 
-        return true;
-    }
-
-    private Boolean checkedUserSignUp(GameSignUpForm gameSignUpForm) {
-        log.info("checkedUserSignUp()");
-
-        // 입력으로 들어온 아이디와 비밀번호가 존재하는지 안하는지 확인하기
+        // 사용자가 입력한 아이디가 리스트에 존재하는 가?
         for(int i = 0; i < memberList.size(); i++){
-            if(!memberList.get(i).getUniqueId().equals(gameSignUpForm.getUserId())){
-                if(!memberList.get(i).getUniquePw().equals(gameSignUpForm.getUserPw())){
-                    // 아이디와 비밀번호가 존재하지 않는다면 리스트에 추가해주기
-                    memberList.add(gameSignUpForm.memberListAddInfo(memberUniqueNum++));
-                    return true;
-                }
+            if(member.getUniqueId().equals(memberList.get(i).getUniqueId())){
+                log.info("동일한 아이디가 존재합니다.");
+                return true;
             }
         }
-
+        memberList.add(member);
+        log.info("새로운 계정이 생성됩니다.");
         return false;
     }
 
+    @PostMapping("/signIn")
+    public Account gameSignIn(@RequestBody GameSignInForm gameSignInForm){
+        log.info("gameSignIn() ");
+
+        Account account = gameSignInForm.dataAgreementStep(false);
+
+        // 들어오는 아이디 비밀번호 값이 리스트에 존재하는 지 확인
+        for(int i = 0; i < memberList.size(); i++){
+            if(account.getAccountId().equals(memberList.get(i).getUniqueId())){
+                if(account.getAccountPw().equals(memberList.get(i).getUniquePw())){
+                    // 아이디와 패스워드가 리스트에 존재한다면 로그인 완료 !
+                    account.setExistAccount(true);
+                    return account;
+                }
+            }
+        }
+        return account;
+    }
 
 }
