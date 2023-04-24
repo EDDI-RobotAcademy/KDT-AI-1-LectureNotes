@@ -8,11 +8,11 @@ export default {
     inputNum1: Number,
     inputNum2: Number,
   },
-  data() {
-    return {
-      minus: this.inputNum1 - this.inputNum2,
-    };
-  },
+  // data() {
+  //   return {
+  //     minus: this.inputNum1 - this.inputNum2,
+  //   };
+  // },
   // methods: {
   //   minus(inputNumber1, inputNumber2) {
   //     return parseInt(inputNumber1) - parseInt(inputNumber2);
