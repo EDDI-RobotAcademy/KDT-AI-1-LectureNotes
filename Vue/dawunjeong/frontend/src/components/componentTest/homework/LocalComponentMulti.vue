@@ -1,7 +1,7 @@
 <template>
     <div>
-        <input type="number" v-model.number="number"> 
-        <input :value ="multiplier"> 
+        숫자 입력: <input type="number" v-model.number="number" style="text-align: center; width: 60px;"> 
+        곱하는 수: <input :value ="multiplier" style="width: 60px; text-align: center;"> 
         <p>결과: {{ number * multiplier }}</p>
     </div>
 </template>

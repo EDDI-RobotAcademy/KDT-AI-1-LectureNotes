@@ -1,7 +1,8 @@
 <template>
     <div>
-        숫자1: <input type="number" v-model.number="number1"><br>
-        숫자2: <input type="number" v-model.number="number2"><br>
+        첫번째 숫자 입력: <input type="number" v-model.number="number1" style="text-align: center; width: 60px;"><br>
+        두번째 숫자 입력: <input type="number" v-model.number="number2" style="text-align: center; width: 60px;"><br>
+        <p>원하는 연산을 선택하세요.</p>
         <button @click="addNumber">더하기</button><br>
         <button @click="subNumber">빼기</button><br>
         <button @click="multipleNumber">곱하기</button><br>
