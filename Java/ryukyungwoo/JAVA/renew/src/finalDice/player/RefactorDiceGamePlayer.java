@@ -78,6 +78,4 @@ public class RefactorDiceGamePlayer implements Comparable<RefactorDiceGamePlayer
 
         return 0;
     }
-    // compareTo 라는 인터페이스를 자바에서 제공해줘서 인터페이스를 따로 만들지 않고 사용했다
-    // List 안에 따로 extends 된게 있어서 sort도 사용 가능
 }
