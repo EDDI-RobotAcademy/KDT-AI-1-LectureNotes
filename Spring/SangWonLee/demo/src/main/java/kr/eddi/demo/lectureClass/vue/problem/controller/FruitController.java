@@ -28,7 +28,7 @@ public class FruitController {
 
     }
     @GetMapping("/sales")
-    public  appleWatermelonSales(){
+    public void appleWatermelonSales(){
 
 
     }
