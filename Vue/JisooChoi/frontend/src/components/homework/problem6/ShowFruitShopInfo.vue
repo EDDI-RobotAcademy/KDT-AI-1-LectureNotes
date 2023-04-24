@@ -30,6 +30,7 @@
         </tr>
       </table>
       <v-btn class="buyBtn" color="orange" @click="isBuy">구매하기</v-btn>
+      <v-btn class="cleanBtn" color="pink" @click="isClean">초기화</v-btn>
       <br />
       <p>수량은 {{ appleNum + watermelonNum }}개 입니다.</p>
       <p>구매한 과일은 {{ myFruit }} 입니다.</p>
@@ -71,6 +72,12 @@ export default {
           this.myFruit = res.data.myFruit;
         });
     },
+    isClean() {
+      this.totalFruitCost = 0;
+      this.myFruit = null;
+      this.appleNum = 0;
+      this.watermelonNum = 0
+    }
   },
 };
 </script>
