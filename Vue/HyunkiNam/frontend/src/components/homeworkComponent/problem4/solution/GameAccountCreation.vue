@@ -19,6 +19,7 @@
 import axios from 'axios'
 
 export default {
+    name: "game-account-creation",
     data() {
         return {
             email: '',
