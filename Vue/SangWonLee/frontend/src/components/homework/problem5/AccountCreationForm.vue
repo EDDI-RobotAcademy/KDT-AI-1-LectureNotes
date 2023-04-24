@@ -26,7 +26,7 @@ export default {
     methods: {
         readyToCreateCharacter() {
             this.isPressedButton = true
-            alert('캐릭터 생성 준비!')
+            alert('계정 생성 준비!')
         },
         processCreateCharacter() {
             this.isPressedButton = false
