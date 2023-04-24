@@ -74,7 +74,7 @@ export default {
     },
     isClean() {
       this.totalFruitCost = 0;
-      this.myFruit = null;
+      this.myFruit = '';
       this.appleNum = 0;
       this.watermelonNum = 0
     }
