@@ -24,7 +24,9 @@
         <!-- em과 i는 모두 이탤릭체를 표현함 -->
         <p><em>Rust</em>, <i>C</i>, Verilog</p>
         <!-- mark로 형광팬 효과를 낼 수 있음 -->
-        <h2>Python <mark>TensorFlow</mark></h2>
+        <h2>Python
+            <mark>TensorFlow</mark>
+        </h2>
         <!-- span은 줄바꿈이 없습니다 - 특정 스타일을 적용할 때 많이 사용하는 편 -->
         <p>Deep Learning <span style="color: green;">Keras</span></p>
         <!--
@@ -95,7 +97,8 @@
                 <td>없어서</td>
                 <td>안만들었니 ?</td>
             </tr>
-        </table><br>
+        </table>
+        <br>
         <!-- colspan을 통해 합칠 열의 개수를 지정할 수 있음 -->
         <table style="width: 600px">
             <!-- caption을 통해서 table(표)에 제목 비스무리한 느낌을 줄 수 있음 -->
@@ -297,25 +300,26 @@
 
 <script>
 
-export default {
-    
-}
+export default {}
 
 </script>
 
 <style scoped>
-    table, th, td {
-        border: 1px solid #ccc;
-    }
-    th {
-        padding: 15px; /* 셀 테두리와 내용 사이의 간격(패딩) */
-    }
-    td {
-        padding: 7px;
-    }
-    ul li {
-        list-style: none;
-        margin: 15px 0;
-        font-size: 16px;
-    }
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th {
+    padding: 15px; /* 셀 테두리와 내용 사이의 간격(패딩) */
+}
+
+td {
+    padding: 7px;
+}
+
+ul li {
+    list-style: none;
+    margin: 15px 0;
+    font-size: 16px;
+}
 </style>

@@ -5,7 +5,7 @@
             <v-app-bar color="orange" app>
                 <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer"></v-app-bar-nav-icon>
 
-                <v-btn @click="goToHome" dark>
+                <v-btn @click="goToHome" id="homeBtn"  @mouseover="colorDance" color=#ffffff>
                     <v-img class="mx-2" src="@/assets/logo.png"
                            max-height="40" max-width="40" contain></v-img>
                     <v-toolbar-title class="text-uppercase text--darken-4">
@@ -72,6 +72,11 @@ export default {
             ],
             accountId: 0,
             isLogin: false,
+            color: 'orange',
+            btnColor:r+g+b,
+            r: '',
+            g: '',
+            b: ''
         }
     },
     methods: {
@@ -94,6 +99,12 @@ export default {
         },
         drawer() {
             this.navigation_drawer = !this.navigation_drawer;
+        },
+        colorDance() {
+            let area = document.getElementById('homeBtn');
+            area.style.color = '#'+((Math.random() * 256).toFixed()).toString(16)
+                +((Math.random() * 256).toFixed()).toString(16)
+                +((Math.random() * 256).toFixed()).toString(16)
         }
     },
     mounted() {

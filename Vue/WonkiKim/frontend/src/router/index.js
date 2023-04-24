@@ -19,7 +19,7 @@ import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vu
 
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
-import ProblemPage1 from '@/views/homework/problem1/ProblemPage.vue'
+import ProblemPage1 from '@/views/homework/problem1/Problem1Page.vue'
 
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
 
