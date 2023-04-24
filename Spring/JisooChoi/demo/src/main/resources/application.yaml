@@ -4,7 +4,6 @@ server:
 
 spring:
   datasource:
-#    jpa_test 부분은 db이기 때문에 나중에 프로젝트할 때 바꿔주어야 하는 부분
     url: jdbc:mysql://localhost:3306/jpa_test?allowpublickeyretrieval=true&usessl=false&serverTimezone=UTC
     username: eddi
     password: eddi@123
@@ -21,5 +20,3 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: update
-#          hibernate:     이부분들은
-#      ddl-auto: update   쿼리를 자동 생성해주는 부분 (주석해놓은 두 부분만 바꾸게 될 것이다.)
