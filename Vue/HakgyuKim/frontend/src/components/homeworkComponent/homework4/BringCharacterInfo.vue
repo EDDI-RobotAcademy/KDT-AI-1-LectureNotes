@@ -5,7 +5,7 @@
                 <legend><v-btn color="secondary" type="submit">캐릭터 생성</v-btn></legend>
                 <ul style="text-align: left;">
                     <li>
-                        <p>{{ email }}님의 캐릭터 스테이터스:</p>
+                        <p>{{ email }}님의 {{ name }} 스테이터스:</p>
                     </li>
                     <li>
                         <p>체력: {{ health }}</p>
@@ -36,6 +36,7 @@ export default {
     data () {
         return {
             email: '',
+            name: '',
             health: 0,
             strength: 0,
             dexterity: 0,
@@ -50,6 +51,7 @@ export default {
             {accountId : accountId})
             .then((res) => {
                 this.email = res.data.email,
+                this.name = res.data.characterName,
                 this.health = res.data.health,
                 this.strength = res.data.strength,
                 this.dexterity = res.data.dexterity,
