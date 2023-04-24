@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <v-btn color="primary" @click="readyToCreateCharacter">회원가입</v-btn>
+        <v-btn color="primary" @click="readyToCreateCharacter">계정 생성</v-btn>
         <div v-if="isPressedButton">
             <div>
                 <label>
@@ -14,41 +14,37 @@
         </div>
     </div>
 </template>
-<script>
-import axios from 'axios';
 
+<script>
+import axios from 'axios'
 export default {
-    data(){
-        return{
-        isPressedButton: false,
-        email: "",
-        password: "",
+    data () {
+        return {
+            email: '',
+            password: '',
+            isPressedButton: false,
         }
     },
     methods: {
-        readyToCreateCharacter(){
+        readyToCreateCharacter () {
             this.isPressedButton = true
         },
-        processCreateCharacter(){
-            this.isPressedButton = false;
-            const{email,password}=this
-            axios.post('http://localhost:7777/bmp-account/create',
-            {email,password})
-            .then((res)=>{
-                if(res.data){
-                    alert('회원가입 완료')
-                }else{
-                    alert('동일한 계정이 존재합니다')
-                }
-            
-            }
-                
-            )
+        processCreateCharacter () {
+            this.isPressedButton = false
+            const { email, password } = this
+            axios.post('http://localhost:7777/bmp-account/create', { email, password })
+                .then((res) => {
+                    if (res.data) {
+                        alert('계정 생성 완료!')
+                    } else {
+                        alert('동일한 계정이 이미 존재합니다')
+                    }
+                })
         }
-
     }
 }
 </script>
+
 <style lang="">
     
 </style>
