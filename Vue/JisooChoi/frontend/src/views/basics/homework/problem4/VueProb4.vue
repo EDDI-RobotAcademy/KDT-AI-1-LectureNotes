@@ -11,15 +11,15 @@
             UI 파트에서 Play 버튼을 누르면
             캐릭터 status를 가져와서 화면 뿌려준다.
         -->
-        <character-create-prob4 />
+        <sign-up-prob4 />
     </div>
 </template>
 
 <script>
-import CharacterCreateProb4 from '@/components/homework/problem4/CharacterCreateProb4.vue';
+import SignUpProb4 from '@/components/homework/problem4/SignUpProb4.vue';
 export default {
     components: {
-        CharacterCreateProb4,
+        SignUpProb4,
     },
     data() {
         return {

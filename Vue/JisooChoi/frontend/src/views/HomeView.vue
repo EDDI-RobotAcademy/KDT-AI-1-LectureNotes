@@ -55,7 +55,7 @@
         <router-link to="/problem-page2">Vue 문제은행 2 [Review]</router-link>|
         <router-link to="/problem-page3-alone">Vue 문제은행 3</router-link>|
         <router-link to="/problem-3page">Vue 문제은행 3 [Review]</router-link>|
-        <router-link to="/vue-problem-4page-alone">Vue 문제은행 4</router-link>|
+        <router-link to="/vue-problem-4page-alone">Vue 문제은행 Re4</router-link>|
         <router-link to="/vue-problem-4page"
           >Vue 문제은행 4 [Review]</router-link
         >|
