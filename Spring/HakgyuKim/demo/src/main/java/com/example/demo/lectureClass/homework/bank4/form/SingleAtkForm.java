@@ -10,5 +10,5 @@ import lombok.ToString;
 public class SingleAtkForm {
     final private int accountId;
     final private int targetEnemyIdx;
-    final private int characterIdx;
+    final private int characterId;
 }

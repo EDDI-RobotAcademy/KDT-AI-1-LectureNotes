@@ -2,10 +2,12 @@ package com.example.demo.lectureClass.homework.bank4.character;
 
 import com.example.demo.lectureClass.utility.CustomRandom;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString
 @Getter
+@Setter
 public class Character {
     final private int characterId;
     final private String characterName;
@@ -20,7 +22,7 @@ public class Character {
     final private int STATUS_MIN = 2;
     final private int STATUS_MAX = 10;
 
-    private int singleAtkDmg = (int) (5 + strength * 1.3);
+    private int singleAtkDmg;
 
     public Character(int characterId, String characterName) {
         this.characterId = characterId;
@@ -30,6 +32,8 @@ public class Character {
         this.dexterity = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
         this.intelligence = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
         this.skill = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
+
+        this.singleAtkDmg = (int) (5 + (strength * 1.3));
     }
 
 }

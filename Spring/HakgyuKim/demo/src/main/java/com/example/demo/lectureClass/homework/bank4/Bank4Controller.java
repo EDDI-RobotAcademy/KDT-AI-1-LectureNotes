@@ -57,10 +57,11 @@ public class Bank4Controller {
                 accountSpecifyForm.getAccountId() - LIST_BIAS);
 
         int characterNum = currentAccount.getCharacterList().size() + 1;
-        currentAccount.getCharacterList().add(new Character(characterNum));
+        currentAccount.getCharacterList().add(new Character(characterNum, "캐릭터" + characterNum));
 
         CharacterStatusForm characterStatusForm = new CharacterStatusForm(
                 currentAccount.getEmail(),
+                currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getCharacterName(),
                 currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getHealth(),
                 currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getStrength(),
                 currentAccount.getCharacterList().get(characterNum - LIST_BIAS).getDexterity(),
@@ -76,16 +77,20 @@ public class Bank4Controller {
 
     @PostMapping("/bringEnemy")
     public List<Enemy> bringEnemyList (@RequestBody AccountSpecifyForm accountSpecifyForm) {
-        final int LIST_BIAS = 1;
-        Account currentAccount = accountList.get(accountSpecifyForm.getAccountId() -LIST_BIAS);
+        Account currentAccount = getAccount(accountSpecifyForm);
         currentAccount.addEnemy();
         return currentAccount.getEnemyList();
     }
 
+    @PostMapping("/bringCharacterList")
+    public List<Character> bringCharacterList (@RequestBody AccountSpecifyForm accountSpecifyForm) {
+        Account currentAccount = getAccount(accountSpecifyForm);
+        return currentAccount.getCharacterList();
+    }
+
     @PostMapping("/getEnemyList")
     public List<Enemy> getEnemyList (@RequestBody AccountSpecifyForm accountSpecifyForm) {
-        final int LIST_BIAS = 1;
-        Account currentAccount = accountList.get(accountSpecifyForm.getAccountId() -LIST_BIAS);
+        Account currentAccount = getAccount(accountSpecifyForm);
         return currentAccount.getEnemyList();
     }
 
@@ -93,6 +98,27 @@ public class Bank4Controller {
     public List<Enemy> singleAtk (@RequestBody SingleAtkForm singleAtkForm) {
         final int LIST_BIAS = 1;
         Account currentAccount = accountList.get(singleAtkForm.getAccountId() -LIST_BIAS);
+        Character currentCharacter = currentAccount.getCharacterList().get(singleAtkForm.getCharacterId() - LIST_BIAS);
+        Enemy targetEnemy = currentAccount.getEnemyList().get(singleAtkForm.getTargetEnemyIdx());
+
+        targetEnemy.setHealth(targetEnemy.getHealth() - currentCharacter.getSingleAtkDmg());
+        log.info("singleAtkForm: " + singleAtkForm);
+        log.info("dmg: " + currentCharacter.getSingleAtkDmg());
         return currentAccount.getEnemyList();
     }
+
+    @PostMapping("/characterSelect")
+    public Character characterSelect (@RequestBody CharacterSelectForm characterSelectForm) {
+        final int LIST_BIAS = 1;
+        Account currentAccount = accountList.get(characterSelectForm.getAccountId() - LIST_BIAS);
+        return currentAccount.getCharacterList().get(characterSelectForm.getSelectedCharacterIdx());
+    }
+
+
+    private Account getAccount(AccountSpecifyForm accountSpecifyForm) {
+        final int LIST_BIAS = 1;
+        Account currentAccount = accountList.get(accountSpecifyForm.getAccountId() -LIST_BIAS);
+        return currentAccount;
+    }
+
 }
