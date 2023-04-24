@@ -8,7 +8,7 @@ import vuetify from "./plugins/vuetify";
 import GlobalComponent from "@/components/componentTest/GlobalComponent.vue";
 
 // 숙제 -  1. 덧셈 전역 컴포넌트
-import HomeworkGlobalComponent from "@/components/homework/HomeworkGlobalComponent.vue";
+import HomeworkGlobalComponent from "@/components/homework/problem1/HomeworkGlobalComponent.vue";
 
 Vue.config.productionTip = false;
 
