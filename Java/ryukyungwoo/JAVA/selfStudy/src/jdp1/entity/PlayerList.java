@@ -1,4 +1,4 @@
-package jdp1;
+package jdp1.entity;
 
 import java.util.ArrayList;
 import java.util.List;

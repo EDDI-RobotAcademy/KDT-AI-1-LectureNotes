@@ -1,4 +1,4 @@
-package jdp1;
+package jdp1.entity;
 
 import utility.random.CustomRandom;
 
