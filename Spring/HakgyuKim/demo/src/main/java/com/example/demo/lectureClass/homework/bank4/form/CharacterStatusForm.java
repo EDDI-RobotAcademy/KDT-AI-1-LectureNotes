@@ -9,6 +9,7 @@ import lombok.ToString;
 @ToString
 public class CharacterStatusForm {
     final private String email;
+    final private String characterName;
     final private int health;
     final private int strength;
     final private int dexterity;

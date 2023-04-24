@@ -8,6 +8,7 @@ import lombok.ToString;
 @Getter
 public class Character {
     final private int characterId;
+    final private String characterName;
     private int health;
     private int strength;
     private int dexterity;
@@ -21,8 +22,9 @@ public class Character {
 
     private int singleAtkDmg = (int) (5 + strength * 1.3);
 
-    public Character(int characterId) {
+    public Character(int characterId, String characterName) {
         this.characterId = characterId;
+        this.characterName = characterName;
         this.health = CustomRandom.generateNumber(HEALTH_MIN, HEALTH_MAX);
         this.strength = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
         this.dexterity = CustomRandom.generateNumber(STATUS_MIN, STATUS_MAX);
