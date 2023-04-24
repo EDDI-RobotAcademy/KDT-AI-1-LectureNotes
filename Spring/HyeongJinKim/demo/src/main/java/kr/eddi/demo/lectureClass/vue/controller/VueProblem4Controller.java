@@ -18,6 +18,7 @@ import java.util.*;
 public class VueProblem4Controller {
     private static int accountNumber = 1;
     private static int characterId = 1;
+    private static int logInAccountId;
     private static List<Account> accountList = new ArrayList<>();
     private static List<Character> characterStatusList = new ArrayList<>();
     HashMap<String, String> emailPwMap = new HashMap<>();
@@ -30,6 +31,8 @@ public class VueProblem4Controller {
 
         // 계정마다 다른 accountId가 부여되는지 확인
         log.info("accountID: " + emailIdMap.get(accountLogInForm.getUserEmail()));
+
+        logInAccountId = emailIdMap.get(accountLogInForm.getUserEmail());
 
         // 리스트는 트리 기반의 검색을 합니다.
         // 반면 해쉬는 키를 던지면 값을 즉각 반환합니다.
@@ -46,7 +49,7 @@ public class VueProblem4Controller {
     }
 
     @PostMapping("/sign-up")
-    public boolean createAccount (@RequestBody AccountCreationForm accountCreationForm) {
+    public Boolean createAccount (@RequestBody AccountCreationForm accountCreationForm) {
         log.info("received data: " + accountCreationForm);
 
         if (emailPwMap.containsKey(accountCreationForm.getNewEmail())) {
@@ -71,40 +74,26 @@ public class VueProblem4Controller {
     @PostMapping("/create-character")
     public Boolean createCharacter (@RequestBody CharacterCreationForm characterCreationForm) {
         log.info("createAccount(): " + characterCreationForm);
-
         final Character character =
                 characterCreationForm.toCharacter(
                         characterCreationForm.getSelectedGender(),
                         characterId,
-                        characterCreationForm.getAccountId()
+                        logInAccountId
                 );
-//        CharacterCreationForm characterCreationForm = new characterCreationForm(
-//                character.getSelectedGender(),
-//                character.getCharacterId()
-//        );
-
-        // 계정의 Id값을 key로, 캐릭터의 Id값을 value로
-        // 증가된 accountNumber값을 받는다.
-        // -> 계정의 accountNumber을 받아서 Map에 추가하게 변경 필요
-//        int accountId = emailIdMap.get(accountList.get(
-//                characterCreationForm.getAccountId()).getAccountId()
-//        );
-        multiIdMap.add(characterCreationForm.getAccountId(), characterId);
-
-        characterId++;
-
         characterStatusList.add(character);
+        multiIdMap.add(logInAccountId, characterId);
+        characterId++;
         log.info("characterStatusList: " + characterStatusList);
-
         return true;
     }
 
     @PostMapping("/get-character-id")
-    public List<Integer> getCharacterId (@RequestBody RequestCharacterId requestCharacterId) {
-        log.info("requestCharacterId: " + requestCharacterId.getMyAccountId());
+    public List<Integer> getCharacterId (@RequestBody CharacterCreationForm characterCreationForm) {
+        log.info("requestCharacterId: " + characterCreationForm.getMyAccountId());
         log.info("multiIdMap: " + multiIdMap);
-        log.info("value: " + multiIdMap.get(requestCharacterId.getMyAccountId() - 1));
-        return multiIdMap.get(requestCharacterId.getMyAccountId() - 1);
+        log.info("logInAccountId: " + logInAccountId);
+        log.info("value: " + multiIdMap.get(logInAccountId));
+        return multiIdMap.get(logInAccountId);
     }
 
     @GetMapping("/get-character-info")

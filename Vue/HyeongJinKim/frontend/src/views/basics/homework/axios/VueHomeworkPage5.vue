@@ -27,7 +27,7 @@
           <fieldset>
             <input type="text" v-model="userEmail" placeholder="이메일" /><br />
             <input type="password" v-model="userPw" placeholder="비밀번호" /><br /><br />
-            <v-btn color="primary" @click="signIn">로그인</v-btn>
+            <v-btn color="primary" @click="signIn() & getCharList()">로그인</v-btn>
           </fieldset>
         </div>
         <div v-if="signUpState">
@@ -48,15 +48,26 @@
 
       <div v-else>
         <p>로그인 중인 계정: {{ myEmail }}</p>
-        <br />
         <p>Account ID: {{ myAccountId }}</p>
-        <br />
-        <div v-if="myCharId.length == 0">
-          <p>등록된 캐릭터가 없습니다.</p>
+        <div v-if="myCharId.length > 0">
+          <form action="/">
+            <table v-for="(character, index) in this.myCharId" :key="index">
+              <li>
+                <label>
+                  <input type="radio" name="character" />
+                  {{ index + 1 }} 번 캐릭터 - Character ID: {{ character }}
+                </label>
+                <!-- 
+                  radio는 label로 묶은 범위가 클릭 선택 범위
+                 -->
+              </li>
+            </table>
+          </form>
         </div>
         <div v-else>
-          <p>Character ID: {{ myCharId }}</p>
+          <p>등록된 캐릭터가 없습니다.</p>
         </div>
+
         <div>
           <v-btn color="primary" @click="charDetails">캐릭터 생성</v-btn>
           <v-btn color="primary" @click="getCharList">캐릭터 선택</v-btn>
@@ -76,7 +87,9 @@
               </label>
             </li>
           </form>
-          <v-btn color="primary" @click="createChar">완료</v-btn>
+          <!-- Aysnchronous(비동기) 문제가 발생하였음 -->
+          <!-- <v-btn color="primary" @click="createChar(), getCharList()">완료</v-btn> -->
+          <v-btn color="primary" @click="createCharAndGetCharList()">완료</v-btn>
         </div>
       </div>
 
@@ -117,6 +130,7 @@ export default {
       dexterity: 0,
       characterId: 0,
       myAccountId: 0,
+      selectedChar: 0,
 
       myCharId: [],
     };
@@ -132,12 +146,15 @@ export default {
       this.signInState = false;
     },
 
-    chooseSignOut() {},
-
     charDetails() {
       this.createCharState
         ? (this.createCharState = false)
         : (this.createCharState = true);
+    },
+
+    radioChange(event) {
+      var selectedChar = event.target.value;
+      console.log("selectedChar : ", index);
     },
 
     signIn() {
@@ -152,11 +169,13 @@ export default {
             localStorage.setItem("signInUserInfo", res.data.userIdInfo);
           } else if (!res.data.isCurrentInfo) {
             alert("이메일 또는 비밀번호를 확인해주세요.");
+            //이메일 = true, 비밀번호 = false
           }
+        })
+        .catch((res) => {
+          alert("이메일 또는 비밀번호를 확인해주세요.");
+          //이메일 = false
         });
-      // ,mounted() {
-      //   this.myAccountId = localStorage.getItem("")
-      // };
     },
 
     signUp() {
@@ -175,6 +194,13 @@ export default {
         .catch((res) => {
           alert("이메일/비밀번호를 확인해주세요!");
         });
+    },
+
+    // 비동기 처리할 때는 async를 붙이고
+    // 실행 순서를 보장하고 싶은 녀석들에게 await를 붙입니다.
+    async createCharAndGetCharList() {
+      await this.createChar();
+      await this.getCharList();
     },
 
     createChar() {
@@ -197,6 +223,10 @@ export default {
         });
     },
 
+    // ToDo
+    // 캐릭터 정보 받아올 시점 생각하기. (radio버튼 클릭했을 때가 좋은 것 같음)
+    // 선택된 캐릭터 정보 띄우기
+    // 플레이 버튼 누르면 alert 띄우기
     startGame() {
       axios
         .get("http://localhost:7777/new-character/get-character-info")
@@ -212,6 +242,10 @@ export default {
           alert("캐릭터가 없습니다! 먼저 캐릭터를 생성해주세요!");
         });
     },
+  },
+  mounted() {
+    this.accountId = localStorage.getItem("loginUserInfo");
+    console.log("현재 accountId: " + this.accountId);
   },
 };
 </script>

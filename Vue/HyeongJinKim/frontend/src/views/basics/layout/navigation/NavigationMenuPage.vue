@@ -27,15 +27,15 @@
         <span>테스트</span>
         <v-icon right>mdi-hand-back-left-outline</v-icon>
       </v-btn>
-      <v-btn text @click="signUp">
+      <v-btn v-if="!isLogin" @click="signUp">
         <span>회원가입</span>
         <v-icon right>mdi-account-plus-outline</v-icon>
       </v-btn>
-      <v-btn text @click="signIn">
+      <v-btn v-if="!isLogin" @click="signIn">
         <span>로그인</span>
         <v-icon right>mdi-login</v-icon>
       </v-btn>
-      <v-btn text @click="signOut">
+      <v-btn v-if="isLogin" @click="signOut">
         <span>로그아웃</span>
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
@@ -81,6 +81,8 @@ export default {
     return {
       navigation_drawer: false,
       links: [{ icon: "mdi-home", text: "Home", route: "/" }],
+      accountId: 0,
+      isLogin: false,
     };
   },
   methods: {
@@ -94,18 +96,18 @@ export default {
       router.push("/vue-homework-page5");
     },
     signOut() {
-      localStorage.removeItem("signInUserInfo");
-      // this.createCharState = false;
+      localStorage.removeItem("loginUserInfo");
+      this.isLogin = false;
     },
     goToHome() {
       // 자기 참조 형태에서 push()는 오류가 발생하므로 go()로 변경함
-      router.go("/");
+      router.push("/");
     },
   },
   mounted() {
-    this.myAccountId = localStorage.getItem("signInUserInfo");
-    if (this.myAccountId > 0) {
-      // this.createCharState = true;
+    this.accountId = localStorage.getItem("loginUserInfo");
+    if (this.accountId > 0) {
+      this.isLogin = true;
     }
   },
 };
