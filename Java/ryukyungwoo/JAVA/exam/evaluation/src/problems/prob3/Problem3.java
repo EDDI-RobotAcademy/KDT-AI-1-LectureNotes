@@ -1,37 +1,31 @@
 package problems.prob3;
 
-import customLibrary.customRandom.CustomRandom;
+import customLibrary.utility.random.CustomRandom;
 
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
 
-class Alphabet {
-    List<Character> alphabetList = new ArrayList<>();
-    private char randomizeAlphabet;
-//    private String aToJ;
-    public Alphabet () {
-        for (char i = 'a'; i <= 'j'; i++) {
-           alphabetList.add(i);
-            }
-    }
-    public char randomAlphabet () {
-        return randomizeAlphabet = alphabetList.get(CustomRandom.generateNumber('a', 'j'));
-    }
+public class Problem3 {
 
-    @Override
-    public String toString() {
-        return "Alphabet{" +
-                "alphabetList=" + alphabetList +
-                '}';
-    }
-}
+    private static void printRandomCharacterList(List<Character> characterList) {
+        final int LIST_BIAS = 1;
 
-    public class Problem3 {
+        final int LOOP_NUMBER = 5;
+        for (int i = 0; i < LOOP_NUMBER; i++) {
+            final int randomIndex =
+                    CustomRandom.generateNumber(
+                            characterList.size() - LIST_BIAS);
+
+            System.out.println(characterList.get(randomIndex));
+        }
+    }
     public static void main(String[] args) {
-        Alphabet alphabet = new Alphabet();
-        System.out.println(alphabet);
-        System.out.println(alphabet.randomAlphabet());
+        char storeCharacter = 'A';
+        final List<Character> characterList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            characterList.add((char) (storeCharacter + i));
+        }
 
+        printRandomCharacterList(characterList);
     }
 }

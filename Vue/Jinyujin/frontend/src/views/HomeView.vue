@@ -23,6 +23,17 @@
         <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
         <router-link to="/homework-test-page">homework 테스트</router-link> |
         <router-link to="/problem-page1">1번 연습 문제</router-link> |
+        <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
+        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
+        <router-link to="/homework2">Vue 문제 은행 [2]</router-link> |
+        <router-link to="/vue-basic-problem1">Vue 기본 문제 [1]</router-link> |
+        <router-link to="/hi-send-test">안녕 보내기 테스트</router-link> |
+        <router-link to="/hi-response-test">안녕 받기 테스트</router-link> |
+        <router-link to="/problem-page2">2번 연습 문제</router-link> |
+        <router-link to="/fruit-price-sum">과일 가격 총합 구하기</router-link> |
+        <router-link to="/problem-page3">3번 연습 문제</router-link> |
+        <router-link to="/dice-game3">주사위 게임3 연습</router-link> |
+        <router-link to="/make-character">게임 캐릭터 만들기</router-link> |
       </nav>
     </div>
   </v-container>
