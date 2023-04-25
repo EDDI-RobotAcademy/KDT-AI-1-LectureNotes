@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -12,6 +15,8 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
+@ToString
+@NoArgsConstructor
 public class JpaBoard {
 
     @Id
@@ -28,9 +33,9 @@ public class JpaBoard {
         this.content = content;
     }
 
-    @CreatedDate
+    @CreationTimestamp
     private LocalDateTime createDate;
 
-    @CreatedDate
+    @UpdateTimestamp
     private LocalDateTime updateDate;
 }

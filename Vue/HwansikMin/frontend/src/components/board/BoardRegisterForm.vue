@@ -17,7 +17,7 @@
                 <tr>
                     <td>본문</td>
                     <td>
-                        <textarea cols="80", rows="30" v-model="content"/>
+                        <textarea cols="80" rows="30" v-model="content"/>
                     </td>
                 </tr>
             </table>
@@ -34,6 +34,7 @@
 
 <script>
 export default {
+    name: "BoardRegisterForm",
     data () {
         return {
             title: '제목을 입력하세요',

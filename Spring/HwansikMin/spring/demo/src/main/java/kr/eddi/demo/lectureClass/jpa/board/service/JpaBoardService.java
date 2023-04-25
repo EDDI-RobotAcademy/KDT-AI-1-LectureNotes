@@ -4,6 +4,8 @@ import kr.eddi.demo.lectureClass.jpa.board.entity.JpaBoard;
 
 import java.util.List;
 
-public class JpaBoardService {
+public interface JpaBoardService {
     List<JpaBoard> list();
+
+    JpaBoard register(JpaBoard jpaBoard);
 }
