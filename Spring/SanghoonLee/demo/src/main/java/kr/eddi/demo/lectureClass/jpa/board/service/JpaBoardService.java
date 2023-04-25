@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface JpaBoardService {
     List<JpaBoard> list();
+
+    JpaBoard register(JpaBoard jpaBoard);
 }
