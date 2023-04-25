@@ -28,7 +28,8 @@
       <router-link to="/homework-basic1">기본문제1</router-link> |
       <router-link to="/homework2-answer">숙제 2 정답</router-link> |
       <router-link to="/homework3">문제 은행3</router-link> |
-      <router-link to="/homework4">문제 은행4</router-link>
+      <router-link to="/homework4">문제 은행4</router-link> |
+      <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
       </nav>
     </div>
   </v-container>

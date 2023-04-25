@@ -26,6 +26,8 @@ import Homework2Answer from '@/views/homework/answer/Homework2Answer.vue'
 import Homework3 from '@/views/homework/Homework3.vue'
 import Homework4 from '@/views/homework/problem4/Homework4.vue'
 
+import BoardListPage from '@/views/board/BoardListPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -131,6 +133,11 @@ const routes = [
     path: '/homework4',
     name: 'Homework4',
     component: Homework4
+  },
+  {
+    path: '/board-list-page',
+    name: 'BoardListPage',
+    component: BoardListPage
   }
 ]
 
