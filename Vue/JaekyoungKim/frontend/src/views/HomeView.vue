@@ -33,7 +33,8 @@
             <router-link to="/character">캐릭터 생성</router-link>|
             <router-link to="/charactertest">선생님 캐릭터</router-link> |
             <router-link to="/problem-page5">5번 연습 문제</router-link> |
-            <router-link to="/my-backlog-page">물고기 문제</router-link>
+            <router-link to="/my-backlog-page">물고기 문제</router-link> |
+            <router-link to="board-list-page">JPA 기반 게시판</router-link>
             
         </nav></div>
       </v-container>

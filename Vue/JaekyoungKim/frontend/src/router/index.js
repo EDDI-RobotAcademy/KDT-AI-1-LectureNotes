@@ -23,6 +23,8 @@ import CharacterGame from '@/views/homework/Myproblem4/Problempage4.vue'
 import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
 import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 import MyBacklogPage from '@/views/homework/myfolder/MyBacklogPage.vue'
+import BoardListPage from '@/views/board/BoardListPage.vue'
+import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 
 
 Vue.use(VueRouter)
@@ -149,7 +151,17 @@ component: CharacterGame
     path: '/my-backlog-page',
     name: 'MyBacklogPage',
     component: MyBacklogPage
+  },{
+    path: '/board-list-page',
+    name: 'BoardListPage',
+    component:BoardListPage
   },
+  {
+    path: '/board-register-page',
+    name: 'BoardRegisterPage',
+    component:BoardRegisterPage
+  },
+
 
 
 
