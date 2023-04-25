@@ -28,6 +28,8 @@ import Problem3OfBank from "@/views/homework/problem3OfBank/Problem3OfBankPage.v
 import BoardListPage from "@/views/board/BoardListPage.vue";
 import BoardRegisterPage from "@/views/board/BoardRegisterPage.vue";
 import BoardReadPage from "@/views/board/BoardReadPage.vue";
+import DemoComponentPage from "@/views/basics/DemoComponent.vue";
+
 
 Vue.use(VueRouter);
 
@@ -177,6 +179,12 @@ const routes = [
     props: {
       default: true,
     },
+
+  },
+  {
+    path: "/demo-component",
+    name: "demoComponentPage",
+    component: DemoComponentPage,
   },
 ];
 
