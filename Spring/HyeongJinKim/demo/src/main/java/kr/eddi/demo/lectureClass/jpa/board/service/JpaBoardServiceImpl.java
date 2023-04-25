@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -20,4 +21,27 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     public List<JpaBoard> list() {
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardId"));
     }
+
+    @Override
+    public JpaBoard register(JpaBoard jpaBoard) {
+        return boardRepository.save(jpaBoard);
+    }
+
+    @Override
+    public JpaBoard read(Long boardId) {
+        Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
+
+        if (maybeJpaBoard.isEmpty()) {
+            log.info("정보가 없습니다!");
+            return null;
+        }
+
+        return maybeJpaBoard.get();
+    }
+
+    @Override
+    public void delete(Long boardId) {
+        boardRepository.deleteById(boardId);
+    }
+
 }

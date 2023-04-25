@@ -223,6 +223,11 @@ export default {
         });
     },
 
+    getCharStatus() {
+      const {} = this;
+      axios.post("http://localhost:7777/", {}).then((res) => {});
+    },
+
     // ToDo
     // 캐릭터 정보 받아올 시점 생각하기. (radio버튼 클릭했을 때가 좋은 것 같음)
     // 선택된 캐릭터 정보 띄우기

@@ -30,6 +30,10 @@ import VueHomeworkPage4 from "@/views/basics/homework/axios/VueHomeworkPage4.vue
 import VueHomeworkPage5 from "@/views/basics/homework/axios/VueHomeworkPage5.vue";
 import VueBasicProbs from "@/views/basics/homework/VueBasicProbs.vue";
 
+import BoardListPage from "@/views/board/BoardListPage.vue";
+import BoardRegisterPage from "@/views/board/BoardRegisterPage.vue";
+import BoardReadPage from "@/views/board/BoardReadPage.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -146,6 +150,26 @@ const routes = [
     path: "/vue-basic-probs",
     name: "VueBasicProbs",
     component: VueBasicProbs,
+  },
+  {
+    path: "/board-list-page",
+    name: "BoardListPage",
+    component: BoardListPage,
+  },
+  {
+    path: "/board-register-page",
+    name: "BoardRegisterPage",
+    component: BoardRegisterPage,
+  },
+  {
+    path: "/board-read-page/:boardId",
+    name: "BoardReadPage",
+    components: {
+      default: BoardReadPage,
+    },
+    props: {
+      default: true,
+    },
   },
 ];
 

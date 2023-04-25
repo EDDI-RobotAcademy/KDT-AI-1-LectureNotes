@@ -28,6 +28,8 @@
         <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
         <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프사이클</router-link>
         |
+        <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link>
+        |
       </nav>
     </div>
     <br /><br />
