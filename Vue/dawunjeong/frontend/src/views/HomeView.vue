@@ -32,6 +32,7 @@
         <router-link to="/problem-page3">3번 연습 문제</router-link> |
         <router-link to="/game-character-page">게임 캐릭터 만들기</router-link> |
         <router-link to="/buy-fruits-page">주말 과제</router-link> |
+        <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
       </nav>
     </div>
   </v-container>

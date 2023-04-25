@@ -34,6 +34,8 @@ import ProblemPage1 from '@/views/homeworkSolve/problem1/ProblemPage.vue'
 import Problem2Page from '@/views/homeworkSolve/problem2/Problem2Page.vue'
 import Problem3Page from '@/views/homeworkSolve/problem3/Problem3Page.vue'
 
+import BoardListPage from '@/views/board/BoardListPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -154,6 +156,11 @@ const routes = [
     path: '/buy-fruits-page',
     name: 'BuyFruitsPage',
     component: BuyFruitsPage
+  },
+  {
+    path: '/board-list-page',
+    name: 'BoardListPage',
+    component: BoardListPage
   },
 ]
 
