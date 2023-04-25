@@ -4,6 +4,7 @@ import kr.eddi.demo.lectureClass.jpa.board.entity.JpaBoard;
 import kr.eddi.demo.lectureClass.jpa.board.repository.JpaBoardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,6 @@ public class JpaBoardServiceImpl implements JpaBoardService {
 
     @Override
     public List<JpaBoard> list() {
-        return null;
+        return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardId"));
     }
 }
