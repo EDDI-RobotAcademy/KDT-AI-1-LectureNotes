@@ -29,6 +29,7 @@ import ProductImagePage from '@/views/homework/ProductImagePage.vue'
 import ProductOrderPage from '@/views/homework/ProductOrderPage.vue'
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
+import BoardListPage from '@/views/board/BoardListPage.vue'
 
 Vue.use(VueRouter)
 
@@ -140,6 +141,11 @@ const routes = [
     path: '/product-order-page',
     name: 'ProductOrderPage',
     component: ProductOrderPage
+  },
+  {
+    path: '/board-list-page',
+    name: 'BoardListPage',
+    component: BoardListPage
   },
 
 
