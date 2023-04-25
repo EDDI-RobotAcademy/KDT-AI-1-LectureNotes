@@ -34,7 +34,9 @@ export default {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
         ),
-        onDelete () {
+        async onDelete () {
+            await this.requestDeleteBoardToSpring(this.boardId)
+            await this.$router.push({ name: 'BoardListPage' })
         }
     },
     created () {
