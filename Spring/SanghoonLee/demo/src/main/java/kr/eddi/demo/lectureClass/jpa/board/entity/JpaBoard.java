@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -28,8 +29,8 @@ public class JpaBoard {
     }
 
     @CreatedDate
-    private Date createDate;
+    private LocalDateTime createDate;
 
     @UpdateTimestamp
-    private Date updateDate;
+    private LocalDateTime updateDate;
 }
