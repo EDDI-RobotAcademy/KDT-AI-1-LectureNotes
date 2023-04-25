@@ -34,3 +34,18 @@ public class JpaBoardController {
         return boardService.register(requestBoardForm.toJpaBoard());
     }
 }
+
+    @GetMapping("/{boardId}")
+    public JpaBoard readBoard (@PathVariable("boardId") Long boardId) {
+        log.info("boardRead()");
+
+        return boardService.read(boardId);
+    }
+
+    @DeleteMapping("/{boardId}")
+    public void deleteBoard (@PathVariable("boardId") Long boardId) {
+        log.info("boardRead()");
+
+        boardService.delete(boardId);
+    }
+}
