@@ -25,6 +25,10 @@ import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
 import Prob4Page from '@/views/homework/problem4/prob4/Prob4Page.vue'
 import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 
+import BoardListPage from '@/views/board/BoardListPage.vue'
+import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
+import BoardReadPage from '@/views/board/BoardReadPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -133,11 +137,32 @@ const routes = [
     name: 'Problem5Page',
     component: Problem5Page
   },
+  {
+    path: '/board-list-page',
+    name: 'BoardListPage',
+    component: BoardListPage
+  },
+  {
+    path: '/board-register-page',
+    name: 'BoardRegisterPage',
+    component: BoardRegisterPage
+  },
+  {
+    path: '/board-read-page/:boardId',
+    name: 'BoardReadPage',
+    components: {
+      default: BoardReadPage
+    },
+    props: {
+      default: true
+    },
+  }
 ]
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
 })
+
 
 export default router
