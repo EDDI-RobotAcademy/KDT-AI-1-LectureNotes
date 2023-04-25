@@ -30,5 +30,14 @@ export default {
             .catch(() => {
                 alert('문제 발생!')
             })
+    },
+    requestDeleteBoardToSpring ({}, boardId) {
+        return axiosInst.delete(`/jpa-board/${boardId}`)
+            .then((res) => {
+                alert('삭제 성공!')
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
     }
 }
