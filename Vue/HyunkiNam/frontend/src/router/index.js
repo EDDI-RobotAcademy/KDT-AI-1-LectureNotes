@@ -30,6 +30,7 @@ import ProductOrderPage from '@/views/homework/ProductOrderPage.vue'
 import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
 
 import BoardListPage from '@/views/board/BoardListPage.vue'
+import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 
 Vue.use(VueRouter)
 
@@ -147,8 +148,11 @@ const routes = [
     name: 'BoardListPage',
     component: BoardListPage
   },
-
-
+  {
+    path: '/board-register-page',
+    name: 'BoardRegisterPage',
+    component: BoardRegisterPage
+  },
 ]
 
 const router = new VueRouter({

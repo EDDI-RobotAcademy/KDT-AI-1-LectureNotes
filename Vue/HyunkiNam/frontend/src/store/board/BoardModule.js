@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import state from '@/store/board/states'
-import actions from '@/store/board/actions'
-import mutations from '@/store/board/mutations'
+import mutations from "@/store/board/mutations"
+import actions from "@/store/board/actions"
+import state from "@/store/board/states"
+
 Vue.use(Vuex)
 
 const BoardModule = {

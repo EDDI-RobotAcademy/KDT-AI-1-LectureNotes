@@ -1,5 +1,6 @@
 package kr.eddi.demo.lectureClass.jpa.board.service;
 
+import io.micrometer.observation.annotation.Observed;
 import kr.eddi.demo.lectureClass.jpa.board.entity.JpaBoard;
 import kr.eddi.demo.lectureClass.jpa.board.repository.JpaBoardRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +20,10 @@ public class JpaBoardServiceImpl implements JpaBoardService{
     @Override
     public List<JpaBoard> list() {
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardId"));
+    }
+
+    @Override
+    public JpaBoard register(JpaBoard jpaBoard){
+        return boardRepository.save(jpaBoard);
     }
 }
