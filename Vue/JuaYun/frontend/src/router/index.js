@@ -29,6 +29,8 @@ import MyProblem4 from '@/views/homework/problem4/MyProblem4.vue'
 import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
 import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 
+import BoardListPage from '@/views/board/BoardListPage.vue'
+
 
 
 Vue.use(VueRouter)
@@ -147,6 +149,12 @@ const routes = [
     name: 'Problem5Page',
     component: Problem5Page
   },
+  {
+    path: '/board-list-page',
+    name: 'BoardListPage',
+    component: BoardListPage
+  }
+
 
 
 
