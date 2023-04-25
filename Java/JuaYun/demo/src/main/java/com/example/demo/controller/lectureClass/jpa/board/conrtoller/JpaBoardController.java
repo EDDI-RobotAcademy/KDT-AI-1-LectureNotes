@@ -1,6 +1,8 @@
 package com.example.demo.controller.lectureClass.jpa.board.conrtoller;
 
 import com.example.demo.controller.lectureClass.jpa.board.entity.JpaBoard;
+import com.example.demo.controller.lectureClass.jpa.board.service.JpaBoardService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +12,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/jpa-board")
 public class JpaBoardController {
 
