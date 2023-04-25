@@ -7,10 +7,11 @@ import state from "@/store/board/states"
 
 Vue.use(Vuex)
 
-const BoardMudule = {
+const BoardModule = {
     namespaced: true,
     state,
     actions,
     mutations,
 }
-export default BoardMudule
+
+export default BoardModule
