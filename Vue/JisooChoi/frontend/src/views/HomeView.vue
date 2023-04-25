@@ -38,9 +38,30 @@
         | <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
 
         <router-link to="/homework-global-component"
-          >Homework Component</router-link
+          >Vue 문제은행 1</router-link
         >
         |
+        <router-link to="/random-dice-from-spring"
+          >axios로 주사위 값 받기</router-link
+        >
+        |
+        <router-link to="/vue-lifecycle-test"
+          >게임으로 파악하는 라이프사이클</router-link
+        >
+        |
+        <router-link to="/vue-basic-test">Vue 문제은행 2-1</router-link> |
+        <router-link to="/vue-prob-test">Vue 문제은행 2-2</router-link>|
+
+        <router-link to="/problem-page2">Vue 문제은행 2 [Review]</router-link>|
+        <router-link to="/problem-page3-alone">Vue 문제은행 3</router-link>|
+        <router-link to="/problem-3page">Vue 문제은행 3 [Review]</router-link>|
+        <router-link to="/vue-problem-4page-alone">Vue 문제은행 4</router-link>|
+        <router-link to="/vue-problem-4page"
+          >Vue 문제은행 4 [Review]</router-link
+        >|
+        <router-link to="/vue-problem-5page"
+          >Vue 문제은행 5 [Review]</router-link
+        >| <router-link to="/vue-prob6">Vue 문제은행 6</router-link>|
       </nav>
     </div>
   </v-container>

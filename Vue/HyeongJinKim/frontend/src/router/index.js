@@ -16,8 +16,19 @@ import ComponentTestPage from "@/views/basics/componentTest/ComponentTestPage.vu
 
 import DataSendTestPage from "@/views/basics/axios/DataSendTestPage.vue";
 
+import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpringPage.vue";
+
+import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.vue";
+
 //
 import VueHomeworkPage from "@/views/basics/homework/VueHomeworkPage.vue";
+import VueHomeworkPage2_1 from "@/views/basics/homework/axios/VueHomeworkPage2_1.vue";
+import VueHomeworkPage2_2 from "@/views/basics/homework/axios/VueHomeworkPage2_2.vue";
+import VueHomeworkPage3 from "@/views/basics/homework/axios/vueHomeworkPage3/VueHomeworkPage3GetMapping.vue";
+import VueHomeworkPage3Copy from "@/views/basics/homework/axios/vueHomeworkPage3/VueHomeworkPage3PostMapping.vue";
+import VueHomeworkPage4 from "@/views/basics/homework/axios/VueHomeworkPage4.vue";
+import VueHomeworkPage5 from "@/views/basics/homework/axios/VueHomeworkPage5.vue";
+import VueBasicProbs from "@/views/basics/homework/VueBasicProbs.vue";
 
 Vue.use(VueRouter);
 
@@ -85,12 +96,56 @@ const routes = [
     name: "DataSendTestPage",
     component: DataSendTestPage,
   },
-
+  {
+    path: "/random-dice-from-spring",
+    name: "DataResponseFromSpringPage",
+    component: DataResponseFromSpringPage,
+  },
+  {
+    path: "/vue-lifecycle-test",
+    name: "VueLifeCycleTestPage",
+    component: VueLifeCycleTestPage,
+  },
   //
   {
     path: "/vue-homework-page",
     name: "VueHomeworkPage",
     component: VueHomeworkPage,
+  },
+  {
+    path: "/vue-homework-page2_1",
+    name: "VueHomeworkPage2_1",
+    component: VueHomeworkPage2_1,
+  },
+  {
+    path: "/vue-homework-page2_2",
+    name: "VueHomeworkPage2_2",
+    component: VueHomeworkPage2_2,
+  },
+  {
+    path: "/vue-homework-page3",
+    name: "VueHomeworkPage3",
+    component: VueHomeworkPage3,
+  },
+  {
+    path: "/vue-homework-page3-Copy",
+    name: "VueHomeworkPage3Copy",
+    component: VueHomeworkPage3Copy,
+  },
+  {
+    path: "/vue-homework-page4",
+    name: "VueHomeworkPage4",
+    component: VueHomeworkPage4,
+  },
+  {
+    path: "/vue-homework-page5",
+    name: "VueHomeworkPage5",
+    component: VueHomeworkPage5,
+  },
+  {
+    path: "/vue-basic-probs",
+    name: "VueBasicProbs",
+    component: VueBasicProbs,
   },
 ];
 

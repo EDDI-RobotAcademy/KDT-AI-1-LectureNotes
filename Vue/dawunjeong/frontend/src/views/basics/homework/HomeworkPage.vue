@@ -38,10 +38,5 @@ export default {
 </script>
 
 <style>
-    h3 {
-        color: black;
-    }
-    p {
-        color: cornflowerblue;
-    }
+
 </style>

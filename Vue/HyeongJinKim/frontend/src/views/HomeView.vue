@@ -13,26 +13,40 @@
         -->
         <router-link to="/htmlTest">HtmlTest</router-link> |
         <router-link to="/cssTest">CssTest</router-link> |
-        <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link>
-        |
-        <router-link to="/vue-click-event-page">VueClickEventPage</router-link>
-        | <router-link to="/vue-input-event-page">VueInputEventPage</router-link><br />
-        <router-link to="/duplex-model-test-page">textarea 테스트 페이지</router-link>
-        |
-        <router-link to="/checkbox-test-page">checkbox 테스트 페이지</router-link>
-        |
+        <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link> |
+        <router-link to="/vue-click-event-page">VueClickEventPage</router-link> |
+        <router-link to="/vue-input-event-page">VueInputEventPage</router-link><br />
+        <router-link to="/duplex-model-test-page">textarea 테스트 페이지</router-link> |
+        <router-link to="/checkbox-test-page">checkbox 테스트 페이지</router-link> |
         <router-link to="/multi-checkbox-test-page"
           >다중 checkbox 테스트 페이지</router-link
         >
         |
-        <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link>
-        | <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
+        <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link
+        ><br />
+        <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
+        <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
+        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프사이클</router-link>
+        |
       </nav>
     </div>
     <br /><br />
     <div>
       <p>HOMEWORK</p>
-      <nav><router-link to="/vue-homework-page">Homework Main</router-link> |</nav>
+      <nav>
+        <router-link to="/vue-homework-page">Vue 문제 은행 [1]</router-link> |
+        <router-link to="/vue-homework-page2_1">Vue 문제 은행 [2] - 1</router-link> |
+        <router-link to="/vue-homework-page2_2">Vue 문제 은행 [2] - 2</router-link> |
+        <router-link to="/vue-basic-probs">Vue 기본 문제 [1]</router-link><br />
+        <router-link to="/vue-homework-page3">Vue 문제 은행 [3] - GetMapping</router-link>
+        |
+        <router-link to="/vue-homework-page3-Copy"
+          >Vue 문제 은행 [3] - PostMapping</router-link
+        >
+        |
+        <router-link to="/vue-homework-page4">Vue 문제 은행 [4]</router-link> |
+        <router-link to="/vue-homework-page5">Vue 문제 은행 [5]</router-link> |
+      </nav>
     </div>
   </v-container>
 </template>

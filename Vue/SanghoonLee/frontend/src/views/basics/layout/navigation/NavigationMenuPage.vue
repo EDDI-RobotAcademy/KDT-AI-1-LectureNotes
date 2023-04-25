@@ -76,7 +76,7 @@ export default {
         { icon: 'mdi-home', text: 'Home', route: '/' }
       ],
       accountId: 0,
-      isLogin: false,
+      isLogin: true,
     }
   },
   methods: {
@@ -102,6 +102,8 @@ export default {
     this.accountId = localStorage.getItem("loginUserInfo")
     if (this.accountId > 0) {
       this.isLogin = true
+    } else {
+      this.isLogin = false
     }
   }
 }

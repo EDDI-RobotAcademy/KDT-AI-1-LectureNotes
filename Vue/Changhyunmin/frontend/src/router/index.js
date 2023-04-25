@@ -14,7 +14,12 @@ import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vu
 import DataSendTestPage from '@/views/axios/DataSendTestPage.vue'
 import GlobalComponent from '@/views/homeworks/globaComponent/GlobalComponent.vue'
 import LocalComponent from '@/views/homeworks/localComponent/LocalComponent.vue'
-
+import ProblemPage from '@/views/homeworks/problem/ProblemPage.vue'
+import DataResponseFromSpringPage from '@/views/axios/DataResponseFromSpringPage.vue'
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+import Baseball from '@/views/basics/baseball/Baseball.vue'
+import DiceGame from '@/views/dice/DiceGame'
+import Problem2Page from '@/views/homeworks/problem2/Problem2Page'
 Vue.use(VueRouter)
 
 const routes = [
@@ -91,6 +96,36 @@ const routes = [
     path: '/local-component',
     name: 'LocalComponent',
     component: LocalComponent
+  },
+  {
+    path: '/problem-page1',
+    name: 'ProblemPage',
+    component: ProblemPage
+  },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
+    path: '/life-cycle-test-page',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  },
+  {
+    path: '/baseball',
+    name: 'Baseball',
+    component: Baseball
+  },
+  {
+    path: '/dicegame',
+    name: 'DiceGame',
+    component: DiceGame
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
   }
   
   

@@ -21,7 +21,16 @@
         <router-link to="/vue-multi-checkbox-page">다중 Cehckbox 테스트 페이지</router-link> |
         <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
         <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
+        <router-link to="/random-dice-from-spring">axios 주사위 값 받기</router-link> |
         <router-link to="/homework-page">문제 은행</router-link> |
+        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
+        <router-link to="/practice-page">연습</router-link> |
+        <router-link to="/kakao-api-page">API 사용</router-link> |
+        <router-link to="/problem4-page">문제 은행4</router-link> |
+        <router-link to="/problem5-page">문제 은행5</router-link> |
+        <router-link to="/product-image-page">상품</router-link> |
+
+
       </nav>
     </div>
   </v-container>
