@@ -24,7 +24,10 @@ import VueBasicProblem2 from "@/views/homework/basicProblem/VueBasicProblem2.vue
 import VueBasicProblem3 from "@/views/homework/basicProblem/VueBasicProblem3.vue";
 import VueBasicProblem4 from "@/views/homework/basicProblem/VueBasicProblem4.vue";
 import Problem4Page from "@/views/homework/problem4/Problem4Page.vue";
-import Problem3OfBank from "@/views/homework/problem3OfBank/Problem3OfBankPage.vue"
+import Problem3OfBank from "@/views/homework/problem3OfBank/Problem3OfBankPage.vue";
+import BoardListPage from "@/views/board/BoardListPage.vue";
+import BoardRegisterPage from "@/views/board/BoardRegisterPage.vue";
+import BoardReadPage from "@/views/board/BoardReadPage.vue";
 
 Vue.use(VueRouter);
 
@@ -154,6 +157,26 @@ const routes = [
     path: "/problem-bank-3",
     name: "Problem3OfBank",
     component: Problem3OfBank,
+  },
+  {
+    path: "/board-list-page",
+    name: "BoardListPage",
+    component: BoardListPage,
+  },
+  {
+    path: "/board-register-page",
+    name: "BoardRegisterPage",
+    component: BoardRegisterPage,
+  },
+  {
+    path: "/board-read-page/:boardId",
+    name: "BoardReadPage",
+    components: {
+      default: BoardReadPage,
+    },
+    props: {
+      default: true,
+    },
   },
 ];
 

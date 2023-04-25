@@ -35,19 +35,6 @@
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
 
-    
-          
-            
-    
-
-          
-          
-            
-    
-
-          
-    
-    @@ -69,32 +69,41 @@
   
     </v-app-bar>
     <v-navigation-drawer app v-model="navigation_drawer">
