@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // @는 현재 src 폴더를 의미함
+
+import PracticePage from '@/views/practice/PracticePage.vue'
+import KakaoAPIPage from '@/views/practice/KakaoAPIPage.vue'
+
 import HomeView from '@/views/HomeView.vue'
 import HtmlTest from '@/views/html/HtmlTest.vue'
 import CssTest from '@/views/css/CssTest.vue'
@@ -16,8 +20,15 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage'
 
 import HomeworkPage from '@/views/homework/HomeworkPage.vue'
+import Problem4Page from '@/views/homework/Problem4Page.vue'
+import Problem5Page from '@/views/homework/Problem5Page.vue'
+import ProductImagePage from '@/views/homework/ProductImagePage.vue'
+import ProductOrderPage from '@/views/homework/ProductOrderPage.vue'
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -86,10 +97,52 @@ const routes = [
     component: DataSendTestPage
   },
   {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
     path: '/homework-page',
     name: 'HomeworkPage',
     component: HomeworkPage
   },
+  {
+    path: '/vue-lifecycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  },
+  {
+    path: '/practice-page',
+    name: 'PracticePage',
+    component: PracticePage
+  },
+  {
+    path: '/kakao-api-page',
+    name: 'KakaoAPIPage',
+    component: KakaoAPIPage
+  },
+  {
+    path: '/problem4-page',
+    name: 'Problem4Page',
+    component: Problem4Page
+  },
+  {
+    path: '/problem5-page',
+    name: 'Problem5Page',
+    component: Problem5Page
+  },
+  {
+    path: '/product-image-page',
+    name: 'ProductImagePage',
+    component: ProductImagePage
+  },
+  {
+    path: '/product-order-page',
+    name: 'ProductOrderPage',
+    component: ProductOrderPage
+  },
+
+
 ]
 
 const router = new VueRouter({

@@ -18,11 +18,21 @@ import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
 // 과제 페이지
 import HomeworkPage from '@/views/basics/homework/HomeworkPage.vue'
+import DiceDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceDataResponseFromSpringPage.vue'
+import DiceGameDataResponseFromSpringPage from '@/views/basics/axios/homework/DiceGameDataResponseFromSpringPage.vue'
+import BuyFruitPage from '@/views/homework/problem3/BuyFruitPage.vue'
+import GameCharacterPage from '@/views/homework/problem4/GameCharacterPage.vue'
+import BuyFruitsPage from '@/views/homework/weekendhomework1/BuyFruitsPage.vue'
 
-// 선생님 과제 풀이 페이지
+// 과제 선생님 풀이 페이지
 import ProblemPage1 from '@/views/homeworkSolve/problem1/ProblemPage.vue'
+import Problem2Page from '@/views/homeworkSolve/problem2/Problem2Page.vue'
+import Problem3Page from '@/views/homeworkSolve/problem3/Problem3Page.vue'
 
 Vue.use(VueRouter)
 
@@ -99,7 +109,52 @@ const routes = [
     path: '/problem-page1',
     name: 'ProblemPage1',
     component: ProblemPage1
-  }
+  },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
+    path: '/vue-lifecycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  },
+  {
+    path: '/random-dice-check-win-from-spring',
+    name: 'DiceDataResponseFromSpringPage',
+    component: DiceDataResponseFromSpringPage
+  },
+  {
+    path: '/random-dice-game-from-spring',
+    name: 'DiceGameDataResponseFromSpringPage',
+    component: DiceGameDataResponseFromSpringPage
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
+  },
+  {
+    path: '/buy-fruit-page',
+    name: 'BuyFruitPage',
+    component: BuyFruitPage
+  },
+  {
+    path: '/problem-page3',
+    name: 'Problem3Page',
+    component: Problem3Page
+  },
+  {
+    path: '/game-character-page',
+    name: 'GameCharacterPage',
+    component: GameCharacterPage
+  },
+  {
+    path: '/buy-fruits-page',
+    name: 'BuyFruitsPage',
+    component: BuyFruitsPage
+  },
 ]
 
 const router = new VueRouter({

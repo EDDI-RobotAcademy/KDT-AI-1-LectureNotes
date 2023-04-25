@@ -20,7 +20,26 @@ import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vu
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
 import ComponentTestHome from '@/views/basics/componentTest/ComponentTestHome.vue'
-import ProblemPage1 from '@/views/homework/problem1/ProblemPage1.vue'
+import ProblemPage1 from '@/views/basics/solved/problem1/ProblemPage1.vue'
+
+import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
+
+import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
+
+import ProblemPage2 from '@/views/homework/problem2/ProblemPage2.vue'
+
+import VueBasicProblem1 from '@/views/homework/vueBasicProblem1/VueBasicProblem1.vue'
+import HiSendTestPage from '@/views/basics/axios/HiSendTestPage.vue'
+import HiResponsePage from '@/views/basics/axios/HiResponsePage.vue'
+
+import Problem2Page from '@/views/basics/solved/problem2/Problem2Page.vue'
+
+import FruitPriceSum from '@/views/homework/buyFruits/FruitPriceSum.vue'
+import Problem3Page from '@/views/basics/solved/problem3/Problem3Page.vue'
+
+import DiceGame3 from '@/views/homework/diceGame3/DiceGame3.vue'
+
+import MakeCharacter from '@/views/homework/character/MakeCharacter.vue'
 
 Vue.use(VueRouter)
 
@@ -98,6 +117,62 @@ const routes = [
     name: 'ProblemPage1',
     component: ProblemPage1
   },
+  {
+    path: '/random-dice-from-spring',
+    name: 'DataResponseFromSpringPage',
+    component: DataResponseFromSpringPage
+  },
+  {
+    path: '/vue-lifecycle-test',
+    name: 'VueLifeCycleTestPage',
+    component: VueLifeCycleTestPage
+  },
+  {
+    path: '/homework2',
+    name: 'ProblemPage2',
+    component: ProblemPage2
+  },
+  {
+    path: '/vue-basic-problem1',
+    name: 'VueBasicProblem1',
+    component: VueBasicProblem1
+  },
+  {
+    path: '/hi-send-test',
+    name: 'HiSendTestPage',
+    component: HiSendTestPage
+  },
+  {
+    path: '/hi-response-test',
+    name: 'HiResponsePage',
+    component: HiResponsePage
+  },
+  {
+    path: '/problem-page2',
+    name: 'Problem2Page',
+    component: Problem2Page
+  },
+  {
+    path: '/fruit-price-sum',
+    name: 'FruitPriceSum',
+    component: FruitPriceSum
+  },
+  {
+    path: '/problem-page3',
+    name: 'Problem3Page',
+    component: Problem3Page
+  },
+  {
+    path: '/dice-game3',
+    name: 'DiceGame3',
+    component: DiceGame3
+  },
+  {
+    path: '/make-character',
+    name: 'MakeCharacter',
+    component: MakeCharacter
+  },
+
 ]
 
 const router = new VueRouter({

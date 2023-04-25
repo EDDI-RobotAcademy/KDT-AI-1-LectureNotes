@@ -12,13 +12,13 @@
             아래 function saveLocal .... 에 대해서는 left 정렬을 적용하는 작업입니다.
         -->
         <pre style="text-align: left;">
-            function saveLocalData () {
-                let second = document.getElementById("second")
-                let value = second.value
-                localStorage.setItem(1, value)
-                getLocalData()
-            }
-        </pre>
+                function saveLocalData () {
+                    let second = document.getElementById("second")
+                    let value = second.value
+                    localStorage.setItem(1, value)
+                    getLocalData()
+                }
+            </pre>
         <!-- strong은 강조 표현, b도 강조 표현으로 BOLD체에 해당함-->
         <p><strong>TypeScript</strong>, <b>Javascript</b>, Python</p>
         <!-- em과 i는 모두 이탤릭체를 표현함 -->
@@ -295,23 +295,28 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 
 <style scoped>
-    table, th, td {
-        border: 1px solid #ccc;
-    }
-    th{
-        padding: 15px; /* 셀 테두리와 내용 사이의 간격(패딩) */
-    }
-    td{
-        padding: 7px;
-    }
-    ul li {
-        list-style: none;
-        margin: 15px 0;
-        font-size: 16px;
-    }
-</style>
+table,
+th,
+td {
+    border: 1px solid #ccc;
+}
+
+th {
+    padding: 15px;
+    /* 셀 테두리와 내용 사이의 간격(패딩) */
+}
+
+td {
+    padding: 7px;
+}
+
+ul li {
+    list-style: none;
+    margin: 15px 0;
+    font-size: 16px;
+}</style>
