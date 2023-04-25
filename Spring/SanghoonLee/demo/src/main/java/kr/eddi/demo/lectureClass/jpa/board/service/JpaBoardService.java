@@ -8,4 +8,8 @@ public interface JpaBoardService {
     List<JpaBoard> list();
 
     JpaBoard register(JpaBoard jpaBoard);
+
+    JpaBoard read(Long boardId);
+
+    void delete(Long boardId);
 }
