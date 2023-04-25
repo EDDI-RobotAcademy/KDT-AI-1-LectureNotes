@@ -36,6 +36,7 @@
       <router-link to="/Problem5-page2">5번 연습문제 복습</router-link> |
 
       <router-link to="/Problem5-page2">Vue 5번</router-link> |
+      <router-link to="/board-list-page">Vue+Spring+JPA</router-link> |
 
     </nav>
   </div>

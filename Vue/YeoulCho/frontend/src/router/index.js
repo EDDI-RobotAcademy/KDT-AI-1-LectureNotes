@@ -34,6 +34,9 @@ import Problem4Page from "@/views/homework/problem4/Problem4Page.vue"
 import Problem5Page from "@/views/homework/problem5/Problem5Page.vue"
 import Problem5Page2 from "@/views/homework/problem5/Problem5Page2.vue"
 
+import BoardListPage from '@/views/board/BoardListPage.vue'
+import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
+import BoardReadPage from '@/views/board/BoardReadPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -160,8 +163,27 @@ const routes = [
     path: '/problem5-page2',
     name: 'Problem5Page2',
     component: Problem5Page2
+  },
+  {
+    path: '/board-list-page',
+    name: 'BoardListPage',
+    component: BoardListPage
+  },
+  {
+    path: '/board-register-page',
+    name: 'BoardRegisterPage',
+    component: BoardRegisterPage
+  },
+  {
+    path: '/board-read-page/:boardId',
+    name: 'BoardReadPage',
+    components: {
+      default: BoardReadPage
+    },
+    props: {
+      default: true
+    },
   }
-
 
 
 
