@@ -1,10 +1,11 @@
 package kr.eddi.demo.lectureClass.jpa.board.controller.form;
 
-import java.util.Date;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
+@Getter
+@ToString
+@RequiredArgsConstructor
 public class ResponseBoardListForm {
-    private Long boardId;
-    private String title;
-    private String writer;
-    private Date createDate;
 }

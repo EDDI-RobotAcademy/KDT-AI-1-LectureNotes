@@ -18,7 +18,7 @@ public class JpaBoardController {
     final private JpaBoardService boardService;
 
     @GetMapping("/list")
-    public List<JpaBoard> boardList(){
+    public List<JpaBoard> boardList () {
         log.info("boardList()");
 
         List<JpaBoard> returnedBoardList = boardService.list();
@@ -32,5 +32,19 @@ public class JpaBoardController {
         log.info("registerBoard()");
 
         return boardService.register(requestBoardForm.toJpaBoard());
+    }
+
+    @GetMapping("/{boardId}")
+    public JpaBoard readBoard (@PathVariable("boardId") Long boardId) {
+        log.info("boardRead()");
+
+        return boardService.read(boardId);
+    }
+
+    @DeleteMapping("/{boardId}")
+    public void deleteBoard (@PathVariable("boardId") Long boardId) {
+        log.info("boardRead()");
+
+        boardService.delete(boardId);
     }
 }
