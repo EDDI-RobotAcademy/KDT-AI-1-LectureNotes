@@ -29,7 +29,12 @@
             <router-link to="/problem-two-page">2번 문제</router-link> |
             <router-link to="/my-test">숫자 보내보기</router-link>|
             <router-link to="/fruits-page">과일 페이지</router-link> |
-            <router-link to="/april">배열 내 값을 증가</router-link>
+            <router-link to="/april">배열 내 값을 증가</router-link> |
+            <router-link to="/character">캐릭터 생성</router-link>|
+            <router-link to="/charactertest">선생님 캐릭터</router-link> |
+            <router-link to="/problem-page5">5번 연습 문제</router-link> |
+            <router-link to="/my-backlog-page">물고기 문제</router-link>
+            
         </nav></div>
       </v-container>
 </template>

@@ -19,6 +19,10 @@ import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
 import MyFolderPage from '@/views/homework/myfolder/MyFolderPage.vue'
 import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
 import April from '@/views/html/April.vue'
+import CharacterGame from '@/views/homework/Myproblem4/Problempage4.vue'
+import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
+import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
+import MyBacklogPage from '@/views/homework/myfolder/MyBacklogPage.vue'
 
 
 Vue.use(VueRouter)
@@ -126,6 +130,26 @@ const routes = [
   name: 'April',
   component: April
 },
+{
+
+path: '/character',
+name: 'CharacterGame',
+component: CharacterGame
+},{
+
+  path: '/charactertest',
+  name: 'Problem4Page',
+  component: Problem4Page
+  },
+  {
+    path: '/problem-page5',
+    name: 'Problem5Page',
+    component: Problem5Page
+  }, {
+    path: '/my-backlog-page',
+    name: 'MyBacklogPage',
+    component: MyBacklogPage
+  },
 
 
 
