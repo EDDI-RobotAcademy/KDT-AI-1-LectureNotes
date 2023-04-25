@@ -20,6 +20,7 @@ public class MyController {
     @PostMapping("/my-page")
     //public void myPage(@RequestBody MyDataForm myDataForm){
     public void myPage(@RequestBody MyDataForm myDataForm) {
+
         log.info("my data: "+myDataForm);
     }
 }
