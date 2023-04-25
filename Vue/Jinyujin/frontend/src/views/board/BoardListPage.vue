@@ -1,11 +1,12 @@
 <template lang="">
     <div>
         <h2>Vue + Spring + JPA 게시판</h2>
+        <div style="text-align: left; margi: 15px;">
         <!-- 실제 카페 가보면 글 리스트 나오고 글쓰기 기능 - 이걸 router링크로 만들어주기 -->
-        <!-- <router-link :to="{ name: '' }" >
-            게시물 작성
-            아직 name에 쓸게 없어서 일단 윤곽만 잡아두기
-        </router-link> -->
+            <router-link :to="{ name: 'BoardRegisterPage' }" >
+                게시물 작성
+            </router-link>
+        </div>
         <board-list-form :boards="boards"/>
         <!-- 보드 리스트에 보드 정보들 전달 = axios를 써서 스프링에서 받아와야겠다 -->
     </div>
