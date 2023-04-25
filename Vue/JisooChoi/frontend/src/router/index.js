@@ -40,6 +40,11 @@ import Problem5Page from "@/views/basics/homework/problem5/review/Problem5Page.v
 // 숙제6 (backlog 작성하면서 문풀)
 import VueProb6 from "@/views/basics/homework/problem6/VueProb6.vue";
 
+// 게시판
+import BoardListPage from "@/views/basics/board/BoardListPage.vue";
+import BoardRegisterPage from "@/views/basics/board/BoardRegisterPage.vue";
+import BoardReadPage from "@/views/basics/board/BoardReadPage.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -167,6 +172,26 @@ const routes = [
     name: "VueProb6",
     component: VueProb6,
   },
+  {
+    path: "/board-list-page",
+    name: "BoardListPage",
+    component: BoardListPage,
+  },
+  {
+    path: "/board-register-page",
+    name: "BoardRegisterPage",
+    component: BoardRegisterPage,
+  },
+  {
+    path: '/board-read-page/:boardId',
+    name: 'BoardReadPage',
+    components: {
+      default: BoardReadPage
+    },
+    props: {
+      default: true
+    },
+  }
 ];
 
 const router = new VueRouter({

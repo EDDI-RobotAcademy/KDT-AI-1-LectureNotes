@@ -62,6 +62,7 @@
         <router-link to="/vue-problem-5page"
           >Vue 문제은행 5 [Review]</router-link
         >| <router-link to="/vue-prob6">Vue 문제은행 6</router-link>|
+        <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link>|
       </nav>
     </div>
   </v-container>
