@@ -113,6 +113,7 @@
         if (this.gameId > 0) {
           this.isLogin = true
         }
+
       },
   }
   </script>

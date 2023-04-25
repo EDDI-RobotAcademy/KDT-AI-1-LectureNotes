@@ -7,7 +7,7 @@
 <template lang="">
     <div>
         <!-- 캐릭터 생성 버튼 만들기 -->
-        <v-btn color="primary" @click="toggleCharacterForm">캐릭터 생성</v-btn><br>
+        <v-btn color="primary" @click="toggleCharacterForm">계정 생성</v-btn><br>
         <p></p>
         <!-- makeCharacter() 메서드 만들어주기 -->
         <!-- 버튼 클릭 시 이메일 패스워드 입력하도록 -->
