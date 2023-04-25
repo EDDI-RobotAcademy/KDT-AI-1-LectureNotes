@@ -34,6 +34,7 @@
 
 <script>
 export default {
+    name: "BoardRegisterForm",
     data() {
         return {
             title: '제목을 입력하세요',
@@ -42,7 +43,7 @@ export default {
         }
     },
     methods: {
-        onsubmit () {
+        onSubmit () {
             const { title, writer, content } = this
             // BoardRegisterPage의 @submit은 여기의 submit에 대응함
             this.$emit('submit', {title, writer, content})

@@ -43,6 +43,7 @@ import MakeCharacter from '@/views/homework/character/MakeCharacter.vue'
 
 import BoardListPage from '@/views/board/BoardListPage.vue'
 import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
+import BoardReadPage from '@/views/board/BoardReadPage.vue'
 
 Vue.use(VueRouter)
 
@@ -184,6 +185,19 @@ const routes = [
     path: '/board-register-page',
     name: 'BoardRegisterPage',
     component: BoardRegisterPage
+  },
+  {
+    path: '/board-read-page/:boardId',
+    // :boardId -> 가변정보, 숫자에 따라서 값이 바뀜
+    name: 'BoardReadPage',
+    components: {
+      default: BoardReadPage
+      // 이렇게 해야 하는 이유? 멀티 컴포넌츠가 되어서 그래
+      // 메인이 Read라는걸 알려주는 것
+    },
+    props: {
+      default: true
+    }
   },
 
 ]

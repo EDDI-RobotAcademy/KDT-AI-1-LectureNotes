@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <h2>Vue + Spring + JPA 게시판</h2>
-        <div style="text-align: left; margi: 15px;">
+        <div style="text-align: left; margin: 15px;">
         <!-- 실제 카페 가보면 글 리스트 나오고 글쓰기 기능 - 이걸 router링크로 만들어주기 -->
             <router-link :to="{ name: 'BoardRegisterPage' }" >
                 게시물 작성
