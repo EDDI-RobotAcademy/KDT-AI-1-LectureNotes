@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -14,7 +15,7 @@ public class JpaBoard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long BoardId;
+    private Long boardId;
 
     private String title;
     private String writer;
@@ -27,10 +28,8 @@ public class JpaBoard {
     }
 
     @CreatedDate
-    private Date createdDate;
+    private LocalDateTime createdDate;
 
     @UpdateTimestamp
-    private Date updateDate;
-
-
+    private LocalDateTime updateDate;
 }
