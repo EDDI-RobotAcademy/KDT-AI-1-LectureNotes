@@ -12,7 +12,9 @@
 <script>
 import { mapActions, mapState } from 'vuex';
 import BoardListForm from '@/components/board/BoardListForm.vue'
+
 const boardModule = 'boardModule'
+
 export default {
     components: { BoardListForm },
     // state 관리자인 vuex에 state값(boards)를 모니터링
