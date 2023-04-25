@@ -31,6 +31,7 @@ import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
 import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 
 import BoardListPage from '@/views/board/BoardListPage.vue'
+import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 
 Vue.use(VueRouter)
 
@@ -137,6 +138,11 @@ const routes = [
     path: '/board-list-page',
     name: 'BoardListPage',
     component: BoardListPage
+  },
+  {
+    path: '/board-register-page',
+    name: 'BoardRegisterPage',
+    component: BoardRegisterPage
   }
 
   
