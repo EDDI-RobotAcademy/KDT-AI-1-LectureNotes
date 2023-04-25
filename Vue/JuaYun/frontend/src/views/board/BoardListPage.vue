@@ -1,10 +1,11 @@
 <template lang="">
     <div>
         <h2>Vue + Spring + JPA 게시판</h2>
-        <!--
-        <router-link :to="{ name: '' }">
-            게시물 작성
-        </router-link> -->
+        <div style="text-align: left; margin: 15px;">
+            <router-link :to="{ name: 'BoardRegisterPage' }">
+                게시물 작성
+            </router-link>
+        </div>    
         <board-list-form :boards="boards"/>
     </div>
 </template>
@@ -14,7 +15,6 @@ import { mapActions, mapState } from 'vuex';
 import BoardListForm from '@/components/board/BoardListForm.vue'
 
 const boardModule = 'boardModule'
-
 
 export default {
     components: { BoardListForm },
