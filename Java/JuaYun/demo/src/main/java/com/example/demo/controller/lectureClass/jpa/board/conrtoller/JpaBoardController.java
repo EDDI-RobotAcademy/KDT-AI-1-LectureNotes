@@ -1,12 +1,11 @@
 package com.example.demo.controller.lectureClass.jpa.board.conrtoller;
 
+import com.example.demo.controller.lectureClass.jpa.board.conrtoller.form.RequestBoardForm;
 import com.example.demo.controller.lectureClass.jpa.board.entity.JpaBoard;
 import com.example.demo.controller.lectureClass.jpa.board.service.JpaBoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +21,17 @@ public class JpaBoardController {
     public List<JpaBoard> boardList () {
         log.info("boardList");
 
-        return boardService.list();
+        List<JpaBoard> returnedBoardList = boardService.list();
+        log.info("returnedBoardList: " + returnedBoardList);
+
+        return returnedBoardList;
+    }
+
+    @PostMapping("/register")
+    // 등록한 코드
+    public JpaBoard registerBoard(@RequestBody RequestBoardForm requestBoardForm) {
+        log.info("register()");
+
+        return boardService.register(requestBoardForm.toJpaBoard());
     }
 }
