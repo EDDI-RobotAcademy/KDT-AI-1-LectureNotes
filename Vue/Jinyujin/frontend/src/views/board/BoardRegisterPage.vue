@@ -1,13 +1,13 @@
 <template lang="">
     <div>
         <h2>게시물 작성</h2>
+        <!-- 디버그 -->
         <board-register-form @submit="onSubmit"/>
     </div>
 </template>
 
 <script>
 import BoardRegisterForm from '@/components/board/BoardRegisterForm.vue'
-import BoardModule from '@/store/board/BoardModule';
 import { mapActions } from 'vuex';
 
 const boardModule = 'boardModule'

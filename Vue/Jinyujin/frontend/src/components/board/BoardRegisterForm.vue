@@ -1,5 +1,5 @@
 <template lang="">
-    <div>
+    <v-container>
         <form @submit.prevent="onSubmit">
         <table>
             <tr>
@@ -29,7 +29,7 @@
             </router-link>
         </div>
     </form>
-    </div>
+</v-container>
 </template>
 
 <script>

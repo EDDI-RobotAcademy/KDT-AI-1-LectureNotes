@@ -15,7 +15,7 @@ export default {
 
         const { title, content, writer } = payload
 
-        return axiosInst.get('/jpa-board/register', { title, content, writer })
+        return axiosInst.post('/jpa-board/register', { title, content, writer })
         .then((res) => {
             alert('게시물 등록 성공')
             return res
