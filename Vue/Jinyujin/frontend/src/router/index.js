@@ -41,6 +41,8 @@ import DiceGame3 from '@/views/homework/diceGame3/DiceGame3.vue'
 
 import MakeCharacter from '@/views/homework/character/MakeCharacter.vue'
 
+import BoardListPage from '@/views/board/BoardListPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -171,6 +173,11 @@ const routes = [
     path: '/make-character',
     name: 'MakeCharacter',
     component: MakeCharacter
+  },
+  {
+    path: '/board-list-page',
+    name: 'BoardListPage',
+    component: BoardListPage
   },
 
 ]
