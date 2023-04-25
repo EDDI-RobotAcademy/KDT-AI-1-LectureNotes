@@ -8,12 +8,27 @@ class Player {
     final private int HOW_MANY_DICES = 3;
     private int score;
     private String name;
+    final private int FIRST_DICE_CONSTANT = 0;
+    final private int WANT_DIVISION_CONSTANT = 2;
+    final private int WANT_DIVISION_PRINT_CONSTANT = 0;
+    public boolean FirstDiceDecision () {
+        if (diceList.get(FIRST_DICE_CONSTANT).getDiceNumber() %
+                WANT_DIVISION_CONSTANT == WANT_DIVISION_PRINT_CONSTANT) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public Player () {
         diceList = new ArrayList<>();
         for (int i = 0; i < HOW_MANY_DICES; i++) {
-            diceList.add(new Dice());
-            score += diceList.get(i).getDiceNumber();
+            if (FirstDiceDecision()){
+                diceList.add(new Dice());
+                score += diceList.get(i).getDiceNumber();
+            } else {
+                break;
+            }
         }
     }
 
@@ -51,6 +66,7 @@ public class PlayerList {
     }
 
     public List<Player> getPlayerList() {
+
         return playerList;
     }
 
