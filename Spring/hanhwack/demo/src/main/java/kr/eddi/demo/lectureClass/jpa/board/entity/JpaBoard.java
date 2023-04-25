@@ -30,6 +30,7 @@ public class JpaBoard {
         this.content = content;
     }
 
+    // 날짜는 자동으로 입력됨
     @CreatedDate
     private LocalDateTime createDate;
     @UpdateTimestamp
