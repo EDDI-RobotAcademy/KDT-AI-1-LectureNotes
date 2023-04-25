@@ -197,7 +197,7 @@ const routes = [
     },
     props: {
       default: true
-    }
+    },
   },
 
 ]

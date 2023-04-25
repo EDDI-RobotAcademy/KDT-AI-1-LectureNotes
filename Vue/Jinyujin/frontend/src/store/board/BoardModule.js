@@ -8,7 +8,7 @@ import state from '@/store/board/states'
 Vue.use(Vuex)
 
 const BoardModule = {
-    namespace: true,
+    namespaced: true,
     // 이게 활성화돼서 이제 보드모듈을 찾을 수 있게됨
     state,
     actions,

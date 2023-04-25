@@ -28,7 +28,7 @@
             <tr>
                 <td>본문</td>
                 <td>
-                    <textarea cols="80" rows="30" :vlaue="board.content" readonly/>
+                    <textarea cols="80" rows="30" :value="board.content" readonly/>
                 </td>
             </tr>
         </table>
@@ -44,9 +44,9 @@ export default {
             required: true,
         }
     }
-    
 }
 </script>
+
 <style lang="">
     
 </style>

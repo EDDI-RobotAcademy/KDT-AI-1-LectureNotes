@@ -1,5 +1,5 @@
 <template lang="">
-    <v-container>
+    <div>
         <form @submit.prevent="onSubmit">
         <table>
             <tr>
@@ -24,12 +24,12 @@
 
         <div>
             <button type="submit">등록</button>
-            <router-link :to="{name: 'BoardListPage'}">
+            <router-link :to="{ name: 'BoardListPage' }">
                 취소
             </router-link>
         </div>
     </form>
-</v-container>
+</div>
 </template>
 
 <script>

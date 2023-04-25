@@ -16,6 +16,7 @@ export default {
     components: {
         BoardRegisterForm,
     },
+    name: "BoardRegisterPage",
     methods: {
         ...mapActions(
             boardModule, ['requestCreateBoardToSpring']
