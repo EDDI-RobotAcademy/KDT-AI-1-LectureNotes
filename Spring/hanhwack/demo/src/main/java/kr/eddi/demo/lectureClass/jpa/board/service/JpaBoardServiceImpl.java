@@ -20,4 +20,9 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     public List<JpaBoard> list() {
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardId"));
     }
+    @Override
+    public JpaBoard register(JpaBoard jpaBoard) {
+        return boardRepository.save(jpaBoard);
+    }
+
 }

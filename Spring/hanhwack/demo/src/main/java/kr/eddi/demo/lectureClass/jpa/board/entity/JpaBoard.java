@@ -4,7 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -12,6 +16,8 @@ import org.springframework.data.annotation.CreatedDate;
 import java.time.LocalDateTime;
 
 @Entity
+@ToString
+@NoArgsConstructor
 public class JpaBoard {
 
     @Id
@@ -31,7 +37,7 @@ public class JpaBoard {
     }
 
     // 날짜는 자동으로 입력됨
-    @CreatedDate
+    @CreationTimestamp
     private LocalDateTime createDate;
     @UpdateTimestamp
     private LocalDateTime updateDate;
