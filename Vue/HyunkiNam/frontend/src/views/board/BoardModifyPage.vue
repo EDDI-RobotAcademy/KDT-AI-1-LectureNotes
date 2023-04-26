@@ -27,17 +27,17 @@ export default {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestBoardModifyToSpring']
         ),
-        async onSubmit (payload) {
+        async onSubmit(payload) {
             const { title, content, writer } = payload
             const boardId = this.boardId
-            await this.requestBoardModifyToSpring({ title, content, writer })
+            await this.requestBoardModifyToSpring({ title, content, writer, boardId })
             await this.$router.push({
                 name: 'BoardReadPage',
                 params: { boardId: this.boardId }
             })
         }
     },
-    created () {
+    created() {
         this.requestBoardToSpring(this.boardId)
     }
 }
