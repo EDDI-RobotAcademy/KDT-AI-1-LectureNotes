@@ -19,7 +19,7 @@ import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vu
 
 import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
 
-import ProblemPage1 from '@/views/homework/problem1/Problem1Page.vue'
+import ProblemPage1 from '@/views/homework/problem1/ProblemPage.vue'
 
 import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
 
@@ -29,7 +29,11 @@ import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
 import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
 import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
 import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
-import BoardListPage from "@/views/board/BoardListPage.vue";
+
+import BoardListPage from '@/views/board/BoardListPage.vue'
+import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
+import BoardReadPage from '@/views/board/BoardReadPage.vue'
+import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
 
 Vue.use(VueRouter)
 
@@ -136,6 +140,31 @@ const routes = [
     path: '/board-list-page',
     name: 'BoardListPage',
     component: BoardListPage
+  },
+  {
+    path: '/board-register-page',
+    name: 'BoardRegisterPage',
+    component: BoardRegisterPage
+  },
+  {
+    path: '/board-read-page/:boardId',
+    name: 'BoardReadPage',
+    components: {
+      default: BoardReadPage
+    },
+    props: {
+      default: true
+    },
+  },
+  {
+    path: '/board-modify-page/:boardId',
+    name: 'BoardModifyPage',
+    components: {
+      default: BoardModifyPage
+    },
+    props: {
+      default: true
+    },
   }
 
   

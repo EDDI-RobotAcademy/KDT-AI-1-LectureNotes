@@ -12,7 +12,6 @@
             initial-test는 v-bind로 맵핑했음
         -->
         <global-component :initial-test="counter"/>
-        <global-component v-model="counter"/>
         <p>:initial-test는 v-bind:initial-test와 같습니다만 축약 표현입니다.</p>
         <!--
             public void localComponent(int number1, int number2) {

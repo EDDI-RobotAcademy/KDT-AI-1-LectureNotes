@@ -1,15 +1,22 @@
 <template>
     <div>
         <textarea v-model="message"></textarea>
-        <pre>{{message}}</pre>
+        <pre>{{ message }}</pre>
     </div>
 </template>
+
 <script>
+
 export default {
-    data() {
+    data () {
         return {
-            message: 'initial value'
+            message: '초기값',
         }
-    }
+    }    
 }
+
 </script>
+
+<style>
+    
+</style>

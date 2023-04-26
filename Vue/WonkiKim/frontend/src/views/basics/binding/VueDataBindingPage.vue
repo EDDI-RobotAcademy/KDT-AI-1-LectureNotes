@@ -1,20 +1,27 @@
 <template>
-  <div>
-      <p>Hello {{ message }}</p>
-      <p>length: {{ message.length }}</p>
-      <p>list[2]: {{list[2]}}</p>
-      <p>List[{{number}}]: {{list[number]}}</p>
-  </div>
+    <div>
+        <p>Hello {{ message }}</p>
+        <p>길이: {{ message.length }}</p>
+        <p>list[2]: {{ list[2] }}</p>
+        <p>list[{{ number }}]: {{ list[number] }}</p>
+    </div>
 </template>
+
 <script>
+
 export default {
-    data() {
+    data () {
         return {
-            message: 'Vue Programming',
-            list: ['apple', 'samsung', 'microsoft'],
+            message: 'Vue 프로그래밍',
+            list: ['apple', 'grape', 'watermelon'],
             show: true,
-            number:1
+            number: 1
         }
     }
 }
+
 </script>
+
+<style>
+    
+</style>

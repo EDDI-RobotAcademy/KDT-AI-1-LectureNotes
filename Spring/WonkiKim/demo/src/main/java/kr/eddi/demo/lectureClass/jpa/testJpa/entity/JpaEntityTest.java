@@ -9,11 +9,12 @@ import lombok.Data;
 @Data
 @Entity
 public class JpaEntityTest {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long entityId;
+
     private String title;
     private String content;
     private Integer testNumber;
-
 }

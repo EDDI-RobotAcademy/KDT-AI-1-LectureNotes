@@ -1,14 +1,15 @@
-import Vue from "vue";
-import Vuex from 'vuex';
-import actions from "@/store/board/actions";
-import states from "@/store/board/states";
-import mutations from "@/store/board/mutations";
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+import mutations from "@/store/board/mutations"
+import actions from "@/store/board/actions"
+import state from "@/store/board/states"
 
 Vue.use(Vuex)
 
-const boardModule = {
-    namespced: true,
-    states,
+const BoardModule = {
+    namespaced: true,
+    state,
     actions,
     mutations,
 }

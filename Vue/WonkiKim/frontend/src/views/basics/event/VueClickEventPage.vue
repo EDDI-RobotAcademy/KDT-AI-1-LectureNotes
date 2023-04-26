@@ -1,25 +1,27 @@
 <template>
-  <div>
-      <p>{{count}}th click!</p>
-      <button @click="clickHandler">count</button><br>
-      <button @click="alertHandler">print alert message</button><br>
-      <button @click.right="rightClickHandler">print right click</button><br>
-      <button @click.left="leftClickHandler">print left click</button>
-  </div>
+    <div>
+        <p>{{ count }} 번 클릭했습니다!</p>
+        <button @click="clickHandler">카운트하기</button><br>
+        <button @click="alertHandler">경고 메시지 출력하기</button><br>
+        <button @click.right="rightClickHandler">오른쪽 클릭</button>
+        <button @click.left="leftClickHandler">왼쪽 클릭</button>
+    </div>
 </template>
+
 <script>
+
 export default {
-    data() {
+    data () {
         return {
             count: 0,
         }
     },
     methods: {
-        clickHandler() {
+        clickHandler () {
             this.count++
         },
-        alertHandler() {
-            alert('dont click')
+        alertHandler () {
+            alert('누르지마!')
         },
         rightClickHandler (comment) {
             console.log('(' + comment.clientX + ', ' + comment.clientY + ')')
@@ -29,4 +31,9 @@ export default {
         }
     }
 }
+
 </script>
+
+<style>
+    
+</style>

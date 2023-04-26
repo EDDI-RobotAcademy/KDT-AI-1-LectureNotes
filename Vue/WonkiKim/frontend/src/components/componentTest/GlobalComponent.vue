@@ -1,8 +1,6 @@
 <template>
     <div>
         <button @click="addCounter">{{ counterValue }}</button>
-        <v-btn @click="()=>counterValue++">123{{ counterValue }}</v-btn>
-        <v-btn @click="()=> initialTest++"> 123{{ this.initialTest}}</v-btn>
     </div>
 </template>
 
