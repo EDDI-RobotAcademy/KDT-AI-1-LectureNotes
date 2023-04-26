@@ -37,5 +37,19 @@ export default {
             .catch(() => {
                 alert('문제 발생!')
             })
-    }
+    },
+    requestBoardModifyToSpring ({}, payload) {
+        const { title, content, boardId, writer } = payload
+
+        console.log("title: " + title + ", content: " + content + 
+                    ", writer: " + writer + ", boardId: " + boardId)
+
+        return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
+            .then((res) => {
+                alert("수정 성공!")
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+}
 }
