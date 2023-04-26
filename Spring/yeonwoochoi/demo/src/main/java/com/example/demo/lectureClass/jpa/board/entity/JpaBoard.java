@@ -6,7 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
@@ -26,8 +28,12 @@ public class JpaBoard {
     private Long boardId;
 
     // 세가지가 실제 사용자가 입력하는 것
+    @Setter
     private String title;
     private String writer;
+
+    // 수정은 setter가 필요하다.
+    @Setter
     private String content;
 
     public JpaBoard(String title, String writer, String content) {
