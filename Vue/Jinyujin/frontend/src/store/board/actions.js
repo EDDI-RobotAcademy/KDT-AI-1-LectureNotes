@@ -35,5 +35,20 @@ export default {
             .catch(() => {
                 alert('문제 발생!')
             })
+    },
+    // modifyPage의 methods에 RequestBoardModifyToSpring을 맵핑해주었으니 생성
+    requestBoardModifyToSpring ({}, payload) {
+        const { title, content, writer, boardId } = payload
+
+        console.log("title: " + title + ", content: " + content + 
+                    ", writer: " + writer + ", boardId: " + boardId)
+
+        return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
+            .then((res) => {
+                alert('수정 성공!')
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
     }
 }

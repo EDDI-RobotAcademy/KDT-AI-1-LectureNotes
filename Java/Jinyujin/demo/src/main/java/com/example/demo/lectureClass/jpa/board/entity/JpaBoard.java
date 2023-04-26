@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -31,8 +32,11 @@ public class JpaBoard {
     // 예전에 Custom Sequence로 하나씩 올라가게, map으로 해줬는데 그 역할을 위 3줄이 하게 되는 것
     // (기억 안나니 한 번 더 보자!)
 
+    @Setter
     private String title;
     private String writer;
+
+    @Setter
     private String content;
     // 결국 위 3개가 사용자가 관리하는 주 목적
 

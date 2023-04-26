@@ -49,4 +49,12 @@ public class JpaBoardController {
 
         boardService.delete(boardId);
     }
+
+    @PutMapping("/{boardId}")
+    // 여기도 가변인자(id가 뭔지 알 수 없으니까)
+    public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
+                                 // @PathVariable: 가변인자가 있으니까 필요한 어노테이션
+                                 @RequestBody RequestBoardForm requestBoardForm) {
+        return boardService.modify(boardId, requestBoardForm);
+    }
 }

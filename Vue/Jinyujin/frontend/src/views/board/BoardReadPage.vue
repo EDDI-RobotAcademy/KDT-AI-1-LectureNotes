@@ -5,6 +5,7 @@
         <p v-else>로딩중 ......</p>
         <router-link :to="{ name: 'BoardModifyPage', params: { boardId }}">
             게시물 수정
+            <!-- 수정은 ReadPage에서 요청해줘야 함 -->
         </router-link>
         <button @click="onDelete">삭제</button>
         <router-link :to="{ name: 'BoardListPage' }">
