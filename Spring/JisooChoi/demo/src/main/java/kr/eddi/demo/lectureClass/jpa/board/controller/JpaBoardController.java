@@ -55,4 +55,12 @@ public class JpaBoardController {
         boardService.delete(boardId);
     }
 
+    @PutMapping("/{boardId}")
+    public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
+                                 @RequestBody RequestBoardForm requestBoardForm) {
+        log.info("modifyBoard(): " + requestBoardForm + ", id: " + boardId);
+
+        return boardService.modify(boardId, requestBoardForm);
+    }
+
 }

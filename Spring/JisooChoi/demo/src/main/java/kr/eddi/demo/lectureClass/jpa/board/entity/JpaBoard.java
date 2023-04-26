@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -25,8 +26,12 @@ public class JpaBoard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardId; // 게시판 아이디 (유일성)
+
+    @Setter
     private String title; // 제목
     private String writer; // 작성자
+
+    @Setter
     private String content; // 내용
 
     public JpaBoard(String title, String writer, String content) {

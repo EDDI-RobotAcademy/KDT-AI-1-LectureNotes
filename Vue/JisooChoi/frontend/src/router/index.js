@@ -44,6 +44,7 @@ import VueProb6 from "@/views/basics/homework/problem6/VueProb6.vue";
 import BoardListPage from "@/views/basics/board/BoardListPage.vue";
 import BoardRegisterPage from "@/views/basics/board/BoardRegisterPage.vue";
 import BoardReadPage from "@/views/basics/board/BoardReadPage.vue";
+import BoardModifyPage from "@/views/basics/board/BoardModifyPage.vue"
 
 Vue.use(VueRouter);
 
@@ -187,6 +188,16 @@ const routes = [
     name: 'BoardReadPage',
     components: {
       default: BoardReadPage
+    },
+    props: {
+      default: true
+    },
+  },
+  {
+    path: '/board-modify-page/:boardId',
+    name: 'BoardModifyPage',
+    components: {
+      default: BoardModifyPage
     },
     props: {
       default: true
