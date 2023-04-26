@@ -7,6 +7,7 @@ import state from "@/store/board/state"
 
 Vue.use(Vuex)
 
+// state, actions, mutations 맵핑을 위함
 const BoardModule = {
     namespaced: true,
     state,

@@ -6,6 +6,11 @@
             게시물 작성
         </router-link>
         </div>  
+        <!-- 
+            action으로 Spring에서 board 리스트를 가져와 
+            v-binding으로 BoardListForm으로 보내 
+            리스트 전체를 볼 수 있게 해줌
+        -->
         <board-list-form :boards="boards"/>
     </div>
 </template>
