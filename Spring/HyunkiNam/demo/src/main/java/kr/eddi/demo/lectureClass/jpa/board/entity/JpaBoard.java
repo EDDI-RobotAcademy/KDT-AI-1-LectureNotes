@@ -21,10 +21,11 @@ import java.time.LocalDateTime;
 public class JpaBoard {
     // 기본키 설정
     @Id
-    // 기본 키 생성을 데이터베이스에 위임
+    // 기본키 생성을 데이터베이스에 위임
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardId;
 
+    // 수정을 위한 Setter 선언
     @Setter
     private String title;
     private String writer;
