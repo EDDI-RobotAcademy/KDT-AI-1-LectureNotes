@@ -31,6 +31,7 @@ import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 
 import BoardListPage from '@/views/board/BoardListPage.vue'
 import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
+import BoardReadPage from '@/views/board/BoardReadPage.vue'
 
 
 
@@ -159,7 +160,17 @@ const routes = [
     path: '/board-register-page',
     name: 'BoardRegisterPage',
     component: BoardRegisterPage
-  }
+  },
+  {
+    path: '/board-read-page/:boardId',
+    name: 'BoardReadPage',
+    components: {
+      default: BoardReadPage
+    },
+    props: {
+      default: true
+    },
+  },
 
 
 

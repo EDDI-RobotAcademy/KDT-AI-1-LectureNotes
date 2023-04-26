@@ -1,10 +1,19 @@
 import {
     REQUEST_BOARD_LIST_TO_SPRING,
+    REQUEST_BOARD_TO_SPRING,
 } from './mutation-types'
 
 import axiosInst from '@/utility/axiosInst'
 
 export default {
+    requestBoardToSpring ({ commit }, boardId) {
+        console.log(", boardId: " + boardId)
+
+        return axiosInst.get(`/jpa-board/${boardId}`)
+            .then((res) => {
+                commit(REQUEST_BOARD_TO_SPRING, res.data)
+            })
+    },
     requestBoardListToSpring  ({ commit }) {
         return axiosInst.get('/jpa-board/list')
             .then((res) => {
@@ -22,6 +31,15 @@ export default {
         .catch(() => {
             alert('문제 발생!')
         })
+    },
+    requestDeleteBoardToSpring ({}, boardId) {
+        return axiosInst.delete(`/jpa-board/${boardId}`)
+            .then((res) => {
+                alert('삭제 성공!')
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
     }
 } 
 // axios적용을 여기서 하는것

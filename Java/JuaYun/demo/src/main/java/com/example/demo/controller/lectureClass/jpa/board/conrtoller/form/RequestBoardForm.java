@@ -10,6 +10,6 @@ public class RequestBoardForm {
     final private String writer;
 
     public JpaBoard toJpaBoard() {
-        return new JpaBoard(title,writer,content);
+        return new JpaBoard(title, writer, content);
     }
 }
