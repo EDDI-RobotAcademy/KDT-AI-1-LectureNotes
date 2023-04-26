@@ -6,20 +6,23 @@
                 게시물 작성
             </router-link>
         </div>
-        <board-list-form :boards="boards"/>
+        <board-list-form :boards="boards"/> 
+        <!--BoardModule의 state에 boards를 바인딩(boardlist의 boards)
+        state왜 필요할까? 정보관리를 위해-->
     </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
-import BoardListForm from '@/components/board/BoardListForm.vue'
 
-const boardModule = 'boardModule'
+import BoardListForm from '@/components/board/BoardListForm.vue'
+import { mapActions, mapState } from 'vuex';
+
+const boardModule = 'boardModule' 
 
 export default {
     components: { BoardListForm },
     // state 관리자인 vuex에 state값(boards)를 모니터링
-    computed: {
+    computed: { //계산된 값 값이 바뀔때마다 자동으로 바뀜
         ...mapState(boardModule, ['boards']),
     },
     mounted () {
@@ -27,7 +30,7 @@ export default {
         this.requestBoardListToSpring()
     },
     methods: {
-        // vuex의 action을 method에 맵핑
+        // vuex의 action을 method에 맵핑(가져오다)
         ...mapActions(
             boardModule, ['requestBoardListToSpring']
         )
