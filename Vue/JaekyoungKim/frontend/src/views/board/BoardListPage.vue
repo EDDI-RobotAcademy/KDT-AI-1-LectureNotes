@@ -5,6 +5,7 @@
             <router-link :to="{ name: 'BoardRegisterPage' }">
                 게시물 작성
             </router-link>
+            <!-- 작성 페이지로 이동하는 링크 생성-->
         </div>
         <board-list-form :boards="boards"/>
     </div>

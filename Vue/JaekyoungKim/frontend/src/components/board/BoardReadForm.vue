@@ -3,7 +3,8 @@
         <table>
             <tr>
                 <td>게시물 번호</td>
-                <td>
+                <td><!--읽기 이기 때문에 readonly 붙여줌
+                값도 변하지 않기 때문에 v-value해줌-->
                     <input type="text" :value="board.boardId" readonly/>
                 </td>
             </tr>
@@ -42,6 +43,7 @@ export default {
         board: {
             type: Object,
             required: true,
+            //이것도 꼭 필요하다는 뜻
         }
     }
 }

@@ -10,5 +10,6 @@ const store = new Vuex.Store({
     boardModule: boardModule,
   },
 })
+//앞으로 BoardModule은 boardModule로 부를 수 있게 됨
 
 export default store
