@@ -9,6 +9,7 @@ import java.util.List;
 
 
 public interface JpaBoardService {
+    // 사용할 매서드들
     List<JpaBoard> list();
 
     JpaBoard register(JpaBoard jpaBoard);

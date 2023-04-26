@@ -13,8 +13,10 @@ public class RequestBoardForm {
     final private String title;
     final private String content;
     final private String writer;
+    // 받을 데이터 폼을 정함
 
     public JpaBoard toJpaBoard() {
         return new JpaBoard(title, writer, content);
     }
+    // 뉴 보드 생성합니다.
 }

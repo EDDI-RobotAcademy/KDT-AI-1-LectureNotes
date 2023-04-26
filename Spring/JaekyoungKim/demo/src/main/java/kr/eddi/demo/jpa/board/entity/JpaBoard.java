@@ -16,13 +16,15 @@ import java.util.Date;
 @ToString
 @NoArgsConstructor
 public class JpaBoard {
-
+    //게시판에서 사용할 가장 중요한 규칙을 정함
+    // boardId를 식별자로 사용하여 유일하도록 할것임
+    // 아이디는 1씩 증감합니다.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardId;
     @Setter
     private String title;
-    private String writer;
+    private String writer;// 작성자는 수정 하지 않아서 세터 안 붙입니다.
     @Setter
     private String content;
 
@@ -33,7 +35,7 @@ public class JpaBoard {
     }
 
     @CreationTimestamp
-    private LocalDateTime createDate;
+    private LocalDateTime createDate;//만든 시간 찍이도록 함
 
     @UpdateTimestamp
     private LocalDateTime updateDate;
