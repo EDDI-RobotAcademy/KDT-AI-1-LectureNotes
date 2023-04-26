@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface JpaBoardService {
 
+    // 각종 기능을 가진 인터페이스
+
     List<JpaBoard> list();
 
     JpaBoard register(JpaBoard jpaBoard);

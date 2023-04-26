@@ -19,12 +19,13 @@ import java.util.Date;
 @NoArgsConstructor
 public class JpaBoard {
 
+    // 고유 아이디 값 생성
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardId;
 
 
-
+    // 수정될 수 있는 곳에만 Setter 설정
     @Setter
     private String title;
     private String writer;
@@ -38,9 +39,11 @@ public class JpaBoard {
         this.content = content;
     }
 
+    // 작성 시간
     @CreationTimestamp
     private LocalDateTime createDate;
 
+    // 업데이트(수정) 시간
     @UpdateTimestamp
     private LocalDateTime updateDate;
 }

@@ -15,21 +15,25 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class JpaBoardServiceImpl implements JpaBoardService{
+    // DB에 저장 혹은 저장된 데이터를 가져오기 위한 선언
     final private JpaBoardRepository boardRepository;
 
-
+    // 리스트 아이디값을 토대로 정리
     @Override
     public List<JpaBoard> list() {
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "BoardId"));
     }
 
+    // 게시물 저장
     @Override
     public JpaBoard register(JpaBoard jpaBoard) {
         return boardRepository.save(jpaBoard);
     }
 
+    // 게시물 읽기위한 매서드
     @Override
     public JpaBoard read(Long boardId) {
+        // Optional = 게시물 찾기, 있다면 성공적으로 불러오고, 없다면 null값 리턴
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
 
         if (maybeJpaBoard.isEmpty()) {
@@ -53,6 +57,7 @@ public class JpaBoardServiceImpl implements JpaBoardService{
             return null;
         }
 
+        // 수정한 내용 setter로 수정
         JpaBoard board = maybeJpaBoard.get();
         board.setTitle(requestBoardForm.getTitle());
         board.setContent(requestBoardForm.getContent());
