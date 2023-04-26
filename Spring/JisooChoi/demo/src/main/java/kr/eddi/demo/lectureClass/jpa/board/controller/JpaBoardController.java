@@ -39,8 +39,8 @@ public class JpaBoardController {
         return boardService.register(requestBoardForm.toJpaBoard());
     }
 
-    // 아래 코드는 입력되는 숫자에 따라 해당하는 게시판 글을 보여줌
-    @GetMapping("/{boardId}")
+    // 아래 코드는 입력되는 숫자에 따라 해당하는 게시판 글을 보여줌 (가변인자 처리가 들어가 있음)
+    @GetMapping("/{boardId}") // ↓PathVariable 에서 boardId 값을 뽑아온다.
     public JpaBoard readBoard (@PathVariable("boardId") Long boardId) {
         log.info("boardRead()");
 
@@ -55,9 +55,11 @@ public class JpaBoardController {
         boardService.delete(boardId);
     }
 
+    // 아래 코드는 입력되는 숫자에 따라 해당하는 게시판 글을 수정해줌
     @PutMapping("/{boardId}")
     public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
                                  @RequestBody RequestBoardForm requestBoardForm) {
+                                 // ↑ 아이디 값과 입력 값이 있네 ! 라고 보면 된다.
         log.info("modifyBoard(): " + requestBoardForm + ", id: " + boardId);
 
         return boardService.modify(boardId, requestBoardForm);

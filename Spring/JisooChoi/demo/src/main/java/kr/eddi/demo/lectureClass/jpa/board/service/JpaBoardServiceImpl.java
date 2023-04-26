@@ -15,6 +15,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class JpaBoardServiceImpl implements JpaBoardService{
+    // ※ 특정 요청이 들어오면 이를 처리하는 부분이 서비스이다.
 
     // implements ?
     // 부모 객체는 선언만 하며, 정의(내용)는 자식에서 오버라이딩 (재정의)해서 사용해야 한다.
@@ -22,6 +23,7 @@ public class JpaBoardServiceImpl implements JpaBoardService{
 
     // 스마트한 데이터 검색을 할 수 있게 해주는 인터페이스 틀
     final private JpaBoardRepository boardRepository;
+    // ※ boardRepository 를 new 하지 않아도 리텐션 런 타임이 붙어있는 경우가 있기 때문에 사용가능 (질문방 참고하기)
 
     @Override
     public List<JpaBoard> list(){
@@ -37,8 +39,9 @@ public class JpaBoardServiceImpl implements JpaBoardService{
     }
 
     @Override
-    public JpaBoard read(Long boardId) {
+    public JpaBoard read(Long boardId) {                    // ↓findById는 id에 맞춰서 엔티티를 찾아준다/검색한다.
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
+        // ↑Optional 은 값이 있을 때 구해주고, 없으면 null 이다.
 
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");

@@ -3,7 +3,7 @@
         <table>
             <tr>
                 <td>게시물 번호</td>
-                <td>
+                <td>                <!-- 수정이 불가능하게 readonly가 붙어 있다. -->
                     <input type="text" :value="board.boardId" readonly/>
                 </td>
             </tr>

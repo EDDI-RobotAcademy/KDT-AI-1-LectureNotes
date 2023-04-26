@@ -7,7 +7,10 @@
         게시물 작성
       </router-link>
     </div>
-    <!-- 게시물 목록을 컴포넌트 형태로 만들어서 가지고 왔다. -->
+    <!--
+      게시물 목록을 로컬 컴포넌트 형태로 만들어서 가지고 왔다. 
+      boards에 boards를 전달하고 있다.
+    -->
     <board-list-form :boards="boards" />
   </div>
 </template>
@@ -25,15 +28,19 @@ export default {
   // state 관리자인 vuex에 state값(boards)를 모니터링
   computed: {
     // computed는 템플릿의 데이터 표현을 더 직관적이고 간결하게 도와주는 속성이다.
+    // mapState는 state 매핑하는 문법이다.
     ...mapState(boardModule, ["boards"]),
   },
   mounted() {
     // mounted()는 컴포넌트, 템플릿, 렌더링 된 DOM에 접근이 가능하다. (DOM 조작)
     // vuex의 action 호출
-    this.requestBoardListToSpring();
+    this.requestBoardListToSpring(); // 라이프 사이클) 생성 과정에서 얘를 불렀다.
+                                     // 그래서 새로고침 마다 계속해서 백엔드에 요청이 들어간다.
   },
   methods: {
     // vuex의 action을 method에 맵핑
+    // 꼭 이런 형태로 써야 사용할 수 있다. 매핑액션 = 맵 액션
+    // boardModule의 모든 정보를 매핑하겠다는 뜻이다.
     ...mapActions(boardModule, ["requestBoardListToSpring"]),
   },
 };

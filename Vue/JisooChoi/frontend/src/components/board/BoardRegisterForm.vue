@@ -44,6 +44,7 @@ export default {
     },
     methods: {
         onSubmit () {
+            // 불변 객체 만들어주기
             const { title, writer, content } = this
             // BoardRegisterPage의 @submit은 여기의 submit에 대응함
             this.$emit('submit', { title, writer, content })
