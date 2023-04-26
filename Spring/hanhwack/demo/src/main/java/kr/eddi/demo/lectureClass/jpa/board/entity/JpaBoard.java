@@ -23,8 +23,11 @@ public class JpaBoard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardId;
 
+    @Setter
     private String title;
     private String writer;
+
+    @Setter
     private String content;
 
 
