@@ -5,7 +5,13 @@ import {
 
 import axiosInst from '@/utility/axiosInst'
 
+// Page에서 처리된 정보가 여기를 거쳐 spring으로 가는 것으로 생각하고있음
+// spring 에서 보낸 정보도 여기를 거쳐 뿌리는 것 같음
+
 export default {
+    // commit 은 디폴트 값
+    // 동기처리라고 생각하면됨 연결될 때까지 기다리는 것
+    // 단순하게 정보를 뿌리기만 하면 되는 것들은 get을 받는 것 같음
     requestBoardToSpring ({ commit }, boardId) {
         console.log(", boardId: " + boardId)
 

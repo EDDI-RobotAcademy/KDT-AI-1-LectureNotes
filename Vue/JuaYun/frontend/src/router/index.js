@@ -162,7 +162,8 @@ const routes = [
     name: 'BoardRegisterPage',
     component: BoardRegisterPage
   },
-  {
+  { // BoardModifyPage, BoardReadPage 멀티 컴포넌트
+    // :boardId 가변인자처리를 한 것
     path: '/board-read-page/:boardId',
     name: 'BoardReadPage',
     components: {
@@ -172,7 +173,7 @@ const routes = [
       default: true
     },
   },
-  {
+  { 
     path: '/board-modify-page/:boardId',
     name: 'BoardModifyPage',
     components: {
