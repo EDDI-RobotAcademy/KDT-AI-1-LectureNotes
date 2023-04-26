@@ -7,9 +7,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 
@@ -22,8 +22,11 @@ public class JpaBoard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardId;
 
+    @Setter
     private String title;
     private String writer;
+
+    @Setter
     private String content;
 
     public JpaBoard(String title, String writer, String content) {
