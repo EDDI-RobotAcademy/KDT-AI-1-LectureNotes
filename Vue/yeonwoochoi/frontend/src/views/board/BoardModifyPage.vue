@@ -30,7 +30,8 @@ export default {
         async onSubmit (payload) {
             const { title, content, writer } = payload
             const boardId = this.boardId
-            await this.requestBoardModifyToSpring({ title, content, writer })
+            await this.requestBoardModifyToSpring({ title, content, writer, boardId })
+            // $ 의미는 전역 객체 속성 (public이랑 같은 속성) 
             await this.$router.push({
                 name: 'BoardReadPage',
                 params: { boardId: this.boardId }

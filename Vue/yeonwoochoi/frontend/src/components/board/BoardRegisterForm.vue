@@ -22,6 +22,8 @@
                 </tr>
             </table>
             <div>
+                <!-- submit을 누르면 바로 날아가는데 상단에 prevent 를 주어서 
+                    바로 못날아가게 만듬 (등록한 화면 그대로 나타냄) -->
                 <button type="submit">등록</button>
                 <router-link :to="{ name: 'BoardListPage' }">
                     취소
@@ -44,7 +46,8 @@ export default {
     methods: {
         onSubmit () {
             const { title, writer, content } = this
-            // BoardRegisterPage의 @submit은 여기의 submit에 대응함
+            // BoardRegisterPage의 @submit은 여기의 submit에 대응 한다.
+            // submit 이라는 이벤트를 발생시킨다. 
             this.$emit('submit', { title, writer, content })
         }
     }

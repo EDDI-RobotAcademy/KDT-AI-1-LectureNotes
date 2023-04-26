@@ -7,6 +7,7 @@ import state from "@/store/board/states"
 
 Vue.use(Vuex)
 
+// 도메인 단위로 관리하기 위에 Module을 가지고 있다.
 const BoardModule = {
     namespaced: true,
     state,

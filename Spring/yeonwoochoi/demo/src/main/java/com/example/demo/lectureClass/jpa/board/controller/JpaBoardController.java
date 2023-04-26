@@ -31,7 +31,7 @@ public class JpaBoardController {
         return returnedBoardList;
     }
 
-
+    // 등록
     @PostMapping("/register")
     public JpaBoard registerBoard (@RequestBody RequestBoardForm requestBoardForm) {
         log.info("registerBoard()");
@@ -41,10 +41,12 @@ public class JpaBoardController {
 
     // 읽기
     // Id값을 읽고 객체를 준다.
+    // ("/{boardId}") 가변인자 처리 >> 안하게 되면 100만개 하나 하나 작성
     @GetMapping("/{boardId}")
     public JpaBoard readBoard (@PathVariable("boardId") Long boardId) {
         log.info("boardRead()");
 
+        // 서비스에 리드에 전달
         return boardService.read(boardId);
     }
 

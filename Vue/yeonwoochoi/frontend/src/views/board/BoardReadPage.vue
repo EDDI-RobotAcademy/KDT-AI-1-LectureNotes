@@ -1,6 +1,8 @@
 <template lang="">
     <div>
         <h2>Vue + Spring + JPA 게시판 읽기</h2>
+        <!-- board가 붙게 되면 requestBoardToSpring 게시물을 잘 읽어오면
+        v-if는 참이 된다. -->
         <board-read-form v-if="board" :board="board"/>
         <p v-else>로딩중 .......</p>
         <router-link :to="{ name: 'BoardModifyPage', params: { boardId }}">
@@ -9,8 +11,9 @@
         </router-link>
         </router-link>
         <button @click="onDelete">삭제</button>
+        <!-- 돌아가기 하면 BoardListPage로 간다. -->
         <router-link :to="{ name: 'BoardListPage' }">
-            돌아가기
+            돌아가기 
         </router-link>
     </div>
 </template>
@@ -29,13 +32,17 @@ export default {
         },
     },
     computed: {
+        // mapState에 의해 계속 모니터링 한다.
         ...mapState(boardModule, ['board'])
     },
     methods: {
+        // 게시물을 읽기위한 / 지우기 위한 2가지 Actions이 들어있다.
+        // ['requestBoardToSpring', / 'requestDeleteBoardToSpring']
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
         ),
         async onDelete () {
+            // 순서 보장되면 모두 await를 걸어서 사용하는게 좋다.
             await this.requestDeleteBoardToSpring(this.boardId)
             await this.$router.push({ name: 'BoardListPage' })
         }

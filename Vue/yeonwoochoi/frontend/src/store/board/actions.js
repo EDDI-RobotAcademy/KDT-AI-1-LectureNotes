@@ -12,15 +12,25 @@ export default {
                 commit(REQUEST_BOARD_TO_SPRING, res.data)
             })
     },
+    // BoardListPage 외부에서 값을 가져오고, commit 으로 값을 유지한다.
+    // axiosInst 비동기 처리 하고, commit은 동기 처리 한다.
+    // 둘의 차이점 :
+    // 동기 - 순서가 있음 (통신 개념으로 전화를 받아야만 받아진다.)
+    // 비동기 - 순서가 지켜지지 않음 (카톡 개념으로 읽지 않아도 받아진다.)
     requestBoardListToSpring ({ commit }) {
         return axiosInst.get('/jpa-board/list')
+        // axiosInst의 결과는 .then((res) 전달이 된다.
             .then((res) => {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
             })
     },
     requestCreateBoardToSpring ({}, payload) {
+        // payload 여기에 저장이 된다.
         const { title, content, writer } = payload
+        // PostMapping 
         return axiosInst.post('/jpa-board/register', { title, content, writer })
+            // axios에 대한 요청은 res(result) 결과라는 변수에 저장됩니다.
+            // 그러므로 2번째 그림에서 res가 실제 axios 요청을 통해 확보한 결과값에 해당합니다.
             .then((res) => {
                 alert('게시물 등록 성공!')
                 return res

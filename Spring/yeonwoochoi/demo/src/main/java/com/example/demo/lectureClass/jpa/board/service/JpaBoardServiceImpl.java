@@ -20,6 +20,7 @@ public class JpaBoardServiceImpl implements JpaBoardService {
 
     @Override
     public List<JpaBoard> list() {
+        // boardId에 맞춰서 Sort 정렬 정렬해줄때 DESC 내림차순으로 한다.
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardId"));
     }
 
@@ -29,8 +30,11 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     }
 
     @Override
+    // boardId를 가지고 엔티티를 찾는다.
+    // findById를 하면 아이디에 해당하는 엔티티를 찾는다. (JpaBoard에 Id를 말함)
     public JpaBoard read(Long boardId) {
-        Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
+        // Optional은 자바에서 제공하는 get을 할때 값을 얻을 수 있고, 없으면 null이다.
+        Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId); // boardId가 들어간다.
 
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");

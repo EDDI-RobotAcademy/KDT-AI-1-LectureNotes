@@ -160,13 +160,15 @@ const routes = [
   },
   {
     // 멀티 컴포넌트 (읽기 수정)
+    // 기존에 만들었던 컴포넌트는 페이지 보여주는것만
+    // 취소하면 Modify, list 등 보여주니까 
     path: '/board-modify-page/:boardId',
     name: 'BoardModifyPage',
     components: {
-      default: BoardModifyPage
+      default: BoardModifyPage // 멀티페이지 중 대표
     },
-    props: {
-      default: true
+    props: { 
+      default: true // true가 있어야 파라메터가 들어간다. 필수!
     },
   },
 ]
