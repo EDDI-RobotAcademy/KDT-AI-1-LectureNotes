@@ -36,6 +36,8 @@ public class JpaBoardController {
 
     @GetMapping("/{boardId}")
     public JpaBoard readBoard (@PathVariable("boardId") Long boardId) {
+        //@PathVariable로 가변인자처리
+        //그렇지 않으면 게시물 수 만큼 전부 GetMapping코드 만들어야함
         log.info("boardRead()");
 
         return boardService.read(boardId);

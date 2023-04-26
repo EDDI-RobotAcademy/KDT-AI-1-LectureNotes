@@ -21,6 +21,7 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     @Override
     public List<JpaBoard> list() {
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardId"));
+        //boardId로 내림차순 정리하라
     }
 
     @Override
@@ -31,7 +32,8 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     @Override
     public JpaBoard read(Long boardId) {
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
-
+        //Optional은 값이 있을 땐 get, 없으면 null
+        //기본메서드: findById() ()값을 가지고 entity검색
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");
             return null;
@@ -53,13 +55,9 @@ public class JpaBoardServiceImpl implements JpaBoardService {
             log.info("정보가 없습니다!");
             return null;
         }
-
-        JpaBoard board = maybeJpaBoard.get();
-        board.setTitle(requestBoardForm.getTitle());
+        JpaBoard board =maybeJpaBoard.get();
+        board.setTitle(requestBoardForm.getTitle()); //boardId를 바꾸면 안되니까 기존꺼에서 가져옴
         board.setContent(requestBoardForm.getContent());
-
-        return boardRepository.save(board);
+        return boardRepository.save(board); //등록과 수정 모두 save라는 것 명싱
     }
-
-
 }

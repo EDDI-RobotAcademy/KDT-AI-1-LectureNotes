@@ -10,6 +10,7 @@ export default {
         return axiosInst.get(`/jpa-board/${boardId}`)
             .then((res) => {
                 commit(REQUEST_BOARD_TO_SPRING, res.data)
+                //commit이란 state에 값을 넣는작업
             })
     },
     requestBoardListToSpring ({ commit }) {

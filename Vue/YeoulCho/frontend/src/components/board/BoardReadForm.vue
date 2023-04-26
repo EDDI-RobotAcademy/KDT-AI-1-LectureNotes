@@ -38,7 +38,7 @@
 <script>
 export default {
     name: "BoardReadForm",
-    props: {
+    props: { //board가 전달되어서 이 내용들을 보여줌
         board: {
             type: Object,
             required: true,

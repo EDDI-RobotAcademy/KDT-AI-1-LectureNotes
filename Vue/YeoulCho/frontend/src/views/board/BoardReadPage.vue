@@ -25,8 +25,8 @@ export default {
     },
     props: {
         boardId: {
-            type: String,
-            required: true,
+            type: String, //boardListForm에서 routerlink를 통해 보낸 params의 BoardId
+            required: true, //필수로 Property(boardId)가 필요하다면 required true로 선언
         },
     },
     computed: {
@@ -43,6 +43,9 @@ export default {
     },
     created () {
         this.requestBoardToSpring(this.boardId)
+        //vueLifeCycle=>created>mounted>update>destroyed
+        //위에 boardReadFoam의 board가 바인딩되는 때는 마운트가 끝나는 시점이기 때문에
+        //그전에 게시물 정보를 가지고 오는 것
     }
 }
 </script>

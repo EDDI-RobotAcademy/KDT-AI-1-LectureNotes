@@ -70,6 +70,7 @@ export default {
     methods: {
         onSubmit () {
             const { title, content, writer } = this
+            //emit하면 BoardModifyPage.vue의 onSubmit 작동
             this.$emit('submit', { title, content, writer })
         }
     }

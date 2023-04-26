@@ -9,9 +9,10 @@ Vue.use(Vuex)
 
 const BoardModule = {
     namespaced: true,
-    state,
-    actions,
-    mutations,
+    state, //데이터
+    actions, // 비동기를 필요로하는 메소드
+    
+    mutations, //데이터를 변형시키는 메소드
 }
 
 export default BoardModule
