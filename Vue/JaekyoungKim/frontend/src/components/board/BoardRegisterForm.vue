@@ -34,6 +34,7 @@
 
 <script>
 export default {
+    name: "BoardRegisterForm",
     data () {
         return {
             title: '제목을 입력하세요',

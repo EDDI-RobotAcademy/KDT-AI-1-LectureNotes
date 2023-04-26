@@ -1,30 +1,36 @@
 <template lang="">
     <div>
         <h2>게시물 작성</h2>
+        <!-- 디버그 -->
         <board-register-form @submit="onSubmit"/>
-
     </div>
 </template>
+
 <script>
-import BoardRegisterForm from '@/components/board/BoardRegisterForm'
-import BoardModule from '@/store/board/BoardModule';
+import BoardRegisterForm from '@/components/board/BoardRegisterForm.vue'
 import { mapActions } from 'vuex';
-const boardModul='boardMoudle'
+const boardModule = 'boardModule'
 export default {
-    components:{
+    components: {
         BoardRegisterForm,
     },
+    name: "BoardRegisterPage",
     methods: {
         ...mapActions(
-            BoardModule,['requestCreateBoardToSpring']
+            boardModule, ['requestCreateBoardToSpring']
         ),
-        async onSubmit(payload){
-            const board=await this.requestCreateBoardToSpring(payload)
-            console.log('board: '+JSON.stringify(board))
+        async onSubmit (payload) {
+            const board = await this.requestCreateBoardToSpring(payload)
+            console.log('board: ' + JSON.stringify(board))
+            await this.$router.push({
+                name: 'BoardReadPage',
+                params: { boardId: board.data.boardId.toString() }
+            })
         }
-    },
+    }
 }
 </script>
+
 <style lang="">
     
 </style>
