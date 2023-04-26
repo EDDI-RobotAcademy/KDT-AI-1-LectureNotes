@@ -1,5 +1,9 @@
 <template lang="">
     <div>
+        <!-- 
+            게시글 읽기 페이지의 기본 양식입니다.
+            읽기 페이지므로 모든 값은 readonly로 설정합니다.
+        -->
         <table>
             <tr>
                 <td>게시물 번호</td>
@@ -37,6 +41,8 @@
 
 <script>
 export default {
+    // 현재 컴포넌트에서 사용할 props는 board이며 이것은 객체 타입입니다.
+    // 이 컴포넌트를 사용할 때 반드시 board라는 이름으로 props를 전달해주어야 합니다. (required: true)
     name: "BoardReadForm",
     props: {
         board: {

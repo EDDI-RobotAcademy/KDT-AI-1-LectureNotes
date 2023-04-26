@@ -8,6 +8,14 @@
                 <th align="center" width="10%">작성자</th>
                 <th align="center" width="14%">등록일자</th>
             </tr>
+            <!-- 
+                boards(게시글 목록)를 확인합니다.
+                1. !boards : boards 가 없다. (undefined)
+                2. Array.isArray(boards) && boards.length === 0 : boards가 배열이고 그 길이가 0이다.
+                
+                1번이거나 2번이면 "현재 등록된 게시물이 없습니다!"를 출력,
+                아니라면 for문을 돌며 boards를 출력합니다.
+            -->
             <tr v-if="!boards || (Array.isArray(boards) && boards.length === 0)">
                 <td colspan="4">
                     현재 등록된 게시물이 없습니다!
