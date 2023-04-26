@@ -36,9 +36,9 @@ export default {
     name: "BoardRegisterForm",
     data () {
         return {
-            title: '제목을 입력하세요',
-            writer: '누구세요 ?',
-            content: '본문을 입력하세요',
+            title: '제목을 입력하세요', 
+            writer: '누구세요 ?', 
+            content: '본문을 입력하세요', 
         }
     },
     methods: {

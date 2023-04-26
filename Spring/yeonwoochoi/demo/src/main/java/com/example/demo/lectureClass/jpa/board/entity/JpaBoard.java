@@ -21,6 +21,10 @@ import java.util.Date;
 @Getter
 @ToString
 @NoArgsConstructor
+// JpaBoard 게시물을 표현
+// entity 핵심 업무 규칙 (이것 위주로 돌아가기 때문)
+// 필요한 정보
+// 외부 요청은 서버 (컨트롤러가 받는다.)
 public class JpaBoard {
 
     @Id
@@ -30,9 +34,10 @@ public class JpaBoard {
     // 세가지가 실제 사용자가 입력하는 것
     @Setter
     private String title;
+
     private String writer;
 
-    // 수정은 setter가 필요하다.
+    // 수정은 setter가 필요하다.(title / content)
     @Setter
     private String content;
 

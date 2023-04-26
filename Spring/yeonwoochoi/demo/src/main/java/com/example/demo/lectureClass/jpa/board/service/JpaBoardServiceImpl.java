@@ -15,15 +15,19 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class JpaBoardServiceImpl implements JpaBoardService {
+    // RequiredArgsConstructor 통해 boardRepository 자동으로 제어
     final private JpaBoardRepository boardRepository;
+
     @Override
     public List<JpaBoard> list() {
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardId"));
     }
+
     @Override
     public JpaBoard register(JpaBoard jpaBoard) {
         return boardRepository.save(jpaBoard);
     }
+
     @Override
     public JpaBoard read(Long boardId) {
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);

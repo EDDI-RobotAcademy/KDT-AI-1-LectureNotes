@@ -8,11 +8,13 @@
                 <th align="center" width="10%">작성자</th>
                 <th align="center" width="14%">등록일자</th>
             </tr>
+            <!-- 게시물이 없으면 등록된 게시물을 출력 한다. -->
             <tr v-if="!boards || (Array.isArray(boards) && boards.length === 0)">
                 <td colspan="4">
                     현재 등록된 게시물이 없습니다!
                 </td>
             </tr>
+            <!-- 포문을 돌면서 배열을 뽑아낸다. -->
             <tr v-else v-for="board in boards" :key="board.boardId">
                 <td align="center">
                     {{ board.boardId }}
