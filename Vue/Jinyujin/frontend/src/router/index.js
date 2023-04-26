@@ -44,6 +44,7 @@ import MakeCharacter from '@/views/homework/character/MakeCharacter.vue'
 import BoardListPage from '@/views/board/BoardListPage.vue'
 import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/board/BoardReadPage.vue'
+import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
 
 Vue.use(VueRouter)
 
@@ -199,7 +200,17 @@ const routes = [
       default: true
     },
   },
-
+  {
+    // 읽기, 리스트, 수정 다 포함되어야 하는 멀티 컴포넌트
+    path: '/board-modify-page/:boardId',
+    name: 'BoardModifyPage',
+    components: {
+      default: BoardModifyPage
+    },
+    props: {
+      default: true
+    },
+  },
 ]
 
 const router = new VueRouter({

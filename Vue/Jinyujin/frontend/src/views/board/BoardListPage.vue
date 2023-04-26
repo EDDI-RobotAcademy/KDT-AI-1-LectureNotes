@@ -17,6 +17,7 @@ import { mapActions, mapState } from 'vuex';
 import BoardListForm from '@/components/board/BoardListForm.vue'
 
 const boardModule = 'boardModule'
+// 'BoardModule'이라고 하니까 홈페이지에서 작성한 게시물들의 리스트가 뜨지 않는 문제가 나타남
 
 export default {
     // 지금까지 여기서 axios를 해쓴데 원래 그러면 초짜
