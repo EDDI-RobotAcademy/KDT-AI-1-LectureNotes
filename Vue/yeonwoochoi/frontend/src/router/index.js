@@ -28,6 +28,7 @@ import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 import BoardListPage from '@/views/board/BoardListPage.vue'
 import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/board/BoardReadPage.vue'
+import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
 
 Vue.use(VueRouter)
 
@@ -156,7 +157,18 @@ const routes = [
     props: {
       default: true
     },
-  }
+  },
+  {
+    // 멀티 컴포넌트 (읽기 수정)
+    path: '/board-modify-page/:boardId',
+    name: 'BoardModifyPage',
+    components: {
+      default: BoardModifyPage
+    },
+    props: {
+      default: true
+    },
+  },
 ]
 const router = new VueRouter({
   mode: "history",
