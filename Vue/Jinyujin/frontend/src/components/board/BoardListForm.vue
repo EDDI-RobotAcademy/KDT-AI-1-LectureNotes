@@ -14,6 +14,10 @@
                 </td>
             </tr>
             <tr v-else v-for="board in boards" :key="board.boardId">
+                <!-- 
+                    for문 돌면서 boards 배열에 있는 board 하나씩 뽑아와서 
+                    id, title, writer, createDate를 설정하면서 뿌려줌
+                -->
                 <td align="center">
                     {{ board.boardId }}
                 </td>
@@ -41,6 +45,7 @@ export default {
         boards: {
             type: Array
         }
+        // 매개변수 boards를 배열 타입으로
     }
 }
 </script>

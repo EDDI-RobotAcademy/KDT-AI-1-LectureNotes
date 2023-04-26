@@ -71,6 +71,8 @@ export default {
         this.writer = this.board.writer
         this.createDate = this.board.createDate
         // props에 전달한 것을 가져오도록
+        // <board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
+        // props에서 board 받는다고 했으니 스프링에서 받아온 데이터들을 :board를 통해 넣어주는 것
     },
     methods: {
         onSubmit () {

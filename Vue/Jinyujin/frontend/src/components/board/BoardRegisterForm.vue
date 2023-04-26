@@ -1,6 +1,7 @@
 <template lang="">
     <div>
         <form @submit.prevent="onSubmit">
+            <!-- 등록버튼 눌러도 바로 나가지 못하도록 막기 위해 prevent 사용 -->
         <table>
             <tr>
                 <td>제목</td>
@@ -45,8 +46,8 @@ export default {
     methods: {
         onSubmit () {
             const { title, writer, content } = this
-            // BoardRegisterPage의 @submit은 여기의 submit에 대응함
             this.$emit('submit', {title, writer, content})
+            // BoardRegisterPage의 @submit은 여기의 submit에 대응함
             // emit하면서 onSubmit이 동작하게 된다는 것
         }
     },

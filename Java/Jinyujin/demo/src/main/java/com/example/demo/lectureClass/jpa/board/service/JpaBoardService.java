@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface JpaBoardService {
     List<JpaBoard> list();
-    // list의 구현체를 만들어줘야 함 Impl
+    // list의 구현체를 만들어줘야 함 -> JpaBoardServiceImpl
 
     JpaBoard register(JpaBoard jpaBoard);
 

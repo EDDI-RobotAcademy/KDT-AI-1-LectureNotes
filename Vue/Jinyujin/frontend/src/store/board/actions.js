@@ -1,3 +1,5 @@
+// 스프링에 데이터를 요청하는 동작 작성
+
 import {
     REQUEST_BOARD_LIST_TO_SPRING,
     REQUEST_BOARD_TO_SPRING,
@@ -11,17 +13,24 @@ export default {
             })
     },
     requestBoardListToSpring ({ commit }) {
+        // mutations에 만들어져 있는 것은 commit에 의해 동작
         return axiosInst.get('/jpa-board/list')
+        // 데이터를 스프링에 요청
             .then((res) => {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
+                // 스프링에서 받은 데이터를 res에 저장한 후 
+                // commit -> mutations에 등록한 사항이 동작하도록
             })
     },
     requestCreateBoardToSpring ({}, payload) {
         const { title, content, writer } = payload
         return axiosInst.post('/jpa-board/register', { title, content, writer })
+        // post형식으로 title, content, writer를 스프링에 전송
             .then((res) => {
                 alert('게시물 등록 성공!')
                 return res
+                // res를 반환해주는 이유
+                // 등록 onSubmit으로
             })
             .catch(() => {
                 alert('문제 발생!')

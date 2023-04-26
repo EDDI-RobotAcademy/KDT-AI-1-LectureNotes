@@ -6,3 +6,4 @@ const axiosInst = axios.create({
 })
 
 export default axiosInst
+// axiosInst로 도메인이 변경되어도 유연한 대처 가능

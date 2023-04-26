@@ -198,6 +198,8 @@ const routes = [
     },
     props: {
       default: true
+      // props가 꼭 있어야 파라미터가 전달됨
+      // 이거 없으면 전달 안되는 오류 발생
     },
   },
   {
