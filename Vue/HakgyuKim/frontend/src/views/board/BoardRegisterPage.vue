@@ -18,8 +18,10 @@ export default {
     name: "BoardRegisterPage",
     methods: {
         ...mapActions(
+            // 게시물 등록 매서드
             boardModule, ['requestCreateBoardToSpring']
         ),
+        // 게시물 등록 후 작성된 게시물의 readPage로 이동
         async onSubmit (payload) {
             const board = await this.requestCreateBoardToSpring(payload)
             console.log('board: ' + JSON.stringify(board))
