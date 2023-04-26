@@ -19,8 +19,9 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 public class JpaBoard {
-
+    // 기본키 설정
     @Id
+    // 기본 키 생성을 데이터베이스에 위임
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardId;
 
@@ -30,12 +31,14 @@ public class JpaBoard {
     @Setter
     private String content;
 
+
     public JpaBoard(String title, String writer, String content) {
         this.title = title;
         this.writer = writer;
         this.content = content;
     }
 
+    // pattern의 형태를 가진 json형식으로 변환
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
     @CreationTimestamp
     private LocalDateTime createDate;

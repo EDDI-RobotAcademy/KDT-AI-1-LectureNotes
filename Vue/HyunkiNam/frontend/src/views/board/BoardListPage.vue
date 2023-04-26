@@ -2,10 +2,12 @@
     <div>
         <h2>Vue + Spring + JPA 게시판</h2>
         <div style="text-align: left; margin: 15px;">
+            <!-- BoadrdRegisterPage로 이동 -->
             <router-link :to="{ name: 'BoardRegisterPage' }">
                 게시물 작성
             </router-link>
         </div>
+        <!-- BoardListForm Component에 boards 전달 -->
         <board-list-form :boards="boards"/>
     </div>
 </template>

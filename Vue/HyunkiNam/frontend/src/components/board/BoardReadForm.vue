@@ -4,6 +4,7 @@
             <tr>
                 <td>게시물 번호</td>
                 <td>
+                    <!-- 읽기 전용이기에 readonly 작성 -->
                     <input type="text" :value="board.boardId" readonly/>
                 </td>
             </tr>
