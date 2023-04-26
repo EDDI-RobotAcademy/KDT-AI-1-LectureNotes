@@ -11,7 +11,12 @@
       <tr v-if="!boards || (Array.isArray(boards) && boards.length === 0)">
         <td colspan="4">현재 등록된 게시물이 없습니다!</td>
       </tr>
+
       <tr v-else v-for="board in boards" :key="board.boardId">
+        <!-- 
+          boards에 저장된 값이 있으면
+          boardId를 key로 boards의 원소 board를 순회, 출력
+         -->
         <td align="center">
           {{ board.boardId }}
         </td>

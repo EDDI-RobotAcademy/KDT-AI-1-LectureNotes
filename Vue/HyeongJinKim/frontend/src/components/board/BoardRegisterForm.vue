@@ -1,6 +1,10 @@
 <template lang="">
   <div>
     <form @submit.prevent="onSubmit">
+      <!-- 
+        submit에 onSubmit를 맵핑
+        sumbit 이벤트가 페이지를 다시 로드하지 않는다.
+      -->
       <table>
         <tr>
           <td>제목</td>
@@ -25,6 +29,7 @@
       <div>
         <button type="submit">등록</button>
         <router-link :to="{ name: 'BoardListPage' }"> 취소 </router-link>
+        <!-- 취소를 누르면 BoardListPage로 -->
       </div>
     </form>
   </div>
@@ -43,8 +48,10 @@ export default {
   methods: {
     onSubmit() {
       const { title, writer, content } = this;
-      // BoardRegisterPage의 @submit은 여기의 submit에 대응함
       this.$emit("submit", { title, writer, content });
+      // BoardRegisterPage의 @submit은 여기의 submit에 대응함
+      // 작성한 title, writer, content를
+      // submit 이벤트 발생 시 상위 컴포넌트로 보낸다.
     },
   },
 };

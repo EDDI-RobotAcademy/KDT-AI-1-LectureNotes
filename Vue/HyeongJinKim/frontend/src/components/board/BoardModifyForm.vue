@@ -1,6 +1,10 @@
 <template lang="">
   <div>
     <form @submit.prevent="onSubmit">
+      <!-- 
+        submit에 onSubmit를 맵핑
+        새로고침 막기
+     -->
       <table>
         <tr>
           <td>게시물 번호</td>
@@ -36,6 +40,7 @@
 
       <div>
         <button type="submit">수정 완료</button>
+        <!-- submit의 요청에 의해 onSubmit 실행 -->
         <router-link
           :to="{
             name: 'BoardReadPage',
@@ -51,6 +56,7 @@
 <script>
 export default {
   props: {
+    // 수정 전의 값을 받아옴
     board: {
       type: Object,
       required: true,
@@ -69,11 +75,13 @@ export default {
     this.content = this.board.content;
     this.writer = this.board.writer;
     this.createDate = this.board.createDate;
+    // BoardModifyPage에서 받아온 정보로 페이지 생성
   },
   methods: {
     onSubmit() {
       const { title, content, writer } = this;
       this.$emit("submit", { title, content, writer });
+      // 새로 작성한 정보를 submit
     },
   },
 };

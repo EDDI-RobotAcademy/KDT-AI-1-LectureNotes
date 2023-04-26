@@ -8,14 +8,17 @@ export default {
       commit(REQUEST_BOARD_TO_SPRING, res.data);
     });
   },
+  // boardId값의 board를 return
+
   requestBoardListToSpring({ commit }) {
     return axiosInst.get("/jpa-board/list").then((res) => {
       commit(REQUEST_BOARD_LIST_TO_SPRING, res.data);
     });
   },
+  // board가 든 List를 return
+
   requestCreateBoardToSpring({}, payload) {
     const { title, content, writer } = payload;
-
     return axiosInst
       .post("/jpa-board/register", { title, content, writer })
       .then((res) => {
@@ -26,15 +29,20 @@ export default {
         alert("문제 발생!");
       });
   },
+
   requestDeleteBoardToSpring({}, boardId) {
-    return axiosInst
-      .delete(`/jpa-board/${boardId}`)
-      .then((res) => {
-        alert("삭제 성공!");
-      })
-      .catch(() => {
-        alert("문제 발생!");
-      });
+    // Spring으로 boardId값 전달
+    return (
+      axiosInst
+        .delete(`/jpa-board/${boardId}`)
+        // boardId의 값에 따라 달라지는 가변인자
+        .then((res) => {
+          alert("삭제 성공!");
+        })
+        .catch(() => {
+          alert("문제 발생!");
+        })
+    );
   },
   requestBoardModifyToSpring({}, payload) {
     const { title, content, boardId, writer } = payload;
@@ -50,13 +58,18 @@ export default {
         boardId
     );
 
-    return axiosInst
-      .put(`/jpa-board/${boardId}`, { title, content, writer })
-      .then((res) => {
-        alert("수정 성공!");
-      })
-      .catch(() => {
-        alert("문제 발생!");
-      });
+    return (
+      axiosInst
+        .put(`/jpa-board/${boardId}`, { title, content, writer })
+        // backend의 modifyBoard로 값 전달, 주소는 가변인자로
+        // 받아온 title, content, writer값은 RequestBody로 받고
+        // boardId값은 PathVariable를 통해 Long boardId로.
+        .then((res) => {
+          alert("수정 성공!");
+        })
+        .catch(() => {
+          alert("문제 발생!");
+        })
+    );
   },
 };

@@ -10,9 +10,7 @@
               <input type="radio" name="character" />
               {{ index + 1 }} 번 캐릭터 - Character ID: {{ character }}
             </label>
-            <!-- 
-                  radio는 label로 묶은 범위가 클릭 선택 범위
-                 -->
+            <!-- radio는 label로 묶은 범위가 클릭 선택 범위 -->
           </li>
         </table>
       </form>
