@@ -33,6 +33,7 @@ public class JpaBoardController {
         return boardService.register(requestBoardForm.toJpaBoard());
     }
 
+    // 가변인자 처리
     @GetMapping("/{boardId}")
     public JpaBoard readBoard (@PathVariable("boardId") Long boardId) {
         log.info("boardRead()");
@@ -45,5 +46,13 @@ public class JpaBoardController {
         log.info("boardRead()");
 
         boardService.delete(boardId);
+    }
+
+    @PutMapping("/{boardId}")
+    public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
+                                 @RequestBody RequestBoardForm requestBoardForm) {
+        log.info("modifyBoard(): " + requestBoardForm + ", id: " + boardId);
+
+        return boardService.modify(boardId, requestBoardForm);
     }
 }
