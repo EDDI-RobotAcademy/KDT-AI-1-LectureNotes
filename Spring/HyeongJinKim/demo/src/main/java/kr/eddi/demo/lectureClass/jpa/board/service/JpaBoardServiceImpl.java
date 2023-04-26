@@ -31,6 +31,7 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     @Override
     public JpaBoard read(Long boardId) {
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
+        // Optional: 값이 있으면 값을, 없으면 null을 반환
 
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");

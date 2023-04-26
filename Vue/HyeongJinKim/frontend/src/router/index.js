@@ -171,6 +171,8 @@ const routes = [
     props: {
       default: true,
     },
+    // 다중 컴포넌트가 되면 component->components
+    // props:{default:true}가 되어야 데이터가 전달됨
   },
   {
     path: "/board-modify-page/:boardId",
