@@ -6,10 +6,10 @@ import {
 import axiosInst from '@/utility/axiosInst'
 
 export default {
-    requestBoardToSpring ({ commit }, boardId) {
+    requestBoardToSpring ({ commit }, boardId) {          // 이 부분들이 다시 헷갈림
         return axiosInst.get(`/jpa-board/${boardId}`)
             .then((res) => {
-                commit(REQUEST_BOARD_TO_SPRING, res.data)
+                commit(REQUEST_BOARD_TO_SPRING, res.data) // 이 부분들은 이해가 됐으나
             })
     },
     requestBoardListToSpring ({ commit }) {

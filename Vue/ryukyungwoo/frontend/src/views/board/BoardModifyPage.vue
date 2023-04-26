@@ -16,29 +16,29 @@ export default {
     },
     props: {
         boardId: {
-            type: String,
-            required: true,
+            type: String,  // boardId 값의 데이터 타입 명시
+            required: true, // 필수로 전달 받아야 한다는 뜻
         }
     },
     computed: {
-        ...mapState(boardModule, ['board'])
+        ...mapState(boardModule, ['board']) // State에 board를 맵핑
     },
     methods: {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestBoardModifyToSpring']
-        ),
-        async onSubmit (payload) {
-            const { title, content, writer } = payload
-            const boardId = this.boardId
-            await this.requestBoardModifyToSpring({ title, content, writer, boardId })
+        ), // action에 requestBoardToSpring, requestBoardModifyToSpring 실행
+        async onSubmit (payload) { // onSubmit 에 payload 대입
+            const { title, content, writer } = payload // payload의 값
+            const boardId = this.boardId // boardId의 불변객체 화
+            await this.requestBoardModifyToSpring({ title, content, writer, boardId }) 
             await this.$router.push({
-                name: 'BoardReadPage',
-                params: { boardId: this.boardId }
+                name: 'BoardReadPage', // BoardReadPage로 이동
+                params: { boardId: this.boardId } // 파라미터는 받아온 boardId
             })
         }
     },
     created () {
-        this.requestBoardToSpring(this.boardId)
+        this.requestBoardToSpring(this.boardId) // requestBoardToSpring에 받아온 boardId 입력
     }
 }
 </script>
