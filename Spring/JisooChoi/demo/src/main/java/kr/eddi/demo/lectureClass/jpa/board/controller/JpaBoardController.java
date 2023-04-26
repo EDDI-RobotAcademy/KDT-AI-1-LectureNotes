@@ -56,10 +56,11 @@ public class JpaBoardController {
     }
 
     // 아래 코드는 입력되는 숫자에 따라 해당하는 게시판 글을 수정해줌
-    @PutMapping("/{boardId}")
+    @PutMapping("/{boardId}")  // ↓PathVariable 에서 boardId 값을 뽑아온다.
     public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
                                  @RequestBody RequestBoardForm requestBoardForm) {
-                                 // ↑ 아이디 값과 입력 값이 있네 ! 라고 보면 된다.
+                                 // ↑ PathVariable : 아이디 값과
+                                 // ↑ RequestBody : 입력 값이 있네 ! 라고 보면 된다.
         log.info("modifyBoard(): " + requestBoardForm + ", id: " + boardId);
 
         return boardService.modify(boardId, requestBoardForm);

@@ -25,6 +25,7 @@ public class JpaBoardServiceImpl implements JpaBoardService{
     final private JpaBoardRepository boardRepository;
     // ※ boardRepository 를 new 하지 않아도 리텐션 런 타임이 붙어있는 경우가 있기 때문에 사용가능 (질문방 참고하기)
 
+    // 아래 코드는 DB에서 리스트를 불러오는 부분이다.
     @Override
     public List<JpaBoard> list(){
                                // ↓ .findAll ?
@@ -66,9 +67,12 @@ public class JpaBoardServiceImpl implements JpaBoardService{
         }
 
         JpaBoard board = maybeJpaBoard.get();
+
+        // 게시물 수정이니까 기존 boardId를 가져와서 사용
         board.setTitle(requestBoardForm.getTitle());
         board.setContent(requestBoardForm.getContent());
 
+        // 등록과 수정은 save 이다 !
         return boardRepository.save(board);
     }
 }
