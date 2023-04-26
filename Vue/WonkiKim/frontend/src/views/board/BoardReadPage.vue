@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <h2>Vue + Spring + JPA 게시판 읽기</h2>
         <board-read-form v-if="board" :board="board"/>
@@ -30,14 +30,20 @@ export default {
         },
     },
     computed: {
+        //boardModule에서 board를 매핑한다.
+        //...mapState는 map state helper라고 한다.
+        //...은 spread operator: 객체 또는 배열을 나열한다.
         ...mapState(boardModule, ['board'])
     },
     methods: {
         ...mapActions(
+            //boardModule에서 두 액션을 매핑한다.
             boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
         ),
         async onDelete () {
+            //async
             await this.requestDeleteBoardToSpring(this.boardId)
+            //$router.push 로 라우팅 해준다.
             await this.$router.push({ name: 'BoardListPage' })
         }
     },

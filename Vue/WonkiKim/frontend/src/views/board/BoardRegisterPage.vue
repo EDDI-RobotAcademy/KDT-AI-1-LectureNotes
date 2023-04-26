@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <h2>게시물 작성</h2>
         <!-- 디버그 -->
@@ -23,7 +23,9 @@ export default {
         ),
         async onSubmit (payload) {
             const board = await this.requestCreateBoardToSpring(payload)
+            //board를 actions을 통해 가져온다 await(비동기)
             console.log('board: ' + JSON.stringify(board))
+            //JSON.stringify ->JSON 객체를 스트링으로 바꿔준다.
             await this.$router.push({
                 name: 'BoardReadPage',
                 params: { boardId: board.data.boardId.toString() }

@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <h2>Vue + Spring + JPA 게시판</h2>
         <div style="text-align: left; margin: 15px;">
@@ -20,6 +20,7 @@ export default {
     components: { BoardListForm },
     // state 관리자인 vuex에 state값(boards)를 모니터링
     computed: {
+        //computed에 $state.boards를 매핑한다.
         ...mapState(boardModule, ['boards']),
     },
     mounted () {

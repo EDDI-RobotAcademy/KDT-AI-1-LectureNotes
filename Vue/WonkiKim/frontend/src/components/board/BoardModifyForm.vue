@@ -1,5 +1,6 @@
-<template lang="">
+<template>
     <div>
+<!--        타입이 submit인 버튼의 이벤트를 prevent하고 onSubmit를 실행한다-->
         <form @submit.prevent="onSubmit">
             <table>
                 <tr>
@@ -70,6 +71,7 @@ export default {
     methods: {
         onSubmit () {
             const { title, content, writer } = this
+            //{title, content, writer}객체를 submit이라는 이벤트로 부모 컴포넌트에게 emit한다.
             this.$emit('submit', { title, content, writer })
         }
     }

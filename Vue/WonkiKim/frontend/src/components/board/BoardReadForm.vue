@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <table>
             <tr>
@@ -41,6 +41,7 @@ export default {
     props: {
         board: {
             type: Object,
+            // v-bind로 받은 프로퍼티가 반드시 필요한 프로퍼티라면 required를 true로 선언한다.
             required: true,
         }
     }
