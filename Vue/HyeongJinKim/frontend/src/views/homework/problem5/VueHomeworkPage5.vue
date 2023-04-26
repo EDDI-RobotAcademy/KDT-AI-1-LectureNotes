@@ -25,9 +25,9 @@
 
 <script>
 import axios from "axios";
-import SignInComponent from "../components/SignInComponent.vue";
-import SignUpComponent from "../components/SignUpComponent.vue";
-import CharacterComponent from "../components/CharacterComponent.vue";
+import SignInComponent from "../../../views/basics/homework/components/SignInComponent.vue";
+import SignUpComponent from "../../../views/basics/homework/components/SignUpComponent.vue";
+import CharacterComponent from "../../../views/basics/homework/components/CharacterComponent.vue";
 
 export default {
   components: { SignInComponent, SignUpComponent, CharacterComponent },

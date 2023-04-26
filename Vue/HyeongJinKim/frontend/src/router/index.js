@@ -22,12 +22,12 @@ import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.
 
 //
 import VueHomeworkPage from "@/views/basics/homework/VueHomeworkPage.vue";
-import VueHomeworkPage2_1 from "@/views/basics/homework/axios/VueHomeworkPage2_1.vue";
-import VueHomeworkPage2_2 from "@/views/basics/homework/axios/VueHomeworkPage2_2.vue";
-import VueHomeworkPage3 from "@/views/basics/homework/axios/vueHomeworkPage3/VueHomeworkPage3GetMapping.vue";
-import VueHomeworkPage3Copy from "@/views/basics/homework/axios/vueHomeworkPage3/VueHomeworkPage3PostMapping.vue";
-import VueHomeworkPage4 from "@/views/basics/homework/axios/VueHomeworkPage4.vue";
-import VueHomeworkPage5 from "@/views/basics/homework/axios/VueHomeworkPage5.vue";
+import VueHomeworkPage2_1 from "@/components/homework/problem2/VueHomeworkPage2_1.vue";
+import VueHomeworkPage2_2 from "@/components/homework/problem2/VueHomeworkPage2_2.vue";
+import VueHomeworkPage3 from "@/components/homework/problem3/VueHomeworkPage3GetMapping.vue";
+import VueHomeworkPage3Copy from "@/components/homework/problem3/VueHomeworkPage3PostMapping.vue";
+import VueHomeworkPage4 from "@/components/homework/problem4/VueHomeworkPage4.vue";
+import VueHomeworkPage5 from "@/components/homework/problem5/VueHomeworkPage5.vue";
 import VueBasicProbs from "@/views/basics/homework/VueBasicProbs.vue";
 
 import BoardListPage from "@/views/board/BoardListPage.vue";
