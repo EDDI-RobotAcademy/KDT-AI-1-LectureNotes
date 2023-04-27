@@ -13,7 +13,7 @@ export default {
             })
     },
     requestBoardListToSpring ({ commit }) {
-        return axiosInst.get('/jpa-board/list')
+        axiosInst.get('/jpa-board/list')
             .then((res) => {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
             })
