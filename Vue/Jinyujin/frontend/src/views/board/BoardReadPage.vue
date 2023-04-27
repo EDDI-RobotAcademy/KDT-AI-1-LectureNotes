@@ -2,7 +2,9 @@
     <div>
         <h2>Vue + Spring + JPA 게시판 읽기</h2>
         <board-read-form v-if="board" :board="board"/>
-        <!-- board라면  -->
+        <!-- 
+            mapState를 해서 board를 사용할 수 있는 것 
+        -->
         <p v-else>로딩중 ......</p>
         <router-link :to="{ name: 'BoardModifyPage', params: { boardId }}">
             게시물 수정

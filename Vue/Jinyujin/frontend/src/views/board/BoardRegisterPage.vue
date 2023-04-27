@@ -24,7 +24,7 @@ export default {
         async onSubmit (payload) {
             // emit으로 이거 동작
             const board = await this.requestCreateBoardToSpring(payload)
-            // requestCreateBoardToSpring에서 반환한 res를 board로 전환
+            // requestCreateBoardToSpring에서 반환한 res를 board로 저장
 
             console.log('board: ' + JSON.stringify(board))
             await this.$router.push({

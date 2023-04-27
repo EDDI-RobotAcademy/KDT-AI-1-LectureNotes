@@ -46,6 +46,7 @@ public class JpaBoard {
     @Setter
     private String content;
     // 결국 위 3개가 사용자가 관리하는 주 목적
+    // setter는 딱 필요한 애들한테만 설정
 
     public JpaBoard(String title, String writer, String content) {
         this.title = title;

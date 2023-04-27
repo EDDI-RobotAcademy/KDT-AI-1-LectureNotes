@@ -8,6 +8,7 @@
                         나머지는 disabled 처리해서 건들지 못하도록
                     -->
                     <td>게시물 번호</td>
+                    <!-- 고유값은 특히나 바꿀 수 없도록 -->
                     <td>
                         <input type="text" :value="board.boardId" disabled/>
                     </td>

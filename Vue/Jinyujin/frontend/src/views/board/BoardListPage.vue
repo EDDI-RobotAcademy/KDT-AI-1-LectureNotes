@@ -36,7 +36,7 @@ export default {
         // 새로운 정보를 받을 때마다 boards에 전달되도록 하는 것이 computed
         ...mapState(boardModule, ['boards']),
         // boardModule에서 관리하고 있는 state를 맵핑하여
-        // 받아온 정보를 boards에 전달하도록 함
+        // 스프링에서 받아온 정보를 boards에 전달하도록 함
     },
     mounted () {
         // vuex의 action 호출

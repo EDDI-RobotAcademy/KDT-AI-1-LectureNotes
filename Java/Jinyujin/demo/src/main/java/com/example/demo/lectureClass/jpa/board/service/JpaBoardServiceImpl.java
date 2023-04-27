@@ -34,6 +34,7 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     public JpaBoard read(Long boardId) {
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
         // findById: 엔티티의 아이디에 해당하는 것을 찾음
+        // 고유값을 기반으로 정보를 검색해 주세요
         // 즉 JpaBoard에 선언되어 있는 boardId를 찾는 것 - 그래서 boardId는 꼭 유니크해야 함
         // 같은 상품이라고 하더라도 제조사나 가격이 다르다고 하면 아이디 값이 달라야 한다
 
@@ -73,9 +74,12 @@ public class JpaBoardServiceImpl implements JpaBoardService {
         JpaBoard board = maybeJpaBoard.get();
         // get(): Optional 내부에 담긴 객체를 반환
         board.setTitle(requestBoardForm.getTitle());
+        // 객체를 생성하지 않고 setter를 사용하는 이유
+        // 고유값이 바뀌어버리니까
         board.setContent(requestBoardForm.getContent());
 
         return boardRepository.save(board);
         // save, deleteById 등 이런것들은 다 repository 때문에 사용 가능한 것
+
     }
 }
