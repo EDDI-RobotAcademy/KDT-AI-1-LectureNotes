@@ -1,6 +1,7 @@
 <template lang="">
     <div>
         <h2>게시물 수정</h2>
+        <!-- board값을 가지고 있다면 LocalComponent 실행 -->
         <board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
         <p v-else>로딩중 .......</p>
     </div>
@@ -9,7 +10,10 @@
 <script>
 import BoardModifyForm from '@/components/board/BoardModifyForm.vue'
 import { mapActions, mapState } from 'vuex';
+
+// BoardModule 연결
 const boardModule = 'boardModule'
+
 export default {
     components: {
         BoardModifyForm,
@@ -27,6 +31,8 @@ export default {
     methods: {
         // mapActions을 이용하여 requestBoardToSpring, requestBoardModifyToSpring을 선언
         // actions는 비동기적인 로직을 처리하고 mutations를 호출하여 state를 변경한다.
+        // requestBoardToSpring: 읽는 것
+        // requestBoardModifyToSpring: 변경내역
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestBoardModifyToSpring']
         ),

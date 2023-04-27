@@ -70,6 +70,9 @@ export default {
     methods: {
         onSubmit () {
             const { title, content, writer } = this
+            // 불변객체를 emit해서 submit이벤트를 발생시킴
+            // 그러면 onSubmit 이 동작
+            // 전달된 불변객체가 payload로감
             this.$emit('submit', { title, content, writer })
         }
     }
