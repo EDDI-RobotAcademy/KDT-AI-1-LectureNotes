@@ -34,10 +34,15 @@ import ProblemPage1 from '@/views/homeworkSolve/problem1/ProblemPage.vue'
 import Problem2Page from '@/views/homeworkSolve/problem2/Problem2Page.vue'
 import Problem3Page from '@/views/homeworkSolve/problem3/Problem3Page.vue'
 
+// 게시판 페이지
 import BoardListPage from '@/views/board/BoardListPage.vue'
 import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/board/BoardReadPage.vue'
 import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
+
+// 상품 페이지
+import ProductListPage from '@/views/product/ProductListPage.vue'
+import ProductRegisterPage from '@/views/product/ProductRegisterPage.vue'
 
 Vue.use(VueRouter)
 
@@ -189,7 +194,17 @@ const routes = [
     props: {
       default: true
     },
-  }
+  },
+  {
+    path: '/product-list-page',
+    name: 'ProductListPage',
+    component: ProductListPage
+  },
+  {
+    path: '/product-register-page',
+    name: 'ProductRegisterPage',
+    component: ProductRegisterPage
+  },
 ]
 
 const router = new VueRouter({
