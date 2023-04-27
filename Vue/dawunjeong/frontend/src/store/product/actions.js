@@ -6,9 +6,9 @@ import axiosInst from '@/utility/axiosInst'
 
 export default {
     requestRegisterProductToSpring ({}, payload) {
-        const { name, details, price, file } = payload
+        const { name, details, price} = payload
 
-        return axiosInst.post('/jpa-product/register', { name, details, price, file })
+        return axiosInst.post('/jpa-product/register', { name, details, price})
             .then((res) => {
                 alert('상품 등록 성공!')
                 return res
