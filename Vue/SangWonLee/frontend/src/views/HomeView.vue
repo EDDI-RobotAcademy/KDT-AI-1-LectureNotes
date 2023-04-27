@@ -37,6 +37,7 @@
         <router-link to="/problem-bank-3">문제 은행 3번 (backlog 작성 하면서 해보기)</router-link> |
         <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
         <router-link to="/demo-component">demoComponent TEST</router-link> |
+        <router-link to="/register-button">등록버튼 테스트</router-link> |
 
       </nav>
     </div>

@@ -9,6 +9,7 @@
 <script>
 import BoardRegisterForm from '@/components/board/BoardRegisterForm.vue'
 import { mapActions } from 'vuex';
+
 const boardModule = 'boardModule'
 export default {
     components: {

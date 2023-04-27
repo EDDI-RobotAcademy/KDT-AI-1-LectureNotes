@@ -1,6 +1,15 @@
 <template lang="">
     <div>
         <form @submit.prevent="onSubmit">
+<!-- 
+@submit.prevent는 submit 이벤트가 발생했을 때 기본 동작을 막고(prevent) onSubmit 메서드를
+호출 하는 이벤트 리스너를 추가하는 것을 의미한다. 즉, form 태그 안에서 submit 이벤트가 발생하면
+브라우저의 기본 동작이 막혀서 페이지가 새로고침이 되지 않고, 대신 onSubmit 메서드가 호출된다.
+
+이러한 행위를 하는 이유는 폼 데이터를 전송하면 페이지가 새로고침 되는데, 이를 막기 위함이다.
+이렇게 하면 페이지가 새로고침 되지 않고도 폼 데이터를 서버로 전송할 수 있음.
+
+-->            
             <table>
                 <tr>
                     <td>제목</td>

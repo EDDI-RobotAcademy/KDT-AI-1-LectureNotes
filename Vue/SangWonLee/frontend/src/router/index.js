@@ -30,6 +30,7 @@ import BoardRegisterPage from "@/views/board/BoardRegisterPage.vue";
 import BoardReadPage from "@/views/board/BoardReadPage.vue";
 import DemoComponentPage from "@/views/basics/DemoComponent.vue";
 import BoardModifyPage from "@/views/board/BoardModifyPage.vue";
+import RegisterButtonPage from "@/views/RegisterButtonPage.vue";
 
 Vue.use(VueRouter);
 
@@ -194,6 +195,11 @@ const routes = [
     path: "/demo-component",
     name: "demoComponentPage",
     component: DemoComponentPage,
+  },
+  {
+    path: "/register-button",
+    name: "RegisterButtonPage",
+    component: RegisterButtonPage,
   },
 ];
 
