@@ -13,10 +13,10 @@ import axios from "axios";
 export default {
   data() {
     return {
-      myAccountId: 0,
       userEmail: "",
       userPw: "",
       myEmail: "",
+      myAccountId: 0,
     };
   },
   methods: {
@@ -29,7 +29,7 @@ export default {
             this.myEmail = res.data.userEmailInfo;
             this.myAccountId = res.data.userIdInfo;
             localStorage.setItem("signInUserInfo", res.data.userIdInfo);
-            this.$emit("setAccountPhase");
+            this.$emit("setAccountPhase", this.myEmail, this.myAccountId);
           } else if (!res.data.isCurrentInfo) {
             alert("이메일 또는 비밀번호를 확인해주세요.");
           }
@@ -37,11 +37,6 @@ export default {
         .catch((res) => {
           alert("이메일 또는 비밀번호를 확인해주세요.");
         });
-    },
-    charDetails() {
-      this.createCharState
-        ? (this.createCharState = false)
-        : (this.createCharState = true);
     },
   },
   // mounted() {

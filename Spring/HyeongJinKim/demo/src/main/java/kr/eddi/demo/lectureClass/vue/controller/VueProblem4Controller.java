@@ -93,12 +93,13 @@ public class VueProblem4Controller {
         log.info("multiIdMap: " + multiIdMap);
         log.info("logInAccountId: " + logInAccountId);
         log.info("value: " + multiIdMap.get(logInAccountId));
+        List<Integer> characterList = multiIdMap.get(logInAccountId);
         return multiIdMap.get(logInAccountId);
     }
 
-    @GetMapping("/get-character-info")
-    public Character getCharacterStatus () {
+    @PostMapping("/get-character-info")
+    public List<Character> getCharacterStatus (@RequestBody CharacterListForm characterListForm) {
         log.info("getCharacterStatus()");
-        return characterStatusList.get(0);
+        return characterStatusList;
     }
 }

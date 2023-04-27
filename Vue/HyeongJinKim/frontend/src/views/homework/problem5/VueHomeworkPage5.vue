@@ -13,29 +13,49 @@
       <div v-if="accountPhase">
         <v-btn color="primary" @click="chooseSignIn">로그인</v-btn>
         <v-btn color="primary" @click="chooseSignUp">회원가입</v-btn>
+        <!-- 분리하지 않는 편이 좋은 것 같다 -->
+
         <sign-in-component v-if="signInState" @setAccountPhase="changeAccountPhase" />
         <sign-up-component v-if="signUpState" @changeState="changeState" />
       </div>
+      <!-- 
+        로그인에 성공하면 accountPhase에 false를 대입
+        로그인 상태에서는 로그인, 회원가입을 띄우지 않게
+       -->
+
       <div v-else>
-        <character-component />
+        <account-info-component :myEmail="myEmail" :myAccountId="myAccountId" />
+        <character-info-component />
+        <create-character-component />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
 import SignInComponent from "@/components/homework/problem5/SignInComponent.vue";
 import SignUpComponent from "@/components/homework/problem5/SignUpComponent.vue";
-import CharacterComponent from "@/components/homework/problem5/CharacterComponent.vue";
+import AccountInfoComponent from "@/components/homework/problem5/AccountInfoComponent.vue";
+import CreateCharacterComponent from "@/components/homework/problem5/CreateCharacterComponent.vue";
+import CharacterInfoComponent from "@/components/homework/problem5/CharacterInfoComponent.vue";
 
 export default {
-  components: { SignInComponent, SignUpComponent, CharacterComponent },
+  components: {
+    SignInComponent,
+    SignUpComponent,
+    AccountInfoComponent,
+    CreateCharacterComponent,
+    CharacterInfoComponent,
+  },
   data() {
     return {
       signInState: false,
       signUpState: false,
+      showCharInfo: false,
+
       accountPhase: true,
+      myEmail: "",
+      myAccountId: 0,
     };
   },
   methods: {
@@ -54,9 +74,16 @@ export default {
       this.signInState = true;
     },
 
-    changeAccountPhase() {
+    changeAccountPhase(receivedEmail, receivedAccountId) {
       this.accountPhase = false;
+      this.myEmail = receivedEmail;
+      this.myAccountId = receivedAccountId;
     },
+
+    // async createCharAndGetCharList() {
+    //   await this.createChar();
+    //   await this.getCharList();
+    // },
   },
 };
 </script>
