@@ -56,6 +56,8 @@ export default {
                     ", writer: " + writer + ", boardId: " + boardId)
 
     // 가변인자
+    // 실제 수정한  title, content를 전달
+    // writer는 필요없지만 전달한 이유는 form이 정해져 있어서 작성함
     return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
         .then((res) => {
            alert("수정 성공!")

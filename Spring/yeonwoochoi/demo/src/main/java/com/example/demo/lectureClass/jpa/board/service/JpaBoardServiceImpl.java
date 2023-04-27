@@ -48,19 +48,24 @@ public class JpaBoardServiceImpl implements JpaBoardService {
         boardRepository.deleteById(boardId);
     }
 
+    // Optional 맞을수도 있고, 아닐수도 있다.
+    // modify 먼저 읽어온다. (읽기랑 비슷함)
     @Override
     public JpaBoard modify(Long boardId, RequestBoardForm requestBoardForm) {
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
 
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");
+            // 없으면 null
             return null;
         }
 
+        // setTitle 생성자를 호출하게 되면 고유값이 바뀐다. (boardId -> 바뀌면 안되는 고유 값)
         JpaBoard board = maybeJpaBoard.get();
         board.setTitle(requestBoardForm.getTitle());
         board.setContent(requestBoardForm.getContent());
 
+        // 수정한 작업을 저장하고, 갱신 한다.
         return boardRepository.save(board);
     }
 }

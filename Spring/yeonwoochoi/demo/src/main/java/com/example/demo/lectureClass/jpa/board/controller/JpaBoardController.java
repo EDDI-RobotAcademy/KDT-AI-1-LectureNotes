@@ -61,8 +61,9 @@ public class JpaBoardController {
     }
 
     // 수정
-    // Id값을 읽고
-    // 무언가를 줌
+    // Id값을 읽고 무언가를 줌
+    // @PathVariable 가변인자 (1 ~ 100까지 수정하기 힘들어서 입력값이 수정될 수 있도록 사용한다.)
+    // PathVariable를 통하여 boardId 값을 전달한다.
     @PutMapping("/{boardId}")
     public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
                                  @RequestBody RequestBoardForm requestBoardForm) {

@@ -5,6 +5,7 @@
         <board-register-form @submit="onSubmit"/> 
     </div>
 </template>
+
 <script>
 import BoardRegisterForm from '@/components/board/BoardRegisterForm.vue'
 import { mapActions } from 'vuex';
@@ -13,7 +14,7 @@ export default {
     components: {
         BoardRegisterForm,
     },
-    name: "BoardRegisterPage",
+    name: "BoardRegisterPage", 
     methods: {
         ...mapActions(
             boardModule, ['requestCreateBoardToSpring']
@@ -27,7 +28,7 @@ export default {
          
             // $router.push 작업으로 인하여 등록을 누르면 해당 페이지로 바로 이동 한다.
             await this.$router.push({
-                // BoardReadPage를 자동으로 읽게 된다.
+                // BoardReadPage를 자동으로 읽기 전용이 된다.
                 name: 'BoardReadPage',
                 params: { boardId: board.data.boardId.toString() }
             })
@@ -35,6 +36,7 @@ export default {
     }
 }
 </script>
+
 <style lang="">
     
 </style>

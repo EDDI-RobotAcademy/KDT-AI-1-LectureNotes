@@ -6,9 +6,7 @@
         <board-read-form v-if="board" :board="board"/>
         <p v-else>로딩중 .......</p>
         <router-link :to="{ name: 'BoardModifyPage', params: { boardId }}">
-        <router-link :to="{ name: 'BoardModifyPage', params: { boardId }}">
             게시물 수정
-        </router-link>
         </router-link>
         <button @click="onDelete">삭제</button>
         <!-- 돌아가기 하면 BoardListPage로 간다. -->
@@ -17,6 +15,7 @@
         </router-link>
     </div>
 </template>
+
 <script>
 import BoardReadForm from '@/components/board/BoardReadForm.vue'
 import { mapActions, mapState } from 'vuex';
@@ -36,7 +35,7 @@ export default {
         ...mapState(boardModule, ['board'])
     },
     methods: {
-        // 게시물을 읽기위한 / 지우기 위한 2가지 Actions이 들어있다.
+        // 게시물을 읽기 위한 / 지우기 위한 2가지 Actions이 들어있다.
         // ['requestBoardToSpring', / 'requestDeleteBoardToSpring']
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
@@ -52,6 +51,7 @@ export default {
     }
 }
 </script>
+
 <style lang="">
     
 </style>

@@ -15,4 +15,5 @@ const BoardModule = {
     mutations,
 }
 
+// export 밖에서 사용 가능하게 보내줌
 export default BoardModule
