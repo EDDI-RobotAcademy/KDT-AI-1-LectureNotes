@@ -24,11 +24,11 @@ public class JpaBoard {
     private Long boardId;  // 게시물 번호
 
     @Setter // 수정 가능하다
-    private String title;   // 제목
-    private String writer;  // 작성자
+    private String title;   // 게시물 제목
+    private String writer;  // 게시물 작성자
 
     @Setter
-    private String content;  // 내용
+    private String content;  // 게시물 내용
 
     public JpaBoard(String title, String writer, String content) {
         this.title = title;

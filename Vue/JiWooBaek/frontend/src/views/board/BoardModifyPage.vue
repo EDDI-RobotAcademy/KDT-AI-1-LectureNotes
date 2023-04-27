@@ -29,7 +29,7 @@ export default {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestBoardModifyToSpring']
         ),
-        async onSubmit (payload) {  // payload:  전달된 불변객체, submit을 통해 데이터 전달
+        async onSubmit (payload) {  // payload:  전달된 불변객체, submit을 통해 데이터 전달한다
             const { title, content, writer } = payload
             const boardId = this.boardId
 

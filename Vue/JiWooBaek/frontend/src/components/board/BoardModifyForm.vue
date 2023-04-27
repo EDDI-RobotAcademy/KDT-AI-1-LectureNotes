@@ -1,11 +1,11 @@
 <template lang="">
     <div>
-        <form @submit.prevent="onSubmit"> // submit이 동작되지 않기 위해 prevent 사용
+        <form @submit.prevent="onSubmit"> // submit이 동작되지 않기 위해 prevent를 사용한다
             <table>
                 <tr>
                     <td>게시물 번호</td>
                     <td>
-                        <input type="text" :value="board.boardId" disabled/> // value="board.boardId" -> 고유값 disabled: 막혀있음
+                        <input type="text" :value="board.boardId" disabled/> // value="board.boardId" -> 고유값 disabled: 막혀있다는 뜻
                     </td>
                 </tr>
                 <tr>

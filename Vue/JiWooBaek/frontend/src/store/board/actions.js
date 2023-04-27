@@ -42,7 +42,7 @@ export default {
             })
     },
     requestBoardModifyToSpring ({}, payload) {
-        const { title, content, boardId, writer } = payload   // const = final 불변객체
+        const { title, content, boardId, writer } = payload   // const = final 불변객체 (최종)
 
         console.log("title: " + title + ", content: " + content + 
                     ", writer: " + writer + ", boardId: " + boardId)

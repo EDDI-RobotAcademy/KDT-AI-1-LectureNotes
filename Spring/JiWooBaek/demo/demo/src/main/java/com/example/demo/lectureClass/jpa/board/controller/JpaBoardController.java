@@ -12,12 +12,12 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/jpa-board") // 전역으로 URL 걸어두는 것
+@RequestMapping("/jpa-board") // 전역으로 URL을 걸어두는 것
 public class JpaBoardController {
 
     final private JpaBoardService boardService;
 
-    @GetMapping("/list")  // 그냥 URL에 입력하는 것 (노출됨)
+    @GetMapping("/list")  // 그냥 URL(웹 브라우저)에 입력하는 것 (노출됨)
     public List<JpaBoard> boardList () {
         log.info("boardList()");
 

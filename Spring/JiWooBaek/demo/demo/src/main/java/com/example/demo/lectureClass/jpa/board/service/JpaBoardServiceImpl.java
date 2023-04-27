@@ -57,7 +57,7 @@ public class JpaBoardServiceImpl implements JpaBoardService{
         }
 
         JpaBoard board = maybeJpaBoard.get();
-        board.setTitle(requestBoardForm.getTitle());  //  수정에 한해서 setter 사용됨
+        board.setTitle(requestBoardForm.getTitle());  //  수정에 한해서 setter이 사용된다
         board.setContent(requestBoardForm.getContent());
 
         return boardRepository.save(board);  // 수정한 정보를 저장 (갱신 완료)
