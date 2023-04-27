@@ -2,8 +2,7 @@
   <div>
     <h2>게시물 작성</h2>
     <!--
-      board-register-form 컴포넌트에서 submit 클릭 이벤트가 발생되면
-      onSubmit을 실행한다.
+      하위 컴포넌트에서 submit 클릭 이벤트가 발생되면 상위 컴포넌트(이곳)onSubmit을 실행한다.
     -->
     <board-register-form @submit="onSubmit" />
   </div>
@@ -22,16 +21,28 @@ export default {
   name: "BoardRegisterPage",
   methods: {
     ...mapActions(boardModule, ["requestCreateBoardToSpring"]),
-    // ↓아래 payload에는 BoardRegisterForm에서 메소드 부분의 이벤트 값이 전달된다.
+    /*
+      payload에는 하위 컴포넌트 인 BoardRegisterForm에서 발생한 이벤트 값이 전달된다.
+    */
     async onSubmit(payload) {
-      // 아래 board 는 백엔드에서 전달받은 JpaBoard가 된다.
-      const board = await this.requestCreateBoardToSpring(payload); // ←이 친구가 action 동작이 되게 해주는 얘다.
+      /*
+        여기서 board는 지역변수일 뿐이고, 우리가 받아온 결과 값은 현재 엔터티 타입인데
+        javascript에서는 이를 Object 타입으로 받아오고 있다.
+
+        그렇기에 아래 console에 typeof(board)를 찍어서 타입을 확인해 볼 수 있는 것이다.
+
+        또한 사실상 this.requestCreateBoardToSpring(payload)가 action 동작이 되게 해주는 코드이다.
+      */
+      const board = await this.requestCreateBoardToSpring(payload);
       console.log("board: " + JSON.stringify(board));
-      // 게시물을 눌러서 읽기를 누르면 주소 창이 boardId로 바뀌는 것을 확인할 수 있다.
-      // 아래 코드로 인해 그렇게 작동하는 것이다.
+      console.log("typeof(board): "+ typeof(board));
+
+      /* 읽기 동작 */
       await this.$router.push({
-        // $는 vue에서 전역 객체 속성이다.
-        // private하게 사용하는 게 아닌 public하게 사용하는 속성을 말한다.
+        /*
+          $는 vue에서 전역 객체 속성이다.
+          private하게 사용하는 게 아닌 public하게 사용하는 속성을 말한다.
+        */
         name: "BoardReadPage",
         params: { boardId: board.data.boardId.toString() },
       });

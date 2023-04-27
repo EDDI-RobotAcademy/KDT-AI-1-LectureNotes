@@ -37,12 +37,13 @@ public class JpaBoardServiceImpl implements JpaBoardService{
     @Override
     public JpaBoard register(JpaBoard jpaBoard) {
         return boardRepository.save(jpaBoard);
+        // save 는 repository 클래스에 존재하고 있다.
     }
 
     @Override
     public JpaBoard read(Long boardId) {                    // ↓findById는 id에 맞춰서 엔티티를 찾아준다/검색한다.
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
-        // ↑Optional 은 값이 있을 때 구해주고, 없으면 null 이다.
+        // ↑Optional 은 값이 있을 때 구해주고, 없으면 null 이다. (빌 수도 있고, 아닐 수도 있다.)
 
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");
@@ -59,16 +60,18 @@ public class JpaBoardServiceImpl implements JpaBoardService{
 
     @Override
     public JpaBoard modify(Long boardId, RequestBoardForm requestBoardForm) {
+        // --> 읽기 처리 부분 여기부터
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
-
+        // ↑Optional 은 값이 있을 때 구해주고, 없으면 null 이다. (빈 수도 있고, 아닐 수도 있다.)
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");
             return null;
         }
+        // --> 읽기 처리 부분 여기까지
 
+        // 수정 부분
         JpaBoard board = maybeJpaBoard.get();
-
-        // 게시물 수정이니까 기존 boardId를 가져와서 사용
+        // 게시물 수정이니까 기존 boardId를 가져와서 사용 (Setter)
         board.setTitle(requestBoardForm.getTitle());
         board.setContent(requestBoardForm.getContent());
 

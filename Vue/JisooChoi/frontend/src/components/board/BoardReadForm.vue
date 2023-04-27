@@ -1,9 +1,13 @@
 <template lang="">
     <div>
         <table>
+            <!--
+                읽기 형식만 가능하고 수정이 불가능해야 하므로
+                readonly가 붙어 있다.
+            -->
             <tr>
                 <td>게시물 번호</td>
-                <td>                <!-- 수정이 불가능하게 readonly가 붙어 있다. -->
+                <td>
                     <input type="text" :value="board.boardId" readonly/>
                 </td>
             </tr>

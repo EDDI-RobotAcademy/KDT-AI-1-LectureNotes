@@ -5,9 +5,16 @@
         <tr>
           <td>게시물 번호</td>
           <td>
+            <!-- 
+              게시물 고유 번호와 작성자는 바꿔선 안된다.
+            -->
             <input type="text" :value="board.boardId" disabled />
           </td>
         </tr>
+        <!--
+          v-model 과 v-bind 차이 ?
+          제목은 양방향 통신을 위해서 v-model로 했다.
+        -->
         <tr>
           <td>제목</td>
           <td>
@@ -35,6 +42,10 @@
       </table>
 
       <div>
+        <!--
+          위의 submit을 막기 위해 위에서 prevent를 설정해 두었다.
+          여기서 버튼을 눌러야 작동한다.
+        -->
         <button type="submit">수정 완료</button>
         <router-link
           :to="{
@@ -75,13 +86,16 @@ export default {
   methods: {
     onSubmit() {
       const { title, content, writer } = this;
-          // ↓emit하면 BoardModifyPage.vue의 onSubmit 작동이 작동된다.
       this.$emit("submit", { title, content, writer });
-      // vue에서 $는 전역 객체 속성을 말한다.
-      // private하게 사용하는 게 아닌 public 하게 사용하는 속성이다.
+      /*
+        $emit하면 상위 컴포넌트의 onSubmit이 작동된다.
 
-      // 하위 컴포넌트에서 상위 컴포넌트로 이벤트를 전달하는 경우
-      // 이벤트 발생은 $emit('이벤트명') 속성을 사용하여 구현합니다.
+        vue에서 $는 전역 객체 속성을 말한다.
+        private하게 사용하는 게 아닌 public 하게 사용하는 속성이다.
+
+        하위 컴포넌트에서 상위 컴포넌트로 이벤트를 전달하는 경우
+        이벤트 발생은 $emit('이벤트명') 속성을 사용하여 구현합니다.
+      */
     },
   },
 };

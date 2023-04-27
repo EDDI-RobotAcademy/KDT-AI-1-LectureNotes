@@ -15,9 +15,8 @@ import java.util.List;
 @RequestMapping("/jpa-board")
 public class JpaBoardController {
 
-    // ★ JpaBoardService 에 게시판에서 제공하는 모든 서비스가 존재한다.
+    // JpaBoardService 에 게시판에서 제공하는 모든 서비스가 존재한다.
     // 게시글 리스트, 게시글 등록, 게시글 읽기, 게시글 삭제
-    // [] 아직 이 존재에 대해 이해 못함
     final private JpaBoardService boardService;
 
     // list 는 게시판에 올라와 있는 게시글을 보여줌
@@ -40,7 +39,7 @@ public class JpaBoardController {
     }
 
     // 아래 코드는 입력되는 숫자에 따라 해당하는 게시판 글을 보여줌 (가변인자 처리가 들어가 있음)
-    @GetMapping("/{boardId}") // ↓PathVariable 에서 boardId 값을 뽑아온다.
+    @GetMapping("/{boardId}") // ↓PathVariable 에서 boardId 값을 뽑아온다. (가변이기 때문에 PathVariable 로 받아온 것)
     public JpaBoard readBoard (@PathVariable("boardId") Long boardId) {
         log.info("boardRead()");
 
@@ -56,7 +55,7 @@ public class JpaBoardController {
     }
 
     // 아래 코드는 입력되는 숫자에 따라 해당하는 게시판 글을 수정해줌
-    @PutMapping("/{boardId}")  // ↓PathVariable 에서 boardId 값을 뽑아온다.
+    @PutMapping("/{boardId}")  // ↓PathVariable 에서 boardId 값을 뽑아온다. (가변이기 때문에 PathVariable 로 받아온 것)
     public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
                                  @RequestBody RequestBoardForm requestBoardForm) {
                                  // ↑ PathVariable : 아이디 값과
