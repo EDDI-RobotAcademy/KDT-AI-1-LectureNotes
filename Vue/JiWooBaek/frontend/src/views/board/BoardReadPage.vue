@@ -2,19 +2,20 @@
     <div>
         <h2>Vue + Spring + JPA 게시판 읽기</h2>
         <board-read-form v-if="board" :board="board"/>
-        <p v-else>로딩중 ........</p>
+        <p v-else>로딩중 .......</p>
         <router-link :to="{ name: 'BoardModifyPage', params: { boardId }}">
             게시물 수정
-        </router-link> 
+        </router-link>
         <button @click="onDelete">삭제</button>
         <router-link :to="{ name: 'BoardListPage' }">
             돌아가기
         </router-link>
     </div>
 </template>
+
 <script>
 import BoardReadForm from '@/components/board/BoardReadForm.vue'
-import {mapActions, mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 const boardModule = 'boardModule'
 
@@ -35,7 +36,7 @@ export default {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
         ),
-         async onDelete () {
+        async onDelete () {
             await this.requestDeleteBoardToSpring(this.boardId)
             await this.$router.push({ name: 'BoardListPage' })
         }
@@ -47,5 +48,5 @@ export default {
 }
 </script>
 <style lang="">
-
+    
 </style>

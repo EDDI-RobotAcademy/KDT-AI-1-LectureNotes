@@ -2,7 +2,7 @@
     <div>
         <h2>게시물 수정</h2>
         <board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
-        <p v-else>로딩중 ......</p>
+        <p v-else>로딩중 .......</p>
     </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestBoardModifyToSpring']
         ),
-        async onSubmit (payload) {
+        async onSubmit (payload) {  // payload:  전달된 불변객체, submit을 통해 데이터 전달
             const { title, content, writer } = payload
             const boardId = this.boardId
 
@@ -47,5 +47,5 @@ export default {
 </script>
 
 <style lang="">
-
+    
 </style>

@@ -9,11 +9,11 @@ export default {
     requestBoardToSpring ({ commit }, boardId) {
         return axiosInst.get(`/jpa-board/${boardId}`)
             .then((res) => {
-                commit(REQUEST_BOARD_TO_SPRING, res.data)
+                commit(REQUEST_BOARD_TO_SPRING, res.data) 
             })
     },
     requestBoardListToSpring ({ commit }) {
-         return axiosInst.get('/jpa-board/list')
+        return axiosInst.get('/jpa-board/list')
             .then((res) => {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
             })
@@ -42,12 +42,12 @@ export default {
             })
     },
     requestBoardModifyToSpring ({}, payload) {
-        const { title, content, boardId, writer } = payload
+        const { title, content, boardId, writer } = payload   // const = final 불변객체
 
-        console.log("title: " + title + ", content: " + content +
-                ", writer: " + writer + ", boardId: " + boardId)
+        console.log("title: " + title + ", content: " + content + 
+                    ", writer: " + writer + ", boardId: " + boardId)
 
-        return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
+        return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })  // put 맵핑을 통해 수정 요청 
             .then((res) => {
                 alert("수정 성공!")
                 
@@ -55,5 +55,5 @@ export default {
             .catch(() => {
                 alert('문제 발생!')
             })
-    }   
+    }
 }

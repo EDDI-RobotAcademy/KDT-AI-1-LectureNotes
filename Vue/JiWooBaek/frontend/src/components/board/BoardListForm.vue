@@ -15,23 +15,23 @@
             </tr>
             <tr v-else v-for="board in boards" :key="board.boardId">
                 <td align="center">
-                    {{ board.boardId }}
+                    {{ board.boardId }}  // boardId 뿌리기
                 </td>
                 <td align="center">
-                    <router-link :to="{
-                        name: 'BoardReadPage',
+                    <router-link :to="{ 
+                        name: 'BoardReadPage', 
                         params: { boardId: board.boardId.toString() }}">
-                            {{ board.title }}
+                            {{ board.title }}  // title 뿌리기
                     </router-link>
                 </td>
                 <td align="center">
-                    {{ board. writer }}
+                    {{ board.writer }}
                 </td>
                 <td align="center">
                     {{ board.createDate }}
                 </td>
             </tr>
-         </table>
+        </table>
     </div>
 </template>
 

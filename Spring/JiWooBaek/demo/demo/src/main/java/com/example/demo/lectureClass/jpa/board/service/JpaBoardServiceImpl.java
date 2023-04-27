@@ -49,7 +49,7 @@ public class JpaBoardServiceImpl implements JpaBoardService{
 
     @Override
     public JpaBoard modify(Long boardId, RequestBoardForm requestBoardForm) {
-        Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
+        Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId); //  findById: 고유값을 기반으로 정보 검색
 
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");
@@ -57,9 +57,9 @@ public class JpaBoardServiceImpl implements JpaBoardService{
         }
 
         JpaBoard board = maybeJpaBoard.get();
-        board.setTitle(requestBoardForm.getTitle());
+        board.setTitle(requestBoardForm.getTitle());  //  수정에 한해서 setter 사용됨
         board.setContent(requestBoardForm.getContent());
 
-        return boardRepository.save(board);
+        return boardRepository.save(board);  // 수정한 정보를 저장 (갱신 완료)
     }
 }

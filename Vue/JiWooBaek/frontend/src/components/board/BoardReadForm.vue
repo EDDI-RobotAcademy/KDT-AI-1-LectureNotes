@@ -4,13 +4,13 @@
             <tr>
                 <td>게시물 번호</td>
                 <td>
-                    <input type="text" :value="board.boardId" readonly/>
+                    <input type="text" :value="board.boardId" readonly/> 
                 </td>
             </tr>
             <tr>
                 <td>제목</td>
                 <td>
-                    <input type="text" :value="board.title" readonly/>
+                    <input type="text" :value="board.title" readonly/>   
                 </td>
             </tr>
             <tr>

@@ -21,14 +21,14 @@ public class JpaBoard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long boardId;
+    private Long boardId;  // 게시물 번호
+
+    @Setter // 수정 가능하다
+    private String title;   // 제목
+    private String writer;  // 작성자
 
     @Setter
-    private String title;
-    private String writer;
-
-    @Setter
-    private String content;
+    private String content;  // 내용
 
     public JpaBoard(String title, String writer, String content) {
         this.title = title;
@@ -37,7 +37,7 @@ public class JpaBoard {
     }
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:MM", timezone = "Asia/Seoul")
     @CreationTimestamp
-    private LocalDateTime createDate;
+    private LocalDateTime createDate;  // 등록일자
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:MM", timezone = "Asia/Seoul")
     @UpdateTimestamp

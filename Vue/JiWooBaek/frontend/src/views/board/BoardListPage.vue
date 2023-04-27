@@ -1,10 +1,10 @@
 <template lang="">
     <div>
-        <h2> Vue + Spring + JPA 게시판</h2>
+        <h2>Vue + Spring + JPA 게시판</h2>
         <div style="text-align: left; margin: 15px;">
             <router-link :to="{ name: 'BoardRegisterPage' }">
                 게시물 작성
-            </router-link> 
+            </router-link>
         </div>
         <board-list-form :boards="boards"/>
     </div>
@@ -27,7 +27,7 @@ export default {
         this.requestBoardListToSpring()
     },
     methods: {
-        // vuex의 action을 methods에 맵핑
+        // vuex의 action을 method에 맵핑
         ...mapActions(
             boardModule, ['requestBoardListToSpring']
         )
@@ -36,5 +36,5 @@ export default {
 </script>
 
 <style lang="">
-
+    
 </style>

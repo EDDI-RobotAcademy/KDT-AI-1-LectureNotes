@@ -46,8 +46,7 @@ export default {
         onSubmit () {
             const { title, writer, content } = this
             // BoardRegisterPage의 @submit은 여기의 submit에 대응함
-            this.$emit('submit', { title,  writer, content })
-
+            this.$emit('submit', { title, writer, content })
         }
     }
 }
@@ -55,6 +54,6 @@ export default {
 </script>
 
 <style lang="">
-
+    
 </style>
                 
