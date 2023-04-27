@@ -46,6 +46,10 @@ export default {
     methods: {
         onSubmit () {
             const { title, writer, content } = this
+            // $는 vue 내장 기능이고 Bulitin Function이라고 부른다.
+            // store에 직접 접근하는 방법도 있지만 이와 같이 직접 접근할 때 $를 쓰면 vue 객체에 직접 접근도 가능하다.
+            // 코드 타입시스템을 보면 TypeScript에서는 data: string과 같은 형태로 변수: 타입을 표기한다.
+            // $emit의 타입은 Emit이고  (event: string, …args: any[]) ⇒ Vue이다.
             // BoardRegisterPage의 @submit은 여기의 submit에 대응 한다.
             // submit 이라는 이벤트를 발생시킨다. 
             this.$emit('submit', { title, writer, content })

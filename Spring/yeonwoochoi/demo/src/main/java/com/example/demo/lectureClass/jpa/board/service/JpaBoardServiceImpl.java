@@ -14,6 +14,10 @@ import java.util.Optional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+
+// implements
+// 부모 객체는 선언만 하며, 정의(내용)는 자식에서 오버라이딩(재정의) 해서 사용해야한다.
+// 또한 implements는 다중상속을 대신해준다.
 public class JpaBoardServiceImpl implements JpaBoardService {
     // RequiredArgsConstructor 통해 boardRepository 자동으로 제어
     final private JpaBoardRepository boardRepository;

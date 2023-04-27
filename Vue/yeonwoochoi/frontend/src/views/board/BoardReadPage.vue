@@ -40,10 +40,17 @@ export default {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
         ),
+        // async await 가독성과 유지보수성을 향상
+        // function 앞에 async을 붙여줌으로써, 함수내에서 await 키워드를 사용할 수 있게 된다.
+        // 함수(function) 키워드 앞에 async 만 붙여주면 되고, 비동기로 처리되는 부분 앞에 await 만 붙여주면 된다.
         async onDelete () {
             // 순서 보장되면 모두 await를 걸어서 사용하는게 좋다.
+            // 비동기적 접근방식을 동기적으로 작성할 수 있게 해준다.
             await this.requestDeleteBoardToSpring(this.boardId)
-            await this.$router.push({ name: 'BoardListPage' })
+            // $router.push(경로)를 수행하면 해당 경로로 이동시켜주는 개념
+            // 삭제하게 되면 BoardListPage로 이동
+            // :to=”{ ~~~ }” 형태로 사용할 수 있고, 아래 코드와 같이 직접 사용도 가능하다.
+            await this.$router.push({ name: 'BoardListPage' }) 
         }
     },
     created () {

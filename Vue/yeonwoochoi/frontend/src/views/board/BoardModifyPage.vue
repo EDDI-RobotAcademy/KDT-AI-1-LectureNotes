@@ -42,6 +42,7 @@ export default {
             // $ 의미는 전역 객체 속성 (public이랑 같은 속성) 
             await this.$router.push({
                 name: 'BoardReadPage',
+                // params 키워드를 사용하면 개수의 제한 없이 매개변수를 넘길 수 있다.
                 params: { boardId: this.boardId }
             })
         }
