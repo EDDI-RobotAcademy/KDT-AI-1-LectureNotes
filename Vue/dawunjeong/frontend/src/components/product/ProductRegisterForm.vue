@@ -15,6 +15,24 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>제조사</td>
+                    <td>
+                        <input type="text" v-model="manufacturer"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>유통기한</td>
+                    <td>
+                        <input type="text" v-model="expirationDate"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>제조일</td>
+                    <td>
+                        <input type="text" v-model="productionDate"/>
+                    </td>
+                </tr>
+                <tr>
                     <td>상품 정보</td>
                     <td>
                         <textarea cols="80" rows="30" v-model="details"/>
@@ -37,14 +55,17 @@ export default {
     data () {
         return {
             name: '상품명을 입력하세요',
+            price: 0,
+            manufacturer: '제조사를 입력하세요',
+            expirationDate: '유통기한을 입력하세요',
+            productionDate: '제조일자를 입력하세요',
             details: '상품 정보를 입력하세요',
-            price: '상품 가격을 입력하세요',
         }
     },
     methods: {
         onSubmit () {
-            const { name, details, price } = this
-            this.$emit('submit', { name, details, price})
+            const { name, price, manufacturer,  expirationDate, productionDate, details } = this
+            this.$emit('submit', { name, price, manufacturer,  expirationDate, productionDate, details })
         },
     }
 }

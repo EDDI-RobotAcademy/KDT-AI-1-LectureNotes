@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.jpa.product.controller;
 
+import com.example.demo.lectureClass.jpa.board.entity.JpaBoard;
 import com.example.demo.lectureClass.jpa.product.controller.form.RequestProductForm;
 import com.example.demo.lectureClass.jpa.product.entity.JpaProduct;
 import com.example.demo.lectureClass.jpa.product.service.JpaProductService;
@@ -31,5 +32,18 @@ public class JpaProductController {
         log.info("registerProduct()");
 
         return productService.register(requestProductForm.toJpaProduct());
+    }
+
+    @GetMapping("/{productId}")
+    public JpaProduct readProduct (@PathVariable("productId") Long productId) {
+        log.info("readProduct()");
+
+        return productService.read(productId);
+    }
+    @DeleteMapping("/{productId}")
+    public void deleteProduct (@PathVariable("productId") Long productId) {
+        log.info("deleteProduct()");
+
+        productService.delete(productId);
     }
 }

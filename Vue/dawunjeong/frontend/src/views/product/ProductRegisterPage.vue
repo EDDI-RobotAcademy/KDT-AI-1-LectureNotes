@@ -24,7 +24,7 @@ export default {
             console.log('product: ' + JSON.stringify(product))
             await this.$router.push({
                 name: 'ProductReadPage',
-                params: { ProductId: product.data.ProductId.toString() }
+                params: { productId: product.data.productId.toString() }
             })
         }
     }

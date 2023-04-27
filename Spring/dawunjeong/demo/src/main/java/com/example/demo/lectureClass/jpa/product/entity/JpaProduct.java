@@ -18,19 +18,24 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 public class JpaProduct {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
 
     private String name;
-    private String details;
     private String price;
+    private String manufacturer;
+    private String expirationDate;
+    private String productionDate;
+    private String details;
 
-    public JpaProduct(String name, String details, String price) {
+    public JpaProduct(String name, String price, String manufacturer, String expirationDate, String productionDate, String details) {
         this.name = name;
-        this.details = details;
         this.price = price;
+        this.manufacturer = manufacturer;
+        this.expirationDate = expirationDate;
+        this.productionDate = productionDate;
+        this.details = details;
     }
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")

@@ -4,8 +4,11 @@
         <table style="margin: 10px;">
             <tr>
                 <th align="center" width="10%">상품번호</th>
-                <th align="center" width="10%">상품이미지</th>
-                <th align="center" width="70%">상품명</th>
+                <th align="center" width="50%">상품명</th>
+                <th align="center" width="10%">상품 가격</th>
+                <th align="center" width="10%">제조사</th>
+                <th align="center" width="10%">유통 기한</th>
+                <th align="center" width="10%">제조일</th>
             </tr>
             <tr v-if="!products || (Array.isArray(products) && products.length === 0)">
                 <td colspan="4">
@@ -17,10 +20,23 @@
                     {{ product.productId }}
                 </td>
                 <td align="center">
-                    {{ product.image }}
+                    <router-link :to="{ 
+                        name: 'ProductReadPage', 
+                        params: { productId: product.productId.toString() }}">
+                            {{ product.name }}
+                    </router-link>
                 </td>
                 <td align="center">
-                    {{ product.name }}
+                    {{ product.price }}
+                </td>
+                <td align="center">
+                    {{ product.manufacturer }}
+                </td>
+                <td align="center">
+                    {{ product.expirationDate }}
+                </td>
+                <td align="center">
+                    {{ product.productionDate }}
                 </td>
             </tr>
         </table>
