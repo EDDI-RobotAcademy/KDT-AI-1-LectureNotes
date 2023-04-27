@@ -22,17 +22,19 @@ export default {
     name: "BoardRegisterPage",
     methods: {
         ...mapActions( 
-            //
+            //boardModule에 있는requestCreateBoardToSpring action을 맵핑한다. 
             boardModule, ['requestCreateBoardToSpring']
         ),
         async onSubmit (payload) {
             const board = await this.requestCreateBoardToSpring(payload)
             //동기1.작성한 게시물을 spring에 등록하는 메서드
             console.log('board: ' + JSON.stringify(board))
+            
             await this.$router.push({
                 name: 'BoardReadPage',
             //동기2.등록하고 BoardReadPage로 가라
                 params: { boardId: board.data.boardId.toString() }
+                //console.log(typeof(board.data.boardId)) ==> number
             })
         }
     }

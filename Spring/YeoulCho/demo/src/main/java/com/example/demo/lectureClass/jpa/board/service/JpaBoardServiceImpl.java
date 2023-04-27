@@ -55,8 +55,9 @@ public class JpaBoardServiceImpl implements JpaBoardService {
             log.info("정보가 없습니다!");
             return null;
         }
-        JpaBoard board =maybeJpaBoard.get();
+        JpaBoard board =maybeJpaBoard.get(); //정보를 확보한게 수정할 정보 찾았다
         board.setTitle(requestBoardForm.getTitle()); //boardId를 바꾸면 안되니까 기존꺼에서 가져옴
+        //수정하기 위해 setter, 무분별하게 사용금지
         board.setContent(requestBoardForm.getContent());
         return boardRepository.save(board); //등록과 수정 모두 save라는 것 명싱
     }

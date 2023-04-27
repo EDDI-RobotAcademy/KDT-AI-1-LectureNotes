@@ -22,7 +22,9 @@ const boardModule = 'boardModule'
 export default {
     components: { BoardListForm },
     // state 관리자인 vuex에 state값(boards)를 모니터링
-    computed: { //계산된 값 값이 바뀔때마다 자동으로 바뀜
+    computed: { 
+        //mapState에서 모니터링을 하다가 boards의 값이 바뀌면
+        //computed에서 boards값 바뀜
         ...mapState(boardModule, ['boards']),
     },
     mounted () {

@@ -1,6 +1,7 @@
 <template lang="">
     <div>
         <h2>게시물 수정</h2>
+        <!--submit 이벤트 발생시 onSubmit 메서드실행-->
         <board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
         <p v-else>로딩중 .......</p>
     </div>
@@ -17,6 +18,8 @@ export default {
         boardId: {
             type: String,
             required: true,
+            // 이 컴포넌트를 사용할 때 반드시 boardId 이름으로 props를 전달해주어야 합니다. 
+            //(required: true)
         }
     },
     computed: {

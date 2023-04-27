@@ -6,12 +6,14 @@
                     <td>게시물 번호</td>
                     <td>
                         <input type="text" :value="board.boardId" disabled/>
+                        <!--바뀌면 안되니까 v-bind-->
                     </td>
                 </tr>
                 <tr>
                     <td>제목</td>
                     <td>
                         <input type="text" v-model="title"/>
+                        <!--제목은 수정가능해야하니까 양방향 맵핑-->
                     </td>
                 </tr>
                 <tr>
