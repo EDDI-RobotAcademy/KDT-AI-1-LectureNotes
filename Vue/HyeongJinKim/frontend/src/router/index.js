@@ -21,14 +21,13 @@ import DataResponseFromSpringPage from "@/views/basics/axios/DataResponseFromSpr
 import VueLifeCycleTestPage from "@/views/basics/lifeCycle/VueLifeCycleTestPage.vue";
 
 //
-import VueHomeworkPage from "@/views/basics/homework/VueHomeworkPage.vue";
-import VueHomeworkPage2_1 from "@/components/homework/problem2/VueHomeworkPage2_1.vue";
-import VueHomeworkPage2_2 from "@/components/homework/problem2/VueHomeworkPage2_2.vue";
+import VueBasicProbs from "@/views/homework/basicProblem/VueBasicProbs.vue";
+import VueHomeworkPage from "@/views/homework/problem1/VueHomeworkPage.vue";
+import VueHomeworkPage2 from "@/views/homework/problem2/Problem2Page.vue";
 import VueHomeworkPage3 from "@/components/homework/problem3/VueHomeworkPage3GetMapping.vue";
 import VueHomeworkPage3Copy from "@/components/homework/problem3/VueHomeworkPage3PostMapping.vue";
 import VueHomeworkPage4 from "@/components/homework/problem4/VueHomeworkPage4.vue";
-import VueHomeworkPage5 from "@/components/homework/problem5/VueHomeworkPage5.vue";
-import VueBasicProbs from "@/views/basics/homework/VueBasicProbs.vue";
+import VueHomeworkPage5 from "@/views/homework/problem5/VueHomeworkPage5.vue";
 
 import BoardListPage from "@/views/board/BoardListPage.vue";
 import BoardRegisterPage from "@/views/board/BoardRegisterPage.vue";
@@ -118,14 +117,9 @@ const routes = [
     component: VueHomeworkPage,
   },
   {
-    path: "/vue-homework-page2_1",
-    name: "VueHomeworkPage2_1",
-    component: VueHomeworkPage2_1,
-  },
-  {
-    path: "/vue-homework-page2_2",
-    name: "VueHomeworkPage2_2",
-    component: VueHomeworkPage2_2,
+    path: "/vue-homework-page2",
+    name: "VueHomeworkPage2",
+    component: VueHomeworkPage2,
   },
   {
     path: "/vue-homework-page3",

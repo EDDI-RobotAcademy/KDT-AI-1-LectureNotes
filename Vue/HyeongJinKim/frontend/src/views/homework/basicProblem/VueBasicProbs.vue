@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import LocalComponent1 from "@/views/basics/homework/components/CheckCheckComponent.vue";
-import LocalComponent2 from "@/views/basics/homework/components/OddEvenComponent.vue";
-import LocalComponent3 from "@/views/basics/homework/components/HelloToSpringComponent.vue";
+import LocalComponent1 from "@/components/homework/basicProblem/CheckCheckComponent.vue";
+import LocalComponent2 from "@/components/homework/basicProblem/OddEvenComponent.vue";
+import LocalComponent3 from "@/components/homework/basicProblem/HelloToSpringComponent.vue";
 
 export default {
   components: {

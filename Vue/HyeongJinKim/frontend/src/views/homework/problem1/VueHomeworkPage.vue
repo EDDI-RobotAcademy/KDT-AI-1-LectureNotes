@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import LocalComponent1 from "@/views/basics/homework/problem1/LocalComponent.vue.js";
-import LocalComponent2 from "@/views/basics/homework/problem1/LocalComponent2.vue.js";
-import LocalComponent3 from "@/views/basics/homework/problem1/BasicCalcComponent.vue.js";
-import LocalComponent4 from "@/views/basics/homework/problem1/CheckboxComponent.vue.js";
+import LocalComponent1 from "@/components/homework/problem1/LocalComponent.vue";
+import LocalComponent2 from "@/components/homework/problem1/LocalComponent2.vue";
+import LocalComponent3 from "@/components/homework/problem1/BasicCalcComponent.vue";
+import LocalComponent4 from "@/components/homework/problem1/CheckboxComponent.vue";
 
 export default {
   components: {

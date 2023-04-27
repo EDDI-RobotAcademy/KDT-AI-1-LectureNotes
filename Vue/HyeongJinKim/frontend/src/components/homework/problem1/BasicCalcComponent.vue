@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import LocalComponent1 from "@/views/basics/homework/problem1/LocalComponent.vue.js";
+import LocalComponent1 from "@/components/homework/problem1/LocalComponent.vue";
 
 export default {
   components: {
