@@ -6,10 +6,6 @@
                 게시물 작성
             </router-link>
         </div>
-        <!--
-        <router-link :to="{ name: '' }">
-            게시물 작성
-        </router-link> -->
         <board-list-form :boards="boards"/>
     </div>
 </template>
