@@ -21,11 +21,12 @@ public class GameDice {
         }
 
         // 단순히 출력 목적을 가지고 있을 때 toString()을 사용함
-        @Override
-        public String toString() {
-            return "Dice{" +
-                    "diceNumber=" + diceNumber +
-                    '}';
-        }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "GameDice{" +
+                "diceNumber=" + diceNumber +
+                '}';
     }
+}
 

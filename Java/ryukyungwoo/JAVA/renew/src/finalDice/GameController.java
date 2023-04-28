@@ -10,5 +10,6 @@ public class GameController {
         gameManager.playGame();
         gameManager.printResult();
         gameManager.checkWinner();
+        gameManager.printRank();
     }
 }

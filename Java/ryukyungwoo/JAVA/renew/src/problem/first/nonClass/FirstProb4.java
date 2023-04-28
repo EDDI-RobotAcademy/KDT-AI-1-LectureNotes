@@ -1,5 +1,7 @@
 package problem.first.nonClass;
+
 import utility.random.CustomRandom;
+
 public class FirstProb4 {
     public static void main(String[] args) {
         final int APPLE_COST_MIN = 5000;
