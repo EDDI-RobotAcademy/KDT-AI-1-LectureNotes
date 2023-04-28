@@ -1,20 +1,33 @@
 package customLibrary.prob16;
 
-import java.util.ArrayList;
-
 public class Book {
     String bookName;
-    ArrayList<BookList> bookList;
+    boolean Available = true;
 
     public Book(String bookName) {
-        bookList = new ArrayList<>();
         this.bookName = bookName;
-
-        for(int i = 0; i< 3; i++){
-
-        }
     }
 
+    public String getBookName() {
+        return bookName;
+    }
 
+    public boolean isAvailable() {
+        return Available;
+    }
 
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public void setAvailable(boolean available) {
+        Available = available;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookName='" + bookName + '\'' +
+                '}';
+    }
 }
