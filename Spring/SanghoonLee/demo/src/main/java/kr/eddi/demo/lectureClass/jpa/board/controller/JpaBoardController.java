@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -23,6 +24,9 @@ public class JpaBoardController {
 
         List<JpaBoard> returnedBoardList = boardService.list();
         log.info("returnedBoardList: " + returnedBoardList);
+
+        final UUID uniqueId = UUID.randomUUID();
+        log.info("uniqueId: " + uniqueId);
 
         return returnedBoardList;
     }
