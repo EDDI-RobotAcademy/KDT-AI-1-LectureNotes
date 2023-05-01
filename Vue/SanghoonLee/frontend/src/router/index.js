@@ -36,6 +36,7 @@ import BoardReadPage from '@/views/board/BoardReadPage.vue'
 import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
 
 import ProductListPage from '@/views/product/ProductListPage.vue'
+import ProductRegisterPage from '@/views/product/ProductRegisterPage.vue'
 
 Vue.use(VueRouter)
 
@@ -172,6 +173,11 @@ const routes = [
     path: '/product-list-page',
     name: 'ProductListPage',
     component: ProductListPage
+  },
+  {
+    path: '/product-register-page',
+    name: 'ProductRegisterPage',
+    component: ProductRegisterPage
   }
 
   
