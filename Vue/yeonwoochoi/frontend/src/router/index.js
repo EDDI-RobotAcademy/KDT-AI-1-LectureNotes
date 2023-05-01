@@ -30,6 +30,11 @@ import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/board/BoardReadPage.vue'
 import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
 
+import ProductListPage from '@/views/product/ProductListPage.vue'
+import ProductRegisterPage from '@/views/product/ProductRegisterPage'
+import ProductReadPage from '@/views/product/ProductReadPage.vue'
+import ProductModifyPage from '@/views/product/ProductModifyPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -171,6 +176,36 @@ const routes = [
       default: true // true가 있어야 파라메터가 들어간다. 필수!
     },
   },
+  {
+    path: '/product-list-page',
+    name: 'ProductListPage',
+    component: ProductListPage
+  },
+  {
+    path: '/product-register-page',
+    name: 'ProductRegisterPage',
+    component: ProductRegisterPage
+  },
+  {
+    path: '/product-read-page/:productId',
+    name: 'ProductReadPage',
+    components: {
+      default: ProductReadPage
+    },
+    props: {
+      default: true
+    },
+  },
+  {
+    path: '/product-modify-page/:productId',
+    name: 'ProductModifyPage',
+    components: {
+      default: ProductModifyPage
+    },
+    props: {
+      default: true
+    },
+  }
 ]
 const router = new VueRouter({
   mode: "history",
