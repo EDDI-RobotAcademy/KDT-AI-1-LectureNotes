@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -24,5 +25,17 @@ public class JpaProductServiceImpl implements JpaProductService {
     @Override
     public JpaProduct register(JpaProduct jpaProduct) {
         return productRepository.save(jpaProduct);
+    }
+
+    @Override
+    public JpaProduct read(Long productId) {
+        Optional<JpaProduct> maybeJpaProduct = productRepository.findById(productId);
+
+        if (maybeJpaProduct.isEmpty()) {
+            log.info("정보가 없습니다!");
+            return null;
+        }
+
+        return maybeJpaProduct.get();
     }
 }
