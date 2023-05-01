@@ -1,6 +1,5 @@
 package kr.eddi.demo.lectureClass.jpa.product.controller;
 
-import kr.eddi.demo.lectureClass.jpa.board.entity.JpaBoard;
 import kr.eddi.demo.lectureClass.jpa.product.controller.form.RequestProductForm;
 import kr.eddi.demo.lectureClass.jpa.product.entity.JpaProduct;
 import kr.eddi.demo.lectureClass.jpa.product.service.JpaProductService;
@@ -47,5 +46,13 @@ public class JpaProductController {
         log.info("deleteProduct()");
 
         productService.delete(productId);
+    }
+
+    @PutMapping("/{productId}")
+    public JpaProduct modifyProduct (@PathVariable("productId") Long productId,
+                                 @RequestBody RequestProductForm requestProductForm) {
+        log.info("modifyProduct(): " + requestProductForm + ", id: " + productId);
+
+        return productService.modify(productId, requestProductForm);
     }
 }
