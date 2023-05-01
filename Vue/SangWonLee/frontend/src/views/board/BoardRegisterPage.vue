@@ -21,6 +21,7 @@ export default {
         ),
         async onSubmit(payload) {
             const board = await this.requestCreateBoardToSpring(payload)
+            console.log('typeof(board): ' + typeof (board))
             console.log('board: ' + JSON.stringify(board))
             await this.$router.push({
                 name: 'BoardReadPage',

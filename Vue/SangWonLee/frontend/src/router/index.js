@@ -31,6 +31,10 @@ import BoardReadPage from "@/views/board/BoardReadPage.vue";
 import DemoComponentPage from "@/views/basics/DemoComponent.vue";
 import BoardModifyPage from "@/views/board/BoardModifyPage.vue";
 import RegisterButtonPage from "@/views/RegisterButtonPage.vue";
+import ProductListPage from "@/views/product/ProductListPage.vue";
+import ProductRegisterPage from "@/views/product/ProductRegisterPage.vue";
+import ProductReadPage from "@/views/product/ProductReadPage.vue";
+import ProductModifyPage from "@/views/product/ProductModifyPage.vue";
 
 Vue.use(VueRouter);
 
@@ -200,6 +204,36 @@ const routes = [
     path: "/register-button",
     name: "RegisterButtonPage",
     component: RegisterButtonPage,
+  },
+  {
+    path: "/product-list-page",
+    name: "ProductListPage",
+    component: ProductListPage,
+  },
+  {
+    path: "/product-register-page",
+    name: "ProductRegisterPage",
+    component: ProductRegisterPage,
+  },
+  {
+    path: "/product-read-page/:productId",
+    name: "ProductReadPage",
+    components: {
+      default: ProductReadPage,
+    },
+    props: {
+      default: true,
+    },
+  },
+  {
+    path: "/product-modify-page/:productId",
+    name: "ProductModifyPage",
+    components: {
+      default: ProductModifyPage,
+    },
+    props: {
+      default: true,
+    },
   },
 ];
 
