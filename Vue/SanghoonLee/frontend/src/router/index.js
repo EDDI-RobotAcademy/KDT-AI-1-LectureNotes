@@ -38,6 +38,7 @@ import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
 import ProductListPage from '@/views/product/ProductListPage.vue'
 import ProductRegisterPage from '@/views/product/ProductRegisterPage.vue'
 import ProductReadPage from '@/views/product/ProductReadPage.vue'
+import ProductModifyPage from '@/views/product/ProductModifyPage.vue'
 
 Vue.use(VueRouter)
 
@@ -185,6 +186,16 @@ const routes = [
     name: 'ProductReadPage',
     components: {
       default: ProductReadPage
+    },
+    props: {
+      default: true
+    },
+  },
+  {
+    path: '/product-modify-page/:productId',
+    name: 'ProductModifyPage',
+    components: {
+      default: ProductModifyPage
     },
     props: {
       default: true
