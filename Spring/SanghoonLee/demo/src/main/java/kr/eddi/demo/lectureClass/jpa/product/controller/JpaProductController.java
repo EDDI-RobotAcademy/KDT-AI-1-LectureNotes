@@ -1,5 +1,6 @@
 package kr.eddi.demo.lectureClass.jpa.product.controller;
 
+import kr.eddi.demo.lectureClass.jpa.product.controller.form.RequestProductForm;
 import kr.eddi.demo.lectureClass.jpa.product.entity.JpaProduct;
 import kr.eddi.demo.lectureClass.jpa.product.service.JpaProductService;
 import lombok.RequiredArgsConstructor;
@@ -24,5 +25,12 @@ public class JpaProductController {
         log.info("returnedProductList: " + returnedProductList);
 
         return returnedProductList;
+    }
+
+    @PostMapping("/register")
+    public JpaProduct registerProduct (@RequestBody RequestProductForm requestProductForm) {
+        log.info("registerBoard()");
+
+        return productService.register(requestProductForm.toJpaProduct());
     }
 }

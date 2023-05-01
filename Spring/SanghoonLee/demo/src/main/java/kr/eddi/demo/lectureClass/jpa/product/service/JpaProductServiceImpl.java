@@ -20,4 +20,9 @@ public class JpaProductServiceImpl implements JpaProductService {
     public List<JpaProduct> list() {
         return productRepository.findAll(Sort.by(Sort.Direction.DESC, "productId"));
     }
+
+    @Override
+    public JpaProduct register(JpaProduct jpaProduct) {
+        return productRepository.save(jpaProduct);
+    }
 }
