@@ -19,8 +19,7 @@ public class JpaProduct {
     private String productName;
     private Integer price;
 
-    public JpaProduct(Long productId, String productName, Integer price) {
-        this.productId = productId;
+    public JpaProduct(String productName, Integer price) {
         this.productName = productName;
         this.price = price;
     }
