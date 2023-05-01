@@ -1,16 +1,18 @@
 <template lang="">
     <div>
         <h3>상품 목록</h3>
+        <p></p>
         <table>
             <tr>
-                <td>상품명</td>
-                <td>상품가격</td>
-                <td>제조사</td>
-                <td>유통기한</td>
-                <td>제조일</td>
+                <td align="center" width="2%">상품명</td>
+                <td align="center" width="2%">상품가격</td>
+                <td align="center" width="2%">제조사</td>
+                <td align="center" width="2%">유통기한</td>
+                <td align="center" width="2%">제조일</td>
             </tr>
-            <tr v-if="!products || (Arrays.isArray(products) && products.length === 0)">
-                <td>
+            <p></p>
+            <tr v-if="!products || (Array.isArray(products) && products.length === 0)">
+                <td colspan="5">
                     현재 등록된 상품이 없습니다!
                 </td>
             </tr>
@@ -20,7 +22,7 @@
                 </td>
                 <td>
                     <router-link :to="{
-                        name: 'ProductReadPage'
+                        name: 'ProductReadPage',
                         params: { productId: product.productId.toString() }}">
                         {{ product.name }}
                     </router-link>
@@ -38,9 +40,15 @@
         </table>
     </div>
 </template>
+
 <script>
 export default {
-    
+    props: {
+        products: {
+            type: Array
+        }
+    }
+
 }
 </script>
 <style lang="">
