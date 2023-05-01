@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface JpaProductService {
     List<JpaProduct> list();
+    JpaProduct register(JpaProduct jpaBoard);
 }
