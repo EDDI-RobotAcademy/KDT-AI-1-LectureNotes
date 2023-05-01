@@ -38,6 +38,7 @@
         <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
         <router-link to="/demo-component">demoComponent TEST</router-link> |
         <router-link to="/register-button">등록버튼 테스트</router-link> |
+        <router-link to="/product-list-page">상품 게시판</router-link>
 
       </nav>
     </div>
