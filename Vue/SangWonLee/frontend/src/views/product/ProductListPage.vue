@@ -25,7 +25,7 @@ export default {
     computed: {
         ...mapState(productModule, ['products']),
         output() {
-            console.log('이런식으로 활용도 가능')
+            console.log('sadfsadf')
         }
     },
     mounted() {
