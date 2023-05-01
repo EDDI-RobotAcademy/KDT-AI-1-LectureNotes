@@ -38,4 +38,9 @@ public class JpaProductServiceImpl implements JpaProductService {
 
         return maybeJpaProduct.get();
     }
+
+    @Override
+    public void delete(Long productId) {
+        productRepository.deleteById(productId);
+    }
 }

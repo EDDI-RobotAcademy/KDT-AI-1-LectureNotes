@@ -9,4 +9,6 @@ public interface JpaProductService {
     JpaProduct register(JpaProduct jpaBoard);
 
     JpaProduct read(Long productId);
+
+    void delete(Long productId);
 }
