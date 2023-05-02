@@ -47,7 +47,7 @@
         <router-link to="/board-list-page"
           >Vue + Spring + JPA 게시판</router-link
         >| <router-link to="/vuetify-table-test">Vuetify 테스트</router-link> |
-        <router-link to="/vuetify-table-advenced"
+        <router-link to="/vuetify-table-advanced"
           >Vuetify Table 추가 테스트</router-link
         >
         |
