@@ -57,6 +57,10 @@
           >Advanced Table Test</router-link
         >
         |
+        <router-link to="/vuetify-image-gallery"
+          >Image Gallery Test</router-link
+        >
+        |
       </nav>
     </div>
   </v-container>

@@ -7,6 +7,7 @@
       class="elevation-1"
       @click:row="readRow"
       show-select
+      item-key="boardId"
       v-model="selectedItems"
     />
   </v-container>
@@ -24,7 +25,7 @@ export default {
         { text: "번호", value: "boardId", width: "70px" },
         { text: "제목", value: "title", width: "200px" },
         { text: "작성자", value: "writer", width: "100px" },
-        { text: "등록일자", value: "regDate", width: "100px" },
+        { text: "등록일자", value: "createDate", width: "100px" },
       ],
       selectedItems: [],
     };
