@@ -28,9 +28,7 @@ export default {
                 require('@/assets/downloadImg/cloud.png'),
                 require('@/assets/downloadImg/naruto.jpg'),
                 require('@/assets/downloadImg/naruto2.png'),
-                require('@/assets/downloadImg/naruto2.png'),
-                require('@/assets/downloadImg/naruto2.png'),
-                require('@/assets/downloadImg/naruto2.png')
+          
             ]
         }
     }
