@@ -51,6 +51,9 @@
           >Vuetify Table 추가 테스트</router-link
         >
         |
+        <router-link to="/vuetify-image-gallery"
+          >Vuetify Image 테스트</router-link
+        >|
       </nav>
     </div>
     <br /><br />
