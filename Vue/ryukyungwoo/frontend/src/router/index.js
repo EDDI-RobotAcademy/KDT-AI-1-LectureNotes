@@ -14,6 +14,7 @@ import htmlCssRoutes from './htmlCss'
 import defaultSetRoutes from './defaultRouterSet'
 import homeworkRoutes from './homework'
 
+
 Vue.use(VueRouter)
 
 const routes = [
