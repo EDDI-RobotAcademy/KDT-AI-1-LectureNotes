@@ -10,7 +10,7 @@ import StudyPage from "@/views/homework/study/Study.vue"
 import Problem4Page from "@/views/homework/problem4/Problem4Page.vue"
 import Problem5Page from "@/views/homework/problem5/Problem5Page.vue"
 import Problem5Page2 from "@/views/homework/problem5/Problem5Page2.vue"
-
+import Problem6Page from '@/views/homework/problem6/Problem6Page.vue'
 Vue.use(VueRouter)
 
 const problemRoutes = [
@@ -58,6 +58,11 @@ const problemRoutes = [
         path: '/problem5-page2',
         name: 'Problem5Page2',
         component: Problem5Page2
+      },
+      {
+        path: '/problem6-page',
+        name: 'Problem6Page',
+        component: Problem6Page
       },
 
 
