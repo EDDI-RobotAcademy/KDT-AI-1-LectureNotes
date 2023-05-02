@@ -35,8 +35,6 @@ import axiosTestRoutes from './axiosTest'
 import componentTestRoutes from './componentTest'
 import vueBasicRoutes from './vueBasic'
 import htmlCssRoutes from './htmlCss'
-import defaultRouterSet from './defaultRouterSet'
-import defaultSetRouter from './defaultRouterSet'
 import defaultSetRoutes from './defaultRouterSet'
 
 // 지저분한 궁극적인 이유?
@@ -112,7 +110,7 @@ const routes = [
     component: MakeCharacter
   },
   ...vuetifyTestRoutes,
-  // 이렇게 하면 분할한 라우터가 여기에 자동으로 붙음 - 뷰티파이 라우터구나 알 수 있음
+  // 이렇게 하면 분할한 라우터가 여기에 자동으로 붙음 - 뷰티파이에 대한 라우터구나 알 수 있음
   ...productRoutes,
   ...boardRoutes,
   ...prolblemsRoutes,

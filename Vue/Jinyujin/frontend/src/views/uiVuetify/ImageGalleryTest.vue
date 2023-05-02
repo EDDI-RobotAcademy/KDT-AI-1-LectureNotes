@@ -33,17 +33,6 @@ export default {
             ]
         }
     },
-    computed: {
-        ...mapState(boardModule, ['imageName']),
-    },
-    mounted() {
-        this.imageName = this.requestImageToSpring()
-    },
-    methods: {
-        ...mapActions(
-            boardModule, ['requestImageToSpring']
-        )
-    },
 }
 </script>
 <style lang="">

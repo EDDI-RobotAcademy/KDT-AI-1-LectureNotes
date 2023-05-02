@@ -20,15 +20,7 @@
             </label>
             <v-btn color="primary" @click="makeCharacterComplete">완료</v-btn><br>
             <p></p>
-            <!-- 완료 누르면 백엔드에서 캐릭터 계정 생성 -->
-            <!-- 완료 버튼 캐릭터 생성 버튼 안에 넣어주기 -->
-        <!-- makeCharacterBack() 메서드에서 서버와 통신하도록 -->
-        <!-- 완료 버튼 누르면 환영합니다 메세지 출력되도록 하기 -->
-        <!-- 
-            isPressButton은 이미 위에서 눌리기 때문에 한꺼번에 열림
-            좋은 방법이 뭐가 있을까? 
-        -->
-        <!-- 계정 선택하는 방법 -->
+        
         </form>
         <p></p>
     </div>
