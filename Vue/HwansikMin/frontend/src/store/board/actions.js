@@ -49,7 +49,7 @@ export default {
         return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
             .then((res) => {
                 alert("수정 성공!")
-            })
+            })  
             .catch(() => {
                 alert('문제 발생!')
             })

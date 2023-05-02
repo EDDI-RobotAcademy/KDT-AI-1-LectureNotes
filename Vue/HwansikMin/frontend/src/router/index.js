@@ -35,6 +35,8 @@ import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/board/BoardReadPage.vue'
 import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
 
+import vuetifyTestRoutes from './uiVuetify'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -165,7 +167,9 @@ const routes = [
     props: {
       default: true
     },
-  }
+  },
+  ...vuetifyTestRoutes
+
 
 
 ]
