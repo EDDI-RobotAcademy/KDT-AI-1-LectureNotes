@@ -12,20 +12,12 @@ import axiosTestRoutes from './axiosTest'
 import componentTestRoutes from './componentTest'
 import vueBasicRoutes from './vueBasic'
 import htmlCssRoutes from './htmlCss'
+import defaultSetRoutes from './defaultRouterSet'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue')
-  },
+  ...defaultSetRoutes,
   ...htmlCssRoutes,
   ...vueBasicRoutes,
   ...componentTestRoutes,
