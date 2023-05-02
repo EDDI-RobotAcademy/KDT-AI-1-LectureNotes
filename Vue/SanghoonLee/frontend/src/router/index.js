@@ -39,6 +39,7 @@ import ProductListPage from '@/views/product/ProductListPage.vue'
 import ProductRegisterPage from '@/views/product/ProductRegisterPage.vue'
 import ProductReadPage from '@/views/product/ProductReadPage.vue'
 import ProductModifyPage from '@/views/product/ProductModifyPage.vue'
+import vuetifyTestRoutes from './uiVuetify'
 
 Vue.use(VueRouter)
 
@@ -200,8 +201,8 @@ const routes = [
     props: {
       default: true
     },
-  }
-
+  },
+  ...vuetifyTestRoutes
   
 ]
 
