@@ -32,7 +32,19 @@
       <router-link to="/Study-page">공부하자</router-link> |<br>
       <router-link to="/Problem4-page">4번 연습문제</router-link> |
       <router-link to="/Problem5-page">5번 연습문제(혼자 도전)</router-link> |
+
       <router-link to="/Problem5-page2">5번 연습문제 복습</router-link> |
+
+      <router-link to="/Problem5-page2">Vue 5번</router-link> |
+      <router-link to="/board-list-page">Vue+Spring+JPA</router-link> |
+      <router-link to="/vuetify-table-page">Vuetify Table테스트</router-link> |
+      <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
+      <router-link to="/vuetify-image-gallery">이미지</router-link> |
+      <router-link to="/problem6-page">6번 연습문제</router-link> |
+
+
+      
+
     </nav>
   </div>
 </v-container> 

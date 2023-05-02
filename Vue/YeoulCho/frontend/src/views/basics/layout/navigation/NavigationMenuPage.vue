@@ -29,8 +29,10 @@
       <v-btn v-if="!isLogin" text @click="signIn">
         <span>로그인</span>
         <v-icon right>mdi-login</v-icon>
-      </v-btn>
-      <v-btn v-if="isLogin"text @click="signOut">
+      </v-btn> 
+
+      
+      <v-btn v-if="isLogin" @click="signOut">
         <span>로그아웃</span>
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
@@ -82,10 +84,10 @@ export default {
         alert('토글')
       },
       signUp () {
-        router.push('/Problem5-page2')
+        router.push('/problem5-page2')
       },
       signIn () {
-        router.push('/Problem5-page2')
+        router.push('/problem5-page2')
       },
       signOut () {
         localStorage.removeItem("loginUserInfo")
@@ -98,8 +100,10 @@ export default {
     },
     mounted(){
       this.accountId=localStorage.getItem("loginUserInfo")
+      console.log(this.islogin)
       if(this.accountId >0){
-        this.islogin = true
+        this.isLogin = true
+        localStorage.setItem("islogin", "true")
       }
     }
 }

@@ -14,26 +14,25 @@
         </div>
     </div>
 </template>
+
 <script>
-import axios from 'axios';
+import axios from 'axios'
 export default {
-    data(){
-        return{
+    data () {
+        return {
             email: '',
             password: '',
             isPressedButton: false,
-            gameAccountId:0
-
+            gameAccountId: 0,
         }
     },
     methods: {
-        showLoginForm(){
-            this.isPressedButton =true
+        showLoginForm () {
+            this.isPressedButton = true
         },
-        processLogin(){
+        processLogin () {
             this.isPressedButton = false
-
-            const{email,password}=this
+            const { email, password } = this
             axios.post('http://localhost:7777/bmp-account/login', { email, password })
                 .then((res) => {
                     if (res.data.isSuccessForLogin) {
@@ -47,13 +46,13 @@ export default {
                 })
         }
     },
-    mounted(){
+    mounted () {
         this.accountId = localStorage.getItem("loginUserInfo")
         console.log('현재 accountId: ' + this.accountId)
     }
-    
 }
 </script>
+
 <style lang="">
     
 </style>
