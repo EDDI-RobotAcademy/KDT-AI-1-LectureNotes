@@ -3,38 +3,31 @@
     <h3>상품 목록</h3>
     <table style="margin: 10px">
       <tr>
-        <th align="center" width="6%">번호</th>
-        <th align="center" width="70%">제목</th>
-        <th align="center" width="10%">작성자</th>
-        <th align="center" width="14%">등록일자</th>
+        <th align="center" width="6%">상품 번호</th>
+        <th align="center" width="70%">상품명</th>
+        <th align="center" width="10%">상품 가격</th>
       </tr>
-      <tr v-if="!boards || (Array.isArray(boards) && boards.length === 0)">
-        <td colspan="4">등록된 상품이 없습니다!</td>
+      <tr
+        v-if="!products || (Array.isArray(products) && products.length === 0)"
+      >
+        <td colspan="3">현재 등록된 게시물이 없습니다!</td>
       </tr>
-
-      <tr v-else v-for="board in boards" :key="board.boardId">
-        <!-- 
-          boards에 저장된 값이 있으면
-          boardId를 key로 boards의 원소 board를 순회, 출력
-         -->
+      <tr v-else v-for="product in products" :key="product.productId">
         <td align="center">
-          {{ board.boardId }}
+          {{ product.productId }}
         </td>
         <td align="center">
           <router-link
             :to="{
-              name: 'BoardReadPage',
-              params: { boardId: board.boardId.toString() },
+              name: 'ProductReadPage',
+              params: { productId: product.productId.toString() },
             }"
           >
-            {{ board.title }}
+            {{ product.productName }}
           </router-link>
         </td>
         <td align="center">
-          {{ board.writer }}
-        </td>
-        <td align="center">
-          {{ board.createDate }}
+          {{ product.price }}
         </td>
       </tr>
     </table>
@@ -44,7 +37,7 @@
 <script>
 export default {
   props: {
-    boards: {
+    products: {
       type: Array,
     },
   },

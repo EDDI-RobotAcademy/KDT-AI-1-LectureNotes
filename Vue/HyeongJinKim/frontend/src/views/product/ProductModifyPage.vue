@@ -1,50 +1,49 @@
 <template lang="">
   <div>
-    <h2>상품 정보 수정</h2>
-    <product-modify-form
-      v-if="productBoard"
-      :productBoard="productBoard"
-      @submit="onSubmit"
-    />
+    <h2>상품 수정</h2>
+    <product-modify-form v-if="product" :product="product" @submit="onSubmit" />
     <p v-else>로딩중 .......</p>
   </div>
 </template>
 
 <script>
-import ProductModifyForm from "@/components/productBoard/ProductModifyForm.vue";
-// local component import
-
+import ProductModifyForm from "@/components/product/ProductModifyForm.vue";
 import { mapActions, mapState } from "vuex";
-const productBoardModule = "productBoardModule";
+const productModule = "productModule";
 export default {
-  components: { ProductModifyForm },
-
+  components: {
+    ProductModifyForm,
+  },
   props: {
-    productBoardId: {
+    productId: {
       type: String,
       required: true,
     },
   },
   computed: {
-    ...mapState(productBoardModule, ["productBoard"]),
+    ...mapState(productModule, ["product"]),
   },
   methods: {
-    ...mapActions(productBoardModule, [
-      "requestProductBoardToSpring",
-      "requestProductBoardModifyToSpring",
+    ...mapActions(productModule, [
+      "requestProductToSpring",
+      "requestProductModifyToSpring",
     ]),
     async onSubmit(payload) {
-      const { title, content, writer } = payload;
-      const boardId = this.boardId;
-      await this.requestProductBoardModifyToSpring({ title, content, writer, boardId });
+      const { productName, price } = payload;
+      const productId = this.productId;
+      await this.requestProductModifyToSpring({
+        productName,
+        price,
+        productId,
+      });
       await this.$router.push({
         name: "ProductReadPage",
-        params: { productBoardId: this.productBoardId },
+        params: { productId: this.productId },
       });
     },
   },
   created() {
-    this.requestProductBoardToSpring(this.productBoardId);
+    this.requestProductToSpring(this.productId);
   },
 };
 </script>

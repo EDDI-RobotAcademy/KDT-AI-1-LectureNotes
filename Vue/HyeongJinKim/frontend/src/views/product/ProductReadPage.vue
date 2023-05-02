@@ -1,10 +1,10 @@
 <template lang="">
   <div>
-    <h2>Vue + Spring + JPA + Backlog 종합 문제 은행 [ 2 ]</h2>
-    <product-read-form v-if="productBoard" :productBoard="productBoard" />
+    <h2>상품 상세 내역 보기</h2>
+    <product-read-form v-if="product" :product="product" />
     <p v-else>로딩중 .......</p>
-    <router-link :to="{ name: 'ProductModifyPage', params: { productBoardId } }">
-      저장
+    <router-link :to="{ name: 'ProductModifyPage', params: { productId } }">
+      상품 수정
     </router-link>
     <button @click="onDelete">삭제</button>
     <router-link :to="{ name: 'ProductListPage' }"> 돌아가기 </router-link>
@@ -12,32 +12,34 @@
 </template>
 
 <script>
-import BoardReadForm from "@/components/productBoard/productReadForm.vue";
+import ProductReadForm from "@/components/product/ProductReadForm.vue";
 import { mapActions, mapState } from "vuex";
-const productBoardModule = "productBoardModule";
+const productModule = "productModule";
 export default {
-  components: { ProductReadForm },
+  components: {
+    ProductReadForm,
+  },
   props: {
-    productBoardId: {
+    productId: {
       type: String,
       required: true,
     },
   },
   computed: {
-    ...mapState(productBoardModule, ["productBoard"]),
+    ...mapState(productModule, ["product"]),
   },
   methods: {
-    ...mapActions(productBoardModule, [
-      "requestProductBoardToSpring",
-      "requestProductDeleteBoardToSpring",
+    ...mapActions(productModule, [
+      "requestProductToSpring",
+      "requestDeleteProductToSpring",
     ]),
     async onDelete() {
-      await this.requestDeleteProductBoardToSpring(this.productBoardId);
+      await this.requestDeleteProductToSpring(this.productId);
       await this.$router.push({ name: "ProductListPage" });
     },
   },
   created() {
-    this.requestProductBoardToSpring(this.boardId);
+    this.requestProductToSpring(this.productId);
   },
 };
 </script>

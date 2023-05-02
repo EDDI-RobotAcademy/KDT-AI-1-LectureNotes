@@ -1,25 +1,28 @@
 <template lang="">
   <div>
-    <h2>상품 등록</h2>
+    <h2>상품 등록 페이지</h2>
+    <!-- 디버그 -->
     <product-register-form @submit="onSubmit" />
   </div>
 </template>
 
 <script>
-import ProductRegisterForm from "@/components/productBoard/ProductRegisterForm.vue";
+import ProductRegisterForm from "@/components/product/ProductRegisterForm.vue";
 import { mapActions } from "vuex";
-const productBoardModule = "productBoardModule";
+const productModule = "productModule";
 export default {
-  components: { ProductRegisterForm },
+  components: {
+    ProductRegisterForm,
+  },
   name: "ProductRegisterPage",
   methods: {
-    ...mapActions(productBoardModule, ["requestCreateProductBoardToSpring"]),
+    ...mapActions(productModule, ["requestRegisterProductToSpring"]),
     async onSubmit(payload) {
-      const productBoard = await this.requestCreateBoardToSpring(payload);
-      console.log("board: " + JSON.stringify(productBoard));
+      const product = await this.requestRegisterProductToSpring(payload);
+
       await this.$router.push({
         name: "ProductReadPage",
-        params: { productBoardId: productBoard.data.productBoardId.toString() },
+        params: { productId: product.data.productId.toString() },
       });
     },
   },

@@ -2,34 +2,21 @@
   <div>
     <table>
       <tr>
-        <td>게시물 번호</td>
-        <!-- readonly: 읽기전용 태그 -->
+        <td>상품 번호</td>
         <td>
-          <input type="text" :value="board.boardId" readonly />
+          <input type="text" :value="product.productId" readonly />
         </td>
       </tr>
       <tr>
-        <td>제목</td>
+        <td>상품명</td>
         <td>
-          <input type="text" :value="board.title" readonly />
+          <input type="text" :value="product.productName" readonly />
         </td>
       </tr>
       <tr>
-        <td>작성자</td>
+        <td>가격</td>
         <td>
-          <input type="text" :value="board.writer" readonly />
-        </td>
-      </tr>
-      <tr>
-        <td>등록일자</td>
-        <td>
-          <input type="text" :value="board.createDate" readonly />
-        </td>
-      </tr>
-      <tr>
-        <td>본문</td>
-        <td>
-          <textarea cols="80" rows="30" :value="board.content" readonly />
+          <input type="number" :value="product.price" readonly />
         </td>
       </tr>
     </table>
@@ -38,10 +25,9 @@
 
 <script>
 export default {
-  name: "BoardReadForm",
+  name: "ProductReadForm",
   props: {
-    board: {
-      // BoardReadPage에서 받아온 boardId -> board의 정보
+    product: {
       type: Object,
       required: true,
     },
