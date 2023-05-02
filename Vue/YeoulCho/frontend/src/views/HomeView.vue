@@ -38,6 +38,8 @@
       <router-link to="/Problem5-page2">Vue 5번</router-link> |
       <router-link to="/board-list-page">Vue+Spring+JPA</router-link> |
       <router-link to="/vuetify-table-page">Vuetify Table테스트</router-link> |
+      <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
+
 
 
     </nav>
