@@ -1,6 +1,7 @@
 <template lang="">
     <div style="text-align: left;">
-        <button @click="attackAll">전체 공격</button>
+        <button @click="addManyMonsters">몬스터 웨이브 추가</button><br>
+        <button @click="attackAll">전체 공격</button><br>
         <ul>
             <li v-for="(monster, index) in monsterList" :key="index">
                 ID: {{ monster.id }}, name: {{ monster.name }}, HP: {{ monster.hp }}
@@ -46,8 +47,32 @@ export default {
             console.log('길이: ' + this.monsterList.length)
             for (let i = 0; i < this.monsterList.length; i++) {
                 if (this.monsterList[i].hp <= 0) {
+                    // hp가 0이하인 요소를 1개 제거함
                     this.monsterList.splice(i, 1)
                 }
+            }
+        },
+        addManyMonsters () {
+            let count = 1
+            for (let i = 0; i < 100; i++) {
+                count = 1
+                // a, b가 첫 번째 원소, 두 번째 원소에 해당합니다.
+                // 마지막에 0을 배치해서 지속적으로 큰 숫자를 앞으로 땡기는 작업을 진행합니다.
+                let max = this.monsterList.reduce((a, b) => {
+                    console.log('count: ' + (count++) + ', a: ' + a + ', b: ' + b.id)
+                    return a > b.id ? a : b.id
+                }, 0)
+
+                // JavaScript에서 랜덤값 활용 (몬스터 도감 개수만큼)
+                let idx = Math.floor(Math.random() * this.monsterBook.length)
+
+                // 도감내 존재하는 임의의 몬스터를 추가함
+                this.monsterList.push({
+                    id: max + 1,
+                    monsterId: idx,
+                    name: this.monsterBook[idx].name,
+                    hp: this.monsterBook[idx].hp
+                })
             }
         }
     },

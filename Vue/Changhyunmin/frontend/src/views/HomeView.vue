@@ -24,6 +24,13 @@
     <router-link to="/data-send-test-page">DataSendTestPage</router-link> |    
     <router-link to="/global-component">덧셈계산기</router-link> |    
     <router-link to="/local-component">계산기</router-link> |    
+    <router-link to="/problem-page1">1번 문제</router-link> |    
+    <router-link to="/random-dice-from-spring">주사위 굴리기</router-link> |    
+    <router-link to="/life-cycle-test-page">몬스터 소환</router-link> |    
+    <router-link to="/baseball">숫자야구게임</router-link> |    
+    <router-link to="/dicegame">숙제</router-link> | 
+    <router-link to="/problem-page2">2번 연습 문제</router-link> |   
+
   </nav>
   </div>  
   </v-container>

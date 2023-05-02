@@ -5,7 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 
 import GlobalComponent from '@/components/componentTest/GlobalComponent.vue'
-import PlusComponent from '@/components/homeworkComponent/PlusComponent.vue'
+import PlusComponent from '@/components/homeworkComponent/problem1/PlusComponent.vue'
 
 Vue.config.productionTip = false
 
