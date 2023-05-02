@@ -7,7 +7,9 @@
       class="elevation-1"
       @click:row="readRow"
       show-select
+      item-key="boardId"
       v-model="selectedItems"
+    />
     />
   </v-container>
 </template>
