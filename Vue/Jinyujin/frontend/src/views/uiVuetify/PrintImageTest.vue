@@ -12,7 +12,7 @@
                 </v-img>
             </v-col>
         </v-row>
-        <h2>Hi</h2>
+        <h2>안녕 난 짱구야</h2>
     </v-container>
 </template>
 
