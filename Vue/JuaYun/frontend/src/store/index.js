@@ -1,17 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import boardModule from '@/store/board/BoardModule.js'
+import uiVuetifyModule from '@/store/uiVuetify/UiVuetifyModule.js'
+
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const store = new Vuex.Store({
   modules: {
-  }
+    boardModule: boardModule,
+    uiVuetifyModule: uiVuetifyModule
+  },
 })
+
+export default store
