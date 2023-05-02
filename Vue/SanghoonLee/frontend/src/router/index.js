@@ -35,6 +35,12 @@ import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/board/BoardReadPage.vue'
 import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
 
+import ProductListPage from '@/views/product/ProductListPage.vue'
+import ProductRegisterPage from '@/views/product/ProductRegisterPage.vue'
+import ProductReadPage from '@/views/product/ProductReadPage.vue'
+import ProductModifyPage from '@/views/product/ProductModifyPage.vue'
+import vuetifyTestRoutes from './uiVuetify'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -165,8 +171,38 @@ const routes = [
     props: {
       default: true
     },
-  }
-
+  },
+  {
+    path: '/product-list-page',
+    name: 'ProductListPage',
+    component: ProductListPage
+  },
+  {
+    path: '/product-register-page',
+    name: 'ProductRegisterPage',
+    component: ProductRegisterPage
+  },
+  {
+    path: '/product-read-page/:productId',
+    name: 'ProductReadPage',
+    components: {
+      default: ProductReadPage
+    },
+    props: {
+      default: true
+    },
+  },
+  {
+    path: '/product-modify-page/:productId',
+    name: 'ProductModifyPage',
+    components: {
+      default: ProductModifyPage
+    },
+    props: {
+      default: true
+    },
+  },
+  ...vuetifyTestRoutes
   
 ]
 
