@@ -15,7 +15,7 @@
             </tr>
             <tr v-else v-for="board in boards" :key="board.boardId">
 
-                <td align="center">
+                <td align="center"> 
                     {{ board.boardId }}
                 </td>
                 <td align="center">
