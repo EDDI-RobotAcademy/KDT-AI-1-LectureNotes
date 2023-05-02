@@ -32,6 +32,7 @@
        <router-link to="/my-problem4-page">캐릭터만들기</router-link> |
        <router-link to="/problem-page5">5번 연습 문제</router-link> |
        <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
+       <router-link to="/vuetify-table-test">게시판페이지생성</router-link> |
       </nav>
     </div>
   </v-container>
