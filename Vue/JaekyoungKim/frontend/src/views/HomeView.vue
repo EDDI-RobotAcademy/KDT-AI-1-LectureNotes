@@ -20,7 +20,23 @@
             <router-link to="/vue-checkbox-page">checkbox 테스트 페이지</router-link> |
             <router-link to="/multi-checkbox-page">다중 checkbox 테스트 페이지</router-link> |
             <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
-            <router-link to="/data-send-test-page">데이터 전송 테스트 페이지</router-link>
+            <router-link to="/data-send-test-page">데이터 전송 테스트 페이지</router-link> |
+            <router-link to="/homework-page">숙제 페이지</router-link> |
+            <router-link to="/random-dice-from-spring">주사위 받아오기</router-link> |
+            <router-link to="/life-cycle-test">몬스터 정보</router-link> |
+            <router-link to="/homework-page-two">주사위 숙제</router-link> |
+            <router-link to="/post-num-test"> 숫자 보내기 </router-link> |
+            <router-link to="/problem-two-page">2번 문제</router-link> |
+            <router-link to="/my-test">숫자 보내보기</router-link>|
+            <router-link to="/fruits-page">과일 페이지</router-link> |
+            <router-link to="/april">배열 내 값을 증가</router-link> |
+            <router-link to="/character">캐릭터 생성</router-link>|
+            <router-link to="/charactertest">선생님 캐릭터</router-link> |
+            <router-link to="/problem-page5">5번 연습 문제</router-link> |
+            <router-link to="/my-backlog-page">물고기 문제</router-link> |
+            <router-link to="board-list-page">JPA 기반 게시판</router-link> |
+           
+            
         </nav></div>
       </v-container>
 </template>
