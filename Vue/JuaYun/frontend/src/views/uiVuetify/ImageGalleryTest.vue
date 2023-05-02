@@ -29,7 +29,7 @@ export default {
             imageName: "사진이름",
             Image: [
                 // 사진을 다운받지않아 주석을 걸어두었음
-                // require('사진의 경로/사진이름'),
+                // require('@/assets/downloadImg/사진이름'),
                 // require('사진의 경로1/사진이름'),
                 // require('사진의 경로2/사진이름')
                 // 사진이 많아지면 로딩시간이 걸림
