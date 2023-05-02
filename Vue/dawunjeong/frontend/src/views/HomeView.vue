@@ -34,6 +34,7 @@
         <router-link to="/buy-fruits-page">주말 과제</router-link> |
         <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
         <router-link to="/product-list-page">상품 목록 페이지</router-link> |
+        <router-link to="/vuetify-table-test">뷰티파이 테스트 페이지</router-link> |
       </nav>
     </div>
   </v-container>
