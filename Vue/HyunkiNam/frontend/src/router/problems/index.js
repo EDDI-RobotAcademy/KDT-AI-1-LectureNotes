@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// @는 현재 src 폴더를 의미함
+
 import Problem4Page from '@/views/homework/Problem4Page.vue'
 import Problem5Page from '@/views/homework/Problem5Page.vue'
 import HomeworkPage from '@/views/homework/HomeworkPage.vue'
 
 import ProductImagePage from '@/views/homework/ProductImagePage.vue'
 import ProductOrderPage from '@/views/homework/ProductOrderPage.vue'
+
+import ImageHomeworkPage from '@/views/homework/ImageHomeworkPage.vue'
 
 Vue.use(VueRouter)
 
@@ -36,6 +38,12 @@ const problemRoutes = [
         name: 'ProductOrderPage',
         component: ProductOrderPage
     },
+    {
+        path: '/image-homework-page',
+        name: 'ImageHomeworkPage',
+        component: ImageHomeworkPage
+    },
+
 ]
 
 export default problemRoutes
