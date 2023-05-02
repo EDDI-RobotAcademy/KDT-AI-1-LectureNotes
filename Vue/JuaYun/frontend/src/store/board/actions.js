@@ -60,7 +60,7 @@ export default {
             .catch(() => {
                 alert('문제 발생!')
             })
-    }
+    },
 } 
 // axios적용을 여기서 하는것
 // 유연한 대처가 가능
