@@ -61,6 +61,8 @@
           >Image Gallery Test</router-link
         >
         |
+        <router-link to="/homework6">문제은행6</router-link>
+        |
       </nav>
     </div>
   </v-container>
