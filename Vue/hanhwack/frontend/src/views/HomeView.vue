@@ -65,8 +65,8 @@
         >|
         <router-link to="/vuetify-image-gallery"
           >Vuetify Image 갤러리</router-link
-        >
-        |
+        >|
+        <router-link to="/print-image-test">Vuetify Image 테스트</router-link> |
       </nav>
     </div>
   </v-container>
