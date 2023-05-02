@@ -53,6 +53,10 @@
         >
         |
         <router-link to="/vuetify-table-test">Vuetify Table-Test</router-link> |
+        <router-link to="/vuetify-table-advanced"
+          >Advanced Table Test</router-link
+        >
+        |
       </nav>
     </div>
   </v-container>
