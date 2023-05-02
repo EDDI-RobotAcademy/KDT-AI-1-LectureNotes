@@ -16,7 +16,6 @@ import defaultSetRoutes from './defaultRouterSet'
 Vue.use(VueRouter)
 
 const routes = [
-
   {
     path: '/',
     name: 'home',
