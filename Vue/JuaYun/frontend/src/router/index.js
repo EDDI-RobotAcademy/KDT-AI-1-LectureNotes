@@ -2,32 +2,29 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // @는 현재 src 폴더를 의미함
 
-
-
 import vuetifyTestRoutes from './uiVuetify'
-import productRoutes from './product'
+import boardRoutes from './board'
 import problemRoutes from './problems'
 import lifeCycleRoutes from './lifeCycle'
-import axiosRoutes from './axiosTest'
-import componentTestRoutes from './axiosTest'
-import basicRoutes from './vueBasic'
+import axiosTestRoutes from './axiosTest'
+import componentTestRoutes from './componentTest'
+import vueBasicRoutes from './vueBasic'
 import htmlCssRoutes from './htmlCss'
 import defaultSetRoutes from './defaultRouterSet'
-
 
 
 Vue.use(VueRouter)
 
 const routes = [
-  ...htmlCssRoutes,
-  ...basicRoutes,
-  ...componentTestRoutes,
-  ...vuetifyTestRoutes,
-  ...productRoutes,
-  ...problemRoutes,
-  ...lifeCycleRoutes,
-  ...axiosRoutes,
   ...defaultSetRoutes,
+  ...htmlCssRoutes,
+  ...vueBasicRoutes,
+  ...componentTestRoutes,
+  ...axiosTestRoutes,
+  ...lifeCycleRoutes,
+  ...problemRoutes,
+  ...boardRoutes,
+  ...vuetifyTestRoutes
 
 ]
 

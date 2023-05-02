@@ -6,12 +6,11 @@ import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.
 Vue.use(VueRouter)
 
 const lifeCycleRoutes = [
-  
-{
-    path: '/vue-lifecycle-test',
-    name: 'VueLifeCycleTestPage',
-    component: VueLifeCycleTestPage
-  },
+    {
+        path: '/vue-lifecycle-test',
+        name: 'VueLifeCycleTestPage',
+        component: VueLifeCycleTestPage
+    },
 ]
 
 export default lifeCycleRoutes
