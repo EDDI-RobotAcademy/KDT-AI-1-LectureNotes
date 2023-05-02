@@ -1,5 +1,6 @@
 package kr.eddi.demo.lectureClass.jpa.product.service;
 
+import kr.eddi.demo.lectureClass.jpa.product.controller.form.RequestProductForm;
 import kr.eddi.demo.lectureClass.jpa.product.entity.JpaProduct;
 import kr.eddi.demo.lectureClass.jpa.product.repository.JpaProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -42,5 +43,21 @@ public class JpaProductServiceImpl implements JpaProductService {
     @Override
     public void delete(Long productId) {
         productRepository.deleteById(productId);
+    }
+
+    @Override
+    public JpaProduct modify(Long productId, RequestProductForm requestProductForm) {
+        Optional<JpaProduct> maybeJpaProduct = productRepository.findById(productId);
+
+        if (maybeJpaProduct.isEmpty()) {
+            log.info("정보가 없습니다!");
+            return null;
+        }
+
+        JpaProduct product = maybeJpaProduct.get();
+        product.setProductName(requestProductForm.getProductName());
+        product.setPrice(requestProductForm.getPrice());
+
+        return productRepository.save(product);
     }
 }
