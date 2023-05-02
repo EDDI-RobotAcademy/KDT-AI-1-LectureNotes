@@ -2,7 +2,9 @@ package com.example.demo.lectureClass.vue.homework.controller;
 
 import com.example.demo.lectureClass.vue.homework.charactergame.Account;
 import com.example.demo.lectureClass.vue.homework.charactergame.CharacterStatus;
+import com.example.demo.lectureClass.vue.homework.charactergame.UserCharacterStatusList;
 import com.example.demo.lectureClass.vue.homework.controller.form.CharacterGameAccountForm;
+import com.example.demo.lectureClass.vue.homework.controller.form.CreateCharacterForm;
 import com.example.demo.lectureClass.vue.homework.controller.form.LoginResponseForm;
 import com.example.demo.lectureClass.vue.homework.controller.form.FindAccountForm;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +20,7 @@ import java.util.List;
 public class VueHomework4Controller {
 
     private static int accountNumber = 1;
+    private static int characterId = 1;
     private static List<Account> accountList = new ArrayList<>();
     private static List<CharacterStatus> characterStatusList = new ArrayList<>();
 
@@ -43,20 +46,21 @@ public class VueHomework4Controller {
         accountList.add(account);
         log.info("accountList: " + accountList);
 
-        /*
-        CharacterStatus character = new CharacterStatus(account.getId());
-        characterStatusList.add(character);
-        */
-
         return true;
     }
 
-    @GetMapping("/create-character-status")
-    public int[] createCharacterStatus () {
-        log.info("characterStatus: " + Arrays.toString(characterStatusList.get(0).getCharacterStatus()));
-        log.info("whatIsYourId: " + characterStatusList.get(0).getAccountId());
+    @PostMapping("/create-character-status")
+    public UserCharacterStatusList createCharacterStatus (@RequestBody CreateCharacterForm createCharacterForm) {
+        log.info("createCharacterForm.getAccountId(): " + createCharacterForm.getAccountId());
+        CharacterStatus character = new CharacterStatus(createCharacterForm.getAccountId(), characterId);
 
-        return characterStatusList.get(0).getCharacterStatus();
+        characterStatusList.add(character);
+
+        UserCharacterStatusList userCharacterStatusList =
+                new UserCharacterStatusList(characterId,characterStatusList.get(characterId-1).getCharacterStatus());
+
+        characterId++;
+        return userCharacterStatusList;
     }
 
     // 로그인
