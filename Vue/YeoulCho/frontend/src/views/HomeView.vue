@@ -39,8 +39,9 @@
       <router-link to="/board-list-page">Vue+Spring+JPA</router-link> |
       <router-link to="/vuetify-table-page">Vuetify Table테스트</router-link> |
       <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
+      <router-link to="/vuetify-image-gallery">이미지</router-link> |
 
-
+      
 
     </nav>
   </div>
