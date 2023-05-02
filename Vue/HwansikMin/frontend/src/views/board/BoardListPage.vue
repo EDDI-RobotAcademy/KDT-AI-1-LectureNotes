@@ -12,6 +12,7 @@
             </router-link>
         </div>
         <board-list-form :boards="boards"/>
+        <p>{{ output }}</p>
     </div>
 </template>
 
@@ -23,9 +24,16 @@ const boardModule = 'boardModule'
 
 export default {
     components: { BoardListForm },
+    data () {
+        return {
+        }
+    },
     // state 관리자인 vuex에 state값(boards)를 모니터링
     computed: {
         ...mapState(boardModule, ['boards']),
+        output () {
+            console.log('이런식으로 활용도 가능')
+        }
     },
     mounted () {
         // vuex의 action 호출
