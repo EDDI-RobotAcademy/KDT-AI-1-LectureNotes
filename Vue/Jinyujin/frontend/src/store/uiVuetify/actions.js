@@ -9,6 +9,7 @@ export default {
         return axiosInst.get('/give-me/image-path')
             .then((res) => {
                 commit(REQUEST_TEST_IMAGE_PATH_TO_SPRING, res.data)
+                // commit을 해서 mutation이 동작하도록!!
                 return res.data
             })
     },
