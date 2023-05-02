@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <v-container>
-            <v-img :src="require(`${imageName}`)"/>
+            <v-img :src="require(`@/assets/downloadImg/${imageName}`)"/>
         </v-container>
     </div>
 </template>
@@ -15,7 +15,7 @@ export default {
         return {
             imageName: "",
         }
-    },
+    },    
     mounted () {
         axios.post('http://localhost:7777/img-request/get-path')
         .then((res) => {

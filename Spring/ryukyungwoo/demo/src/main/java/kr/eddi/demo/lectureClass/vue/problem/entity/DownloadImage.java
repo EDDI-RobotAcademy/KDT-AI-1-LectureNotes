@@ -9,6 +9,6 @@ import lombok.ToString;
 public class DownloadImage {
     private String downloadImagePath;
     public String downloadImage () {
-       return "@/assets/downloadImg/mario_run.png";
+       return "mario_run.png";
     }
 }
