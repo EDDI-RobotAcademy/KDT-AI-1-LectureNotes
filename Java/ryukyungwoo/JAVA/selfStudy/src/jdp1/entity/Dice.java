@@ -1,14 +1,14 @@
-package jdp1;
+package jdp1.entity;
 
 import utility.random.CustomRandom;
 
 public class Dice {
-    final private int MAX_NUMBER = 6;
-    final private int MIN_NUMBER = 1;
+    final private int MIN_DICE = 1;
+    final private int MAX_DICE = 6;
     private int diceNumber;
 
-    public Dice() {
-        diceNumber = CustomRandom.generateNumber(MIN_NUMBER, MAX_NUMBER);
+    public Dice () {
+        this.diceNumber = CustomRandom.generateNumber(MIN_DICE, MAX_DICE);
     }
 
     public int getDiceNumber() {
@@ -17,7 +17,7 @@ public class Dice {
 
     @Override
     public String toString() {
-        return "dice{" +
+        return "Dice{" +
                 "diceNumber=" + diceNumber +
                 '}';
     }

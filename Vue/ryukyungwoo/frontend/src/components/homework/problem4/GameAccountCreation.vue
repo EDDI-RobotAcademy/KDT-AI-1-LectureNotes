@@ -17,6 +17,7 @@
 
 <script>
 import axios from 'axios'
+
 export default {
     data () {
         return {
@@ -32,6 +33,7 @@ export default {
         },
         processCreateCharacter () {
             this.isPressedButton = false
+
             const { email, password } = this
             axios.post('http://localhost:7777/test-account/create', { email, password })
                 .then((res) => {

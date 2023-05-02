@@ -17,6 +17,7 @@
 
 <script>
 import axios from 'axios'
+
 export default {
     data () {
         return {
@@ -24,10 +25,12 @@ export default {
         }
     },
     methods: {
+
         onSubmit () {
-            const { studentName } = this
+            const { studentAge } = this
+
             axios.post('http://localhost:7777/vue-test/send-one', 
-                    { studentName })
+                    { studentAge })
                 .then((res) => {
                     alert('데이터 전송 성공!')
                 })

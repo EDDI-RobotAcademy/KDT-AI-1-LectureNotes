@@ -17,6 +17,7 @@
 
 <script>
 import axios from 'axios'
+
 export default {
     data () {
         return {
@@ -32,6 +33,7 @@ export default {
         },
         processLogin () {
             this.isPressedButton = false
+
             const { email, password } = this
             axios.post('http://localhost:7777/bmp-account/login', { email, password })
                 .then((res) => {

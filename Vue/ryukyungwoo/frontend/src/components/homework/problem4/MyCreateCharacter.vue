@@ -28,6 +28,9 @@
         <p> 
             운: {{ luck }}
         </p>
+    </div>
+    <div>
+        
     </div>    
 </div>
 </template>
