@@ -13,56 +13,30 @@
         -->
         <router-link to="/htmlTest">HtmlTest</router-link> |
         <router-link to="/cssTest">CssTest</router-link> |
-        <router-link to="/vue-data-binding-page"
-          >VueDataBindingPage</router-link
-        >
-        |
-        <router-link to="/vue-click-event-page">VueClickEventPage</router-link>
-        | <router-link to="/vue-input-event-page">VueInputEventPage</router-link
-        ><br />|
-        <router-link to="/duplex-model-test-page"
-          >textarea 테스트 페이지</router-link
-        >
-        |
-        <router-link to="/checkbox-test-page"
-          >checkbox 테스트 페이지</router-link
-        >
-        |
-        <router-link to="/multi-checkbox-test-page"
-          >다중 checkbox 테스트 페이지</router-link
-        >
-        |
-        <router-link to="/global-componenet-test-page"
-          >전역 컴포넌트 테스트</router-link
-        >
-        | <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
-
-        <router-link to="/homework-global-component"
-          >Vue 문제은행 1</router-link
-        >
-        |
-        <router-link to="/random-dice-from-spring"
-          >axios로 주사위 값 받기</router-link
-        >
-        |
-        <router-link to="/vue-lifecycle-test"
-          >게임으로 파악하는 라이프사이클</router-link
-        >
-        |
+        <router-link to="/vue-data-binding-page">VueDataBindingPage</router-link>|
+        <router-link to="/vue-click-event-page">VueClickEventPage</router-link>|
+        <router-link to="/vue-input-event-page">VueInputEventPage</router-link><br />|
+        <router-link to="/duplex-model-test-page">textarea 테스트 페이지</router-link>|
+        <router-link to="/checkbox-test-page">checkbox 테스트 페이지</router-link>|
+        <router-link to="/multi-checkbox-test-page">다중 checkbox 테스트 페이지</router-link>|
+        <router-link to="/global-componenet-test-page">전역 컴포넌트 테스트</router-link>|
+        <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
+        <router-link to="/homework-global-component">Vue 문제은행 1</router-link>|
+        <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link>|
+        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프사이클</router-link>|
         <router-link to="/vue-basic-test">Vue 문제은행 2-1</router-link> |
         <router-link to="/vue-prob-test">Vue 문제은행 2-2</router-link>|
-
         <router-link to="/problem-page2">Vue 문제은행 2 [Review]</router-link>|
         <router-link to="/problem-page3-alone">Vue 문제은행 3</router-link>|
         <router-link to="/problem-3page">Vue 문제은행 3 [Review]</router-link>|
         <router-link to="/vue-problem-4page-alone">Vue 문제은행 Re4</router-link>|
-        <router-link to="/vue-problem-4page"
-          >Vue 문제은행 4 [Review]</router-link
-        >|
-        <router-link to="/vue-problem-5page"
-          >Vue 문제은행 5 [Review]</router-link
-        >| <router-link to="/vue-prob6">Vue 문제은행 6</router-link>|
+        <router-link to="/vue-problem-4page">Vue 문제은행 4 [Review]</router-link>|
+        <router-link to="/vue-problem-5page">Vue 문제은행 5 [Review]</router-link>|
+        <router-link to="/vue-prob6">Vue 문제은행 6</router-link>|
         <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link>|
+        <router-link to='/vuetify-table-test'>Vuetify Page 테스트</router-link>|
+        <router-link to='/vuetify-table-advanced'>Vuetify Table 추가 테스트</router-link>|
+        <router-link to='/vuetify-image-gallery'>Vuetify Image 갤러리</router-link>|
       </nav>
     </div>
   </v-container>
