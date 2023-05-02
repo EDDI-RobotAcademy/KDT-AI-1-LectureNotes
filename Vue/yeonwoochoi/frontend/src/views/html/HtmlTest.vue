@@ -118,20 +118,20 @@
             image를 추가하고 싶을 때는 아래와 같이 이미지가 위치하는 경로를 지정해주면 됩니다.
             부가적으로 download로 확보 했는지 아니면 실질적으로 서비스 차원에서 사용자가
             등록한 이미지인지 같은 것을 디렉토리 이름으로 구별하면 좋습니다.
-            예 <img src="@/assets/donwloadImg/mario_run.png">
+            예 <img src="@/assets/downloadImg/mario_run.png">
         -->
         <h2>Image</h2>
-        <img src="@/assets/donwloadImg/mario_run.png">
+        <img src="@/assets/downloadImg/mario_run.png">
         <!-- figure 로 image를 감싸고 flgcaption을 달면 image에 대한 설명을 붙일 수 있습니다. -->
         <figure>
-            <img src="@/assets/donwloadImg/mario_run.png">
+            <img src="@/assets/downloadImg/mario_run.png">
             <figcaption style="font-size: 32px;">마리오가 달린다!</figcaption>
         </figure>
         <h1>Text Link 생성</h1>
         <a href="https://golang.org">Golang Homepage</a>
         <h1>이미지 링크 생성</h1>
         <a href="https://mario.nintendo.com/">
-            <img src="@/assets/donwloadImg/mario_run.png">
+            <img src="@/assets/downloadImg/mario_run.png">
         </a>
         <!-- 
             form 태그는 말 그대로 format(양식)을 지정해서 데이터를 전송합니다.
