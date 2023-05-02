@@ -1,6 +1,6 @@
 package com.example.demo.lectureClass.jpa.product.controller.form;
 
-import com.example.demo.lectureClass.jpa.product.entity.JpaProduct;
+import com.example.demo.lectureClass.jpa.product.entity.JpaProductTest;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
@@ -17,7 +17,7 @@ public class RequestProductForm {
     final private String productionDate;
     final private String details;
 
-    public JpaProduct toJpaProduct() {
-        return new JpaProduct(name, price, manufacturer,  expirationDate, productionDate, details);
+    public JpaProductTest toJpaProduct() {
+        return new JpaProductTest(name, price, manufacturer,  expirationDate, productionDate, details);
     }
 }

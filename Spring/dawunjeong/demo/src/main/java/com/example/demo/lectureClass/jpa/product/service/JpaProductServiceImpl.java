@@ -1,6 +1,6 @@
 package com.example.demo.lectureClass.jpa.product.service;
 
-import com.example.demo.lectureClass.jpa.product.entity.JpaProduct;
+import com.example.demo.lectureClass.jpa.product.entity.JpaProductTest;
 import com.example.demo.lectureClass.jpa.product.repository.JpaProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,18 +17,18 @@ public class JpaProductServiceImpl implements JpaProductService{
 
     final private JpaProductRepository productRepository;
     @Override
-    public List<JpaProduct> list() {
+    public List<JpaProductTest> list() {
         return productRepository.findAll(Sort.by(Sort.Direction.DESC, "productId"));
     }
 
     @Override
-    public JpaProduct register(JpaProduct jpaProduct) {
-        return productRepository.save(jpaProduct);
+    public JpaProductTest register(JpaProductTest jpaProductTest) {
+        return productRepository.save(jpaProductTest);
     }
 
     @Override
-    public JpaProduct read(Long productId) {
-        Optional<JpaProduct> maybeJpaProduct = productRepository.findById(productId);
+    public JpaProductTest read(Long productId) {
+        Optional<JpaProductTest> maybeJpaProduct = productRepository.findById(productId);
 
         if (maybeJpaProduct.isEmpty()) {
             log.info("정보가 없습니다!");

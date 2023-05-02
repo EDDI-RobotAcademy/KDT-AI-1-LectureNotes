@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 @NoArgsConstructor
-public class JpaProduct {
+public class JpaProductTest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
@@ -29,7 +29,7 @@ public class JpaProduct {
     private String productionDate;
     private String details;
 
-    public JpaProduct(String name, String price, String manufacturer, String expirationDate, String productionDate, String details) {
+    public JpaProductTest(String name, String price, String manufacturer, String expirationDate, String productionDate, String details) {
         this.name = name;
         this.price = price;
         this.manufacturer = manufacturer;
