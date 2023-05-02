@@ -1,9 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-// @는 현재 src 폴더를 의미함
-import HomeView from "@/views/HomeView.vue";
-
 import boardRoutes from "./board";
 import problemRoutes from "./problems";
 import lifeCycleRoutes from "./lifeCycle";
