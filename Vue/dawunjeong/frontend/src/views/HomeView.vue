@@ -36,6 +36,7 @@
         <router-link to="/product-list-page">상품 목록 페이지</router-link> |
         <router-link to="/vuetify-table-test">뷰티파이 테스트 페이지</router-link> |
         <router-link to="/vuetify-table-advanced">뷰티파이 어드벤스드 페이지</router-link> |
+        <router-link to="/vuetify-image-gallery">뷰티파이 어드벤스드 페이지</router-link> |
       </nav>
     </div>
   </v-container>
