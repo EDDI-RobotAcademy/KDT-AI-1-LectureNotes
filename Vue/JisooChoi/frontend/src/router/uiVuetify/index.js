@@ -5,6 +5,9 @@ import TableTestPage from '@/views/uiVuetify/TableTestPage.vue'
 import TableAdvanced from '@/views/uiVuetify/TableAdvanced.vue'
 import ImageGalleryTest from '@/views/uiVuetify/ImageGalleryTest.vue'
 
+// Vue 문제 은행 6
+import vuetifyImageProbPage from '@/views/basics/homework/vuetifyProb/vuetifyImageProbPage.vue'
+
 Vue.use(VueRouter)
 
 const vuetifyTestRoutes = [
@@ -22,6 +25,11 @@ const vuetifyTestRoutes = [
     path: '/vuetify-image-gallery',
     name: 'ImageGalleryTest',
     component: ImageGalleryTest
+  },
+  {
+    path: '/vuetify-image-prob-page',
+    name: 'vuetifyImageProbPage',
+    component: vuetifyImageProbPage
   },
 ]
 
