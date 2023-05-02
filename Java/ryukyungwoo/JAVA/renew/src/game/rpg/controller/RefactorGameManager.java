@@ -61,8 +61,8 @@ public class RefactorGameManager {
                 break;
             }
 
-            //final Boolean isAllPlayerDeath = turnBehavior(characterList, monsterList, MONSTER_ATTACK);
-            final Boolean isAllPlayerDeath = monsterTurnBehavior();
+            final Boolean isAllPlayerDeath = turnBehavior(monsterList, characterList, ATTACKER_IS_MONSTER);
+            //final Boolean isAllPlayerDeath = monsterTurnBehavior();
             if (isAllPlayerDeath) {
                 System.out.println("Player 패배!");
                 break;

@@ -1,0 +1,15 @@
+package com.example.demo.lectureClass.homework.problem.problem3.controller.teacher;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+
+@ToString
+@Getter
+@RequiredArgsConstructor
+public class OrderedFruitsListForm {
+    final private String appleName;
+    final private Integer appleCount;
+    final private String watermelonName;
+    final private Integer watermelonCount;
+}

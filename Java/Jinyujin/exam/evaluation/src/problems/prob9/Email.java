@@ -5,12 +5,6 @@ import customLibrary.CustomRandom;
 import java.util.Scanner;
 
 public class Email {
-    final private String name;
-
-    public Email(String name) {
-        Scanner in  = new Scanner(System.in);
-        this.name = name;
-    }
 
     public void makeRandomEmail() {
         final int MIN_EMAIL_LENTH = 4;

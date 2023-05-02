@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class FinalDiceGameManager {
-    final private int PLAYER_NUM = 3;
+    final private int PLAYER_NUM = 20;
     final private List<RefactorDiceGamePlayer> playerList = new ArrayList<>();
 
     public FinalDiceGameManager() {
@@ -121,22 +121,31 @@ public class FinalDiceGameManager {
 
         System.out.println("승리: " + winner.getName());
         System.out.println("전적 상황: " + playerList);
-        // TODO: 확장성 문제가 존재함 추후 사용자 숫자 증대시 리팩토링 필요
-//        GameScore firstPlayerScore = playerList.get(0).getGameScore();
-//        GameScore secondPlayerScore = playerList.get(1).getGameScore();
-//
-//        final int firstPlayerScoreTotalScore = firstPlayerScore.getTotalScore();
-//        final int secondPlayerScoreTotalScore = secondPlayerScore.getTotalScore();
-//
-//        if (firstPlayerScoreTotalScore > secondPlayerScoreTotalScore) {
-//            System.out.println("승자: " + playerList.get(0).getName());
-//            return;
-//        }
-//        if (firstPlayerScoreTotalScore < secondPlayerScoreTotalScore) {
-//            System.out.println("승자: " + playerList.get(1).getName());
-//            return;
-//        }
-//
-//        System.out.println("무승부");
+    }
+
+    public void printRank() {
+        // 플레이어 랭킹 출력
+        int rank = 1;
+        int backupScore = 0;
+        int sameScoreCount = 0;
+        Boolean isSameScore = false;
+
+        for (int i = 0; i < playerList.size(); i++) {
+            isSameScore = false;
+
+            final RefactorDiceGamePlayer player = playerList.get(i);
+            final int currentScore = player.getGameScore().getTotalScore();
+            if (backupScore == currentScore) {
+                sameScoreCount++;
+                isSameScore = true;
+            } else { sameScoreCount = 0; }
+
+            System.out.println(
+                    "순위: " + ((isSameScore) ? (rank++ - sameScoreCount) : (rank++))+
+                    ", 점수: " + currentScore +
+                    ", 이름: " + player.getName());
+
+            backupScore = player.getGameScore().getTotalScore();
+        }
     }
 }

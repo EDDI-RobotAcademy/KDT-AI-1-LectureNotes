@@ -72,7 +72,7 @@ public class RefactorManager {
                     CustomRandom.generateNumber(2));
 
             product.setMemberId(
-                    CustomRandom.generateNumber(MIN, MAX));
+                    CustomRandom.generateNumber(MIN, MAX)); // productLength인 3만큼 3번 돌려서 매치할거다
         }
     }
 }
