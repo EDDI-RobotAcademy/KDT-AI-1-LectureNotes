@@ -1,11 +1,13 @@
-<template lang="">
+<template>
     <div>
         <label>
-        <input type="checkbox" v-model="isChecked"> {{isChecked}}
+            <input type="checkbox" v-model="isChecked"> {{ isChecked }}
         </label>
     </div>
 </template>
+
 <script>
+
 export default {
     data () {
         return {
@@ -13,7 +15,9 @@ export default {
         }
     }
 }
+
 </script>
-<style lang="">
+
+<style>
     
 </style>

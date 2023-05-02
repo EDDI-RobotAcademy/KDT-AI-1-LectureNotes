@@ -2,12 +2,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import boardModule from '@/store/board/BoardModule.js'
+import productModule from '@/store/product/ProductModule.js'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({ // 왼쪽 store를 전역 객체화
+const store = new Vuex.Store({
   modules: {
     boardModule: boardModule,
+    productModule: productModule,
   },
 })
 

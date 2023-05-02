@@ -1,4 +1,3 @@
-
 <template lang="">
     <div>
         <h2>게시물 작성</h2>
@@ -10,7 +9,9 @@
 <script>
 import BoardRegisterForm from '@/components/board/BoardRegisterForm.vue'
 import { mapActions } from 'vuex';
+
 const boardModule = 'boardModule'
+
 export default {
     components: {
         BoardRegisterForm,
@@ -22,6 +23,7 @@ export default {
         ),
         async onSubmit (payload) {
             const board = await this.requestCreateBoardToSpring(payload)
+            console.log('typeof(board): ' + typeof(board))
             console.log('board: ' + JSON.stringify(board))
             await this.$router.push({
                 name: 'BoardReadPage',

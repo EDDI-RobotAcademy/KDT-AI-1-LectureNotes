@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <form @submit.prevent="onSubmit"> <!-- onSubmit 자동 실행 방지 -->
+        <form @submit.prevent="onSubmit">
             <table>
                 <tr>
                     <td>제목</td>
@@ -23,8 +23,8 @@
             </table>
 
             <div>
-                <button type="submit">등록</button> <!-- 누르면 submit 실행 -->
-                <router-link :to="{ name: 'BoardListPage' }"> <!-- 누르면 BoardListPage로 이동 -->
+                <button type="submit">등록</button>
+                <router-link :to="{ name: 'BoardListPage' }">
                     취소
                 </router-link>
             </div>
@@ -37,14 +37,14 @@ export default {
     name: "BoardRegisterForm",
     data () {
         return {
-            title: '제목을 입력하세요', // 각 값들의 기본 세팅
+            title: '제목을 입력하세요',
             writer: '누구세요 ?',
             content: '본문을 입력하세요',
         }
     },
     methods: {
         onSubmit () {
-            const { title, writer, content } = this 
+            const { title, writer, content } = this
             // BoardRegisterPage의 @submit은 여기의 submit에 대응함
             this.$emit('submit', { title, writer, content })
         }

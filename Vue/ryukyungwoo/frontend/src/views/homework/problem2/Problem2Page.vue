@@ -1,4 +1,3 @@
-
 <template lang="">
     <div>
         <dice-game-two-times/>
@@ -9,6 +8,7 @@
 <script>
 import DiceGameTwoTimes from '@/components/homework/problem2/DiceGameTwoTimes.vue'
 import SendOneParameter from '@/components/homework/problem2/SendOneParameter.vue'
+
 export default {
     components: {
         DiceGameTwoTimes,

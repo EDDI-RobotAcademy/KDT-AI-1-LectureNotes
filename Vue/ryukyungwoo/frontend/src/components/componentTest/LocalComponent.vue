@@ -1,10 +1,11 @@
 <template>
     <div>
-        {{ multipleResult }}
+        {{ initialValue }} + {{ initialValue2 }} = {{ initialValue * initialValue2 }}
     </div>
 </template>
 
 <script>
+
 export default {
     name: "LocalComponent",
     // 파라메터 받는 값
@@ -20,6 +21,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>

@@ -9,36 +9,39 @@
 <script>
 import BoardModifyForm from '@/components/board/BoardModifyForm.vue'
 import { mapActions, mapState } from 'vuex';
+
 const boardModule = 'boardModule'
+
 export default {
     components: {
         BoardModifyForm,
     },
     props: {
         boardId: {
-            type: String,  // boardId 값의 데이터 타입 명시
-            required: true, // 필수로 전달 받아야 한다는 뜻
+            type: String,
+            required: true,
         }
     },
     computed: {
-        ...mapState(boardModule, ['board']) // State에 board를 맵핑
+        ...mapState(boardModule, ['board'])
     },
     methods: {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestBoardModifyToSpring']
-        ), // action에 requestBoardToSpring, requestBoardModifyToSpring 실행
-        async onSubmit (payload) { // onSubmit 에 payload 대입
-            const { title, content, writer } = payload // payload의 값
-            const boardId = this.boardId // boardId의 불변객체 화
-            await this.requestBoardModifyToSpring({ title, content, writer, boardId }) 
+        ),
+        async onSubmit (payload) {
+            const { title, content, writer } = payload
+            const boardId = this.boardId
+
+            await this.requestBoardModifyToSpring({ title, content, writer, boardId })
             await this.$router.push({
-                name: 'BoardReadPage', // BoardReadPage로 이동
-                params: { boardId: this.boardId } // 파라미터는 받아온 boardId
+                name: 'BoardReadPage',
+                params: { boardId: this.boardId }
             })
         }
     },
     created () {
-        this.requestBoardToSpring(this.boardId) // requestBoardToSpring에 받아온 boardId 입력
+        this.requestBoardToSpring(this.boardId)
     }
 }
 </script>

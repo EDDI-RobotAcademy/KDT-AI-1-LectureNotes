@@ -1,25 +1,27 @@
 import {
-    REQUEST_BOARD_LIST_TO_SPRING,    
+    REQUEST_BOARD_LIST_TO_SPRING,
     REQUEST_BOARD_TO_SPRING,
 } from './mutation-types'
 
 import axiosInst from '@/utility/axiosInst'
 
 export default {
-    requestBoardToSpring ({ commit }, boardId) {          // 이 부분들이 다시 헷갈림
+    requestBoardToSpring ({ commit }, boardId) {
         return axiosInst.get(`/jpa-board/${boardId}`)
             .then((res) => {
-                commit(REQUEST_BOARD_TO_SPRING, res.data) // 이 부분들은 이해가 됐으나
+                commit(REQUEST_BOARD_TO_SPRING, res.data)
             })
     },
     requestBoardListToSpring ({ commit }) {
-        return axiosInst.get('/jpa-board/list')
+        axiosInst.get('/jpa-board/list')
             .then((res) => {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
             })
     },
     requestCreateBoardToSpring ({}, payload) {
+
         const { title, content, writer } = payload
+
         return axiosInst.post('/jpa-board/register', { title, content, writer })
             .then((res) => {
                 alert('게시물 등록 성공!')
@@ -51,5 +53,5 @@ export default {
             .catch(() => {
                 alert('문제 발생!')
             })
-}
+    }
 }
