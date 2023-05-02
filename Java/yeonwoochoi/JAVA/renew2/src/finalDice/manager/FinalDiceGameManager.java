@@ -3,7 +3,7 @@ package finalDice.manager;
 import finalDice.Dice.RefactorDice;
 import finalDice.Player.RefactorDiceGamePlayer;
 import finalDice.score.RefactorScore;
-import utility.CustomRandom;
+import utility.random.CustomRandom;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +23,7 @@ public class FinalDiceGameManager {
     private int findTargetPlayerIndex(int currentPlayerIdx) {
         int targetPlayerIdx = 0;
 
+        // do while 한번은 무조건 반복
         do {
             targetPlayerIdx = CustomRandom.generateNumber(PLAYER_NUM - 1);
         } while (currentPlayerIdx == targetPlayerIdx);
@@ -101,7 +102,6 @@ public class FinalDiceGameManager {
             System.out.println(playerList.get(i));
         }
     }
-
     public void checkWinner() {
         final int WINNER_IDX = 0;
         final int SECOND_IDX = 1;

@@ -1,8 +1,8 @@
 package homework;
 
 class Dice2{
-    final int MAX_DICE = 4;
-    final int[] diceNumber = new int[MAX_DICE];
+    final int MAX_DICE = 4; // 주사위의 개수
+    final int[] diceNumber = new int[MAX_DICE]; // 각 주사위의 값
     int totalScore;
 
     final int MAX = 6;
@@ -37,6 +37,6 @@ public class DiceHomework2Second {
         } else {
             System.out.println(+ winnerCondition1 + " 혹은 " + winnerCondition2 + "의 배수가 아니므로 패배입니다.");
         }
-
     }
+
 }

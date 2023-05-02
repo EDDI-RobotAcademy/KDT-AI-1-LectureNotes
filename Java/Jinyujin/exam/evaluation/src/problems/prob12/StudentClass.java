@@ -6,7 +6,6 @@ package problems.prob12;
 import customLibrary.CustomRandom;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class StudentClass {
