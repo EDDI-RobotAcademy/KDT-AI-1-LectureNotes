@@ -30,6 +30,7 @@
         <router-link to="/problem5-page">문제 은행5</router-link> |
         <router-link to="/product-image-page">상품</router-link> |
         <router-link to="/board-list-page">Vue + SPRING + JPA 게시판</router-link> |
+        <router-link to="/vuetify-table-test">Vuetify Table 테스트</router-link> |
 
 
       </nav>
