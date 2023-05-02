@@ -31,6 +31,9 @@
         <router-link to="/problem-page5">5번 연습 문제</router-link> |
         <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
         <router-link to="/product-list-page">상품 게시판</router-link> |
+        <router-link to="/vuetify-table-test">Vuetify Table 테스트</router-link> |
+        <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
+        <router-link to="/vuetify-image-gallery">Vuetify Image 갤러리</router-link> |
       </nav>
     </div>
   </v-container>
