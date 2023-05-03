@@ -15,6 +15,9 @@ import * as d3 from "d3"
 export default {
     data () {
         return {
+            // 이건 그래프 내의 테스트 코드 진한 파랑색 그래프 선을 의미함
+            // 제대로 선이 그려지나 확인한 작업같음
+            // 그래서 test_data라고 썼었음
             data: [90.9, 70, 90.2, 25, 10.2, 92],
             reg_data: [
                 { date: "24-Apr-23", amount: 93.24 },
