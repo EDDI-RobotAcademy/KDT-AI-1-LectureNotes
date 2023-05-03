@@ -8,6 +8,7 @@ import PrintImageTest from "@/views/uiVuetify/PrintImageTest.vue";
 import DialogTestPage from "@/views/uiVuetify/DialogTestPage.vue";
 import CarouselTestPage from "@/views/uiVuetify/CarouselTestPage.vue";
 import D3PlotTestPage from "@/views/plot/D3PlotTestPage.vue";
+import D3HealthPrintPage from "@/views/plot/D3HealthPrintPage.vue";
 
 Vue.use(VueRouter)
 const vuetifyTestRoutes = [
@@ -46,6 +47,11 @@ const vuetifyTestRoutes = [
         name: 'D3PlotTestPage',
         component: D3PlotTestPage
     },
+    {
+        path: '/d3-health-print-page',
+        name: 'D3HealthPringPage',
+        component: D3HealthPrintPage
+    }
 ]
 
 export default vuetifyTestRoutes

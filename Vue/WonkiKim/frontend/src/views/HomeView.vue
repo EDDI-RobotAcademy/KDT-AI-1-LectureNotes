@@ -36,6 +36,7 @@
         <router-link to="/dialog-test-page">dialog-test-page</router-link>|
         <router-link to="/carousel-test-page">CarouselTestPage</router-link>|
         <router-link to="/d3plot-test-page">D3Plot Test Page</router-link>|
+        <router-link to="/d3-health-print-page">D3HealthPrintPage</router-link>|
       </nav>
     </div>
   </v-container>
