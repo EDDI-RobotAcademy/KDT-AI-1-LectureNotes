@@ -19,11 +19,9 @@ export default {
         }
     },
     mounted() {
-        const width = 800
-        const height = 500
         const svg = d3.select("svg")
-            .attr("width", width + 100)
-            .attr("height", height + 100)
+            .attr("width", this.width + 100)
+            .attr("height", this.height + 100)
         const g = svg.append("g")
         const parseTime = d3.timeParse("%d-%m-%y")
 
@@ -31,13 +29,13 @@ export default {
             .domain(d3.extent(this.momentumList, (d) => {
                 return parseTime(d.date)
             }))
-            .rangeRound([0, width])
+            .rangeRound([0, this.width])
 
         const y = d3.scaleLinear()
             .domain(d3.extent(this.momentumList, (d) => {
                 return d.momentum
             }))
-            .rangeRound([height, 0])
+            .rangeRound([this.height, 0])
 
         const line = d3.line()
             .x((d) => {
@@ -48,7 +46,7 @@ export default {
             })
 
         g.append("g")
-            .attr("transform", "translate(40," + height + ")")
+            .attr("transform", "translate(40," + this.height + ")")
             .call(d3.axisBottom(x).ticks(d3.timeDay))
             .append("text")
             .attr("fill", "#000")
