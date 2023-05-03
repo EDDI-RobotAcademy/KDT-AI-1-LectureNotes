@@ -11,6 +11,7 @@ import componentTestRoutes from "./componentTest";
 import vueBasicRoutes from "./vueBasic";
 import htmlCssRoutes from "./htmlCss";
 import homeworkRoutes from "./homework";
+import plotRoutes from "./plot";
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,7 @@ const routes = [
   ...boardRoutes,
   ...vuetifyTestRoutes,
   ...homeworkRoutes,
+  ...plotRoutes
 ];
 
 const router = new VueRouter({

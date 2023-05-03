@@ -36,6 +36,7 @@
         <router-link to="/homework6">문제은행6</router-link> |
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
         <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
+        <router-link to="/d3-plot-page">D3 Plot 테스트</router-link> |
       </nav>
     </div>
   </v-container>
