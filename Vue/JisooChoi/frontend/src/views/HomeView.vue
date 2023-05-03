@@ -40,6 +40,7 @@
         <router-link to='/vuetify-image-prob-page'>Vue 문제 은행 6의 페이지</router-link>|
         <router-link to='/dialog-test-page'>dialog 테스트</router-link>|
         <router-link to='/carousel-test-page'>carousel 테스트</router-link>|
+        <router-link to='/d3plot-test-page'>d3plot 테스트</router-link>|
       </nav>
     </div>
   </v-container>
