@@ -45,6 +45,7 @@
         <router-link to="/vue-homework-page4">Vue 문제 은행 [4]</router-link> |
         <router-link to="/vue-homework-page5">Vue 문제 은행 [5]</router-link> |
         <router-link to="/print-image-test">Vue 문제 은행 [6]</router-link> |
+        <router-link to="/plot-problem-page">Vue + Spring + D3 문제 은행 [1]</router-link> |
       </nav>
     </div>
   </v-container>
