@@ -55,6 +55,7 @@
           >Vuetify Image 갤러리</router-link
         >
         | <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
+        <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
       </nav>
     </div>
     <br /><br />

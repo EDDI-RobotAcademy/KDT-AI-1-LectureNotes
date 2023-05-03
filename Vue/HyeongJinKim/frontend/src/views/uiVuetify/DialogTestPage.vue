@@ -9,7 +9,7 @@
 
     <v-layout justify-center>
       <!-- fullscreen 옵션을 넣으면 전체 화면으로 처리됨 -->
-      <v-dialog v-model="isDialogOpened" persisen max-width="400">
+      <v-dialog v-model="isDialogOpened" persistent max-width="400">
         <!-- 트리거, dialog가 어느 시점에 나오게 할지 -->
         <template v-slot:activator="{ on }">
           <v-btn color="primary" dark v-on="on">결제</v-btn>
