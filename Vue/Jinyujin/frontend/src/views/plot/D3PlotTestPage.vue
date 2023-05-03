@@ -4,6 +4,7 @@
             <!-- path()만 사용함 -->
             <path fill ="none" stroke="blue" stroke-width="3" :d="path"/>
                 <circle cx=100 cy=100 r=40 stroke=#412322 fill=#41B883>
+                    <!-- cx, cy는 원의 위치, r은 둘레 -->
                 </circle>
         </svg>
     </v-container>
@@ -17,7 +18,6 @@ import * as d3 from "d3"
 // D3는 수학적 계산을 수행하여 데이터 시각화에 필요한 데이터를 생성
 
 export default {
-
     data() {
         return {
             data: [90.9, 90, 90.2, 25, 10.2, 92],
