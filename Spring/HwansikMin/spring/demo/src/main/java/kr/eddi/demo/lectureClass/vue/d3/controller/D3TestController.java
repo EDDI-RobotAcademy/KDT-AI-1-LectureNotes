@@ -20,6 +20,8 @@ public class D3TestController {
 
     @GetMapping("/get-health-info")
     public List<HealthDataResponse> getD3HealthInfo () {
+        log.info("getD3HealthInfo()");
+        
         allocHealthData();
 
         return healthDataList;
