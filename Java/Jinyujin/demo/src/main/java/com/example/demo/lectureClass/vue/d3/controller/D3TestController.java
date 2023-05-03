@@ -27,6 +27,7 @@ public class D3TestController {
 
     private void allocHealthData() {
         healthDataList.clear();
+        // clear: 리스트의 모든 요소 제거
 
         for (int i = 0; i < ONE_WEEK; i++) {
             healthDataList.add(
