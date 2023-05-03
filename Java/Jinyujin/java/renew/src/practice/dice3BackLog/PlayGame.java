@@ -34,6 +34,8 @@ public class PlayGame {
 
         // 현재 플레이어의 세 번째 주사위 선언해주기
         Dice currentPlayerThirdDice = playerList.get(playerIdx).needToSelectDice(THIRD_DICE_INDEX);
+        // 이 부분에서 두 번째 인덱스를 무조건 획득하게 함
+        // 2번 인덱스가 없는 상황에서도 획득하려고 하기 때문에 IndexOutOfBoundsException 오류가 발생
 
         if (currentPlayerThirdDice == null) {
             return 0;

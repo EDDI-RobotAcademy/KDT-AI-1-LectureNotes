@@ -43,8 +43,19 @@ public class Player {
     // 몇 번째 주사위인지 return해주는 메서드
     // 존나 어렵다 - 이 부분 이해 못함
     // Dice 클래스로 생성자 만들어줌
-    public Dice needToSelectDice(int Idx) {
-        return diceList.get(Idx);
+//    public Dice needToSelectDice(int Idx) {
+//        return diceList.get(Idx);
+//    }
+    // 이 부분에서도 두 번째 인덱스를 무조건 획득하려함
+    // 2번 인덱스가 없는 상황에서도 획득하려고 하기 때문에 IndexOutOfBoundsException 오류가 발생
+
+    public Dice needToSelectDice(int idx) {
+        int diceListSize = diceList.size();
+
+        if (diceListSize < idx + 1) {
+            return null;
+        }
+        return diceList.get(idx);
     }
 
     public Score getScore() {
