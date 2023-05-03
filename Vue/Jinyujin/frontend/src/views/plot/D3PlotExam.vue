@@ -1,8 +1,9 @@
 <template lang="">
     <v-container>
         <svg :width="width" :height="height">
-            <path fill ="none" stroke="blue" stroke-width="3" :d="path"/>
+            <path fill ="none" stroke="blue" stroke-width="3" :d="drawplot"/>
         </svg>
+        <p>운동량: {{ data }}</p>
     </v-container>
 </template>
 
@@ -16,22 +17,13 @@ export default {
     data() {
         return {
             data: [],
-            reg_data: [
-                { date: "24-Apr-23" , amount: 1 },
-                { date: "25-Apr-23" },
-                { date: "26-Apr-23" },
-                { date: "27-Apr-23" },
-                { date: "28-Apr-23" },
-                { date: "1-May-23" },
-                { date: "2-May-23", amount:100 },
-            ],
             width: 800,
             height: 500,
             padding: 40
         }
     },
     computed: {
-        path() {
+        drawplot() {
             return this.line(this.data)
         },
         line() {
@@ -42,8 +34,7 @@ export default {
          xScale() {
             return d3.scaleLinear()
                 .range([this.padding, this.width - this.padding])
-                // 범주 표현(앞에꺼부터 뒤에꺼까지)
-                .domain(d3.extent(this.data, (d, i) => i))
+                .domain([0,6])
         },
         yScale() {
             return d3.scaleLinear()
@@ -51,7 +42,15 @@ export default {
                 .domain([0, 100])
         },
     },
-    async mounted() {
+    async created() {
+        this.data = await this.requestHealthDataToSpring()
+        // 현재 코드에서는 mounted에서 async 하면 뜨지 않음
+        // created에서 async-await를 하면 뜸
+        // 그래프인지 리스트인지 받아오기 힘든가봄
+        console.log("data: " + JSON.stringify(this.data))
+        // 데이터 잘 받아오고 있음 확인
+    },
+    mounted() {
         const width = 800
         const height = 500
         const svg = d3.select("svg")
@@ -59,20 +58,20 @@ export default {
             .attr("height", height + 100)
         const g = svg.append("g")
 
-        const parseTime = d3.timeParse("%d-%b-%y")
+        // const parseTime = d3.timeParse("%d-%b-%y")
 
-        const x = d3.scaleTime()
-            .domain(d3.extent(this.reg_data, (d) => {
-                return parseTime(d.date)
-            }))
-            .rangeRound([0, width])
+        // const x = d3.scaleTime()
+        //     .domain(d3.extent(this.reg_data, (d) => {
+        //         return parseTime(d.date)
+        //     }))
+        //     .rangeRound([0, width])
 
-        const y = d3.scaleLinear()
-            .domain(d3.extent(this.reg_data, (d) => {
-                console.log(d)
-                return d.amount
-            }))
-            .rangeRound([height, 0])
+        // const y = d3.scaleLinear()
+        //     .domain(d3.extent(this.reg_data, (d) => {
+        //         console.log(d)
+        //         return d.amount
+        //     }))
+        //     .rangeRound([height, 0])
 
         const line = d3.line()
         //     .x((d) => {
@@ -83,11 +82,17 @@ export default {
         //     })
 
         g.append("g")
-            .attr("transform", "translate(40," + height + ")")
-            .call(d3.axisBottom(x))
+            .attr("transform", "translate(0," + (height - 40) + ")")
+            .call(d3.axisBottom(this.xScale).ticks(7))
+            // 여기서 x축의 길이 지정
+            // 날짜라고 표기해주려 했는데 짜만 나오고 짤림 아래에서 translate을 조정해봤지만
+            // 글씨는 옮겨지지 않고 축만 옮겨짐
+            .append("text")
+            .attr("fill", "#000")
+            .text("날짜")
 
         g.append("g")
-            .call(d3.axisLeft(y))
+            .call(d3.axisLeft(this.yScale))
             .attr('transform', `translate(40, 0)`)
             .append("text")
             .attr("fill", "#000")
@@ -95,17 +100,17 @@ export default {
             .attr("y", 16)
             .attr("dy", "0.71em")
             .attr("text-anchor", "end")
-            .text("운동량: (양)")
+            .text("운동량: (백분율)")
 
-        g.append("path")
-            .datum(this.reg_data)
-            .attr('transform', `translate(40, 0)`)
-            .attr("fill", "none")
-            .attr("stroke", "steelblue")
-            .attr("stroke-width", 1.5)
-            .attr("d", line)
+        // g.append("path")
+        //     .datum(this.reg_data)
+        //     .attr('transform', `translate(40, 0)`)
+        //     .attr("fill", "none")
+        //     .attr("stroke", "steelblue")
+        //     .attr("stroke-width", 1.5)
+        //     .attr("d", line)
 
-        this.data = await this.requestHealthDataToSpring()
+        // this.data = await this.requestHealthDataToSpring()
     },
     methods: {
         ...mapActions(d3PlotModule, ['requestHealthDataToSpring'])
