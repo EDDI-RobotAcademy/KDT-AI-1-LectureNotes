@@ -31,8 +31,8 @@
         <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
         <router-link to="/table-test-page">TableTestPage</router-link>|
         <router-link to="/table-advanced-page">Vuetify Table 추가 테스트</router-link> |
-        <router-link to="/image-gallery-test">image-gallery-test</router-link>
-
+        <router-link to="/image-gallery-test">image-gallery-test</router-link>|
+        <router-link to="/print-image-test">Print-Image-Test</router-link>
       </nav>
     </div>
   </v-container>
@@ -40,11 +40,13 @@
 
 <script>
   import HelloWorld from '../components/HelloWorld'
+  import PrintImageTest from "@/views/uiVuetify/PrintImageTest.vue";
 
   export default {
     name: 'Home',
 
     components: {
+      PrintImageTest,
       HelloWorld,
     },
   }
