@@ -4,7 +4,7 @@
             <!-- path()만사용함 -->
             <!-- path로 정보를 받아야함 -->
             <path fill="none" stroke="blue" stroke-width="3" :d="path"/>
-            <circle cx=100 cy=200 r=40 stroke=#412322 fill=#41B883></circle>
+            <!-- <circle cx=100 cy=200 r=40 stroke=#412322 fill=#41B883></circle> -->
         </svg>
     </v-container>
 </template>
