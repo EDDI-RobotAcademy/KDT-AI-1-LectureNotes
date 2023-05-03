@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import D3PlotTestPage from "@/views/plot/D3PlotTestPage.vue";
+import D3HealthPrintPage from "@/views/plot/D3HealthPrintPage.vue";
 
 Vue.use(VueRouter);
 
