@@ -8,7 +8,8 @@ import ImageGalleryTest from '@/views/uiVuetify/ImageGalleryTest.vue'
 // Vue 문제 은행 6
 import vuetifyImageProbPage from '@/views/basics/homework/vuetifyProb/vuetifyImageProbPage.vue'
 
-import DialogTestPage from '@/store/image/DialogTestPage.vue'
+import DialogTestPage from '@/views/uiVuetify/DialogTestPage.vue'
+import CarouselTestPage from '@/views/uiVuetify/CarouselTestPage.vue'
 
 Vue.use(VueRouter)
 
@@ -37,6 +38,11 @@ const vuetifyTestRoutes = [
     path: '/dialog-test-page',
     name: 'DialogTestPage',
     component: DialogTestPage
+  },
+  {
+    path: '/carousel-test-page',
+    name: 'CarouselTestPage',
+    component: CarouselTestPage
   },
 ]
 
