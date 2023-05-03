@@ -118,7 +118,7 @@ export default {
             // 여기서도 40만큼 수평이동 시켜서 그래프 전체의 윤곽이 흐트러지지 않게 구성함
             .attr('transform', `translate(40, 0)`)
             .attr("fill", "none")
-            .attr("stroke", "steelblue")
+            .attr("stroke", "red")
             .attr("stroke-width", 1.5)
             .attr("d", line)
     }
