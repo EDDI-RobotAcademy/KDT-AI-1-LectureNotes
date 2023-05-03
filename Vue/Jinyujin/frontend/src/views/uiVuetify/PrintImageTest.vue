@@ -33,6 +33,7 @@ export default {
         // requestImagePathToSpring이 동작하기 전에 
         // mounted 해버려서 뜨지 않는 경우가 발생한 것
         // => 비동기 문제
+        // 사진은 무겁기 때문에 걸어줘야 한다고 하심
     },
     methods: {
         ...mapActions(uiVuetifyModule, ['requestImagePathToSpring']),
