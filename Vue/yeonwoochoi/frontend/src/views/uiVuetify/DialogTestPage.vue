@@ -1,45 +1,46 @@
 <template lang="">
-    <div>
-        <p class="blue lighten-4 res--text">Test</p>
+     <div>
+        <p class="blue lighten-4 red--text">Test</p>
         <p class="green white--text">Test</p>
         <p class="yellow darken-3">Test</p>
         <p class="teal lighten-1 text-center">Test</p>
 
-        <v-btn class="teal lighten-3" rounded @click="btnClick">버튼</v-btn>
+        <v-btn class="teal ligthen-3" rounded @click="btnClick">버튼</v-btn>
 
         <!-- 정중앙 -->
         <v-layout justify-center>
             <!-- fullscreen 옵션을 넣으면 전체 화면으로 처리됨 
             dialog 사용할때는 v-card랑 같이 사용하는게 좋음 -->
-            <v-dialog v-model="dialog" fullscreen persistent max-width="400">
+            <v-dialog v-model="isDialogOpened" persistent max-width="400">
                 <template v-slot:activator="{ on }">
                     <v-btn color="primary" dark v-on="on">결제</v-btn>
                 </template>
 
                 <v-card>
-                    <v-card=title class="headline">
+                    <v-card-title class="headline">
                         {{ name }}
                     </v-card-title>
-                    </v-card-text>
+                    <v-card-text>
                     <!-- 집어넣을 문구를 명시하는게 좋음 -->
                     <h2>{{ globalAggroTitle }}</h2>
-                    <h3>{{ aggroSupport }}</h3> 
-                    <p>{{ aggroFinish }}</p>
+                        <h3>{{ aggroSupport }}</h3>
+                        <p>{{ aggroFinish }}</p>
                     </v-card-text>
-                    <v-actions>
+                    <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn color="teal darken-1" text @click="btnCancel">
-                        취소
+                            취소
                         </v-btn>
-                        <v-btn color="teal darken-1" text @click="btnPey">
-                        결제
+                        <v-btn color="teal darken-1" text @click="btnPay">
+                            결제
                         </v-btn>
-                    </v-actions>
+                    </v-card-actions>
                 </v-card>
             </v-dialog>
         </v-layout>
     </div>
 </template>
+
 <script>
 export default {
     data () {
@@ -66,6 +67,7 @@ export default {
     }
 }
 </script>
+
 <style lang="">
     
 </style>
