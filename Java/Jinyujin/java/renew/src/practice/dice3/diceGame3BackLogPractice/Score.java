@@ -1,4 +1,4 @@
-package practice.dice3BackLog;
+package practice.dice3.diceGame3BackLogPractice;
 
 public class Score {
     private int totalScore;

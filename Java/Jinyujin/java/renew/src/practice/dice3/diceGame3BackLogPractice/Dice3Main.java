@@ -1,4 +1,4 @@
-package practice.dice3BackLog;
+package practice.dice3.diceGame3BackLogPractice;
 
 // 친구와 게임을 할 수 있습니다.
 // 1:1 게임이라 가정하겠습니다.
