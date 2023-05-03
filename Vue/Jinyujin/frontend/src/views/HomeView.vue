@@ -40,6 +40,7 @@
         <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
         <router-link to="/vuetify-image-gallery">Vuetify Image 갤러리</router-link> |
         <router-link to="/print-image-test">이미지 출력 테스트</router-link> |
+        <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
       </nav>
     </div>
   </v-container>
