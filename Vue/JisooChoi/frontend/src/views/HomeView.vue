@@ -41,6 +41,8 @@
         <router-link to='/dialog-test-page'>dialog 테스트</router-link>|
         <router-link to='/carousel-test-page'>carousel 테스트</router-link>|
         <router-link to='/d3plot-test-page'>d3plot 테스트</router-link>|
+        <router-link to='/d3plot-prob'>Vue + Spring + D3 문제 은행 1</router-link>|
+        <router-link to="/d3-health-print-page">Vue + Spring + D3 문제 은행 1 [Review]</router-link> |
       </nav>
     </div>
   </v-container>

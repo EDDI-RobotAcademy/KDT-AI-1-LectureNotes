@@ -70,6 +70,7 @@ export default {
 
         const g = svg.append("g")
 
+        // 날짜
         const parseTime = d3.timeParse("%d-%b-%y")
 
         const x = d3.scaleTime()
