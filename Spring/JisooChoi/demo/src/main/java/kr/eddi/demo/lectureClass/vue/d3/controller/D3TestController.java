@@ -27,14 +27,16 @@ public class D3TestController {
     }
 
     private void allocHealthData() {
+        // 리스트 지우기
         healthDataList.clear();
 
+        // 7일 간의 랜덤 헬스 기록, 리스트에 저장
         for (int i = 0; i < ONE_WEEK; i++) {
-            healthDataList.add(
-                    new HealthDataResponse(
-                            CustomRandom.generateNumber(0, 100)
-                    )
-            );
+            /*
+                리스트에 랜덤 값을 저장해주고 싶은데, 리스트의 타입이 HealthDataResponse이다.
+                그래서 이를 해결하고자 리턴 타입으로 HealthDataResponse을 반환하는 메서드를 만들어 값을 넣었다 !
+            */
+            healthDataList.add(new HealthDataResponse(CustomRandom.generateNumber(0, 100)));
         }
     }
 }
