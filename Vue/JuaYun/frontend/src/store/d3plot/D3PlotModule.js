@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import mutations from "@/store/d3plot/mutations"
-import actions from "@/store/d3plot/actions"
-import state from "@/store/d3plot/states"
+import mutations from "@/store/d3Plot/mutations"
+import actions from "@/store/d3Plot/actions"
+import state from "@/store/d3Plot/states"
 
 Vue.use(Vuex)
 

@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 import boardModule from '@/store/board/BoardModule.js'
 import uiVuetifyModule from '@/store/uiVuetify/UiVuetifyModule.js'
-import d3PlotModule from '@/store/d3plot/D3PlotModule.js'
+import d3PlotModule from '@/store/d3Plot/D3PlotModule.js'
 
 Vue.use(Vuex)
 
