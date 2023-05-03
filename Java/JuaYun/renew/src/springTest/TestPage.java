@@ -11,16 +11,22 @@ public class TestPage {
 
     public TestPage() {
         for (int i = 0; i < dayCount; i++) {
-            HealthList.get(i);
-            System.out.println(HealthList);
+            int num = CustomRandom.generateNumber(1,100);
+            HealthList.add(num);
         }
+        System.out.println(HealthList);
+    }
+
+    public List<Integer> getHealthList() {
+        return HealthList;
     }
 
     @Override
     public String toString() {
-        return "testPage{" +
+        return "TestPage{" +
                 "HealthList=" + HealthList +
                 '}';
     }
-
 }
+
+
