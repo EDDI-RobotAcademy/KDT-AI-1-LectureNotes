@@ -35,6 +35,7 @@
         <router-link to="/print-image-test">Print-Image-Test</router-link>|
         <router-link to="/dialog-test-page">dialog-test-page</router-link>|
         <router-link to="/carousel-test-page">CarouselTestPage</router-link>|
+        <router-link to="/d3plot-test-page">D3Plot Test Page</router-link>|
       </nav>
     </div>
   </v-container>
