@@ -66,7 +66,7 @@ export default {
       this.imageName = event.target.value;
       console.log(this.imageName);
     },
-    getImage(event) {
+    async getImage(event) {
       this.imageName = event.target.name;
       console.log(this.imageName);
       const { imageName } = this;

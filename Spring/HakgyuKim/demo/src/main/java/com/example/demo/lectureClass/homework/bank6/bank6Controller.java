@@ -14,7 +14,7 @@ public class bank6Controller {
     @PostMapping("/getImageName")
     public String getImageName (@RequestBody ImageNameForm imageNameForm) {
         log.info("received data: " + imageNameForm);
-        String imageName =  new ImageNameForm(imageNameForm.getImageName()).getImageName();
+//        String imageName =  new ImageNameForm(imageNameForm.getImageName()).getImageName();
         return new ImageNameForm(imageNameForm.getImageName()).getImageName();
     }
 }
