@@ -12,6 +12,7 @@ import componentTestRoutes from './componentTest'
 import vueBasicRoutes from './vueBasic'
 import htmlCssRoutes from './htmlCss'
 import defaultSetRoutes from './defaultRouterSet'
+import d3PlotTestRoutes from './d3plot'
 
 Vue.use(VueRouter)
 
@@ -26,7 +27,8 @@ const routes = [
   ...problemRoutes,
   ...boardRoutes,
   ...productRoutes,
-  ...vuetifyTestRoutes
+  ...vuetifyTestRoutes,
+  ...d3PlotTestRoutes,
 
 ]
 
