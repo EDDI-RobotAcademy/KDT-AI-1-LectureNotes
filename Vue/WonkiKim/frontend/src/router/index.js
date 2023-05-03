@@ -34,6 +34,9 @@ import BoardListPage from '@/views/board/BoardListPage.vue'
 import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/board/BoardReadPage.vue'
 import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
+import uiVuetify from "@/router/uiVuetify";
+import vuetifyTestRoutes from "@/router/uiVuetify";
+
 
 Vue.use(VueRouter)
 
@@ -165,7 +168,8 @@ const routes = [
     props: {
       default: true
     },
-  }
+  },
+    ...vuetifyTestRoutes
 
   
 ]
