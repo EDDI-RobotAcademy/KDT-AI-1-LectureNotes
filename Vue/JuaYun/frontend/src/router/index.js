@@ -11,6 +11,7 @@ import componentTestRoutes from './componentTest'
 import vueBasicRoutes from './vueBasic'
 import htmlCssRoutes from './htmlCss'
 import defaultSetRoutes from './defaultRouterSet'
+import d3PlotTestRoutes from './d3plot'
 
 
 Vue.use(VueRouter)
@@ -24,8 +25,8 @@ const routes = [
   ...lifeCycleRoutes,
   ...problemRoutes,
   ...boardRoutes,
-  ...vuetifyTestRoutes
-
+  ...vuetifyTestRoutes,
+  ...d3PlotTestRoutes,
 ]
 
 const router = new VueRouter({
@@ -33,5 +34,4 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
 export default router

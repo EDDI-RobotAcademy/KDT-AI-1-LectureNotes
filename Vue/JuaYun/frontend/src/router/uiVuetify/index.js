@@ -40,7 +40,8 @@ const vuetifyTestRoutes = [
     path: '/carousel-test-page',
     name: 'CarouselTestPage',
     component: CarouselTestPage
-  }
+  },
+  
 
 
 ]

@@ -11,7 +11,14 @@
         <v-layout justify-center>
             <!-- fullscreen 옵션을 넣으면 전체화면으로 처리됨 -->
             <!-- fullscreen 을 제거하면 max-sidth="400" 값으로 창이 만들어짐 -->
+            <!-- 
+                isDialogOpened을 return 에서 true로 설정하면 광고 팝업처럼 사용 가능
+            -->
             <v-dialog v-model="isDialogOpened" persistent max-width="400">
+                <!-- 
+                    v-slot:activator="{ on }를 v-on="on"으로 설정하면 클릭했을 때 
+                    팝업창이 떠오름
+                -->
                 <template v-slot:activator="{ on }">
                     <v-btn color="primary" dark v-on="on">결제</v-btn>
                 </template>

@@ -38,6 +38,7 @@
         <router-link to="/print-image-test">Vuetify Image 테스트</router-link> |
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
         <router-link to="/carousel-test-page">배너 테스트</router-link> |
+        <router-link to="/d3-plot-test">그래프 테스트</router-link> |
         
       </nav>
     </div>
