@@ -32,7 +32,8 @@
         <router-link to="/table-test-page">TableTestPage</router-link>|
         <router-link to="/table-advanced-page">Vuetify Table 추가 테스트</router-link> |
         <router-link to="/image-gallery-test">image-gallery-test</router-link>|
-        <router-link to="/print-image-test">Print-Image-Test</router-link>
+        <router-link to="/print-image-test">Print-Image-Test</router-link>|
+        <router-link to="/dialog-test-page">dialog-test-page</router-link>
       </nav>
     </div>
   </v-container>
