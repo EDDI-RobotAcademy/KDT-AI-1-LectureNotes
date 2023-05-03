@@ -23,7 +23,11 @@ const vuetifyTestRoutes = [
         name: 'ImageGalleryTest',
         component: ImageGalleryTest
     },
-
+    {
+        path: '/print-image-test',
+        name: 'PrintImageTest',
+        component: PrintImageTest
+    }
 ]
 
 export default vuetifyTestRoutes
