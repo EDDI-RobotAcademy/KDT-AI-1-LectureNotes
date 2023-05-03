@@ -45,9 +45,13 @@
       <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
       <router-link to="/carousel-test-page">carousel 테스트</router-link> |
       <router-link to="/d3plot-test-page">d3plot 테스트</router-link> |
+      <router-link to="/d3problem-page">d3plot 문제</router-link> |
+      <router-link to="/d3HealthPrint-page">d3plot HEALTH문제</router-link> |
 
 
 
+
+      
 
 
       

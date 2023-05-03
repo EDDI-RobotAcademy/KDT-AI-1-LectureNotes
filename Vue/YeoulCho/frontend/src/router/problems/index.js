@@ -11,6 +11,8 @@ import Problem4Page from "@/views/homework/problem4/Problem4Page.vue"
 import Problem5Page from "@/views/homework/problem5/Problem5Page.vue"
 import Problem5Page2 from "@/views/homework/problem5/Problem5Page2.vue"
 import Problem6Page from '@/views/homework/problem6/Problem6Page.vue'
+import D3problemPage from '@/views/homework/d3problem/D3Problem.vue'
+import D3HealthPrintPage from '@/views/homework/d3problem/teacher/D3HealthPrintPage.vue'
 Vue.use(VueRouter)
 
 const problemRoutes = [
@@ -64,8 +66,16 @@ const problemRoutes = [
         name: 'Problem6Page',
         component: Problem6Page
       },
-
-
+      {
+        path: '/d3problem-page',
+        name: 'D3problemPage',
+        component: D3problemPage
+      },
+      {
+        path: '/d3HealthPrint-page',
+        name: 'D3HealthPrintPage',
+        component: D3HealthPrintPage
+      },
 ]
 
 
