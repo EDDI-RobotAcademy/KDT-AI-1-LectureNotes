@@ -41,6 +41,9 @@
       <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
       <router-link to="/vuetify-image-gallery">이미지</router-link> |
       <router-link to="/problem6-page">6번 연습문제</router-link> |
+      <router-link to="/print-image-test">6번 연습문제 (Vuetify Image 테스트)</router-link> |
+      <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
+
 
 
       
