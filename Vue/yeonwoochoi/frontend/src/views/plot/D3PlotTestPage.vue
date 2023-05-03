@@ -5,26 +5,27 @@
             <path fill="none" stroke="blue" stroke-width="3" :d="path"/>
             <circle cx=100 cy=200 r=40 stroke=#412322 fill=#41B883></circle>
         </svg>
-    </v-container>
-</template>
-<script>
-// npm install d3 --save-dev
-import * as d3 from "d3"
-export default {
-    data () {
-        return {
-            data: [90.9, 70, 90.2, 25, 10.2, 92],
+    </v-container> 
+</template> 
+<script> 
+// npm install d3 --save-dev 
+import * as d3 from "d3" 
+
+export default { 
+    data () { 
+        return { 
+            data: [90.9, 70, 90.2, 25, 10.2, 92], 
             reg_data: [
-                { date: "24-Apr-23", amount: 93.24 },
-                { date: "25-Apr-23", amount: 93.35 },
-                { date: "26-Apr-23", amount: 98.77 },
-                { date: "27-Apr-23", amount: 99.92 },
-                { date: "28-Apr-23", amount: 93.24 },
-                { date: "1-May-23", amount: 100.39 },
-                { date: "2-May-23", amount: 93.27 },
-                { date: "3-May-23", amount: 103.64 },
-                { date: "4-May-23", amount: 92.84 },
-                { date: "5-May-23", amount: 99.99 },
+                { date: "24-Apr-23", amount: 93.24 }, 
+                { date: "25-Apr-23", amount: 93.35 }, 
+                { date: "26-Apr-23", amount: 98.77 }, 
+                { date: "27-Apr-23", amount: 99.92 }, 
+                { date: "28-Apr-23", amount: 93.24 }, 
+                { date: "1-May-23", amount: 100.39 }, 
+                { date: "2-May-23", amount: 93.27 }, 
+                { date: "3-May-23", amount: 103.64 }, 
+                { date: "4-May-23", amount: 92.84 }, 
+                { date: "5-May-23", amount: 99.99 }, 
             ],
             width: 800,
             height: 500,
