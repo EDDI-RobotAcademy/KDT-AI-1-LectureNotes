@@ -41,6 +41,7 @@
         <router-link to="/image-get-page">이미지 페이지</router-link> |
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
         <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
+        <router-link to="/d3-plot-test">D3 Plot 테스트</router-link> |
       </nav>
     </div>
   </v-container>
