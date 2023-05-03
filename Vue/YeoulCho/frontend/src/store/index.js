@@ -1,17 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-Vue.use(Vuex)
+import boardModule from '@/store/board/BoardModule.js'
 
-export default new Vuex.Store({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+Vue.use(Vuex)
+// Vuex를 사용하여 Store 객체를 생성
+const store = new Vuex.Store({
+  //store 내 BoardModule을 전역으로 사용하겠다.
   modules: {
-  }
+    boardModule: boardModule,
+  },
 })
+
+export default store

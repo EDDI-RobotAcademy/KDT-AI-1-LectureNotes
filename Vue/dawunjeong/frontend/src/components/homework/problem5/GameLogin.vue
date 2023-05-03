@@ -8,6 +8,15 @@
             <p><v-btn @click="isRegisteredEmail">로그인</v-btn></p>
             <p><hr style="width: 400px; margin: auto;"></p>
         </div>
+
+        <div id="playGame" v-if="showStatus"> 
+        <p><v-btn color="red" @click="showCharacterStatus">PLAY!!!</v-btn></p>
+            <p>게임 캐릭터의 상태:<br>
+                {{ characterStatus }}
+            </p>
+            <p><hr style="width: 400px; margin: auto;"></p>
+        </div>
+
     </div>
 </template>
 
@@ -23,6 +32,9 @@ export default {
 
             checkedAccount: false,
             accountId: 0,
+
+            showStatus: false,
+            characterStatus: [],
         }
     },
     methods: {
@@ -37,11 +49,22 @@ export default {
                 if(this.checkedAccount === true) {
                     alert(this.email + '님 로그인이 완료되었습니다.')
                     console.log('accountId: ' + res.data.accountId)
+
+                    this.accountId = res.data.accountId
                     localStorage.setItem("loginUserInfo", res.data.accountId)
+
+                    this.showStatus = true
                 }
                 if(this.checkedAccount === false) {
                     alert('이메일과 비밀번호를 다시 확인해주세요.')
                 }
+            })
+        },
+        showCharacterStatus () {
+            axios.post('http://localhost:7777/character-game/create-character-status', 
+            {accountId: this.accountId})
+                .then((res2) => {
+                    this.characterStatus += JSON.stringify(res2.data)
             })
         }
     },

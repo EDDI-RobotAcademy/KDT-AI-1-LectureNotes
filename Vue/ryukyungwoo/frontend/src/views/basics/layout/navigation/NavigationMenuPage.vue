@@ -16,6 +16,7 @@
       <!--
         사용하고 싶은 아이콘을 자유롭게 선택해서 UI를 꾸미세요.
         https://pictogrammers.com/library/mdi/?welcome
+
         아이콘 따올때 맨 앞에 mdi 키워드가 붙어야 합니다.
       -->
       <v-btn text @click="clickToggle">
@@ -66,6 +67,7 @@
 
 <script>
 import router from '@/router'
+
 export default {
   data () {
     return {
@@ -74,7 +76,7 @@ export default {
         { icon: 'mdi-home', text: 'Home', route: '/' }
       ],
       accountId: 0,
-      isLogin: false,
+      isLogin: true,
     }
   },
   methods: {
@@ -100,6 +102,8 @@ export default {
     this.accountId = localStorage.getItem("loginUserInfo")
     if (this.accountId > 0) {
       this.isLogin = true
+    } else {
+      this.isLogin = false
     }
   }
 }

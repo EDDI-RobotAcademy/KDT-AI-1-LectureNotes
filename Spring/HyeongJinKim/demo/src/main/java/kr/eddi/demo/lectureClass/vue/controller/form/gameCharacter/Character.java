@@ -14,5 +14,5 @@ public class Character {
     private int dexterity;
     private int intelligence;
     private int characterId;
-    private int accountId;
+    private int myAccountId;
 }

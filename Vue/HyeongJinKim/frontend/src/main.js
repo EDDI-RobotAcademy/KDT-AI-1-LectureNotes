@@ -5,7 +5,7 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 
 import GlobalComponent from "@/components/componentTest/GlobalComponent.vue";
-import VueHomeworkGlobalComponent from "@/views/basics/homework/components/GlobalComponent";
+import VueHomeworkGlobalComponent from "@/components/homework/problem1/GlobalComponent.vue";
 
 Vue.config.productionTip = false;
 
