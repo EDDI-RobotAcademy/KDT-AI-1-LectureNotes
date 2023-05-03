@@ -8,7 +8,7 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 public class LoginResponseForm {
-    final private boolean isSucessForLogin;
+    final private Boolean isSuccessForLogin;
     final private long gameAccountId;
 
 

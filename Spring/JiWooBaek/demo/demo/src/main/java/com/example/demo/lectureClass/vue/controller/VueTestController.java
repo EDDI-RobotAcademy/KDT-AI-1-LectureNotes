@@ -1,6 +1,5 @@
 package com.example.demo.lectureClass.vue.controller;
 
-
 import com.example.demo.lectureClass.utility.random.CustomRandom;
 import com.example.demo.lectureClass.vue.controller.form.VueRequestTestDataForm;
 import lombok.extern.slf4j.Slf4j;
@@ -23,13 +22,12 @@ public class VueTestController {
         log.info("received data: " + vueRequestTestDataForm);
     }
 
+
     @GetMapping("/get-random-dice")
     public Integer getRandomDice () {
         final int MIN = 1;
         final int MAX = 6;
-
         log.info("getRandomDice() 요청!");
-
         return CustomRandom.generateNumber(MIN, MAX);
     }
 }

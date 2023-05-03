@@ -12,7 +12,7 @@ public class AccountCreationForm {
     final private String newEmail;
     final private String newPw;
 
-    public Account toAccount(int accountId) {
-        return new Account(accountId, newEmail, newPw);
+    public Account toAccount(int myAccountId) {
+        return new Account(myAccountId, newEmail, newPw);
     }
 }
