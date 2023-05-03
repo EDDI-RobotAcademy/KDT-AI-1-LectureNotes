@@ -15,23 +15,12 @@ export default {
     data () {
         return {
             width: 800,
-            height: 800,
+            height: 500,
             padding: 40,
         }
     },
-    computed: {
-        path () {
-            return this.line(this.data)
-        },
-        line () {
-            return d3.line()
-                    .x((d, i) => this.xScale(i))
-                    .y((d) => this.yScale(d))
-        },
-
-    },
     mounted () {
-        const width = 800
+        const width = 500
         const height = 500
         const svg = d3.select("svg")
                     .attr("width", width + 100)
@@ -58,9 +47,8 @@ export default {
                             return y(d.exerciseAmount)
                         })
         g.append("g")
-            .attr("transform", "translate(0," +  height + ")")
             .attr("transform", "translate(40," +  height + ")")
-            .call(d3.axisBottom(x))
+            .call(d3.axisBottom(x).ticks(d3.timeDay))
         g.append("g")
             .call(d3.axisLeft(y))
             .attr('transform', `translate(40, 0)`)
