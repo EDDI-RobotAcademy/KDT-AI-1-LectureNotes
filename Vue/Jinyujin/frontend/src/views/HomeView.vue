@@ -43,6 +43,7 @@
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
         <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
         <router-link to="/d3-plot-test">d3plotting 테스트</router-link> |
+        <router-link to="/d3-plot-exam">d3plotting + spring 테스트</router-link> |
       </nav>
     </div>
   </v-container>
