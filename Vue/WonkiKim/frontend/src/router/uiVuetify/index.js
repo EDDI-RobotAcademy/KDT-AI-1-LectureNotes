@@ -5,6 +5,7 @@ import TableTestPage from '@/views/uiVuetify/TableTestPage.vue'
 import TableAdvancedPage from "@/views/uiVuetify/TableAdvancedPage.vue";
 import ImageGalleryTest from "@/views/uiVuetify/ImageGalleryTest.vue";
 import PrintImageTest from "@/views/uiVuetify/PrintImageTest.vue";
+import DialogTestPage from "@/views/uiVuetify/DialogTestPage.vue";
 
 Vue.use(VueRouter)
 const vuetifyTestRoutes = [
@@ -27,6 +28,11 @@ const vuetifyTestRoutes = [
         path: '/print-image-test',
         name: 'PrintImageTest',
         component: PrintImageTest
+    },
+    {
+        path: '/dialog-test-page',
+        name: 'DialogTestPage',
+        component: DialogTestPage
     }
 ]
 
