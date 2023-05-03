@@ -15,23 +15,23 @@ import java.util.List;
 @RequestMapping("/d3-test")
 public class D3TestController {
 
-    private final List<HealthDataResponse> healthDataList = new ArrayList();
-    final private int ONE_WEEK = 7;
+//    private final List<HealthDataResponse> healthDataList = new ArrayList();
+//    final private int ONE_WEEK = 7;
+//
+//    @GetMapping("/get-health-info")
+//    public List<HealthDataResponse> getD3HealthInfo() {
+//        allocHealthData();
+//
+//        return healthDataList;
+//    }
 
-    @GetMapping("/get-health-info")
-    public List<HealthDataResponse> getD3HealthInfo() {
-        allocHealthData();
-
-        return healthDataList;
-    }
-
-    private void allocHealthData() {
-        healthDataList.clear();
-        // clear: 리스트의 모든 요소 제거
-
-        for (int i = 0; i < ONE_WEEK; i++) {
-            healthDataList.add(
-                    new HealthDataResponse((Integer) (CustomRandom.generateNumber(0, 100))));
-        }
-    }
+//    private void allocHealthData() {
+//        healthDataList.clear();
+//        // clear: 리스트의 모든 요소 제거
+//
+//        for (int i = 0; i < ONE_WEEK; i++) {
+//            healthDataList.add(
+//                    new HealthDataResponse((Integer) (CustomRandom.generateNumber(0, 100))));
+//        }
+//    }
 }

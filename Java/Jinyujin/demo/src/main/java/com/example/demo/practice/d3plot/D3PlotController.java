@@ -1,12 +1,15 @@
 package com.example.demo.practice.d3plot;
 
-
 import com.example.demo.lectureClass.utility.random.CustomRandom;
+import com.example.demo.lectureClass.vue.d3.controller.form.HealthDataResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,17 +18,18 @@ import java.util.List;
 @RestController
 public class D3PlotController {
 
-    final private List<Integer> healthDataList = new ArrayList<>();
+    final private List<HealthDataResponse> healthDataList = new ArrayList<>();
 
     @GetMapping("/health-data")
-    public List<Integer> giveMeHealthData() {
+    public List<HealthDataResponse> giveMeHealthData() {
         log.info("giveMeHealthData()");
 
+        LocalDate showDate = LocalDate.now();
         healthDataList.clear();
 
         for (int i = 0; i < 7; i++) {
-            Integer healthData = CustomRandom.generateNumber(1, 100);;
-            healthDataList.add(healthData);
+            Integer healthData = CustomRandom.generateNumber(1, 100);
+            healthDataList.add(new HealthDataResponse(healthData, showDate.plusDays(i)));
         }
 
         return healthDataList;
