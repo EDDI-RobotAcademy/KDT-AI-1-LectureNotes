@@ -36,6 +36,7 @@
         <router-link to="/image-homework-page">Vue 문제 은행 6</router-link> |
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
         <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
+        <router-link to="/d3plot-test-page">D3 plot 테스트</router-link> |
 
 
       </nav>
