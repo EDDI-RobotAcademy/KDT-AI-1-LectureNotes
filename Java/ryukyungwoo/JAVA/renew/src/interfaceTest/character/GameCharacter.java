@@ -1,5 +1,4 @@
 package interfaceTest.character;
-// *(밑의 second_skill처럼 아무것도 안해도 만들어져있어야 함)
 
 import interfaceTest.Skill;
 import utility.random.CustomRandom;
@@ -40,7 +39,7 @@ public class GameCharacter implements Skill {
     }
 
     // interface를 implements 했다면
-    // interface에 있는 껍데기 매서드들을 반드시 직접적으로 구현해줘야 합니다.*
+    // interface에 있는 껍데기 매서드들을 반드시 직접적으로 구현해줘야 합니다.
 
     // Object는 모든 타입을 수용할 수 있습니다.
     // int, float, Monster, GameCharacter, String 뭐가 되었든 전부 수용 가능합니다.

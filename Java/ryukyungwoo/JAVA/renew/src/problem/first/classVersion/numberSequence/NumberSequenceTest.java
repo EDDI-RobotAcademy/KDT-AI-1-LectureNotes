@@ -1,4 +1,5 @@
 package problem.first.classVersion.numberSequence;
+
 import java.util.List;
 
 public class NumberSequenceTest {

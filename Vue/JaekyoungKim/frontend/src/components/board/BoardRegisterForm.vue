@@ -1,0 +1,60 @@
+<template lang="">
+    <div>
+        <form @submit.prevent="onSubmit">
+            <table>
+                <tr>
+                    <td>제목</td>
+                    <td>
+                        <input type="text" v-model="title"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>작성자</td>
+                    <td>
+                        <input type="text" v-model="writer"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>본문</td>
+                    <td>
+                        <textarea cols="80" rows="30" v-model="content"/>
+                    </td>
+                </tr>
+            </table>
+
+            <div>
+                <button type="submit">등록</button>
+                <router-link :to="{ name: 'BoardListPage' }">
+                    취소<!--취소 하면 다시 리스트 페이지로 돌아가자-->
+                </router-link>
+            </div>
+        </form>
+    </div>
+</template>
+
+<script>
+export default {
+    name: "BoardRegisterForm",
+    data () {
+        return {
+            //초기값을 정해줌
+            title: '제목을 입력하세요',
+            writer: '누구세요 ?',
+            content: '본문을 입력하세요',
+        }
+    },
+    methods: {
+        onSubmit () {
+            //불변객체화 해줌
+            const { title, writer, content } = this
+            // BoardRegisterPage의 @submit은 여기의 submit에 대응함
+            this.$emit('submit', { title, writer, content })
+            //prevent로 막았던 submit을 활성 등록 
+        }
+    }
+}
+</script>
+
+<style lang="">
+    
+</style>
