@@ -67,6 +67,11 @@
           >Vuetify Image 갤러리</router-link
         >|
         <router-link to="/print-image-test">Vuetify Image 테스트</router-link> |
+
+        <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
+        <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
+
+        <router-link to="/d3-plot-test">d3 plotting 테스트</router-link> |
       </nav>
     </div>
   </v-container>
