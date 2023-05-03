@@ -3,6 +3,8 @@ import Vue from "vue";
 
 import TableTestPage from '@/views/uiVuetify/TableTestPage.vue'
 import TableAdvancedPage from "@/views/uiVuetify/TableAdvancedPage.vue";
+import ImageGalleryTest from "@/views/uiVuetify/ImageGalleryTest.vue";
+import PrintImageTest from "@/views/uiVuetify/PrintImageTest.vue";
 
 Vue.use(VueRouter)
 const vuetifyTestRoutes = [
@@ -15,7 +17,13 @@ const vuetifyTestRoutes = [
         path: '/table-advanced-Page',
         name: 'TableAdvancedPage',
         component: TableAdvancedPage
-    }
+    },
+    {
+        path: '/image-gallery-test',
+        name: 'ImageGalleryTest',
+        component: ImageGalleryTest
+    },
+
 ]
 
 export default vuetifyTestRoutes
