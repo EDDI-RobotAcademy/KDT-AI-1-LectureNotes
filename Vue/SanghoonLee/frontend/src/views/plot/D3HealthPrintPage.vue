@@ -33,7 +33,7 @@ export default {
         xScale () {
             return d3.scaleLinear()
                     .range([this.padding, this.width - this.padding])
-                    .domain(d3.extent(this.data, (d, i) => i))
+                    .domain([0, 6])
         },
         yScale () {
             return d3.scaleLinear()
@@ -44,7 +44,7 @@ export default {
     },
     async created () {
         this.data = await this.requestHealthDataToSpring()
-        //console.log("healthDataList: " + JSON.stringify(this.data))
+        console.log("healthDataList: " + JSON.stringify(this.data))
     },
     methods: {
         ...mapActions(d3PlotModule, ['requestHealthDataToSpring']),
@@ -57,18 +57,13 @@ export default {
                     .attr("height", height + 100)
         const g = svg.append("g")
 
-        const y = d3.scaleLinear()
-                    .domain(d3.extent(this.data, (d) => {
-                        return d
-                    }))
-                    .rangeRound([height, 0])
+        g.append("g")
+            .attr("transform", "translate(0," +  (height - 40) + ")")
+            .call(d3.axisBottom(this.xScale).ticks(7))
+            .append("text")
 
         g.append("g")
-            .attr("transform", "translate(0," +  height + ")")
-            .call(d3.axisBottom(this.xScale))
-
-        g.append("g")
-            .call(d3.axisLeft(y))
+            .call(d3.axisLeft(this.yScale))
             .attr('transform', `translate(40, 0)`)
             .append("text")
             .attr("fill", "#000")
