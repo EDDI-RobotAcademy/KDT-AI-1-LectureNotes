@@ -1,14 +1,12 @@
 package com.example.demo.lectureClass.vue.files.controller;
 
 import com.example.demo.lectureClass.vue.files.controller.form.FileInfoRequestForm;
+import com.example.demo.lectureClass.vue.files.controller.form.ImagePathResponseForm;
 import com.example.demo.lectureClass.vue.files.service.FileService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -19,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FilesTestController {
 
-//    final private FileService fileService;
+    final private FileService fileService;
 
     // 파일이라서 포스트맵핑 주소가 달라짐
     @PostMapping(value = "/uploadImgsWithText",
@@ -47,11 +45,18 @@ public class FilesTestController {
 
         log.info("fileRegisterRequestHandler(): " + info);
 
-        return true;
+        return fileService.register(fileList, info);
     }
 //    스프링으로 받은 이미지, 텍스트 데이터를 이제 DB에 저장해야 하는데
 //    이미지는 크기가 크기 때문에 비용이 많이 들음
 //    실질적으로 DB라는 애는 경로만 가지고 있으면 됨
     // 파일 자체는 vue에 넣어줄 것임
     // JPA 환경 구축해야함
+
+    @GetMapping("/giveMeImageList")
+    public List<ImagePathResponseForm> imageFileStringListRequestHandler () {
+        log.info("imageFileStringListRequestHandler()");
+
+        return fileService.imageList();
+    }
 }
