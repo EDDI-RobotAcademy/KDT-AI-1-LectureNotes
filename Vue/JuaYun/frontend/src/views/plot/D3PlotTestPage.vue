@@ -107,7 +107,8 @@ export default {
             // heigth 값은 꼭대기가 0점이고 숫자가 커지면 아래로 내려감
             // 전체 화면에서 오른쪽으로 40만큼 수평이동 시켜서 왼쪽에 숫자를 출력할 구간을 확보함
             .attr("transform", "translate(40," +  height + ")")
-            .call(d3.axisBottom(x))
+            .call(d3.axisBottom(x).ticks(d3.timeDay))
+            // 이렇게 변경하면 12pm이 사라짐  .ticks(d3.timeDay)이게 포인트
 
          // https://observablehq.com/@d3/d3-line
         // 그래프의 값을 나타내는 선을 만들어 줌 
