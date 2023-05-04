@@ -47,6 +47,9 @@
       <router-link to="/d3plot-test-page">d3plot 테스트</router-link> |
       <router-link to="/d3problem-page">d3plot 문제</router-link> |
       <router-link to="/d3HealthPrint-page">d3plot HEALTH문제</router-link> |
+      <router-link to="/file-handler-test-page">파일업로드</router-link> |
+
+      
 
 
 
