@@ -6,7 +6,7 @@ import FileHandlerPage from '@/views/file/FileHandlerPage.vue'
 
 Vue.use(VueRouter)
 
-const filesRoutes = [
+const filesTestRoutes = [
   {
     path: '/file-handler-page',
     name: 'FileHandlerPage',
@@ -14,4 +14,4 @@ const filesRoutes = [
   },
 ]
 
-export default filesRoutes
+export default filesTestRoutes
