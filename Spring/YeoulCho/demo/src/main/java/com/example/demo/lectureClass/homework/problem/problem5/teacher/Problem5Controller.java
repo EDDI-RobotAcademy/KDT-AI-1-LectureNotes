@@ -15,13 +15,15 @@ import java.util.List;
 @RequestMapping("/bmp-account")
 public class Problem5Controller {
     private final List<GameAccount> gameAccountList = new ArrayList<>();
-    private static long gameAccountId = 0L;
+    private static long gameAccountId = 1;
     @PostMapping("/create")
     public boolean createGameAccount(@RequestBody GameAccountForm gameAccountForm){
+        log.info("createGameAccount()");
         final GameAccount gameAccount = gameAccountForm.toGameAccount(gameAccountId++);
-        if(checkDuplicatedEmail(gameAccount)) //일치하는게 없어야 false, 그러면 if문이 안가니까 gameAccountList에 추가하고 true 반환
-            return false; //1줄일때 {}생략가능
-            gameAccountList.add(gameAccount);
+        if(checkDuplicatedEmail(gameAccount)){ //일치하는게 없어야 false, 그러면 if문이 안가니까 gameAccountList에 추가하고 true 반환
+            return false;} //1줄일때 {}생략가능
+        gameAccountList.add(gameAccount);
+        log.info(gameAccountList.toString());
         return true;
     }
 
@@ -36,16 +38,23 @@ public class Problem5Controller {
         } return false; //이메일이 일치하는게 없으면 false를 내보냄
         }
     @PostMapping("/login")
-    public LoginResponseForm gameAcountLogin(@RequestBody GameAccountForm gameAccountForm){
+    public LoginResponseForm gameAccountLogin(@RequestBody GameAccountForm gameAccountForm){
         //GameAccountForm형태로 vue에서 데이터 받음
-        final long LOGIN_FAILED_ACCOUND_ID = 0L;
+        log.info("gameAccountLogin()");
+        log.info(String.valueOf(gameAccountForm));
+        log.info(String.valueOf(gameAccountList));
+        final long LOGIN_FAILED_ACCOUND_ID = 0;
 
         for (int i = 0; i < gameAccountList.size(); i++) {
             final GameAccount searchedGameAccount = gameAccountList.get(i);
             final String searchedGameAccountEmail = searchedGameAccount.getEmail();
 
             if (searchedGameAccountEmail.equals(gameAccountForm.getEmail())) {
+                log.info(searchedGameAccountEmail);
+                log.info(gameAccountForm.getEmail());
                 if (searchedGameAccount.getPassword().equals(gameAccountForm.getPassword())) {
+
+                    log.info(String.valueOf(searchedGameAccount.getId()));
                     return new LoginResponseForm(true, searchedGameAccount.getId());
                 }
                 return new LoginResponseForm(false, LOGIN_FAILED_ACCOUND_ID);
@@ -56,10 +65,13 @@ public class Problem5Controller {
     }
 
     @PostMapping("/find-account-info")
-    public String findAccountInfo(@RequestBody RequestAccountIdForm requestAccountIdForm){
+    public String findAccountInfo (@RequestBody RequestAccountIdForm requestAccountIdForm) {
         final int LIST_BIAS = 1;
+        log.info("findAccountInfo()");
+
         final GameAccount foundGameAccount = gameAccountList.get(
-                (int) (requestAccountIdForm.getGameAccountId()-LIST_BIAS));
+                (int) (requestAccountIdForm.getGameAccountId() - LIST_BIAS));
+
         return foundGameAccount.getEmail();
     }
 }

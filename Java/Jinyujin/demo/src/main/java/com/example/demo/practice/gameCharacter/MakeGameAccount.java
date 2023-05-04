@@ -2,6 +2,7 @@ package com.example.demo.practice.gameCharacter;
 
 import com.example.demo.practice.gameCharacter.accountInfo.GameAccount;
 import com.example.demo.practice.gameCharacter.accountInfo.GameAccountForm;
+import com.example.demo.practice.gameCharacter.accountInfo.RequestAccountIdForm;
 import com.example.demo.practice.gameCharacter.logInInfo.LoginResponseForm;
 import com.example.demo.practice.gameCharacter.statusInfo.CharacterModelForm;
 import lombok.extern.slf4j.Slf4j;
@@ -88,16 +89,15 @@ public class MakeGameAccount {
     }
 
 
-
     // 로그인 요청 수신 Controller
     @PostMapping("/login")
     // 수신한 Form의 password 검증하기
     public LoginResponseForm gameAccountLogin(@RequestBody GameAccountForm gameAccountForm) {
-        log.info("gameAccountLogin()");
+        log.info("gameAccountLogin: " + gameAccountForm);
 
         final Long LOGIN_FAILED_ACCOUNT_ID = 0L;
 
-        // 자 이제 Vue에서 보낸 이메일의 중복 여부를 체크해볼꺼야s
+        // 자 이제 Vue에서 보낸 이메일의 중복 여부를 체크해볼꺼야
         // 먼저 리스트로 저장한 계정만큼 for 문을 돌리고
         // if 내가 보낸 비밀번호가 거기 있다면 중복체크를 해줄꺼야
         for (int i = 0; i < gameAccountList.size(); i++) {
@@ -140,5 +140,28 @@ public class MakeGameAccount {
             }
         }
         return false;
+    }
+
+    @PostMapping("/find-account-info")
+    public String findAccountInfo(@RequestBody RequestAccountIdForm requestAccountIdForm) {
+        final int LIST_BIAS = 1;
+        log.info("findAccountInfo: " + requestAccountIdForm);
+        // PostMan으로 잘 받아오는 것 확인
+
+        // 회원 고유의 Id 값으로 회원 찾기
+        // GameAccount 클래스로 찾는 게임 계정을 변수로 만듬
+        final GameAccount foundGameAccount = gameAccountList.get(
+                (int)(requestAccountIdForm.getGameAccountId() - LIST_BIAS));
+        // 거기에 requestAccountIdForm에서 게임 계정 아이디를 받아와서 1을 빼준 값을 게임계정목록에서 꺼내옴
+        // GameAccount에 저장되는 Id를 리스트에 담아서 가져오는 것
+        // 그래서 int로 정수형 변환해줌
+        // 1을 빼주는 이유는 아이디는 1부터 시작하지만 리스트의 인덱스는 0부터 시작하기 때문
+        // 아이디가 1인 계정은 게임계정 리스트의 0번째에 위치하는 것
+        // 즉, 게임 계정 아이디를 요청하는 클래스에서 게임 계정 아이디를 받아와서
+        // 1을 빼준 값이 게임계정 목록의 이메일 순서에 해당하는 것
+
+        return foundGameAccount.getEmail();
+        // 찾은 게임 계정(Id값)에서 이메일을 꺼내와라
+        // Id값 치니 해당하는 이메일을 가져오긴 함
     }
 }

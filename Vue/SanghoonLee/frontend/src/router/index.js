@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// @는 현재 src 폴더를 의미함
-import HomeView from '@/views/HomeView.vue'
 
 import vuetifyTestRoutes from './uiVuetify'
 import productRoutes from './product'
@@ -12,20 +10,14 @@ import axiosTestRoutes from './axiosTest'
 import componentTestRoutes from './componentTest'
 import vueBasicRoutes from './vueBasic'
 import htmlCssRoutes from './htmlCss'
+import defaultSetRoutes from './defaultRouterSet'
+import d3PlotTestRoutes from './d3plot'
+import filesTestRoutes from './files'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue')
-  },
+  ...defaultSetRoutes,
   ...htmlCssRoutes,
   ...vueBasicRoutes,
   ...componentTestRoutes,
@@ -34,8 +26,9 @@ const routes = [
   ...problemRoutes,
   ...boardRoutes,
   ...productRoutes,
-  ...vuetifyTestRoutes
-  
+  ...vuetifyTestRoutes,
+  ...d3PlotTestRoutes,
+  ...filesTestRoutes,
 ]
 
 const router = new VueRouter({
