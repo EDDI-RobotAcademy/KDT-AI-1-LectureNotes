@@ -38,6 +38,9 @@
         <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
         <router-link to="/d3plot-test-page">D3 plot 테스트</router-link> |
         <router-link to="/d3plot-homework-page">Vue + Spring + D3 문제 은행 [ 1 ]</router-link> |
+        <router-link to="/d3plot-exam-page">테스트</router-link> |
+        <router-link to="/file-handler-page">파일</router-link> |
+        <router-link to="/file-list-show-page">파일 리스트</router-link> |
 
 
       </nav>
