@@ -83,6 +83,7 @@ export default {
             )
             this.requestRegisterFileInfoToSpring(formData)
             // 날릴 때 폼데이터를 날림
+            // formData가 payload가 들어가는 것
         }
     }, 
     // 사진 두 장 다 넣고 요청해보기
