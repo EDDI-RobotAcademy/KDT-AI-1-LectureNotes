@@ -1,6 +1,6 @@
 package com.example.demo.lectureClass.vue.problem.controller.form;
 
-import com.example.demo.lectureClass.vue.player.Player;
+import com.example.demo.lectureClass.vue.problem.player.Player;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;

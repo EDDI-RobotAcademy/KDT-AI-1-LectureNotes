@@ -2,7 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import vuetify from './plugins/vuetify'
+// vuetify 전역 컴포넌트
+// v-container, v-app, v-btn, v-img 등등
+// vuetify 전용 컴포넌트들을 아무런 import 없이 사용하고 있다.
+import vuetify from './plugins/vuetify' 
 
 // 등록하고자 하는 전역 컴포넌트
 import GlobalComponent from '@/components/componentTest/GlobalComponent.vue'
