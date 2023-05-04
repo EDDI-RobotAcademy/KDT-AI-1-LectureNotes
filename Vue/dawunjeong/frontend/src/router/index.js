@@ -14,6 +14,7 @@ import defaultSetRoutes from './defaultRouterSet'
 import axiosTestRoutes from './axiosTest'
 import vueBasicRoutes from './vueBasic'
 import d3ploatTestRoutes from './d3plot'
+import filesTestRoutes from './files'
 
 Vue.use(VueRouter)
 
@@ -29,7 +30,8 @@ const routes = [
   ...defaultSetRoutes,
   ...axiosTestRoutes,
   ...vueBasicRoutes,
-  ...d3ploatTestRoutes
+  ...d3ploatTestRoutes,
+  ...filesTestRoutes,
 ]
 
 const router = new VueRouter({

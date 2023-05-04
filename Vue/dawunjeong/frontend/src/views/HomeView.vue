@@ -42,6 +42,9 @@
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
         <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
         <router-link to="/d3-plot-test">D3 Plot 테스트</router-link> |
+        <router-link to="/d3-plot-study">D3 Plot 스터디</router-link> |
+        <router-link to="/d3-health-homework-page">운동 문제 풀기!</router-link> |
+        <router-link to="/file-handler-page">파일 테스트!</router-link> |
       </nav>
     </div>
   </v-container>
