@@ -1,5 +1,7 @@
 package practice.dice3.diceGame3BackLogPractice2.main;
 
+import practice.dice3.diceGame3BackLogPractice2.diceGame.PlayDiceGame;
+
 // 친구와 게임을 할 수 있습니다.
 // 1:1 게임이라 가정하겠습니다.
 // 주사위를 3개 굴립니다.
@@ -13,6 +15,7 @@ package practice.dice3.diceGame3BackLogPractice2.main;
 public class DiceGame3 {
 
     public static void main(String[] args) {
-
+        final PlayDiceGame diceGame = new PlayDiceGame();
+        diceGame.thidrDicePlay();
     }
 }

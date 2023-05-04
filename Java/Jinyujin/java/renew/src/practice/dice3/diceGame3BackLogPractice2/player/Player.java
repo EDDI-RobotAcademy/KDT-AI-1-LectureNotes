@@ -15,13 +15,14 @@ public class Player {
     }
 
     public void rollDice() {
+        final int FIRST_DICE_NUMBER = 0;
 
         final List<Dice> diceList = new ArrayList<>();
 
         for (int i = 0; i < PLAYER_NUMBER; i++) {
             diceList.add(new Dice());
 
-            if (diceList.get(0).getRandomDiceNumber() % 2 == 1) {
+            if (diceList.get(FIRST_DICE_NUMBER).getRandomDiceNumber() % 2 == 1) {
                 break;
             }
         }
