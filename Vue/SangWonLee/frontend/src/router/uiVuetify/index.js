@@ -4,6 +4,8 @@ import TableTestPage from "@/views/uiVuetify/TableTestPage.vue";
 import TableAdvanced from "@/views/uiVuetify/TableAdvanced.vue";
 import ImageGalleryTest from "@/views/uiVuetify/ImageGalleryTest.vue";
 import PrintImageTest from "@/views/uiVuetify/PrintImageTest.vue";
+import DialogTestPage from "@/views/uiVuetify/DialogTestPage.vue";
+import CarouselTestPage from "@/views/uiVuetify/CarouselTestPage.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +29,16 @@ const vuetifyTestRoutes = [
     path: "/print-image-test",
     name: "PrintImageTest",
     component: PrintImageTest,
+  },
+  {
+    path: "/dialog-test-page",
+    name: "DialogTestPage",
+    component: DialogTestPage,
+  },
+  {
+    path: "/carousel-test-page",
+    name: "CarouselTestPage",
+    component: CarouselTestPage,
   },
 ];
 
