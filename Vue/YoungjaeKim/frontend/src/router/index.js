@@ -1,180 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import HtmlTest from '@/views/html/HtmlTest.vue'
-import CssTest from '@/views/css/CssTest.vue'
-
-import VueDataBindingPage from '@/views/basics/binding/VueDataBindingPage.vue'
-
-import VueClickEventPage from '@/views/basics/event/VueClickEventPage.vue'
-import VueInputEventPage from '@/views/basics/event/VueInputEventPage.vue'
-
-// 네이밍 이슈 존재 (왜 v-model에 대한 것을 두 번 표현 했는가)
-import DuplexWithModelPage from '@/views/basics/vModel/DuplexWithModelPage.vue'
-import VueCheckboxPage from '@/views/basics/vModel/VueCheckboxPage.vue'
-import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue'
-
-import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
-
-import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
-
-import DataResponseFromSpringPage from '@/views/basics/axios/DataResponseFromSpringPage.vue'
-
-import VueLifeCycleTestPage from '@/views/basics/lifeCycle/VueLifeCycleTestPage.vue'
-
-import Problem1 from '@/views/basics/axios/Problem1.vue'
-
-import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
-import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
-import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
-import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
-
-import BoardListPage from '@/views/board/BoardListPage.vue'
-import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
-import BoardReadPage from '@/views/board/BoardReadPage.vue'
-import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
 
 import ProductListPage from '@/views/product/ProductListPage.vue'
+
+import vuetifyTestRoutes from './uiVuetify'
+//import productRoutes from './product'
+import boardRoutes from './board'
+import problemRoutes from './problems'
+import lifeCycleRoutes from './lifeCycle'
+import axiosTestRoutes from './axiosTest'
+import componentTestRoutes from './componentTest'
+import vueBasicRoutes from './vueBasic'
+import htmlCssRoutes from './htmlCss'
+import defaultSetRoutes from './defaultRouterSet'
+import d3PlotTestRoutes from './d3plot'
+import filesTestRoutes from './files'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
-  {
-    path : '/htmlTest',
-    name : 'HtmlTest',
-    component : HtmlTest
-  },
-  {
-    path: '/cssTest',
-    name: 'CssTest',
-    component: CssTest
-  },
-  {
-    path: '/vue-data-binding-page',
-    name: 'VueDataBindingPage',
-    component: VueDataBindingPage
-  },
-  {
-    path: '/vue-click-event-page',
-    name: 'VueClickEventPage',
-    component: VueClickEventPage
-  },
-  {
-    path: '/vue-input-event-page',
-    name: 'VueInputEventPage',
-    component: VueInputEventPage
-  },
-  {
-    path: '/duplex-model-test-page',
-    name: 'DuplexWithModelPage',
-    component: DuplexWithModelPage
-  },
-  {
-    path: '/checkbox-test-page',
-    name: 'VueCheckboxPage',
-    component: VueCheckboxPage
-  },
-  {
-    path: '/multi-checkbox-test-page',
-    name: 'VueMultiCheckboxPage',
-    component: VueMultiCheckboxPage
-  },
-  {
-    path: '/global-component-test-page',
-    name: 'ComponentTestPage',
-    component: ComponentTestPage
-  },
-  {
-    path: '/axios-test-page',
-    name: 'DataSendTestPage',
-    component: DataSendTestPage
-  },
-  {
-    path: '/random-dice-from-spring',
-    name: 'DataResponseFromSpringPage',
-    component: DataResponseFromSpringPage
-  },
-  {
-    path: '/vue-lifecycle-test',
-    name: 'VueLifeCycleTestPage',
-    component: VueLifeCycleTestPage
-  },
-  {
-    path: '/problem1',
-    name: 'Problem1',
-    component: Problem1
-  },
-  {
-    path: '/problem-page2',
-    name: 'Problem2Page',
-    component: Problem2Page
-  },
-  {
-    path: '/problem-page3',
-    name: 'Problem3Page',
-    component: Problem3Page
-  },
-  {
-    path: '/problem-page4',
-    name: 'Problem4Page',
-    component: Problem4Page
-  },
-  {
-    path: '/problem-page5',
-    name: 'Problem5Page',
-    component: Problem5Page
-  },
-  {
-    path: '/board-list-page',
-    name: 'BoardListPage',
-    component: BoardListPage
-  },
-  {
-    path: '/board-register-page',
-    name: 'BoardRegisterPage',
-    component: BoardRegisterPage
-  },
-  {
-    path: '/board-read-page/:boardId',
-    name: 'BoardReadPage',
-    // 다중 값이면 components
-    components: {
-      default: BoardReadPage
-    },
-    props: {
-      default: true
-    },
-  },
-  {
-    path: '/board-modify-page/:boardId',
-    name: 'BoardModifyPage',
-    components: {
-      default: BoardModifyPage
-    },
-    props: {
-      default: true
-    },
-  },
-  {
-    path: '/product-list-page',
-    name: 'ProductListPage',
-    component: ProductListPage
-  }
-
-
+  ...defaultSetRoutes,
+  ...htmlCssRoutes,
+  ...vueBasicRoutes,
+  ...componentTestRoutes,
+  ...axiosTestRoutes,
+  ...lifeCycleRoutes,
+  ...problemRoutes,
+  ...boardRoutes,
+  ...productRoutes,
+  ...vuetifyTestRoutes,
+  ...d3PlotTestRoutes,
+  ...filesTestRoutes,
 ]
 
 const router = new VueRouter({
