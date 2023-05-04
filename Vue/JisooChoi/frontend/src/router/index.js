@@ -11,6 +11,7 @@ import vueBasicRoutes from './vueBasic'
 import htmlCssRoutes from './htmlCss'
 import defaultRouterSet from './defaultRouterSet'
 import d3plotTestRoutes from './d3plot'
+import filesTestRoutes from './files'
 
 Vue.use(VueRouter);
 
@@ -24,7 +25,8 @@ const routes = [
   ...problemRoutes,
   ...boardRoutes,
   ...vuetifyTestRoutes,
-  ...d3plotTestRoutes
+  ...d3plotTestRoutes,
+  ...filesTestRoutes,
 ];
 
 const router = new VueRouter({
