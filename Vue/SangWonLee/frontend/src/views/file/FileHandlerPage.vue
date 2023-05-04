@@ -3,10 +3,10 @@
         <h3>Vue File Upload 테스트 - Not AWS S3</h3>
         <div>
             <label>파일
-                <input type="file" id="files" ref="files"
+                <input type="file" id="files" ref="files" class="inputFileCss"
                         multiple @change="handleFileUpload"/>
             </label>
-
+            <br><br>
             <button @click="submitFiles">파일 및 문자열 함께 전송!</button>
         </div>
     </v-container>
@@ -45,6 +45,9 @@ export default {
 }
 </script>
 
-<style lang="">
-    
+<style scoped>
+.inputFileCss {
+    border: 2px solid;
+    padding: 5px;
+}
 </style>
