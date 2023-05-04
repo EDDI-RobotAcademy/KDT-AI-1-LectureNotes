@@ -20,7 +20,7 @@ export default {
         }
     },
     mounted () {
-        const width = 500
+        const width = 800
         const height = 500
         const svg = d3.select("svg")
                     .attr("width", width + 100)
@@ -48,7 +48,7 @@ export default {
                         })
         g.append("g")
             .attr("transform", "translate(40," +  height + ")")
-            .call(d3.axisBottom(x).ticks(d3.timeDay))
+            .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%y-%b-%d")).ticks(d3.timeDay))
         g.append("g")
             .call(d3.axisLeft(y))
             .attr('transform', `translate(40, 0)`)
