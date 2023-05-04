@@ -3,7 +3,6 @@ package kr.eddi.demo.lectureClass.vue.problem.controller;
 import kr.eddi.demo.lectureClass.vue.problem.controller.form.AccountLogInForm;
 import kr.eddi.demo.lectureClass.vue.problem.controller.form.AccountMultiResponseForm;
 import kr.eddi.demo.lectureClass.vue.problem.controller.form.AccountCreationForm;
-import kr.eddi.demo.lectureClass.vue.controller.form.gameCharacter.Character;
 import kr.eddi.demo.lectureClass.vue.problem.controller.form.CharacterListForm;
 import kr.eddi.demo.lectureClass.vue.problem.entity.Account;
 import lombok.extern.slf4j.Slf4j;
@@ -72,31 +71,31 @@ public class VueProblem4Controller {
         }
     }
 
-    @PostMapping("/create-character")
-    public Boolean createCharacter (@RequestBody CharacterCreationForm characterCreationForm) {
-        log.info("createAccount(): " + characterCreationForm);
-        final Character character =
-                characterCreationForm.toCharacter(
-                        characterCreationForm.getSelectedGender(),
-                        characterId,
-                        logInAccountId
-                );
-        characterStatusList.add(character);
-        multiIdMap.add(logInAccountId, characterId);
-        characterId++;
-        log.info("characterStatusList: " + characterStatusList);
-        return true;
-    }
-
-    @PostMapping("/get-character-id")
-    public List<Integer> getCharacterId (@RequestBody CharacterCreationForm characterCreationForm) {
-        log.info("requestCharacterId: " + characterCreationForm.getMyAccountId());
-        log.info("multiIdMap: " + multiIdMap);
-        log.info("logInAccountId: " + logInAccountId);
-        log.info("value: " + multiIdMap.get(logInAccountId));
-        List<Integer> characterList = multiIdMap.get(logInAccountId);
-        return multiIdMap.get(logInAccountId);
-    }
+//    @PostMapping("/create-character")
+//    public Boolean createCharacter (@RequestBody CharacterCreationForm characterCreationForm) {
+//        log.info("createAccount(): " + characterCreationForm);
+//        final Character character =
+//                characterCreationForm.toCharacter(
+//                        characterCreationForm.getSelectedGender(),
+//                        characterId,
+//                        logInAccountId
+//                );
+//        characterStatusList.add(character);
+//        multiIdMap.add(logInAccountId, characterId);
+//        characterId++;
+//        log.info("characterStatusList: " + characterStatusList);
+//        return true;
+//    }
+//
+//    @PostMapping("/get-character-id")
+//    public List<Integer> getCharacterId (@RequestBody CharacterCreationForm characterCreationForm) {
+//        log.info("requestCharacterId: " + characterCreationForm.getMyAccountId());
+//        log.info("multiIdMap: " + multiIdMap);
+//        log.info("logInAccountId: " + logInAccountId);
+//        log.info("value: " + multiIdMap.get(logInAccountId));
+//        List<Integer> characterList = multiIdMap.get(logInAccountId);
+//        return multiIdMap.get(logInAccountId);
+//    }
 
     @PostMapping("/get-character-info")
     public List<Character> getCharacterStatus (@RequestBody CharacterListForm characterListForm) {

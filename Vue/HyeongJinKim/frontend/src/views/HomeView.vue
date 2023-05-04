@@ -30,6 +30,8 @@
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
         <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
         <router-link to="/d3-plot-page">D3 Plotting 테스트</router-link> |
+        <router-link to="/file-handler-test-page">File 처리 테스트</router-link> |
+        <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
       </nav>
     </div>
     <br /><br />

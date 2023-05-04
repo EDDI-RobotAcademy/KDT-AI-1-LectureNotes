@@ -12,6 +12,7 @@ import boardRoutes from "./board";
 import productRoutes from "./product";
 import vuetifyTestRoutes from "./uiVuetify";
 import d3PlotTestRoutes from "./plot";
+import filesTestRoutes from "./files";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,7 @@ const routes = [
   ...productRoutes,
   ...vuetifyTestRoutes,
   ...d3PlotTestRoutes,
+  ...filesTestRoutes,
 ];
 
 const router = new VueRouter({
