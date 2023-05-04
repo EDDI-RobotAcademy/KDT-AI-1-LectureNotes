@@ -42,9 +42,14 @@ export default {
     },
     async created() {
         const receivedImagePath = await this.requestImageListToSpring()
+        // receivedImagePath로 이미지경로 리스트를 받아
         this.processedImages = receivedImagePath.map(
             data => require('@/assets/uploadImgs/' + data.imagePath))
         // 왼쪽을 오른쪽으로 가공해서 바꿔침 (각각의 요소마다 적용함): 람다(Lambda)라고 부름
+        // require: 파일 경로를 불러옴
+        // data는 변수 이름, 바꾸면 왼쪽 오른쪽 둘다 바꿔주면 됨
+        // receivedImagePath 안에 있는 data를 오른쪽으로 가공해줘라
+        // 그래서 저장할 수 있는 것
     }
 }
 

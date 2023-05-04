@@ -59,4 +59,5 @@ public class FilesTestController {
 
         return fileService.imageList();
     }
+    // 겟맵핑은 리스트 스트링을 넘기면 될 것 우리는 경로만 저장하고 있으니까
 }
