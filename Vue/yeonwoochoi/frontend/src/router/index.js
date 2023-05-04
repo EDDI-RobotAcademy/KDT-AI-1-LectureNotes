@@ -12,6 +12,7 @@ import vueBasicRoutes from './vueBasic'
 import htmlCssRoutes from './htmlCss'
 import defaultSetRoutes from './defaultRouterSet'
 import d3PlotTestRoutes from './d3plot'
+import filesTestRoutes from './files'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,7 @@ const routes = [
   ...productRoutes,
   ...vuetifyTestRoutes,
   ...d3PlotTestRoutes,
+  ...filesTestRoutes,
 ]
 const router = new VueRouter({
   mode: 'history',
