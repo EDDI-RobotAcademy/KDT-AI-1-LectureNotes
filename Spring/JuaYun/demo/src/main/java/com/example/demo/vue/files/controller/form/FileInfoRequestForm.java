@@ -1,0 +1,17 @@
+package com.example.demo.vue.files.controller.form;
+
+import com.example.demo.vue.files.entity.FileTest;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+
+@Getter
+@ToString
+@RequiredArgsConstructor
+public class FileInfoRequestForm {
+
+    final private Integer price;
+    final private String productName;
+
+  
+}
