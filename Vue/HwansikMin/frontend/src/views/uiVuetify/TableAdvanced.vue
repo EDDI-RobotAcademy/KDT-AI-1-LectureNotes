@@ -10,7 +10,9 @@
 <script>
 import router from '@/router';
 import { mapActions, mapState } from 'vuex';
+
 const boardModule = 'boardModule'
+
 export default {
     data () {
         return {
@@ -36,6 +38,7 @@ export default {
         ...mapActions(boardModule, ['requestBoardListToSpring']),
         readRow (readValue) {
             alert('게시물 읽기: ' + JSON.stringify(readValue))
+
             router.push({
                 name: 'BoardReadPage',
                 params: { boardId: readValue.boardId.toString() }

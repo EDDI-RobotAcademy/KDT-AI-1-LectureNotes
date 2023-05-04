@@ -17,7 +17,7 @@ export default {
             .then((res) => {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
             })
-     },
+    },
     requestCreateBoardToSpring ({}, payload) {
 
         const { title, content, writer } = payload
@@ -49,7 +49,7 @@ export default {
         return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
             .then((res) => {
                 alert("수정 성공!")
-            })  
+            })
             .catch(() => {
                 alert('문제 발생!')
             })
