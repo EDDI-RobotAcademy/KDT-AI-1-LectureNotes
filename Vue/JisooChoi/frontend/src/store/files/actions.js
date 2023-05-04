@@ -1,13 +1,9 @@
 // 커밋을 하는 게 아니기 때문에 mutation이 필요없다.
-// import {
-//     REQUEST_REGISTER_FILE_INFO_TO_SPRING,
-// } from './mutation-types'
 
 import axiosInst from '@/utility/axiosInst'
 
 export default {
     requestRegisterFileInfoToSpring ({ }, payload) {
-
         return axiosInst.post('/file-test/uploadImgsWithText', payload)
             .then(() => {
                 alert('파일 저장 요청 성공')
