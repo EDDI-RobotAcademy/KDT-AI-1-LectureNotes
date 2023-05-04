@@ -25,13 +25,15 @@ public class FilesTestController {
     final private FileService fileService;
 
     @PostMapping(value = "/uploadImgsWithText",
-            consumes = {MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public Boolean fileRegisterRequestHandler (@RequestPart(value = "imageFileList") List<MultipartFile> fileList,
-                                               @RequestPart(value = "fileInfo")FileInfoRequestForm info)
+            consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,    // 이미지
+                        MediaType.APPLICATION_JSON_VALUE})      // 정보
+    public Boolean fileRegisterRequestHandler (@RequestPart(value = "imageFileList") List<MultipartFile> fileList, // 이미지
+                                               // vue 에서 전송된 payload 를 위의 @RequestPart 에서 받음
+                                               @RequestPart(value = "fileInfo")FileInfoRequestForm info)           // 정보
     {
         log.info("fileRegisterRequestHandler(): " + info);
 
-        return fileService.register(fileList, info);
+        return fileService.register(fileList, info);  // 이미지, 정보를 반환
 
     }
 

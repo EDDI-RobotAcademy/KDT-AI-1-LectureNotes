@@ -2,7 +2,8 @@ import axiosInst from '@/utility/axiosInst'
 // 커밋을 하는 상황이 아니라 액션과 모듈만 필요함
 export default {
     requestRegisterFileInfoToSpring ({ commit }, payload) {
-        return axiosInst.post('/file-test/uploadImgsWithText', payload)
+        // payload 는 이미지를 전달받음
+        return axiosInst.post('/file-test/uploadImgsWithText', payload)       
             .then(() => {
                 alert('파일 저장 요청 성공!')
             })
