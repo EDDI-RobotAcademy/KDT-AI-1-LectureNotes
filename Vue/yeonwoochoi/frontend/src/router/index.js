@@ -27,7 +27,6 @@ const routes = [
   ...productRoutes,
   ...vuetifyTestRoutes,
   ...d3PlotTestRoutes,
-
 ]
 const router = new VueRouter({
   mode: 'history',

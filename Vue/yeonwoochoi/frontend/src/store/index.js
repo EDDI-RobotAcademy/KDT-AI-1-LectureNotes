@@ -14,7 +14,7 @@ const store = new Vuex.Store({
     productModule: productModule,
     uiVuetifyModule: uiVuetifyModule,
     d3PlotModule: d3PlotModule,
-},
+  },
 })
 
 export default store
