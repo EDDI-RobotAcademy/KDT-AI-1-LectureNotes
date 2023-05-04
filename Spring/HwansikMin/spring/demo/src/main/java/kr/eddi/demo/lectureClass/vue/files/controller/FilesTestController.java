@@ -1,6 +1,8 @@
 package kr.eddi.demo.lectureClass.vue.files.controller;
 
 import kr.eddi.demo.lectureClass.vue.files.controller.form.FileInfoRequestForm;
+import kr.eddi.demo.lectureClass.vue.files.service.FileService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,8 +15,11 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/file-test")
 public class FilesTestController {
+
+    final private FileService fileService;
 
     @PostMapping(value = "/uploadImgsWithText",
             consumes = {
@@ -27,6 +32,6 @@ public class FilesTestController {
 
         log.info("fileRegisterRequestHandler(): " + info);
 
-        return true;
+        return fileService.register(fileList, info);
     }
 }
