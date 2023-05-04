@@ -31,8 +31,16 @@ public class FilesTestController {
     {
         log.info("fileRegisterRequestHandler(): " + info);
 
-        return true;
+        return fileService.register(fileList, info);
 
     }
 
+    // 뷰처리 끝내고 겟맵핑
+    // 리스트로 이미지패스리스폰스폼을 넘김
+    @GetMapping("/giveMeImageList")
+    public List<ImagePathResponseForm> imageFileStringListRequestHandler () {
+        log.info("imageFileStringListRequestHandler()");
+
+        return fileService.imageList();
+    }
 }
