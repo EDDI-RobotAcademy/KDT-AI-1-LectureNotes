@@ -12,4 +12,10 @@ export default {
                 return res.data
             })
     },
+    requestOtherHealthDataToSpring ({ commit }) {
+        return axiosInst.get('/d3-test/get-other-health-info')
+            .then((res) => {
+                return res.data
+            })
+    }
 }
