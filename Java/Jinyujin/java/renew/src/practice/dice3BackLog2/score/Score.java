@@ -17,7 +17,7 @@ public class Score {
     }
 
     public void deathScore(int deathScore) {
-        this.totalScore -= deathScore;
+        this.totalScore = deathScore;
     }
 
     public void stealScore(Score otherScore,int stealScore) {

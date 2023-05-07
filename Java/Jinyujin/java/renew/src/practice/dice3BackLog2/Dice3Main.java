@@ -21,8 +21,13 @@ public class Dice3Main {
         // Player 클래스 확인 완료
 
         final PlayGame game = new PlayGame();
+        // 여기에 PlayGame 생성자 안에 sout가 걸려있으니까 playGame 메서드 적용 이전 결과가 나옴
+
+        System.out.println("승자 판정 이후");
         game.playGame();
-        // 세 번째 주사위 적용된 결과 나오도록 - toString 있음에도 아무것도 안나옴
-        // 생성자에서 처리해줬어야 함
+        // 세 번째 주사위 실행하고
+        game.nextToThirdCondition();
+        // 세 번째 주사위 적용된 결과 보여줌
+        game.checkWin();
     }
 }

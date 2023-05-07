@@ -46,10 +46,12 @@ public class Player {
         if (diceList.size() < diceIdx + 1) {
             return null;
         }
+        // 배열과 리스트의 차이
+        // 선생님은 배열의 크기를 3으로 정해줌
+        // 리스트는 크기를 정해주지 못하니까 내꺼에는 크기를 정해줘야 했음
 
         return diceList.get(diceIdx);
     }
-
 
     @Override
     public String toString() {
