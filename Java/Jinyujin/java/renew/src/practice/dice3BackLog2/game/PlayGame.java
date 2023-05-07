@@ -97,8 +97,11 @@ public class PlayGame {
         if (firstPlayerScore.getTotalScore() > secondPlayerScore.getTotalScore()) {
             System.out.println("플레이어1 승리!");
         }
-        else {
+        if (firstPlayerScore.getTotalScore() < secondPlayerScore.getTotalScore()){
             System.out.println("플레이어2 승리!");
+        }
+        if (firstPlayerScore.getTotalScore() == secondPlayerScore.getTotalScore()){
+            System.out.println("무승부!");
         }
     }
 
