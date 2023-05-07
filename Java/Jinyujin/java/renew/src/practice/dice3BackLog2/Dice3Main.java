@@ -1,5 +1,7 @@
 package practice.dice3BackLog2;
 
+import practice.dice3BackLog2.game.PlayGame;
+
 // 친구와 게임을 할 수 있습니다.
 // 1:1 게임이라 가정하겠습니다.
 // 주사위를 3개 굴립니다.
@@ -11,5 +13,16 @@ package practice.dice3BackLog2;
 // 숫자가 4인 경우엔 무조건 패배하게 됩니다.
 // 친구와 함께 플레이 할 수 있는 주사위 게임을 만들어주세요.
 public class Dice3Main {
+    public static void main(String[] args) {
 
+//        Player player = new Player("플레이어");
+//        System.out.println(player);
+        // score가 제대로 안나오는 문제 - toString 안걸어줌
+        // Player 클래스 확인 완료
+
+        final PlayGame game = new PlayGame();
+        game.playGame();
+        // 세 번째 주사위 적용된 결과 나오도록 - toString 있음에도 아무것도 안나옴
+        // 생성자에서 처리해줬어야 함
+    }
 }
