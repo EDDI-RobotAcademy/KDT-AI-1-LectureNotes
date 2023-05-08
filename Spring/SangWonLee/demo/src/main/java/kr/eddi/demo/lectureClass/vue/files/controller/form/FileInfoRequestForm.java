@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 public class FileInfoRequestForm {
+    // fileInfo 를 받는 Form
 
     final private Integer price;
     final private String productName;
