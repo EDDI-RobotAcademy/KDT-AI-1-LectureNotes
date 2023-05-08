@@ -1,4 +1,4 @@
-package practice.dice2Replay;
+package practice.dice2.dice2Replay;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package practice.dice2Replay;
+package practice.dice2.dice2Replay;
 
 import utility.random.CustomRandom;
 // 여기선 주사위 수만 출력 가능하게

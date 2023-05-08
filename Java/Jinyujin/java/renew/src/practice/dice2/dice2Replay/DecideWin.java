@@ -1,4 +1,4 @@
-package practice.dice2Replay;
+package practice.dice2.dice2Replay;
 
 public class DecideWin {
     // 주사위 총합 변수인데 diceSum이랑 이름 같게 하면 헷갈리니까
