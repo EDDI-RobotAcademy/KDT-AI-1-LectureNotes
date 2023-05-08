@@ -27,6 +27,14 @@ export default {
             return this.line(this.healthList)
         },
         line() {
+            const svg = d3.select("svg")
+            const g = svg.append('g')
+
+            g.append('g')
+                .attr("transform", "translate(0, " + (this.height - 40) + ")")
+                .call(d3.axisBottom(this.xScale).ticks(this.healthList.length))
+                .append("text")
+
             return d3.line()
                 .x((d, i)=> this.xScale(i))
                 .y((d=>this.yScale(d.healthAmount)))
@@ -34,7 +42,7 @@ export default {
         xScale () {
             return d3.scaleLinear()
                 .range([this.padding, this.width - this.padding])
-                .domain([0, 6])
+                .domain([0, this.healthList.length])
         },
         yScale() {
             return d3.scaleLinear()
@@ -42,6 +50,7 @@ export default {
                 .domain([0, 100])
         }
     },
+
     async beforeMount() {
         this.healthList = await this.requestHealthDataToSpring()
         console.log(JSON.stringify(this.healthList))
@@ -52,10 +61,10 @@ export default {
             .attr("height", this.height+100)
         const g = svg.append('g')
 
-        g.append('g')
-            .attr("transform", "translate(0, " + (this.height - 40) + ")")
-            .call(d3.axisBottom(this.xScale).ticks(7))
-            .append("text")
+        // g.append('g')
+        //     .attr("transform", "translate(0, " + (this.height - 40) + ")")
+        //     .call(d3.axisBottom(this.xScale).ticks(this.healthList.length))
+        //     .append("text")
 
         g.append('g')
             .call(d3.axisLeft(this.yScale))

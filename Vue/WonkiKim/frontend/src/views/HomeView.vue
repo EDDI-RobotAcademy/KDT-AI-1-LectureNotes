@@ -37,6 +37,8 @@
         <router-link to="/carousel-test-page">CarouselTestPage</router-link>|
         <router-link to="/d3plot-test-page">D3Plot Test Page</router-link>|
         <router-link to="/d3-health-print-page">D3HealthPrintPage</router-link>|
+        <router-link to="/file-handler-page">FileHandlerPage</router-link>|
+        <router-link to="/file-list-show-page">FileListShow</router-link>
       </nav>
     </div>
   </v-container>

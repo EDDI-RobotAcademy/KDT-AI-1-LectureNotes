@@ -107,6 +107,8 @@ export default {
             .attr("transform", "translate(40, 0)")
             .attr("fill", "none")
             .attr("d", line)
+
+
     }
 }
 </script>
