@@ -6,6 +6,6 @@ public class Dice2 {
 
     public static void main(String[] args) {
         PlayGame playGame = new PlayGame();
-        playGame.rollDice();
+        playGame.checkWin();
     }
 }
