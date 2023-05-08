@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/d3-test")
 public class D3TestController {
-    private final int ONE_WEEK = 7;
+    private final int ONE_WEEK = 20;
     private final List<HealthDataResponse> healthDataList = new ArrayList<>();
 
     @GetMapping("/get-health-info")
