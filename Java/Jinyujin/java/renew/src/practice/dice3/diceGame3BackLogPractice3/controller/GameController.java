@@ -10,5 +10,8 @@ public class GameController {
 
         GameManager game = new GameManager();
         game.playGame();
+        System.out.println("승자 판정 이후");
+        game.nextToThirdCondition();
+        game.checkWin();
     }
 }

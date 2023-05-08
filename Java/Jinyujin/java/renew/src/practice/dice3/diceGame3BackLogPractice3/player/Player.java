@@ -13,6 +13,10 @@ public class Player {
     final private List<Dice> diceList = new ArrayList<>();
     final private GameScore gameScore;
 
+    public String getName() {
+        return name;
+    }
+
     public GameScore getGameScore() {
         return gameScore;
     }
@@ -35,6 +39,7 @@ public class Player {
         for (int i = 0; i < DICE_MAX; i++) {
             diceList.add(new Dice());
             // Dice의 생성자와 연결되는 것
+            diceSum += diceList.get(i).getDiceNumber();
 
             // 주사위 여기서 하나 굴릴지 3개 굴릴지 정하니까 여기서 첫 번째 주사위 조건 걸어줘야함
             // 여기서는 하나 굴리는 케이스, 3개 굴리는 케이스만 정함
@@ -42,7 +47,6 @@ public class Player {
             if (diceList.get(FIRST_DICE_INFO).getDiceNumber() % EVEN == ODD) {
                 break;
             }
-            diceSum += diceList.get(i).getDiceNumber();
         }
         return diceSum;
     }

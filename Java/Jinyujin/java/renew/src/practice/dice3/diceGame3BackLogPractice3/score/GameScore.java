@@ -4,6 +4,10 @@ public class GameScore {
 
     private int totalScore;
 
+    public int getTotalScore() {
+        return totalScore;
+    }
+
     public GameScore(int totalScore) {
         this.totalScore = totalScore;
     }

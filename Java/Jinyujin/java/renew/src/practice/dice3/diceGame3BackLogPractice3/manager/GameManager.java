@@ -24,6 +24,10 @@ public class GameManager {
 
         Dice currentPlayerThirdDice = playerList.get(playerIdx).needToSelectDice(thirdDiceIdx);
 
+        if (currentPlayerThirdDice == null) {
+            return 0;
+        }
+
         int currentPlayerThirdDiceNumber = currentPlayerThirdDice.getDiceNumber();
 
         return currentPlayerThirdDiceNumber;
@@ -31,12 +35,13 @@ public class GameManager {
 
     public int findCurrentPlayerIdx(int targetPlayerIdx) {
 
-        int currentPlayerIdx = 0;
+        int currentPlayerIdx = 1;
 
-        if (currentPlayerIdx == 1){
-            targetPlayerIdx = 0;
+        if (targetPlayerIdx == 1){
+            currentPlayerIdx = 0;
         }
         return currentPlayerIdx;
+        // 임시로 하나 정해준 Idx
     }
 
     public void playGame() {
@@ -76,6 +81,28 @@ public class GameManager {
                     currentPlayerScore.stealScore(targetPlayerScore, STEAL_SCORE);
                     break;
             }
+        }
+    }
+
+    public void nextToThirdCondition() {
+        for (int i = 0; i < 2; i++) {
+            System.out.println(playerList.get(i));
+        }
+    }
+
+    public void checkWin() {
+
+        GameScore firstPlayerScore = playerList.get(0).getGameScore();
+        GameScore secondPlayerScore = playerList.get(1).getGameScore();
+
+        if (firstPlayerScore.getTotalScore() > secondPlayerScore.getTotalScore()) {
+            System.out.println("플레이어 승리! " + playerList.get(0).getName());
+        }
+        if (firstPlayerScore.getTotalScore() < secondPlayerScore.getTotalScore()) {
+            System.out.println("플레이어 승리! " + playerList.get(1).getName());
+        }
+        if (firstPlayerScore.getTotalScore() == secondPlayerScore.getTotalScore()) {
+            System.out.println("무승부!");
         }
     }
 }
