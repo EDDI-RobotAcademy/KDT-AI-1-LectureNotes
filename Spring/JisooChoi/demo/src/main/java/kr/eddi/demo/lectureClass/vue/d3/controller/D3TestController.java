@@ -2,6 +2,7 @@ package kr.eddi.demo.lectureClass.vue.d3.controller;
 
 import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
 import kr.eddi.demo.lectureClass.vue.d3.controller.form.HealthDataResponse;
+import kr.eddi.demo.lectureClass.vue.d3.controller.form.HealthProbResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class D3TestController {
 
     private final int ONE_WEEK = 7;
     private final List<HealthDataResponse> healthDataList = new ArrayList<>();
+    private final List<HealthProbResponse> healthProbResponseList = new ArrayList<>();
 
     @GetMapping("/get-health-info")
     public List<HealthDataResponse> getD3HealthInfo () {
@@ -38,5 +40,18 @@ public class D3TestController {
             */
             healthDataList.add(new HealthDataResponse(CustomRandom.generateNumber(0, 100)));
         }
+    }
+
+    @GetMapping("/health-data-prob")
+    public List<HealthProbResponse> healthProb () {
+        log.info("healthProb()");
+
+        healthProbResponseList.clear();
+
+        for(int i = 0; i < 7; i++){
+            healthProbResponseList.add(new HealthProbResponse(CustomRandom.generateNumber(0, 100)));
+        }
+
+        return healthProbResponseList;
     }
 }
