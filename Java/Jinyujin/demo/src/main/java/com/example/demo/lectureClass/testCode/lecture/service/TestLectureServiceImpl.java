@@ -23,6 +23,8 @@ public class TestLectureServiceImpl implements TestLectureService{
             log.info("강좌명이 중복되었습니다!");
             return null;
         }
+        // checkDuplicateOfLecture 메서드에서 true가 반환될 경우
+        // 이 if문이 수행된다 (false일 경우 수행안하고 아래 코드 수행)
 
         final TestLecture testLecture = new TestLecture(subject);
         lectureRepository.save(testLecture);

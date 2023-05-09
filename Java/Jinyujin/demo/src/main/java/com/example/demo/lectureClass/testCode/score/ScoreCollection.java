@@ -18,6 +18,7 @@ public class ScoreCollection {
         // 각각을 Integer로 만들고 sum()을 통해 합산함
         // 요것이 람다 문법이라고 함
         int total = scoreList.stream().mapToInt(ScoreInterface::getScore).sum(); // 합 구하기
+        // stream이 리스트를 람다식으로 처리할 수 있도록 지원해줌
 
         return total / scoreList.size();
     }
