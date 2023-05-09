@@ -24,8 +24,4 @@ public class TestMember {
         this.email = email;
         this.password = password;
     }
-
-    public TestMember(String name) {
-        this.name = name;
-    }
 }
