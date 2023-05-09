@@ -1,5 +1,6 @@
 package kr.eddi.demo.lectureTest;
 
+import kr.eddi.demo.DemoApplication;
 import kr.eddi.demo.lectureClass.testCode.lecture.entity.TestLecture;
 import kr.eddi.demo.lectureClass.testCode.lecture.service.TestLectureService;
 import kr.eddi.demo.lectureClass.testCode.student.entity.TestStudent;
@@ -8,10 +9,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest(classes = LectureTest.class)
+
+@SpringBootTest
+//@ContextConfiguration(classes = DemoApplication.class)
 public class LectureTest {
 
     @Autowired
@@ -28,7 +32,7 @@ public class LectureTest {
         testStudent = testStudentService.register(testStudent);  // 학생이 사이트에 가입을 해야하기 때문 (현재는 정보 없음)
 
         if(testStudent == null){
-            System.out.println("닉에님이 같아 생성하지 않습니다.");
+            System.out.println("닉네님이 같아 생성하지 않습니다.");
             return;
         }
 
