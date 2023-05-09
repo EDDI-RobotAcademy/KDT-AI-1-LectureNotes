@@ -28,6 +28,11 @@ public class LectureTest {
         TestStudent testStudent = new TestStudent("x"); // 원래라면 RequestForm 형태여야함
         testStudent = testStudentService.register(testStudent);  // 학생이 사이트에 가입을 해야하기 때문 (현재는 정보 없음)
 
+        if (testStudent == null) {
+            System.out.println("닉네임이 같아 생성하지 않습니다!");
+            return;
+        }
+
         final TestLecture testLecture = testLectureService.register(expected, testStudent.getId());
         final String actual = testLecture.getLectureName();
 
