@@ -2,6 +2,8 @@ package com.example.demo.lectureTest;
 
 import com.example.demo.lectureClass.testCode.lecture.entity.TestLecture;
 import com.example.demo.lectureClass.testCode.lecture.service.TestLectureService;
+import com.example.demo.lectureClass.testCode.member.entity.TestMember;
+import com.example.demo.lectureClass.testCode.member.service.TestMemberService;
 import com.example.demo.lectureClass.testCode.student.entity.TestStudent;
 import com.example.demo.lectureClass.testCode.student.service.TestStudentService;
 import org.junit.jupiter.api.DisplayName;
@@ -20,6 +22,9 @@ public class LectureTest {
     @Autowired
     private TestLectureService testLectureService;
 
+    @Autowired
+    private TestMemberService memberService;
+
     @Test
     @DisplayName("x 학생이 Math 강의 신청하기")
     void studentRegisterLecture () {
@@ -36,5 +41,21 @@ public class LectureTest {
         final String actual = testLecture.getLectureName();
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("이메일과 비밀번호로 회원가입 진행하기")
+    void memberRegister () {
+        final String email = "def@naver.com";
+        final String password = "12345";
+        TestMember testMember = new TestMember(email, password);
+        testMember = memberService.register(testMember);
+
+        if(testMember == null) {
+            System.out.println("중복된 이메일이 존재합니다!");
+        }
+        final String actual = testMember.getEmail();
+
+        assertEquals(email, actual);
     }
 }
