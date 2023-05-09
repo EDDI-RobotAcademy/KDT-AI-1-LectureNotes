@@ -1,7 +1,11 @@
 package kr.eddi.demo.homeworkTest;
 
+import kr.eddi.demo.lectureClass.testCode.member.entity.TestMember;
+import kr.eddi.demo.lectureClass.testCode.member.repository.TestMemberRepository;
+import kr.eddi.demo.lectureClass.testCode.member.service.TestMemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
@@ -11,7 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class HomeworkTest {
 
+    @Autowired
     private TestMemberService testMemberService;
+
+    @Autowired
     private TestMemberRepository testMemberRepository;
 
     @Test
@@ -30,7 +37,10 @@ public class HomeworkTest {
         }
 
         testMember = maybeTestMember.get();
-        assertEquals(expected_Name, testMember.getMemberName());
-        assertEquals(expected_Password, testMember.getMemberPassword());
+        final String actual_Name = testMember.getMemberName();
+        final String actual_Password = testMember.getMemberPassword();
+
+        assertEquals(expected_Name, actual_Name);
+        assertEquals(expected_Password, actual_Password);
     }
 }
