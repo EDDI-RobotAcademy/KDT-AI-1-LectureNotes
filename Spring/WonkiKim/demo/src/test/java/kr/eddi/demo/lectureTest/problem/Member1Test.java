@@ -16,11 +16,22 @@ public class Member1Test {
     @Test
     @DisplayName("signUp")
     void signUp() {
-        final Member1 expected = new Member1("account4", "password1");
+        final Member1 expected = new Member1("account3", "password1");
         final Member1 member = expected;
 
         final Member1 actual = memberService.register(member);
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("deleteAccount")
+    void deleteAccount() {
+         final Member1 expected = new Member1("account3", "password1");
+         final Member1 member = expected;
+         final Member1 actual = memberService.delete(member);
+
+         assertEquals(expected, actual);
+    }
+
 }

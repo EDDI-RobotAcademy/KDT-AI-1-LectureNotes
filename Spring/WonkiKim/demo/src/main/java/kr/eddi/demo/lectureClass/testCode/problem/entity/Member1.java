@@ -15,6 +15,7 @@ public class Member1 {
     private Long id;
     @Getter
     private String accountId;
+    @Getter
     private String password;
 
     public Member1(String accountId, String password) {
