@@ -14,6 +14,7 @@ public class TestStudent {
     @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Getter
     private String name;
 
     // 과목 하나에 학생은 여럿
