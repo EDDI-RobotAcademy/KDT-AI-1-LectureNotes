@@ -14,44 +14,48 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class TestLectureServiceImpl implements TestLectureService{
+
     final private TestLectureRepository lectureRepository;
     final private TestStudentRepository studentRepository;
 
     @Override
     public TestLecture register(String subject, Long studentId) {
-        if (checkDuplicateOfLecture(subject)) {
-            log.info("강좌명이 중복되었습니다!");
+        // 똑같은 과목인지 아닌지 먼저 강좌명 판별
+        if (checkDuplicateLecture(subject)) {
+            log.info("강좌명이 중복되었습니다");
             return null;
         }
-        // checkDuplicateOfLecture 메서드에서 true가 반환될 경우
-        // 이 if문이 수행된다 (false일 경우 수행안하고 아래 코드 수행)
 
-        final TestLecture testLecture = new TestLecture(subject);
-        lectureRepository.save(testLecture);
+        // 중복 아닌 과목 등록
+        final TestLecture lecture = new TestLecture(subject);
+        lectureRepository.save(lecture);
 
+        // 학생 아이디 존재하는지 판별
         final Optional<TestStudent> maybeStudent = studentRepository.findById(studentId);
-        // findById() 사용하면 Optional 떠올리자
 
         if (maybeStudent.isEmpty()) {
-            log.info("존재하지 않는 학생입니다!");
+            log.info("존재하지 않는 학생입니다");
             return null;
         }
 
-        final TestStudent testStudent = maybeStudent.get();
-        testStudent.setTestLecture(testLecture);
-        studentRepository.save(testStudent);
+        // 존재하는 학생 찾기
+        final TestStudent student = maybeStudent.get();
+        // 그 학생한테 변경된 과목 입력
+        student.setLecture(lecture);
 
-        return testLecture;
+        // 이제 학생 repository에 저장
+        studentRepository.save(student);
+
+        return lecture;
     }
 
-    private Boolean checkDuplicateOfLecture(String subject) {
+    private Boolean checkDuplicateLecture(String subject) {
         final Optional<TestLecture> maybeLecture = lectureRepository.findByLectureName(subject);
 
         if (maybeLecture.isEmpty()) {
-            log.info("중복 없음");
             return false;
+            // 중복 없음
         }
-
         return true;
     }
 }

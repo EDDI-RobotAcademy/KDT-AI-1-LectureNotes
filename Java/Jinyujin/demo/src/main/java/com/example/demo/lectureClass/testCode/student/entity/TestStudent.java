@@ -9,18 +9,22 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 public class TestStudent {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Getter
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long studentId;
 
     @Getter
     private String name;
 
+    @JoinColumn(name = "lecture_id")
+    // 외래키 가져옴
+    // lecture_id 이걸 참조
     @Setter
     @ManyToOne
-    @JoinColumn(name = "lecture_id")
-    private TestLecture testLecture;
+    // 수강과목에 대한 학생 수는 많으니까
+    private TestLecture lecture;
 
     public TestStudent(String name) {
         this.name = name;

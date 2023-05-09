@@ -12,18 +12,17 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class TestStudentServiceImpl implements TestStudentService{
+
     final private TestStudentRepository studentRepository;
 
     @Override
-    public TestStudent register(TestStudent testStudent) {
-        final Optional<TestStudent> maybeStudent =
-                studentRepository.findByName(testStudent.getName());
+    public TestStudent register(TestStudent student) {
+        final Optional<TestStudent> maybeStudent = studentRepository.findByName(student.getName());
 
         if (maybeStudent.isPresent()) {
-            log.info("동일 닉네임의 학생이 존재합니다!");
+            log.info("존재하는 학생입니다!");
             return null;
         }
-
-        return studentRepository.save(testStudent);
+        return studentRepository.save(student);
     }
 }
