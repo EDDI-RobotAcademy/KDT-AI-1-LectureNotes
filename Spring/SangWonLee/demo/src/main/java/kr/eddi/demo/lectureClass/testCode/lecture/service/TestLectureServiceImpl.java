@@ -2,6 +2,7 @@ package kr.eddi.demo.lectureClass.testCode.lecture.service;
 
 import kr.eddi.demo.lectureClass.testCode.lecture.entity.TestLecture;
 import kr.eddi.demo.lectureClass.testCode.lecture.repository.TestLectureRepository;
+
 import kr.eddi.demo.lectureClass.testCode.student.entity.TestStudent;
 import kr.eddi.demo.lectureClass.testCode.student.repository.TestStudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,13 +21,18 @@ public class TestLectureServiceImpl implements TestLectureService {
 
     @Override
     public TestLecture register(String subject, Long studentId) {
+        if (checkDuplicateOfLecture(subject)) {
+            log.info("강좌명이 중복되었습니다!");
+            return null;
+        }
+
         final TestLecture testLecture = new TestLecture(subject);
         lectureRepository.save(testLecture);
 
         final Optional<TestStudent> maybeStudent = studentRepository.findById(studentId);
 
         if (maybeStudent.isEmpty()) {
-            System.out.println("존재하지 않는 학생입니다!");
+            log.info("존재하지 않는 학생입니다!");
             return null;
         }
 
@@ -35,5 +41,16 @@ public class TestLectureServiceImpl implements TestLectureService {
         studentRepository.save(testStudent);
 
         return testLecture;
+    }
+
+    private Boolean checkDuplicateOfLecture(String subject) {
+        final Optional<TestLecture> maybeLecture = lectureRepository.findByLectureName(subject);
+
+        if (maybeLecture.isEmpty()) {
+            log.info("중복 없음");
+            return false;
+        }
+
+        return true;
     }
 }
