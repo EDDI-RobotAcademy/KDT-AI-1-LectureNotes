@@ -78,6 +78,9 @@ public class LambdaTest {
         collection.add(() -> 9);
         // 디버그로 ScoreCollection의 add메서드에 의해 들어가는 것 확인가능
         // collection.add(() -> 5); 이 줄 찍고 디버그 해보면 됨 stepinto 이런거 이용
+        // 람다는 () 익명의 메서드를 만들 수 있음
+        // 보통 메서드를 만들면 메모리에 저장됨 -> 근데 메모리 크기가 그다지 크지 않음
+        // 익명의 메서드로 보완 가능
 
         int actualResult = collection.arithmeticMean();
 
