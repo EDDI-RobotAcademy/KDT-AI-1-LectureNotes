@@ -28,13 +28,16 @@ export default {
         },
         submitFiles () {
             let formData = new FormData()
+
             let fileInfo = {
                 price: 50000,
                 productName: "testProduct",
             }
+
             for (let idx = 0; idx < this.files.length; idx++) {
                 formData.append('imageFileList', this.files[idx])
             }
+            
             formData.append(
                 "fileInfo",
                 new Blob([JSON.stringify(fileInfo)], { type: "application/json" })
