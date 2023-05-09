@@ -7,7 +7,8 @@ export default {
       // axios.post로 Promise 값을 반환한다.
       // Promise란, JavaScript에서 비동기 연산의 최종 완료(결과 값)을 나타내는 객체임
 
-      .then(function (response) {
+      .then((response) => { // => 화살표 함수는 function 대신 쓴다.
+        // .then(function(response) { ~~
         console.log(response.data);
         alert("파일 저장 요청 성공!");
       })
@@ -25,6 +26,8 @@ export default {
 
       .then((res) => {
         alert("이미지 리스트 요청: " + JSON.stringify(res.data));
+        // JSON.stringify : 자바스크립트 객체를 JSON 문자열로 변환
+
         return res.data;
       })
       .catch(() => {

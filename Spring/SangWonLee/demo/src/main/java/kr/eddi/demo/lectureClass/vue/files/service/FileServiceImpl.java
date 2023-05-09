@@ -73,14 +73,18 @@ public class FileServiceImpl implements FileService {
     @Override
     public List<ImagePathResponseForm> imageList() {
         List<FileTest> fileTestList = filesTestRepository.findAll();
+        // filesTestRepository 객체의 findAll 메소드를 호출시켜서
+        // 데이터베이스 테이블에서 모든 엔티티를 가져옴
 
         List<ImagePathResponseForm> imagePathResponseFormList = new ArrayList<>();
 
-        for (FileTest fileTest: fileTestList) {
+        for (FileTest fileTest: fileTestList) { // fileTestList를 반복한다.
             imagePathResponseFormList.add(
                     new ImagePathResponseForm(fileTest.getImagePath()));
+            // FileTest 객체의 getImagePath 메소드를 사용해서 ImagePathResponseForm 객체를 생성하고,
+            // imagePathResponseFormList에 추가한다.
         }
-
+        // 그리고 그 List를 반환
         return imagePathResponseFormList;
     }
 }

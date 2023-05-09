@@ -30,7 +30,7 @@ const filesModule = 'filesModule'
 export default {
     data() {
         return {
-            files: '',
+            files: '', // String
         }
     },
     methods: {

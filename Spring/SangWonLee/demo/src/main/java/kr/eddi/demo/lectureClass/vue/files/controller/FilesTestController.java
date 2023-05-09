@@ -40,6 +40,7 @@ public class FilesTestController {
         // fileList와 info를 인자로 fileService 객체의 register 메소드를 호출.
     }
 
+
     @GetMapping("/giveMeImageList")
     // @GetMapping(value = "/giveMeImageList") 원래 이거임 value 값은 생략 가능
     public List<ImagePathResponseForm> imageFileStringListRequestHandler () {

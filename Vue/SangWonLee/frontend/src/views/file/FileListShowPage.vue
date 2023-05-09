@@ -44,17 +44,30 @@ const filesModule = 'filesModule'
 export default {
     data() {
         return {
-            processedImages: [],
+            processedImages: [], // 배열
         }
     },
     methods: {
         ...mapActions(filesModule, ['requestImageListToSpring']),
+        // filesModule의 requestImageListToSpring 액션을 매핑한다.
     },
-    async created() {
+    async created() { // created 훅은 컴포넌트 인스턴스가 생성된 후 호출된다.
+        // 서버에서 데이터를 가져야 하므로 비동기 함수로 정의
+        // 비동기 함수 : 즉시 완료되지 않고 나중에 완료되는 작업
+
         const receivedImagePath = await this.requestImageListToSpring()
+        // requestImageListToSpring() 메소드를 사용해 이미지 목록을 요청하는 비동기 함수가 호출
+        // await : 비동기 함수 내에서 사용되며 Promise가 처리될 때까지 기다림.
+        // Promise : 
+
         this.processedImages = receivedImagePath.map(
             data => require('@/assets/uploadImgs/' + data.imagePath))
+        // 위에서 응답이 수신되면 processedImage 데이터 속성이 수신된 이미지 경로로 업데이트 된다.
         // 왼쪽을 오른쪽으로 가공해서 바꿔침 (각각의 요소마다 적용함): 람다(Lambda)라고 부름
+        // map 함수는 수신된 이미지 경로를 require 함수가 사용할 수 있는 형식으로 변환(위에랑 같은 소리)
+        //
+
+
     }
 }
 </script>
