@@ -1,4 +1,4 @@
-package kr.eddi.demo.lectureClass.testCode.source;
+package kr.eddi.demo.lectureClass.testCode.score;
 
 import java.util.ArrayList;
 import java.util.List;

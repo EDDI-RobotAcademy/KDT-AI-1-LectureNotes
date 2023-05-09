@@ -1,6 +1,6 @@
 package kr.eddi.demo.lambdaTest;
 
-import kr.eddi.demo.lectureClass.testCode.source.ScoreCollection;
+import kr.eddi.demo.lectureClass.testCode.score.ScoreCollection;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
