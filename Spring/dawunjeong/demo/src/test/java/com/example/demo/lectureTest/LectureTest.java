@@ -46,9 +46,9 @@ public class LectureTest {
     @Test
     @DisplayName("이메일과 비밀번호로 회원가입 진행하기")
     void memberRegister () {
-        final String email = "def@naver.com";
+        final String expectedEmail = "def@naver.com";
         final String password = "12345";
-        TestMember testMember = new TestMember(email, password);
+        TestMember testMember = new TestMember(expectedEmail, password);
         testMember = memberService.register(testMember);
 
         if(testMember == null) {
@@ -56,6 +56,6 @@ public class LectureTest {
         }
         final String actual = testMember.getEmail();
 
-        assertEquals(email, actual);
+        assertEquals(expectedEmail, actual);
     }
 }
