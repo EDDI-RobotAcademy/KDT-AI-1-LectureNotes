@@ -16,11 +16,11 @@ public class MemberTest {
 
     // 회원 등록
     @Test
-    @DisplayName("x라는 이름 가진 회원 등록")
+    @DisplayName("이메일과 비밀번호로 회원 등록")
     void memberRegister() {
         final String expected = "x";
 
-        TestMember testMember = new TestMember("x");
+        TestMember testMember = new TestMember("x","test@test.com","1234");
         testMember = memberService.register(testMember);
 
         if (testMember == null) {

@@ -19,6 +19,12 @@ public class TestMember {
     String email;
     String password;
 
+    public TestMember(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
     public TestMember(String name) {
         this.name = name;
     }
