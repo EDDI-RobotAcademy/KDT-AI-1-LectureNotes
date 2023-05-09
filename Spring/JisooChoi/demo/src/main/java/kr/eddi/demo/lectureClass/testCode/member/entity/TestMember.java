@@ -14,12 +14,15 @@ public class TestMember {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     @Getter
     private String name;
 
-    public TestMember(String id) {
-        this.id = id;
+    @Getter
+    private String memberId;
+
+    public TestMember(String memberId) {
+        this.memberId = memberId;
     }
 }
