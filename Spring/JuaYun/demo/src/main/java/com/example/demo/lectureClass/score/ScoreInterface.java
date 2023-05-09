@@ -1,4 +1,4 @@
-package com.example.demo.vue.files.testCode.score;
+package com.example.demo.lectureClass.score;
 
 public interface ScoreInterface {
     int getScore();
