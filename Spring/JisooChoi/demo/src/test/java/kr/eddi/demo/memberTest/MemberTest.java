@@ -1,6 +1,7 @@
 package kr.eddi.demo.memberTest;
 
 import kr.eddi.demo.lectureClass.testCode.member.entity.TestMember;
+import kr.eddi.demo.lectureClass.testCode.member.service.TestMemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
