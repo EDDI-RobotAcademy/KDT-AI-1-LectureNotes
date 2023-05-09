@@ -31,7 +31,7 @@ public class LectureTest {
             System.out.println("닉네임이 같아 생성하지 않습니다!");
             return;
         }
-        
+
         final TestLecture testLecture = testLectureService.register(expected, testStudent.getId());
         final String actual = testLecture.getLectureName();
 
