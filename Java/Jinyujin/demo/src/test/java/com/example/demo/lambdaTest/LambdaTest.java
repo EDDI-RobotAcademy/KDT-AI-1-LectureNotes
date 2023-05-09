@@ -76,6 +76,8 @@ public class LambdaTest {
         ScoreCollection collection = new ScoreCollection();
         collection.add(() -> 5);
         collection.add(() -> 9);
+        // 디버그로 ScoreCollection의 add메서드에 의해 들어가는 것 확인가능
+        // collection.add(() -> 5); 이 줄 찍고 디버그 해보면 됨 stepinto 이런거 이용
 
         int actualResult = collection.arithmeticMean();
 
@@ -83,5 +85,7 @@ public class LambdaTest {
         // 5 + 9 / 2 = 7
         // assertEquals(actualResult, 6); 으로 하면 테스트 실패함
         // 당연함 결과는 7이니까
+        // assertEquals 둘이 같으면 패스, 아니면 실패
+        // 잘모르는 코드 나온다면 디버그 해보는게 도움이 된다고 함
     }
 }
