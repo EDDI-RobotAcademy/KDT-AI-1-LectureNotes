@@ -68,7 +68,7 @@ public class LambdaTest {
      */
     @Test
     @DisplayName("정수형 숫자 평균 계산")
-    public void 두개의_숫자_더해서_평균계산_검증하기 () {
+    public void 두개의_숫자_더해서_평균계산 () {
         ScoreCollection collection = new ScoreCollection();
         collection.add(() -> 5);
         collection.add(() -> 9);
