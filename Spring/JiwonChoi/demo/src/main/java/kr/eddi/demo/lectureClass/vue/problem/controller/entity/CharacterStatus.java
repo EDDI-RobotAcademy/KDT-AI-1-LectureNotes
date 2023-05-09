@@ -1,4 +1,4 @@
-package kr.eddi.demo.lectureClass.vue.problem.controller.entity;
+package kr.eddi.demo.lectureClass.vue.problem.entity;
 
 import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
 import lombok.Getter;
@@ -6,7 +6,6 @@ import lombok.ToString;
 
 @Getter
 @ToString
-
 public class CharacterStatus {
 
     private int strength;
@@ -26,8 +25,5 @@ public class CharacterStatus {
         this.intelligence = CustomRandom.generateNumber(MIN, MAX);
 
         this.whosAccountId = id;
-
     }
-
 }
-

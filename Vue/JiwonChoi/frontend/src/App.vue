@@ -1,24 +1,22 @@
 <template>
   <v-app>
-    <navigation-menu-page/>
+    <navigation-menu-page />
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import NavigationMenuPage from './views/basics/layout/navigation/NavigationMenuPage.vue';
-
+import NavigationMenuPage from "./views/basics/layout/navigation/NavigationMenuPage.vue";
 export default {
   components: {
-    NavigationMenuPage
-  }
-}
+    NavigationMenuPage,
+  },
+};
 </script>
 
 <style scoped>
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,18 +24,14 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 nav {
   padding: 30px;
 }
-
 nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
 nav a.router-link-exact-active {
   color: #42b983;
 }
-
 </style>

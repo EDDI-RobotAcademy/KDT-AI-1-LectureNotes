@@ -8,7 +8,6 @@ import lombok.ToString;
 @Getter
 @ToString
 @AllArgsConstructor
-
 public class Account {
 
     private Long id;
