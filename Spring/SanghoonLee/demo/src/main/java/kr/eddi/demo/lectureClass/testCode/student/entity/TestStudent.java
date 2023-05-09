@@ -13,6 +13,8 @@ public class TestStudent {
     @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Getter
     private String name;
 
     @Setter
