@@ -75,9 +75,11 @@ public class LambdaTest {
     @DisplayName("정수형 숫자 평균 계산")
     public void 두개의_숫자_더해서_평균_계산 () {
         ScoreCollection collection = new ScoreCollection();
+        // () -> 5 람다 기호 : 익명 함수
         collection.add(() -> 5);
         collection.add(() -> 9);
 
+        // 7이라는 숫자가 넘어오게 된다.
         int actualResult = collection.arithmeticMean();
 
         assertEquals(actualResult, 7);
