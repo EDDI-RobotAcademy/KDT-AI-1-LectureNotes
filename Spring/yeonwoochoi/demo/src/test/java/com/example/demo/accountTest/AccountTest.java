@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 public class AccountTest {
@@ -72,8 +73,6 @@ public class AccountTest {
         // object.이게뭐야(응몰라.아무거나다해()); 와 같은 코드가 만들어집니다.
         // 넌뭐하는엔티티.나도몰라(object.이것도한다());
     }
-
-
     @Test
     @DisplayName("사용자가 회원 가입 할 수 있음")
     void 사용자가_회원_가입한다_refactoring () {
@@ -86,6 +85,17 @@ public class AccountTest {
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
 
+    }
+    @Test
+    @DisplayName("똑같은 사용자는 회원 가입 할 수 없음")
+    void 이미_존재하는_이메일로_회원_가입시도 () {
+        final String email = "test@test.com";
+        final String password = "test";
+
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccount account = testAccountService.register(requestForm);
+
+        assertTrue(account == null);
     }
     @Test
     @DisplayName("잘못된 비밀번호 정보를 토대로 로그인")
@@ -109,7 +119,6 @@ public class AccountTest {
 
         assertTrue(responseForm.getUserToken() == null);
     }
-
     @Test
     @DisplayName("올바른 입력한 정보를 토대로 로그인")
     void 올바른_정보로_로그인 () {
