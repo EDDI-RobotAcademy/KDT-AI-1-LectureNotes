@@ -3,6 +3,7 @@ package kr.eddi.demo.accountTest;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
 import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRepository;
+import kr.eddi.demo.lectureClass.testCode.account.service.TestAccountService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class AccountTest {
+
+    @Autowired
+    private TestAccountService testAccountService;
 
     @Autowired
     private TestAccountRepository testAccountRepository;
@@ -66,5 +70,18 @@ public class AccountTest {
         // Entity object = new Entity();
         // object.이게뭐야(응몰라.아무거나다해()); 와 같은 코드가 만들어집니다.
         // 넌뭐하는엔티티.나도몰라(object.이것도한다());
+    }
+    @Test
+    @DisplayName("사용자가 회원 가입 할 수 있음")
+    void 사용자가_회원_가입한다_refactoring () {
+        final String email = "test@test.com";
+        final String password = "test";
+
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccount account = testAccountService.register(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+
     }
 }
