@@ -19,6 +19,6 @@ spring:
     show-sql: true
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 #          hibernate:     이부분들은
 #      ddl-auto: update   쿼리를 자동 생성해주는 부분 (주석해놓은 두 부분만 바꾸게 될 것이다.)
