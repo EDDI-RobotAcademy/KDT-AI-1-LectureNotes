@@ -30,11 +30,12 @@ public class MemberServiceImpl implements MemberService{
         final Optional<Member> maybeMember = memberRepository.findByEmail(member.getEmail());
         if(maybeMember.isEmpty()) {
             log.info("계정아이디가 다릅니다");
-            return null;
+            return new MemberResponseForm(null);
         }
         if(maybeMember.get().getPassword().equals(member.getPassword())) {
             return new MemberResponseForm(UUID.randomUUID());
         }
-        return null;
+        log.info("비밀번호가 다릅니다");
+        return new MemberResponseForm(null);
     }
 }
