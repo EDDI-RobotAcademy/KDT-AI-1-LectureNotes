@@ -92,6 +92,7 @@ public class AccountTest {
     // Service로 수정
     @Test
     @DisplayName("사용자가 회원 가입 할 수 있음")
+    // yaml: create
     void 사용자가_회원_가입한다_refactoring() {
         final String email = "test@test.com";
         final String password = "test";
@@ -101,6 +102,21 @@ public class AccountTest {
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("똑같은 사용자는 회원 가입 할 수 없음")
+    // yaml: update
+    void 이미_존재하는_이메일로_회원_가입시도() {
+        // register가서 findByEmail로 찾아줘야 함
+
+        final String email = "test@test.com";
+        final String password = "test";
+
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccount account = testAccountService.register(requestForm);
+
+        assertTrue(account == null);
     }
 
     @Test
