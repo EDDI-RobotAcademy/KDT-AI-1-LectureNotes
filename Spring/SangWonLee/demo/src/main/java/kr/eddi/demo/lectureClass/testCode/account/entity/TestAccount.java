@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity // Entity 는 데이터베이스와 동일한 구조를 가지고 있다.
 @Getter
 @NoArgsConstructor
 public class TestAccount {
