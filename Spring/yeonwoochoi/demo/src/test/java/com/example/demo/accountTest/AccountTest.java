@@ -13,9 +13,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+// @Service, @Controller 계열들은 Retention으로 RUNTIME 정책이 붙어 있고,
+// Spring 프레임워크가 실행되는 시점에 구현체들(Impl)을 배열에 보관해놨다가
+// 필요한 순간(사용자의 요청이 존재) 해당 구현체를 맵핑하여 자동으로 연결 한다.
+// new를 하지 않아도 알아서 맵핑을 한다.
+// 이것을 DI(Dependency Injection)이라고 부른다.
+
 @SpringBootTest
 public class AccountTest {
 
+    // @Autowired :
+    // @RequiredArgsConstructor 대신 사용하는 또 다른 키워드이다.
+    // final이 붙은 정보에 대한 의존성을 자동으로 찾아서 맵핑할 때 @RequiredArgsConstructor를 사용한다면
+    // final이 아닌 정보에는 @Autowired를 통해서 정보를 붙일 수 있다.
+    // 단, @Autowired를 통해서 붙는 정보는 Retention 정책에 RUNTIME이 붙어 있는
+    // Controller, Service, Repository에 한정하여 적용 가능하다.
     @Autowired
     private TestAccountService testAccountService;
 
@@ -75,7 +87,7 @@ public class AccountTest {
     }
     @Test
     @DisplayName("사용자가 회원 가입 할 수 있음")
-    void 사용자가_회원_가입한다_refactoring () {
+    void 사용자가_회원_가입한다_refactoring () { // 백로그 내용이 테스트 자체
         final String email = "test@test.com";
         final String password = "test";
 
@@ -122,12 +134,19 @@ public class AccountTest {
     @Test
     @DisplayName("올바른 입력한 정보를 토대로 로그인")
     void 올바른_정보로_로그인 () {
+        // 윈도우의 경우 대소문자 구별이 잘 안되는 문제가 추가로 존재함(이것은 운영체제 문제)
         final String email = "test@test.com";
         final String password = "test";
 
+        // 로그인을 좀 더 잘 관리하기 위해선 docker 기반의 redis에 token 관리가 필요합니다.
+        // token 관리는 Docker redis 및 AWS 설정 이후에 작업해야하므로 잠시 보류합니다.
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
         assertTrue(responseForm.getUserToken() != null);
     }
+
+    // 로그아웃, 회원 탈퇴와 같은 사항들이 남아있음
+    // 이 사항들은 역시나 로그인 되어 있는 token을 기반으로 진행되어야 합니다.
+    // 그러므로 위 두 가지 사항은 현 시점에선 보류합니다.
 }
