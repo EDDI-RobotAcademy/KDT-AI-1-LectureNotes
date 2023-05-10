@@ -1,4 +1,4 @@
-package kr.eddi.demo.lectureClass.testCode.problem.entity;
+package kr.eddi.demo.lectureClass.testCode.problem.member.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,17 +9,19 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
-public class Member1 {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Getter
-    private String accountId;
+    private String email;
+
     @Getter
     private String password;
 
-    public Member1(String accountId, String password) {
-        this.accountId = accountId;
+    public Member(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 }
