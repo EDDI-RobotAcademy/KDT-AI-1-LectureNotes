@@ -11,4 +11,14 @@ export default {
                 alert('문제 발생!')
             })
     },
+    requestImageListToSpring({}){
+        return axiosInst.get('file-test/giveMeImageList')
+        .then((res)=>{
+            alert('이미지 리스트 요청: ' + JSON.stringify(res.data))
+            return res.data
+        })
+        .catch(()=>{
+            alert('문제발생!')
+        })
+    }
 }
