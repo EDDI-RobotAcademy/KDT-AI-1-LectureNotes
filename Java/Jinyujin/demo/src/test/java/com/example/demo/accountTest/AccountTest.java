@@ -1,5 +1,6 @@
 package com.example.demo.accountTest;
 
+import com.example.demo.lectureClass.testCode.account.Service.TestAccountService;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
@@ -14,6 +15,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AccountTest {
 
     @Autowired
+    private TestAccountService testAccountService;
+
+    @Autowired
     private TestAccountRepository testAccountRepository;
 
     @Test
@@ -21,6 +25,7 @@ public class AccountTest {
     void 사용자가_회원_가입한다() {
         final String email = "test@test.com";
         final String password = "test";
+
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         //위 세줄이 컨트롤러에서 리퀘스트 폼이 정보를 받는 구간
 //    TestAccountRequest request = requestForm.toTestAccountRequest();
@@ -81,4 +86,19 @@ public class AccountTest {
 
         // 쌤이 이거를 ACCOUNTx로 커밋한 이유가 있음
     }
+
+    // Service로 수정
+    @Test
+    @DisplayName("사용자가 회원 가입 할 수 있음")
+    void 사용자가_회원_가입한다_refactoring() {
+        final String email = "test@test.com";
+        final String password = "test";
+
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccount account = testAccountService.register(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
 }
+
