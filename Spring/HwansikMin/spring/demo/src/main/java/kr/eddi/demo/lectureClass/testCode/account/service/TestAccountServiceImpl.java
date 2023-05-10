@@ -19,6 +19,13 @@ public class TestAccountServiceImpl implements TestAccountService {
     final private TestAccountRepository testAccountRepository;
     @Override
     public TestAccount register(TestAccountRequestForm requestForm) {
+        final Optional<TestAccount> maybeAccount =
+                testAccountRepository.findByEmail(requestForm.getEmail());
+
+        if (maybeAccount.isPresent()) {
+            log.debug("이미 가입된 회원입니다!");
+            return null;
+        }
 
         return testAccountRepository.save(requestForm.toTestAccount());
     }
