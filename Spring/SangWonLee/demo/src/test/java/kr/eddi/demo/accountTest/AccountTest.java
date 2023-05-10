@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class AccountTest {
 
+    // @Autowired는
     @Autowired
     private TestAccountService testAccountService;
 
@@ -33,9 +34,16 @@ public class AccountTest {
         // RequestForm에는 여러가지 형태가 들어올 수 있고
         // 그 내부에 있는 정보들은 여러가지 Domain 정보를 가질 가능성이 존재함
         TestAccount account = testAccountRepository.save(requestForm.toTestAccount());
+        // requestForm 객체의 toTestAccount() 메소드를 호출하여 TestAccount 객체를 생성하고,
+        // 이걸 testAccountRepository 의 save() 메소드로 jpa를 이용하여 저장한다.
+        // 저장된 TestAccount 객체를 account 변수에 할당한다.
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
+        // account 객체의 getEmail() 메소드와 getPassword() 메소드가 반환하는 값이
+        // 각각 email과 password 변수의 값과 같은지 확인한다.
+
+
         // 이 테스트에서 Service는 사실상 누락되어 있음.
         // 도대체 Service는 왜 필요할까 ?
         // 요청에 대한 처리를 하기 위해서라는 답변이 나왔음

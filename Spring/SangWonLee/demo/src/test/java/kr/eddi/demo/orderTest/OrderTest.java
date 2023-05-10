@@ -29,7 +29,7 @@ public class OrderTest {
     void 회원이_상품을_주문합니다 () {
         final String email = "test@test.com";
         final String password = "test";
-        final Long productId = 2L;
+        final Long productId = 1L;
         final Long accountId = 1L;
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
