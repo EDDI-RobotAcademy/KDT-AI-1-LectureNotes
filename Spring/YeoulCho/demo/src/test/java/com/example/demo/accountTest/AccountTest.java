@@ -15,6 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class AccountTest {
     @Autowired
+    private TestAccountService testAccountService;
+    @Autowired
     private TestAccountRepository testAccountRepository;
 
 
@@ -31,7 +33,7 @@ public class AccountTest {
         //TestAccountRequest request = requestForm.toTestAccountRequest(); //확장성
         // RequestForm에는 여러가지 형태가 들어 올 수 있고
         // 그 내부에 있는 정보들은 여러가지 Domain정보를 가질 가능성이 존재함
-        TestAccount account = testAccountRepository.save(requestForm.toTestAccount());
+        TestAccount account = testAccountService.register(requestForm);
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
 
