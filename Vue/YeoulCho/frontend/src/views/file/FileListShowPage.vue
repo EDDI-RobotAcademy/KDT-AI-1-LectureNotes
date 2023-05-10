@@ -1,5 +1,21 @@
 <template lang="">
     <div>
+        <table cols="20">
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+        </table>
         <v-row>
             <v-col v-for="(image, idx) in processedImages" :key="idx" cols="2">
                 <v-img :src="image" aspect-ratio="1" class="grey lighten-2">
@@ -34,6 +50,8 @@ export default {
 }
 </script>
 
-<style lang="">
-    
+<style scoped>
+    table, td, th{
+        border:1px solid black
+    }
 </style>
