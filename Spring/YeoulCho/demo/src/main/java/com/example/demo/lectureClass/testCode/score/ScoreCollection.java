@@ -14,8 +14,11 @@ public class ScoreCollection {
         // 만들때 사용하는 메서드는 ScoreInterface에 있는 getScore()를 사용함
         // 각각을 Integer로 만들고 sum()을 통해 합산함
         int total=scoreList.stream().mapToInt(ScoreInterface::getScore).sum();
+        int total2=scoreList.stream().mapToInt(x -> x.getScore()).sum();
+        //stream 흐름 scoreList는 score의 list 이걸 mapToInt하면 int의 stream으로 바꿔준다. 어떻게???
+        //ScoreInterface의 getScore()를 통해서
 
-        return total/scoreList.size();
+        return total2/scoreList.size();
 
     }
 
