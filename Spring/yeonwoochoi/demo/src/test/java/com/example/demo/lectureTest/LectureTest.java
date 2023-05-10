@@ -56,7 +56,4 @@ public class LectureTest {
         assertEquals(expected, actual);
     }
 
-
-
-
 }
