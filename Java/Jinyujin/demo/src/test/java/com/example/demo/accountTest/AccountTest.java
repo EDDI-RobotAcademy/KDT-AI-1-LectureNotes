@@ -94,7 +94,7 @@ public class AccountTest {
     @DisplayName("사용자가 회원 가입 할 수 있음")
     // yaml: create
     void 사용자가_회원_가입한다_refactoring() {
-        final String email = "test@test.com";
+        final String email = "gogo@test.com";
         final String password = "test";
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
@@ -116,7 +116,13 @@ public class AccountTest {
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccount account = testAccountService.register(requestForm);
 
-        assertTrue(account == null);
+        assertTrue(account == null, "존재하지 않는 이메일입니다. 등록합니다");
+        // assertTrue(boolean condition, String message)
+        // condition 값이 false이면 junit에러 발생
+        // -> message가 있으면 메세지 리턴
+        // 이때 message는 test가 fail일 때 나타나는 메세지로
+        // 등록된(중복된) 이메일이 아닐 시 fail 처리되면서 등록이 됨(지금 메서드가 그럼)
+        // 그리고 다시 한번 test해보면 등록되어 있기에(중복이기에) test pass함
     }
 
     @Test
@@ -160,6 +166,7 @@ public class AccountTest {
 
         assertTrue(responseForm.getUserToken() != null);
         // return값이 있는 경우
+        // 즉 UUID.randomUUID()값이 userToken에 들어간 경우는 당연히 null이 아닌 것!
     }
 }
 
