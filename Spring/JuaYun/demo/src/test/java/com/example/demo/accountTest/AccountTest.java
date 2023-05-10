@@ -68,4 +68,23 @@ public class AccountTest {
 
         assertTrue(responseForm.getUserToken() != null);
     }
+
+    @Test
+    @DisplayName("똑같은 사용자는 회원 가입 할 수 없음")
+    void 이미_존재하는_이메일로_회원_가입시도 () {
+        final String email = "test@test.com";
+        final String password = "test";
+
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email,password);
+        TestAccount account = testAccountService.register(requestForm);
+
+        assertTrue(account == null);
+
+        // mysql 로 확인한 결과 오류의 원인은 같은 계정이 두개가 들어가있음
+        // create 으로 변경하고 다시 회원가입
+        // 다시 오류발생 이번엔 false 가 나와서
+        // create 를 update 로 변경하여 돌리면 오류 해결
+
+
+    }
 }
