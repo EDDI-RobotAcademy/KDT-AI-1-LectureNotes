@@ -123,12 +123,20 @@ public class AccountTest {
     @Test
     @DisplayName("올바른 입력한 정보를 토대로 로그인")
     void 올바른_정보로_로그인 () {
+        // 윈도우의 경우 대소문자 구병이 잘 안되는 문제가 추가로 존재함(윈도우 운영체제의 문제)
         final String email = "test@test.com";
         final String password = "test";
+
+        // 로그인을 좀 더 잘 관리하기 위해선 docker 기반의 redis에 token 관리가 필요합니다
+        // token 관리는 Docker redis 및 AWS 설정 이후에 작업해야하므로 잠시 보류합니다.
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
         assertTrue(responseForm.getUserToken() != null);
     }
+
+    // 로그아웃, 회원 탈퇴와 같은 사항들이 남아있음
+    // 이 사항들은 역시나 로그인 되어 있는 token을 기반으로 진행되어야합니다
+    // 그러믈 위 두 가지 사항은 현 시점에선 보류합니다.
 }
