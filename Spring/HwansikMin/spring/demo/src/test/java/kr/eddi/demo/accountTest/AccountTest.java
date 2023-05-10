@@ -1,5 +1,6 @@
 package kr.eddi.demo.accountTest;
 
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
 
@@ -10,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class AccountTest {
@@ -84,6 +85,17 @@ public class AccountTest {
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
+    }
 
+    @Test
+    @DisplayName("입력한 정보를 토대로 로그인")
+    void 이메일만_맞게_입력한_상태에서_로그인 () {
+        final String email = "test@test.com";
+        final String password = "응틀렸어";
+
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
+        
+        assertTrue(responseForm.getUserToken() == null);
     }
 }
