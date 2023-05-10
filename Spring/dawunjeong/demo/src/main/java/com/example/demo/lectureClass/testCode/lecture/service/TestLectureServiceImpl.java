@@ -19,18 +19,14 @@ public class TestLectureServiceImpl implements TestLectureService{
     final private TestStudentRepository studentRepository;
     @Override
     public TestLecture register(String subject, Long studentId) {
-        if(checkDuplicateOfLecture(subject)) {
-            log.info("강좌명이 중복되엇습니다!");
-            return null;
-        }
 
         final TestLecture testLecture = new TestLecture(subject);
         lectureRepository.save(testLecture);
 
         final Optional<TestStudent> maybeStudent = studentRepository.findById(studentId);
 
-        if (maybeStudent.isEmpty()) {
-            log.info("존재하지 않는 학생입니다!");
+        if (maybeStudent.isPresent()) {
+            log.info("중복된 학생입니다!");
             return null;
         }
 
