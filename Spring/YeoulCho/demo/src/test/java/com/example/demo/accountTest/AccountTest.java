@@ -24,7 +24,7 @@ public class AccountTest {
     @Test
     @DisplayName("사용자가 회원가입 할 수 있음")
     public void 사용자가_회원_가입한다(){
-        final String email = "Test@test.com";
+        final String email = "test@test.com";
         final String password ="test";
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email,password);
@@ -110,5 +110,16 @@ public class AccountTest {
         //assertEquals(false, responseForm.isLogin());
         assertTrue(responseForm.getUserToken() !=null);
     }
+    @Test
+    @DisplayName("똑같은 사용자는 회원가입 할 수 없음")
+    public void 이미_존재하는_이메일로_회원_가입시도() {
+        //윈도우의 경우 대소문자 구별이 잘 안되는 문제가 추가로 존재함(이것은 운영체제 문제)
+        final String email = "TEST@TEST.COM";
+        final String password = "test";
 
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccount account = testAccountService.register(requestForm);
+        assertTrue(account ==null);
+
+    }
 }
