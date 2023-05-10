@@ -84,6 +84,17 @@ public class AccountTest {
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
     }
+    @Test
+    @DisplayName("똑같은 사용자는 회원 가입 할 수 없음")
+    void 이미_존재하는_이메일로_회원_가입시도 () {
+        final String email = "test@test.com";
+        final String password = "test";
+
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccount account = testAccountService.register(requestForm);
+
+        assertTrue(account == null);
+    }
 
     @Test
     @DisplayName("잘못된 비밀번호 정보를 토대로 로그인")
