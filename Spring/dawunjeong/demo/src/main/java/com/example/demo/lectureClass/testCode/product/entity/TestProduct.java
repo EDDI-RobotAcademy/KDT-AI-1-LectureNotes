@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.testCode.account.entity;
+package com.example.demo.lectureClass.testCode.product.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,16 +10,17 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @NoArgsConstructor
-public class TestAccount {
+public class TestProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long Id;
 
-    private String email;
-    private String password;
+    private String productName;
 
-    public TestAccount(String email, String password) {
-        this.email = email;
-        this.password = password;
+    private Integer price;
+
+    public TestProduct(String productName, Integer price) {
+        this.productName = productName;
+        this.price = price;
     }
 }
