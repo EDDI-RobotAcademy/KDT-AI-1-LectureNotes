@@ -71,7 +71,9 @@ public class OrderTest {
         TestOrderAccountRequestForm requestForm = new TestOrderAccountRequestForm(productId);
         List<TestAccountResponseForm> accountResponseFormList =
                 testOrderService.findAllAccountWhoBuyProduct(requestForm);
+
         System.out.println("accountList size: " + accountResponseFormList.size());
+
         for (TestAccountResponseForm responseForm: accountResponseFormList) {
             System.out.println("account email: " + responseForm.getEmail());
             assertTrue(responseForm.getAccountId() != null);

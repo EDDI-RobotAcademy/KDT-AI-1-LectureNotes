@@ -30,7 +30,7 @@ public class TestOrderServiceImpl implements TestOrderService {
     private Long alwaysReturnFirst (String userToken, Long accountId) {
         return accountId;
     }
-    
+
     @Override
         public TestOrder order(TestOrderRequestForm requestForm, Long accountId) {
             final TestAccount account = isValidateAccount(
@@ -81,12 +81,11 @@ public class TestOrderServiceImpl implements TestOrderService {
             ?? 없는디 ..
             TestOrder라서 testAccount와 testProduct 두개를 가지고 있어서 그런가 ??
             ㅇㅇ "고객"이 "상품"을 "주문"했기 때문에 그렇다 !
+            그리고 데이터 타입을 보면 TestOrder 인 것을 알 수 있듯 유추가능 ~
         */
 
+        // 리턴할 값으로 하나 생성해주었다.
         List<TestAccountResponseForm> responseFormList = new ArrayList<>();
-
-        // orderList 만큼 만 order 가 도는데, if 문은 왜 있는거고 ..
-        // 반환 값으로 만든 responseFormList 는 계정 정보가 없을 때 말곤 왜 사용이 안되지 ??
 
         for(TestOrder order: orderList){
             // 구매된 상품 리스트 속에서 계정 정보를 추출함
