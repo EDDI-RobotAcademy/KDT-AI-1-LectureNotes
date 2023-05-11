@@ -38,8 +38,8 @@ public class OrderTest {
     void 회원이_상품을_주문합니다() {
         final String email = "test@test.com";
         final String password = "test";
-        final Long productId = 2L;
-        final Long accountId = 2L;
+        final Long productId = 1L;
+        final Long accountId = 1L;
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
@@ -49,7 +49,8 @@ public class OrderTest {
         // 상품 정보, 토큰 정보 두가지 모두 처리 해야함
         // userToken 가지고 있는 사용자가 productId 상품을 주문 한다.
         TestOrderRequestForm orderRequestForm = new TestOrderRequestForm(userToken, productId);
-        TestOrder order = testOrderService.order(orderRequestForm);
+        // 실제로 accountId 주면 안됨 (지금은 매번 바꿔야 해서 혼선이 생기므로 준 상태)
+        TestOrder order = testOrderService.order(orderRequestForm, accountId);
 
         assertEquals(productId, order.getTestProduct().getId());
         assertEquals(accountId, order.getTestAccount().getId());
@@ -60,7 +61,7 @@ public class OrderTest {
     void 회원이_주문한_상품을_조회합니다() {
         final String email = "test@test.com";
         final String password = "test";
-        final Long accountId = 1L;
+        final Long accountId = 2L;
 
         // 로그인하면 동작하는 코드
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
@@ -68,7 +69,7 @@ public class OrderTest {
         String userToken = responseForm.getUserToken().toString();
 
         TestOrderListRequestForm orderListRequestForm = new TestOrderListRequestForm(userToken);
-        List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm);
+        List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm, accountId);
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
 
         for (TestOrder order : orderListForAccount) {

@@ -37,7 +37,7 @@ public class AccountTest {
     @Test
     @DisplayName("사용자가 회원 가입 할 수 있음")
     void 사용자가_회원_가입한다 () {
-        final String email = "test@test.com";
+        final String email = "gogo@test.com";
         final String password = "test";
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);

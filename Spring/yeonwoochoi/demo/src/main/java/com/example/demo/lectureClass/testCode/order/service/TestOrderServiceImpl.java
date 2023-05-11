@@ -27,13 +27,15 @@ public class TestOrderServiceImpl implements TestOrderService {
     final private TestOrderRepository orderRepository;
 
     // 지금 redis를 쓸 수 없으므로 임시 방편용
-    private Long alwaysReturnFirst (String userToken) {
-        return 1L; // 회원이 1번이라는것을 알 수 있음
+    private Long alwaysReturnFirst (String userToken, Long accountId) {
+        return accountId; // 회원이 1번이라는것을 알 수 있음
     }
 
     @Override
-    public TestOrder order(TestOrderRequestForm requestForm) {
-        final TestAccount account = isValidateAccount(alwaysReturnFirst(requestForm.getUserToken()));
+    public TestOrder order(TestOrderRequestForm requestForm, Long accountId) {
+        final TestAccount account = isValidateAccount(
+                alwaysReturnFirst(requestForm.getUserToken(), accountId));
+
         if (account == null) return null;
 
         final Optional<TestProduct> maybeProduct = productRepository.findById(requestForm.getProductId());
@@ -48,9 +50,11 @@ public class TestOrderServiceImpl implements TestOrderService {
     }
 
     @Override
-    public List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm) {
+    public List<TestOrder> orderListForAccount(
+            TestOrderListRequestForm orderListRequestForm, Long accountId) {
+
         final TestAccount account = isValidateAccount(
-                alwaysReturnFirst(orderListRequestForm.getUserToken()));
+                alwaysReturnFirst(orderListRequestForm.getUserToken(), accountId));
 
         if (account == null) return null;
 
