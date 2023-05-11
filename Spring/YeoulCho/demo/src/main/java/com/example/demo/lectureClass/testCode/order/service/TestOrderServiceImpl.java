@@ -28,13 +28,13 @@ public class TestOrderServiceImpl implements TestOrderService{
     final private TestOrderRepository orderRepository;
     final private TestProductRepository productRepository;
 
-    private Long alwaysReturnFirst(String userToken){
-        return 1L;
+    private Long alwaysReturnFirst(String userToken, Long accountId){
+        return accountId;
     }
     @Override
-    public TestOrder order(TestOrderRequestForm requestForm){
+    public TestOrder order(TestOrderRequestForm requestForm, Long accountId){
         final TestAccount account =
-                isValidateAccount(alwaysReturnFirst(requestForm.getUserToken()));
+                isValidateAccount(alwaysReturnFirst(requestForm.getUserToken(),accountId));
         if (account == null) return null;
         final Optional<TestProduct> maybeProduct = productRepository.findById(requestForm.getProductId());
         if(maybeProduct.isEmpty()){
@@ -46,9 +46,9 @@ public class TestOrderServiceImpl implements TestOrderService{
     }
 
     @Override
-    public List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm) {
+    public List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm, Long accountId) {
         final TestAccount account = isValidateAccount(
-                alwaysReturnFirst(orderListRequestForm.getUserToken()));
+                alwaysReturnFirst(orderListRequestForm.getUserToken(),accountId));
 
         if (account == null) return null;
 

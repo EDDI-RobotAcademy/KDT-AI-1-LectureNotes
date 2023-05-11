@@ -9,9 +9,9 @@ import com.example.demo.lectureClass.testCode.order.entity.TestOrder;
 import java.util.List;
 
 public interface TestOrderService {
-    TestOrder order(TestOrderRequestForm orderRequestForm);
+    TestOrder order(TestOrderRequestForm orderRequestForm,Long accountId);
 
-    List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm);
+    List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm, Long accountId);
 
     List<TestAccountResponseForm> FindAllAccountWhoBuyProduct(TestOrderAccountRequestForm requestForm);
 }
