@@ -35,6 +35,19 @@
             <router-link to="/problem-page5">5번 연습 문제</router-link> |
             <router-link to="/my-backlog-page">물고기 문제</router-link> |
             <router-link to="board-list-page">JPA 기반 게시판</router-link> |
+            <router-link to="/product-list-page">상품 게시판</router-link> |
+            <router-link to="/photo-page">사진 전송</router-link>|
+            <router-link to="/vuetify-table-test">uiTest</router-link>|
+            <router-link to="/table-advanced-test">고급 테이블</router-link> |
+            <router-link to="/image-gallery-test">사진 게시판</router-link>|
+            <router-link to="/print-image-test">사진 주소 받기</router-link>|
+            <router-link to="/dialog-test-page">dialog test</router-link>|
+            <router-link to="/carousel-test-page">carousel 테스트</router-link>|
+            <router-link to="/d3-plot-test">D3Plot 테스트</router-link> |
+            <router-link to="/d3-plot-problem">운동량 그래프</router-link>|
+            <router-link to="/d3-health-data">운동량 선생님</router-link>|
+            <router-link to="/file-handler-test-page">파일 전송</router-link>|
+            <router-link to="/file-list-show-page">받은 사진 표출</router-link>
            
             
         </nav></div>
