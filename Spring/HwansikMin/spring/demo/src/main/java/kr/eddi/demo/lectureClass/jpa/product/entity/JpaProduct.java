@@ -17,6 +17,7 @@ public class JpaProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
+
     @Setter
     private String productName;
     @Setter
