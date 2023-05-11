@@ -8,6 +8,7 @@ import DiceGameDataResponseFromSpringPage from '@/views/basics/axios/homework/Di
 import BuyFruitPage from '@/views/homework/problem3/BuyFruitPage.vue'
 import GameCharacterPage from '@/views/homework/problem4/GameCharacterPage.vue'
 import BuyFruitsPage from '@/views/homework/weekendhomework1/BuyFruitsPage.vue'
+import ImagegetPage from '@/views/homework/problem6/ImagegetPage.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const homeworkRoutes = [
     path: '/buy-fruits-page',
     name: 'BuyFruitsPage',
     component: BuyFruitsPage
+  },
+  {
+    path: '/image-get-page',
+    name: 'ImagegetPage',
+    component: ImagegetPage
   },
 ]
 
