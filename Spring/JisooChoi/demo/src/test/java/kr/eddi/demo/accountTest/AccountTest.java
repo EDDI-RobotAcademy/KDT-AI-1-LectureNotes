@@ -5,6 +5,7 @@ import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountReq
 import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
 import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRepository;
 import kr.eddi.demo.lectureClass.testCode.account.service.TestAccountService;
+import kr.eddi.demo.lectureClass.testCode.order.controller.form.TestOrderRequestForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,5 +100,32 @@ public class AccountTest {
             이 사항들은 역시나 로그인 되어 있는 token 을 기반으로 진행되어야 합니다.
             그러므로 위 두가지 사항은 현 시점에선 보류합니다.
         */
+    }
+
+    @Test
+    @DisplayName("계정 역할에 회원 id를 추가")
+    void  계정_역할을_추가 () {
+        final String email = "test@test.com";
+        final String password = "test";
+        final String accountRoll = "일반회원";
+        final Long accountId = 1L;
+
+        // 계정 유효성 검사 ?
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        // 계정의 토큰을 받아와야 하겠지 ? (로그인 임)
+        TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
+        String userToken = responseForm.getUserToken().toString();
+
+        // 계정에 대한 정보를 form 형태로 받아오기
+        TestAccountRollRequestForm rollRequestForm = new TestAccountRollRequestForm(accountRoll);
+
+        // 해당 계정 역할에 해당 계정 토큰을 추가해준다. ([accountRoll] id=1, rollName="일반회원", accountId=1)
+        // 계정 DB에 해당 역할에 대한 정보를 추가해주는 게 맞는 것 같다. ([account] id=1, email="test@test.com" password="test" ★accountRollId=1)
+        TestAccountRollInfoRequestForm accountRollInfoRequestForm = new TestAccountRollInfoRequestForm(userToken, rollRequestForm);
+        // 받아온 계정에 대한 기능을 만들어주기
+        // (선택된 계정 id를 가리키고 있어라. 토큰이 있긴 한데, 그동안 수업하면서 이렇게 쓰면 안된다고 했지만 일단 썻음)
+        TestAccountRoll addAccountRoll = testAccountRollService.addRoll(accountRollInfoRequestForm, accountId);
+
+        assertEquals(accountId, addAccountRoll.getTestAccountRoll().getAccountId());
     }
 }

@@ -67,7 +67,7 @@ public class OrderTest {
     @Test
     @DisplayName("특정 물품을 구매한 회원 리스트를 조회합니다")
     void 특정_물품을_구매한_회원_정보_조회 () {
-        final Long productId = 2L;
+        final Long productId = 1L;
         TestOrderAccountRequestForm requestForm = new TestOrderAccountRequestForm(productId);
         List<TestAccountResponseForm> accountResponseFormList =
                 testOrderService.findAllAccountWhoBuyProduct(requestForm);
