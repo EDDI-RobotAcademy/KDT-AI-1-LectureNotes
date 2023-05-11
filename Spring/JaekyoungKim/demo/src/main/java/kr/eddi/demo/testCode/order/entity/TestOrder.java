@@ -17,7 +17,6 @@ public class TestOrder {
     @Getter
     @ManyToOne
     private TestAccount testAccount;
-
     @Getter
     @ManyToOne
     private TestProduct testProduct;
