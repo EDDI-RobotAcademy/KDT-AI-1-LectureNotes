@@ -71,18 +71,18 @@ public class OrderTest {
     }
 
     @Test
-    @DisplayName("특정 물품을 구매한 회원 리스트를 조회합니다")
-    void 특정_물품을_구매한_회원_정보_조회() {
+    @DisplayName("특정 물품을 구매한 회원 리스트를 조회합니다(정다운)")
+    void 특정_물품을_구매한_회원_정보_조회_정다운_풀이() {
         final Long productId = 1L;
 
         TestOrderAccountRequestForm orderAccountRequestForm = new TestOrderAccountRequestForm(productId);
-        List<TestOrder> accountResponseFormList
-                = testOrderService.findAllAccountWhoBuyProduct(orderAccountRequestForm);
-        System.out.println("accountResponseFormList size: " + accountResponseFormList.size());
+        List<TestOrder> orderListFindByProductId
+                = testOrderService.findAllOrderWhoBuyProduct(orderAccountRequestForm);
+        System.out.println("orderListFindByProductId size: " + orderListFindByProductId.size());
 
-        for(TestOrder responseForm: accountResponseFormList) {
-            assertTrue(responseForm.getTestAccount().getId() != null);
-            System.out.println(responseForm.getTestAccount().getId());
+        for(TestOrder order: orderListFindByProductId) {
+            assertTrue(order.getTestAccount().getId() != null);
+            System.out.println(order.getTestAccount().getId());
         }
 
     }

@@ -31,7 +31,7 @@ public class TestOrderServiceImpl implements TestOrderService{
     }
 
     private Long alwaysProductReturnFirst (Long productId) {
-        return 3L;
+        return 1L;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class TestOrderServiceImpl implements TestOrderService{
     }
 
     @Override
-    public List<TestOrder> findAllAccountWhoBuyProduct(TestOrderAccountRequestForm orderAccountRequestForm) {
+    public List<TestOrder> findAllOrderWhoBuyProduct(TestOrderAccountRequestForm orderAccountRequestForm) {
         final TestProduct product = isValidateProduct(
                 alwaysProductReturnFirst(orderAccountRequestForm.getProductId()));
 
