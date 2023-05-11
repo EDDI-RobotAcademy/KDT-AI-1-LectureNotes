@@ -9,13 +9,12 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Getter
     private String productName;
-    @Getter
     private Integer price;
 
     public Product(String productName, Integer price) {
