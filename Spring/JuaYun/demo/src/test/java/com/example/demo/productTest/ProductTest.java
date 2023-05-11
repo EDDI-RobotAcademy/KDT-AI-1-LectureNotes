@@ -19,7 +19,7 @@ public class ProductTest {
     @Test
     @DisplayName("사업자 회원이 상품을 등록합니다.")
     void 사업자가_상품을_등록합니다 () {
-        final String productName = "레고";
+        final String productName = "레고2";
         final Integer price = 240000;
 
         TestProductRequestForm requestForm = new TestProductRequestForm(productName, price);
@@ -27,6 +27,6 @@ public class ProductTest {
 
         assertEquals(productName, product.getProductName());
         assertEquals(price, product.getPrice());
-    }
 
+    }
 }
