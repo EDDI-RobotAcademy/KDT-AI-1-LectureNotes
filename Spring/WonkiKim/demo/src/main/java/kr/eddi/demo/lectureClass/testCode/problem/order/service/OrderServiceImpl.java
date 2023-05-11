@@ -3,6 +3,7 @@ package kr.eddi.demo.lectureClass.testCode.problem.order.service;
 import kr.eddi.demo.lectureClass.testCode.problem.member.entity.Member;
 import kr.eddi.demo.lectureClass.testCode.problem.member.repository.MemberRepository;
 import kr.eddi.demo.lectureClass.testCode.problem.order.controller.form.OrderListByMemberRequestForm;
+import kr.eddi.demo.lectureClass.testCode.problem.order.controller.form.OrderListByProductRequestForm;
 import kr.eddi.demo.lectureClass.testCode.problem.order.controller.form.OrderListResponseForm;
 import kr.eddi.demo.lectureClass.testCode.problem.order.controller.form.OrderRequestForm;
 import kr.eddi.demo.lectureClass.testCode.problem.order.entity.OrderEntity;
@@ -58,6 +59,19 @@ public class OrderServiceImpl implements OrderService{
 
         List<OrderEntity> orderList = orderRepository.findAllByMember(maybeMember.get());
         log.info(orderList.toString());
+        return new OrderListResponseForm(orderList);
+    }
+
+    @Override
+    public OrderListResponseForm serchOrderListByProduct(OrderListByProductRequestForm orderListByProductRequestForm) {
+        Long productId = orderListByProductRequestForm.getProductId();
+        Optional<Product> maybeProduct = productRepository.findById(productId);
+
+        if(maybeProduct.isEmpty()) {
+            log.debug("조회를 진행할 수 없음. - 비정상적인 상품id");
+            return null;
+        }
+        List<OrderEntity> orderList = orderRepository.findAllByProduct(maybeProduct.get());
         return new OrderListResponseForm(orderList);
     }
 }
