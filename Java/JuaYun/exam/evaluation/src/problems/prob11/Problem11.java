@@ -1,16 +1,9 @@
 package problems.prob11;
 
+// 50 ~ 100 까지 2의 배수만 골라서 합산한 결과를 출력하세요
 public class Problem11 {
     public static void main(String[] args) {
-        int MAX = 100;
-        int MIN = 50;
-        int DECISION = 2;
-        int NumberSum = 0;
+        NumberSum3 numberSum3 = new NumberSum3();
 
-        for (int i = MIN; i <= MAX; i++) {
-            if (i % DECISION == 0)
-                NumberSum += i;
-        }
-        System.out.println(NumberSum);
     }
 }
