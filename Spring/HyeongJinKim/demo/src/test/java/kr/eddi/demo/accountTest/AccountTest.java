@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class AccountTest {
+    final String[] memberTypeArray = { "일반 회원", "사업자 회원", "관리자 회원" };
     @Autowired
     private TestAccountService testAccountService;
     @Autowired
@@ -68,6 +69,7 @@ public class AccountTest {
         TestAccount account = testAccountService.register(requestForm);
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
+//        assertEquals(memberType, account.getMemberType());
     }
     @Test
     @DisplayName("똑같은 사용자는 회원 가입 할 수 없음")
