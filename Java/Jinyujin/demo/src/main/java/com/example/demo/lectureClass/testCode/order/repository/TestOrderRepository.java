@@ -35,7 +35,4 @@ public interface TestOrderRepository extends JpaRepository<TestOrder, Long> {
         findAllAccountWhoBuyProduct
         productId로 찾으면 impl의 orderList에 들어갈 것
      */
-
-    @Query("select to from TestOrder to where to.testMember.id = :id")
-    List<TestOrder> findAllMemberWhoBuyProduct(Long id);
 }
