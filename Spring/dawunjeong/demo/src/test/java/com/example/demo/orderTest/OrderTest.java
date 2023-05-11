@@ -3,6 +3,7 @@ package com.example.demo.orderTest;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import com.example.demo.lectureClass.testCode.account.service.TestAccountService;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderAccountRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderRequestForm;
@@ -84,6 +85,21 @@ public class OrderTest {
             assertTrue(order.getTestAccount().getId() != null);
             System.out.println(order.getTestAccount().getId());
         }
+    }
+    @Test
+    @DisplayName("특정 물품을 구매한 회원 리스트를 조회합니다(선생님)")
+    void 특정_물품을_구매한_회원_정보_조회_선생님_풀이() {
+        final Long productId = 2L;
 
+        TestOrderAccountRequestForm requestForm = new TestOrderAccountRequestForm(productId);
+        List<TestAccountResponseForm> accountResponseFormList =
+                testOrderService.findAllAccountWhoBuyProduct(requestForm);
+
+        System.out.println("accountList size: " + accountResponseFormList.size());
+
+        for (TestAccountResponseForm responseForm: accountResponseFormList) {
+            System.out.println("account email: " + responseForm.getEmail());
+            assertTrue(responseForm.getAccountId() != null);
+        }
     }
 }

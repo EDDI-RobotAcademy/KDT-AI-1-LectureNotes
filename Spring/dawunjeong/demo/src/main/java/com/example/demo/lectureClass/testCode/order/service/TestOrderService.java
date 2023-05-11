@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.testCode.order.service;
 
+import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderAccountRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderRequestForm;
@@ -13,5 +14,9 @@ public interface TestOrderService {
 
     List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm);
 
+    // 특정 상품을 구매한 회원 찾기(정다운)
     List<TestOrder> findAllOrderWhoBuyProduct(TestOrderAccountRequestForm orderAccountRequestForm);
+
+    // 특정 상품을 구매한 회원 찾기(선생님 풀이)
+    List<TestAccountResponseForm> findAllAccountWhoBuyProduct(TestOrderAccountRequestForm requestForm);
 }

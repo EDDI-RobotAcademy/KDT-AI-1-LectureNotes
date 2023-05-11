@@ -14,6 +14,11 @@ public interface TestOrderRepository extends JpaRepository<TestOrder, Long> {
     @Query("select to from TestOrder to where to.testAccount.id = :id")
     List<TestOrder> findAllByAccountId(Long id);
 
+    // 특정 상품을 구매한 회원 찾기(정다운)
     @Query("select to from TestOrder to where to.testProduct.Id = :id")
     List<TestOrder> findAllByProductId(Long id);
+
+    // 특정 상품을 구매한 회원 찾기(선생님 풀이)
+    @Query("select to from TestOrder to where to.testProduct.id = :productId")
+    List<TestOrder> findAllAccountWhoBuyProduct(Long productId);
 }
