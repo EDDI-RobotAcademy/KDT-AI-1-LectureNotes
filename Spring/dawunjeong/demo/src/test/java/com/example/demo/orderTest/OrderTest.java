@@ -1,8 +1,8 @@
 package com.example.demo.orderTest;
 
-import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
-import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
-import com.example.demo.lectureClass.testCode.account.service.TestAccountService;
+import com.example.demo.lectureClass.testCode.account.controller.form.consumer.TestConsumerAccountLoginResponseForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.consumer.TestConsumerAccountRequestForm;
+import com.example.demo.lectureClass.testCode.account.service.consumer.TestConsumerAccountService;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderAccountRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 public class OrderTest {
     @Autowired
-    private TestAccountService testAccountService;
+    private TestConsumerAccountService testConsumerAccountService;
 
     @Autowired
     private TestOrderService testOrderService;
@@ -35,12 +35,11 @@ public class OrderTest {
     void 회원이_상품을_주문합니다() {
         final String email = "test@test.com";
         final String password = "test";
-        final String type = "seller";
         final Long productId = 2L;
         final Long accountId = 1L;
 
-        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password, type);
-        TestAccountLoginResponseForm responseform = testAccountService.login(requestForm);
+        TestConsumerAccountRequestForm requestForm = new TestConsumerAccountRequestForm(email, password);
+        TestConsumerAccountLoginResponseForm responseform = testConsumerAccountService.login(requestForm);
 
         String userToken = responseform.getUserToken().toString();
 
@@ -48,7 +47,7 @@ public class OrderTest {
         TestOrder order = testOrderService.order(orderRequestForm, accountId);
 
         assertEquals(productId, order.getTestProduct().getId());
-        assertEquals(accountId, order.getTestAccount().getId());
+        assertEquals(accountId, order.getTestConsumerAccount().getId());
     }
 
     @Test
@@ -57,10 +56,9 @@ public class OrderTest {
         final String email = "test@test.com";
         final String password = "test";
         final Long accountId = 1L;
-        final String type = "seller";
 
-        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password, type);
-        TestAccountLoginResponseForm responseform = testAccountService.login(requestForm);
+        TestConsumerAccountRequestForm requestForm = new TestConsumerAccountRequestForm(email, password);
+        TestConsumerAccountLoginResponseForm responseform = testConsumerAccountService.login(requestForm);
 
         String userToken = responseform.getUserToken().toString();
 
@@ -69,7 +67,7 @@ public class OrderTest {
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
 
         for(TestOrder order: orderListForAccount) {
-            assertEquals(accountId, order.getTestAccount().getId());
+            assertEquals(accountId, order.getTestConsumerAccount().getId());
         }
     }
 
@@ -84,8 +82,8 @@ public class OrderTest {
         System.out.println("orderListFindByProductId size: " + orderListFindByProductId.size());
 
         for(TestOrder order: orderListFindByProductId) {
-            assertTrue(order.getTestAccount().getId() != null);
-            System.out.println(order.getTestAccount().getId());
+            assertTrue(order.getTestConsumerAccount().getId() != null);
+            System.out.println(order.getTestConsumerAccount().getId());
         }
     }
     @Test

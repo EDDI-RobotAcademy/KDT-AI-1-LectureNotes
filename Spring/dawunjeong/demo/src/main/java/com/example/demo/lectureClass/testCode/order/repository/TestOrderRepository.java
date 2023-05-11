@@ -11,7 +11,7 @@ public interface TestOrderRepository extends JpaRepository<TestOrder, Long> {
     // where는 조건
     // 파라미터(입력)은 ':id'
     // 특수문자 이상한데 붙이면 동작 안함
-    @Query("select to from TestOrder to where to.testAccount.id = :id")
+    @Query("select to from TestOrder to where to.testConsumerAccount.id = :id")
     List<TestOrder> findAllByAccountId(Long id);
 
     // 특정 상품을 구매한 회원 찾기(정다운)
