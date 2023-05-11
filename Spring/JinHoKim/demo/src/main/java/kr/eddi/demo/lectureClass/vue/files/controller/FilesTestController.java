@@ -27,8 +27,8 @@ public class FilesTestController {
     // MULTIPART_FORM_DATA_VALUE 는 Spring Framework 에서 멀티파트 요청을 처리할 때 사용되는 상수
     //APPLICATION_JSON_VALUE"는 Spring Framework 에서 JSON 데이터를 처리할 때 사용되는 상수
     public Boolean fileRegisterRequestHandler(
-            @RequestPart(value = "imageFileList") List<MultipartFile> fileList,
-            @RequestPart(value = "fileInfo") FileInfoRequestForm info) {
+            @RequestPart(value = "imageFileList") List<MultipartFile> fileList, // VUE 에서 파일리스트 전송
+            @RequestPart(value = "fileInfo") FileInfoRequestForm info) { //VUE 에서 이미지경로 요청
         log.info("fileRegisterRequestHander(): " + info);
         //"@RequestPart"는 Spring 에서 멀티파트 요청에서 개별 파트(part)를 처리하는 데 사용되는 어노테이션입니다
         // MultipartFile 은 Spring Framework 에서 멀티파트 요청에서 업로드 된 파일을 처리하기 위한 인터페이스입니다.
