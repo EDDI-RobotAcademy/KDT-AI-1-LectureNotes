@@ -35,6 +35,7 @@ public class AccountTest {
     void 사용자가_회원_가입한다_refactoring () {
         final String email = "test@test.com";
         final String password = "test";
+
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccount account = testAccountService.register(requestForm);
         assertEquals(email, account.getEmail());
