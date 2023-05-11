@@ -1,7 +1,9 @@
 package com.example.demo.lectureClass.testCode.account.service;
 
+import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountCheckTypeRequestForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountTypeResponseForm;
 import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
 import lombok.RequiredArgsConstructor;
@@ -48,5 +50,21 @@ public class TestAccountServiceImpl implements TestAccountService{
         }
 
         return new TestAccountLoginResponseForm(null);
+    }
+
+    @Override
+    public TestAccountTypeResponseForm findType(TestAccountCheckTypeRequestForm requestForm) {
+        final Optional<TestAccount> maybeAccount
+                = testAccountRepository.findByEmail(requestForm.getEmail());
+
+        if(maybeAccount.isEmpty()) {
+            log.debug("일치하는 회원이 없습니다!");
+            return null;
+        }
+
+        TestAccountTypeResponseForm testAccountTypeResponseForm =
+                new TestAccountTypeResponseForm(maybeAccount.get().getType());
+
+        return testAccountTypeResponseForm;
     }
 }

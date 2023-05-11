@@ -17,9 +17,11 @@ public class TestAccount {
 
     private String email;
     private String password;
+    private String type;
 
-    public TestAccount(String email, String password) {
+    public TestAccount(String email, String password, String type) {
         this.email = email;
         this.password = password;
+        this.type = type;
     }
 }

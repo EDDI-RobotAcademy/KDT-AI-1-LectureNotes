@@ -10,8 +10,9 @@ public class TestAccountRequestForm {
 
     final private String email;
     final private String password;
+    final private String type;
 
     public TestAccount toTestAccount() {
-        return new TestAccount(email, password);
+        return new TestAccount(email, password, type);
     }
 }

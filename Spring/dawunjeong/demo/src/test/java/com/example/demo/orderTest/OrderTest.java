@@ -35,10 +35,11 @@ public class OrderTest {
     void 회원이_상품을_주문합니다() {
         final String email = "test@test.com";
         final String password = "test";
+        final String type = "seller";
         final Long productId = 2L;
         final Long accountId = 1L;
 
-        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password, type);
         TestAccountLoginResponseForm responseform = testAccountService.login(requestForm);
 
         String userToken = responseform.getUserToken().toString();
@@ -56,8 +57,9 @@ public class OrderTest {
         final String email = "test@test.com";
         final String password = "test";
         final Long accountId = 1L;
+        final String type = "seller";
 
-        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password, type);
         TestAccountLoginResponseForm responseform = testAccountService.login(requestForm);
 
         String userToken = responseform.getUserToken().toString();
