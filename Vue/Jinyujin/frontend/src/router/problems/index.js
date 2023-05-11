@@ -3,33 +3,35 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import ProblemPage1 from '@/views/basics/solved/problem1/ProblemPage1.vue'
 import ProblemPage2 from '@/views/homework/problem2/ProblemPage2.vue'
-import Problem2Page from '@/views/basics/solved/problem2/Problem2Page.vue'
-import Problem3Page from '@/views/basics/solved/problem3/Problem3Page.vue'
+
+import HiSendTestPage from '@/views/basics/axios/HiSendTestPage.vue'
+import HiResponsePage from '@/views/basics/axios/HiResponsePage.vue'
+
+import FruitPriceSum from '@/views/homework/buyFruits/FruitPriceSum.vue'
 
 Vue.use(VueRouter)
 
 const prolblemsRoutes = [
-    {
-        path: '/problem-page1',
-        name: 'ProblemPage1',
-        component: ProblemPage1
-    },
     {
         path: '/homework2',
         name: 'ProblemPage2',
         component: ProblemPage2
     },
     {
-        path: '/problem-page2',
-        name: 'Problem2Page',
-        component: Problem2Page
+        path: '/hi-send-test',
+        name: 'HiSendTestPage',
+        component: HiSendTestPage
     },
     {
-        path: '/problem-page3',
-        name: 'Problem3Page',
-        component: Problem3Page
+        path: '/hi-response-test',
+        name: 'HiResponsePage',
+        component: HiResponsePage
+    },
+    {
+        path: '/fruit-price-sum',
+        name: 'FruitPriceSum',
+        component: FruitPriceSum
     },
 ]
 

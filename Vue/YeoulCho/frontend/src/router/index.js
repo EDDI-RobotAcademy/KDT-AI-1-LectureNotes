@@ -13,6 +13,8 @@ import vueLifeCycleRoutes from './lifeCycle'
 import problemRoutes from './problems'
 import boardRoutes from './board'
 import vuetifyTestRoutes from './uiVuetify/index,'
+import d3plotRoutes from './d3plot'
+import filesTestRoutes from './files'
 Vue.use(VueRouter)
 
 const routes = [
@@ -27,7 +29,8 @@ const routes = [
   ...boardRoutes,
   ...vuetifyTestRoutes, //객체가 되서 들어온다? final, 분할해서 재배치하는 작업
   ...problemRoutes,
-
+  ...d3plotRoutes,
+  ...filesTestRoutes,
 
 ]
 
