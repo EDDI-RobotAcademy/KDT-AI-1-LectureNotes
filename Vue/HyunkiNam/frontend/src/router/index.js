@@ -10,6 +10,8 @@ import vueBasicRoutes from './vueBasic/index.js'
 import htmlCssRoutes from './htmlCss/index.js'
 import componentTestRoutes from './componentTest/index.js'
 import lifeCycleRoutes from './lifeCycle/index.js'
+import d3plotTestRoutes from './d3plot/index.js'
+import fileRoutes from './files/index.js'
 // @는 현재 src 폴더를 의미함
 
 
@@ -27,6 +29,8 @@ const routes = [
   ...problemRoutes,
   ...productRoutes,
   ...vuetifyTestRoutes,
+  ...d3plotTestRoutes,
+  ...fileRoutes,
 ]
 
 const router = new VueRouter({
