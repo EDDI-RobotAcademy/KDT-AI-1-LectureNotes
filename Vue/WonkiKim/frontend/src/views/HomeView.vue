@@ -29,7 +29,16 @@
         <router-link to="/problem-page4">4번 연습 문제</router-link> |
         <router-link to="/problem-page5">5번 연습 문제</router-link> |
         <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
-        
+        <router-link to="/table-test-page">TableTestPage</router-link>|
+        <router-link to="/table-advanced-page">Vuetify Table 추가 테스트</router-link> |
+        <router-link to="/image-gallery-test">image-gallery-test</router-link>|
+        <router-link to="/print-image-test">Print-Image-Test</router-link>|
+        <router-link to="/dialog-test-page">dialog-test-page</router-link>|
+        <router-link to="/carousel-test-page">CarouselTestPage</router-link>|
+        <router-link to="/d3plot-test-page">D3Plot Test Page</router-link>|
+        <router-link to="/d3-health-print-page">D3HealthPrintPage</router-link>|
+        <router-link to="/file-handler-page">FileHandlerPage</router-link>|
+        <router-link to="/file-list-show-page">FileListShow</router-link>
       </nav>
     </div>
   </v-container>
@@ -37,11 +46,13 @@
 
 <script>
   import HelloWorld from '../components/HelloWorld'
+  import PrintImageTest from "@/views/uiVuetify/PrintImageTest.vue";
 
   export default {
     name: 'Home',
 
     components: {
+      PrintImageTest,
       HelloWorld,
     },
   }
