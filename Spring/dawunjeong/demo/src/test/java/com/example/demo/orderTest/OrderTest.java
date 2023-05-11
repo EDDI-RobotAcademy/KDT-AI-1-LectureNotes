@@ -45,7 +45,7 @@ public class OrderTest {
         String userToken = responseform.getUserToken().toString();
 
         TestOrderRequestForm orderRequestForm = new TestOrderRequestForm(userToken, productId);
-        TestOrder order = testOrderService.order(orderRequestForm);
+        TestOrder order = testOrderService.order(orderRequestForm, accountId);
 
         assertEquals(productId, order.getTestProduct().getId());
         assertEquals(accountId, order.getTestAccount().getId());
@@ -65,7 +65,7 @@ public class OrderTest {
         String userToken = responseform.getUserToken().toString();
 
         TestOrderListRequestForm orderListRequestForm = new TestOrderListRequestForm(userToken);
-        List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm);
+        List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm, accountId);
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
 
         for(TestOrder order: orderListForAccount) {

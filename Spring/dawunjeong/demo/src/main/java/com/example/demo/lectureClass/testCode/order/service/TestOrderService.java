@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface TestOrderService {
 
-    TestOrder order (TestOrderRequestForm requestForm);
+    TestOrder order (TestOrderRequestForm requestForm, Long accountId);
 
-    List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm);
+    List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm, Long accountId);
 
     // 특정 상품을 구매한 회원 찾기(정다운)
     List<TestOrder> findAllOrderWhoBuyProduct(TestOrderAccountRequestForm orderAccountRequestForm);
