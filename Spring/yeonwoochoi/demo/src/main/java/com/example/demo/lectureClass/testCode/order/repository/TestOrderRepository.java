@@ -14,4 +14,7 @@ public interface TestOrderRepository extends JpaRepository<TestOrder, Long> {
     // (TestOrder에 Account 정보가 있고, Account에는 Id가 있음)
     @Query("select to from TestOrder to where to.testAccount.id = :id")
     List<TestOrder> findAllByAccountId(Long id);
+
+    @Query("select to from TestOrder to where to.testProduct.id = :productId")
+    List<TestOrder> findAllAccountWhoBuyProduct(Long productId);
 }

@@ -1,5 +1,7 @@
 package com.example.demo.lectureClass.testCode.order.service;
 
+import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderAccountRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
 import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
@@ -12,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,6 +55,31 @@ public class TestOrderServiceImpl implements TestOrderService {
         if (account == null) return null;
 
         return orderRepository.findAllByAccountId(account.getId());
+    }
+
+    @Override
+    public List<TestAccountResponseForm> findAllAccountWhoBuyProduct(
+            TestOrderAccountRequestForm requestForm) {
+
+        List<TestOrder> orderList =
+                orderRepository.findAllAccountWhoBuyProduct(requestForm.getProductId());
+        // accountId만 따로 추출이 필요
+        List<TestAccountResponseForm> responseFormList = new ArrayList<>();
+
+        for (TestOrder order: orderList) {
+            Optional<TestAccount> maybeAccount =
+                    accountRepository.findById(order.getTestAccount().getId());
+
+            if (maybeAccount.isPresent()) {
+                final TestAccount testAccount = maybeAccount.get();
+                final TestAccountResponseForm responseForm = new TestAccountResponseForm(
+                        testAccount.getId(), testAccount.getEmail());
+
+                responseFormList.add(responseForm);
+            }
+        }
+
+        return responseFormList;
     }
 
     private TestAccount isValidateAccount(Long accountId) {

@@ -5,9 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class TestOrderRequestForm {
-    final private String userToken;
-    final private Long productId;
-
+public class TestAccountResponseForm {
+    final private Long accountId;
+    final private String email;
 }
-
