@@ -1,4 +1,4 @@
-package kr.eddi.demo.lectureClass.jpa.product.entity;
+package kr.eddi.demo.lectureClass.testCode.product.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,23 +6,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@Entity
 @Getter
-@ToString
+@Entity
 @NoArgsConstructor
-public class JpaProduct {
+public class TestProduct {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long productId;
-    @Setter
+    private Long id;
+
     private String productName;
-    @Setter
     private Integer price;
 
-    public JpaProduct(String productName, Integer price) {
+    public TestProduct(String productName, Integer price) {
         this.productName = productName;
         this.price = price;
     }
