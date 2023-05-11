@@ -54,6 +54,7 @@ public class TestAccountServiceImpl implements TestAccountService {
             // 가져온 객체의 비밀번호를 가져와서 인자로 받은 requestForm의 비밀번호랑 비교해서 같으면
             log.debug("로그인 성공!");
             return new TestAccountLoginResponseForm(UUID.randomUUID());
+            // 로그인 성공이 되면 UUID.randomUUID() 를 생성
         }
 
         return new TestAccountLoginResponseForm(null);

@@ -16,5 +16,6 @@ public class TestProductServiceImpl implements TestProductService {
     @Override
     public TestProduct register(TestProductRequestForm requestForm) {
         return productRepository.save(requestForm.toTestProduct());
+        // requestForm 을 받아와서 저장.
     }
 }

@@ -132,7 +132,7 @@ public class AccountTest {
         // testAccountService.login(requestForm) 이거로 로그인을 시도한다.
 
         assertTrue(responseForm.getUserToken() == null);
-        // 비밀번호가 다를 경우
+        // 비밀번호가 다를 경우  null 이면 true 반환
     }
 
     @Test
@@ -147,7 +147,7 @@ public class AccountTest {
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
         assertTrue(responseForm.getUserToken() == null);
-        // 이메일이 다른 경우
+        // 이메일이 다른 경우 null 이면 true 반환
     }
 
     @Test
@@ -165,6 +165,10 @@ public class AccountTest {
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
         assertTrue(responseForm.getUserToken() != null);
+        // 이메일이 맞고 비밀번호도 맞으면 userToken은 null이 아닐거임
+        // null 아니면 true 반환
+
+
         // 로그아웃, 회원 탈퇴와 같은 사항들이 남아있음
         // 이 사항들은 역시나 로그인 되어 있는 token을 기반으로 진행되어야 합니다.
         // 그러므로 위 두 가지 사항은 현 시점에선 보류합니다.
