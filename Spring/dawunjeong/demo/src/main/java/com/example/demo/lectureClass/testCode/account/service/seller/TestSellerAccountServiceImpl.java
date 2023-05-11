@@ -27,4 +27,15 @@ public class TestSellerAccountServiceImpl implements TestSellerAccountService {
 
         return testSellerAccountRepository.save(requestForm.toTestSellerAccount());
     }
+
+    @Override
+    public TestSellerAccount findSellerAccount(TestSellerAccountRequestForm requestForm) {
+        final Optional<TestSellerAccount> maybeSellerAccount =
+                testSellerAccountRepository.findByEmail(requestForm.getEmail());
+
+        if(maybeSellerAccount.isPresent()) {
+            return maybeSellerAccount.get();
+        }
+        return maybeSellerAccount.get();
+    }
 }
