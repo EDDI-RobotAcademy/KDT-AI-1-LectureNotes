@@ -24,8 +24,8 @@ public class AccountTest {
     @Test
     @DisplayName("사용자가 회원가입 할 수 있음")
     public void 사용자가_회원_가입한다(){
-        final String email = "test@test.com";
-        final String password ="test";
+        final String email = "test1@test.com";
+        final String password ="test11";
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email,password);
         // 여기까지 Controller에서 requestForm 받는것
@@ -104,12 +104,19 @@ public class AccountTest {
     public void 올바른_정보로_로그인(){
         final String email = "test@test.com";
         final String password ="test";
+
+        //로그인을 좀더 잘 관리하기 위해선 docker 기반의 redis에 token 관리가 필요합니다.
+        // token 관리는 Doker redis 및 aws 설정 이후에 작업해야하므로 잠시 보류합니다.
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email,password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
         //assertEquals(false, responseForm.isLogin());
         assertTrue(responseForm.getUserToken() !=null);
     }
+
+    // 로그아웃, 회원탈퇴와 같은 사항들이 남아있음
+    // 이 사항들은 역시나 로그인 되어 있는 token을 기반으로 진행되어야 합니다.
+    // 그러므로 위 두가지 사항은 현시점에선 보류합니다.
     @Test
     @DisplayName("똑같은 사용자는 회원가입 할 수 없음")
     public void 이미_존재하는_이메일로_회원_가입시도() {
