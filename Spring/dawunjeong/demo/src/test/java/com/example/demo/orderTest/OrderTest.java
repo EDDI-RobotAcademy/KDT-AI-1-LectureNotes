@@ -3,6 +3,7 @@ package com.example.demo.orderTest;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import com.example.demo.lectureClass.testCode.account.service.TestAccountService;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderRequestForm;
 import com.example.demo.lectureClass.testCode.order.entity.TestOrder;
 import com.example.demo.lectureClass.testCode.order.service.TestOrderService;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -42,5 +45,26 @@ public class OrderTest {
 
         assertEquals(productId, order.getTestProduct().getId());
         assertEquals(accountId, order.getTestAccount().getId());
+    }
+
+    @Test
+    @DisplayName("회원이 주문한 상품을 조회합니다")
+    void 회원이_주문한_상품을_조회합니다() {
+        final String email = "test@test.com";
+        final String password = "test";
+        final Long accountId = 1L;
+
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccountLoginResponseForm responseform = testAccountService.login(requestForm);
+
+        String userToken = responseform.getUserToken().toString();
+
+        TestOrderListRequestForm orderListRequestForm = new TestOrderListRequestForm(userToken);
+        List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm);
+        System.out.println("orderListForAccount size: " + orderListForAccount.size());
+
+        for(TestOrder order: orderListForAccount) {
+            assertEquals(accountId, order.getTestAccount().getId());
+        }
     }
 }
