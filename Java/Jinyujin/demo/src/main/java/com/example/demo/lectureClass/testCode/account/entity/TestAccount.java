@@ -1,11 +1,10 @@
 package com.example.demo.lectureClass.testCode.account.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.demo.lectureClass.testCode.homework.junit2.accountRole.entity.AccountRole;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Entity
@@ -18,6 +17,11 @@ public class TestAccount {
 
     private String email;
     private String password;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_role_id")
+    @Setter
+    private AccountRole accountRole;
 
     public TestAccount(String email, String password) {
         this.email = email;

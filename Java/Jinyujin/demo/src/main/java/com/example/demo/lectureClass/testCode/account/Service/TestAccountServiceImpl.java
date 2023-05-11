@@ -4,6 +4,7 @@ import com.example.demo.lectureClass.testCode.account.controller.form.TestAccoun
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
+import com.example.demo.lectureClass.testCode.homework.junit2.accountRole.entity.AccountRole;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -67,4 +68,22 @@ public class TestAccountServiceImpl implements TestAccountService{
         // 여기는 왜 갑자기 null값을 줘?
         // password가 다른 경우라서!
     }
+
+    @Override
+    public TestAccount whatIsYourAccount(TestAccountRequestForm requestForm, AccountRole accountRole) {
+
+        final Optional<TestAccount> maybeAccount =
+                testAccountRepository.findByEmail(requestForm.getEmail());
+
+        if (maybeAccount.isEmpty()) {
+            log.debug("없는 회원입니다");
+            return null;
+        }
+
+        TestAccount testAccount = maybeAccount.get();
+        testAccount.setAccountRole(accountRole);
+
+        return testAccountRepository.save(testAccount);
+    }
+
 }

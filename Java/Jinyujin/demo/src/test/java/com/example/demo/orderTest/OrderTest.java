@@ -68,6 +68,7 @@ public class OrderTest {
         final String email = "test@test.com";
         final String password = "test";
         final Long accountId = 1L;
+
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
         String userToken = responseForm.getUserToken().toString();
