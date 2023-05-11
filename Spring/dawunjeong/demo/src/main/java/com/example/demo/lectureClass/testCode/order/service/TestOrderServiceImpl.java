@@ -2,6 +2,7 @@ package com.example.demo.lectureClass.testCode.order.service;
 
 import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderAccountRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderRequestForm;
 import com.example.demo.lectureClass.testCode.order.entity.TestOrder;
@@ -27,6 +28,10 @@ public class TestOrderServiceImpl implements TestOrderService{
     // 지금 redis를 쓸 수 없으므로 임시 방편용
     private Long alwaysReturnFirst (String userToken) {
         return 1L;
+    }
+
+    private Long alwaysProductReturnFirst (Long productId) {
+        return 3L;
     }
 
     @Override
@@ -55,6 +60,27 @@ public class TestOrderServiceImpl implements TestOrderService{
         if(account == null ) return null;
 
         return orderRepository.findAllByAccountId(account.getId());
+    }
+
+    @Override
+    public List<TestOrder> findAllAccountWhoBuyProduct(TestOrderAccountRequestForm orderAccountRequestForm) {
+        final TestProduct product = isValidateProduct(
+                alwaysProductReturnFirst(orderAccountRequestForm.getProductId()));
+
+        if(product == null ) return null;
+
+        return orderRepository.findAllByProductId(product.getId());
+    }
+
+    private TestProduct isValidateProduct(Long productId) {
+        final Optional<TestProduct> maybeProduct = productRepository.findById(productId);
+
+        if(maybeProduct.isEmpty()) {
+            log.debug("주문을 진행할 수 없습니다!");
+            return null;
+        }
+
+        return maybeProduct.get();
     }
 
     private TestAccount isValidateAccount(Long accountId) {

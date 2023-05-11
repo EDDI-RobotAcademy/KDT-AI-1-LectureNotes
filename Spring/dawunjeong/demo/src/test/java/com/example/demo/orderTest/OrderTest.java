@@ -3,6 +3,7 @@ package com.example.demo.orderTest;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import com.example.demo.lectureClass.testCode.account.service.TestAccountService;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderAccountRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderRequestForm;
 import com.example.demo.lectureClass.testCode.order.entity.TestOrder;
@@ -15,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 public class OrderTest {
@@ -66,5 +68,22 @@ public class OrderTest {
         for(TestOrder order: orderListForAccount) {
             assertEquals(accountId, order.getTestAccount().getId());
         }
+    }
+
+    @Test
+    @DisplayName("특정 물품을 구매한 회원 리스트를 조회합니다")
+    void 특정_물품을_구매한_회원_정보_조회() {
+        final Long productId = 1L;
+
+        TestOrderAccountRequestForm orderAccountRequestForm = new TestOrderAccountRequestForm(productId);
+        List<TestOrder> accountResponseFormList
+                = testOrderService.findAllAccountWhoBuyProduct(orderAccountRequestForm);
+        System.out.println("accountResponseFormList size: " + accountResponseFormList.size());
+
+        for(TestOrder responseForm: accountResponseFormList) {
+            assertTrue(responseForm.getTestAccount().getId() != null);
+            System.out.println(responseForm.getTestAccount().getId());
+        }
+
     }
 }
