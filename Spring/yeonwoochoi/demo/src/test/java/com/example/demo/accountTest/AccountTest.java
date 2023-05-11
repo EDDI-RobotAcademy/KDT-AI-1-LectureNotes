@@ -96,7 +96,6 @@ public class AccountTest {
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
-
     }
     @Test
     @DisplayName("똑같은 사용자는 회원 가입 할 수 없음")
@@ -143,6 +142,7 @@ public class AccountTest {
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
+        //True 조건의 결과값이 true여야 성공
         assertTrue(responseForm.getUserToken() != null);
     }
 

@@ -73,6 +73,7 @@ public class OrderTest {
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
 
         for (TestOrder order : orderListForAccount) {
+            //Equals(A, B) 일 때, A와 B가 같아야 테스트가 통과 ! 다르면 실패 !
             assertEquals(accountId, order.getTestAccount().getId());
         }
     }
@@ -89,6 +90,7 @@ public class OrderTest {
         // TestAccount 전체를 가져오면 안된다.
         // TestAccountListResponseForm에 대한것만 가져오면 된다.
         TestOrderAccountRequestForm requestForm = new TestOrderAccountRequestForm(productId);
+
         List<TestAccountResponseForm> accountResponseFormList =
                 testOrderService.findAllAccountWhoBuyProduct(requestForm);
 
@@ -96,6 +98,7 @@ public class OrderTest {
 
         for (TestAccountResponseForm responseForm: accountResponseFormList) {
             System.out.println("account email: " + responseForm.getEmail());
+            //True 조건의 결과값이 true여야 성공
             assertTrue(responseForm.getAccountId() != null);
         }
     }

@@ -14,5 +14,6 @@ public interface TestOrderService {
     List<TestOrder> orderListForAccount
             (TestOrderListRequestForm orderListRequestForm, Long accountId);
 
-    List<TestAccountResponseForm> findAllAccountWhoBuyProduct(TestOrderAccountRequestForm requestForm);
+    List<TestAccountResponseForm> findAllAccountWhoBuyProduct
+            (TestOrderAccountRequestForm requestForm);
 }

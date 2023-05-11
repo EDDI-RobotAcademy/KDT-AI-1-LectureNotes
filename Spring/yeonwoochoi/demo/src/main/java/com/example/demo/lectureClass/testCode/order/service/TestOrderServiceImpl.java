@@ -68,6 +68,7 @@ public class TestOrderServiceImpl implements TestOrderService {
         List<TestOrder> orderList =
                 orderRepository.findAllAccountWhoBuyProduct(requestForm.getProductId());
         // accountId만 따로 추출이 필요
+
         List<TestAccountResponseForm> responseFormList = new ArrayList<>();
 
         for (TestOrder order: orderList) {
