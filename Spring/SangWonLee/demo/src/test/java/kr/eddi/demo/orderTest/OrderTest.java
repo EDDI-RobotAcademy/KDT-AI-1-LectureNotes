@@ -49,7 +49,7 @@ public class OrderTest {
 
 
         TestOrderRequestForm orderRequestForm = new TestOrderRequestForm(userToken, productId);
-        TestOrder order = testOrderService.order(orderRequestForm);
+        TestOrder order = testOrderService.order(orderRequestForm, accountId); // 실제로 accountId 주면 안됨
         // userTocken과 productId를 가지고 주문 저장
 
         assertEquals(productId, order.getTestProduct().getId());
@@ -70,7 +70,7 @@ public class OrderTest {
         String userToken = responseForm.getUserToken().toString();
 
         TestOrderListRequestForm orderListRequestForm = new TestOrderListRequestForm(userToken);
-        List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm);
+        List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm, accountId);
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
 
         for (TestOrder order: orderListForAccount) {

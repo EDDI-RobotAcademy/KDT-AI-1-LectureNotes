@@ -25,17 +25,17 @@ public class TestOrderServiceImpl implements TestOrderService {
     final private TestAccountRepository accountRepository;
     final private TestProductRepository productRepository;
     final private TestOrderRepository orderRepository;
-    
-    private Long alwaysReturnFirst (String userToken) {
-        return 1L;
+
+    private Long alwaysReturnFirst (String userToken, Long accountId) {
+        return accountId;
+        // userToken을 인자로 받아 항상 1L로 반환.
+        // Redis를 사용할 수 없을 때 임시로 사용하는 방법이다.
+        // 원래는 Redis를 사용하여 userToken을 검증하려고 할거임
     }
-    // userToken을 인자로 받아 항상 1L로 반환.
-    // Redis를 사용할 수 없을 때 임시로 사용하는 방법이다.
-    // 원래는 Redis를 사용하여 userToken을 검증하려고 할거임
-    
     @Override
-    public TestOrder order(TestOrderRequestForm requestForm) {
-        final TestAccount account = isValidateAccount(alwaysReturnFirst(requestForm.getUserToken()));
+        public TestOrder order(TestOrderRequestForm requestForm, Long accountId) {
+            final TestAccount account = isValidateAccount(
+                    alwaysReturnFirst(requestForm.getUserToken(), accountId));
         // userToken을 받아서 계정이 있는지 없는지 확인한다.
         // 여기서는 Redis로 확인하려고 하지만 아직 배우지 않은 상태이므로,
         //  1로 반환시켜서 진행
@@ -58,9 +58,11 @@ public class TestOrderServiceImpl implements TestOrderService {
     }
 
     @Override
-    public List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm) {
-        final TestAccount account = isValidateAccount(
-                alwaysReturnFirst(orderListRequestForm.getUserToken()));
+        public List<TestOrder> orderListForAccount(
+                TestOrderListRequestForm orderListRequestForm, Long accountId) {
+
+            final TestAccount account = isValidateAccount(
+                    alwaysReturnFirst(orderListRequestForm.getUserToken(), accountId));
 
         if (account == null) return null;
 
