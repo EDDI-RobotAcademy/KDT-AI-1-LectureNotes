@@ -180,7 +180,7 @@ public class AccountTest {
         void 일반_회원만_조회하기(){
             final String role = "NORMAL";
 
-            AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+            //AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
             List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
 
             for(TestAccountResponseForm responseForm : normalAccountList){
