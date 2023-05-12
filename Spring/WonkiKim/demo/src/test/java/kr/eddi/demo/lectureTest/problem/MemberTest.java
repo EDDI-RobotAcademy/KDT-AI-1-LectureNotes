@@ -23,11 +23,12 @@ public class MemberTest {
     @Test
     @DisplayName("회원가입테스트")
     void register() {
-        String email = "test@test.com";
+        String email = "test2@test.com";
         String password = "password";
+        String memberRole = "normal";
 
-        MemberRequestForm memberRequestForm = new MemberRequestForm(email, password);
-        Member member = memberService.register(memberRequestForm.toMember());
+        MemberRequestForm memberRequestForm = new MemberRequestForm(email, password, memberRole);
+        Member member = memberService.register(memberRequestForm);
 
         assertEquals(email, member.getEmail());
         assertEquals(password, member.getPassword());
@@ -38,8 +39,9 @@ public class MemberTest {
     void 로그인_테스트() {
         String email = "test@test.com";
         String password = "password";
+        String memberRole = "normal";
 
-        MemberRequestForm memberRequestForm = new MemberRequestForm(email, password);
+        MemberRequestForm memberRequestForm = new MemberRequestForm(email, password, memberRole);
         MemberResponseForm memberResponseForm = memberService.logIn(memberRequestForm.toMember());
 
         assertTrue(memberResponseForm.getUsertoken() != null);
@@ -50,8 +52,9 @@ public class MemberTest {
     void 틀린_계정명_로그인_테스트() {
         String email = "test1@test.com";
         String password = "password";
+        String memberRole = "normal";
 
-        MemberRequestForm memberRequestForm = new MemberRequestForm(email, password);
+        MemberRequestForm memberRequestForm = new MemberRequestForm(email, password, memberRole);
         MemberResponseForm memberResponseForm = memberService.logIn(memberRequestForm.toMember());
 
         assertTrue(memberResponseForm.getUsertoken() == null);
@@ -62,8 +65,9 @@ public class MemberTest {
     void 틀린_비밀번호_로그인_테스트() {
         String email = "test@test.com";
         String password = "password1";
+        String memberRole = "normal";
 
-        MemberRequestForm memberRequestForm = new MemberRequestForm(email, password);
+        MemberRequestForm memberRequestForm = new MemberRequestForm(email, password, memberRole);
         MemberResponseForm memberResponseForm = memberService.logIn(memberRequestForm.toMember());
 
         assertTrue(memberResponseForm.getUsertoken() == null);
