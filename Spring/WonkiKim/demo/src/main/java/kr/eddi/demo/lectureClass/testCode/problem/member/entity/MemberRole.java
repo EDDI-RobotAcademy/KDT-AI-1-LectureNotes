@@ -1,11 +1,12 @@
 package kr.eddi.demo.lectureClass.testCode.problem.member.entity;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @NoArgsConstructor
+@ToString
 public class MemberRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

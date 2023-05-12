@@ -1,6 +1,8 @@
 package kr.eddi.demo.lectureClass.testCode.problem.member.service;
 
+import jakarta.transaction.Transactional;
 import kr.eddi.demo.lectureClass.testCode.problem.member.controller.form.MemberRequestForm;
+import kr.eddi.demo.lectureClass.testCode.problem.member.controller.form.LogInResponseForm;
 import kr.eddi.demo.lectureClass.testCode.problem.member.controller.form.MemberResponseForm;
 import kr.eddi.demo.lectureClass.testCode.problem.member.entity.Member;
 import kr.eddi.demo.lectureClass.testCode.problem.member.entity.MemberRole;
@@ -10,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -34,16 +37,27 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public MemberResponseForm logIn(Member member) {
+    public LogInResponseForm logIn(Member member) {
         final Optional<Member> maybeMember = memberRepository.findByEmail(member.getEmail());
         if(maybeMember.isEmpty()) {
             log.info("계정아이디가 다릅니다");
-            return new MemberResponseForm(null);
+            return new LogInResponseForm(null);
         }
         if(maybeMember.get().getPassword().equals(member.getPassword())) {
-            return new MemberResponseForm(UUID.randomUUID());
+            return new LogInResponseForm(UUID.randomUUID());
         }
         log.info("비밀번호가 다릅니다");
-        return new MemberResponseForm(null);
+        return new LogInResponseForm(null);
+    }
+
+    @Override
+    @Transactional
+    public List<MemberResponseForm> serchByRole(String role) {
+        List<MemberResponseForm> memberResponseFormList = memberRoleRepository.findAllByRole(role)
+                .stream()
+                .map((MemberRole::getMember))
+                .map((member)->new MemberResponseForm(member.getId(), member.getEmail()))
+                .toList();
+        return memberResponseFormList;
     }
 }

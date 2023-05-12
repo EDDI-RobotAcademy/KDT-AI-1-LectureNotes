@@ -1,16 +1,16 @@
 package kr.eddi.demo.lectureTest.problem;
 
 import kr.eddi.demo.lectureClass.testCode.problem.member.controller.form.MemberRequestForm;
+import kr.eddi.demo.lectureClass.testCode.problem.member.controller.form.LogInResponseForm;
 import kr.eddi.demo.lectureClass.testCode.problem.member.controller.form.MemberResponseForm;
 import kr.eddi.demo.lectureClass.testCode.problem.member.entity.Member;
-import kr.eddi.demo.lectureClass.testCode.problem.member.repository.MemberRepository;
 import kr.eddi.demo.lectureClass.testCode.problem.member.service.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.UUID;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -42,9 +42,9 @@ public class MemberTest {
         String memberRole = "normal";
 
         MemberRequestForm memberRequestForm = new MemberRequestForm(email, password, memberRole);
-        MemberResponseForm memberResponseForm = memberService.logIn(memberRequestForm.toMember());
+        LogInResponseForm logInResponseForm = memberService.logIn(memberRequestForm.toMember());
 
-        assertTrue(memberResponseForm.getUsertoken() != null);
+        assertTrue(logInResponseForm.getUsertoken() != null);
 
     }
     @Test
@@ -55,9 +55,9 @@ public class MemberTest {
         String memberRole = "normal";
 
         MemberRequestForm memberRequestForm = new MemberRequestForm(email, password, memberRole);
-        MemberResponseForm memberResponseForm = memberService.logIn(memberRequestForm.toMember());
+        LogInResponseForm logInResponseForm = memberService.logIn(memberRequestForm.toMember());
 
-        assertTrue(memberResponseForm.getUsertoken() == null);
+        assertTrue(logInResponseForm.getUsertoken() == null);
 
     }
     @Test
@@ -68,9 +68,20 @@ public class MemberTest {
         String memberRole = "normal";
 
         MemberRequestForm memberRequestForm = new MemberRequestForm(email, password, memberRole);
-        MemberResponseForm memberResponseForm = memberService.logIn(memberRequestForm.toMember());
+        LogInResponseForm logInResponseForm = memberService.logIn(memberRequestForm.toMember());
 
-        assertTrue(memberResponseForm.getUsertoken() == null);
+        assertTrue(logInResponseForm.getUsertoken() == null);
 
+    }
+    @Test
+    @DisplayName("일반회원만 조회하기")
+    void 일반회원만_조회하기() {
+        final String role = "normal";
+        List<MemberResponseForm> normalMemberList = memberService.serchByRole(role);
+
+        for(MemberResponseForm responseForm: normalMemberList) {
+            System.out.println(responseForm.getEmail());
+            System.out.println(responseForm.getId());
+        }
     }
 }
