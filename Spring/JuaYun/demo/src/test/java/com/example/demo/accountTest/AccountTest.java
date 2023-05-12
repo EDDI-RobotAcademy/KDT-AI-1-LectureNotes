@@ -1,13 +1,13 @@
 package com.example.demo.accountTest;
 
-import com.example.demo.lectureClass.account.controller.form.AccountRoleRequestForm;
-import com.example.demo.lectureClass.account.controller.form.TestAccountLoginResponseForm;
-import com.example.demo.lectureClass.account.controller.form.TestAccountRequestForm;
-import com.example.demo.lectureClass.account.controller.form.TestAccountWithRoleRequestForm;
-import com.example.demo.lectureClass.account.entity.TestAccount;
-import com.example.demo.lectureClass.account.repository.TestAccountRepository;
-import com.example.demo.lectureClass.account.service.TestAccountService;
-import com.example.demo.lectureClass.order.controller.form.TestAccountResponseForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.AccountRoleRequestForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
+import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
+import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
+import com.example.demo.lectureClass.testCode.account.service.TestAccountService;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -124,6 +124,9 @@ public class AccountTest {
 
         AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
         List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+        // TestAccountResponseForm 이건 order 에 있음
+        // AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        // 이건 사용하지 않아서 주석처리해놔도 상관없음
 
         for (TestAccountResponseForm responseForm: normalAccountList) {
             System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());

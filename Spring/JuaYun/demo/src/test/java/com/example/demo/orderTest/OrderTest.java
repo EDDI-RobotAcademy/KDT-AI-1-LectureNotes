@@ -1,15 +1,14 @@
 package com.example.demo.orderTest;
 
-import com.example.demo.lectureClass.account.controller.form.TestAccountLoginResponseForm;
-import com.example.demo.lectureClass.account.controller.form.TestAccountRequestForm;
-import com.example.demo.lectureClass.account.entity.TestAccount;
-import com.example.demo.lectureClass.account.service.TestAccountService;
-import com.example.demo.lectureClass.order.controller.form.TestAccountResponseForm;
-import com.example.demo.lectureClass.order.controller.form.TestOrderAccountRequestForm;
-import com.example.demo.lectureClass.order.controller.form.TestOrderListRequestForm;
-import com.example.demo.lectureClass.order.controller.form.TestOrderRequestForm;
-import com.example.demo.lectureClass.order.entity.TestOrder;
-import com.example.demo.lectureClass.order.service.TestOrderService;
+import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import com.example.demo.lectureClass.testCode.account.service.TestAccountService;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderAccountRequestForm;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderRequestForm;
+import com.example.demo.lectureClass.testCode.order.entity.TestOrder;
+import com.example.demo.lectureClass.testCode.order.service.TestOrderService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

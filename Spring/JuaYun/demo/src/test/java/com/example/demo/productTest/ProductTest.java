@@ -1,10 +1,9 @@
 package com.example.demo.productTest;
 
-import com.example.demo.lectureClass.manager.entity.TestManager;
 import com.example.demo.lectureClass.manager.repository.TestManagerAccountRepository;
-import com.example.demo.lectureClass.product.controller.form.TestProductRequestForm;
-import com.example.demo.lectureClass.product.entity.TestProduct;
-import com.example.demo.lectureClass.product.service.TestProductService;
+import com.example.demo.lectureClass.testCode.product.controller.form.TestProductRequestForm;
+import com.example.demo.lectureClass.testCode.product.entity.TestProduct;
+import com.example.demo.lectureClass.testCode.product.service.TestProductService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
