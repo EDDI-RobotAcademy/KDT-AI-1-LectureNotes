@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.testCode.account.entity;
+package com.example.demo.lectureClass.fetchType.account.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
-public class AccountRole {
+public class JpaAccountRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +15,10 @@ public class AccountRole {
     private String role;
 
     @Getter
-    // @ManyToOne이 붙으면 그 녀석은 해당 Entity의 id 값을 가집니다.
-    @ManyToOne
-    private TestAccount account;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private JpaAccount account;
 
-    public AccountRole(String role, TestAccount account) {
+    public JpaAccountRole(String role, JpaAccount account) {
         this.role = role;
         this.account = account;
     }

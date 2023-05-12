@@ -203,6 +203,7 @@ public class AccountTest {
             System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
             System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
 
+            //True 조건의 결과값이 true여야 성공
             assertTrue(responseForm.getAccountId() != null);
             assertTrue(responseForm.getEmail() != null);
         }
