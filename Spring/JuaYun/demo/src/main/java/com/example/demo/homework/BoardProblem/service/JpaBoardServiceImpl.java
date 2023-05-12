@@ -5,6 +5,7 @@ import com.example.demo.homework.BoardProblem.entity.JpaBoard;
 import com.example.demo.homework.BoardProblem.repository.JpaBoardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
