@@ -1,15 +1,19 @@
 package com.example.demo.accountTest;
 
+import com.example.demo.lectureClass.testCode.account.controller.form.AccountRoleRequestForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
 import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
 import com.example.demo.lectureClass.testCode.account.service.TestAccountService;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -177,5 +181,36 @@ public class AccountTest {
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("회원가입을 합니다(일반회원)")
+    void 사업자_회원가입 () {
+        final String email = "business@test.com";
+        final String password = "test";
+        final String role = "BUSINESS";
+
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("일반 회원만 조회하기")
+    void 일반회원_조회 () {
+        final String role = "NORMAL";
+
+        AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+
+        for (TestAccountResponseForm responseForm: normalAccountList) {
+            System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
+            System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
+
+            assertTrue(responseForm.getAccountId() != null);
+            assertTrue(responseForm.getEmail() != null);
+        }
     }
 }
