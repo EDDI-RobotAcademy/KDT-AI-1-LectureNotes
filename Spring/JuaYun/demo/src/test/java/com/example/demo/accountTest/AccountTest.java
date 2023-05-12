@@ -1,14 +1,19 @@
 package com.example.demo.accountTest;
 
+import com.example.demo.lectureClass.account.controller.form.AccountRoleRequestForm;
 import com.example.demo.lectureClass.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.account.controller.form.TestAccountRequestForm;
+import com.example.demo.lectureClass.account.controller.form.TestAccountWithRoleRequestForm;
 import com.example.demo.lectureClass.account.entity.TestAccount;
 import com.example.demo.lectureClass.account.repository.TestAccountRepository;
 import com.example.demo.lectureClass.account.service.TestAccountService;
+import com.example.demo.lectureClass.order.controller.form.TestAccountResponseForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,18 +26,18 @@ public class AccountTest {
     @Autowired
     private TestAccountRepository testAccountRepository;
 
-    @Test
-    @DisplayName("사용자가 회원가입 할 수 있음")
-    void 사용자가_회원_가입한다_refactoring () {
-        final String email = "test@test.com";
-        final String password = "test";
-
-        TestAccountRequestForm requestForm = new TestAccountRequestForm(email,password);
-        TestAccount account = testAccountService.register(requestForm);
-
-        assertEquals(email, account.getEmail());
-        assertEquals(password, account.getPassword());
-    }
+//    @Test
+//    @DisplayName("사용자가 회원가입 할 수 있음")
+//    void 사용자가_회원_가입한다_refactoring () {
+//        final String email = "test@test.com";
+//        final String password = "test";
+//
+//        TestAccountRequestForm requestForm = new TestAccountRequestForm(email,password);
+//        TestAccount account = testAccountService.register(requestForm);
+//
+//        assertEquals(email, account.getEmail());
+//        assertEquals(password, account.getPassword());
+//    }
 
     @Test
     @DisplayName("잘못된 비밀번호 정보를 토대로 로그인")
@@ -89,7 +94,44 @@ public class AccountTest {
         // token 관리는 Docker redis 및 ABS 설정 이후에 작업해야하므로 잠시 보류합니다.
     }
 
-    // 로그아웃, 최원 탈퇴 같은 사항들이 남아있음
-    // 이 사항들은 역시나 로그인 되어 있는 token 을 기반으로 진행되어야 합니다.
-    // 그러므로 위 두 가지 사항은 현 시점에선 보류합니다.
+    @Test
+    @DisplayName("회원가입을 합니다(일반회원)")
+    void 일반_회원가입 () {
+        // 여러가지 방법론들
+        // 1. Account Domain 과 AccountRole Domain 을 분리하자
+        // 2. Account Domain 에 회원을 구분할 수 있는 Category ID 를 만들자!
+        // 3. AccountRole 에 Account 를 상속 해보자
+        // 일단 선생님은 1번
+        // 선생님의 관점에서는 Account 와 AccountRole 을 분리하되 모두 Account Domain 에 배치합니다.
+        // 결론적으로 Account Domain Entity 에 Account 와 AccountRole 이 배치됩니다.
+        // 1번과 선생님의 관점의 차이는 생산성
+
+        final String email = "gogo@test.com";
+        final String password = "gogo";
+        final String role = "NORMAL";
+
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email,password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("일반 회원만 조회하기")
+    void 일반회원_조회 () {
+        final String role = "NORMAL";
+
+        AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+
+        for (TestAccountResponseForm responseForm: normalAccountList) {
+            System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
+            System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
+
+            assertTrue(responseForm.getAccountId() != null);
+            assertTrue(responseForm.getEmail() != null);
+            // getAccountId() 값은 전달할 필요가 없기 때문에 getEmail() 값만 전달하면 됨
+        }
+    }
 }

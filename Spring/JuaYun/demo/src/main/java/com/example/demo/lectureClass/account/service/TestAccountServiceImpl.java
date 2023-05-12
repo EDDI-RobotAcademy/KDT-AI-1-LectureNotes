@@ -2,12 +2,18 @@ package com.example.demo.lectureClass.account.service;
 
 import com.example.demo.lectureClass.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.account.controller.form.TestAccountRequestForm;
+import com.example.demo.lectureClass.account.controller.form.TestAccountWithRoleRequestForm;
+import com.example.demo.lectureClass.account.entity.AccountRole;
 import com.example.demo.lectureClass.account.entity.TestAccount;
 import com.example.demo.lectureClass.account.repository.TestAccountRepository;
+import com.example.demo.lectureClass.account.repository.TestAccountRoleRepository;
+import com.example.demo.lectureClass.order.controller.form.TestAccountResponseForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,6 +23,7 @@ import java.util.UUID;
 public class TestAccountServiceImpl implements TestAccountService {
 
     final private TestAccountRepository testAccountRepository;
+    final private TestAccountRoleRepository testAccountRoleRepository;
     @Override
     public TestAccount register(TestAccountRequestForm requestForm) {
         final Optional<TestAccount> maybeAccount =
@@ -46,5 +53,39 @@ public class TestAccountServiceImpl implements TestAccountService {
             return new TestAccountLoginResponseForm(UUID.randomUUID());
         }
         return new TestAccountLoginResponseForm(null);
+    }
+
+    @Override
+    public TestAccount registerWithRole(TestAccountWithRoleRequestForm requestForm) {
+        final Optional<TestAccount> maybeAccount =
+                testAccountRepository.findByEmail(requestForm.getEmail());
+
+        if(maybeAccount.isPresent()) {
+            log.debug("이미 가입된 회원입니다.");
+            return null;
+        }
+
+        final TestAccount account = testAccountRepository.save(requestForm.toTestAccount());
+        // 바로 리턴하지않음
+        testAccountRoleRepository.save(requestForm.toTestAccountRole(account));
+
+        return account;
+    }
+
+    @Override
+    public List<TestAccountResponseForm> accountListWithRole(String role) {
+        final List<AccountRole> matchedAccountRoleList = testAccountRoleRepository.findAllByRole(role);
+        // 여기서 확실하게 repository 가 사용
+        // matchedAccountRoleList 여기엔 내가 원하는 값이 들어가 있음
+        List<TestAccountResponseForm> responseFormList = new ArrayList<>();
+
+        for (AccountRole accountRole: matchedAccountRoleList) {
+            final TestAccount account = accountRole.getAccount();
+            responseFormList.add
+                    (new TestAccountResponseForm(
+                             account.getId(), account.getEmail()));
+        }
+
+        return responseFormList;
     }
 }
