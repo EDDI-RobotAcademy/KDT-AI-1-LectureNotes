@@ -2,8 +2,10 @@ package kr.eddi.demo.lectureClass.testCode.account.service;
 
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
 import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRepository;
+import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRoleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class TestAccountServiceImpl implements TestAccountService {
     final private TestAccountRepository testAccountRepository;
+    final private TestAccountRoleRepository testAccountRoleRepository;
+
     @Override
     public TestAccount register(TestAccountRequestForm requestForm) {
         final Optional<TestAccount> maybeAccount =
@@ -48,5 +52,21 @@ public class TestAccountServiceImpl implements TestAccountService {
 
         log.debug("로그인 실패!");
         return new TestAccountLoginResponseForm(null);
+    }
+
+    @Override
+    public TestAccount registerWithRole(TestAccountWithRoleRequestForm requestForm) {
+        final Optional<TestAccount> maybeAccount =
+                testAccountRepository.findByEmail(requestForm.getEmail());
+
+        if (maybeAccount.isPresent()) {
+            log.debug("이미 가입된 회원입니다!");
+            return null;
+        }
+
+        final TestAccount account = testAccountRepository.save(requestForm.toTestAccount());
+        testAccountRoleRepository.save(requestForm.toTestAccountRole(account));
+
+        return account;
     }
 }

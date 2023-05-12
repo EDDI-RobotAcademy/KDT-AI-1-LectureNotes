@@ -23,8 +23,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class OrderTest {
     @Autowired
     private TestAccountService testAccountService;
+
     @Autowired
     private TestOrderService testOrderService;
+
     // 회원 Domain
     // 상품 Domain
     // 주문 Domain
@@ -38,6 +40,7 @@ public class OrderTest {
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
+
         String userToken = responseForm.getUserToken().toString();
 
         TestOrderRequestForm orderRequestForm = new TestOrderRequestForm(userToken, productId);
@@ -46,14 +49,17 @@ public class OrderTest {
         assertEquals(productId, order.getTestProduct().getId());
         assertEquals(accountId, order.getTestAccount().getId());
     }
+
     @Test
     @DisplayName("회원이 주문한 상품을 조회합니다")
     void 회원이_주문한_상품을_조회합니다 () {
         final String email = "test@test.com";
         final String password = "test";
         final Long accountId = 1L;
+
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
+
         String userToken = responseForm.getUserToken().toString();
 
         TestOrderListRequestForm orderListRequestForm = new TestOrderListRequestForm(userToken);
@@ -64,10 +70,12 @@ public class OrderTest {
             assertEquals(accountId, order.getTestAccount().getId());
         }
     }
+
     @Test
     @DisplayName("특정 물품을 구매한 회원 리스트를 조회합니다")
     void 특정_물품을_구매한_회원_정보_조회 () {
-        final Long productId = 1L;
+        final Long productId = 2L;
+
         TestOrderAccountRequestForm requestForm = new TestOrderAccountRequestForm(productId);
         List<TestAccountResponseForm> accountResponseFormList =
                 testOrderService.findAllAccountWhoBuyProduct(requestForm);
