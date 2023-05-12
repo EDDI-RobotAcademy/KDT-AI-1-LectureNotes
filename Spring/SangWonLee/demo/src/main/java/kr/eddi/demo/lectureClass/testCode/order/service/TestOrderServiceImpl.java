@@ -63,10 +63,14 @@ public class TestOrderServiceImpl implements TestOrderService {
 
             final TestAccount account = isValidateAccount(
                     alwaysReturnFirst(orderListRequestForm.getUserToken(), accountId));
+            // usertoken, accountId로 계정이 있는지 확인한다.
+        // alwaysReturnFirst 해서 현재는 token 검증 못하고 있어서 중간이 빠져있다.
 
         if (account == null) return null;
+        // 없다면 null (테스트 실패)
 
         return orderRepository.findAllByAccountId(account.getId());
+        //
     }
 
     @Override

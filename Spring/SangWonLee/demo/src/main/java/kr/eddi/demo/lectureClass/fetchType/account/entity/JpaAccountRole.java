@@ -13,8 +13,8 @@ public class JpaAccountRole {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+    private Long id;
     private String role;
 
     @Getter

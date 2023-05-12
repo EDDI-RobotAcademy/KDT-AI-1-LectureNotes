@@ -54,6 +54,7 @@ public class OrderTest {
 
         assertEquals(productId, order.getTestProduct().getId());
         assertEquals(accountId, order.getTestAccount().getId());
+        // 호출된 email, password가 입력한 값과 일치하는지 확인
 
     }
 
@@ -65,13 +66,23 @@ public class OrderTest {
         final Long accountId = 1L;
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        // 받은 email, password로 TestAccountRequestForm 객체를 만든다.
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
+        // 로그인을 시도해서 나온 TestAccountLoginResponseForm 객체 값 (UUID임)을
+        // responseForm에 저장한다.
 
         String userToken = responseForm.getUserToken().toString();
+        // 받아온 UUID userToken을 String 화 시킨다.
 
         TestOrderListRequestForm orderListRequestForm = new TestOrderListRequestForm(userToken);
+        // 받은 UUID로 TestOrderListRequestForm 객체를 만든다.
+
         List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm, accountId);
+        // orderListRequestForm, accountId를 인자로 orderListForAccount 메소드 실행
+
+
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
+
 
         for (TestOrder order: orderListForAccount) {
             assertEquals(accountId, order.getTestAccount().getId());

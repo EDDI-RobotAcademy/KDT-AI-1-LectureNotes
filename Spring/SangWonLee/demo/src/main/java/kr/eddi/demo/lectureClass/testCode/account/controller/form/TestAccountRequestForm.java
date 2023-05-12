@@ -14,4 +14,5 @@ public class TestAccountRequestForm {
     public TestAccount toTestAccount() {
         return new TestAccount(email, password);
     }
+    // email, password를 가지고 Entity 객체를 만든다.
 }

@@ -14,11 +14,9 @@ public class JpaAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
-
-
     private String email;
-
     private String password;
 
     public JpaAccount(String email, String password) {

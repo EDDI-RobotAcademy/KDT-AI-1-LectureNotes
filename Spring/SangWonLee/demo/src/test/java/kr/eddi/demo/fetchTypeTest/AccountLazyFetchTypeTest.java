@@ -25,7 +25,7 @@ public class AccountLazyFetchTypeTest {
     @Test
     @DisplayName("FetchType = LAZY, 일반 회원 가입")
     void 일반_회원_가입 () {
-        final String email = "normal@test.com";
+        final String email = "normal2@test.com";
         final String password = "test";
         final String role = "NORMAL";
 
