@@ -158,7 +158,7 @@ public class AccountTest {
         //    Account와 AccountRole을 분리하되 모두 Account Domain에 배치합니다.
         //    결론적으로 Account Entity에 Account와 AccountRole이 배치됩니다.
 
-        final String email ="gogo@gogo.com";
+        final String email ="gogo@test.com";
         final String password = "gogo";
         final String role = "admin";
 
@@ -174,7 +174,7 @@ public class AccountTest {
     void 새로운_권한_부여 () {
         final String email ="gogo@gogo.com";
         final String password = "gogo";
-        final String role = "admin";
+        final String role = "normal";
 
         TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
         TestAccount account = testAccountService.giveNewRole(requestForm);
@@ -200,7 +200,7 @@ public class AccountTest {
     @Test
     @DisplayName("일반 회원만 조회하기")
     void 일반회원_조회 () {
-        final String role = "NORMAL";
+        final String role = "admin";
 
         AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
         List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
