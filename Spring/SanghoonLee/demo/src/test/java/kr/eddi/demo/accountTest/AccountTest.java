@@ -2,6 +2,7 @@ package kr.eddi.demo.accountTest;
 
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
 
 import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRepository;
@@ -141,4 +142,26 @@ public class AccountTest {
     // 로그아웃, 회원 탈퇴와 같은 사항들이 남아있음
     // 이 사항들은 역시나 로그인 되어 있는 token을 기반으로 진행되어야 합니다.
     // 그러므로 위 두 가지 사항은 현 시점에선 보류합니다.
+
+    @Test
+    @DisplayName("회원가입을 합니다(일반회원)")
+    void 일반회원_회원가입 () {
+        // 여러가지 방법론들
+        // 1. Account Domain과 AccountRole Domain을 분리하자!
+        // 2. Account Domain에 회원을 구분할 수 있는 Category ID를 만들자!
+        // 3. AccountRole에 Account를 상속 해보자!
+        // 4. 일단은 저는 1번인데,
+        //    제 관점에서는 Account와 AccountRole을 분리하되 모두 Account Domain에 배치합니다.
+        //    결론적으로 Account Domain Entity에 Account와 AccountRole이 배치됩니다.
+
+        final String email = "gogo@gogo.com";
+        final String password = "gogo";
+        final String role = "NORMAL";
+
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
 }
