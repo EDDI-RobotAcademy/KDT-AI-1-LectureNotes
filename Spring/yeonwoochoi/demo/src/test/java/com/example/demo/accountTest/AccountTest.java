@@ -1,5 +1,6 @@
 package com.example.demo.accountTest;
 
+import com.example.demo.lectureClass.testCode.account.controller.form.AccountRoleRequestForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
@@ -7,10 +8,13 @@ import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
 import com.example.demo.lectureClass.testCode.account.service.TestAccountService;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AccountTest {
 
     // @Autowired :
-    // @RequiredArgsConstructor 대신 사용하는 또 다른 키워드이다.
+    // test에서 @RequiredArgsConstructor 대신 사용하는 또 다른 키워드이다.
     // final이 붙은 정보에 대한 의존성을 자동으로 찾아서 맵핑할 때 @RequiredArgsConstructor를 사용한다면
     // final이 아닌 정보에는 @Autowired를 통해서 정보를 붙일 수 있다.
     // 단, @Autowired를 통해서 붙는 정보는 Retention 정책에 RUNTIME이 붙어 있는
@@ -89,7 +93,7 @@ public class AccountTest {
     @Test
     @DisplayName("사용자가 회원 가입 할 수 있음")
     void 사용자가_회원_가입한다_refactoring () { // 백로그 내용이 테스트 자체
-        final String email = "test@test.com";
+        final String email = "dusdn043@gmail.com";
         final String password = "test";
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
@@ -162,7 +166,7 @@ public class AccountTest {
         //    제 관점에서는 Account와 AccountRole을 분리하되 모두 Account Domain에 배치합니다.
         //    결론적으로 Account Domain Entity에 Account와 AccountRole이 배치됩니다.
 
-        final String email = "dusdn@gogo.com";
+        final String email = "dusdn@gmail.com";
         final String password = "gogo";
         final String role = "NORMAL";
 
@@ -171,6 +175,37 @@ public class AccountTest {
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("회원가입을 합니다(일반회원)")
+    void 사업자_회원가입 () {
+        final String email = "business@test.com";
+        final String password = "test";
+        final String role = "BUSINESS";
+
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("일반 회원만 조회하기")
+    void 일반회원_조회 () {
+        final String role = "NORMAL";
+
+        AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+
+        for (TestAccountResponseForm responseForm: normalAccountList) {
+            System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
+            System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
+
+            assertTrue(responseForm.getAccountId() != null);
+            assertTrue(responseForm.getEmail() != null);
+        }
     }
 }
 
