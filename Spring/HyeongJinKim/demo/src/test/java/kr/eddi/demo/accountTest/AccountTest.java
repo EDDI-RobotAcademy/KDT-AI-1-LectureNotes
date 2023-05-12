@@ -1,14 +1,19 @@
 package kr.eddi.demo.accountTest;
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.AccountRoleRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
 import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRepository;
 import kr.eddi.demo.lectureClass.testCode.account.service.TestAccountService;
+import kr.eddi.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class AccountTest {
@@ -118,13 +123,13 @@ public class AccountTest {
     // 그러므로 위 두 가지 사항은 현 시점에선 보류합니다.
     @Test
     @DisplayName("회원가입을 합니다(일반회원)")
-    void 일반회원이_회원가입 () {
+    void 일반회원_회원가입 () {
         // 1. Account Domain과 AccountRule Domain을 분리하자
         // 2. Account Domain에 회원을 구분할 수 있는 Category ID를 만들자
         // 3. AccountRole에 Account를 상속 해보자
         // 4. Account와 AccountRole을 분리하되, 모두 Account Domain에 배치합니다.
         //    결론적으로 Account Domain Entity에 Account와 AccountRole이 배치됩니다. -> 생산성에서 1번과 차이가 있다.
-        final String email = "gogo@test.com";
+        final String email = "gogo@gmail.com";
         final String password = "gogo";
         final String role = "NORMAL";
 
@@ -133,6 +138,36 @@ public class AccountTest {
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
+    }
+    @Test
+    @DisplayName("회원가입을 합니다(사업자회원)")
+    void 사업자_회원가입 () {
+        final String email = "business@test.com";
+        final String password = "gogo";
+        final String role = "BUSINESS";
 
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("일반 회원만 조회하기")
+    void 일반회원_조회 () {
+        final String role = "NORMAL";
+
+        AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+
+        for (TestAccountResponseForm responseForm: normalAccountList) {
+
+            System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
+            System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
+
+            assertTrue(responseForm.getAccountId() != null);
+            assertTrue(responseForm.getEmail() != null);
+        }
     }
 }
