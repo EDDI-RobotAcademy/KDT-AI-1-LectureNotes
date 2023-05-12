@@ -53,6 +53,7 @@ public class TestOrderServiceImpl implements TestOrderService{
         if (account == null) return null;
 
         return orderRepository.findAllByAccountId(account.getId());
+        //return orderRepository.findAllByTestAccount(account); Query 안쓸경우에 이렇게 사용
     }
 
     private TestAccount isValidateAccount(Long accountId) {
