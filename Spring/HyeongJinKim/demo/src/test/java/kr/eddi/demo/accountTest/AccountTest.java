@@ -17,7 +17,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class AccountTest {
-    final String[] memberTypeArray = { "일반 회원", "사업자 회원", "관리자 회원" };
     @Autowired
     private TestAccountService testAccountService;
     @Autowired
