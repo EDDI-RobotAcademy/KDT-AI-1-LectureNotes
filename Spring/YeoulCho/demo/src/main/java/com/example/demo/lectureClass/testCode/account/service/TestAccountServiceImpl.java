@@ -3,13 +3,17 @@ package com.example.demo.lectureClass.testCode.account.service;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
+import com.example.demo.lectureClass.testCode.account.entity.AccountRole;
 import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRoleRepository;
+import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -64,5 +68,21 @@ public class TestAccountServiceImpl implements TestAccountService{
 
         return account;
 
+    }
+
+    @Override
+    public List<TestAccountResponseForm> accountListWithRole(String role) {
+        final List<AccountRole> matchedAccountRoleList = testAccountRoleRepository.findAllByRole(role);
+
+        List<TestAccountResponseForm> responseFormList =new ArrayList<>();
+
+        for(AccountRole accountRole : matchedAccountRoleList){
+            final TestAccount account = accountRole.getAccount();
+            responseFormList.add(
+                    new TestAccountResponseForm(
+                            account.getId(), account.getEmail()));
+        }
+
+        return responseFormList;
     }
 }

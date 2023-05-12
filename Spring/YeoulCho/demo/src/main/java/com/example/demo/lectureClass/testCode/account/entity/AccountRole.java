@@ -2,9 +2,11 @@ package com.example.demo.lectureClass.testCode.account.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 
 @Entity
+@NoArgsConstructor
 public class AccountRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +14,7 @@ public class AccountRole {
 
     private String role;
     @ManyToOne
+    @Getter
     private TestAccount account;
 
     public AccountRole(String role, TestAccount account) {
