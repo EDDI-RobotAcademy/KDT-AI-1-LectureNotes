@@ -2,8 +2,10 @@ package kr.eddi.demo.lectureClass.testCode.account.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
 public class AccountRole {
 
     @Id
@@ -12,6 +14,7 @@ public class AccountRole {
 
     private String role;
 
+    @Getter
     @ManyToOne
     private TestAccount account;
 
