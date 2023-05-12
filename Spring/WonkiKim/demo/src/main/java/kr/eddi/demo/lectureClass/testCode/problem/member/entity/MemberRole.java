@@ -1,9 +1,7 @@
 package kr.eddi.demo.lectureClass.testCode.problem.member.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -13,9 +11,13 @@ public class MemberRole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String memberRole;
+    private String role;
+    @Getter
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Member member;
 
-    public MemberRole(String role) {
-        this.memberRole = role;
+    public MemberRole(String role, Member member) {
+        this.role = role;
+        this.member = member;
     }
 }

@@ -23,7 +23,7 @@ public class MemberTest {
     @Test
     @DisplayName("회원가입테스트")
     void register() {
-        String email = "test2@test.com";
+        String email = "test1@test.com";
         String password = "password";
         String memberRole = "normal";
 

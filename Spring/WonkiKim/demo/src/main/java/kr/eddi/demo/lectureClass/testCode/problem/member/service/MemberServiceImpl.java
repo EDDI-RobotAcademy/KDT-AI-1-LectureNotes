@@ -21,13 +21,14 @@ public class MemberServiceImpl implements MemberService{
     final private MemberRoleRepository memberRoleRepository;
     @Override
     public Member register(MemberRequestForm memberRequestForm) {
-        Member member = memberRequestForm.toMember();
-        final Optional<Member> maybeMember = memberRepository.findByEmail(member.getEmail());
+        final Optional<Member> maybeMember = memberRepository.findByEmail(memberRequestForm.getEmail());
+
         if (maybeMember.isPresent()) {
             log.info("동일한 계정명의 회원이 존재합니다.");
             return null;
         }
-        memberRoleRepository.save(new MemberRole(memberRequestForm.getMemberRole()));
+        Member member = memberRepository.save(memberRequestForm.toMember());
+        memberRoleRepository.save(new MemberRole(memberRequestForm.getMemberRole(), member));
         return memberRepository.save(member);
 
     }

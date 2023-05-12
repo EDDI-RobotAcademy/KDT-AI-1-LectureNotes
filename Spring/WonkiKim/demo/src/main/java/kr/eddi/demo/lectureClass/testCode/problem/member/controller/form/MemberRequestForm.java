@@ -9,6 +9,7 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 public class MemberRequestForm {
+    @Getter
     final String email;
     final String password;
     @Getter
