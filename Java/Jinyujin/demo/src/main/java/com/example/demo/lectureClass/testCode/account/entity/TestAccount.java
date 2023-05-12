@@ -1,6 +1,6 @@
 package com.example.demo.lectureClass.testCode.account.entity;
 
-import com.example.demo.lectureClass.testCode.homework.junit2.accountRole.entity.AccountRole;
+import com.example.demo.lectureClass.testCode.homework.junit2.accountRole.entity.AccountRoleHomework;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,10 +18,10 @@ public class TestAccount {
     private String email;
     private String password;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_role_id")
-    @Setter
-    private AccountRole accountRole;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "account_role_id")
+//    @Setter
+//    private AccountRoleHomework accountRole;
 
     public TestAccount(String email, String password) {
         this.email = email;
