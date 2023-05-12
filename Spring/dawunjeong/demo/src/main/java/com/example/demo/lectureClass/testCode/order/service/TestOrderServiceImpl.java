@@ -1,7 +1,7 @@
 package com.example.demo.lectureClass.testCode.order.service;
 
-import com.example.demo.lectureClass.testCode.account.entity.consumer.TestConsumerAccount;
-import com.example.demo.lectureClass.testCode.account.repository.consumer.TestConsumerAccountRepository;
+import com.example.demo.lectureClass.testCode.account.entity.account.TestAccount;
+import com.example.demo.lectureClass.testCode.account.repository.account.TestAccountRepository;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderAccountRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
@@ -23,7 +23,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class TestOrderServiceImpl implements TestOrderService{
 
-    final private TestConsumerAccountRepository accountRepository;
+    final private TestAccountRepository accountRepository;
     final private TestProductRepository productRepository;
     final private TestOrderRepository orderRepository;
 
@@ -39,7 +39,7 @@ public class TestOrderServiceImpl implements TestOrderService{
 
     @Override
     public TestOrder order(TestOrderRequestForm requestForm, Long accountId) {
-        final TestConsumerAccount account = isValidateAccount(alwaysReturnFirst(requestForm.getUserToken(), accountId));
+        final TestAccount account = isValidateAccount(alwaysReturnFirst(requestForm.getUserToken(), accountId));
         if (account == null) return null;
 
         final Optional<TestProduct> maybeProduct = productRepository.findById(requestForm.getProductId());
@@ -57,7 +57,7 @@ public class TestOrderServiceImpl implements TestOrderService{
 
     @Override
     public List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm, Long accountId) {
-        final TestConsumerAccount account = isValidateAccount(
+        final TestAccount account = isValidateAccount(
                 alwaysReturnFirst(orderListRequestForm.getUserToken(), accountId));
 
         if(account == null ) return null;
@@ -76,13 +76,13 @@ public class TestOrderServiceImpl implements TestOrderService{
         List<TestAccountResponseForm> responseFormList = new ArrayList<>();
 
         for (TestOrder order: orderList) {
-            Optional<TestConsumerAccount> maybeAccount =
-                    accountRepository.findById(order.getTestConsumerAccount().getId());
+            Optional<TestAccount> maybeAccount =
+                    accountRepository.findById(order.getTestAccount().getId());
 
             if (maybeAccount.isPresent()) {
-                final TestConsumerAccount testConsumerAccount = maybeAccount.get();
+                final TestAccount testAccount = maybeAccount.get();
                 final TestAccountResponseForm responseForm = new TestAccountResponseForm(
-                        testConsumerAccount.getId(), testConsumerAccount.getEmail());
+                        testAccount.getId(), testAccount.getEmail());
 
                 responseFormList.add(responseForm);
             }
@@ -113,8 +113,8 @@ public class TestOrderServiceImpl implements TestOrderService{
         return maybeProduct.get();
     }
 
-    private TestConsumerAccount isValidateAccount(Long accountId) {
-        final Optional<TestConsumerAccount> maybeAccount = accountRepository.findById(accountId);
+    private TestAccount isValidateAccount(Long accountId) {
+        final Optional<TestAccount> maybeAccount = accountRepository.findById(accountId);
 
         if(maybeAccount.isEmpty()) {
             log.debug("주문을 진행할 수 없습니다!");

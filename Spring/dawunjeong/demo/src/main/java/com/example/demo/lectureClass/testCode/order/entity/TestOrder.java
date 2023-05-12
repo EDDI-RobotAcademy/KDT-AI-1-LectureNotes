@@ -1,6 +1,6 @@
 package com.example.demo.lectureClass.testCode.order.entity;
 
-import com.example.demo.lectureClass.testCode.account.entity.consumer.TestConsumerAccount;
+import com.example.demo.lectureClass.testCode.account.entity.account.TestAccount;
 import com.example.demo.lectureClass.testCode.product.entity.TestProduct;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -16,14 +16,14 @@ public class TestOrder {
 
     @ManyToOne
     @Getter
-    private TestConsumerAccount testConsumerAccount;
+    private TestAccount testAccount;
 
     @ManyToOne
     @Getter
     private TestProduct testProduct;
 
-    public TestOrder(TestConsumerAccount testConsumerAccount, TestProduct testProduct) {
-        this.testConsumerAccount = testConsumerAccount;
+    public TestOrder(TestAccount testAccount, TestProduct testProduct) {
+        this.testAccount = testAccount;
         this.testProduct = testProduct;
     }
 }

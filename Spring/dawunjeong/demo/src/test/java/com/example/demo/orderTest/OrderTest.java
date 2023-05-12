@@ -1,8 +1,8 @@
 package com.example.demo.orderTest;
 
-import com.example.demo.lectureClass.testCode.account.controller.form.consumer.TestConsumerAccountLoginResponseForm;
-import com.example.demo.lectureClass.testCode.account.controller.form.consumer.TestConsumerAccountRequestForm;
-import com.example.demo.lectureClass.testCode.account.service.consumer.TestConsumerAccountService;
+import com.example.demo.lectureClass.testCode.account.controller.form.account.TestAccountLoginResponseForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.account.TestAccountRequestForm;
+import com.example.demo.lectureClass.testCode.account.service.account.TestAccountService;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderAccountRequestForm;
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderListRequestForm;
@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 public class OrderTest {
     @Autowired
-    private TestConsumerAccountService testConsumerAccountService;
+    private TestAccountService testAccountService;
 
     @Autowired
     private TestOrderService testOrderService;
@@ -33,13 +33,13 @@ public class OrderTest {
     @Test
     @DisplayName("회원이 상품을 주문합니다!")
     void 회원이_상품을_주문합니다() {
-        final String email = "test@test.com";
-        final String password = "test";
+        final String email = "consumer1@test.com";
+        final String password = "consumer1";
         final Long productId = 2L;
         final Long accountId = 1L;
 
-        TestConsumerAccountRequestForm requestForm = new TestConsumerAccountRequestForm(email, password);
-        TestConsumerAccountLoginResponseForm responseform = testConsumerAccountService.login(requestForm);
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccountLoginResponseForm responseform = testAccountService.login(requestForm);
 
         String userToken = responseform.getUserToken().toString();
 
@@ -47,18 +47,18 @@ public class OrderTest {
         TestOrder order = testOrderService.order(orderRequestForm, accountId);
 
         assertEquals(productId, order.getTestProduct().getId());
-        assertEquals(accountId, order.getTestConsumerAccount().getId());
+        assertEquals(accountId, order.getTestAccount().getId());
     }
 
     @Test
     @DisplayName("회원이 주문한 상품을 조회합니다")
     void 회원이_주문한_상품을_조회합니다() {
-        final String email = "test@test.com";
-        final String password = "test";
+        final String email = "consumer2@test.com";
+        final String password = "consumer2";
         final Long accountId = 1L;
 
-        TestConsumerAccountRequestForm requestForm = new TestConsumerAccountRequestForm(email, password);
-        TestConsumerAccountLoginResponseForm responseform = testConsumerAccountService.login(requestForm);
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccountLoginResponseForm responseform = testAccountService.login(requestForm);
 
         String userToken = responseform.getUserToken().toString();
 
@@ -67,7 +67,7 @@ public class OrderTest {
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
 
         for(TestOrder order: orderListForAccount) {
-            assertEquals(accountId, order.getTestConsumerAccount().getId());
+            assertEquals(accountId, order.getTestAccount().getId());
         }
     }
 
@@ -82,8 +82,8 @@ public class OrderTest {
         System.out.println("orderListFindByProductId size: " + orderListFindByProductId.size());
 
         for(TestOrder order: orderListFindByProductId) {
-            assertTrue(order.getTestConsumerAccount().getId() != null);
-            System.out.println(order.getTestConsumerAccount().getId());
+            assertTrue(order.getTestAccount().getId() != null);
+            System.out.println(order.getTestAccount().getId());
         }
     }
     @Test
