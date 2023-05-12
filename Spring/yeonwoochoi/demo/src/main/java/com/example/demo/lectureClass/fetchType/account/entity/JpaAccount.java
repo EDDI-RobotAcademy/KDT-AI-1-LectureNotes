@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Getter
 @Entity
 @NoArgsConstructor
 public class JpaAccount {
@@ -15,9 +16,8 @@ public class JpaAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Getter
     private String email;
-    @Getter
+
     private String password;
 
     public JpaAccount(String email, String password) {

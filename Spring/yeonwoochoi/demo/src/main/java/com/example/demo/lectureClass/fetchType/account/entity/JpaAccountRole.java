@@ -3,12 +3,15 @@ package com.example.demo.lectureClass.fetchType.account.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
+@ToString(exclude = {"account"})
 @NoArgsConstructor
 public class JpaAccountRole {
 
     @Id
+    @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
