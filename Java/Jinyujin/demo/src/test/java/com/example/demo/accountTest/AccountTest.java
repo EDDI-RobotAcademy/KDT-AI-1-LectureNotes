@@ -205,6 +205,9 @@ public class AccountTest {
         /*
             여기서 이제 role도 확인하면 좋은데 양방향 참조가 아니라서 확인 못한다고 하심
             -> 이게 몬말이지?
+            이메일과 패스워드는 TestAccount 속에 있어서 getter로 가져와서 확인할 수 있지만
+            role은 그 안에 구성되어 있지 않음
+            그래서 확인 못한다는 것!
          */
     }
 
@@ -216,7 +219,9 @@ public class AccountTest {
         // 일반 회원을 조회하려면 관리자 회원이 해야함
         // 원래는 관리자의 유저토큰 가져와서 인증시스템이 있어야 하는데
         // 지금은 일단 관리자회원이라고 가정할 것
-        AccountRoleRequsetForm requsetForm = new AccountRoleRequsetForm(role);
+//        AccountRoleRequsetForm requsetForm = new AccountRoleRequsetForm(role);
+        // 저장소에서 필요한 애들 가져오는 거라서 얘 없어도 됨
+
         List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
         // 위에 만들어둔 role을 가지고 accountList를 가져온다
         // List<TestAccount>로 가져오면 비밀번호를 가져오게 됨 이거로 가져오면 안되고
@@ -228,7 +233,8 @@ public class AccountTest {
             assertTrue(responseForm.getAccountId() != null);
             assertTrue(responseForm.getEmail() != null);
         }
-
+        // 회원가입도 그렇고 조회도 그렇고 같은 형식으로 role만 바꿔주면
+        // 일반회원, 사업자회원, 관리자회원을 구분해서 가져올 수 있다
 
     }
 }
