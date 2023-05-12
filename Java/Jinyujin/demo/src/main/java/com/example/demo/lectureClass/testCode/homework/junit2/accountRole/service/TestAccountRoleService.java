@@ -1,8 +1,8 @@
 package com.example.demo.lectureClass.testCode.homework.junit2.accountRole.service;
 
-import com.example.demo.lectureClass.testCode.homework.junit2.accountRole.entity.AccountRole;
+import com.example.demo.lectureClass.testCode.homework.junit2.accountRole.entity.AccountRoleHomework;
 
 public interface TestAccountRoleService {
 
-    AccountRole whatIsYourType(String role);
+    AccountRoleHomework whatIsYourType(String role);
 }

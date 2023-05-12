@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
-public class AccountRole {
+public class AccountRoleHomework {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class AccountRole {
     @Getter
     private String role;
 
-    public AccountRole(String role) {
+    public AccountRoleHomework(String role) {
         this.role = role;
     }
 }
