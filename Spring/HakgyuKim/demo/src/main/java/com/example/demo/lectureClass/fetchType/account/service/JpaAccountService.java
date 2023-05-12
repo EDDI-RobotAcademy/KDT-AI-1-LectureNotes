@@ -11,4 +11,6 @@ public interface JpaAccountService {
     JpaAccount registerWithRole(JpaAccountWithRoleRequestForm requestForm);
 
     List<JpaAccountResponseForm> accountListWithRole(String role);
+
+    JpaAccount giveNewRole(JpaAccountWithRoleRequestForm requestForm);
 }

@@ -43,7 +43,7 @@ public class AccountLazyFetchTypeTest {
         // 그럼 Lazy를 빼야 할까요 ? x
         // 왜 빼면 안될까요 ?
         // 당장 필요한 것에만 집중하자!!! (결론적으로 이것도 일종의 관심사의 분리입니다)
-        final String role = "NORMAL";
+        final String role = "ADMIN";
 
         JpaAccountRoleRequestForm requestForm = new JpaAccountRoleRequestForm(role);
         List<JpaAccountResponseForm> normalAccountList = accountService.accountListWithRole(role);
@@ -53,4 +53,19 @@ public class AccountLazyFetchTypeTest {
             System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
         }
     }
+
+    @Test
+    @DisplayName("회원에 새로운 권한 부여")
+    void 새로운_권한_부여 () {
+        final String email ="test@test.com";
+        final String password = "test";
+        final String role = "ADMIN";
+
+        JpaAccountWithRoleRequestForm requestForm = new JpaAccountWithRoleRequestForm(email, password, role);
+        JpaAccount account = accountService.giveNewRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
 }
