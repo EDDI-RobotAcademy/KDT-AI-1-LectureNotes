@@ -1,7 +1,9 @@
 package kr.eddi.demo.lectureClass.fetchType.account.service;
 
+import kr.eddi.demo.lectureClass.fetchType.account.controller.form.JpaAccountResponseForm;
 import kr.eddi.demo.lectureClass.fetchType.account.controller.form.JpaAccountWithRoleRequestForm;
 import kr.eddi.demo.lectureClass.fetchType.account.entity.JpaAccount;
+import kr.eddi.demo.lectureClass.fetchType.account.entity.JpaAccountRole;
 import kr.eddi.demo.lectureClass.fetchType.account.repository.JpaAccountRepository;
 import kr.eddi.demo.lectureClass.fetchType.account.repository.JpaAccountRoleRepository;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
@@ -11,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -38,5 +42,28 @@ public class JpaAccountServiceImpl implements JpaAccountService {
         accountRoleRepository.save(requestForm.toJpaAccountRole(account));
 
         return account;
+    }
+
+    @Override
+    public List<JpaAccountResponseForm> accountListWithRole(String role) {
+        final List<JpaAccountRole> matchedAccountRoleList = accountRoleRepository.findAllByRole(role);
+        log.info("matchedAccountRoleList: " + matchedAccountRoleList);
+
+        List<JpaAccountResponseForm> responseFormList = new ArrayList<>();
+
+        for (JpaAccountRole accountRole: matchedAccountRoleList) {
+            final Optional<JpaAccount> maybeAccount = accountRepository.findById(accountRole.getId());
+
+            if (maybeAccount.isEmpty()) {
+                return null;
+            }
+
+            final JpaAccount account = maybeAccount.get();
+            responseFormList.add(
+                    new JpaAccountResponseForm(
+                            account.getId(), account.getEmail()));
+        }
+
+        return responseFormList;
     }
 }
