@@ -50,30 +50,18 @@ public class TestOrderServiceImpl implements TestOrderService{
         return orderRepository.save(new TestOrder(account, product));
     }
 
-    /*
-        주문이 들어오면 일단 사용자가 누군지 판별해야 함
-        그래서 위에 로그인에 대한 작업을 가져옴
-        근데 이 패턴이 반복될 것 -> private 메서드로 빼기: isValidateAccount()
-        오더리퍼지토리 부르기
-        그럼 사용자가 맞는지 확인하고 null을 리턴하고 있는 사용자의 아이디를 다 받아오는 메서드가 생성되었다
-        findAllByAccountId 자동완성 안되고 어제 bean creation 오류 발생
-        -> 이거 이름 그냥 Id라고 했을 때 똑같은 오류 나는지 확인하기
-        아 어카운트 아이디인데 오더 저장소에서 만든 것이라서 상관없는 것 같기도 함
-        그래도 한번 해보기
-        어제는 해당 엔티티에 있는 변수 가져오는 거였고
-        오늘은 해당 엔티티에 있는 엔티티의 변수를 가져오는 거라서 안될 것 같기도 함
-     */
-
     @Override
     public List<TestOrder> orderListForAccount(
             TestOrderListRequestForm orderListRequestForm, Long accountId) {
 
+        // 일단 먼저 주문한 회원을 찾아줘야 함
         final TestAccount account = isValidateAccount(
                 alwaysReturnFirst(orderListRequestForm.getUserToken(), accountId));
 
         if (account == null) return null;
 
         return orderRepository.findAllByAccountId(account.getId());
+        // 바로 이걸 리턴 때리는게 좀 헷갈림  근데 원래 그랬네
     }
 
     @Override

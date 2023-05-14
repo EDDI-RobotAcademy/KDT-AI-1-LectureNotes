@@ -39,6 +39,6 @@ public class BoardController {
     @PutMapping("/{boardId}")
     public BoardEntity boardModify(@PathVariable Long boardId, @RequestBody BoardForm boardForm) {
 
-        return boardService.boardModify();
+        return boardService.boardModify(boardId, boardForm);
     }
 }
