@@ -3,6 +3,8 @@
     <v-container>
         <v-data-table :headers="headerTitle" :items="contents" 
         :items-per-page="7" class="elevation-1"/>
+        <!-- v-data-table은 데이터를 테이블 형태로 보여줌 -->
+        <!-- headers: 각 헤더 컬럼을 정의하는 오브젝트의 배열 -->
     </v-container>
 </template>
 
