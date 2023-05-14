@@ -34,8 +34,8 @@ public class OrderTest {
     void 회원이_상품을_주문합니다 () {
         final String email = "test@test.com";
         final String password = "test";
-        final Long productId = 1L;
-        final Long accountId = 1L;
+        final Long productId = 2L;
+        final Long accountId = 2L;
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
@@ -49,7 +49,7 @@ public class OrderTest {
 
 
         TestOrderRequestForm orderRequestForm = new TestOrderRequestForm(userToken, productId);
-        TestOrder order = testOrderService.order(orderRequestForm, accountId); // 실제로 accountId 주면 안됨
+        TestOrder order = testOrderService.order(orderRequestForm, accountId); // 실제로 accountId 주면 안됨 (??.. 내가 주석 달았는데 이해가 안감)
         // userTocken과 productId를 가지고 주문 저장
 
         assertEquals(productId, order.getTestProduct().getId());
@@ -80,9 +80,8 @@ public class OrderTest {
         List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm, accountId);
         // orderListRequestForm, accountId를 인자로 orderListForAccount 메소드 실행
 
-
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
-
+        // test_order 테이블에서 test_account_id가 1인 얘의 주문 정보 리스트의 size를 확인
 
         for (TestOrder order: orderListForAccount) {
             assertEquals(accountId, order.getTestAccount().getId());
@@ -97,12 +96,16 @@ public class OrderTest {
         TestOrderAccountRequestForm requestForm = new TestOrderAccountRequestForm(productId);
         List<TestAccountResponseForm> accountResponseFormList =
                 testOrderService.findAllAccountWhoBuyProduct(requestForm);
+        // productId로 DB에 비교해서 존재하는 값을 받아온 List를 가져와서 객체화 시킴
 
         System.out.println("accountList size: " + accountResponseFormList.size());
+        // test_order 테이블에서 test_product_id가 2인 얘의 주문 정보 리스트 size를 확인
 
         for (TestAccountResponseForm responseForm: accountResponseFormList) {
             System.out.println("account email: " + responseForm.getEmail());
             assertTrue(responseForm.getAccountId() != null);
+//            responseForm.getAccountId() 이 빈공간이 될때 까지 출력
+
         }
     }
 

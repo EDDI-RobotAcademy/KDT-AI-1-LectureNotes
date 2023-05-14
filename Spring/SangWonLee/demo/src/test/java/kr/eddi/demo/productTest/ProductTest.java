@@ -20,7 +20,7 @@ public class ProductTest {
     @DisplayName("사업자 회원이 상품을 등록합니다.")
     void 사업자가_상품을_등록합니다 () {
         final String productName = "또 다른 레고";
-        final Integer price = 246000;
+        final Integer price = 236000;
 
         TestProductRequestForm requestForm = new TestProductRequestForm(productName, price);
 //        정보를 UI에서 받아왔다고 생각하고 TestProductRequestForm 객체 생성
