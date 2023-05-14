@@ -58,7 +58,9 @@ public class OrderTest {
         // 얘는 상품이랑 토큰 정보 두 개 다 처리해야함
         // 그래서 사실상 orderService에서 order를 해줘야 하고
         // 주문이 들어갈꺼니까 리턴된 오더를 봐야함
-        TestOrder order = testOrderService.order(orderRequestForm, accountId);  // 실제로 accountId 주면 안됨
+        TestOrder order = testOrderService.order(orderRequestForm, accountId);
+        // 실제로 accountId 주면 안됨
+        // 원래는 userToken으로 찾는데 지금은 accountId로 고정시켜서 찾기 위함
 
         assertEquals(productId, order.getTestProduct().getId());
         assertEquals(accountId, order.getTestAccount().getId());

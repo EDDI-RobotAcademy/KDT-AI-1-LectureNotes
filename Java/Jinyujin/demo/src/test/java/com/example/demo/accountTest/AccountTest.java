@@ -135,6 +135,7 @@ public class AccountTest {
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
+        // 로그인이 되면 userToken을 줌
 
         assertTrue(responseForm.getUserToken() == null);
     }

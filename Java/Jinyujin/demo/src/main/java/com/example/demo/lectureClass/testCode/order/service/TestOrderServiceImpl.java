@@ -36,7 +36,9 @@ public class TestOrderServiceImpl implements TestOrderService{
         final TestAccount account = isValidateAccount(
                 alwaysReturnFirst(requestForm.getUserToken(), accountId));
 
-        if (account == null) return null;
+        if (account == null) {
+            return null;
+        }
 
         final Optional<TestProduct> maybeProduct =
                 productRepository.findById(requestForm.getProductId());
@@ -62,6 +64,7 @@ public class TestOrderServiceImpl implements TestOrderService{
 
         return orderRepository.findAllByAccountId(account.getId());
         // 바로 이걸 리턴 때리는게 좀 헷갈림  근데 원래 그랬네
+        // 리스트 형식으로 리턴 때릴 필요가 없나보네
     }
 
     @Override
@@ -84,6 +87,7 @@ public class TestOrderServiceImpl implements TestOrderService{
                 final TestAccountResponseForm accountResponseForm =
                         new TestAccountResponseForm(testAccount.getId(), testAccount.getEmail());
                 // 그걸 다시 TestAccountResponseForm에 담아서 객체로 만들고 accountResponseForm에 저장해주기
+                // 비밀번호 안줄라고
 
                 accountResponseFormList.add(accountResponseForm);
             }
