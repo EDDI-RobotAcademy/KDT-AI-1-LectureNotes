@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import boardModule from '@/store/board'
-import uiVuetifyModule from '@/store/uiVeutify'
-import d3PlotModule from '@/store/d3Plot'
-import fileModule from '@/store/files'
-import foodModule from './food/FoodModule'
+import boardModule from '@/store/board/BoardModule'
+import uiVuetifyModule from '@/store/uiVeutify/UiVuetifyModule'
+import d3PlotModule from '@/store/d3Plot/D3PlotModule'
+import fileModule from '@/store/files/FileModule'
+import foodModule from '@/store/food/FoodModule'
 
 Vue.use(Vuex)
 
