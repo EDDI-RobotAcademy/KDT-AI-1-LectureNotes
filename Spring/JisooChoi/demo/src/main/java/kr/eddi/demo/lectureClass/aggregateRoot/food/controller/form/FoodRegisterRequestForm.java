@@ -20,16 +20,16 @@ public class FoodRegisterRequestForm {
         enum 같은 경우는 어떤 타입으로 받아와야 할 지, 정확하게 명시해주어야 한다.
     */
     @JsonProperty("category")
-    final private CategoryType categoryType;
+    final private CategoryType categoryType; // [카테고리 : 채소, 육류, 토핑, 아이스크림]
 
-    final private Integer foodPrice;
-    final private Integer foodCalorie;
-    final private Integer max;
-    final private Integer min;
+    final private Integer foodPrice; // 단위당 가격
+    final private Integer foodCalorie; // 단위당 칼로리
+    final private Integer max; // 최대 수량
+    final private Integer min; // 최소 수량
     final private Integer unit;
 
     @JsonProperty("measure")
-    final private AmountType amountType;
+    final private AmountType amountType; // [측정단위: 그램, 카운트]
 
     /*
         이미지 파일의 이름이 다 같아선 안된다.

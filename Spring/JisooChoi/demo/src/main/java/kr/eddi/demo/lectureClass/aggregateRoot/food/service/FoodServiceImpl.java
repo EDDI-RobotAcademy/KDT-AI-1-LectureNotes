@@ -20,12 +20,18 @@ public class FoodServiceImpl implements FoodService{
 
     @Override
     public void register(FoodRegisterRequest request) {
-        // 1. 식재료 Entity 및 Image 처리
+        /*
+            1. 식재료 Entity 및 Image 처리
+
+            Form 으로 받은 정보를 Food 타입으로 변환하여 repository 에 저장한다.
+        */
         final Food food = request.toFood();
         foodRepository.save(food);
+
         // 2. 수량 처리
-        final Amount amount = amountRepository.findByAmountType(
-                request.getAmountType()).get();
+        final Amount amount =
+                amountRepository.findByAmountType(request.getAmountType()).get();
+
         final FoodAmount foodAmount =
                 new FoodAmount(
                         food, amount,
@@ -34,14 +40,13 @@ public class FoodServiceImpl implements FoodService{
                         request.getUnit(),
                         request.getMax(),
                         request.getMin());
-
         foodAmountRepository.save(foodAmount);
-        // 3. 카테고리 처리
-        final Category category = categoryRepository.findByCategoryType(
-                request.getCategoryType());
-        final FoodCategory foodCategory =
-                new FoodCategory(food, category);
 
+        // 3. 카테고리 처리
+        final Category category =
+                categoryRepository.findByCategoryType(request.getCategoryType());
+
+        final FoodCategory foodCategory = new FoodCategory(food, category);
         foodCategoryRepository.save(foodCategory);
     }
 }

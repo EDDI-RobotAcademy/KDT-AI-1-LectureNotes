@@ -20,7 +20,9 @@ public class FoodRegisterRequest {
     final private Integer min;
     final private Integer unit;
     final private AmountType amountType;
-    final private String uniqueRandomName; //?
+
+    // 이미지 파일의 이름이 다 같아선 안되서 [UUID + 파일 이름] 인 값 ↓
+    final private String uniqueRandomName;
 
     public Food toFood() {
         return new Food(
