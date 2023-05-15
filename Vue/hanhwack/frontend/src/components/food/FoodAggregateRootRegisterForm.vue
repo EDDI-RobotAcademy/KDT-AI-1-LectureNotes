@@ -28,7 +28,7 @@
               type="radio"
               v-model="category"
               name="radioBtn"
-              value="TOPING"
+              value="TOPPING"
             />
             <label>토핑</label>
           </div>
