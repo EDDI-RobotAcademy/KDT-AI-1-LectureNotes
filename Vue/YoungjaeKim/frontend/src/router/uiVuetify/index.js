@@ -28,6 +28,11 @@ const vuetifyTestRoutes = [
     component: ImageGalleryTest
   },
   {
+    path: '/print-image-test',
+    name: 'PrintImageTest',
+    component: PrintImageTest
+  },
+  {
     path: '/dialog-test-page',
     name: 'DialogTestPage',
     component: DialogTestPage
