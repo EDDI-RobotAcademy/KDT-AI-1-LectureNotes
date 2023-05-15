@@ -70,7 +70,7 @@
           >Spring에 요청해서 파일 리스트 보기</router-link
         >
         |
-        <router-link to="/food-register-page"
+        <router-link to="/food-register"
           >Food Aggregate Root 만들기</router-link
         >
         |

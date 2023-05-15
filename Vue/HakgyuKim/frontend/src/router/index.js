@@ -12,8 +12,8 @@ import vueBasicRoutes from "./vueBasic";
 import htmlCssRoutes from "./htmlCss";
 import homeworkRoutes from "./homework";
 import plotRoutes from "./plot";
-import filesTestRoutes from "./files"
-import foodTestRoutes from "./food";
+import filesTestRoutes from "./files";
+import foodSetRoutes from "./food";
 
 Vue.use(VueRouter);
 
@@ -41,7 +41,7 @@ const routes = [
   ...homeworkRoutes,
   ...plotRoutes,
   ...filesTestRoutes,
-  ...foodTestRoutes
+  ...foodSetRoutes,
 ];
 
 const router = new VueRouter({

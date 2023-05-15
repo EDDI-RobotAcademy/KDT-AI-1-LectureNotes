@@ -1,13 +1,13 @@
 import Vue from "vue";
-import Vuex from "vuex"
+import Vuex from "vuex";
 
-import actions from "@/store/food/actions"
+import actions from "@/store/food/actions";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const FoodModule = {
-    namespaced: true,
-    actions,
-}
+  namespaced: true,
+  actions,
+};
 
-export default FoodModule
+export default FoodModule;

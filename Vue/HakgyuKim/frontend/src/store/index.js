@@ -5,7 +5,7 @@ import boardModule from "@/store/board/BoardModule.js";
 import ImageModule from "@/store/image/ImageModule.js";
 import exerciseModule from "./d3Homework1/ExerciseModule";
 import filesModule from "./files/FilesModule";
-import FoodModule from "./food/FoodModule";
+import foodModule from "./food/FoodModule";
 
 Vue.use(Vuex);
 
@@ -15,7 +15,7 @@ const store = new Vuex.Store({
     ImageModule: ImageModule,
     exerciseModule: exerciseModule,
     filesModule: filesModule,
-    FoodModule: FoodModule
+    foodModule: foodModule,
   },
 });
 

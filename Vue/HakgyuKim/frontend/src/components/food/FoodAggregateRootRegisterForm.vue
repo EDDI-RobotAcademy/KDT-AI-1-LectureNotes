@@ -62,7 +62,7 @@
           <div>
             <input
               type="file"
-              id="file"
+              id="files"
               ref="files"
               multiple
               @change="handleFileUpload"
@@ -95,10 +95,11 @@
 
     <div>
       <button type="submit">등록</button>
-      <router-link :to="{ name: 'home' }">취소</router-link>
+      <router-link :to="{ name: 'home' }"> 취소 </router-link>
     </div>
   </form>
 </template>
+
 <script>
 export default {
   data() {
@@ -109,19 +110,17 @@ export default {
       max: "10",
       min: "1",
       unit: "2",
+      foodPrice: "2000",
       foodCalorie: "10",
-      foodPrice: "1000",
       files: "",
     };
   },
   methods: {
     onSubmit() {
       let formData = new FormData();
-
       for (let idx = 0; idx < this.files.length; idx++) {
         formData.append("imageFile", this.files[idx]);
       }
-
       const {
         foodName,
         category,
@@ -143,12 +142,10 @@ export default {
         foodPrice: foodPrice,
         foodCalorie: foodCalorie,
       };
-
       formData.append(
         "foodInfo",
         new Blob([JSON.stringify(foodInfo)], { type: "application/json" })
       );
-
       this.$emit("submit", formData);
     },
     handleFileUpload() {
