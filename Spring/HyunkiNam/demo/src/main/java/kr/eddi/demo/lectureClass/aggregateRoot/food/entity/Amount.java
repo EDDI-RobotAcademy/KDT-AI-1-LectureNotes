@@ -1,6 +1,5 @@
 package kr.eddi.demo.lectureClass.aggregateRoot.food.entity;
 
-
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
