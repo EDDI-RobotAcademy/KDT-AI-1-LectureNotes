@@ -17,7 +17,7 @@ public class ProductTest {
     @Test
     @DisplayName("사업자 회원이 상품을 등록합니다.")
     void 사업자가_상품을_등록합니다 () {
-        final String productName = "또 다른 레고";
+        final String productName = "레고";
         final Integer price = 246000;
 
         TestProductRequestForm requestForm = new TestProductRequestForm(productName, price);

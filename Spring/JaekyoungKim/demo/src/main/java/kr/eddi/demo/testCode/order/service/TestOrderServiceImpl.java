@@ -1,6 +1,6 @@
 package kr.eddi.demo.testCode.order.service;
 
-import kr.eddi.demo.testCode.order.controller.form.TestAccountListResponseForm;
+import kr.eddi.demo.testCode.order.controller.form.TestAccountResponseForm;
 import kr.eddi.demo.testCode.account.entity.TestAccount;
 import kr.eddi.demo.testCode.account.repository.TestAccountRepository;
 import kr.eddi.demo.testCode.order.controller.form.TestOrderAccountRequestForm;
@@ -28,13 +28,16 @@ public class TestOrderServiceImpl implements TestOrderService {
     final private TestOrderRepository orderRepository;
 
     // 지금 redis를 쓸 수 없으므로 임시 방편용
-    private Long alwaysReturnFirst (String userToken) {
-        return 1L;
+    private Long alwaysReturnFirst (String userToken, Long accountId) {
+        return accountId;
     }
 
+
     @Override
-    public TestOrder order(TestOrderRequestForm requestForm) {
-        final TestAccount account = isValidateAccount(alwaysReturnFirst(requestForm.getUserToken()));
+    public TestOrder order(TestOrderRequestForm requestForm, Long accountId) {
+        final TestAccount account = isValidateAccount(
+                alwaysReturnFirst(requestForm.getUserToken(), accountId));
+
         if (account == null) return null;
 
         final Optional<TestProduct> maybeProduct = productRepository.findById(requestForm.getProductId());
@@ -49,9 +52,10 @@ public class TestOrderServiceImpl implements TestOrderService {
     }
 
     @Override
-    public List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm) {
+    public List<TestOrder> orderListForAccount(
+            TestOrderListRequestForm orderListRequestForm, Long accountId) {
         final TestAccount account = isValidateAccount(
-                alwaysReturnFirst(orderListRequestForm.getUserToken()));
+                alwaysReturnFirst(orderListRequestForm.getUserToken(), accountId));
 
         if (account == null) return null;
 
@@ -61,8 +65,8 @@ public class TestOrderServiceImpl implements TestOrderService {
 
 
     @Override
-    public List<TestAccountListResponseForm> findAllAccountWhoBuyProduct(TestOrderAccountRequestForm requestForm) {
-        List<TestAccountListResponseForm> responseFormList=new ArrayList<>();
+    public List<TestAccountResponseForm> findAllAccountWhoBuyProduct(TestOrderAccountRequestForm requestForm) {
+        List<TestAccountResponseForm> responseFormList=new ArrayList<>();
 
         List<TestOrder> orderList=orderRepository.findAllAccountWhoBuyProduct(requestForm.getProductId());
 
@@ -70,7 +74,7 @@ public class TestOrderServiceImpl implements TestOrderService {
         Optional<TestAccount> maybeAccount=accountRepository.findById(order.getTestAccount().getId());
         if (maybeAccount.isPresent()){
             final TestAccount testAccount =maybeAccount.get();
-            final TestAccountListResponseForm responseForm= new TestAccountListResponseForm(
+            final TestAccountResponseForm responseForm= new TestAccountResponseForm(
             testAccount.getId(),testAccount.getEmail());
 
             responseFormList.add(responseForm);

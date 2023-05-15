@@ -1,6 +1,6 @@
 package kr.eddi.demo.orderTest;
 
-import kr.eddi.demo.testCode.order.controller.form.TestAccountListResponseForm;
+import kr.eddi.demo.testCode.order.controller.form.TestAccountResponseForm;
 import kr.eddi.demo.testCode.account.controller.form.TestAccountLoginResponseForm;
 import kr.eddi.demo.testCode.account.controller.form.TestAccountRequestForm;
 import kr.eddi.demo.testCode.account.service.TestAccountService;
@@ -34,8 +34,8 @@ public class OrderTest {
     @Test
     @DisplayName("회원이 상품을 주문합니다")
     void 회원이_상품을_주문합니다 () {
-        final String email = "test@test.com";
-        final String password = "test";
+        final String email = "gogo@gogo.com";
+        final String password = "gogo";
         final Long productId = 1L;
         final Long accountId = 1L;
 
@@ -45,7 +45,7 @@ public class OrderTest {
         String userToken = responseForm.getUserToken().toString();
 
         TestOrderRequestForm orderRequestForm = new TestOrderRequestForm(userToken, productId);
-        TestOrder order = testOrderService.order(orderRequestForm);
+        TestOrder order = testOrderService.order(orderRequestForm,accountId);
 
         assertEquals(productId, order.getTestProduct().getId());
         assertEquals(accountId, order.getTestAccount().getId());
@@ -53,8 +53,8 @@ public class OrderTest {
     @Test
     @DisplayName("회원이 주문한 상품을 조회합니다")
     void 회원이_주문한_상품을_조회합니다 () {
-        final String email = "test@test.com";
-        final String password = "test";
+        final String email = "gogo@gogo.com";
+        final String password = "gogo";
         final Long accountId = 1L;
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
@@ -63,10 +63,11 @@ public class OrderTest {
         String userToken = responseForm.getUserToken().toString();
 
         TestOrderListRequestForm orderListRequestForm = new TestOrderListRequestForm(userToken);
-        List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm);
+        List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm,accountId);
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
 
         for (TestOrder order: orderListForAccount) {
+            System.out.println("구매한 상품: "+order.getTestProduct().getProductName());
             assertEquals(accountId, order.getTestAccount().getId());
         }
     }
@@ -75,11 +76,11 @@ public class OrderTest {
     void 특정_물품을_구매한_회원_정보_조회 () {
         final Long productId=1L;
         TestOrderAccountRequestForm requestForm= new TestOrderAccountRequestForm(productId);
-        List<TestAccountListResponseForm> accountResponseFormList = testOrderService.findAllAccountWhoBuyProduct(requestForm);
+        List<TestAccountResponseForm> accountResponseFormList = testOrderService.findAllAccountWhoBuyProduct(requestForm);
         System.out.println("accountList size: "+accountResponseFormList.size());
         System.out.println("account eamil: "+accountResponseFormList.get(0).getEmail());
 
-        for (TestAccountListResponseForm responseForm:accountResponseFormList) {
+        for (TestAccountResponseForm responseForm:accountResponseFormList) {
             assertTrue(responseForm.getAccountId()!=null);
         }
         }

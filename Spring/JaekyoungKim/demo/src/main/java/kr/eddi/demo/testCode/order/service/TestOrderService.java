@@ -1,6 +1,6 @@
 package kr.eddi.demo.testCode.order.service;
 
-import kr.eddi.demo.testCode.order.controller.form.TestAccountListResponseForm;
+import kr.eddi.demo.testCode.order.controller.form.TestAccountResponseForm;
 import kr.eddi.demo.testCode.order.controller.form.TestOrderAccountRequestForm;
 import kr.eddi.demo.testCode.order.controller.form.TestOrderListRequestForm;
 import kr.eddi.demo.testCode.order.controller.form.TestOrderRequestForm;
@@ -10,10 +10,11 @@ import java.util.List;
 
 
 public interface TestOrderService {
-    TestOrder order (TestOrderRequestForm requestForm);
+    TestOrder order (TestOrderRequestForm requestForm, Long accountId);
 
 
-    List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm);
+    List<TestOrder> orderListForAccount(
+            TestOrderListRequestForm orderListRequestForm, Long accountId);
 
-    List<TestAccountListResponseForm> findAllAccountWhoBuyProduct(TestOrderAccountRequestForm requestForm);
+    List<TestAccountResponseForm> findAllAccountWhoBuyProduct(TestOrderAccountRequestForm requestForm);
 }

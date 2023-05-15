@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class TestAccountListResponseForm {
+public class TestAccountResponseForm {
 
     private final Long accountId;
     final private String email;

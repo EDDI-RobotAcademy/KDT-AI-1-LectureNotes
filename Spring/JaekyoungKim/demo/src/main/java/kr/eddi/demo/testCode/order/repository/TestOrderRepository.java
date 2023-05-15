@@ -1,6 +1,6 @@
 package kr.eddi.demo.testCode.order.repository;
 
-import kr.eddi.demo.testCode.order.controller.form.TestAccountListResponseForm;
+import kr.eddi.demo.testCode.order.controller.form.TestAccountResponseForm;
 import kr.eddi.demo.testCode.order.entity.TestOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,7 +15,7 @@ public interface TestOrderRepository extends JpaRepository<TestOrder,Long> {
     @Query("select to from TestOrder to where to.testAccount.id = :id")
     List<TestOrder> findAllByAccountId(Long id);
     @Query("select to from TestOrder to where to.testProduct.id = :id")
-     List<TestAccountListResponseForm> findByProductId(Long id);
+     List<TestAccountResponseForm> findByProductId(Long id);
     @Query("select to from TestOrder to where to.testProduct.id= :productId")
     List<TestOrder> findAllAccountWhoBuyProduct(Long productId);
 }

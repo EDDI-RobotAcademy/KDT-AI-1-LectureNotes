@@ -73,11 +73,13 @@ public class LambdaTest {
     public void 두개의_숫자_더해서_평균계산_검증하기 (){
     ScoreCollection collection = new ScoreCollection();
     collection.add(()->5);
-    collection.add(()->9);
+    collection.add(()->2);
+        collection.add(()->9);
+
 
     int actualResult = collection.arithmeticMean();
 
-    assertEquals(actualResult, 7);
+    assertEquals(actualResult, 5);
 
 
     }
