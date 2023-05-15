@@ -7,10 +7,10 @@ import actions from "@/store/food/actions"
 
 Vue.use(Vuex)
 
-const foodModule = {
+const FoodModule = {
     namespaced: true,
     actions,
     
 }
 
-export default foodModule
+export default FoodModule
