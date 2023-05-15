@@ -36,15 +36,23 @@ public class FoodRegisterRequestForm {
     // 여기에는 GRAM이랑 COUNT 들어간다고 설정해뒀음
     @JsonProperty("measure")
     final private AmountType amountType;
+    // 전달받은 measure을 amountType으로 맵핑할 것
 
     // 이미지 파일 만든다고 할 때 이미지 파일 이름이 다 같으면 안됨
     // 여기서 이미지 파일 받을 것
+    // 이미지는 뷰에서 files로 보냄
     public FoodRegisterRequest toFoodRegisterRequest (MultipartFile imageFile) {
         UUID randomPrefix = UUID.randomUUID();
+        // 사진한테 고유 값 주기 위함
         String uniqueRandomName= randomPrefix + imageFile.getOriginalFilename();
 
         return new FoodRegisterRequest(
                 foodName, categoryType, foodPrice, foodCalorie,
                 max, min, unit, amountType, uniqueRandomName);
     }
+
+    // 얘는 controller에서 사용
+    // 이 foodRegisterRequestForm 형태로 등록하도록 함
+    // 총체적으로 controller에서 등록하는 형식은 여기 form 형식
+
 }

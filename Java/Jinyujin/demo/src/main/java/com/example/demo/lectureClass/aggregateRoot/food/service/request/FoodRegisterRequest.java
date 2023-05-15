@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.aggregateRoot.food.service.request;
 
+import com.example.demo.lectureClass.aggregateRoot.food.controller.form.FoodRegisterRequestForm;
 import com.example.demo.lectureClass.aggregateRoot.food.entity.AmountType;
 import com.example.demo.lectureClass.aggregateRoot.food.entity.CategoryType;
 import com.example.demo.lectureClass.aggregateRoot.food.entity.Food;
@@ -39,4 +40,13 @@ public class FoodRegisterRequest {
                 foodName,
                 FoodImage.of(uniqueRandomName));
     }
+
+    // 서비스에서 request를 따로 만든 이유는?
+    // formData로 foodInfo와 이미지 정보를 함께 받아왔지만
+    // controller에서 @RequestPart로 따로 받음
+    // requestForm에서는 Info에 대한 정보만 있고
+    // request에서 String uniqueRandomName으로 이미지에 대한 정보까지 받음
+    // 그래서 request만으로 service를 깔끔하게 돌릴 수 있는 것
+    // RequestForm이 양식이라면 Request는 실질적인 요청
+    // 그리고 service가 이 요청을 처리하는 구조
 }

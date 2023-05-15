@@ -42,6 +42,8 @@ public class FoodServiceImpl implements FoodService {
         // 3. 카테고리 처리
         final Category category = categoryRepository.findByCategoryType(
                 foodRegisterRequest.getCategoryType());
+                // amoutType이랑 다른 점이 뭐길래 amout에만 get()을 붙여주는 거지?
+                // 일단 get()이 붙어야 하는 이유는 Optional -> 있는지 없는지 확인하기 위해서
         final FoodCategory foodCategory =
                 new FoodCategory(food, category);
         foodCategoryRepository.save(foodCategory);
