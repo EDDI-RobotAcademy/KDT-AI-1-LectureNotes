@@ -14,7 +14,7 @@
               <label>육류</label>
             </div>
             <div>
-              <input type="radio" v-model="category" name="radioBtn" value="TOPING">
+              <input type="radio" v-model="category" name="radioBtn" value="TOPPING">
               <label>토핑</label>
             </div>
             <div>
