@@ -1,4 +1,5 @@
 <template lang="">
+
     <form @submit.prevent="onSubmit">
       <table>
         <tr>
@@ -28,26 +29,27 @@
             <h3>식재 정보</h3>
             <hr/>
             <div>
-              <input type="text" v-model="foodName">
               <label>식재료명</label>
+              <input type="text" v-model="foodName">
             </div>
             <div>
-              <input type="number" v-model="foodPrice">
               <label>단위당 가격</label>
+              <input type="number" v-model="foodPrice">
             </div>
             <div>
-              <input type="text" v-model="foodCalorie">
               <label>단위당 칼로리(Kcal)</label>
+              <input type="text" v-model="foodCalorie">
             </div>
             <div>
-              <input type="file" id="files" ref="files" multiple @change="handleFileUpload"/>
               <label>식재료 이미지 정보</label>
+              <input type="file" id="files" ref="files" multiple @change="handleFileUpload"/>
             </div>
           </td>
         </tr>
         <tr>
           <td>
             <h3>단위 정보</h3>
+            <hr/>
             <div>
               <label>최대 수량</label>
               <input type="text" v-model="max"/>
@@ -74,6 +76,7 @@
         </router-link>
       </div>
     </form>
+
   </template>
   
   <script>
@@ -111,6 +114,7 @@
               formData.append(
                   "foodInfo",
                   new Blob([JSON.stringify(foodInfo)], { type: "application/json" })
+                  //JSON형태로 바로 보내면 백엔드 서버에서는 알아볼 수 없기 때문에 stringify를 이용해 보내야 한다.
               )
               this.$emit('submit', formData)
           },
@@ -121,6 +125,10 @@
   }
   </script>
   
-  <style lang="">
+  <style scoped>
+  div{
+text-align: left;
+  }
+ 
       
   </style>
