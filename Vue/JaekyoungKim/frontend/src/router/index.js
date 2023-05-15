@@ -18,6 +18,7 @@ import vModelRoutes from './vModel'
 import defaultRoutes from './defaultRouterSet'
 import PlotTestRoutes from './Plot'
 import FileTestRoutes from './file'
+import foodSetRoutes from './food'
 Vue.use(VueRouter)
 
 const routes = [
@@ -71,7 +72,8 @@ const routes = [
  ...vModelRoutes,
  ...defaultRoutes,
  ...PlotTestRoutes,
- ...FileTestRoutes
+ ...FileTestRoutes,
+ ...foodSetRoutes
 
 ]
 const router = new VueRouter({

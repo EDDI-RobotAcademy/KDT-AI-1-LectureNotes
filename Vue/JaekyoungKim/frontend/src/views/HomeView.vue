@@ -47,7 +47,8 @@
             <router-link to="/d3-plot-problem">운동량 그래프</router-link>|
             <router-link to="/d3-health-data">운동량 선생님</router-link>|
             <router-link to="/file-handler-test-page">파일 전송</router-link>|
-            <router-link to="/file-list-show-page">받은 사진 표출</router-link>
+            <router-link to="/file-list-show-page">받은 사진 표출</router-link>|
+            <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
            
             
         </nav></div>
