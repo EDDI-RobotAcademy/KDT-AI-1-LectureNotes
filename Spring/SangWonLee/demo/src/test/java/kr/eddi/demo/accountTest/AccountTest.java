@@ -201,6 +201,8 @@ public class AccountTest {
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
+        // 왼쪽, 오른쪽 값이 같은지 확인
+        // assert에 해당하지 않는 Exception이 발생할 경우 그 즉시 모든 Test를 멈추고 에러메시지를 띄우고 Test는 중단된다.
     }
 
     @Test
@@ -226,14 +228,24 @@ public class AccountTest {
         final String role = "NORMAL";
 
         AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        // 일반 회원 정보인 NORMAL를 가지고 AccountRoleRequestForm 객체 생성
         List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+        // role을 인수로 accountListWithRole 메소드를 호출 한다.
+        // 그리고 TestAccountResponseForm 객체의 리스트를 반환하고 normalAccountList 변수에 저장한다.
 
         for (TestAccountResponseForm responseForm: normalAccountList) {
+//            normalAccountList 갯수 만큼
             System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
             System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
 
+            // 출력
+
             assertTrue(responseForm.getAccountId() != null);
             assertTrue(responseForm.getEmail() != null);
+            // null이 아니라면 True.
+
+
+
         }
     }
 }
