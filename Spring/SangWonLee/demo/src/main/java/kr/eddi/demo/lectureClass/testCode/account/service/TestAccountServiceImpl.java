@@ -72,14 +72,23 @@ public class TestAccountServiceImpl implements TestAccountService {
     public TestAccount registerWithRole(TestAccountWithRoleRequestForm requestForm) {
         final Optional<TestAccount> maybeAccount =
                 testAccountRepository.findByEmail(requestForm.getEmail());
+        // 받아온 정보값에서 email을 인자로 findByEmail 메소드 실행
+        // DB에 있는 값이면 속이 차있는 Optional이고, 없는 값이면 빈 Optional일 것임
 
-        if (maybeAccount.isPresent()) {
+        if (maybeAccount.isPresent()) { // 속이 차있으면 email이 존재하는거니까
             log.debug("이미 가입된 회원입니다!");
-            return null;
+            return null; // 테스트 실패
         }
+        // 이 밑은 빈 Optional 이니까. DB에 존재하지 않는 email이므로 진행
 
         final TestAccount account = testAccountRepository.save(requestForm.toTestAccount());
+        // requestForm 으로 받아온 매개변수로 toTestAccount 메소드 실행
+        // (TestAccount 객체로 만들기) 그 후 DB에 저장 (DB에 test_account 테이블에 저장)
+
         testAccountRoleRepository.save(requestForm.toTestAccountRole(account));
+        // 위의 account로 TestAccountWithRoleRequestForm(requestForm 임)객체를 사용해서
+        // toTestAccountRole 메소드 실행
+        // (AccountRole 객체로 만들기) 그 후 DB에 저장 (DB에 account_role 테이블에 저장)
 
         return account;
     }

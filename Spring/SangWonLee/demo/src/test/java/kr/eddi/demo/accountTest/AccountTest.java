@@ -180,7 +180,7 @@ public class AccountTest {
     }
 
     @Test
-    @DisplayName("회원가입을 합니다(일반회원)")
+    @DisplayName("회원가입을 합니다 (일반회원)")
     void 일반회원_회원가입 () {
         // 여러가지 방법론들
         // 1. Account Domain과 AccountRole Domain을 분리하자!
@@ -192,24 +192,29 @@ public class AccountTest {
 
         final String email = "gogo@gmail.com";
         final String password = "gogo";
-        final String role = "NORMAL";
+        final String role = "NORMAL"; // 일반 회원
 
         TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        // 일반 회원 email, password, role 가지고 TestAccountWithRoleRequestForm 객체 생성
         TestAccount account = testAccountService.registerWithRole(requestForm);
+        // requestForm 객체로 registerWithRole 메소드 실행
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
     }
 
     @Test
-    @DisplayName("회원가입을 합니다(일반회원)")
+    @DisplayName("회원가입을 합니다 (비지니스 회원)")
     void 사업자_회원가입 () {
         final String email = "business@test.com";
         final String password = "test";
-        final String role = "BUSINESS";
+        final String role = "BUSINESS"; // 비지니스 회원
 
         TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        // 비지니스 회원 email, password, role 값 가지고 TestAccountWithRoleRequestForm 객체 생성
+
         TestAccount account = testAccountService.registerWithRole(requestForm);
+        // requestForm 객체로 registerWithRole 메소드 실행
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
