@@ -6,6 +6,9 @@ import com.example.demo.lectureClass.aggregateRoot.entity.Category;
 import com.example.demo.lectureClass.aggregateRoot.entity.CategoryType;
 import com.example.demo.lectureClass.aggregateRoot.repository.AmountRepository;
 import com.example.demo.lectureClass.aggregateRoot.repository.CategoryRepository;
+import com.example.demo.lectureClass.homework.entity.Role;
+import com.example.demo.lectureClass.homework.entity.RoleType;
+import com.example.demo.lectureClass.homework.repository.RoleRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +24,7 @@ public class DBInitializer {
 
     private final CategoryRepository categoryRepository;
     private final AmountRepository amountRepository;
+    private final RoleRepository roleRepository;
 
     @PostConstruct
     private void init () {
@@ -28,6 +32,7 @@ public class DBInitializer {
 
         initCategoryTypes();
         initAmountTypes();
+        initRoleTypes();
 
         log.debug("initializer 종료!");
     }
@@ -61,6 +66,24 @@ public class DBInitializer {
                 if (!categories.contains(type)) {
                     final Category category = new Category(type);
                     categoryRepository.save(category);
+                }
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    private void initRoleTypes () {
+        try {
+            final Set<RoleType> roles =
+                    roleRepository.findAll().stream()
+                            .map(Role::getRoleType)
+                            .collect(Collectors.toSet());
+
+            for (RoleType type: RoleType.values()) {
+                if (!roles.contains(type)) {
+                    final Role role = new Role(type);
+                    roleRepository.save(role);
                 }
             }
         } catch (Exception e) {
