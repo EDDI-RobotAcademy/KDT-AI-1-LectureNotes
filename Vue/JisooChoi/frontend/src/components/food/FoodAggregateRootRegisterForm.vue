@@ -94,10 +94,21 @@ export default {
     methods: {
         onSubmit () {
             let formData = new FormData()
+            /*
+                => formData의 속성(=필드) 이름으로 imageFile, foodInfo가 있다.
+
+                사용자가 추가한 사진 파일들을 하나씩 꺼내서 formData에 넣어주며,
+                사진은 imageFile 로 추가되고,
+
+                도메인에 따른 데이터는 foodInfo 로 추가되어 전달된다.
+            */
             for (let idx = 0; idx < this.files.length; idx++) {
                 formData.append('imageFile', this.files[idx])
             }
+
+            // 불변 객체
             const { foodName, category, measure, max, min, unit, foodPrice, foodCalorie, files } = this
+            
             let foodInfo = {
                 foodName: foodName,
                 category: category,
@@ -109,12 +120,27 @@ export default {
                 foodCalorie: foodCalorie,
             }
             formData.append(
+                /*
+                    자바 스크립트에서 Bolb은 이미지, 사운드, 비디오와 같은
+                    멀티미디어 데이터를 다룰 때 사용할 수 있다.
+
+                    대게 데이터의 크기(Byte) 및 MIME 타입을 알아내거나,
+                    데이터 송수신을 위한 작은 Blob 객체로 나누는 등의 작업에 사용합니다.
+
+                    즉, 데이터 자체라기 보다는 데이터를 간접적으로 접근하기 위한 객체인 것이다.
+                */
                 "foodInfo",
                 new Blob([JSON.stringify(foodInfo)], { type: "application/json" })
             )
             this.$emit('submit', formData)
         },
         handleFileUpload () {
+            /*
+                vue로 파일을 읽는 방법이며,
+                사용 대상을 this.$refs로 접근한다.
+                
+                this.$refs.[ref이름],[name이름-> 여기서는 id] 
+            */
             this.files = this.$refs.files.files
         }
     }

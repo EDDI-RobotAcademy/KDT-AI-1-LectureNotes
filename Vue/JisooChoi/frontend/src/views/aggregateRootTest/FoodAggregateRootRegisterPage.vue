@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         ...mapActions( foodModule, ['requestCreateFoodToSpring']),
-            async onSubmit(payload) {
+        async onSubmit(payload) {
             await this.requestCreateFoodToSpring(payload)
             await this.$router.push({
                 name: 'home', 
