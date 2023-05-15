@@ -1,6 +1,9 @@
 package kr.eddi.demo.config;
 
 import jakarta.annotation.PostConstruct;
+import kr.eddi.demo.homework.account.entity.HomeworkAccountRole;
+import kr.eddi.demo.homework.account.entity.HomeworkAccountRoleType;
+import kr.eddi.demo.homework.account.repository.HomeworkAccountRoleRepository;
 import kr.eddi.demo.lectureClass.aggregateRoot.food.entity.Amount;
 import kr.eddi.demo.lectureClass.aggregateRoot.food.entity.AmountType;
 import kr.eddi.demo.lectureClass.aggregateRoot.food.entity.Category;
@@ -21,6 +24,7 @@ public class DBInitializer {
 
     private final CategoryRepository categoryRepository;
     private final AmountRepository amountRepository;
+    private final HomeworkAccountRoleRepository accountRoleRepository;
 
     @PostConstruct
     private void init () {
@@ -28,6 +32,7 @@ public class DBInitializer {
 
         initCategoryTypes();
         initAmountTypes();
+        initAccountRoleTypes();
 
         log.debug("initializer 종료!");
     }
@@ -61,6 +66,24 @@ public class DBInitializer {
                 if (!categories.contains(type)) {
                     final Category category = new Category(type);
                     categoryRepository.save(category);
+                }
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    private void initAccountRoleTypes(){
+        try {
+            final Set<HomeworkAccountRoleType> roleTypes =
+                    accountRoleRepository.findAll().stream()
+                            .map(HomeworkAccountRole::getAccountRoleType)
+                            .collect(Collectors.toSet());
+
+            for(HomeworkAccountRoleType type: HomeworkAccountRoleType.values()){
+                if(!roleTypes.contains(type)){
+                    final HomeworkAccountRole accountRole = new HomeworkAccountRole(type);
+                    accountRoleRepository.save(accountRole);
                 }
             }
         } catch (Exception e) {
