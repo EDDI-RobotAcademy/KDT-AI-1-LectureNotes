@@ -13,6 +13,7 @@ import htmlCssRoutes from "./htmlCss";
 import homeworkRoutes from "./homework";
 import plotRoutes from "./plot";
 import filesTestRoutes from "./files"
+import foodTestRoutes from "./food";
 
 Vue.use(VueRouter);
 
@@ -39,7 +40,8 @@ const routes = [
   ...vuetifyTestRoutes,
   ...homeworkRoutes,
   ...plotRoutes,
-  ...filesTestRoutes
+  ...filesTestRoutes,
+  ...foodTestRoutes
 ];
 
 const router = new VueRouter({
