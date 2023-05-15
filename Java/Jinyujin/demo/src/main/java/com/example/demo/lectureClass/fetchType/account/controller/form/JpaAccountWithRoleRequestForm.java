@@ -15,6 +15,10 @@ public class JpaAccountWithRoleRequestForm {
 
     final private String email;
     final private String password;
+
+    @JsonProperty("role")
+    // 컨트롤러를 만드려면 이걸 꼭 달아줘야 함!
+    // enum에는 붙여줘야함! (Form에서)
     final private RoleType roleType;
 
     public JpaAccount toJpaAccount() {
