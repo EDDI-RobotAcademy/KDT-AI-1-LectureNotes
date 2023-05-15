@@ -6,6 +6,11 @@ import com.example.demo.lectureClass.aggregateRoot.food.entity.Category;
 import com.example.demo.lectureClass.aggregateRoot.food.entity.CategoryType;
 import com.example.demo.lectureClass.aggregateRoot.food.repository.AmountRepository;
 import com.example.demo.lectureClass.aggregateRoot.food.repository.CategoryRepository;
+import com.example.demo.lectureClass.homework.jUnitBank3.entity.HomeworkJpaAccountRole;
+import com.example.demo.lectureClass.homework.jUnitBank3.entity.HomeworkJpaAccountRoleType;
+import com.example.demo.lectureClass.homework.jUnitBank3.entity.HomeworkJpaRole;
+import com.example.demo.lectureClass.homework.jUnitBank3.repository.HomeworkJpaAccountRoleRepository;
+import com.example.demo.lectureClass.homework.jUnitBank3.repository.HomeworkJpaRoleRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +26,7 @@ public class DBInitializer {
 
     final private CategoryRepository categoryRepository;
     final private AmountRepository amountRepository;
+    final private HomeworkJpaRoleRepository roleRepository;
 
     @PostConstruct
     private void init () {
@@ -28,6 +34,7 @@ public class DBInitializer {
 
         initCategoryTypes();
         initAmountTypes();
+        initRoleTypes();
 
         log.debug("initializer 종료!");
     }
@@ -60,6 +67,24 @@ public class DBInitializer {
                 if (!categories.contains(type)) {
                     final Category category = new Category(type);
                     categoryRepository.save(category);
+                }
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    private void initRoleTypes () {
+        try {
+            final Set<HomeworkJpaAccountRoleType> roles =
+                    roleRepository.findAll().stream()
+                            .map(HomeworkJpaRole::getRoleType)
+                            .collect(Collectors.toSet());
+
+            for (HomeworkJpaAccountRoleType type: HomeworkJpaAccountRoleType.values()) {
+                if (!roles.contains(type)) {
+                    final HomeworkJpaRole homeworkJpaRole = new HomeworkJpaRole(type);
+                    roleRepository.save(homeworkJpaRole);
                 }
             }
         } catch (Exception e) {
