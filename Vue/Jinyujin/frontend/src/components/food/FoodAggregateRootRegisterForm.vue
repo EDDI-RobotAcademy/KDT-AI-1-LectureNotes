@@ -1,85 +1,82 @@
 <template lang="">
-    <form @submit.prevent="onSubmit">
-   <table>
-    <tr>
+  <form @submit.prevent="onSubmit">
+    <table>
+      <tr>
         <td>
-            <h3>Category</h3>
-            <hr/>
-            <!-- hr이 뭐지? -->
-            <div>
-                <input type="radio" v-model="category" name="radioBtn" value="VEGETABLE">
-                <label>채소</label>
-            </div>
-            <div>
-                <input type="radio" v-model="category" name="radioBtn" value="MEAT">
-                <label>육류</label>
-            </div>
-            <div>
-                <input type="radio" v-model="category" name="radioBtn" value="TOPPING">
-                <label>토핑</label>
-            </div>
-            <div>
-                <input type="radio" v-model="category" name="radioBtn" value="ICECREAM">
-                <label>아이스크림</label>
-            </div>
+          <h3>Category</h3>
+          <hr/>
+          <div>
+            <input type="radio" v-model="category" name="radioBtn" value="VEGETABLE">
+            <label>채소</label>
+          </div>
+          <div>
+            <input type="radio" v-model="category" name="radioBtn" value="MEAT">
+            <label>육류</label>
+          </div>
+          <div>
+            <input type="radio" v-model="category" name="radioBtn" value="TOPING">
+            <label>토핑</label>
+          </div>
+          <div>
+            <input type="radio" v-model="category" name="radioBtn" value="ICECREAM">
+            <label>아이스크림</label>
+          </div>
         </td>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <td>
-            <h3>식재 정보</h3>
-        <hr/>
-        <div>
+          <h3>식재 정보</h3>
+          <hr/>
+          <div>
             <input type="text" v-model="foodName">
             <label>식재료명</label>
-        </div>
-        <div>
+          </div>
+          <div>
             <input type="number" v-model="foodPrice">
             <label>단위당 가격</label>
-        </div>
-        <div>
+          </div>
+          <div>
             <input type="text" v-model="foodCalorie">
             <label>단위당 칼로리(Kcal)</label>
-        </div>
-        <div>
-            <input type="file" id="files" ref="files" multiple @change="handlerFileUpload"/>
+          </div>
+          <div>
+            <input type="file" id="files" ref="files" multiple @change="handleFileUpload"/>
             <label>식재료 이미지 정보</label>
-        </div>
+          </div>
         </td>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <td>
-            <h3>단위 정보</h3>
-            <div>
-                <label>최대 수량</label>
-                <input type="text" v-model="max"/>
-            </div>
-            <div>
-                <label>최소 수량</label>
-                <input type="text" v-model="min"/>
-            </div>
-            <div>
-                <label>측정 단위</label>
-                <select v-model="measure">
-                <!-- selected는 그람으로 선택값 조정 -->
-                <option selected>GRAM</option>
-                <option>COUNT</option>
-                </select>
-            </div>
+          <h3>단위 정보</h3>
+          <div>
+            <label>최대 수량</label>
+            <input type="text" v-model="max"/>
+          </div>
+          <div>
+            <label>최소 수량</label>
+            <input type="text" v-model="min"/>
+          </div>
+          <div>
+            <label>측정 단위</label>
+            <select v-model="measure">
+              <option selected>GRAM</option>
+              <option>COUNT</option>
+            </select>
+          </div>
         </td>
-    </tr>
-   </table>
+      </tr>
+    </table>
 
-   <div>
-    <button type="submit">등록</button>
-    <router-link :to="{ name: 'home' }">
+    <div>
+      <button type="submit">등록</button>
+      <router-link :to="{ name: 'home' }">
         취소
-    </router-link>
-   </div>
-   </form>
+      </router-link>
+    </div>
+  </form>
 </template>
 
 <script>
-
 export default {
     data() {
         return {
@@ -94,7 +91,6 @@ export default {
             files: '',
         }
     },
-    // 버튼 눌렀을 때 상품 등록하러 가야함
     methods: {
         onSubmit() {
             let formData = new FormData()

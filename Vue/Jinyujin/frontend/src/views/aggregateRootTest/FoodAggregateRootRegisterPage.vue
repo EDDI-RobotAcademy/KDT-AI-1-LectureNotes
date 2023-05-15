@@ -10,13 +10,13 @@
     이 시나리오를 바탕으로 만들어보자
 -->
 <template lang="">
-    <div>
-        <v-container>
-            <h2>식재료 등록</h2>
-            <!-- 실제 재료를 등록하기 위한 폼 -->
-            <food-aggregate-root-register-form @submit="onSubmit"/>
-        </v-container>
-    </div>
+     <div>
+    <v-container>
+      <h2>식재료 등록</h2>
+      <!-- 실제 재료를 등록하기 위한 폼 -->
+      <food-aggregate-root-register-form @submit="onSubmit"/>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -35,15 +35,15 @@ export default {
     // 그 안에는 맵액션이 필요할 것 같아 미리 넣어줌
     methods: {
         ...mapActions(foodModule, ['requestCreateFoodToSpring']),
+        // 그리고 onSubmit에 async-await 걸어줌
+        async onSubmit(payload) {
+            await this.requestCreateFoodToSpring(payload)
+            await this.$router.push({
+                name: 'home',
+            })
+        }
+        // 여기까지 하고 스토어, 라우터, 컴포넌트 작업ㄱㄱ
     },
-    // 그리고 onSubmit에 async-await 걸어줌
-    async onSubmit(payload) {
-        await this.requestCreateFoodToSpring(payload)
-        await this.$router.push({
-            name: 'home',
-        })
-    }
-    // 여기까지 하고 스토어, 라우터, 컴포넌트 작업ㄱㄱ
 }
 </script>
 
