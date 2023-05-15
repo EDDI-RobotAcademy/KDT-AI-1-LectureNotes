@@ -57,7 +57,7 @@
               <input type="text" v-model="min"/>
             </div>
             <div>
-              <label>측정 단위</label>
+              <label>측정 단위 </label>
               <select v-model="measure">
                 <option selected>GRAM</option>
                 <option>COUNT</option>

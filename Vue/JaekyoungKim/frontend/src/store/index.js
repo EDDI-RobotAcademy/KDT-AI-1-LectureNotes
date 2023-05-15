@@ -6,7 +6,7 @@ import productModule from '@/store/product/ProductModule.js'
 import uiVuetifyModule from '@/store/uiVuetify/UiVuetifyModule.js'
 import d3PlotModule from './d3Plot/D3PlotModule.js'
 import filesModule from './file/FilesModule.js'
-
+import foodModule from './food/FoodModule.js'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -16,7 +16,7 @@ const store = new Vuex.Store({
     uiVuetifyModule:uiVuetifyModule,
     d3PlotModule:d3PlotModule,
     filesModule:filesModule,
-    
+    foodModule:foodModule
 
   },
 })
