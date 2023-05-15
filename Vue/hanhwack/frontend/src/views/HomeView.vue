@@ -81,6 +81,11 @@
         >
         |
         <router-link to="/d3-review1-page">D3 Review 1</router-link> |
+
+        <router-link to="/food-register"
+          >Food Aggregate Root 만들기</router-link
+        >
+        |
       </nav>
     </div>
   </v-container>
