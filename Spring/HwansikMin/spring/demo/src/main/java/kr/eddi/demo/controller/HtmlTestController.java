@@ -28,20 +28,20 @@ import java.util.Locale;
 public class HtmlTestController {
 
     // HTTP 통신 방식에 GET, POST, PUT, DELETE 가 존재합니다.
-    // 보편적으로 웹 브라우저 주소창에 입력하는 모든 정보는 GET로 처리됩니다.
-
+    // 보편적으로 웹 브라우저 주소창에 입력하는 모든 정보는 GET으로 처리됩니다.
     @GetMapping("/print-time")
     public String printTime (Locale locale, Model model) {
-        log.info("Is it Ok?");
+        log.info("Is it Ok ?");
 
         Date date = new Date();
-        DateFormat dateFormat
-                = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+        DateFormat dateFormat =
+                DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
         // 날짜 형식 생성
         String formattedDate = dateFormat.format(date);
         // serverTime 속성에 만들어진 날짜 형식 대입
         model.addAttribute("serverTime", formattedDate);
-        // html 코드 printTime.html 호출 (resource/templates/printTime.html)
+        // html 코드 printTime.html 호출 (resources/templates/printTime.html)
         return "printTime";
     }
 }

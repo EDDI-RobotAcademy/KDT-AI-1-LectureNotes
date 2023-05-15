@@ -1,5 +1,5 @@
 import {
-    REQUEST_TEST_IMAGE_PATH_TO_SPRING,
+    REQUEST_TEST_IMAGE_PATH_TO_SPRING
 } from './mutation-types'
 
 export default {

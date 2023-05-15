@@ -37,9 +37,11 @@
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
         <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
         <router-link to="/d3-plot-test">d3 plotting 테스트</router-link> |
-
-        
-        
+        <router-link to="/d3-health-print-page">d3 health 문제</router-link> |
+        <router-link to="/file-handler-test-page">File 처리 테스트</router-link> |
+        <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
+        <router-link to="/d3-review1-page">D3 Review 1</router-link> |
+        <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
         
       </nav>
     </div>

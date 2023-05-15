@@ -7,6 +7,9 @@ import HomeworkBasic1 from "@/views/homework/HomeworkBasic1.vue";
 import Homework2Answer from "@/views/homework/answer/Homework2Answer.vue";
 import Homework3 from "@/views/homework/Homework3.vue";
 import Homework4 from "@/views/homework/problem4/Homework4.vue";
+import Homework6 from "@/views/homework/problem6/Homework6Page.vue";
+import ImagePage from "@/views/homework/problem6/ImagePage.vue";
+import D3Homework1Page from "@/views/homework/D3Homework1Page.vue";
 
 Vue.use(VueRouter);
 
@@ -40,6 +43,26 @@ const homeworkRoutes = [
     path: "/homework4",
     name: "Homework4",
     component: Homework4,
+  },
+  {
+    path: "/homework6",
+    name: "Homework6",
+    component: Homework6,
+  },
+  {
+    path: "/image-page",
+    name: "ImagePage",
+    components: {
+      default: ImagePage,
+    },
+    props: {
+      default: true,
+    },
+  },
+  {
+    path: "/d3-homework1",
+    name: "D3Homework1Page",
+    component: D3Homework1Page,
   },
 ];
 

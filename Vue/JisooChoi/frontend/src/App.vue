@@ -18,6 +18,7 @@ export default {
 </script>
 
 <style scoped>
+/* 뷰 전체에 적용되는 App 폴더 */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
