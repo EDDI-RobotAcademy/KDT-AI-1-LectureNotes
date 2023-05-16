@@ -7,4 +7,5 @@ import kr.eddi.demo.lectureClass.practiceTestCode.TestPracticeAccount.controller
 public interface TestPracticeAccountService {
     TestPracticeAccount register(TestPracticeAccountRequestForm requestForm);
 
+    TestPracticeResponseForm login(TestPracticeAccountRequestForm requestForm);
 }

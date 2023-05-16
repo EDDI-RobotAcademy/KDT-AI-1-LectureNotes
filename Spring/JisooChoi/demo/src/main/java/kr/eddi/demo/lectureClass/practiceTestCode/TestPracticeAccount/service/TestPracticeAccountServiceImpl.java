@@ -64,4 +64,26 @@ public class TestPracticeAccountServiceImpl implements TestPracticeAccountServic
          */
         return testPracticeAccountRepository.save(requestForm.toTestPractice());
     }
+
+    @Override
+    public TestPracticeResponseForm login(TestPracticeAccountRequestForm requestForm){
+        final Optional<TestPracticeAccount> practiceAccount =
+                testPracticeAccountRepository.findByEmail(requestForm.getEmail());
+
+        if(practiceAccount.isEmpty()){
+            log.debug("로그인 실패!");
+            return new TestPracticeResponseForm(null, null);
+        }
+
+        TestPracticeAccount testPracticeAccount = practiceAccount.get();
+
+        if(testPracticeAccount.getPassword().equals(requestForm.getPassword())){
+            log.debug("로그인 성공!");
+            return new TestPracticeResponseForm(UUID.randomUUID(), requestForm.getAccountRole());
+        }
+
+        log.debug("로그인 실패!");
+        return new TestPracticeResponseForm(null, null);
+    }
+
 }

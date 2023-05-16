@@ -9,4 +9,6 @@ public interface TestPracticeAccountRepository extends JpaRepository<TestPractic
 
     Optional<TestPracticeAccount> findByEmail(String email);
 
+    Optional<TestPracticeAccount> findByPassword(Integer password);
+
 }
