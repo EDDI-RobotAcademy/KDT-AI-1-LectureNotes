@@ -22,6 +22,7 @@ public class DBInitializer {
 
     private final CategoryRepository categoryRepository;
     private final AmountRepository amountRepository;
+    private final RoleRepository roleRepository;
 
     @PostConstruct
     // spring 이 구동하기 전에 초기화 시켜주는 것
@@ -31,6 +32,7 @@ public class DBInitializer {
         initCategoryTypes();
         initAmountTypes();
         // 두 Type 을 초기화 시킴
+        initAccountRoleType();
 
         log.debug("initializer 종료!");
     }
@@ -65,6 +67,24 @@ public class DBInitializer {
                 if (!categories.contains(type)) {
                     final Category category = new Category(type);
                     categoryRepository.save(category);
+                }
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    private void initAccountRoleType () {
+        try {
+            final Set<RoleType> roles =
+                    roleRepository.findAll().stream()
+                            .map(Role::getRoleType)
+                            .collect(collectors.teSet());
+
+            for (RoleType type: RoleType.values()) {
+                if (!roles.contains(type)) {
+                    final Role role = new Role(type);
+                    roleRepository.sane(role);
                 }
             }
         } catch (Exception e) {
