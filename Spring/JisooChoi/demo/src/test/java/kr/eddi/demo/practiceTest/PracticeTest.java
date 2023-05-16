@@ -65,4 +65,40 @@ public class PracticeTest {
 
         assertTrue(responseForm.getUserToken() != null);
     }
+
+    @Test
+    @DisplayName("계정 역할이 관리자인 사람만 상품을 등록 할 수 있습니다.")
+    void 관리자가_상품을_등록합니다 () {
+        final String email = "manager@test.com";
+        final Integer password = 1234;
+        final String accountRole = "관리자";
+        final String productName = "멜론 티셔츠";
+        final Integer productId = 3;
+
+        final String managerRole = "관리자";
+        Boolean roleCheck = false;
+
+        // 관리자 계정 로그인
+        TestPracticeAccountRequestForm requestForm = new TestPracticeAccountRequestForm(email, password, accountRole);
+        TestPracticeResponseForm responseForm = testPracticeAccountService.login(requestForm);
+
+        // 계정 역할이 "관리자"라면 수행해라
+        if(responseForm.getAccountRole().equals(managerRole)){
+            // 먼저 상품 이름과, 상품 ID 값을 Form 형태로 받아라
+            TestPracticeProductRequestForm productRequestForm = new TestPracticeProductRequestForm(productName, productId);
+
+            /*
+                받은 Form 을 가지고 상품 등록을 서비스에게 요청하자 !
+                상품 등록이 끝나면 해당 값은 상품이라는 엔티티 객체일 것이다.
+                상품 엔티티 객체에 속한 ProductName 을 가져와서 비교해보자 !
+            */
+            TestPracticeProduct registerProduct = testPracticeProductService.register(productRequestForm);
+
+            if(registerProduct.getProductName().equals(productName)){
+                roleCheck = true;
+            }
+        }
+
+        assertTrue(roleCheck == true);
+    }
 }
