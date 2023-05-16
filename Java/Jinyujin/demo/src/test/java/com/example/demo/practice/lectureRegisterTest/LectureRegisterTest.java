@@ -1,4 +1,4 @@
-package com.example.demo.practice;
+package com.example.demo.practice.lectureRegisterTest;
 
 import com.example.demo.lectureClass.testCode.lectureWithStudent.controller.form.LectureRegisterRequestForm;
 import com.example.demo.lectureClass.testCode.lectureWithStudent.controller.form.StudentRequestForm;
