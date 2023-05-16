@@ -6,11 +6,13 @@ import com.example.demo.lectureClass.aggregateRoot.food.entity.Category;
 import com.example.demo.lectureClass.aggregateRoot.food.entity.CategoryType;
 import com.example.demo.lectureClass.aggregateRoot.food.repository.AmountRepository;
 import com.example.demo.lectureClass.aggregateRoot.food.repository.CategoryRepository;
+import com.example.demo.lectureClass.refactorAccount.entity.Role;
+import com.example.demo.lectureClass.refactorAccount.entity.RoleType;
+import com.example.demo.lectureClass.refactorAccount.repository.RoleRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 public class DBInitializer {
     private final CategoryRepository categoryRepository;
     private  final AmountRepository amountRepository;
+    private  final RoleRepository roleRepository;
 
     @PostConstruct
     private void init(){
@@ -28,6 +31,9 @@ public class DBInitializer {
 
         initCategoryTypes();
         initAmountTypes();
+
+        initAccountRoleTypes();
+
         log.debug("initializer 종료");
 
     }
@@ -60,6 +66,24 @@ public class DBInitializer {
                 if(!categories.contains(type)){
                     final Category category = new Category(type);
                     categoryRepository.save(category);
+                }
+            }
+        }
+        catch (Exception e){
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    private void initAccountRoleTypes(){
+        try{
+            final Set<RoleType> roles=
+                    roleRepository.findAll().stream()
+                            .map(Role::getRoleType)
+                            .collect(Collectors.toSet());
+            for(RoleType type: RoleType.values()){
+                if(!roles.contains(type)){
+                    final Role role = new Role(type);
+                    roleRepository.save(role);
                 }
             }
         }
