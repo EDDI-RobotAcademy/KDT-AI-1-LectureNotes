@@ -237,8 +237,9 @@ public class AccountTest {
 //            normalAccountList 갯수 만큼
             System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
             System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
-
-            // 출력
+            // role 이 NORMAL 인 계정 번호랑 email 출력
+            // ex) responseForm.getAccountId(): 2
+            //      responseForm.getEmail(): gogo@gogo.com
 
             assertTrue(responseForm.getAccountId() != null);
             assertTrue(responseForm.getEmail() != null);

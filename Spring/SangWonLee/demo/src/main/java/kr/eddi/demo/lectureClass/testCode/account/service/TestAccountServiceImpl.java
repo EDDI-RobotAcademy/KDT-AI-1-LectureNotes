@@ -96,11 +96,14 @@ public class TestAccountServiceImpl implements TestAccountService {
     @Override
     public List<TestAccountResponseForm> accountListWithRole(String role) {
         final List<AccountRole> matchedAccountRoleList = testAccountRoleRepository.findAllByRole(role);
+        // 받아온 role로 testAccountRoleRepository 가서 DB에 일치하는게 있는지 다 확인 후 AccountRole 객체로 저장
 
         List<TestAccountResponseForm> responseFormList = new ArrayList<>();
 
         for (AccountRole accountRole: matchedAccountRoleList) {
+            // DB에서 가져온 정보 만큼 반복
             final TestAccount account = accountRole.getAccount();
+            // account
             responseFormList.add(
                     new TestAccountResponseForm(
                             account.getId(), account.getEmail()));
