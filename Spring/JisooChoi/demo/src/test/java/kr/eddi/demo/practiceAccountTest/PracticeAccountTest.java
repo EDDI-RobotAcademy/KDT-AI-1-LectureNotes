@@ -1,4 +1,4 @@
-package kr.eddi.demo.practiceTest;
+package kr.eddi.demo.practiceAccountTest;
 
 import kr.eddi.demo.lectureClass.practiceTestCode.TestPracticeAccount.controller.form.TestPracticeAccountRequestForm;
 import kr.eddi.demo.lectureClass.practiceTestCode.TestPracticeAccount.controller.form.TestPracticeResponseForm;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @SpringBootTest
-public class PracticeTest {
+public class PracticeAccountTest {
     @Autowired
     private TestPracticeAccountService testPracticeAccountService;
 
