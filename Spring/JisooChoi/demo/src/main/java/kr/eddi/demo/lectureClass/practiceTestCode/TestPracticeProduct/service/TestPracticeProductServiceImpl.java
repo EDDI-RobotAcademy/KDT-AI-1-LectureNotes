@@ -26,7 +26,7 @@ public class TestPracticeProductServiceImpl implements TestPracticeProductServic
             존재하지 않는다면, 상품 등록 과정을 거친다.
          */
         final Optional<TestPracticeProduct> practiceProduct =
-                testPracticeProductRepository.findByProductId(requestForm.getProductId());
+                testPracticeProductRepository.findByProductName(requestForm.getProductName());
 
         if(practiceProduct.isPresent()){
             log.debug("동일한 상품 존재, 상품 등록 실패");

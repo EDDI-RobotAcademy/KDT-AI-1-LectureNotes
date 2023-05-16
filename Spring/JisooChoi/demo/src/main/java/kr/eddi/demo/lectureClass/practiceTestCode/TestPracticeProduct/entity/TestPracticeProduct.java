@@ -17,10 +17,8 @@ public class TestPracticeProduct {
     private Long id;
 
     private String productName;
-    private Integer productId;
 
-    public TestPracticeProduct(String productName, Integer productId) {
+    public TestPracticeProduct(String productName) {
         this.productName = productName;
-        this.productId = productId;
     }
 }

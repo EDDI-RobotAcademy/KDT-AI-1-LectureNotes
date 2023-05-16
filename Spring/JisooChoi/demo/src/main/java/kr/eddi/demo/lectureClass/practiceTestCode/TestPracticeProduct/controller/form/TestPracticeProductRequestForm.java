@@ -10,9 +10,8 @@ import lombok.RequiredArgsConstructor;
 public class TestPracticeProductRequestForm {
 
     final private String productName;
-    final private Integer productId;
 
     public TestPracticeProduct toTestProduct() {
-        return new TestPracticeProduct(productName, productId);
+        return new TestPracticeProduct(productName);
     }
 }

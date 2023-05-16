@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface TestPracticeProductRepository extends JpaRepository<TestPracticeProduct, Long> {
 
-    Optional<TestPracticeProduct> findByProductId(Integer productId);
+    Optional<TestPracticeProduct> findByProductName(String productName);
 
 }

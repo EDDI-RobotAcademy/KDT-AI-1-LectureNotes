@@ -72,8 +72,7 @@ public class PracticeAccountTest {
         final String email = "manager@test.com";
         final Integer password = 1234;
         final String accountRole = "관리자";
-        final String productName = "멜론 티셔츠";
-        final Integer productId = 3;
+        final String productName = "딸기 티셔츠";
 
         final String managerRole = "관리자";
         Boolean roleCheck = false;
@@ -85,7 +84,7 @@ public class PracticeAccountTest {
         // 계정 역할이 "관리자"라면 수행해라
         if(responseForm.getAccountRole().equals(managerRole)){
             // 먼저 상품 이름과, 상품 ID 값을 Form 형태로 받아라
-            TestPracticeProductRequestForm productRequestForm = new TestPracticeProductRequestForm(productName, productId);
+            TestPracticeProductRequestForm productRequestForm = new TestPracticeProductRequestForm(productName);
 
             /*
                 받은 Form 을 가지고 상품 등록을 서비스에게 요청하자 !
