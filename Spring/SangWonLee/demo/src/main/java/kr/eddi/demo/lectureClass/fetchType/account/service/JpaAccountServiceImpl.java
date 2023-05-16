@@ -32,14 +32,18 @@ public class JpaAccountServiceImpl implements JpaAccountService {
     public JpaAccount registerWithRole(JpaAccountWithRoleRequestForm requestForm) {
         final Optional<JpaAccount> maybeAccount =
                 accountRepository.findByEmail(requestForm.getEmail());
+        // requestForm 으로 가져온 email을 DB에서 있는지 확인한다.
 
-        if (maybeAccount.isPresent()) {
+        if (maybeAccount.isPresent()) { // 있으면
             log.debug("이미 가입된 회원입니다!");
-            return null;
+            return null; // 테스트 실패
         }
 
         final JpaAccount account = accountRepository.save(requestForm.toJpaAccount());
+        // 없으면 받아온 requestForm을 JpaAccount 객체로 만들어서 저장
+        // DB에서 jpa_account
         accountRoleRepository.save(requestForm.toJpaAccountRole(account));
+        // 위의 account 값으로 DB에 jpa_account_role 저장
 
         return account;
     }

@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class AccountLazyFetchTypeTest {
@@ -30,10 +30,13 @@ public class AccountLazyFetchTypeTest {
         final String role = "NORMAL";
 
         JpaAccountWithRoleRequestForm requestForm = new JpaAccountWithRoleRequestForm(email, password, role);
+        // 입력된 정보로 JpaAccountWithRoleRequestForm 객체 생성
         JpaAccount account = accountService.registerWithRole(requestForm);
+        // DB에 등록한다.
 
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
+        // 저장되었는지 확인
     }
 
     @Test
@@ -45,6 +48,7 @@ public class AccountLazyFetchTypeTest {
         // 그럼 Lazy를 빼야 할까요 ? x
         // 왜 빼면 안될까요 ?
         // 당장 필요한 것에만 집중하자!!! (결론적으로 이것도 일종의 관심사의 분리입니다)
+
         final String role = "NORMAL";
 
         JpaAccountRoleRequestForm requestForm = new JpaAccountRoleRequestForm(role);
@@ -53,6 +57,9 @@ public class AccountLazyFetchTypeTest {
         for (JpaAccountResponseForm responseForm: normalAccountList) {
             System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
             System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
+
+            assertTrue(responseForm.getAccountId() != null);
+            assertTrue(responseForm.getEmail() != null);
         }
     }
 }
