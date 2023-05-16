@@ -24,7 +24,8 @@ export default {
     },
     computed: {
         ...mapState(boardModule, ['boards']),
-    },
+    }, 
+    
     mounted () {
         this.requestBoardListToSpring()
     },

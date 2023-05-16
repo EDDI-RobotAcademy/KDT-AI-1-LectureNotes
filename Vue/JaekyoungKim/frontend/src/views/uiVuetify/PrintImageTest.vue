@@ -1,7 +1,7 @@
 <template lang="">
     <v-container>
         <v-row>
-            <v-col cols="12">
+            <v-col cols="12"><!--여기 역시 $가 있어서 `` 사용해야함-->
                 <v-img :src="require(`@/assets/downloadImg/${imageName}`)"
                         aspect-ratio="1" class="grey lighten-2">
                     <template v-slot:placeholder>

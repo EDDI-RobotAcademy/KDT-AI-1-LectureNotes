@@ -26,7 +26,7 @@
             <router-link to="/life-cycle-test">몬스터 정보</router-link> |
             <router-link to="/homework-page-two">주사위 숙제</router-link> |
             <router-link to="/post-num-test"> 숫자 보내기 </router-link> |
-            <router-link to="/problem-two-page">2번 문제</router-link> |
+            <router-link to="/problem-page-two">2번 문제</router-link> |
             <router-link to="/my-test">숫자 보내보기</router-link>|
             <router-link to="/fruits-page">과일 페이지</router-link> |
             <router-link to="/april">배열 내 값을 증가</router-link> |
@@ -49,7 +49,8 @@
             <router-link to="/file-handler-test-page">파일 전송</router-link>|
             <router-link to="/file-list-show-page">받은 사진 표출</router-link>|
             <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
-           
+            <router-link to="re-problem-page">시험 대비 문제 1페이지</router-link>|
+            <router-link to="re-second-page">시험 대비 문제 2번</router-link>
             
         </nav></div>
       </v-container>

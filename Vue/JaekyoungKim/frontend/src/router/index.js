@@ -19,6 +19,8 @@ import defaultRoutes from './defaultRouterSet'
 import PlotTestRoutes from './Plot'
 import FileTestRoutes from './file'
 import foodSetRoutes from './food'
+import ReFirstProblem from '@/views/reProblem/ReFirstProblem.vue'
+import ReSecondProblem from '@/views/reProblem/ReSecondProblem.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -64,6 +66,19 @@ const routes = [
   name: 'PhotoPage',
   component: PhotoPage
 },
+{
+  path:'/re-problem-page',
+  name:'ReFirstProblem',
+  component:ReFirstProblem
+
+},
+{
+  path:'/re-second-page',
+  name:'ReSecondProblem',
+  component:ReSecondProblem
+
+},
+
  ...vuetifyTestRoutes,
  ...productTestRoutes,
  ...axiosTestRoutes,

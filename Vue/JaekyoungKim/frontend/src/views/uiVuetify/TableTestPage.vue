@@ -1,17 +1,17 @@
 <template lang="">
     <v-container>
-        <v-data-table :headers="headerTitle" :items="contents" :items-per-page="7" class="elevation-1"/>
+        <v-data-table :headers="headerTitle" :items="contents" :items-per-page="5" class="elevation-1"/>
     </v-container>
 </template>
 <script>
 export default {
     data() {
-        return {
+        return {//:headers에 매핑 되는 headerTitle 입니다.
             headerTitle: [
                 { text: '번호', value: 'boardId', width: "70px" },
                 { text: '제목', value: 'title', width: "200px" },
                 { text: '작성자', value: 'writer', width: "100px" },
-            ],
+            ],// itmes에 매핑 되는 contents입니다.
             contents:[
                 {boardId: 1 ,title: '가위',writer:'종이' },
                 {boardId: 2,title: '나비',writer: '곤충'},

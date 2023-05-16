@@ -5,13 +5,13 @@
                 <v-img :src="image" aspect-ratio="1" class="grey lighten-2">
                     <template v-slot:placeholder>
                         <v-row class="fill-height ma-0" align="center" justify="center">
-                            <v-progress-circular indeterminate color="grey lighten-5"/>
+                            <v-progress-circular indeterminate color="grey lighten-1"/>
                         </v-row>
                     </template>
                 </v-img>
             </v-col>
         </v-row>
-
+        
         <v-img :src="require(`@/assets/downloadImg/${imageName}`)"
                 aspect-ratio="1" class="grey lighten-2"/>
     </v-container>

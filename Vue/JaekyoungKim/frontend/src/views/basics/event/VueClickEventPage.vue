@@ -22,6 +22,7 @@ export default {
             alert('누르지마')
         },
         rightClickHandler(comment){
+            //클릭한 시점의 x좌표와 y좌표 콘솔에 출력됨
             console.log('(' + comment.clientX + ', ' + comment.clientY + ')')
         },
         leftClickHandler(comment){

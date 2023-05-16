@@ -1,17 +1,18 @@
 <template lang="">
     <div>
-        <dice-game-two-time/>
-        <send-one-parameter/>
+
+        <dice-game-two-time />
+       
     </div>
 </template>
 
 <script>
 import DiceGameTwoTime from '@/components/DiceGameTwoTime.vue'
-import SendOneParametr from '@/components/SendOneParameter.vue'
+
 export default {
     components: {
-       'dice-game-two-time': DiceGameTwoTime,
-       SendOneParametr
+        DiceGameTwoTime,
+  
     }
 }
 </script>
