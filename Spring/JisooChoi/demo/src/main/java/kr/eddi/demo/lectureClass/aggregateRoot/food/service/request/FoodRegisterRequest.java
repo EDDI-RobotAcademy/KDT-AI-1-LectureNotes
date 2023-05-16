@@ -28,6 +28,18 @@ public class FoodRegisterRequest {
         return new Food(
                 foodName,
                 FoodImage.of(uniqueRandomName)
+                /*
+                    Food 객체로 만들기 위해 넘겨지는 값은
+                    foodName 과 foodImage 가 되어야 한다.
+
+                    ★ foodName 은 존재하니까 OK !
+
+                    foodImage 는 존재하지 않고 [UUID 값 + 파일 이름] 형태이므로
+                    FoodImage 객체로 가공한 뒤, Food 객체를 만들어야 한다.
+
+                    FoodImage.of() 를 통해 FoodImage 객체가 리턴되었다 !
+                    ★ foodImage OK !
+                */
         );
     }
 }

@@ -13,6 +13,7 @@ import java.util.UUID;
 @Getter
 @RequiredArgsConstructor
 public class FoodRegisterRequestForm {
+    // Vue 에서 전달해오는 값들을 Form 형태로 받고 있음
 
     final private String foodName;
 
@@ -35,6 +36,11 @@ public class FoodRegisterRequestForm {
         이미지 파일의 이름이 다 같아선 안된다.
     */
     public FoodRegisterRequest toFoodRegisterRequest (MultipartFile imageFile){
+        /*
+            Vue 에서 데이터 전달이
+            forData 와 imageFile 이 별도로 왔다고 보아도 무방하기 때문에
+            이를 하나로 모아서 등록하는 객체를 만들어주고 있다.
+        */
         UUID randomPrefix = UUID.randomUUID();
         String uniqueRandomName = randomPrefix + imageFile.getOriginalFilename();
 
