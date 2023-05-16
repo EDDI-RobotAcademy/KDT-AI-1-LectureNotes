@@ -40,6 +40,12 @@
         <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
         <router-link to="/vuetify-image-gallery">Vuetify Image 갤러리</router-link> |
         <router-link to="/print-image-test">이미지 출력 테스트</router-link> |
+        <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
+        <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
+        <router-link to="/d3-plot-test">d3plotting 테스트</router-link> |
+        <router-link to="/d3-plot-exam">d3plotting + spring 테스트</router-link> |
+        <router-link to="/file-handler-test-page">File 처리 테스트</router-link> |
+        <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
       </nav>
     </div>
   </v-container>
