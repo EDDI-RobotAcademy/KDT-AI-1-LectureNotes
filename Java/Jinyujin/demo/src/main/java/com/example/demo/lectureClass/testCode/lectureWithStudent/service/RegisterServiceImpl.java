@@ -1,6 +1,7 @@
 package com.example.demo.lectureClass.testCode.lectureWithStudent.service;
 
-import com.example.demo.lectureClass.testCode.lectureWithStudent.controller.form.RegisterRequestForm;
+import com.example.demo.lectureClass.testCode.lectureWithStudent.controller.form.LectureRegisterRequestForm;
+import com.example.demo.lectureClass.testCode.lectureWithStudent.entity.LectureType;
 import com.example.demo.lectureClass.testCode.lectureWithStudent.entity.PracticeLecture;
 import com.example.demo.lectureClass.testCode.lectureWithStudent.entity.PracticeRegister;
 import com.example.demo.lectureClass.testCode.lectureWithStudent.entity.PracticeStudent;
@@ -21,36 +22,32 @@ public class RegisterServiceImpl implements RegisterService{
     final private LecturePracticeRepository lectureRepository;
 
     @Override
-    public PracticeRegister register(RegisterRequestForm requestForm) {
+    public PracticeRegister register(LectureRegisterRequestForm requestForm) {
 
         // 1. 학생 등록
-        Optional<PracticeStudent> maybeStudent = studentRepository.findByName(requestForm.getStudent().getName());
+        Optional<PracticeStudent> maybeStudent =
+                studentRepository.findByName(requestForm.getStudentName());
 
         if (maybeStudent.isPresent()) {
             return null;
         }
 
-        studentRepository.save(requestForm.getStudent());
+        final PracticeStudent student = requestForm.toStudent();
+                studentRepository.save(student);
+        // 학생을 어떻게 등록해야 할깡..
+        // requestForm.toStudent() 이거!
+        // 내가 원하는 엔티티 형식으로 반환받기 위해
+        // Form에서 to~ 메서드를 만들어주면 되는게 이런 것이었음!
 
         // 2. 그 학생이 신청한 과목 등록
-        // 똑같은 과목인지 아닌지 강좌명 판별
-        if (checkDuplicateLecture(requestForm.getLecture().getName())) {
-            return null;
-        }
+        final PracticeLecture lecture = lectureRepository.findByLectureType(
+                requestForm.getLectureType());
 
-        lectureRepository.save(requestForm.getLecture());
+        final PracticeRegister register =
+                new PracticeRegister(student, lecture);
 
-        final PracticeRegister practiceRegister = requestForm.toRegister();
+        registerRepository.save(register);
 
-        return registerRepository.save(practiceRegister);
-    }
-
-    private Boolean checkDuplicateLecture(String subject) {
-        final Optional<PracticeLecture> maybeLecture = lectureRepository.findByName(subject);
-
-        if (maybeLecture.isEmpty()) {
-            return false;
-        }
-        return true;
+        return register;
     }
 }

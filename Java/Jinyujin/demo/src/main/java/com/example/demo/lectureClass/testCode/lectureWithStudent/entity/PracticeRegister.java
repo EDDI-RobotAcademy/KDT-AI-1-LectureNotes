@@ -11,10 +11,10 @@ public class PracticeRegister {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private PracticeStudent student;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private PracticeLecture lecture;
 
     public PracticeRegister(PracticeStudent student, PracticeLecture lecture) {

@@ -9,6 +9,9 @@ import com.example.demo.lectureClass.aggregateRoot.food.repository.CategoryRepos
 import com.example.demo.lectureClass.fetchType.account.entity.Role;
 import com.example.demo.lectureClass.fetchType.account.entity.RoleType;
 import com.example.demo.lectureClass.fetchType.account.repository.RoleRepository;
+import com.example.demo.lectureClass.testCode.lectureWithStudent.entity.LectureType;
+import com.example.demo.lectureClass.testCode.lectureWithStudent.entity.PracticeLecture;
+import com.example.demo.lectureClass.testCode.lectureWithStudent.repository.LecturePracticeRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +27,7 @@ public class DBInitializer {
     private final CategoryRepository categoryRepository;
     private final AmountRepository amountRepository;
     private final RoleRepository roleRepository;
+    private final LecturePracticeRepository lectureRepository;
 
     @PostConstruct   // 스프링이 처음에 구동되기 시작하는 시점에 초기화하도록
     private void init () {
@@ -34,7 +38,27 @@ public class DBInitializer {
 
         initRoleTypes();
 
+        initLectureTypes();
+
         log.debug("initializer 종료!");
+    }
+
+    private void initLectureTypes() {
+        try {
+            final Set<LectureType> lectures =
+                    lectureRepository.findAll().stream()
+                            .map(PracticeLecture::getLectureType)
+                            .collect(Collectors.toSet());
+
+            for (LectureType type: LectureType.values()) {
+                if (!lectures.contains(type)) {
+                    final PracticeLecture lecture = new PracticeLecture(type);
+                    lectureRepository.save(lecture);
+                }
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
     }
 
     private void initRoleTypes() {
