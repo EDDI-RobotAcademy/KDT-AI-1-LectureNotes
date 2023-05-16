@@ -7,7 +7,7 @@ import lombok.ToString;
 
 
 @Entity
-@ToString(exclude = {"account"})
+@ToString(exclude = {"account"}) // 어카운트는 투스트링에서 제외한다.
 @NoArgsConstructor
 public class JpaAccountRole {
 

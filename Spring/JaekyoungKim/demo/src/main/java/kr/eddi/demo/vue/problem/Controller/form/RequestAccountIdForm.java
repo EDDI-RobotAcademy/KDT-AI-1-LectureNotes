@@ -10,7 +10,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class RequestAccountIdForm {
-
+// vue에서 넘언오는 아이디 값을 위한 폼이다.
     private Long gameAccountId;
 
     public RequestAccountIdForm(Long gameAccountId) {

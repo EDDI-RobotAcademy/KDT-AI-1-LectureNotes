@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class LectureTest {
 
-    @Autowired
+    @Autowired// 테스트에서 서비스 이어줘야합니다.
     private TestLectureService testLectureService;
 
     @Autowired
@@ -24,8 +24,8 @@ public class LectureTest {
     @Test
     @DisplayName("x 학생이 Math 수강 신청하기")
     void studentRegisterLecture () {
-        final String expected = "Math";
-        TestStudent testStudent = new TestStudent("x"); // 원래라면 RequestForm 형태여야함
+        final String expected = "Math";// 수학을 신청하자
+        TestStudent testStudent = new TestStudent("name"); // 원래라면 RequestForm 형태여야함
         testStudent = testStudentService.register(testStudent);  // 학생이 사이트에 가입을 해야하기 때문 (현재는 정보 없음)
 
         if (testStudent == null) {
@@ -36,5 +36,6 @@ public class LectureTest {
         final String actual = testLecture.getLectureName();
 
         assertEquals(expected, actual);
+        // 먼가 이상함
     }
 }

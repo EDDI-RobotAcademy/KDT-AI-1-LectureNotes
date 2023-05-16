@@ -25,13 +25,16 @@ public class AccountTest {
     private TestAccountService testAccountService;
     @Autowired
     private TestAccountRepository testAccountRepository;
-
+    //회원 관련 테스트
+    //보통 순서가 있슴
     @Test
     @DisplayName("사용자가 회원 가입 할 수 있음")
     void 사용자가_회원_가입한다() {
+        //테스트용 입력 정보
         final String email = "test@test.com";
         final String password = "test";
-
+        // 넘겨받은 정보를 폼에 넣는다.
+        // 폼으로 새 account 생성하여 repository에 저장한다.
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         // TestAccountRequest request = requestForm.toTestAccountRequest();    // 확장성
         // RequestForm에는 여러가지 형태가 들어올 수 있고
@@ -39,7 +42,9 @@ public class AccountTest {
         TestAccount account = testAccountRepository.save(requestForm.toTestAccount());
 
         assertEquals(email, account.getEmail());
+        //앞의 이메일과 생성한 어카운트의 이메일이 같은지 체크한다.
         assertEquals(password, account.getPassword());
+        // 앞의 패스워드와  생성한 어카운트의 패스워드가 같은지 체크한다.
 
 
         // 이 테스트에서 서비스는 사실상 누락되어 있음
@@ -54,7 +59,7 @@ public class AccountTest {
         // 그러나 이렇게 되면 목적성이 불분명해지고 이건 왜 여기서하고
         // 저건 왜 또 여기 있고 하는 상황이 발생하면서 모호성이 발생하기 시작함.
 
-        //실제 entity눈 객체에 해당하며
+        //실제 entity는 객체에 해당하며
         //이 entity에 모든 메서드를 집어넣는 순간 entity 자체의 목적성이 불명확해짐
         // 반면 서비스는 조근 더 별개로 생각해야 합니다.
         // 사실 이전에서 java 수업 때 이야기 했던 내용입니다.
@@ -81,10 +86,12 @@ public class AccountTest {
     void 사용자가_회원_가입한다_refactoring() {
         final String email = "test@test.com";
         final String password = "test";
-
+        // 테스트용 정보들
+        //테스트용 정보를 리퀘스트 폼에 넘어 줌
+        // 리퀘스트폼을 service의 register 메서드에 넣어 등록해준다.
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccount account = testAccountService.register(requestForm);
-
+        // 다음 처음에 넣은 값과 같은지 비교해본다.
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
 
@@ -98,6 +105,7 @@ public class AccountTest {
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccount account = testAccountService.register(requestForm);
+        // 가입 의 경우 중복이 있으면 안되기 때문에 래포지토리에 이미 있는 정보이기 때문에 null을 리턴한다.
 
         assertTrue(account == null);
     }
@@ -107,11 +115,14 @@ public class AccountTest {
     void 이메일만_맞게_입력한_상태에서_로그인() {
         final String email = "test@test.com";
         final String password = "응틀렸어";
+        // 틀린 정보로 로그인 해보기
+        // 리퀘스트 폼으로 정보를 받아서 서비스의 로그인에 넣어본다.
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
         assertTrue(responseForm.getUserToken() == null);
+        // 잘못된 정보를 넣었기 때문에 널과 같아야 한다.
 
     }
 
@@ -128,6 +139,7 @@ public class AccountTest {
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
         assertTrue(responseForm.getUserToken() != null);
+        // 랜덤 값을 가져오기 때문에 널만 아니면 된다.
     }
 
     //로그아웃, 회원 탈퇴와 같은 사항들이 남아있음
@@ -147,10 +159,11 @@ public class AccountTest {
         final String email = "gogo@king.com";
         final String password = "gogo";
         final String role = "NORMAL";
-
+        // 롤이 추가된 레퀘스트 폼을 가져온다.
+        //가져온 폼을 서비스의 register에 넣어본다.
         TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
         TestAccount account = testAccountService.registerWithRole(requestForm);
-
+        // 생성된 어카운트의 이메일과 패스워드가 내가 넣은 것과 같이 같은지 체크한다.
         assertEquals(email, account.getEmail());
         assertEquals(password, account.getPassword());
     }
@@ -161,6 +174,7 @@ public class AccountTest {
         final String email = "business@test.com";
         final String password = "test";
         final String role = "BUSINESS";
+        // 바로 위와 같은 방법으로 진행된다.
 
         TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
         TestAccount account = testAccountService.registerWithRole(requestForm);
@@ -173,14 +187,17 @@ public class AccountTest {
     @DisplayName("일반 회원만 조회하기")
     void 일반회원_조회 () {
         final String role = "BUSINESS";
-
+        // 비지니스 회원 조회한다.
+        // 정보를 받을 AccountRoleRequestForm 으로 역할 받는다.
         AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        //서비스의 accountListWithRole()메서드로 실행
         List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
-
+        // 위에서 리턴 받은 갯수 만큼 반복 할것이다.
         for (TestAccountResponseForm responseForm: normalAccountList) {
+
             System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
             System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
-
+            // 정보는 있는데 id와 email이 비어있으면 잘못 된 것이므로 체크한다.
             assertTrue(responseForm.getAccountId() != null);
             assertTrue(responseForm.getEmail() != null);
         }

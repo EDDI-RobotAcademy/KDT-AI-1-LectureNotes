@@ -72,12 +72,15 @@ public class LambdaTest {
     @DisplayName("정수형 숫자 평균 계산")
     public void 두개의_숫자_더해서_평균계산_검증하기 (){
     ScoreCollection collection = new ScoreCollection();
-    collection.add(()->5);
-    collection.add(()->2);
-        collection.add(()->9);
+    // 위의 메서드는 더한 숫자만큼 더하고 평균을 내는 도구이다.
+    collection.add(()->5);// 람다 형식 함수 리스트에 5더하기
+    collection.add(()->2);// 리스트에 2 더하기
+    collection.add(()->9);// 리스트에 9
 
 
     int actualResult = collection.arithmeticMean();
+        //collection의 arithmeticMean 사용
+        // 16나누기 3의 몫은 5이므로 테스트 통과한다.
 
     assertEquals(actualResult, 5);
 
