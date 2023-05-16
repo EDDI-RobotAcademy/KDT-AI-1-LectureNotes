@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.testCode.lecture.entity;
 
+import com.example.demo.lectureClass.testCode.student.entity.TestStudent;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

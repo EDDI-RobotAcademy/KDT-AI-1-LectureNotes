@@ -21,10 +21,6 @@
             <input type="radio" v-model="category" name="radioBtn" value="ICECREAM">
             <label>아이스크림</label>
           </div>
-          <div>
-            <input type="radio" v-model="category" name="radioBtn" value="JINO">
-            <label>지노</label>
-          </div>
         </td>
       </tr>
       <tr>
