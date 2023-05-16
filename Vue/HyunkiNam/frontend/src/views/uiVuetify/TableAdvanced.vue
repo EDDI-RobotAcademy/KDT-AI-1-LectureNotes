@@ -2,7 +2,8 @@
     <v-container>
         <v-data-table :headers="headerTitle" :items="boards"
                     :items-per-page="7" class="elevation-1"
-                    @click:row="readRow" show-select v-model="selectedItems"/>
+                    @click:row="readRow" show-select item-key="boardId" v-model="selectedItems"/>
+                    {{selectedItems}}
     </v-container>
 </template>
 

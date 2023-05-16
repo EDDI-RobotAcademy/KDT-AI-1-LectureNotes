@@ -34,6 +34,11 @@ import BoardListPage from '@/views/board/BoardListPage.vue'
 import BoardRegisterPage from '@/views/board/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/board/BoardReadPage.vue'
 import BoardModifyPage from '@/views/board/BoardModifyPage.vue'
+import uiVuetify from "@/router/uiVuetify";
+import vuetifyTestRoutes from "@/router/uiVuetify";
+import FileHandlerPage from "@/views/file/FileHandlerPage.vue";
+import FileListShowPage from "@/views/file/FileListShowPage.vue";
+
 
 Vue.use(VueRouter)
 
@@ -165,6 +170,17 @@ const routes = [
     props: {
       default: true
     },
+  },
+    ...vuetifyTestRoutes,
+  {
+    path: '/file-handler-page',
+    name: 'FileHandlerPage',
+    component: FileHandlerPage
+  },
+  {
+    path: '/file-list-show-page',
+    name: 'FileListShowPage',
+    component: FileListShowPage
   }
 
   
