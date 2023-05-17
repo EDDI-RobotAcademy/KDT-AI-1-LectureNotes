@@ -6,6 +6,7 @@ import CheckboxPage from "@/views/problem1/CheckboxPage";
 import SpringGetHi from "@/views/problem2/SpringGetHi";
 import OptionPrint from "@/views/problem3/OptionPrint";
 import DicePrintPage from "@/views/problem4-6/DicePrintPage";
+import ImageGallery from "@/views/problem7/ImageGallery";
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,11 @@ const routes = [
     path: "/dice-print",
     name: "DicePrintPage",
     component: DicePrintPage,
+  },
+  {
+    path: "/image-gallery",
+    name: "ImageGallery",
+    component: ImageGallery,
   },
 ];
 

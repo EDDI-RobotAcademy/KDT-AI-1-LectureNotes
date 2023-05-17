@@ -6,6 +6,7 @@
         <router-link to="/spring-get-hi">문제 2번</router-link> |
         <router-link to="/option-print">문제 3번</router-link> |
         <router-link to="/dice-print">문제 4-6번</router-link> |
+        <router-link to="/image-gallery">문제 7번</router-link> |
 
 
       </nav>
