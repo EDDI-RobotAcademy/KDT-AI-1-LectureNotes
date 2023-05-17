@@ -137,11 +137,11 @@
         </table>
         <!-- -->
         <h2>Image</h2>
-        <img src="@/assets/good.jpg" width="400" height="400">
+        <img src="@/assets/downloadImg/good.jpg" width="400" height="400">
         <!-- figure로 image를 감싸고 figcaption을 달면 image에 대한 설명을 붙일 수 있습니다. -->
 
         <figure>
-            <img src="@/assets/good.jpg" width="400" height="400">
+            <img src="@/assets/downloadImg/good.jpg" width="400" height="400">
             <figcaption style="font-size: 24px">르세라핌 짱!</figcaption>
         </figure>
 
@@ -150,7 +150,7 @@
 
         <h1> 이미지 링크 생성</h1>
         <a href="http://mario.nintendo.com/">
-            <img src = "@/assets/good.jpg" width="400" height="400">
+            <img src = "@/assets/downloadImg/good.jpg" width="400" height="400">
         </a>
 
         <!-- 

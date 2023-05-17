@@ -1,44 +1,57 @@
-<template >
+<template lang="">
     <div>
-        <h3>사과와 포도를 갯수 정하고 버튼 누르면 총 가격을 받을 수 있게 만들어야함</h3>
-        <form @submit.prevent="onSubmit">
-        <p>사과 : <input type="number" v-model="appleAmount"></p>
-        <p>포도 :<input type="number" v-model="grapeAmount"></p>
-        <button type="submit">button</button>
-        <br>
-        <p>{{ allFruitsPrice }}</p>
-        </form>
+        {{ fruitsListForPrint }}
+        <table v-for="(fruits, index) in this.fruitsListForPrint" :key="index">
+            <tr>
+                <td>
+                    {{ fruits.name }}: <input type="number" v-model="fruits.min"/>
+                </td>
+            </tr>
+        </table>
+        <v-btn color="primary" @click="calculateFruitsForOrder">과일 가격 계산</v-btn>
+        <p>최종 가격: {{ totalPrice }}</p>
     </div>
 </template>
+
 <script>
-import axios from 'axios';
+import axios from 'axios'
 export default {
-
-    name:"FruitsBuyComponent",
-    data() {
+    props: {
+        kindsOfFruits: Array, // kindsOfFruits는 배열 형식으로 받을거야 그러니까 배열로 보내줘
+    },
+    data () {
         return {
-            allFruitsPrice:0,
-            appleAmount:0,
-            grapeAmount:0
-
-           
-            
+            fruitsListForPrint: this.kindsOfFruits,// 페이지에 지정된 값을 가져온다 사과 3개 수박 2개
+            totalPrice: 0,
         }
     },
     methods: {
-        onSubmit(){
-            const{appleAmount,grapeAmount} =this
-            axios.post('http://localhost:7777/fruits-test/fruits-calculate', { appleAmount,grapeAmount })
-            .then((res)=>{
-                this.allFruitsPrice=res.data
-            })
-            .catch((res)=>{
-                alert('데이터 전송 실패!')
-            })
+        calculateFruitsForOrder () {
+            const { fruitsListForPrint } = this
+            alert('orderedFruitsList: ' + JSON.stringify(fruitsListForPrint))
+            console.log('appleName: ' + fruitsListForPrint[0].name)
+            console.log('appleCount: ' + fruitsListForPrint[0].count)
+            console.log('watermelonName: ' + fruitsListForPrint[1].name)
+            console.log('watermelonCount: ' + fruitsListForPrint[1].count)
+            axios.post('http://localhost:7777/fruits-test/calculate',
+                { 
+                    // 불변객체화 한 과일 리스트 보내기
+                    appleName: fruitsListForPrint[0].name,
+                    appleCount: fruitsListForPrint[0].count,
+                    watermelonName: fruitsListForPrint[1].name,
+                    watermelonCount: fruitsListForPrint[1].count,
+                })
+                .then((res) => {
+                    console.log('result: ' + res.data)
+                    this.totalPrice = res.data
+                    //넘어오는건 Integer 총합 가격만 넘어오기 때문에
+                    // 토탈 가격에 넣어주면 됩니다.
+                })
         },
-       
-}}
+    }
+}
 </script>
-<style >
+
+<style lang="">
     
 </style>

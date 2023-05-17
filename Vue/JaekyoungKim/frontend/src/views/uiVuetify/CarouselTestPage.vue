@@ -1,0 +1,37 @@
+<template lang="">
+    <v-container>
+        <div>
+            <v-carousel :cycle="cycle" :interval="interval" :height="height" v-model="carouselModel">
+            <v-carousel-item v-for="(picture,idx) in bannerPicture" :key='idx'>
+                <v-sheet :height="height" tile>
+                    <v-row class="fill-height" align="center" justify="center">
+                        <v-img :src="picture.img" :height="height" contain/>
+                    </v-row>
+                </v-sheet>
+            </v-carousel-item>  
+            </v-carousel>
+        </div>
+    </v-container>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            carouselModel:false,
+            bannerPicture:[
+                {img:require("@/assets/downloadImg/cat.jpg")},
+                {img:require("@/assets/downloadImg/cheese.jpg")},
+                {img:require("@/assets/downloadImg/tomato.jpg")}
+            ],
+            cycle:true,
+            interval: 2500,
+            height: 300,
+
+        }
+    },
+    
+}
+</script>
+<style lang="">
+    
+</style>

@@ -22,10 +22,12 @@ export default {
     // state 관리자인 vuex에 state값(boards)를 모니터링
     computed: {
         ...mapState(boardModule, ['boards']),
+        //리스트를 가져올거기 때문에 boards 가져와야함
     },
     mounted () {
         // vuex의 action 호출
         this.requestBoardListToSpring()
+        //리퀘스트 보드 가져오기
     },
     methods: {
         // vuex의 action을 method에 맵핑

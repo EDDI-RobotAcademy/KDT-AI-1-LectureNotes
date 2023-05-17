@@ -23,6 +23,7 @@ public class JpaBoardServiceImpl implements JpaBoardService {
 
     @Override
     public List<JpaBoard> list() {
+
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardId"));
     }
     //boardId를 기준으로 내림차순 정렬한 보드 리스트를 리턴해줌

@@ -15,6 +15,7 @@ import boardRoutes from './board'
 import vuetifyTestRoutes from './uiVuetify/index,'
 import d3plotRoutes from './d3plot'
 import filesTestRoutes from './files'
+import foodRoutes from './food'
 Vue.use(VueRouter)
 
 const routes = [
@@ -31,6 +32,7 @@ const routes = [
   ...problemRoutes,
   ...d3plotRoutes,
   ...filesTestRoutes,
+  ...foodRoutes,
 
 ]
 
