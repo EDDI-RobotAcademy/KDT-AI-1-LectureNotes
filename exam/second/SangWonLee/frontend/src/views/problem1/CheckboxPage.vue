@@ -4,7 +4,9 @@
 -->
 
 <template lang="">
-    <div>
+    <div><br>
+13번 문제 까지 풀었습니다.
+        <br>
 
         <input type="checkbox" v-model="isChecked">
         {{isChecked}}
