@@ -1,14 +1,15 @@
 package com.example.demo.accountTest;
 
 import com.example.demo.lectureClass.testCode.account.Service.TestAccountService;
-import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
-import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.*;
 import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -174,5 +175,66 @@ public class AccountTest {
     // 로그아웃, 회원 탈퇴와 같은 사항들이 남아있음
     // 이 사항들은 역시나 로그인 되어 있는 token을 기반으로 진행되어야 합니다.
     // 그러므로 위 두 가지 사항은 현 시점에선 보류합니다.
+
+    @Test
+    @DisplayName("회원가입을 합니다(일반회원)")
+    void 일반회원_회원가입() {
+        final String email = "yeah@test.com";
+        final String password = "test";
+        final String role = "NOLMAL";
+
+        // 정석적으로는 회원가입을 밀어버리고 새로 생성하는게 맞음
+        // 지금은 우리가 복습해야하기 때문에 따로 만들어줌
+
+        TestAccountWithRoleRequestForm roleRequestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        // 회원가입은 원래 했던 양식 그대로에서 여기서는 role만 추가함
+        // 그래서 아이디, 비번 그리고 어떤 회원인지도 전달될 것임
+
+        TestAccount account = testAccountService.registerWithRole(roleRequestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+
+        // 그럼 이제 테이블 확인해보면 account 테이블에선ㄴ role값이 없어서 쓸데없는 비용 소비하지 않음
+        // role테이블에서만 role을 확인하게 되어 생산성 증가
+
+        // 어제 숙제했던 것과 겹쳐서 오류났었음
+        // account_role 테이블에서는 role 뽑을 수 있고
+        // test_account에서는 이메일과 패스워드만 뽑을 수 있음
+
+        /*
+            여기서 이제 role도 확인하면 좋은데 양방향 참조가 아니라서 확인 못한다고 하심
+            -> 이게 몬말이지?
+            이메일과 패스워드는 TestAccount 속에 있어서 getter로 가져와서 확인할 수 있지만
+            role은 그 안에 구성되어 있지 않음
+            그래서 확인 못한다는 것!
+         */
+    }
+
+    @Test
+    @DisplayName("일반 회원만 조회하기")
+    void 일반회원_조회() {
+        final String role = "NOLMAL";
+
+        // 일반 회원을 조회하려면 관리자 회원이 해야함
+        // 원래는 관리자의 유저토큰 가져와서 인증시스템이 있어야 하는데
+        // 지금은 일단 관리자회원이라고 가정할 것
+//        AccountRoleRequsetForm requsetForm = new AccountRoleRequsetForm(role);
+        // 저장소에서 필요한 애들 가져오는 거라서 얘 없어도 됨
+
+        List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+        // 위에 만들어둔 role을 가지고 accountList를 가져온다
+        // List<TestAccount>로 가져오면 비밀번호를 가져오게 됨 이거로 가져오면 안되고
+        // 리스폰스 폼에서 필요한 것만 가져오도록 해야함
+
+        for (TestAccountResponseForm responseForm : normalAccountList) {
+            System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
+            System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
+            assertTrue(responseForm.getAccountId() != null);
+            assertTrue(responseForm.getEmail() != null);
+        }
+        // 회원가입도 그렇고 조회도 그렇고 같은 형식으로 role만 바꿔주면
+        // 일반회원, 사업자회원, 관리자회원을 구분해서 가져올 수 있다
+    }
 }
 

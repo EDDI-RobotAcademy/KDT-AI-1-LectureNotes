@@ -15,6 +15,7 @@ import defaultSetRoutes from './defaultRouterSet'
 import solvedRoutes from './solved'
 import d3plotTestRoutes from './d3plot'
 import filesTestRoutes from './files'
+import foodSetRoutes from './food'
 
 // 지저분한 궁극적인 이유?
 // 분류가 안되어서 - 즉 도메인 정리가 안됨
@@ -37,6 +38,7 @@ const routes = [
   ...solvedRoutes,
   ...d3plotTestRoutes,
   ...filesTestRoutes,
+  ...foodSetRoutes,
 ]
 
 const router = new VueRouter({

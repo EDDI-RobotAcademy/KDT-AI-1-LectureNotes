@@ -1,7 +1,5 @@
 package com.example.demo.productTest;
 
-import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
-import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.product.Service.TestProductService;
 import com.example.demo.lectureClass.testCode.product.controller.form.TestProductRequestForm;
 import com.example.demo.lectureClass.testCode.product.entity.TestProduct;

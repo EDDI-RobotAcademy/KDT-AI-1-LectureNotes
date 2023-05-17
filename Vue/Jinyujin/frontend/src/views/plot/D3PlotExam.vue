@@ -56,9 +56,6 @@ export default {
 
         const width = 800
         const height = 500
-        const svg = d3.select("svg")
-            .attr("width", width + 100)
-            .attr("height", height + 100)
        
         const parseTime = d3.timeParse("%Y-%m-%d")
         // https://d3-wiki.readthedocs.io/zh_CN/master/Time-Formatting/
@@ -92,6 +89,10 @@ export default {
                 return y(d.healthAmount)
                 // line에 내장되어 있는 y -> y좌표
             })
+
+        const svg = d3.select("svg")
+            .attr("width", width + 100)
+            .attr("height", height + 100)
 
          const g = svg.append("g")
         // svg.append("g")를 사용하여 g 요소 생성하고 그걸 편하게 사용하기 위해 g에 대입시켜줌
