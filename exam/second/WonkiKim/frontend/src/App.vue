@@ -27,14 +27,12 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <router-link to="/sign-up">
+        <v-btn v-if="!isLogin">
+          <span>회원가입</span>
+          <v-icon right>mdi-account-plus-outline</v-icon>
+        </v-btn>
+      </router-link>
     </v-app-bar>
 
     <v-main>
@@ -48,8 +46,15 @@
 export default {
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  data() {
+    return {
+      memberId: null,
+      isLogin: false
+    }
+  },
+  mounted() {
+    this.memberId = localStorage.getItem("loginUserInfo")
+    this.isLogin = this.memberId !== null;
+  }
 };
 </script>
