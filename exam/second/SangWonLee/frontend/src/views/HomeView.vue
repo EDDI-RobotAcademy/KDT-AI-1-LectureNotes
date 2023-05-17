@@ -1,15 +1,30 @@
 <template>
-  <hello-world />
+  <v-container>
+    <div>
+      <nav>
+        <router-link to="/checkbox-page">문제 1번</router-link> |
+        <router-link to="/spring-get-hi">문제 2번</router-link> |
+        <router-link to="/option-print">문제 3번</router-link> |
+        <router-link to="/dice-print">문제 4-6번</router-link> |
+
+
+      </nav>
+
+    </div>
+
+
+  </v-container>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import { VContainer } from 'vuetify/lib';
+import HelloWorld from '../components/HelloWorld'
 
-  export default {
-    name: 'Home',
+export default {
+  name: 'Home',
 
-    components: {
-      HelloWorld,
-    },
-  }
+  components: {
+    HelloWorld,
+  },
+}
 </script>
