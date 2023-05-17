@@ -7,6 +7,7 @@ import SpringGetHi from "@/views/problem2/SpringGetHi";
 import OptionPrint from "@/views/problem3/OptionPrint";
 import DicePrintPage from "@/views/problem4-6/DicePrintPage";
 import ImageGallery from "@/views/problem7/ImageGallery";
+import ChangeBanner from "@/views/problem8/ChangeBanner";
 
 Vue.use(VueRouter);
 
@@ -49,6 +50,11 @@ const routes = [
     path: "/image-gallery",
     name: "ImageGallery",
     component: ImageGallery,
+  },
+  {
+    path: "/change-banner",
+    name: "ChangeBanner",
+    component: ChangeBanner,
   },
 ];
 

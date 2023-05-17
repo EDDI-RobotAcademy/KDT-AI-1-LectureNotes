@@ -25,8 +25,10 @@ export default {
                 require('@/assets/downloadImg/abcd.jpg'),
                 require('@/assets/downloadImg/good.jpg'),
                 require('@/assets/downloadImg/bird.jpg'),
+                require('@/assets/downloadImg/efg.jpg'),
                 require('@/assets/downloadImg/good.jpg'),
                 require('@/assets/downloadImg/abcd.jpg'),
+                require('@/assets/downloadImg/efg.jpg'),
                 require('@/assets/downloadImg/bird.jpg'),
             ]
         }
