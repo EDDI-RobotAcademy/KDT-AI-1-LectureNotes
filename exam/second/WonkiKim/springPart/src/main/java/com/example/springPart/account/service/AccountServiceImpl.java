@@ -1,5 +1,6 @@
 package com.example.springPart.account.service;
 
+import com.example.springPart.account.controller.form.LogInRequestForm;
 import com.example.springPart.account.controller.form.SignUpRequestForm;
 import com.example.springPart.account.entity.Account;
 import com.example.springPart.account.repository.AccountRepository;
@@ -21,5 +22,17 @@ public class AccountServiceImpl implements AccountService{
         }
         Account createdAccount = signUpRequestForm.toAccount();
         return accountRepository.save(createdAccount);
+    }
+
+    @Override
+    public Account logIn(LogInRequestForm requestForm) {
+        Optional<Account> maybeAccount = accountRepository.findByEmail(requestForm.getEmail());
+        if(maybeAccount.isEmpty()) {
+            return null;
+        }
+        if(maybeAccount.get().getPassword().equals(requestForm.getPassword())) {
+            return maybeAccount.get();
+        }
+        return null;
     }
 }

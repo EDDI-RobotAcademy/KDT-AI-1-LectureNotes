@@ -29,8 +29,14 @@
 
       <router-link to="/sign-up">
         <v-btn v-if="!isLogin">
-          <span>회원가입</span>
+          <span>sign up</span>
           <v-icon right>mdi-account-plus-outline</v-icon>
+        </v-btn>
+      </router-link>
+      <router-link to="/log-in">
+        <v-btn v-if="!isLogin">
+          <span>log in</span>
+          <v-icon right>mdi-account-check-outline</v-icon>
         </v-btn>
       </router-link>
     </v-app-bar>

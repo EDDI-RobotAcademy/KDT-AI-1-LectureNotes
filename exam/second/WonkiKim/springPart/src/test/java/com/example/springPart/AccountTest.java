@@ -1,5 +1,6 @@
 package com.example.springPart;
 
+import com.example.springPart.account.controller.form.LogInRequestForm;
 import com.example.springPart.account.controller.form.SignUpRequestForm;
 import com.example.springPart.account.entity.Account;
 import com.example.springPart.account.service.AccountService;
@@ -49,5 +50,33 @@ public class AccountTest {
         assertEquals(email, cretedAccount.getEmail());
         assertEquals(password, cretedAccount.getPassword());
         assertEquals(role, cretedAccount.getRole());
+    }
+
+    @Test
+    @DisplayName("일반회원이 로그인합니다")
+    void 일반회원_로그인() {
+        final String email = "test@normal.com";
+        final String password = "1234";
+
+        LogInRequestForm requestForm = new LogInRequestForm(email, password);
+        Account logInAccount = accountService.logIn(requestForm);
+
+        assertEquals(email, logInAccount.getEmail());
+        assertEquals(password, logInAccount.getPassword());
+        assertEquals(1L, logInAccount.getId());
+    }
+
+    @Test
+    @DisplayName("사업자회원이 로그인합니다")
+    void 사업자_로그인() {
+        final String email = "test@business.com";
+        final String password = "1234";
+
+        LogInRequestForm requestForm = new LogInRequestForm(email, password);
+        Account logInAccount = accountService.logIn(requestForm);
+
+        assertEquals(email, logInAccount.getEmail());
+        assertEquals(password, logInAccount.getPassword());
+        assertEquals(2L, logInAccount.getId());
     }
 }
