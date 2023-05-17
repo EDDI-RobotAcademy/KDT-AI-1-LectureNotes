@@ -1,0 +1,24 @@
+package kr.eddi.demo.lectureClass.testCode.order.repository;
+
+import kr.eddi.demo.lectureClass.testCode.order.entity.TestOrder;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+public interface TestOrderRepository extends JpaRepository<TestOrder, Long> {
+    // select * from 엔티티이름
+    // where은 조건
+    // 파라미터(입력)은 ':id'
+    // 특수문자 이상한데 붙이면 동작 안함
+    @Query("select to from TestOrder to where to.testAccount.id = :id")
+    List<TestOrder> findAllByAccountId(Long id);
+    // id 파라미터를 받아서 TestOrder 엔티티의 testAccount 필드의
+    // id 값이 전달된 id와 일치하는 모든 TestOrder 엔티티를 조회하여
+    // List<TestOrder> 타입으로 반환한다.
+
+    @Query("select to from TestOrder to where to.testProduct.id = :productId")
+    List<TestOrder> findAllAccountWhoBuyProduct(Long productId);
+    // productId 파라미터를 받아서 TestOrder 엔티티의 testProduct 필드의
+    // id와 일치하는 모든 TestOrder 엔티티를 조회하여 List<TestOrder> 타입으로 반환
+}

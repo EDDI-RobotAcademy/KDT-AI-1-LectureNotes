@@ -1,15 +1,8 @@
 package problems.prob4;
 
+// 54~132까지 더하는 프로그램을 만들어봅시다.
 public class Problem4 {
     public static void main(String[] args) {
-        final int MIN = 54;
-        final int MAX = 132;
-
-        int NumberSum = 0;
-
-        for (int i = MIN; i <= MAX; i++){
-            NumberSum += i;
-        }
-        System.out.println(NumberSum);
+        NumberSum numberSum = new NumberSum();
     }
 }

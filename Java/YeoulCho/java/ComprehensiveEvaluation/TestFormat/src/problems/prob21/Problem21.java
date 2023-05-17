@@ -11,7 +11,7 @@ class CompanyJ {
     }
 
     public double decisionIncreaseRate() {
-        increaseRate = 1 + CustomRandom.generateNumber(1, 50) * 0.01;
+        increaseRate = CustomRandom.generateNumber(1, 50) * 0.01;
         return increaseRate;
     }
 
@@ -22,11 +22,11 @@ class CompanyJ {
     public double afterTenYearSalary() {
         final int afterTenYears = 10;
         final double initialSalary = 2;
-        double afterTenYearsSalary = 0;
+        double afterTenYearsSalary = initialSalary;
 
         for (int i = 1; i <= afterTenYears; i++) {
-            double Salary = initialSalary * decisionIncreaseRate();
-            afterTenYearsSalary = initialSalary + decisionIncreaseRate() * i;
+//            double Salary = initialSalary * decisionIncreaseRate();
+            afterTenYearsSalary += initialSalary * decisionIncreaseRate();
         }
         return afterTenYearsSalary;
     }
