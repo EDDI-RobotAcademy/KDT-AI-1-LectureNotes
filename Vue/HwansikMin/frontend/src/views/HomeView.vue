@@ -41,6 +41,7 @@
         <router-link to="/file-handler-test-page">File 처리 테스트</router-link> |
         <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
         <router-link to="/d3-review1-page">D3 Review 1</router-link> |
+        <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
 
 
         
