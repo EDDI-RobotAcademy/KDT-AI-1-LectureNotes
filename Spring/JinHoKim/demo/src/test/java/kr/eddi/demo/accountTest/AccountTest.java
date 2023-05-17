@@ -1,15 +1,20 @@
 package kr.eddi.demo.accountTest;
 
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.AccountRoleRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
 
 import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRepository;
 import kr.eddi.demo.lectureClass.testCode.account.service.TestAccountService;
+import kr.eddi.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -126,12 +131,72 @@ public class AccountTest {
     @Test
     @DisplayName("올바른 입력한 정보를 토대로 로그인")
     void 올바른_정보로_로그인 () {
+        // 윈도우의 경우 대소문자 구별이 잘 안되는 문제가 추가로 존재함(이것은 운영체제 문제)
         final String email = "test@test.com";
         final String password = "test";
 
+        // 로그인을 좀 더 잘 관리하기 위해선 docker 기반의 redis 에 token 관리가 필요합니다.
+        // token 관리는 Docker redis 및 AWS 설정 이후에 작업해야하므로 잠시 보류합니다.
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
         assertTrue(responseForm.getUserToken() != null);
+    }
+
+    // 로그아웃, 회원 탈퇴와 같은 사항들이 남아있음
+    // 이 사항들은 역시나 로그인 되어 있는 token 을 기반으로 진행되어야 합니다.
+    // 그러므로 위 두 가지 사항은 현 시점에선 보류합니다.
+
+    @Test
+    @DisplayName("회원가입을 합니다(일반회원)")
+    void 일반회원_회원가입 () {
+        // 여러가지 방법론들
+        // 1. Account Domain 과 AccountRole Domain 을 분리하자!
+        // 2. Account Domain 에 회원을 구분할 수 있는 Category ID를 만들자!
+        // 3. AccountRole 에 Account 를 상속 해보자!
+        // 4. 일단은 저는 1번인데,
+        //    제 관점에서는 Account 와 AccountRole 을 분리하되 모두 Account Domain 에 배치합니다.
+        //    결론적으로 Account Domain Entity 에 Account 와 AccountRole 이 배치됩니다.
+
+        final String email = "gogo@gogo.com";
+        final String password = "gogo";
+        final String role = "NORMAL";
+
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("회원가입을 합니다(일반회원)")
+    void 사업자_회원가입 () {
+        final String email = "business@test.com";
+        final String password = "test";
+        final String role = "BUSINESS";
+
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("일반 회원만 조회하기")
+    void 일반회원_조회 () {
+        final String role = "NORMAL";
+
+        AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+
+        for (TestAccountResponseForm responseForm: normalAccountList) {
+            System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
+            System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
+
+            assertTrue(responseForm.getAccountId() != null);
+            assertTrue(responseForm.getEmail() != null);
+        }
     }
 }
