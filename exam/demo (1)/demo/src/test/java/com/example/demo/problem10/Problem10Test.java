@@ -92,9 +92,16 @@ public class Problem10Test {
     @DisplayName("회원의 로그인")
     void 로그인하기 () {
         /*
-        
+        저장소 안에 이메일 비밀번호가 맞는지 확인
+        findbyid로 가져 온다음 각각 확인
          */
+        final String email = "test@test.com";
+        final String password = "test";
+        final CategoryType categoryType = NORMAL;
+        final BusinessNumber businessNumber = new BusinessNumber(0000000000);
 
+        AccountRequestForm requestForm = new AccountRequestForm(email, password, categoryType, businessNumber);
+        boolean isSuccess = accountService.login(requestForm.toAccountRequest());
     }
 
 }

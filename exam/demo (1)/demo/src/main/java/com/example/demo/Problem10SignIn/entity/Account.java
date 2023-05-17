@@ -1,6 +1,7 @@
 package com.example.demo.Problem10SignIn.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
@@ -8,6 +9,7 @@ import java.util.Set;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Account {
 
     @Id

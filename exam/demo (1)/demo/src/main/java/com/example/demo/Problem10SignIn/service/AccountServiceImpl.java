@@ -45,4 +45,13 @@ public class AccountServiceImpl implements AccountService{
         }
         return true;
     }
+
+    @Override
+    public boolean login(AccountRequest toAccountRequest) {
+        Account maybeAccount = accountRepository.findById(toAccountRequest.toAccount().getId()).get();
+        if (maybeAccount == null) {
+            return false;
+        }
+        if ()
+    }
 }
