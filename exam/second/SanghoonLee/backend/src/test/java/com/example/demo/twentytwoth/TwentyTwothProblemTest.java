@@ -83,7 +83,7 @@ public class TwentyTwothProblemTest {
         assertEquals(roleType, BUSINESS);
 
         final ProductRegisterRequestForm productRequestForm =
-                new ProductRegisterRequestForm("양말", 1000, "아주 좋음");
+                new ProductRegisterRequestForm("양말", 1000, "아주 좋음", userToken);
 
         final File[] files = new File[2];
         final String fixedPath = "src/test/java/com/example/demo/twentytwoth/testImage/";
