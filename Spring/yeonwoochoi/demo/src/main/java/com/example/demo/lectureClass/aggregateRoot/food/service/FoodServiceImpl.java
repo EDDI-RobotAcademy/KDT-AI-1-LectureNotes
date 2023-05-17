@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class FoodServiceImpl implements FoodService{
+public class FoodServiceImpl implements FoodService {
 
     final FoodRepository foodRepository;
     final FoodImgeRepository foodImgeRepository;

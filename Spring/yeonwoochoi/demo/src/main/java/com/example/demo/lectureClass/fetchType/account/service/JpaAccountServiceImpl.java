@@ -1,6 +1,5 @@
 package com.example.demo.lectureClass.fetchType.account.service;
 
-
 import com.example.demo.lectureClass.fetchType.account.controller.form.JpaAccountResponseForm;
 import com.example.demo.lectureClass.fetchType.account.controller.form.JpaAccountWithRoleRequestForm;
 import com.example.demo.lectureClass.fetchType.account.entity.JpaAccount;

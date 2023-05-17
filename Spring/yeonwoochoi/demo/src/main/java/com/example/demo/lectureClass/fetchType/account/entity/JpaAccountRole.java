@@ -12,13 +12,13 @@ public class JpaAccountRole {
 
     @Id
     @Getter
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 고유하다. 식별이 가능하다.
     private Long id;
 
     private String role;
 
     @Getter
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY) // @ManyToOne 다 : 1 // (fetch = FetchType.LAZY) account 속성을 막는 용도
     private JpaAccount account;
 
     public JpaAccountRole(String role, JpaAccount account) {

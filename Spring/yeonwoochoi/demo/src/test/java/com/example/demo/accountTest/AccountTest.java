@@ -165,7 +165,6 @@ public class AccountTest {
         // 4. 일단은 저는 1번인데,
         //    제 관점에서는 Account와 AccountRole을 분리하되 모두 Account Domain에 배치합니다.
         //    결론적으로 Account Domain Entity에 Account와 AccountRole이 배치됩니다.
-
         final String email = "dusdn@gmail.com";
         final String password = "gogo";
         final String role = "NORMAL";
@@ -178,7 +177,7 @@ public class AccountTest {
     }
 
     @Test
-    @DisplayName("회원가입을 합니다(일반회원)")
+    @DisplayName("회원가입을 합니다(사업자회원)")
     void 사업자_회원가입 () {
         final String email = "business@test.com";
         final String password = "test";
@@ -203,7 +202,7 @@ public class AccountTest {
             System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
             System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
 
-            //True 조건의 결과값이 true여야 성공
+            // True 조건의 결과값이 true여야 성공
             assertTrue(responseForm.getAccountId() != null);
             assertTrue(responseForm.getEmail() != null);
         }

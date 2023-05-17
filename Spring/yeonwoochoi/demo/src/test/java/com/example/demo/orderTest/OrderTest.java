@@ -34,6 +34,8 @@ public class OrderTest {
     // 상품 Domain
     // 주문 Domain
     @Test
+    // 주문을 할 때 Request와 Response 어떤것이 사용되는지 생각해보자
+    // 주문을 할때에는 Request만 사용 했다.
     @DisplayName("회원이 상품을 주문합니다")
     void 회원이_상품을_주문합니다() {
         final String email = "test@test.com";
@@ -41,17 +43,34 @@ public class OrderTest {
         final Long productId = 1L;
         final Long accountId = 1L;
 
+        // Request 요청
+        // Response 응답
+
+        // 페이지를 들어가면 로그인을 먼저 한다.
+        // 정보를 프론트에서 폼으로 받아옴 (email, password)에 정보를 객체로 생성해서 requestForm에 대입
+        // requestForm = email, password
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        // 서비스에서 로그인 기능을 하고 email, password 정보로 로그인하고, 그 값을 responseForm에 대입
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
+        // userToken - 로그인 상태에서 누군지 알려주는 식별 형태, 보안성
+        // 로그인 상태(responseForm)가 되고, 로그인이 되면(getUserToken()) UserToken을
+        // 문자열(toString()) 형태로 가져온다.
+        // 결과값을 userToken에 대입한다.
         String userToken = responseForm.getUserToken().toString();
 
         // 상품 정보, 토큰 정보 두가지 모두 처리 해야함
         // userToken 가지고 있는 사용자가 productId 상품을 주문 한다.
+        // 주문한 상품 정보를 폼으로 받아오고, userToken, productId 정보를 객체로 만들어준다.
+        // orderRequestForm에 대입 한다.
         TestOrderRequestForm orderRequestForm = new TestOrderRequestForm(userToken, productId);
-        // 실제로 accountId 주면 안됨 (지금은 매번 바꿔야 해서 혼선이 생기므로 준 상태)
+        // 실제로 accountId 주면 안된다. (지금은 매번 바꿔야 해서 혼선이 생기므로 준 상태)
+        // 지금은 accountId가 내 계정이라고 생각하면 된다.
+        // Service에서 주문한 userToken, productId(orderRequestForm)와 accountId 값을 order 대입 한다.
         TestOrder order = testOrderService.order(orderRequestForm, accountId);
 
+        // 내가 고른 productId, 주문한 상품의 Id가 같으면 성공(Equals)
+        // 나의 계정 accountId, 주문한 상품 계정Id가 같으면 성공(Equals)
         assertEquals(productId, order.getTestProduct().getId());
         assertEquals(accountId, order.getTestAccount().getId());
     }

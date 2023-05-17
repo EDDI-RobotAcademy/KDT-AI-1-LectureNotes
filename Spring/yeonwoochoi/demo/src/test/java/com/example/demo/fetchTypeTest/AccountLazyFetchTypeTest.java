@@ -16,18 +16,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class AccountLazyFetchTypeTest {
+
+    // @Autowired - test에서 @RequiredArgsConstructor 대신 사용하는 또 다른 키워드이다.
     @Autowired
     private JpaAccountService accountService;
 
     @Test
     @DisplayName("FetchType = LAZY, 일반 회원 가입")
     void 일반_회원_가입 () {
-        final String email = "normal@test.com";
-        final String password = "test";
-        final String role = "NORMAL";
+        final String email = "normal@test.com"; // email
+        final String password = "test"; // password
+        final String role = "NORMAL"; // 역할
+
+        // 프론트에서 정보를 Form(JpaAccountWithRoleRequestForm)으로 받아옴
+        // 입력한 email, password, role 대한 객체를 생성함
         JpaAccountWithRoleRequestForm requestForm = new JpaAccountWithRoleRequestForm(email, password, role);
+        // requestForm정보를 서비스(accountService)에서 registerWithRole기능을 하고 결과값을 account에 대입
         JpaAccount account = accountService.registerWithRole(requestForm);
+        // 입력한 email과 결과값(등록에 대한 기능) Email이 같으면 성공
         assertEquals(email, account.getEmail());
+        // 입력한 password와 등록한 password가 같으면 성공
         assertEquals(password, account.getPassword());
     }
 
@@ -43,8 +51,13 @@ public class AccountLazyFetchTypeTest {
         final String role = "NORMAL";
 
         JpaAccountRoleRequestForm requestForm = new JpaAccountRoleRequestForm(role);
+        // 서비스에서 role인 회원들을 조회하는 기능
+        // 프론트에서 List ResponseForm 타입으로 응답 받고,
+        // accountService에서 accountListWithRol기능을 하고, 결과값을 normalAccountList에 대입 한다.
         List<JpaAccountResponseForm> normalAccountList = accountService.accountListWithRole(role);
 
+        // foreach문
+        //
         for (JpaAccountResponseForm responseForm: normalAccountList) {
             System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
             System.out.println("responseForm.getEmail(): " + responseForm.getEmail());

@@ -1,4 +1,4 @@
-<template lang="">
+\<template lang="">
   <!--
     우리가 어떤 식재료를 판매한다고 가정하겠습니다
     이 때 사업자 혹은 물건을 판매하는 판매자는 식재료를 등록해야 합니다
@@ -8,7 +8,7 @@
   <div>
     <v-container>
       <h2>식재료 등록</h2>
-      <food-aggregate-root-register-form @submit="onSubmit"/>
+      <food-aggregate-root-register-form @submit="onSubmit" />
     </v-container>
   </div>
 </template>
@@ -16,10 +16,11 @@
 <script>
 import { mapActions } from 'vuex';
 import FoodAggregateRootRegisterForm from '@/components/food/FoodAggregateRootRegisterForm.vue';
+
 const foodModule = 'foodModule'
 export default {
     components: {
-      FoodAggregateRootRegisterForm
+      FoodAggregateRootRegisterForm,
     },
     methods: {
       ...mapActions(foodModule, ['requestCreateFoodToSpring']),

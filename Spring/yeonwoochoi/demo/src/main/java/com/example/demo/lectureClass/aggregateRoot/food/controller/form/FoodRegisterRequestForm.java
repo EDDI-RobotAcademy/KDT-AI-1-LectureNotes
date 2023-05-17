@@ -29,9 +29,13 @@ public class FoodRegisterRequestForm {
     final private AmountType amountType;
 
     public FoodRegisterRequest toFoodRegisterRequest (MultipartFile imageFile) {
+        // 랜덤 고유 ID값을 만듬
         UUID randomPrefix = UUID.randomUUID();
         String uniqueRandomName = randomPrefix + imageFile.getOriginalFilename();
 
+        //  foodName, categoryType, foodPrice, foodCalorie,
+        //                max, min, unit, amountType 정보
+        // uniqueRandomName 위에서 만든 이미지
         return new FoodRegisterRequest(
                 foodName, categoryType, foodPrice, foodCalorie,
                 max, min, unit, amountType, uniqueRandomName);

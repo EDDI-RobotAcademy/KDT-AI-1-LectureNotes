@@ -26,6 +26,7 @@ public class RefactorAccountTest {
         final RoleType role = NORMAL;
 
         RefactorAccountRegisterRequestForm requestForm =
+                // email, password, role 객체 생성해서 requestForm에 넣어줌
                 new RefactorAccountRegisterRequestForm(email, password, role);
 
         Boolean isSuccess = refactorAccountService.register(
