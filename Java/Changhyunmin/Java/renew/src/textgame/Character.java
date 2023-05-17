@@ -80,6 +80,7 @@ public class Character {
     }
 
     void LevelUP() {
+
         LEVEL++;
         MAX_HP += 10;
         MAX_MP += 5;
