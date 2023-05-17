@@ -10,14 +10,10 @@ public class SequenceGenerator {
     // 2. 변수 이름을 작성하듯 Map 타입의 변수명을 작성합니다.
     // 3. new HashMap<>(); 형태로 객체를 초기화 합니다.
 
-    // Map의 사용목적
-    // 키 데이터타입에 밸류 데이터 타입을 저장하기 위해
-    // 키 데이터타입을 입력하면 벨류 데이터타입이 나온다
-
     // Entity란 무엇인가 ?
     // 엔티티는 핵심 업무 규칙입니다.
     // 도대체 뭐가 핵심 업무 규칙일까요 ?
-    // 비즈니스 상 다루고자 하는 정보 <- 보편적으로 Life Cycle을 가짐 ex) 사용자 정보, 주사위 승패 등등 ...
+    // 비즈니스 상 다루고자 하는 정보 <- 보편적으로 Life Cycle을 가짐
 
     // 아래 코드의 개념이 확장되면 DB에서는 @Entity 어노테이션과 @Id 형태로 처리됩니다.
     // JPA에서 아래와 같은 entity의 id 값을 자동으로 관리해줍니다.
@@ -29,11 +25,10 @@ public class SequenceGenerator {
     // 현재 entityNameMappedId에서 Key에 대응하는
     // Value를 꺼내서 리턴하는 방식으로 구현
     public static int getSpecificEntityId (String entityName) {
-        // map 객체에서 get()은 Key 값을 토대로 Value 값을 찾는 행위입니다.
-        // Key로 검색 했으나 정보가 없다면 null을 리턴합니다.
-
+        // map 객체에서 get()은 Key값을 토대로 Value 값을 찾는 행위입니다.
+        // Key로 검색을 했으나 정보가 없다면 null을 리턴합니다.
         if (entityNameMappedId.get(entityName) == null) {
-            // map 객체에서 put()은 put(Keym Value) 형태로 동작합니다.
+            // map 객체에서 put()은 put(Key, Value) 형태로 동작합니다.
             entityNameMappedId.put(entityName, 1);
             return 0;
         }

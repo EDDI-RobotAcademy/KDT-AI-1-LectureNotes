@@ -1,6 +1,6 @@
 package finalDice.Dice;
 
-import utility.CustomRandom;
+import utility.random.CustomRandom;
 
 public class RefactorDice {
 
