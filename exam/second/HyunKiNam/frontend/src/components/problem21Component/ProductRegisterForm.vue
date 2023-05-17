@@ -42,21 +42,22 @@ export default {
             files: '',
         }
     },
+    mounted() {
+        this.accountId = localStorage.getItem("accountId")
+        console.log(this.accountId)
+    },
     methods: {
-        mounted() {
-            this.accountId = localStorage.getItem("accountId")
-        },
         onSubmit() {
             let formData = new FormData()
             for (let idx = 0; idx < this.files.length; idx++) {
                 formData.append('imageFile', this.files[idx])
             }
             console.log(this.files[0])
-            const { name, price } = this
+            const { name, price, accountId } = this
             let productInfo = {
                 name: name,
                 price: price,
-                id: this.accountId,
+                accountId: accountId,
             }
             formData.append(
                 "productInfo",

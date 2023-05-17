@@ -23,10 +23,6 @@ export default {
         async onSubmit(payload) {
             const product = await this.requestRegisterProductToSpring(payload)
             console.log('product: ' + JSON.stringify(product))
-            await this.$router.push({
-                name: 'Problem26',
-                params: { id: product.data.accountId.toString() }
-            })
         }
     }
 }
