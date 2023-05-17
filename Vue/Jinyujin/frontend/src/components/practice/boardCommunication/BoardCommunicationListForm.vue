@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-     <h3>게시물 목록</h3>
+        <h3>상품 목록</h3>
         <table style="margin: 10px;">
             <tr>
                 <th align="center" width="6%">번호</th>
@@ -9,48 +9,58 @@
                 <th align="center" width="10%">작성자</th>
                 <th align="center" width="14%">등록일자</th>
             </tr>
-            <tr v-if="!bboards || (Array.isArray(bboards) && bboards.length === 0)">
+            <tr v-if="!filteredBoards || (Array.isArray(filteredBoards) && filteredBoards.length === 0)">
                 <td colspan="4">
-                    현재 등록된 게시물이 없습니다!
+                    현재 등록된 상품이 없습니다!
                 </td>
             </tr>
-            <tr v-else v-for="bboard in bboards" :key="bboard.boardId">
+            <tr v-else v-for="board in filteredBoards" :key="board.boardId">
                 <td align="center">
-                    {{ bboard.boardId }}
+                    {{ board.boardId }}
                 </td>
                 <td align="center">
                     <router-link :to="{ 
-                        name: 'BboardReadPage', 
-                        params: { boardId: bboard.boardId.toString() }}">
-                            {{ bboard.title }}
+                        name: 'BoardCommunicationReadPage', 
+                        params: { boardId: board.boardId.toString() }}">
+                            {{ board.title }}
                     </router-link>
                 </td>
                 <td align="center">
-                    {{ bboard.writer }}
+                    {{ board.price }}
                 </td>
                 <td align="center">
-                    {{ bboard.createDate }}
+                    {{ board.writer }}
+                </td>
+                <td align="center">
+                    {{ board.createDate }}
                 </td>
             </tr>
+            <input type="text" v-model="searchText" placeholder="찾는 상품명을 입력하세요"></input>
         </table>
-        <div class = "md-layout-item md-size-30">
-            <md-field>
-                <label for="search">Search for</label>
-                <md-input v-model="serach"/>
-            </md-field>
-        </div>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            searchText:''
+        }
+    },
     props: {
         boards: {
             type: Array
         }
+    },
+    computed: {
+        filteredBoards() {
+            return this.boards.filter(board => {
+                return board.title.toLowerCase().includes(this.searchText.toLowerCase());
+            });
+        }
     }
 }
 </script>
+
 <style lang="">
-    
 </style>
