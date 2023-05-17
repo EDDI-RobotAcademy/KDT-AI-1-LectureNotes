@@ -16,6 +16,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
+import static com.example.demo.problem.account.entity.RoleType.NORMAL;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -25,7 +27,6 @@ public class AccountServiceImpl implements AccountService {
     final private AccountRoleRepository accountRoleRepository;
     final private RoleRepository roleRepository;
 
-    //final private Map<String, Long> userTokenMap = new HashMap<>();
     final private UserTokenRepository userTokenRepository = UserTokenRepositoryImpl.getInstance();
 
     @Override
@@ -79,6 +80,11 @@ public class AccountServiceImpl implements AccountService {
         log.info("roleType: " + role.getRoleType());
 
         return role.getRoleType();
+    }
+
+    @Override
+    public Long findAccountId(String accountToken) {
+        return userTokenRepository.findAccountIdByToken(accountToken);
     }
 
 }

@@ -5,6 +5,9 @@ import com.example.demo.problem.account.entity.RoleType;
 import com.example.demo.problem.account.service.AccountService;
 import com.example.demo.problem.product.controller.form.ProductRegisterRequestForm;
 import com.example.demo.problem.product.service.ProductService;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItem;
+import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +15,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -75,7 +77,7 @@ public class TwentyTwothProblemTest {
 
     @Test
     @DisplayName("토큰 검증")
-    void 사업자_상품_등록 () {
+    void 사업자_상품_등록 () throws IOException {
         final AccountLoginRequestForm requestForm = new AccountLoginRequestForm("test@gmail.com", "test");
         final String userToken = accountService.login(requestForm.toAccountLoginRequest());
         final RoleType roleType = accountService.lookup(userToken);

@@ -4,10 +4,12 @@ import com.example.demo.problem.account.entity.Account;
 import com.example.demo.problem.product.entity.Product;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
+@ToString(exclude = { "product", "account" })
 @NoArgsConstructor
-public class Order {
+public class Orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,4 +20,9 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Account account;
+
+    public Orders(Product product, Account account) {
+        this.product = product;
+        this.account = account;
+    }
 }

@@ -12,8 +12,9 @@
         <router-link to="/twentieth-problem">20번 문제</router-link> |
         <router-link to="/twentythreeth-problem">23번 문제</router-link> |
         <router-link to="/twentysixth-problem">26번 문제</router-link> |
-        
-        
+        <router-link to="/twentynineth-problem">29번 문제</router-link> |
+        <router-link to="/thirtieth-problem">30번 문제</router-link> |
+
       </nav>
     </div>
   </v-container>

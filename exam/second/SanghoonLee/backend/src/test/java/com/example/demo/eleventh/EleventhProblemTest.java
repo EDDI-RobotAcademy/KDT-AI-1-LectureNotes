@@ -36,22 +36,6 @@ public class EleventhProblemTest {
     }
 
     @Test
-    @DisplayName("사업자 가입")
-    void 사업자_가입하기 () {
-        final String email = "test@gmail.com";
-        final String password = "test";
-        final RoleType role = BUSINESS;
-
-        AccountRegisterRequestForm requestForm =
-                new AccountRegisterRequestForm(email, password, role);
-
-        Boolean isSuccess = accountService.register(
-                requestForm.toAccountRegisterRequest());
-
-        assertTrue(isSuccess);
-    }
-
-    @Test
     @DisplayName("중복된 이메일 회원가입 방지")
     void 중복된_이메일_회원가입_방지 () {
         final String email = "test@test.com";

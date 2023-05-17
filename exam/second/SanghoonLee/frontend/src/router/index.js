@@ -10,6 +10,8 @@ import FourteenthProblem from '@/views/problem/FourteenthProblem.vue'
 import TwentiethProblem from '@/views/problem/TwentiethProblem.vue'
 import TwentythreethProblem from '@/views/problem/TwentythreethProblem.vue'
 import TwentysixthProblem from '@/views/problem/TwentysixthProblem.vue'
+import TwentyninethProblem from '@/views/problem/TwentyninethProblem.vue'
+import ThirtiethProblem from '@/views/problem/ThirtiethProblem.vue'
 
 Vue.use(VueRouter)
 
@@ -63,7 +65,19 @@ const routes = [
     path: '/twentysixth-problem',
     name: 'TwentysixthProblem',
     component: TwentysixthProblem
+  },
+  {
+    path: '/twentynineth-problem',
+    name: 'TwentyninethProblem',
+    component: TwentyninethProblem
+  },
+  {
+    path: '/thirtieth-problem',
+    name: 'ThirtiethProblem',
+    component: ThirtiethProblem
   }
+
+
 ]
 
 const router = new VueRouter({
