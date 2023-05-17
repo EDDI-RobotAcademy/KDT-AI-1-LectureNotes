@@ -19,7 +19,7 @@ public class Apple {
     public void calculateApplePrice() {
 
         float changePercentage = CustomRandom.generateNumber(MIN_PERCENT, MAX_PERCENT);
-        System.out.println("오늘 사과 인상률은 " +  changePercentage + " % 입니다");
+        System.out.println("오늘 사과 인상률은 " +  changePercentage + "% 입니다");
 
         float changeApplePrice = originalApplePrice * (changePercentage/CAN_MAKE_PERCENT);
         System.out.println("그래서 오늘 사과 가격은 " + (originalApplePrice+ changeApplePrice) + "원 입니다");

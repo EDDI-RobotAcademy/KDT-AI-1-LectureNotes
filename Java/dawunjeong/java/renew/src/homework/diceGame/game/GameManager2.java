@@ -106,6 +106,30 @@ public class GameManager2 {
 
     public void checkWinner() {
 
+        // 0. 선생님 풀이
+        /*
+        final int WINNER_IDX = 0;
+        final int SECOND_IDX = 1;
+
+        final int DRAW = 0;
+        Collections.sort(playersList, Collections.reverseOrder());
+        Player2 winner = playersList.get(WINNER_IDX);
+
+        // 무승부
+        Player2 second = playersList.get(SECOND_IDX);
+
+        if (winner.compareTo(second) == DRAW) {
+            System.out.println("무승부!");
+            return;
+        }
+
+        System.out.println("승리: " + winner.getName());
+        System.out.println("전적 상황: " + playersList);
+        */
+
+        // 1. 배열 이용해서 위너 찾기
+        // TODO: 플레이어 1번과 3번이 동일하게 1등일 때 플레이어 2번이 3등으로 출력되는 오류가 있음
+        /*
         int[] rank = new int[numOfPlayers];
 
         for(int i = 0; i < numOfPlayers; i++) {
@@ -117,36 +141,41 @@ public class GameManager2 {
                 }
             } System.out.println(playersList.get(i).getName() + "의 등수는 " + (rank[i]+1) + "등 입니다.");
         }
+        */
 
+        // 2. 맵을 이용하여 위너 찾기
+    	// 최종 점수에 대한 리스트 생성
+        List<Integer> finalGameScoreList = new ArrayList<>();
+        int preScore = -777;
 
-//    	// 최종 점수에 대한 리스트 생성
-//        List<Integer> finalGameScoreList = new ArrayList<>();
-//        int preScore = -777;
-//
-//        for (int i = 0; i < numOfPlayers; i++) {
-//        	int currentScore = playersList.get(i).getGamescore().getGameScore();
-//        	if (currentScore != preScore) {
-//        		finalGameScoreList.add(playersList.get(i).getGamescore().getGameScore());
-//
-//        	} preScore = currentScore;
-//        }
-//
-//        System.out.println(finalGameScoreList.size());
-//
-//        // 리스트에 각 플레이어의 총합을 넣은 후 정렬
-//        Collections.sort(finalGameScoreList, Collections.reverseOrder());
-//
-//        Map<String, Integer> rankPlayerName = new LinkedHashMap<>();
-//
-//        for(int i = 0; i < finalGameScoreList.size(); i++) {
-//        	for(int j = 0; j < playersList.size(); j++) {
-//        		if(finalGameScoreList.get(i) == playersList.get(j).getGamescore().getGameScore()) {
-//        			rankPlayerName.put(playersList.get(j).getName(), i);
-//
-//        		}
-//        	}
-//        } System.out.println(rankPlayerName);
+        // TODO: finalGameScoreList.get(0)과 finalGameScoreList.get(2)의 값이 동일할 때는 걸러지지 않음
+        // 즉 인덱스 i의 값과 i + 2 이상의 값이 동일할 때 오류가 발생함
+        for (int i = 0; i < numOfPlayers; i++) {
+            int currentScore = playersList.get(i).getGamescore2().getTotalScore();
+            if (currentScore != preScore) {
+                finalGameScoreList.add(playersList.get(i).getGamescore2().getTotalScore());
+            }
+            preScore = currentScore;
+        }
 
+        // finalGameScoreList가 몇 칸 생성되었는지 확인
+        System.out.println(finalGameScoreList.size());
+
+        // 리스트에 각 플레이어의 총합을 넣은 후 정렬
+        Collections.sort(finalGameScoreList, Collections.reverseOrder());
+
+        // Map을 사용하여 각 플레이어 이름과 등수를 매칭
+        Map<String, String> rankPlayerName = new LinkedHashMap<>();
+
+        for(int i = 0; i < finalGameScoreList.size(); i++) {
+        	for(int j = 0; j < playersList.size(); j++) {
+        		if(finalGameScoreList.get(i) == playersList.get(j).getGamescore2().getTotalScore()) {
+        			rankPlayerName.put(playersList.get(j).getName(), ((i+1) + "등"));
+        		}
+        	}
+        } System.out.println(rankPlayerName);
+
+        // 원하는 플레이어의 등수를 확인해보기
+        System.out.println("플레이어2의 등수는 " + rankPlayerName.get("플레이어2"));
     }
-
 }
