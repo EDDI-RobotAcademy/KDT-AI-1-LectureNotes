@@ -1,13 +1,15 @@
 package com.example.demo.managerTest;
 
-import com.example.demo.lectureClass.manager.controller.form.TestManagerAccountLoginResponseForm;
 import com.example.demo.lectureClass.manager.controller.form.TestManagerAccountRequestForm;
+import com.example.demo.lectureClass.manager.controller.form.TestManagerResponseForm;
 import com.example.demo.lectureClass.manager.entity.TestManager;
 import com.example.demo.lectureClass.manager.service.TestManagerAccountService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,30 +21,35 @@ public class ManagerTest {
     @Autowired
     private TestManagerAccountService testManagerAccountService;
     @Test
-    @DisplayName("관리자 회원가입")
-    void 관리자가_회원_가입한다 () {
-        final String managerEmail = "manager@manager.com";
-        final String managerPassword = "manager";
+    @DisplayName("회원가입을 한다")
+    void 회원가입_하기 () {
+        final String email = "test@test.com";
+        final String password = "test";
+        final String role = "일반회원";
 
-        TestManagerAccountRequestForm accountRequestForm =
-                new TestManagerAccountRequestForm(managerEmail, managerPassword);
-        TestManager manager = testManagerAccountService.register(accountRequestForm);
+        TestManagerAccountRequestForm requestForm =
+                new TestManagerAccountRequestForm(email, password, role);
+        TestManager manager = testManagerAccountService.registerWithRole(requestForm);
 
-        assertEquals(managerEmail, manager.getManagerEmail());
-        assertEquals(managerPassword, manager.getManagerPassword());
+        assertEquals(email, manager.getEmail());
+        assertEquals(password, manager.getPassword());
+
     }
 
     @Test
-    @DisplayName("관리자 로그인")
-    void 관리자_로그인 () {
-        final String managerEmail = "manager@manager.com";
-        final String managerPassword = "manager";
+    @DisplayName("회원 조회하기")
+    void 회원_조회 () {
+        final String role = "일반회원";
 
-        TestManagerAccountRequestForm accountRequestForm =
-                new TestManagerAccountRequestForm(managerEmail, managerPassword);
-        TestManagerAccountLoginResponseForm accountLoginResponseForm =
-                testManagerAccountService.login(accountRequestForm);
+        List<TestManagerResponseForm> accountList = testManagerAccountService.accountListWithRole(role);
+        // order 때문에 존재하는 Form 없다면 생성
+        // accountId와 email 이 있음
 
-        assertTrue(accountLoginResponseForm.getUserToken() != null);
+        for (TestManagerResponseForm responseForm: accountList) {
+            System.out.println("responseForm.getEmail: " + responseForm.getEmail());
+
+            assertTrue(responseForm.getEmail() != null);
+        }
     }
+
 }
