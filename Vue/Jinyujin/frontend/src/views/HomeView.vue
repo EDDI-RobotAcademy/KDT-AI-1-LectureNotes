@@ -34,6 +34,19 @@
         <router-link to="/problem-page3">3번 연습 문제</router-link> |
         <router-link to="/dice-game3">주사위 게임3 연습</router-link> |
         <router-link to="/make-character">게임 캐릭터 만들기</router-link> |
+        <router-link to="/board-list-page">Vue + Spring + JPA 기반 게시판</router-link> |
+        <router-link to="/product-list-page">상품 게시판</router-link> |
+        <router-link to="/vuetify-table-test">Vuetify Table 테스트</router-link> |
+        <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
+        <router-link to="/vuetify-image-gallery">Vuetify Image 갤러리</router-link> |
+        <router-link to="/print-image-test">이미지 출력 테스트</router-link> |
+        <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
+        <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
+        <router-link to="/d3-plot-test">d3plotting 테스트</router-link> |
+        <router-link to="/d3-plot-exam">d3plotting + spring 테스트</router-link> |
+        <router-link to="/file-handler-test-page">File 처리 테스트</router-link> |
+        <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
+        <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
       </nav>
     </div>
   </v-container>

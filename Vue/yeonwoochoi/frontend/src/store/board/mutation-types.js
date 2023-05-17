@@ -1,0 +1,3 @@
+export const REQUEST_BOARD_LIST_TO_SPRING = 'REQUEST_BOARD_LIST_TO_SPRING'
+export const REQUEST_BOARD_TO_SPRING = 'REQUEST_BOARD_TO_SPRING'
+// 좀 더 세분화해서 나누는 것을 권장해서 나눠진 것

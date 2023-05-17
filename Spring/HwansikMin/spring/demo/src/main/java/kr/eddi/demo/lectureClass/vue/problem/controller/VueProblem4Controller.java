@@ -41,4 +41,3 @@ public class VueProblem4Controller {
         return characterStatusList.get(0);
     }
 }
-

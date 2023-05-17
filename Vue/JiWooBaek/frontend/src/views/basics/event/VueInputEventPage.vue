@@ -1,7 +1,7 @@
 <template>
     <div>
-        <p>입력:
-            <!--
+        <p>입력: 
+            <!-- 
                 :value은 v-bind:value와 동의어입니다.
                 번거롭게 전체를 적을 필요가 없으므로 생략하였습니다.
                 v-bind는 우측값을 좌측에 맵핑합니다.
@@ -28,9 +28,9 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>
-
-
+    
 </style>

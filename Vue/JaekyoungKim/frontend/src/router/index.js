@@ -1,33 +1,30 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
+
 import HtmlTest from '@/views/html/HtmlTest.vue'
 import CssTest from '@/views/css/CssTest.vue'
 import VueDataBindingPage from '@/views/basics/binding/VueDataBindingPage.vue'
 import VueClickEventPage from '@/views/basics/event/VueClickEventPage.vue'
 import VueInputEventPage from '@/views/basics/event/VueInputEventPage.vue'
-import DuplexWithModelPage from '@/views/basics/vModel/DuplexWithModelPage.vue'
-import VueCheckboxPage from '@/views/basics/vModel/VueCheckboxPage.vue'
-import VueMultiCheckboxPage from '@/views/basics/vModel/VueMultiCheckboxPage.vue'
 import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
-import DataSendTestPage from '@/views/basics/axios/DataSendTestPage.vue'
-
+import April from '@/views/html/April.vue'
+import PhotoPage from '@/views/photo/Photo.vue'
+import vuetifyTestRoutes from './uiVuetify'
+import productTestRoutes from './product'
+import axiosTestRoutes from './axiosTest'
+import boardTestRoutes from './board'
+import problemsRoutes from './problems'
+import vModelRoutes from './vModel'
+import defaultRoutes from './defaultRouterSet'
+import PlotTestRoutes from './Plot'
+import FileTestRoutes from './file'
+import foodSetRoutes from './food'
+import ReFirstProblem from '@/views/reProblem/ReFirstProblem.vue'
+import ReSecondProblem from '@/views/reProblem/ReSecondProblem.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
+
   {
     path: '/htmlTest',
     name: 'HtmlTest',
@@ -53,33 +50,47 @@ const routes = [
     name: 'VueInputEventPage',
     component: VueInputEventPage
   },
-  {
-    path: '/duplex-model-test-page',
-    name: 'DuplexWithModelPage',
-    component: DuplexWithModelPage
-  },
-  {
-    path: '/vue-checkbox-page',
-    name: 'VueCheckboxPage',
-    component: VueCheckboxPage
-  },
-  {
-    path: '/multi-checkbox-page',
-    name: 'VueMultiCheckboxPage',
-    component: VueMultiCheckboxPage
-  },
+  
   {
     path: '/global-component-test-page',
     name: 'ComponentTestPage',
     component: ComponentTestPage
   },
-  {
-    path: '/data-send-test-page',
-    name: 'DataSendTestPage',
-    component: DataSendTestPage
-  }
-]
+{
+  path: '/april',
+  name: 'April',
+  component: April
+},
+{
+  path: '/photo-page',
+  name: 'PhotoPage',
+  component: PhotoPage
+},
+{
+  path:'/re-problem-page',
+  name:'ReFirstProblem',
+  component:ReFirstProblem
 
+},
+{
+  path:'/re-second-page',
+  name:'ReSecondProblem',
+  component:ReSecondProblem
+
+},
+
+ ...vuetifyTestRoutes,
+ ...productTestRoutes,
+ ...axiosTestRoutes,
+ ...boardTestRoutes,
+ ...problemsRoutes,
+ ...vModelRoutes,
+ ...defaultRoutes,
+ ...PlotTestRoutes,
+ ...FileTestRoutes,
+ ...foodSetRoutes
+
+]
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,

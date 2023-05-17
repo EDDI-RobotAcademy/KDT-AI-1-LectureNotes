@@ -21,7 +21,8 @@
         </pre>
         <!-- strong은 강조 표현, b도 강조 표현으로 BOLD체에 해당함 -->
         <p><strong>TypeScript</strong>, <b>javascript</b>, Python</p>
-        <!-- em과 i는 모두 이탤릭체를 표현함 -->
+        <!-- em과 i는 모두 이탤릭체를 표현함 -->  
+        
         <p><em>Rust</em>, <i>C</i>, Verilog</p>
         <!-- mark로 형광팬 효과를 낼 수 있음 -->
         <h2>Python <mark>TensorFlow</mark></h2>

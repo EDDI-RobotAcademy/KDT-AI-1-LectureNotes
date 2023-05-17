@@ -34,6 +34,7 @@ export default {
     },
     methods: {
         Character () {
+            // v-if를 사용할땐 필수적으로 생성해줘야함
             this.PressedButton = true
             alert('캐릭터 생성 준비!')
         },

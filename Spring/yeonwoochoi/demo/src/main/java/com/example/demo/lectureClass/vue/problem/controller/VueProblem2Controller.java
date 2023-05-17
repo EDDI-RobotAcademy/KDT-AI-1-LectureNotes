@@ -1,6 +1,6 @@
 package com.example.demo.lectureClass.vue.problem.controller;
 
-import com.example.demo.lectureClass.vue.dice.DiceGameManager;
+import com.example.demo.lectureClass.vue.problem.dice.DiceGameManager;
 import com.example.demo.lectureClass.vue.problem.controller.form.MultiPlayerWinnerResponseForm;
 import com.example.demo.lectureClass.vue.problem.controller.form.WinnerResponseForm;
 import lombok.extern.slf4j.Slf4j;

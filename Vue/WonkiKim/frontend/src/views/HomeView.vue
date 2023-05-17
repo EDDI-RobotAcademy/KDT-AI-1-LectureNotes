@@ -20,8 +20,25 @@
         <router-link to="/checkbox-test-page">checkbox 테스트 페이지</router-link> |
         <router-link to="/multi-checkbox-test-page">다중 checkbox 테스트 페이지</router-link> |
         <router-link to="/global-component-test-page">전역 컴포넌트 테스트</router-link> |
-        <router-link to="/home-work-414-view">homework414</router-link> |
-        
+        <router-link to="/axios-test-page">axios 통신 테스트</router-link> |
+        <router-link to="/problem-page1">1번 연습 문제</router-link> |
+        <router-link to="/random-dice-from-spring">axios로 주사위 값 받기</router-link> |
+        <router-link to="/vue-lifecycle-test">게임으로 파악하는 라이프 사이클</router-link> |
+        <router-link to="/problem-page2">2번 연습 문제</router-link> |
+        <router-link to="/problem-page3">3번 연습 문제</router-link> |
+        <router-link to="/problem-page4">4번 연습 문제</router-link> |
+        <router-link to="/problem-page5">5번 연습 문제</router-link> |
+        <router-link to="/board-list-page">Vue + Spring + JPA 게시판</router-link> |
+        <router-link to="/table-test-page">TableTestPage</router-link>|
+        <router-link to="/table-advanced-page">Vuetify Table 추가 테스트</router-link> |
+        <router-link to="/image-gallery-test">image-gallery-test</router-link>|
+        <router-link to="/print-image-test">Print-Image-Test</router-link>|
+        <router-link to="/dialog-test-page">dialog-test-page</router-link>|
+        <router-link to="/carousel-test-page">CarouselTestPage</router-link>|
+        <router-link to="/d3plot-test-page">D3Plot Test Page</router-link>|
+        <router-link to="/d3-health-print-page">D3HealthPrintPage</router-link>|
+        <router-link to="/file-handler-page">FileHandlerPage</router-link>|
+        <router-link to="/file-list-show-page">FileListShow</router-link>
       </nav>
     </div>
   </v-container>
@@ -29,11 +46,13 @@
 
 <script>
   import HelloWorld from '../components/HelloWorld'
+  import PrintImageTest from "@/views/uiVuetify/PrintImageTest.vue";
 
   export default {
     name: 'Home',
 
     components: {
+      PrintImageTest,
       HelloWorld,
     },
   }

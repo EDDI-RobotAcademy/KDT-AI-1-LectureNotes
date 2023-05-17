@@ -19,8 +19,9 @@ public class CharacterStatus {
     final int CHARACTER_STAT_MAX = 20;
 
     private int accountId;
+    private int currentCharacterId;
 
-    public CharacterStatus(int id) {
+    public CharacterStatus(int id, int characterId) {
 
         strength = CustomRandom.generateNumber(CHARACTER_STAT_MIN,CHARACTER_STAT_MAX);
         intelligent = CustomRandom.generateNumber(CHARACTER_STAT_MIN,CHARACTER_STAT_MAX);
@@ -29,8 +30,12 @@ public class CharacterStatus {
         hp = CustomRandom.generateNumber(CHARACTER_HP_MIN,CHARACTER_HP_MAX);
 
         this.accountId = id;
+        this.currentCharacterId = characterId;
 
-        characterStatus = new int[] {strength, intelligent, dexterity, agility, hp};
+        characterStatus = new int[] {currentCharacterId, strength, intelligent, dexterity, agility, hp};
+    }
 
+    public int[] getCharacterStatus() {
+        return characterStatus;
     }
 }
