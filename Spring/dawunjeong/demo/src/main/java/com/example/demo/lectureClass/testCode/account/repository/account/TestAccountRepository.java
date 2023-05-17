@@ -1,6 +1,6 @@
-package com.example.demo.lectureClass.testCode.account.repository;
+package com.example.demo.lectureClass.testCode.account.repository.account;
 
-import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
+import com.example.demo.lectureClass.testCode.account.entity.account.TestAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,0 +1,38 @@
+package com.example.demo.lectureClass.aggregateRoot.controller.form;
+
+import com.example.demo.lectureClass.aggregateRoot.entity.AmountType;
+import com.example.demo.lectureClass.aggregateRoot.entity.CategoryType;
+import com.example.demo.lectureClass.aggregateRoot.service.request.FoodRegisterRequest;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.UUID;
+
+@Getter
+@RequiredArgsConstructor
+public class FoodRegisterRequestForm {
+    final private String foodName;
+
+    @JsonProperty("category")
+    final private CategoryType categoryType;
+
+    final private Integer foodPrice;
+    final private Integer foodCalorie;
+    final private Integer max;
+    final private Integer min;
+    final private Integer unit;
+
+    @JsonProperty("measure")
+    final private AmountType amountType;
+
+    public FoodRegisterRequest toFoodRegisterRequest (MultipartFile imageFile) {
+        UUID randomPrefix = UUID.randomUUID();
+        String uniqueRandomName = randomPrefix + imageFile.getOriginalFilename();
+
+        return new FoodRegisterRequest(
+                foodName, categoryType, foodPrice, foodCalorie,
+                max, min, unit, amountType, uniqueRandomName);
+    }
+}

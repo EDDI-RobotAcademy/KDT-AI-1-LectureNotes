@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.testCode.account.entity;
+package com.example.demo.lectureClass.testCode.account.entity.seller;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @NoArgsConstructor
-public class TestAccount {
+public class TestSellerAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,7 +18,7 @@ public class TestAccount {
     private String email;
     private String password;
 
-    public TestAccount(String email, String password) {
+    public TestSellerAccount(String email, String password) {
         this.email = email;
         this.password = password;
     }
