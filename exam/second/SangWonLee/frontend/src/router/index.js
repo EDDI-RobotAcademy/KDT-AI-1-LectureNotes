@@ -8,6 +8,7 @@ import OptionPrint from "@/views/problem3/OptionPrint";
 import DicePrintPage from "@/views/problem4-6/DicePrintPage";
 import ImageGallery from "@/views/problem7/ImageGallery";
 import ChangeBanner from "@/views/problem8/ChangeBanner";
+import WhyUseDomain from "@/views/problem9/WhyUseDomain";
 
 Vue.use(VueRouter);
 
@@ -55,6 +56,11 @@ const routes = [
     path: "/change-banner",
     name: "ChangeBanner",
     component: ChangeBanner,
+  },
+  {
+    path: "/why-use-domain",
+    name: "WhyUseDomain",
+    component: WhyUseDomain,
   },
 ];
 
