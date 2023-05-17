@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.testCode.account.entity;
+package com.example.demo.lectureClass.homework.jUnitBank3.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @NoArgsConstructor
-public class TestAccount {
+public class HomeworkJpaAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +19,8 @@ public class TestAccount {
     private String email;
     private String password;
 
-    public TestAccount(String email, String password) {
+    public HomeworkJpaAccount(String email, String password) {
         this.email = email;
         this.password = password;
     }
-
-
 }
