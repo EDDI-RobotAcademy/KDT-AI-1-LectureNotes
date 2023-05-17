@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Slf4j
 @Service
@@ -41,16 +40,17 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public LoginResponseForm login(LoginForm loginForm) {
-        final Optional<Member> maybeMember = memberRepository.findByEmail(loginForm.getEmail());
+        log.info(loginForm.getEmail());
+        Optional<Member> maybeMember = memberRepository.findByEmail(loginForm.getEmail());
         if(maybeMember.isEmpty()){
-            log.debug("로그인 실패");
-            return new LoginResponseForm(null);
+            log.info("로그인 실패");
+            return null;
         }
         Member member = maybeMember.get();
         if(member.getPassword().equals(loginForm.getPassword())){
-            log.debug("로그인 성공");
-            return new LoginResponseForm(UUID.randomUUID());
+            log.info("로그인 성공");
+            return new LoginResponseForm(1L);
         }
-        return new LoginResponseForm(null);
+        return null;
     }
 }

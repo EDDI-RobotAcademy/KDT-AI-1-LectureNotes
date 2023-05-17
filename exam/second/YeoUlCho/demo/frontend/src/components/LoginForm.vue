@@ -2,13 +2,13 @@
     <div>
         <table>
             <tr>
-                <td><label>id: <input type="text" v-model="email"/> </label></td>
+                <td><label>email: <v-text-field label="email" v-model="email"/> </label></td>
             </tr>
             <tr>
-                <label>password: <input type="password" v-model="password"/> </label>
+                <label>password: <v-text-field label="password" v-model="password"/> </label>
             </tr>
             <tr>
-                <td rowspan='2'><v-btn type="login" @click="login">로그인</v-btn></td>
+                <td rowspan='2'><v-btn @click="login">로그인</v-btn></td>
             </tr>
         </table>
     </div>
@@ -24,6 +24,7 @@ export default {
     methods: {
         login(){
             const {email, password} =this
+            console.log({email, password})
             this.$emit("login",{email, password})
         }
     }

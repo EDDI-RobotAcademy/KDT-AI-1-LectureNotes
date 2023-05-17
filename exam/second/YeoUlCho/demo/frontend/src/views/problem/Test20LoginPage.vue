@@ -16,6 +16,7 @@ export default {
     methods:{
         ...mapActions( memberModule, ['requestLoginToSpring']),
         async submit(payload) {
+            
             const account = await this.requestLoginToSpring(payload)
             console.log('account: ' + JSON.stringify(account))
         }

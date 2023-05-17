@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="orange"
       dark
     >
       <div class="d-flex align-center">
@@ -12,11 +12,13 @@
           contain
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
           transition="scale-transition"
+          transform: rotate(720deg)
           width="40"
         />
 
         <v-img
           alt="Vuetify Name"
+          href="http://localhost:8081"
           class="shrink mt-1 hidden-sm-and-down"
           contain
           min-width="100"

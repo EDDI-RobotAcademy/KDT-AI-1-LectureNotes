@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <h2>회원가입</h2>
-        <test14-register-member-form @onSubmit="onSubmit"/> 
+        <test14-register-member-form @submit="onSubmit"/> 
     </div>
 </template>
 
@@ -21,9 +21,9 @@ export default {
         ...mapActions( 
             memberModule, ['requestRegisterMemberToSpring']
         ),
-        onSubmit (payload) {
-            const member =this.requestRegisterMemberToSpring(payload)
-            console.log('member: ' + JSON.stringify(member))
+        async onSubmit (payload) {
+            const member = await this.requestRegisterMemberToSpring(payload)
+            console.log('member: ' + member.data )
         }
     }
 }

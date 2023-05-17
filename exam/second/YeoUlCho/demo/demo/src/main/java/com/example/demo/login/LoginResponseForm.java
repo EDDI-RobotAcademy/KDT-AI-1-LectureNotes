@@ -10,5 +10,5 @@ import java.util.UUID;
 @ToString
 @RequiredArgsConstructor
 public class LoginResponseForm {
-    final private UUID userToken;
+    final private Long id;
 }

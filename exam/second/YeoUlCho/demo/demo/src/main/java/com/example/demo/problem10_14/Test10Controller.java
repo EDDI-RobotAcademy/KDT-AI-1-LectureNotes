@@ -17,7 +17,9 @@ public class Test10Controller {
     final private MemberService memberService;
     @PostMapping("/register")
     public Member registerMember(@RequestBody MemberRegisterRequestForm requestForm){
+        log.info(requestForm.getEmail());
         MemberRegisterRequest request= requestForm.toMemberRegisterRequest();
+
         return memberService.register(request);
     }
 

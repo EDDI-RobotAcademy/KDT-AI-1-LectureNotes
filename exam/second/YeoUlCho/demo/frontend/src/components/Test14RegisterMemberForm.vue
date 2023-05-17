@@ -5,7 +5,7 @@
                 <tr>
                     <td>이름</td>
                     <td>
-                        <input type="text" v-model="name"/>
+                        <input type="text" placeholder="이름을 넣어주세요" v-model="name"/>
                     </td>
                 </tr>
                 <tr>
@@ -26,10 +26,10 @@
                         <div>
                             <input type="radio" @change="check1" v-model="roleType" value="NORMAL">
                             <label>일반회원</label>
-                            <div v-if="normal">
+                            <!-- <div v-if="normal">
                                 <label>사업자 번호</label>
                                 <input type="number" v-model="businessNumber"></input>
-                            </div>
+                            </div> -->
                         </div>  
                         <div>
                             <input type="radio"  @change="check2" v-model="roleType" value="BUSINESS"/>
@@ -63,7 +63,7 @@ export default {
             password: '',
             roleType: '',
             businessNumber: '0',
-            normal: false,
+            normal: true,
             business: false,
         }
     },
@@ -72,13 +72,12 @@ export default {
             const { name,email,password,roleType,businessNumber } = this
             console.log({ name,email,password,roleType,businessNumber })
             this.$emit('submit', { name,email,password,roleType,businessNumber})
-            console.log($emit)
         },
         check1(){
-           
+            this.business = false
         },
         check2(){
-            this.business = !this.business
+            this.business = true
         }
     }
 }
