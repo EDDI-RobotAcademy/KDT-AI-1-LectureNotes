@@ -8,6 +8,7 @@ export default {
   requestProductListToSpring({ commit }) {
     return axiosInst.get("/exam/get-products").then((res) => {
       commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data);
+      console.log(res.data);
     });
   },
   requestProductToSpring({ commit }, productId) {

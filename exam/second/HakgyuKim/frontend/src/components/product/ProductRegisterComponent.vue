@@ -9,6 +9,7 @@
       <input type="number" v-model="price" />
     </div>
     <div>
+      <label>상품 사진</label>
       <input
         type="file"
         id="files"
@@ -16,7 +17,6 @@
         multiple
         @change="handleFileUpload"
       />
-      <label>상품 사진</label>
     </div>
     <div>
       <button type="submit">등록</button>

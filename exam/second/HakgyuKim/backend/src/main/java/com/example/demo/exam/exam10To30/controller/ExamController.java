@@ -6,6 +6,7 @@ import com.example.demo.exam.exam10To30.account.form.LoginResponseForm;
 import com.example.demo.exam.exam10To30.account.service.AccountService;
 import com.example.demo.exam.exam10To30.product.entity.Product;
 import com.example.demo.exam.exam10To30.product.form.ProductRegisterForm;
+import com.example.demo.exam.exam10To30.product.form.ProductResponseForm;
 import com.example.demo.exam.exam10To30.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -53,7 +54,7 @@ public class ExamController {
 }
 
     @GetMapping("/get-products")
-    public List<Product> productList () {
+    public List<ProductResponseForm> productList () {
         return productService.list();
     }
 }

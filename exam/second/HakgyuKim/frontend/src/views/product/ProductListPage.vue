@@ -2,10 +2,10 @@
   <div>
     <h2>상품 목록</h2>
     <div>
-      <v-btn @click="register">상품 등록</v-btn>
+      <button @click="register">상품 등록</button>
     </div>
     <div>
-      <ProductListComponent :productList="products" />
+      <ProductListComponent :products="products" />
     </div>
   </div>
 </template>

@@ -16,7 +16,7 @@ export default {
 
     async onSubmit(payload) {
       await this.requestCreateProductToSpring(payload);
-      await this.$router.push({
+      this.$router.push({
         name: "ProductListPage",
       });
     },
