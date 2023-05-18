@@ -2,12 +2,20 @@ package com.example.demo.lectureClass.testCode.account.Service;
 
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountResponseForm;
+import com.example.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
+import com.example.demo.lectureClass.testCode.account.entity.AccountRole;
 import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.account.repository.TestAccountRepository;
+import com.example.demo.lectureClass.testCode.account.repository.TestAccountRoleRepository;
+import com.example.demo.lectureClass.testCode.homework.junit2.accountRole.controller.form.TestAccountRoleRequestForm;
+import com.example.demo.lectureClass.testCode.homework.junit2.accountRole.entity.AccountRoleHomework;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,6 +25,7 @@ import java.util.UUID;
 public class TestAccountServiceImpl implements TestAccountService{
 
     final private TestAccountRepository testAccountRepository;
+    final private TestAccountRoleRepository testAccountRoleRepository;
 
     @Override
     public TestAccount register(TestAccountRequestForm requestForm) {
@@ -67,4 +76,57 @@ public class TestAccountServiceImpl implements TestAccountService{
         // 여기는 왜 갑자기 null값을 줘?
         // password가 다른 경우라서!
     }
+
+//    @Override
+//    public TestAccount whatIsYourAccount(TestAccountRoleRequestForm accountRoleRequestForm, AccountRoleHomework accountRoleHomework) {
+//
+//        final Optional<TestAccount> maybeAccount =
+//                testAccountRepository.findByEmail(accountRoleRequestForm.getEmail());
+//
+//        if (maybeAccount.isEmpty()) {
+//            log.debug("없는 회원입니다");
+//            return null;
+//        }
+//
+//        TestAccount testAccount = maybeAccount.get();
+//        testAccount.setAccountRole(accountRoleHomework);
+//
+//        return testAccountRepository.save(testAccount);
+//    }
+
+    @Override
+    public TestAccount registerWithRole(TestAccountWithRoleRequestForm requestForm) {
+        final Optional<TestAccount> maybeAccount =
+                testAccountRepository.findByEmail(requestForm.getEmail());
+
+        if (maybeAccount.isPresent()) {
+            log.debug("이미 가입된 회원입니다!");
+            return null;
+        }
+
+        final TestAccount account = testAccountRepository.save(requestForm.toTestAccount());
+        testAccountRoleRepository.save(requestForm.toTestAccountRole(account));
+
+        return account;
+        // 쌤은 회원 등록을 하고 account저장소에 저장하고
+        // 그걸 다시 role저장소에 저장함
+    }
+
+    @Override
+    public List<TestAccountResponseForm> accountListWithRole(String role) {
+
+        List<AccountRole> matchedAccountRoleList = testAccountRoleRepository.findAllByRole(role);
+
+        List<TestAccountResponseForm> responseFormList = new ArrayList<>();
+        // 위에서 받아온 것 아래 폼에 정보 가공해서 리턴해줘야 하는 것 -> foreach
+
+        for (AccountRole accountRole : matchedAccountRoleList) {
+            final TestAccount account = accountRole.getAccount();
+            responseFormList.add(
+                    new TestAccountResponseForm(account.getId(), account.getEmail()));
+        }
+
+        return responseFormList;
+    }
+
 }

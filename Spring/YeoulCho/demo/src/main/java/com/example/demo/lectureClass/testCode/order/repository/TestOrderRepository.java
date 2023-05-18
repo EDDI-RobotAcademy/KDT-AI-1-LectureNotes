@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.testCode.order.repository;
 
+import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
 import com.example.demo.lectureClass.testCode.order.entity.TestOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,4 +14,11 @@ public interface TestOrderRepository extends JpaRepository<TestOrder,Long> {
     // 특수문자 이상한데 붙이면 작동안함
     @Query("select to from TestOrder to where to.testAccount.id = :id")
     List<TestOrder> findAllByAccountId(Long id);
+    //List<TestOrder> findAllByTestAccount(TestAccount account); Query 안쓸때
+
+
+    @Query("select to from TestOrder to where to.testProduct.id = :productId")
+    List<TestOrder> findAllAccountWhoBuyProduct(Long productId);
+
+
 }

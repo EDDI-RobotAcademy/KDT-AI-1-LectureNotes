@@ -3,10 +3,10 @@ package kr.eddi.demo.lectureClass.testCode.problem.member.controller.form;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import java.util.UUID;
-
+@Getter
 @RequiredArgsConstructor
 public class MemberResponseForm {
-    @Getter
-    final UUID usertoken;
+    final private Long id;
+    final private String email;
+
 }

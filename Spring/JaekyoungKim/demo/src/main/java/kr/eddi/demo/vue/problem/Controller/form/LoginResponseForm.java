@@ -7,6 +7,7 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 public class LoginResponseForm {
+    // 다시 뷰로 전달할 폼이다.
     final private Boolean isSuccessForLogin;
     final private Long gameAccountId;
 }

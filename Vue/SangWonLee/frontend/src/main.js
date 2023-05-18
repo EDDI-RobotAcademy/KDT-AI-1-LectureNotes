@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 
-// 등록하고자 하는 전액 컴포넌트
+// 등록하고자 하는 전역 컴포넌트
 import GlobalComponent from "@/components/componentTest/GlobalComponent.vue";
 import GlobalAddComponent from "@/components/homework/problem1/GlobalAddComponent.vue";
 

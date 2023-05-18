@@ -33,18 +33,24 @@ public class FileServiceImpl implements FileService{
                         "../../../Vue/YeoulCho/frontend/src/assets/uploadImgs" +
                                 multipartFile.getOriginalFilename()
                 );
+                //하드디스크에 multipartFile을 기록할꺼야 경로랑 가져온 이름으로
                 writer.write(multipartFile.getBytes());
+                //byte파일로 기록할꺼야
                 writer.close();
+                //기록 끝! 그만할꺼야
                 FileTest fileTest = info.toFileTest(originalFileName);
+                //fileTest 엔티티에 파일정보를 저장하겠다
                 log.info(originalFileName);
                 filesTestRepository.save(fileTest);
                 log.info("파일테스트"+fileTest.toString());
             }
         }catch(FileNotFoundException e){
             e.printStackTrace();
+            //파일이 존재하지 않을 때 에러 프린트해라
             return false;
         }catch(IOException e){
             e.printStackTrace();
+            //입출력 에러(IO)않을 때 에러 프린트해라
             return false;
         }return true;
     }

@@ -1,7 +1,5 @@
 package kr.eddi.demo.jpa.board.service;
 
-
-
 import kr.eddi.demo.jpa.board.controller.form.RequestBoardForm;
 import kr.eddi.demo.jpa.board.entity.JpaBoard;
 

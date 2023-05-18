@@ -115,18 +115,18 @@
             사용자가 등록한 이미지인지 같은 것을 디렉토리 이름으로 구별하면 좋습니다.
         -->
         <h2>Image</h2>
-        <img src="@/assets/downloads/cat.jpg">
+        <img src="@/assets/downloadImg/cat.jpg">
         <!-- 
             figure로 image를 감싸고 figacaption 을 달면 image에 대한 설명을 붙일 수 있습니다.
         -->
-        <figure><img src="@/assets/downloads/cat.jpg">
+        <figure><img src="@/assets/downloadImg/cat.jpg">
         <figcaption style="font-size: 32px;">작은 고양이</figcaption>
     </figure>
     <h1>Text Link 생성</h1>
     <a href="https://golang.org">Golang Homepage</a>
     <h2>이미지 링크 생성</h2>
     <a href="https://www.naver.com/">
-        <img src="@/assets/downloads/cat.jpg">
+        <img src="@/assets/downloadImg/cat.jpg">
     </a>
     <!--
         form 태그는 말 그대로 format 양식을 지정해서 데이터를 전송합니다.
