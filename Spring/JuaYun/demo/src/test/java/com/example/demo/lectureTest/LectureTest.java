@@ -1,9 +1,9 @@
 package com.example.demo.lectureTest;
 
-import com.example.demo.lectureClass.lecture.entity.TestLecture;
-import com.example.demo.lectureClass.lecture.service.TestLectureService;
-import com.example.demo.lectureClass.student.entity.TestStudent;
-import com.example.demo.lectureClass.student.service.TestStudentService;
+import com.example.demo.lectureClass.testCode.lecture.entity.TestLecture;
+import com.example.demo.lectureClass.testCode.lecture.service.TestLectureService;
+import com.example.demo.lectureClass.testCode.student.entity.TestStudent;
+import com.example.demo.lectureClass.testCode.student.service.TestStudentService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

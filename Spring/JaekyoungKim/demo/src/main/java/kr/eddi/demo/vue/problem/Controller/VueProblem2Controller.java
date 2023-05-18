@@ -46,10 +46,12 @@ public class VueProblem2Controller {
 
         diceGameManager.applyCondition();
         log.info("after condition process - diceGameManager: " + diceGameManager);
-
+        //String과 List로 이루어진 multiPlayerWinnerRespㅐnseForm 가져온다.
         MultiPlayerWinnerResponseForm multiPlayerWinnerResponseForm = new MultiPlayerWinnerResponseForm(
                 diceGameManager.checkWinner(),
+                //1번과 2번 비교함 같을 경우 draw
                 diceGameManager.getPlayerList()
+                //@Getter로 리스트 가져온다.
         );
 
         return multiPlayerWinnerResponseForm;

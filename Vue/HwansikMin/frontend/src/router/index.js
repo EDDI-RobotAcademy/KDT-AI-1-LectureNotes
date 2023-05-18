@@ -14,6 +14,7 @@ import htmlCssRoutes from './htmlCss'
 import defaultSetRoutes from './defaultRouterSet'
 import d3PlotTestRoutes from './d3plot'
 import filesTestRoutes from './files'
+import foodSetRoutes from './food'
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,7 @@ const routes = [
   ...vuetifyTestRoutes,
   ...d3PlotTestRoutes,
   ...filesTestRoutes,
+  ...foodSetRoutes,
 ]
 
 const router = new VueRouter({

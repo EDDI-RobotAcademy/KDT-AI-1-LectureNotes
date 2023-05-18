@@ -41,6 +41,7 @@
         <router-link to="/d3plot-exam-page">테스트</router-link> |
         <router-link to="/file-handler-page">파일</router-link> |
         <router-link to="/file-list-show-page">파일 리스트</router-link> |
+        <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
 
 
       </nav>

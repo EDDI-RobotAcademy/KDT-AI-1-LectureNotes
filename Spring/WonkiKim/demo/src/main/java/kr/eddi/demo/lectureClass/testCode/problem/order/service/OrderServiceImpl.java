@@ -2,6 +2,9 @@ package kr.eddi.demo.lectureClass.testCode.problem.order.service;
 
 import kr.eddi.demo.lectureClass.testCode.problem.member.entity.Member;
 import kr.eddi.demo.lectureClass.testCode.problem.member.repository.MemberRepository;
+import kr.eddi.demo.lectureClass.testCode.problem.order.controller.form.OrderListByMemberRequestForm;
+import kr.eddi.demo.lectureClass.testCode.problem.order.controller.form.OrderListByProductRequestForm;
+import kr.eddi.demo.lectureClass.testCode.problem.order.controller.form.OrderListResponseForm;
 import kr.eddi.demo.lectureClass.testCode.problem.order.controller.form.OrderRequestForm;
 import kr.eddi.demo.lectureClass.testCode.problem.order.entity.OrderEntity;
 import kr.eddi.demo.lectureClass.testCode.problem.order.repository.OrderRepository;
@@ -11,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -41,5 +45,33 @@ public class OrderServiceImpl implements OrderService{
         OrderEntity order = new OrderEntity(maybeMember.get(), maybeProduct.get());
 
         return orderRepository.save(order);
+    }
+
+    @Override
+    public OrderListResponseForm serchOrderListByMember(OrderListByMemberRequestForm orderListByMemberRequestForm) {
+        Long memberId = findMemberId(orderListByMemberRequestForm.getUserToken());
+        Optional<Member> maybeMember = memberRepository.findById(memberId);
+
+        if(maybeMember.isEmpty()) {
+            log.debug("주문을 진행할 수 없음. - 비정상적인 UserToken감지");
+            return null;
+        }
+
+        List<OrderEntity> orderList = orderRepository.findAllByMember(maybeMember.get());
+        log.info(orderList.toString());
+        return new OrderListResponseForm(orderList);
+    }
+
+    @Override
+    public OrderListResponseForm serchOrderListByProduct(OrderListByProductRequestForm orderListByProductRequestForm) {
+        Long productId = orderListByProductRequestForm.getProductId();
+        Optional<Product> maybeProduct = productRepository.findById(productId);
+
+        if(maybeProduct.isEmpty()) {
+            log.debug("조회를 진행할 수 없음. - 비정상적인 상품id");
+            return null;
+        }
+        List<OrderEntity> orderList = orderRepository.findAllByProduct(maybeProduct.get());
+        return new OrderListResponseForm(orderList);
     }
 }

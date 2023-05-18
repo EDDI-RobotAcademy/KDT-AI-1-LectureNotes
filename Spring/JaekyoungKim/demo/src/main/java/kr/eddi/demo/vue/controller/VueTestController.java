@@ -20,6 +20,8 @@ public class VueTestController {
     public void receiveTest (@RequestBody VueRequestTestDataForm vueRequestTestDataForm) {
         log.info("received data: " + vueRequestTestDataForm);
         getNum(vueRequestTestDataForm);
+
+
     }
 @GetMapping("/get-num")
     public Integer getNum(VueRequestTestDataForm vueRequestTestDataForm) {
@@ -72,6 +74,16 @@ public class VueTestController {
             judgeString=DICE_ONE+" 더하기 "+DICE_TWO+"는 "+"홀수로 패배";
         }
         return judgeString;
+    }
+
+    @PostMapping("/dice-num")
+    public Integer postDice () {
+        final int MIN = 1;
+        final int MAX = 6;
+
+        log.info("getRandomDice() 요청!");
+
+        return (Integer) CustomRandom.generateNumber(MIN, MAX);
     }
 
 
