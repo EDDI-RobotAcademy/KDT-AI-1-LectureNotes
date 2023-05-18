@@ -8,6 +8,8 @@ import Test7 from '@/views/problem/Test7.vue'
 import Test8 from '@/views/problem/Test8.vue'
 import Test14 from '@/views/problem/Test14RegisterMember.vue'
 import Test20 from '@/views/problem/Test20LoginPage.vue'
+import Test23 from '@/views/problem/Test23ProductRegisterPage.vue'
+
 
 
 
@@ -47,6 +49,10 @@ const problemRoutes = [
     { path: '/test20-page',
     name: 'Test20',
     component: Test20
+    },
+    { path: '/test23-page',
+    name: 'Test23',
+    component: Test23
     },
 
 ]

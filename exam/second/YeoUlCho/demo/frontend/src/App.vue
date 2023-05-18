@@ -6,19 +6,20 @@
       dark
     >
       <div class="d-flex align-center">
+        <router-link to="/">
         <v-img
+        id="jb"
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
           transition="scale-transition"
-          transform: rotate(720deg)
           width="40"
         />
-
+        </router-link>
+        <label>2차 테스트중</label>
         <v-img
           alt="Vuetify Name"
-          href="http://localhost:8081"
           class="shrink mt-1 hidden-sm-and-down"
           contain
           min-width="100"
@@ -38,11 +39,21 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
-
+    
     <v-main>
       <router-view/>
-    </v-main>
+    </v-main> 
+    <!-- <input type="checkbox" id="menuicon"/>
+       <label for="menuicon">
+            <span></span>
+            <span></span>
+        </label>
+        <div class="sidebar"></div> -->
+
   </v-app>
+  
+  
+        
 </template>
 
 <script>
@@ -54,4 +65,24 @@ export default {
     //
   }),
 };
+
 </script>
+
+<style>
+div[class="sidebar"]{
+        width: 300px;
+        height: 100%;
+        background: #222;
+        position: fixed;
+        top: 0;
+        left:-300px;
+        z-index:1;
+        transition: all .35s;
+    }
+input[id="menuicon"]:checked + label +div {
+    left: 0;
+}
+#jb:hover {
+	transform: rotate( 180deg );
+}
+</style>

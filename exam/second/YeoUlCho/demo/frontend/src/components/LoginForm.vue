@@ -2,10 +2,10 @@
     <div>
         <table>
             <tr>
-                <td><label>email: <v-text-field label="email" v-model="email"/> </label></td>
+                <td><v-text-field label="email" placeholder="test@test.com"v-model="email"/></td>
             </tr>
             <tr>
-                <label>password: <v-text-field label="password" v-model="password"/> </label>
+                <v-text-field label="password" placeholder="특수문자포함 6자리 이상"v-model="password"/> 
             </tr>
             <tr>
                 <td rowspan='2'><v-btn @click="login">로그인</v-btn></td>

@@ -12,6 +12,8 @@
       <router-link to="/test8-page">테스트8</router-link> |
       <router-link to="/test14-page">테스트14-회원가입</router-link> |
       <router-link to="/test20-page">테스트20-로그인</router-link> |
+      <router-link to="/test23-page">테스트23-상품등록</router-link> |
+
 
 
 
