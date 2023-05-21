@@ -28,8 +28,8 @@ public class Test10AccountController {
         if(requestForm.getRole().equals(managerRole)){
             log.info("사업자는 추가 Number 를 기입해야 합니다.");
 
-            final Integer inputRoleNum = 1234567890; // 추가 값은 어떻게 받아오지 ..?
-            requestForm.setManagerRoleNum(inputRoleNum);
+//            final Integer inputRoleNum = 1234567890; // 추가 값은 어떻게 받아오지 ..?
+//            requestForm.setManagerRoleNum(inputRoleNum);
         }
 
         Test10Account account = accountService.register(requestForm);
@@ -43,8 +43,6 @@ public class Test10AccountController {
 
         Test17AccountLoginResponseForm memberResponseForm =
                 accountService.login(requestForm);
-
-
 
         return memberResponseForm;
     }

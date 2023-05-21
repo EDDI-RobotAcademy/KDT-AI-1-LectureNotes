@@ -20,8 +20,17 @@
         <div>
             <input type="text" v-model="email" placeholder="email을 기입해주세요." /><br />
             <input type="password" v-model="password" placeholder="password를 기입해주세요." /><br />
-            <input type="role" v-model="role" placeholder="role (일반/사업자)" /><br />
-            <input type="text" v-model="managerRoleNum" placeholder="only 사업자 (10자리)" /><br />
+
+            <label>roleType 선택 : </label>
+            <select size="1" id="roleType" @change="handleInput($event)">
+                <option type="role" v-model="role" value="NORMAL">일반</option>
+                <option type="role" v-model="role" value="BUSINESS">사업자</option>
+            </select><br />
+
+            <p v-if="selectRole">
+                <input type="text" v-model="managerRoleNum" placeholder="only 사업자 (10자리)" />
+            </p>
+
             <v-btn color="orange" @click="loginBtn">로그인</v-btn>
         </div>
     </v-container>
@@ -37,19 +46,32 @@ export default {
             password: "",
             role: "",
             managerRoleNum: null,
+            selectRole: false
         }
     },
     methods: {
+        handleInput(event) {
+            if(event.target.value == "BUSINESS"){
+                this.selectRole = true;
+                this.role = "사업자";
+                alert("사업자 타입 !")
+            }
+
+            if(event.target.value == "NORMAL"){
+                this.selectRole = false;
+                this.role = "일반";
+                alert("일반 타입 !")
+            }
+        },
         loginBtn () {
             const { email, password, role, managerRoleNum } = this;
             axios.post("http://localhost:7777/exam-test10/login", {
                 email, password, role, managerRoleNum
             })
             .then((res) => {
-                alert("요청 성공!")
-                console.log("res.data: ", typeof(res.data));
+                alert("요청 성공!");
                 if(res.data != null){
-                    alert("로그인 되었습니다.")
+                    alert("로그인이 완료되었습니다.")
                 }
             })
             .catch((res) => {
