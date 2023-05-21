@@ -1,13 +1,11 @@
 package com.example.demo.Problem10SignIn.controller;
 
+import com.example.demo.Problem10SignIn.controller.form.AccountLoginRequestForm;
 import com.example.demo.Problem10SignIn.controller.form.AccountRequestForm;
 import com.example.demo.Problem10SignIn.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -20,5 +18,12 @@ public class AccountController {
 
         boolean isSuccess = accountService.register(requestForm.toAccountRequest());
         return isSuccess;
+    }
+    @PostMapping("/log-in")
+    public String accountLogin(@RequestBody AccountLoginRequestForm requestForm) {
+
+        String isLogin = accountService.login(requestForm.toAccountLoginRequest()).getUniqueRandomName();
+
+        return isLogin;
     }
 }

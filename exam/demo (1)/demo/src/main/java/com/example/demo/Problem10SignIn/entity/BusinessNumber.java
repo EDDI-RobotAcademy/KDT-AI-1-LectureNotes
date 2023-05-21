@@ -18,4 +18,5 @@ public class BusinessNumber {
     public BusinessNumber(int businessNumber) {
         this.businessNumber = businessNumber;
     }
+
 }

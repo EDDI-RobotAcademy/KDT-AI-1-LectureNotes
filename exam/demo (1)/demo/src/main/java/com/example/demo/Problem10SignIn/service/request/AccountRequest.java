@@ -13,7 +13,7 @@ public class AccountRequest {
     final private String email;
     final private String password;
     final private CategoryType categoryType;
-    final private BusinessNumber businessNumber;
+    final private int businessNumber;
 
     public Account toAccount() {
         return new Account(email, password);

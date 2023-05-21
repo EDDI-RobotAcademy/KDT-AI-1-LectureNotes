@@ -57,12 +57,12 @@ export default {
                 this.businessNumber = '0000000000';
                 }
 
-            if (this.category === 'BUSINESS' && this.businessNumber.length > 10) {
+            if (this.category === 'BUSINESS' && this.businessNumber.length > 8) {
                 alert('사업자 번호를 정확히 입력하세요');
                 return null;
                 }
 
-            if (this.businessNumber.length > 10) {
+            if (this.businessNumber.length > 8) {
                 alert('사업자 번호를 정확히 입력하세요');
                 return null;
                 }

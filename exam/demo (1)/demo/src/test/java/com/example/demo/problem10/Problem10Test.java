@@ -1,5 +1,6 @@
 package com.example.demo.problem10;
 
+import com.example.demo.Problem10SignIn.controller.form.AccountLoginRequestForm;
 import com.example.demo.Problem10SignIn.controller.form.AccountRequestForm;
 import com.example.demo.Problem10SignIn.entity.BusinessNumber;
 import com.example.demo.Problem10SignIn.entity.CategoryType;
@@ -8,6 +9,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Optional;
+import java.util.UUID;
 
 import static com.example.demo.Problem10SignIn.entity.CategoryType.BUSINESS;
 import static com.example.demo.Problem10SignIn.entity.CategoryType.NORMAL;
@@ -65,15 +69,15 @@ public class Problem10Test {
         사업자 종류는 가입 할때 사업자 번호가 필요함
          */
 
-        final String email = "gogo@gogo.com";
+        final String email = "gogo8@gogo.com";
         final String password = "gogo";
         final CategoryType categoryType = NORMAL;
-        final BusinessNumber businessNumber = new BusinessNumber(0000000000);
+        final int businessNumber = 00000000;
 
         AccountRequestForm requestForm = new AccountRequestForm(email, password, categoryType, businessNumber);
         boolean isSuccess = accountService.register(requestForm.toAccountRequest());
 
-        assertTrue(isSuccess);
+        assertTrue(isSuccess == true);
     }
     @Test
     @DisplayName("사업자 회원 가입")
@@ -81,27 +85,28 @@ public class Problem10Test {
         final String email = "business@business.com";
         final String password = "business";
         final CategoryType categoryType = BUSINESS;
-        final BusinessNumber businessNumber = new BusinessNumber(12345678);
+        final int businessNumber = 12345678;
 
         AccountRequestForm requestForm = new AccountRequestForm(email, password, categoryType, businessNumber);
         boolean isSuccess = accountService.register(requestForm.toAccountRequest());
 
-        assertTrue(isSuccess);
+        assertTrue(isSuccess == true);
     }
     @Test
     @DisplayName("회원의 로그인")
-    void 로그인하기 () {
+    String 로그인하기 () {
         /*
         저장소 안에 이메일 비밀번호가 맞는지 확인
         findbyid로 가져 온다음 각각 확인
          */
+
         final String email = "test@test.com";
         final String password = "test";
-        final CategoryType categoryType = NORMAL;
-        final BusinessNumber businessNumber = new BusinessNumber(0000000000);
+        final int randomInteger = 123;
 
-        AccountRequestForm requestForm = new AccountRequestForm(email, password, categoryType, businessNumber);
-        boolean isSuccess = accountService.login(requestForm.toAccountRequest());
+        AccountLoginRequestForm requestForm = new AccountLoginRequestForm(email, password, randomInteger);
+        String isSuccess = accountService.login(requestForm.toAccountLoginRequest()).getUniqueRandomName();
+        return isSuccess;
+
     }
-
 }

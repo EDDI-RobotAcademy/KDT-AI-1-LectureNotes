@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Entity
+@Table(name = "categoryType")
 @NoArgsConstructor
 public class Category {
     @Id
@@ -15,4 +16,11 @@ public class Category {
     @Enumerated(EnumType.STRING)
     private CategoryType categoryType;
 
+    public Category(CategoryType categoryType) {
+        this.categoryType = categoryType;
+    }
+
+    public CategoryType getCategoryType() {
+        return categoryType;
+    }
 }

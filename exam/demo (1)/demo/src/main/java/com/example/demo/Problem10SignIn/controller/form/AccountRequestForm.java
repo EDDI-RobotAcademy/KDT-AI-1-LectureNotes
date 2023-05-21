@@ -12,12 +12,13 @@ import lombok.RequiredArgsConstructor;
 public class AccountRequestForm {
     final private String email;
     final private String password;
-    @JsonProperty("category")
     final private CategoryType categoryType;
-    final private BusinessNumber businessNumber;
+    final private int businessNumber;
+
 
 
     public AccountRequest toAccountRequest() {
+
         return new AccountRequest(email, password, categoryType, businessNumber);
     }
 }
