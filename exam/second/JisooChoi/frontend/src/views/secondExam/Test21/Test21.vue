@@ -36,7 +36,13 @@
         <v-btn color="orange" @click="productBtn">상품 등록</v-btn>
         </br>
         </br>
-        <Test21Form />
+        <div>
+            <v-btn color="green" @click="listBtn">상품 리스트 보기</v-btn>
+            <v-btn color="pink" @click="newBtn">상품 목록 불러오기</v-btn>
+            <div v-if="productList">
+                <Test21Form :products="products" />
+            </div>
+        </div>
     </v-container>
 </template>
 
@@ -55,6 +61,8 @@ export default {
             productCost: "",
             productImg: "",
             businessUser: "",
+            products: [],
+            productList: false,
         }
     },
     methods: {
@@ -74,6 +82,21 @@ export default {
             })
             .catch((res) => {
                 alert("상품 등록 실패 !")
+            })
+        },
+        listBtn(){
+            if(this.productList = !this.productList){
+                this.productList = true;
+            }
+        },
+        newBtn() {
+            axios.get("http://localhost:7777/exam-test22/list")
+            .then((res) => {
+                alert("불러오기 완료 !");
+                this.products = res.data;
+            })
+            .catch((res) => {
+                alert("불러오기 실패 !");
             })
         }
     }

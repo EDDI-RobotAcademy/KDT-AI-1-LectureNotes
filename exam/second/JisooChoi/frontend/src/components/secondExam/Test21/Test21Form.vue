@@ -7,7 +7,7 @@
             <th align="center" width="70%">상품명</th>
             <th align="center" width="10%">상품가격</th>
         </tr>
-        <tr v-if="!product || (Array.isArray(product) && product.length === 0)">
+        <tr v-if="!products || (Array.isArray(products) && products.length === 0)">
             <td colspan="3">현재 등록된 상품이 없습니다!</td>
         </tr>
         <tr v-else v-for="product in product" :key="product.productId">
@@ -18,14 +18,12 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
-    data() {
-        return {
-            
-        }
-    }, 
+    props: {
+        products: {
+            type: Array,
+        },
+    },
 }
 </script>
 
