@@ -1,7 +1,6 @@
-package com.example.demo.exam.accountTest.entity.normal;
+package com.example.demo.exam.accountTest.entity.account;
 
 import com.example.demo.exam.accountTest.entity.Role;
-import com.example.demo.exam.accountTest.entity.normal.Account;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
