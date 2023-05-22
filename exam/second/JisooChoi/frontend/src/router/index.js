@@ -10,6 +10,7 @@ import Test8routes from './Test8'
 import Test9routes from './Test9'
 import Test10routes from './Test10'
 import Test17routes from './Test17'
+import Test21routes from './Test21'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,7 @@ const routes = [
   ...Test10routes,
   ...Test17routes,
   ...Test9routes,
+  ...Test21routes,
 ];
 
 const router = new VueRouter({

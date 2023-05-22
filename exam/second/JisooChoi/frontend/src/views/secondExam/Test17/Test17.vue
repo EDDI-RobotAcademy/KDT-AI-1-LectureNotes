@@ -32,6 +32,7 @@
             </p>
 
             <v-btn color="orange" @click="loginBtn">로그인</v-btn>
+            <v-btn color="blue" @click="logoutBtn">로그아웃</v-btn>
         </div>
     </v-container>
 </template>
@@ -72,6 +73,8 @@ export default {
                 alert("요청 성공!");
                 if(res.data.userToken != null){
                     alert("로그인이 완료되었습니다.")
+                    localStorage.setItem("user",res.data.userToken);
+                    localStorage.setItem("userRole",res.data.role);
                     return;
                 }
                 alert("잘못된 정보입니다.")
@@ -79,6 +82,10 @@ export default {
             .catch((res) => {
                 alert("요청 실패!")
             })
+        },
+        logoutBtn() {
+            localStorage.removeItem("user");
+            localStorage.removeItem("userRole");
         }
     }
 }

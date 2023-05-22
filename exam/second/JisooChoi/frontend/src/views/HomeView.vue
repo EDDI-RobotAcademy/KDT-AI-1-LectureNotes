@@ -12,6 +12,7 @@
         <router-link to="/test-nine-page">9, 15, 16 번째 (이론)문제 </router-link> |
         <router-link to="/test-ten-page">10 ~ 14 번째 문제 </router-link> |
         <router-link to="/test-seventeen-page">17 ~ 20 번째 문제 </router-link> |
+        <router-link to="/test-twentyOne-page">21 ~ 24 번째 문제</router-link>
       </nav>
     </div>
   </v-container>
