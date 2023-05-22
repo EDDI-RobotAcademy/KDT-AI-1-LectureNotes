@@ -35,7 +35,7 @@ public class Problem27Test {
     void 일반_회원_상품_구매() {
 
         final Long productId = 2L;
-        final RoleType roleType = RoleType.NOLMAL;
+        final RoleType roleType = RoleType.NORMAL;
 
         AccountRoleResponseForm responseForm = new AccountRoleResponseForm(roleType);
 

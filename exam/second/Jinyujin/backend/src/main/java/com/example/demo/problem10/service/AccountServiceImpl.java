@@ -96,7 +96,7 @@ public class AccountServiceImpl implements AccountService{
         if (member.getPassword().equals(requestForm.getPassword())) {
             log.debug("로그인 성공!");
             MemberRole memberRole = memberRoleRepository.findByMember(member);
-            if (memberRole.getRole().getRoleType().equals(RoleType.NOLMAL)) {
+            if (memberRole.getRole().getRoleType().equals(RoleType.NORMAL)) {
                 return new AccountLoginResponseForm(UUID.randomUUID());
             }
             if (memberRole.getRole().getRoleType().equals(RoleType.BUSINESS)) {

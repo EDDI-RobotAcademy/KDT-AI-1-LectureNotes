@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static com.example.demo.problem10.entity.RoleType.BUSINESS;
-import static com.example.demo.problem10.entity.RoleType.NOLMAL;
+import static com.example.demo.problem10.entity.RoleType.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -37,7 +36,7 @@ public class Problem10Test {
 
         final String email = "glld@test.com";
         final String password = "test";
-        final RoleType roleType = NOLMAL;
+        final RoleType roleType = NORMAL;
 
         AccountWithRoleRequestForm requestForm =
                 new AccountWithRoleRequestForm(email, password, roleType);
