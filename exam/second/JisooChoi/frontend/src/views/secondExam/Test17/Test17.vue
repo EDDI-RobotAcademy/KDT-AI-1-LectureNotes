@@ -70,9 +70,11 @@ export default {
             })
             .then((res) => {
                 alert("요청 성공!");
-                if(res.data != null){
+                if(res.data.userToken != null){
                     alert("로그인이 완료되었습니다.")
+                    return;
                 }
+                alert("잘못된 정보입니다.")
             })
             .catch((res) => {
                 alert("요청 실패!")
