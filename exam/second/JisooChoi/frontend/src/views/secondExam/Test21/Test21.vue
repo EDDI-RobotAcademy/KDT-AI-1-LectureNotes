@@ -3,8 +3,8 @@
         ★ 21번 문제 백로그
 
         Backend
-        1. 사업자 회원에 대한 역할 인증 여부를 거친 후 상품 등록이 가능해집니다.
-            - success critial
+        21. 사업자 회원에 대한 역할 인증 여부를 거친 후 상품 등록이 가능해집니다.
+            - success criteria
                 (1) 현재 사용자의 사업자 인증 여부를 거칩니다.
                 (2) 인증 여부가 true라면, 상품 등록이 가능합니다.
                 (3) 상품은 id, 상품 명, 가격, 상품 이미지 속성이 있습니다.
@@ -14,8 +14,8 @@
                 - [o]  상품 등록
             
         Frontend
-        1. 사업자 회원이 상품을 등록하는 컴포넌트를 만듭니다.
-            - success critial
+        21. 사업자 회원이 상품을 등록하는 컴포넌트를 만듭니다.
+            - success criteria
                 (1) 사업자 로그인을 합니다.
                 (2) 상품은 상품명, 상품 가격, 상품 이미지를 input 으로 받습니다. 
                 (3) 등록하기 버튼을 누르면 회원 정보와 상품 정보가 백엔드로 요청됩니다.  
@@ -34,13 +34,21 @@
             <input type="text" v-model="productImg" placeholder="productImg"/>
         </div>
         <v-btn color="orange" @click="productBtn">상품 등록</v-btn>
+        </br>
+        </br>
+        <Test21Form />
     </v-container>
 </template>
 
 <script>
 import axios from "axios";
+import Test21Form from "@/components/secondExam/Test21/Test21Form.vue";
 
 export default {
+    components: {
+        Test21Form,
+    },
+    name: "Test21",
     data() {
         return {
             productName: "",
