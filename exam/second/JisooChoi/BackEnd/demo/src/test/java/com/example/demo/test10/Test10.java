@@ -57,10 +57,11 @@ public class Test10 {
         Test10AccountRequestForm requestForm = new Test10AccountRequestForm(email, password, role, roleAddNum);
 
         // 계정이 사용자인 것 확인하고 10개의 숫자 추가로 받기
-        if(requestForm.getRole().equals(managerRole)){
-            final Integer inputRoleNum = 1234567890; // 처음에는 없다가 추가로 기입 받음
-            requestForm.setManagerRoleNum(inputRoleNum);
-        }
+        // -> setter 를 없애면서 필요없어진 부분
+//        if(requestForm.getRole().equals(managerRole)){
+//            final Integer inputRoleNum = 1234567890; // 처음에는 없다가 추가로 기입 받음
+//            requestForm.setManagerRoleNum(inputRoleNum);
+//        }
 
         // 증복 검사
         Test10Account account = accountService.register(requestForm);
