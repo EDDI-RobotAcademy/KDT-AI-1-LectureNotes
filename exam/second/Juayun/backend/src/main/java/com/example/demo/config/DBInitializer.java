@@ -1,8 +1,8 @@
 package com.example.demo.config;
 
-import com.example.demo.exam.refactorAccount.entity.Role;
-import com.example.demo.exam.refactorAccount.entity.RoleType;
-import com.example.demo.exam.refactorAccount.repository.RoleRepository;
+import com.example.demo.exam.accountTest.entity.Role;
+import com.example.demo.exam.accountTest.entity.RoleType;
+import com.example.demo.exam.accountTest.repository.RoleRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
