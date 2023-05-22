@@ -39,18 +39,18 @@ public class Test10AccountServiceImpl implements Test10AccountService{
 
         if(maybeAccount.isEmpty()){
             log.debug("존재하지 않는 회원입니다.");
-            return new Test17AccountLoginResponseForm(null);
+            return new Test17AccountLoginResponseForm(null, null);
         }
 
         Test10Account account = maybeAccount.get();
 
         if(account.getPassword().equals(requestForm.getPassword())){
             log.debug("로그인 성공!");
-            return new Test17AccountLoginResponseForm(UUID.randomUUID());
+            return new Test17AccountLoginResponseForm(UUID.randomUUID(), requestForm.getRole());
         }
 
         log.debug("존재하지 않는 회원입니다.");
-        return new Test17AccountLoginResponseForm(null);
+        return new Test17AccountLoginResponseForm(null, null);
     }
 
 }

@@ -41,8 +41,7 @@ public class Test10AccountController {
     public Test17AccountLoginResponseForm accountLogin(@RequestBody Test10AccountRequestForm requestForm) {
         log.info("accountLogin()");
 
-        Test17AccountLoginResponseForm memberResponseForm =
-                accountService.login(requestForm);
+        Test17AccountLoginResponseForm memberResponseForm = accountService.login(requestForm);
 
         return memberResponseForm;
     }

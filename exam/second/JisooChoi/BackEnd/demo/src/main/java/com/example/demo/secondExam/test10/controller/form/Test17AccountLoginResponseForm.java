@@ -9,4 +9,5 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class Test17AccountLoginResponseForm {
     final private UUID userToken;
+    final private String role;
 }
