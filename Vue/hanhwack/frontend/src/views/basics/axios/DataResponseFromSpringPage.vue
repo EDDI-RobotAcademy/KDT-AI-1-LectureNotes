@@ -9,6 +9,7 @@
 
 <script>
 import axios from 'axios'
+import mainRequest from "@/api/mainRequest";
 export default {
     data () {
         return {
@@ -19,7 +20,7 @@ export default {
         onSubmit () {
             // 아래와 같이 데이터에 대한 요청은 Front에서
             // 데이터를 처리해서 전달하는 것은 Back으로 분리할 수 있습니다.
-            axios.get('http://localhost:7777/vue-test/get-random-dice')
+            mainRequest.get('/vue-test/get-random-dice')
                 .then((res) => {
                     this.receivedDiceNubmer = res.data
                 })
