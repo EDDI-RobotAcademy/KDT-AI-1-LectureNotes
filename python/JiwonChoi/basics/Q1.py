@@ -12,6 +12,8 @@ def makeRandomPoint():
 
 
 if __name__ == '__main__':
+    print("현재 사용자의 위치", end=':')
     makeRandomPoint()
-    makeRandomPoint()
-    makeRandomPoint()
+    for i in range(3) :
+        print("{i}번 주유소의 위치".format(i=i), end=':')
+        makeRandomPoint()
