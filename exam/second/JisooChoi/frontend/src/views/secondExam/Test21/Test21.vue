@@ -94,6 +94,7 @@ export default {
             .then((res) => {
                 alert("불러오기 완료 !");
                 this.products = res.data;
+                console.log(typeof(get(res.data)));
             })
             .catch((res) => {
                 alert("불러오기 실패 !");
