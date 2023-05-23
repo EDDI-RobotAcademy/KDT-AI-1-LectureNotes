@@ -62,7 +62,7 @@ def functions_test():
     print(times)
     print(times(10, 10))
 
-function_address = times
+    function_address = times
     print(function_address(10, 10))
 
     list1 = "apple"
