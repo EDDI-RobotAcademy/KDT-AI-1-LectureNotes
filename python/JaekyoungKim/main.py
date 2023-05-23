@@ -1,4 +1,5 @@
 # This is a sample Python script.
+from Homework.Homework1 import Homework1
 from basics.python_functions import functions_test
 from basics.basic_grammar import python_basics
 
@@ -22,6 +23,8 @@ if __name__ == '__main__':
     python_basics()
 
     functions_test()
+
+    Homework1()
 
 
 
