@@ -1,5 +1,6 @@
 from basics.basic_grammer import python_basics
 from basics.python_functions import functions_test
+from basics.python_problem import coordinate
 
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -15,3 +16,5 @@ def print_hi(name):
 if __name__ == '__main__':
     python_basics()
     functions_test()
+
+    coordinate(3)
