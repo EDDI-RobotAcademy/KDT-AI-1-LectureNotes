@@ -10,8 +10,14 @@
         <tr v-if="!products || (Array.isArray(products) && products.length === 0)">
             <td colspan="3">현재 등록된 상품이 없습니다!</td>
         </tr>
-        <tr v-else v-for="product in product" :key="product.productId">
+        <tr v-else v-for="product in products" :key="product.productId">
             <td align="center"> {{ product.productId }} </td>
+            <td align="center">
+                {{ product.productName }} <!-- 게시물 작성자 뿌린다. -->
+            </td>
+            <td align="center">
+                {{ product.productCost }} <!-- 게시물 시간 뿌린다. -->
+            </td>
         </tr>
         </table>
     </div>
