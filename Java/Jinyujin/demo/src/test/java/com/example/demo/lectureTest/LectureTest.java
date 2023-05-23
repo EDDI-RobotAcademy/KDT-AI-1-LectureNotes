@@ -21,9 +21,12 @@ public class LectureTest {
     @Test
     @DisplayName("x라는 학생이 Math를 수강신청하기")
     void studentRegisterLecture() {
-        final String expected = "Math";
+        final String studentName = "z";
+        final String lectureName = "sexy";
 
-        TestStudent student = new TestStudent("x");
+//        LectureRequestForm requestForm = new LectureRequestForm(studentName, lectureName);
+
+        TestStudent student = new TestStudent(studentName);
         student = studentService.register(student);
         // 등록할 게 뭔지(student) 입력해줘야지!
 
@@ -34,12 +37,12 @@ public class LectureTest {
         }
 
         // 과목 가져오기
-        final TestLecture lecture = lectureService.register(expected, student.getStudentId());
+        final TestLecture lecture = lectureService.register(lectureName, student.getId());
         // 등록한 학생의 수강 과목 등록(기대값을 등록)
         // 여기에는 어떤 학생이 등록한건지 알기 위해 student의 Id를 같이 입력해줘야 함(누가 등록한건지 모르자나)
 
         final String actual = lecture.getLectureName();
 
-        assertEquals(expected, actual);
+        assertEquals(lectureName, actual);
     }
 }

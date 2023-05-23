@@ -2,10 +2,12 @@ package com.example.demo.lectureClass.fetchType.account.service;
 
 import com.example.demo.lectureClass.fetchType.account.controller.form.JpaAccountResponseForm;
 import com.example.demo.lectureClass.fetchType.account.controller.form.JpaAccountWithRoleRequestForm;
+import com.example.demo.lectureClass.fetchType.account.entity.Role;
 import com.example.demo.lectureClass.fetchType.account.entity.JpaAccount;
 import com.example.demo.lectureClass.fetchType.account.entity.JpaAccountRole;
 import com.example.demo.lectureClass.fetchType.account.repository.JpaAccountRepository;
 import com.example.demo.lectureClass.fetchType.account.repository.JpaAccountRoleRepository;
+import com.example.demo.lectureClass.fetchType.account.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class JpaAccountServiceImpl implements JpaAccountService{
 
     @Autowired
     private JpaAccountRoleRepository accountRoleRepository;
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Override
     public JpaAccount registerWithRole(JpaAccountWithRoleRequestForm requestForm) {
@@ -53,7 +57,7 @@ public class JpaAccountServiceImpl implements JpaAccountService{
         // }
         // role없는 form을 entity형태로 맞춰서 먼저 저장해주고
 
-        accountRoleRepository.save(requestForm.toJpaAccountRole(account));
+//        accountRoleRepository.save(requestForm.toJpaAccountRole(account));
         // public JpaAccountRole toJpaAccountRole(JpaAccount account) {
         //     return new JpaAccountRole(role, account);
         // }
@@ -64,6 +68,16 @@ public class JpaAccountServiceImpl implements JpaAccountService{
         // 그러면 이 부분 때문에 테이블에서 account_id로 표현되는 것임
         // private JpaAccount jpaAccount;라고 하면
         // 테이블에서 jpa_account_id로 뜸!
+
+        final Role role = roleRepository.findByRoleType(
+                (requestForm.getRoleType()));
+
+
+
+        final JpaAccountRole accountRole =
+                new JpaAccountRole(role, account);
+
+        accountRoleRepository.save(accountRole);
 
         return account;
         // 반환되는 account는 JpaAccount 엔티티에 구성되어 있는 값들만 보이는 것

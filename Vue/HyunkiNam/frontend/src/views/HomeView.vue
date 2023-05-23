@@ -34,6 +34,14 @@
         <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
         <router-link to="/vuetify-image-gallery">Vuetify Image 갤러리</router-link> |
         <router-link to="/image-homework-page">Vue 문제 은행 6</router-link> |
+        <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
+        <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
+        <router-link to="/d3plot-test-page">D3 plot 테스트</router-link> |
+        <router-link to="/d3plot-homework-page">Vue + Spring + D3 문제 은행 [ 1 ]</router-link> |
+        <router-link to="/d3plot-exam-page">테스트</router-link> |
+        <router-link to="/file-handler-page">파일</router-link> |
+        <router-link to="/file-list-show-page">파일 리스트</router-link> |
+        <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
 
 
       </nav>

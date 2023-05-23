@@ -19,6 +19,7 @@
                     <th>숫자</th>
                     <td><input type="text" v-model="numberA"></td>
                 </tr>
+             
             </table>
 
             <div>
@@ -61,7 +62,7 @@ export default {
             axios.post('http://localhost:7777/vue-test/receive-test', 
                     {studentName, studentMajor,numberA})
                 .then((res) => {
-                    alert('데이터 전송 성공!')
+                    alert('전송 성공!')
                 })
                 .catch((res) => {
                     alert('데이터 전송 실패!')

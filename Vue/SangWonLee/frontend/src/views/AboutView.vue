@@ -8,7 +8,6 @@
     <h1>This is an about page</h1>
 
     <!-- p는 paragraph로 문단 만드는 html tag
-
          아래와 같이 {{ 자바스크립트 데이터 }} 로 쉽게 html 내부에 데이터를 추가할 수 있습니다 -->
 
     <p>{{ msg }}</p>
@@ -22,9 +21,7 @@
 <script>
 
 // script 파트는 실제 front 내에서 데이터를 다룰 때 사용합니다.
-
 // 사실상 javascript 파일이 배치됩니다.
-
 // javascript를 잘 몰라도 사용이 매우 편리하다는 이점이 vue의 최대 장점입니다.
 
 

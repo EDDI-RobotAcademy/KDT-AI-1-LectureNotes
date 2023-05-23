@@ -1,6 +1,7 @@
 <template>
     <div>
         <v-btn color="teal" @click="playGame">플레이</v-btn>
+        <!--버튼을 누르면 axios.get을 통해 플레이어 정보와 스테이터스 가져오면서 v-if 값을 true로 만들고 -->
         <div v-if="isSuccessToGetData">
             <p>완력: {{ strength }}</p>
             <p>민첩: {{ dexterity }}</p>

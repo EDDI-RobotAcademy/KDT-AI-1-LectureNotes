@@ -41,6 +41,22 @@
       <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
       <router-link to="/vuetify-image-gallery">이미지</router-link> |
       <router-link to="/problem6-page">6번 연습문제</router-link> |
+      <router-link to="/print-image-test">6번 연습문제 (Vuetify Image 테스트)</router-link> |
+      <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
+      <router-link to="/carousel-test-page">carousel 테스트</router-link> |
+      <router-link to="/d3plot-test-page">d3plot 테스트</router-link> |
+      <router-link to="/d3problem-page">d3plot 문제</router-link> |
+      <router-link to="/d3HealthPrint-page">d3plot HEALTH문제</router-link> |
+      <router-link to="/file-handler-test-page">파일업로드</router-link> |
+      <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
+      <router-link to="/food-register-page">Food Aggergate Root 만들기</router-link> |
+
+
+      
+     
+
+
+      
 
 
       

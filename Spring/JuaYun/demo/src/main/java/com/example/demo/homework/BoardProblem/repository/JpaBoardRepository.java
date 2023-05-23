@@ -1,6 +1,7 @@
 package com.example.demo.homework.BoardProblem.repository;
 
 import com.example.demo.homework.BoardProblem.entity.JpaBoard;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface JpaBoardRepository extends JpaRepository<JpaBoard, Long> {
     // JpaBoardRepository 는 Spring Framework 에서 제공하는

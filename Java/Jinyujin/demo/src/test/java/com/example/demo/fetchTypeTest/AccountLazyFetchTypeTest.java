@@ -3,6 +3,8 @@ package com.example.demo.fetchTypeTest;
 import com.example.demo.lectureClass.fetchType.account.controller.form.JpaAccountResponseForm;
 import com.example.demo.lectureClass.fetchType.account.controller.form.JpaAccountWithRoleRequestForm;
 import com.example.demo.lectureClass.fetchType.account.entity.JpaAccount;
+import com.example.demo.lectureClass.fetchType.account.entity.Role;
+import com.example.demo.lectureClass.fetchType.account.entity.RoleType;
 import com.example.demo.lectureClass.fetchType.account.service.JpaAccountService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+import static com.example.demo.lectureClass.fetchType.account.entity.RoleType.ADMIN;
+import static com.example.demo.lectureClass.fetchType.account.entity.RoleType.NOLMAL;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -23,12 +27,11 @@ public class AccountLazyFetchTypeTest {
     @Test
     @DisplayName("FetchType = LAZY, 일반 회원 가입")
     void 일반회원_회원가입() {
-        final String email = "normal@test.com";
+        final String email = "gigi@test.com";
         final String password = "test";
-        final String role = "NOLMAL";
+        final RoleType roleType = ADMIN;
 
-
-        JpaAccountWithRoleRequestForm requestForm = new JpaAccountWithRoleRequestForm(email, password, role);
+        JpaAccountWithRoleRequestForm requestForm = new JpaAccountWithRoleRequestForm(email, password, roleType);
         // 일단 리퀘스트폼에서 받아온 데이터를 객체로 생성해줘야 함
         // TestAccountRequestForm인데 여기서는 role까지 포함
 

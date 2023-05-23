@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import defalutRouterSetRoutes from './defaultRouterSet/index.js'
-import vuetifyTestRoutes from './uiVuetify/index.js'
-import productRoutes from './product/index.js'
-import problemRoutes from './problems/index.js'
-import axiosTestRoutes from './axiosTest/index.js'
-import practiceRoutes from './practice/index.js'
-import vueBasicRoutes from './vueBasic/index.js'
-import htmlCssRoutes from './htmlCss/index.js'
-import componentTestRoutes from './componentTest/index.js'
-import lifeCycleRoutes from './lifeCycle/index.js'
+import defalutRouterSetRoutes from './defaultRouterSet'
+import vuetifyTestRoutes from './uiVuetify'
+import productRoutes from './product'
+import problemRoutes from './problems'
+import axiosTestRoutes from './axiosTest'
+import practiceRoutes from './practice'
+import vueBasicRoutes from './vueBasic'
+import htmlCssRoutes from './htmlCss'
+import componentTestRoutes from './componentTest'
+import lifeCycleRoutes from './lifeCycle'
+import d3plotTestRoutes from './d3plot'
+import fileRoutes from './files'
+import foodSetRoutes from './food'
 // @는 현재 src 폴더를 의미함
 
 
@@ -27,6 +30,9 @@ const routes = [
   ...problemRoutes,
   ...productRoutes,
   ...vuetifyTestRoutes,
+  ...d3plotTestRoutes,
+  ...fileRoutes,
+  ...foodSetRoutes,
 ]
 
 const router = new VueRouter({

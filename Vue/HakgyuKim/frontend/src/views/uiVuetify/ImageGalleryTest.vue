@@ -3,6 +3,7 @@
     <v-row>
       <v-col v-for="(image, idx) in images" :key="idx" cols="3">
         <v-img :src="image" aspect-ratio="1" class="grey lighten-2">
+          <!-- placeholder = 로딩 길 때를 위한-->
           <template v-slot:placeholder>
             <v-row class="fill-height ma-0" align="center" justify="center">
               <v-progress-circular indeterminate color="grey lighten-5" />

@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/rest-test")
 public class TestRestController {
 
-    // 서버란 무엇일까요?
-    // - 데이터베이스 같은 것인가요? (O) -> X (현재는 DB 없음)
-    // - 중개소 같은 느낌? (O)
-    // - 데이터를 처리하는 주체 (커피머신을 동작시켜서 커피를 만들고 제공)
+    // 서버란 무엇일까요 ?
+    // - 데이터베이스 같은 것인가요 ? (O) -> X (현재는 DB 없음)
+    // - 중개소 같은 느낌 (O)
+    // - 데이터를 처리하는 주체 (커피 머신을 동작시켜서 커피를 만들고 제공)
     // Response(응답)을 하면 서버
 
-    // 클라이언트는 무엇일까요?
+    // 클라이언트는 무엇일까요 ?
     // - 데이터를 요청하는 주체 (커피숍 가서 주문)
     // Request(요청)을 하면 클라이언트
     @GetMapping("/first")

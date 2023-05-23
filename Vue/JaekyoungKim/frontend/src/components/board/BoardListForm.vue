@@ -2,7 +2,7 @@
     <div>
         <h3>게시물 목록</h3>
         <table style="margin: 10px;">
-            <tr>
+            <tr><!-- 같은 줄에 차지하는 퍼센트 지정해줌-->
                 <th align="center" width="6%">번호</th>
                 <th align="center" width="70%">제목</th>
                 <th align="center" width="10%">작성자</th>

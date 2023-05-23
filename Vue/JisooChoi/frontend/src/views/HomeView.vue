@@ -38,6 +38,14 @@
         <router-link to='/vuetify-table-advanced'>Vuetify Table 추가 테스트</router-link>|
         <router-link to='/vuetify-image-gallery'>Vuetify Image 갤러리</router-link>|
         <router-link to='/vuetify-image-prob-page'>Vue 문제 은행 6의 페이지</router-link>|
+        <router-link to='/dialog-test-page'>dialog 테스트</router-link>|
+        <router-link to='/carousel-test-page'>carousel 테스트</router-link>|
+        <router-link to='/d3plot-test-page'>d3plot 테스트</router-link>|
+        <router-link to='/d3plot-prob'>Vue + Spring + D3 문제 은행 1</router-link>|
+        <router-link to="/d3-health-print-page">Vue + Spring + D3 문제 은행 1 [Review]</router-link> |
+        <router-link to="/file-handler-test-page">File Test Page</router-link> |
+        <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
+        <router-link to="/food-aggregate-root-register-page">Aggrigate Root 만들기</router-link> |
       </nav>
     </div>
   </v-container>

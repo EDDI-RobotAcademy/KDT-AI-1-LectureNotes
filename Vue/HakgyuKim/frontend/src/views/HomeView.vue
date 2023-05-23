@@ -60,6 +60,19 @@
         <router-link to="/vuetify-image-gallery"
           >Image Gallery Test</router-link
         >
+        | <router-link to="/homework6">문제은행6</router-link> |
+        <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
+        <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
+        <router-link to="/d3-plot-page">D3 Plot 테스트</router-link> |
+        <router-link to="/d3-homework1">D3 문제은행 1</router-link> |
+        <router-link to="/file-handler-page">파일 저장 테스트</router-link> |
+        <router-link to="/file-list-show-page"
+          >Spring에 요청해서 파일 리스트 보기</router-link
+        >
+        |
+        <router-link to="/food-register"
+          >Food Aggregate Root 만들기</router-link
+        >
         |
       </nav>
     </div>

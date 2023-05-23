@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import boardModule from '@/store/board/BoardModule.js'
-import uiVuetifyModule from '@/store/uiVeutify/UiVuetifyModule.js'
+import boardModule from '@/store/board/BoardModule'
+import uiVuetifyModule from '@/store/uiVeutify/UiVuetifyModule'
+import d3PlotModule from '@/store/d3Plot/D3PlotModule'
+import fileModule from '@/store/files/FileModule'
+import foodModule from '@/store/food/FoodModule'
 
 Vue.use(Vuex)
 
@@ -11,6 +14,9 @@ const store = new Vuex.Store({
   modules: {
     boardModule: boardModule,
     uiVuetifyModule: uiVuetifyModule,
+    d3PlotModule: d3PlotModule,
+    fileModule: fileModule,
+    foodModule: foodModule,
   }
 })
 

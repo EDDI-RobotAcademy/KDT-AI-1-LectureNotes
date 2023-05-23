@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style scoped>
-#app {
+#app {/*vue전체 적용*/
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
