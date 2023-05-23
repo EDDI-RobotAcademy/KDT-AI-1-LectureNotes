@@ -6,7 +6,10 @@ import com.example.demo.secondExam.test22.repository.Test22ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Slf4j
 @Service
@@ -25,5 +28,10 @@ public class Test22ProductServiceImpl implements Test22ProductService {
 
         log.info("사업자가 아니므로 상품을 등록할 수 없습니다.");
         return null;
+    }
+
+    @Override
+    public List<Test22Product> list(){
+        return productRepository.findAll(Sort.by(Sort.Direction.DESC, "productId"));
     }
 }

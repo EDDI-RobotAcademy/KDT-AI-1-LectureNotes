@@ -24,14 +24,14 @@ public class Test22ProductController {
         return product;
     }
 
-//    @GetMapping("/list")
-//    public List<Test22Product> productList() {
-//        log.info("productList()");
-//
-//        List<Test22Product> returnedProductList = Test22ProductService.list();
-//        log.info("returnedProductList: " + returnedProductList);
-//
-//        return returnedProductList;
-//    }
+    @GetMapping("/list")
+    public List<Test22Product> productList() {
+        log.info("productList()");
+
+        List<Test22Product> returnedProductList = productService.list();
+        log.info("returnedProductList: " + returnedProductList);
+
+        return returnedProductList;
+    }
 }
 
