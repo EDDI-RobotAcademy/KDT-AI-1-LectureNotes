@@ -15,6 +15,7 @@ import axiosTestRoutes from './axiosTest'
 import vueBasicRoutes from './vueBasic'
 import d3ploatTestRoutes from './d3plot'
 import filesTestRoutes from './files'
+import foodRoutes from './food'
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,7 @@ const routes = [
   ...vueBasicRoutes,
   ...d3ploatTestRoutes,
   ...filesTestRoutes,
+  ...foodRoutes,
 ]
 
 const router = new VueRouter({

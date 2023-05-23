@@ -41,7 +41,7 @@
         <router-link :to="{
             name:'BoardReadPage',
             params: {boardId: board.boardId.toString()}
-        }">수정 취소</router-link>
+        }">수정 취소</router-link><!-- 리드 페이지로 돌아감 보드 아이디에 맞춰서-->
     </div>
     </form>
     </div>

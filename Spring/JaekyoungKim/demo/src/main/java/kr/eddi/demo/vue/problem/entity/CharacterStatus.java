@@ -7,6 +7,9 @@ import lombok.ToString;
 @Getter
 @ToString
 public class CharacterStatus {
+    //캐릭터 스테이터스를 뜻함
+    // 생성자가 들어오면
+    // 랜덤 스테이터스를 생성해 준다.
 
     private int strength;
     private int dexterity;

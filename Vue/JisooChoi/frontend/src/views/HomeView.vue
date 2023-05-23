@@ -45,6 +45,7 @@
         <router-link to="/d3-health-print-page">Vue + Spring + D3 문제 은행 1 [Review]</router-link> |
         <router-link to="/file-handler-test-page">File Test Page</router-link> |
         <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
+        <router-link to="/food-aggregate-root-register-page">Aggrigate Root 만들기</router-link> |
       </nav>
     </div>
   </v-container>

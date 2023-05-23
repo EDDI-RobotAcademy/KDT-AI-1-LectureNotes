@@ -21,5 +21,6 @@ spring:
     show-sql: true
     generate-ddl: true
     hibernate:
+#      ddl-auto: create
       ddl-auto: update
 #      ddl-auto => db를 자동으로 생성해줌

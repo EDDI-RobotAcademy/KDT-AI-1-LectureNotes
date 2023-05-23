@@ -1,6 +1,6 @@
 package com.example.demo.lambdaTest;
 
-import com.example.demo.lectureClass.score.ScoreCollection;
+import com.example.demo.lectureClass.testCode.score.ScoreCollection;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

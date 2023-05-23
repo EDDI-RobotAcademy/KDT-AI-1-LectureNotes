@@ -1,9 +1,7 @@
 package com.example.demo.lectureClass.testCode.product.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.demo.lectureClass.testCode.account.entity.seller.TestSellerAccount;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,11 +13,16 @@ public class TestProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
+    @ManyToOne
+    @Getter
+    private TestSellerAccount testSellerAccount;
+
     private String productName;
 
     private Integer price;
 
-    public TestProduct(String productName, Integer price) {
+    public TestProduct(TestSellerAccount testSellerAccount, String productName, Integer price) {
+        this.testSellerAccount = testSellerAccount;
         this.productName = productName;
         this.price = price;
     }

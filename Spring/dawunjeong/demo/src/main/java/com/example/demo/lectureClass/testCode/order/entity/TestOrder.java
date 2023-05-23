@@ -1,6 +1,6 @@
 package com.example.demo.lectureClass.testCode.order.entity;
 
-import com.example.demo.lectureClass.testCode.account.entity.TestAccount;
+import com.example.demo.lectureClass.testCode.account.entity.account.TestAccount;
 import com.example.demo.lectureClass.testCode.product.entity.TestProduct;
 import jakarta.persistence.*;
 import lombok.Getter;

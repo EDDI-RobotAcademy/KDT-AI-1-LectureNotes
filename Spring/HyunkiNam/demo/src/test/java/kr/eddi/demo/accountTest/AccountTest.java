@@ -1,15 +1,22 @@
 package kr.eddi.demo.accountTest;
 
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.AccountRoleRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
+import kr.eddi.demo.lectureClass.testCode.account.entity.AccountRole;
 import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
 
 import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRepository;
+import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRoleRepository;
 import kr.eddi.demo.lectureClass.testCode.account.service.TestAccountService;
+import kr.eddi.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,6 +28,9 @@ public class AccountTest {
 
     @Autowired
     private TestAccountRepository testAccountRepository;
+
+    @Autowired
+    private TestAccountRoleRepository testAccountRoleRepository;
 
     @Test
     @DisplayName("사용자가 회원 가입 할 수 있음")
@@ -141,4 +151,32 @@ public class AccountTest {
     // 로그아웃, 회원 탈퇴와 같은 사항들이 남아있음
     // 이 사항들은 역시나 로그인 되어 있는 token을 기반으로 진행되어야 합니다.
     // 그러므로 위 두 가지 사항은 현 시점에선 보류합니다.
+
+    @Test
+    @DisplayName("일반회원 회원가입")
+    void 일반회원_회원가입(){
+        final String email = "test@test.com";
+        final String password = "test";
+        final String role = "NORMAL";
+
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("일반회원만 조회하기")
+    void 일반회원_조회하기(){
+        final String role = "NORMAL";
+
+        AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+
+        for(TestAccountResponseForm testAccountResponseForm : normalAccountList){
+            assertTrue(testAccountResponseForm.getAccountId()!=null);
+            assertTrue(testAccountResponseForm.getEmail()!=null);
+        }
+    }
 }

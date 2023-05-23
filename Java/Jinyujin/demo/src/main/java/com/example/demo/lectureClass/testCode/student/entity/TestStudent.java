@@ -11,9 +11,9 @@ import lombok.Setter;
 public class TestStudent {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
-    private Long studentId;
+    private Long id;
 
     @Getter
     private String name;
