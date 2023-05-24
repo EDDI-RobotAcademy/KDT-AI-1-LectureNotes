@@ -41,7 +41,7 @@ class OpOverload(object):
     def __init__(self, number):
         self.__number = number
 
-    def __repr__(self): 
+    def __repr__(self):
         print("__repr__이 호출됨")
         return str(self.__number)
 
@@ -55,6 +55,8 @@ class OpOverload(object):
 
     def get_number(self):
         return self.__number
+
+from datetime import date # 예약시스템 2~3일 전에는 취소가 불가하다 만들때
 
 def class_test_function():
     p = Person()
@@ -86,3 +88,7 @@ def class_test_function():
 
     print(obj1 + obj2)
     print(obj1 - obj2)
+
+    remain_date = date.today()
+    changeable_date = date(2023, 5, 26)
+    print(changeable_date - remain_date)
