@@ -132,4 +132,3 @@ def class_test_function():
     remain_date = date.today()
     changeable_date = date(2023, 5, 26)
     print(changeable_date - remain_date)
-    
