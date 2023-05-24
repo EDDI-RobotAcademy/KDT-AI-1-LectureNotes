@@ -19,6 +19,12 @@ class Vehicles:
         #소멸자란 무엇인가? 필요없을때 힙의 메모리를 날려버린다.
         # 그걸 언제 판다하지?
 
+class AccessControlTest:
+    def __init__(self):
+        self.public_value=3
+        self.__private_value=7
+    def print_info(self):
+        print(self.__private_value)
 class NonSelfTest:
     test_str=""
 
@@ -41,3 +47,7 @@ def class_test_function():
 
     v=Vehicles(70)
     print("응 아직 안돼!")
+
+    access_test=AccessControlTest()
+    print(access_test.public_value)
+    access_test.print_info()
