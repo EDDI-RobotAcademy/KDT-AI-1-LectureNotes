@@ -5,6 +5,7 @@
 
 from basics.basic_grammar import python_basics
 from basics.python_functions import functions_test
+from problem.gas_station_prob import gas_station_problem_solve
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -15,3 +16,4 @@ def print_hi(name):
 if __name__ == '__main__':
     python_basics()
     functions_test()
+    gas_station_problem_solve()
