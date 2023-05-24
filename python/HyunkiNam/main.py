@@ -2,6 +2,7 @@ from basics.basic_grammar import python_basics
 from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.thread_test import thread_test_sequence
+from homework.thread_homework import thread_homework
 
 
 def print_hi(name):
@@ -11,7 +12,9 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    python_basics()
-    functions_test()
-    class_test_function()
-    thread_test_sequence()
+    # python_basics()
+    # functions_test()
+    # class_test_function()
+    # thread_test_sequence()
+    thread_homework()
+
