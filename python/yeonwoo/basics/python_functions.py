@@ -1,3 +1,6 @@
+# def 함수명(매개변수):
+    # <수행할 문장1>
+    # <수행할 문장2>
 def bigger_than_20(num):
     return num > 20 # 20보다 큰 수만
 
@@ -33,8 +36,8 @@ def xChgScope(num):
     glob = 7
     return glob + num
 
-import random
-import math # 수학라이브러리
+import random # random 라이브러리
+import math # math 라이브러리
 
 def functions_test():
     numList = [res for res in range(10, 31, 5)]
@@ -46,6 +49,8 @@ def functions_test():
     print(filteredNumList)
     print(type(filteredNumList))
 
+    # 여러개의 데이터에서 특정 조건 일부 데이터를 추려낼 때 사용
+    # numList에 들어온 값을 bigger_than_20에 하나 하나 넣고 참인지, 거짓인지에 따라 포함할지 말지 결정 한다.
     print(list(filter(bigger_than_20, numList)))
     print(list(filter(lambda i: i > 20, numList)))
 
@@ -79,10 +84,18 @@ def functions_test():
     print(xChgScope(3))
     print(glob) # 전역 변수 값을 7로 바꿈
 
-    for _ in range(5):
-        print(random.randrange(3, 7)) # 3 ~ 6
+    # range() 함수는 말 그대로 정수로 이뤄진 “범위”를 만들 때 사용하는 함수
+    # range() 내장 함수는 최대 3개의 인자를 받음
+    # range(<시작값>, <종료값>, <증분>)
+    for _ in range(10): # 10번
+        print(random.randrange(3, 7)) # 3 ~ 6까지
 
+    # math.pow 함수는 x의 y 거듭제곱 (x의 y승)을 반환
+    # 이 함수의 반환형은 언제나 float 타입 (정수 타입 계산을 원한다면 내장 함수 pow 혹은 ** 을 사용)
+    # math.pow(1.0, y)는 항상 1.0입니다. 당연한 거겠죠 이건? 1의 n 제곱은 무조건 1 이라서
     print(math.pow(3, 4))
     print(3 ** 4)
 
+    # math.sqrt(x) 함수는 x의 제곱근을 반환
+    # 이 함수의 반환형 또한 float 타입
     print(math.sqrt(9))

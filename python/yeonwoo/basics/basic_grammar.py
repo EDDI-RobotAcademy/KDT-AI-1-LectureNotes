@@ -92,6 +92,7 @@ def python_basics():
 
     print(colors.count('blue'))
 
+    # pop 뒤에서부터 데이터 하나씩 빼는 것, push 뒤에서부터 데이터 하나씩 넣는 것
     print(colors.pop())
     print(colors.pop())
     print(colors.pop())
