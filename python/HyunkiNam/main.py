@@ -1,6 +1,6 @@
 from basics.basic_grammar import python_basics
-from basics.python_functions import functions_test
 from basics.python_class import class_test_function
+from basics.python_functions import functions_test
 from basics.thread_test import thread_test_sequence
 
 
