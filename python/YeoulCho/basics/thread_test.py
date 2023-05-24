@@ -33,7 +33,7 @@ logging.basicConfig(level=logging.DEBUG,
 # 부가적으로 ps -ef에서 TTY에 '?'로 나오는 것은 데몬 프로세스라고 부름
 # 실질적으로 서비스 구동되는 애들은 전부 '?'로 표기됨
 # 대표적으로 우리가 사용하는 nginx 서버도 '?'로 표기되는 것을 볼 수 있음
-# 또한 java 명령을 통해서 jar 파일을 실행하여 구동되는 서비스 또한 '?'로 표기되는 것을 볼 수 있음 
+# 또한 java 명령을 통해서 jar 파일을 실행하여 구동되는 서비스 또한 '?'로 표기되는 것을 볼 수 있음
 # 마찬가지로 docker 또한 서비스로 구동되고 있으므로 '?'로 표기됨
 
 # ps -eLf | grep docker 라고 입력하면 docker 관련 thread 정보 확인이 가능함
@@ -278,6 +278,35 @@ def perform_process_lock():
 
     print("최종 결과 = {}".format(money.value))
 
+def advanced_withdraw(money, lock):
+    lock.acquire()
+    for _ in range(200000):
+        money.value -= 1
+    lock.release()
+
+
+def advanced_deposit(money, lock):
+    lock.acquire()
+    for _ in range(200000):
+
+        money.value += 1
+    lock.release()
+def advanced_perform_process():
+        lock = mp.Lock()
+
+        money = mp.Value('i', 20000)
+
+        p1 = mp.Process(target=advanced_withdraw, args=(money, lock,))
+        p2 = mp.Process(target=advanced_deposit, args=(money, lock,))
+
+        p1.start()
+        p2.start()
+
+        p1.join()
+        p2.join()
+
+        print("최종 결과 = {}".format(money.value))
+
 
 def thread_test_sequence():
     # pool = ThreadPool()
@@ -295,3 +324,6 @@ def thread_test_sequence():
 
     for _ in range(10):
         perform_process_lock()
+
+    for _ in range(10):
+        advanced_perform_process()
