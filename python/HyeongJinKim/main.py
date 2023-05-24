@@ -2,7 +2,7 @@ from basics.basic_grammer import python_basics
 from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.therad_test import thread_test_sequence
-from problem.python_problem import coordinate
+from problem.python_problem1 import coordinate
 
 
 # Press Shift+F10 to execute it or replace it with your code.
