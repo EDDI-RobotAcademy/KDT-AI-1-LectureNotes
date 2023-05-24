@@ -56,6 +56,9 @@ class OpOverload(object):
     def get_number(self):
         return self.__number
 
+from datetime import date
+
+
 
 def class_test_function():
     p = Person()
@@ -85,3 +88,7 @@ def class_test_function():
 
     print(obj1 + obj2)
     print(obj1 - obj2)
+
+    remain_date = date.today()
+    changeable_date = date(2023, 5, 26)
+    print(changeable_date - remain_date)
