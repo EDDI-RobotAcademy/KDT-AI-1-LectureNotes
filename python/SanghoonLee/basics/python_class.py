@@ -40,6 +40,28 @@ class AccessControlTest:
         print("나는 private도 출력할 수 있어:", self.__private_value)
 
 
+class OpOverload(object):
+    def __init__(self, number):
+        self.__number = number
+
+    def __repr__(self):
+        print("__repr__이 호출됨")
+        return str(self.__number)
+
+    def __add__(self, other):
+        print("__add__가 호출됨")
+        return OpOverload(self.__number + other.get_number())
+
+
+    def __sub__(self, other):
+        print("__sub__이 호출됨")
+        return OpOverload(self.__number - other.get_number())
+
+
+    def get_number(self):
+        return self.__number
+
+
 def class_test_function():
     p = Person()
     p.print_info()
@@ -62,3 +84,9 @@ def class_test_function():
     print(access_test.public_value)
     #print(access_test.__private_value)
     access_test.print_info()
+
+    obj1 = OpOverload(10)
+    obj2 = OpOverload(33)
+
+    print(obj1 + obj2)
+    print(obj1 - obj2)
