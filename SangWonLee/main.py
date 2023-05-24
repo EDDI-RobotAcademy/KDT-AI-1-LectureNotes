@@ -1,7 +1,7 @@
 # This is a sample Python script.
-from basics.basic_grammar import python_basics
-from basics.python_Problem_Bank_1.gas_station import gas_station
-from basics.python_functions import functions_test
+from basics.python_class import class_test_function
+from basics.thread_test import thread_test_sequence
+from python_Problem_Bank.gas_station_prob import gas_station_problem_solve
 
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -22,4 +22,6 @@ if __name__ == '__main__':
     # python_basics()
     # functions_test()
 
-    gas_station()
+    gas_station_problem_solve()
+    class_test_function()
+    thread_test_sequence()
