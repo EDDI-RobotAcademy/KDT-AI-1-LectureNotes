@@ -1,4 +1,5 @@
 from basics.basic_grammar import python_basics
+from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from problem.gas_station_prob import gas_station_problem_solve
 
@@ -13,3 +14,4 @@ if __name__ == '__main__':
     python_basics()
     functions_test()
     gas_station_problem_solve()
+    class_test_function()
