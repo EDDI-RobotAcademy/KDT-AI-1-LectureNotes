@@ -17,3 +17,10 @@ def coordinate(num):
 
     distance.sort()
     print("최단거리: ", distance[0])
+
+# 사용자가 사업자(business)라면 상품 등록 버튼을 활성화한다
+#
+# 사용자가 상품을 등록할 수 있는 페이지를 출력한다
+# 등록 버튼을 누르면 사용자가 입력한 상품 정보를 backend로 보낸다
+#
+# 입력받은 상품 정보를 Db에 저장한다
