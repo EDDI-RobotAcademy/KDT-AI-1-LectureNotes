@@ -1,3 +1,6 @@
+from datetime import date
+
+
 class Person:
     name = "기본값"
 
@@ -88,4 +91,7 @@ def class_test_function():
 
     print(obj1 + obj2)
     print(obj1 - obj2)
-    
+
+    remain_date = date.today()
+    changeable_date = date(2023, 5, 26)
+    print(changeable_date - remain_date)
