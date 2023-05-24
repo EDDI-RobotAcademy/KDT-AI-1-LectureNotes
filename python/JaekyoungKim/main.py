@@ -1,5 +1,6 @@
 # This is a sample Python script.
 from Homework.Homework1 import Homework1
+from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.basic_grammar import python_basics
 
@@ -25,6 +26,7 @@ if __name__ == '__main__':
     functions_test()
 
     Homework1()
+    class_test_function()
 
 
 
