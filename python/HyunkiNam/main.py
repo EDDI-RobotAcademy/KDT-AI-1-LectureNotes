@@ -1,6 +1,7 @@
 from basics.basic_grammar import python_basics
 from basics.python_functions import functions_test
 from basics.python_class import class_test_function
+from basics.thread_test import thread_test_sequence
 
 
 def print_hi(name):
@@ -13,3 +14,4 @@ if __name__ == '__main__':
     python_basics()
     functions_test()
     class_test_function()
+    thread_test_sequence()
