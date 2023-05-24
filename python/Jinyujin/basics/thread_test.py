@@ -167,6 +167,8 @@ def thread_test_function(semaphore, pool):
 
 
 import multiprocessing as mp
+# multiprocessing은 파이썬에서 멀티프로세싱을 구현하기 위한 모듈
+# 스레드와 마찬가지로 병렬 처리를 가능하게 함
 
 def withdraw(money):
     for _ in range(20000):
@@ -331,7 +333,7 @@ def thread_test_sequence():
         # Context Switching이 너무 빈번해짐 -> 메모리 연산임. 여기서는 레지스터 연산이 필요
         # 그래서 Context Switching을 최소화 시켜줘야 함
 
-    for _ in range(10):
+    # for _ in range(10):
         advanced_perform_process()
         # 그렇게 빠른 것 같지는 않으나 이전보다는 빨라짐
 
