@@ -1,6 +1,7 @@
 from basics.basic_grammer import python_basics
 from basics.python_class import class_test_function
 from basics.python_functions import functions_test
+from basics.therad_test import thread_test_sequence
 from problem.python_problem import coordinate
 
 
@@ -17,7 +18,6 @@ def print_hi(name):
 if __name__ == '__main__':
     python_basics()
     functions_test()
-
     coordinate(3)
-
     class_test_function()
+    thread_test_sequence()
