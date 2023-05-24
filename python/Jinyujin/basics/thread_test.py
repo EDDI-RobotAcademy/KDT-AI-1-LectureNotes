@@ -286,18 +286,23 @@ def advanced_deposit(money, lock):
 
 def advanced_perform_process():
     lock = mp.Lock()
+    # mp.Lock() 메서드를 이용하여 lock객체 생성
 
     money = mp.Value('i', 20000)
     # money까지 200000으로 늘리면 더더 느려짐
+    # mp.Value 메서드를 사용하여 (i는 integer로) 정수형 변수 money를 생성하고 초기값으로 20000을 부여
 
     p1 = mp.Process(target=advanced_withdraw, args=(money, lock,))
     p2 = mp.Process(target=advanced_deposit, args=(money, lock,))
+    # mp.Process 메서드를 사용하여 advanced_withdraw, advanced_deposit를
+    # 각각 프로세스로 실행, 이때 money와 lock 변수를 인자로 전달
 
     p1.start()
     p2.start()
 
     p1.join()
     p2.join()
+    # join: 각각의 프로세스가 종료되기를 기다리기
 
     print("최종 결과 = {}".format(money.value))
 

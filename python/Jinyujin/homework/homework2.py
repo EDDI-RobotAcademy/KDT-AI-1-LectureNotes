@@ -1,28 +1,49 @@
-def three_seconds(number, lock):
-    lock.acquire()
+import multiprocessing as mp
+import time
+import logging
 
-    for _ in range(20):
+
+def three_seconds(number, lock):
+
+
+    for _ in range(60//3):
+        lock.acquire()
         number.value += 3
 
-    lock.release()
+        logging.debug('3초마다: %s', number.value)
+
+        lock.release()
+
+        time.sleep(3)
+
 
 def five_seconds(number, lock):
-    lock.acquire()
 
-    for _ in range(12):
+
+    for _ in range(60//5):
+        lock.acquire()
         number.value += 5
 
-    lock.release()
+        logging.debug('5초마다: %s', number.value)
+
+        lock.release()
+
+        time.sleep(5)
+
 
 def six_seconds(number, lock):
-    lock.acquire()
 
-    for _ in range(10):
+
+    for _ in range(60//6):
+        lock.acquire()
         number.value += 6
 
-    lock.release()
+        logging.debug('6초마다: %s', number.value)
 
-import multiprocessing as mp
+        lock.release()
+
+        time.sleep(6)
+
 
 def after_sixty_seconds():
     lock = mp.Lock()
@@ -48,4 +69,4 @@ def after_sixty_seconds():
 
 def homework2():
     # for _ in range(10):
-        after_sixty_seconds()
+    after_sixty_seconds()
