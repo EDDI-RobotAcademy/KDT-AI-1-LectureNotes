@@ -19,6 +19,6 @@ if __name__ == '__main__':
     python_basics()
     functions_test()
     gas_station_problem_solve()
-    
+
     class_test_function()
     thread_test_sequence()
