@@ -31,6 +31,15 @@ class Vehicles:
         print("처음 들어봤지 ? 난 소멸자야!")
 
 
+class AccessControlTest:
+    def __init__(self):
+        self.public_value = 3
+        self.__private_value = 7
+
+    def print_info(self):
+        print("나는 private도 출력할 수 있어:", self.__private_value)
+
+
 def class_test_function():
     p = Person()
     p.print_info()
@@ -48,3 +57,8 @@ def class_test_function():
 
     v = Vehicles(70)
     print("응 아직 소멸자 호출 안돼!")
+
+    access_test = AccessControlTest()
+    print(access_test.public_value)
+    # print(access_test.__private_value)
+    access_test.print_info()

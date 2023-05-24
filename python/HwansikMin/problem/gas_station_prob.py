@@ -3,30 +3,31 @@ import random
 
 
 def get_random_range(start, end):
-    return random.randrange(0, 11), random.randrange(0,11)
+    return random.randrange(0, 11), random.randrange(0, 11)
 
 
-def calc_distance(current_location, target_location):
-    distance = []
+def calc_distance(current_location, target_locations):
+    distances = []
     for station_idx in range(3):
-        distance.append(
-            math.sprt(
+        distances.append(
+            math.sqrt(
                 math.pow(current_location[0] - target_locations[station_idx][0], 2) +
-                math.pow(current_location[1] - target_location[station_idx][1], 2)))
+                math.pow(current_location[1] - target_locations[station_idx][1], 2)))
 
     return distances
+
 
 def gas_station_problem_solve():
     # 현재 좌표
     # 랜덤 주유소 좌표 3개
     # 최단 거리
-    # myCoordinateX = random.randrange(0,11)
-    # myCoordinateY = random.randrange(0,11)
-    # print(myCoordinateX, myCoordinateY)
+    #myCoordinateX = random.randrange(0, 11)
+    #myCoordinateY = random.randrange(0, 11)
+    #print(myCoordinateX, myCoordinateY)
 
     my_coordinate = get_random_range(0, 11)
     print(my_coordinate)
-    # print(my_coordinate[0])
+    #print(my_coordinate[0])
 
     gas_station_coordinate = []
     for _ in range(3):
