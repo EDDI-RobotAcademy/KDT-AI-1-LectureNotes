@@ -3,6 +3,7 @@ from basic.python_class import class_test_function
 from basic.python_functions import functions_test
 from basic.thread_test import thread_test_sequence
 from problem.gas_station_prob import gas_station_problem_solve
+from problem.thread_prob import All_add_process
 
 
 def print_hi(name):
@@ -16,4 +17,5 @@ if __name__ == '__main__':
     # functions_test()
     # gas_station_problem_solve()
     # class_test_function()
-    thread_test_sequence()
+    # thread_test_sequence()
+    All_add_process()
