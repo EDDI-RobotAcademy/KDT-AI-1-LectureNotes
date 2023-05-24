@@ -1,6 +1,7 @@
 from basics.basic_grammar import python_basics
 from basics.python_functions import functions_test
 from homework.python_homework import homework_problem1
+from problem.gas_station_prob import gas_station_problem_solve
 
 
 def print_hi(name):
@@ -13,3 +14,4 @@ if __name__ == '__main__':
     python_basics()
     functions_test()
     homework_problem1()
+    gas_station_problem_solve()
