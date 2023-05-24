@@ -3,6 +3,7 @@
 from basics.basic_grammer import python_basics
 from basics.python_class import class_test_function, AccessControlTest
 from basics.python_function import functions_test
+from basics.thread_test import thread_test_sequence
 from problem.gas_station_prob import gas_station_problem_solve
 
 
@@ -23,3 +24,5 @@ if __name__ == '__main__':
     gas_station_problem_solve()
     class_test_function()
     AccessControlTest()
+
+    thread_test_sequence()
