@@ -1,4 +1,5 @@
 <template>
+  <hello-world />
   <v-container>
     <div>
       <nav>
