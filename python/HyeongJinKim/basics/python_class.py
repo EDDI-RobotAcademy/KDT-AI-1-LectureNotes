@@ -7,6 +7,7 @@ class Person:
 
 test_str = "나는 클래스 멤버 변수가 아니야!"
 
+
 class NonSelfTest:
     test_str = ""
 
@@ -26,7 +27,6 @@ class Vehicles:
         self.speed = speed
         print("나는 파라메터를 가진 생성자야! ->", self.speed)
 
-
     def __del__(self):
         print("처음 들어봤지 ? 난 소멸자야!")
 
@@ -38,6 +38,26 @@ class AccessControlTest:
 
     def print_info(self):
         print("나는 private도 출력할 수 있어:", self.__private_value)
+
+
+class OpOverload(object):
+    def __init__(self, number):
+        self.__number = number
+
+    def __repr__(self):
+        print("__repr__이 호출됨")
+        return str(self.__number)
+
+    def __add__(self, other):
+        print("__add__가 호출됨")
+        return OpOverload(self.__number + other.get_number())
+
+    def __sub__(self, other):
+        print("__sub__이 호출됨")
+        return OpOverload(self.__number - other.get_number())
+
+    def get_number(self):
+        return self.__number
 
 
 def class_test_function():
@@ -62,3 +82,10 @@ def class_test_function():
     print(access_test.public_value)
     # print(access_test.__private_value)
     access_test.print_info()
+
+    obj1 = OpOverload(10)
+    obj2 = OpOverload(33)
+
+    print(obj1 + obj2)
+    print(obj1 - obj2)
+    
