@@ -1,4 +1,5 @@
 # This is a sample Python script.
+
 from basics.basic_grammer import python_basics
 from basics.python_function import functions_test
 
@@ -14,5 +15,6 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    python_basics()
-    functions_test()
+
+    #python_basics()
+    #functions_test()
