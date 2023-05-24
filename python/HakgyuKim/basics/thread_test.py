@@ -161,7 +161,7 @@ class ThreadPool(object):
     def make_active(self, name):
         with self.__lock:
             self.__active.append(name)
-            time.sleep(3)
+            time.sleep(1)
             logging.debug('Running: %s', self.__active)
     def make_inactive(self, name):
         with self.__lock:
@@ -304,15 +304,15 @@ def advanced_perform_process():
     print("최종 결과 = {}".format(money.value))
 
 def thread_test_sequence():
-    # pool = ThreadPool()
-    # semaphore = threading.Semaphore(3)
-    #
-    # for i in range(10):
-    #     thread = threading.Thread(target=thread_test_function,
-    #                               name='thread_' + str(i),
-    #                               args=(semaphore, pool))
-    #     thread.start()
-    #
+    pool = ThreadPool()
+    semaphore = threading.Semaphore(3)
+
+    for i in range(10):
+        thread = threading.Thread(target=thread_test_function,
+                                  name='thread_' + str(i),
+                                  args=(semaphore, pool))
+        thread.start()
+
 
     # for _ in range(10):
     #     perform_process()
@@ -320,5 +320,5 @@ def thread_test_sequence():
     # for _ in range(10):
     #     perform_process_lock()
 
-    for _ in range(10):
-        advanced_perform_process()
+    # for _ in range(10):
+    #     advanced_perform_process()
