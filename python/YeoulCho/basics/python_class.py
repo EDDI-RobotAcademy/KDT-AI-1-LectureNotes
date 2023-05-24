@@ -29,6 +29,14 @@ class Vehicles:
         print("처음 들어봤지? 난 소멸자야!")
     # function이 끝나자마자 소멸자가 heap에서 데이터 지움
 
+class AccessControlTest:
+    def __init__(self):
+        self.public_value = 3
+        self.__private_value =7
+
+    def print_info(self):
+        print("나는 private도 출력할 수 있다", self.__private_value)
+
 
 def class_test_function():
     p = Person()
@@ -49,3 +57,8 @@ def class_test_function():
     print("응 아직 소멸자 호출 안돼")
     # heap에는 new 한 애들
     # stack에는 지역 변수
+
+    acess_test =AccessControlTest()
+    print(acess_test.public_value)
+    # print(acess_test.__private_value)
+    acess_test.print_info()
