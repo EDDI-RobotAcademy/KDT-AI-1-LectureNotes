@@ -40,7 +40,7 @@ logging.basicConfig(level=logging.DEBUG,
 # 입력한 결과 아래와 같은 것들을 볼 수 있음
 # 첫 번째 라인에서 같은 PID를 가지고 있는 13개의 결과를 확인할 수 있음
 # 이들은 모두 같은 PID를 가지고 구동되는 Thread라 보면 됨
-# 아래가 뭔지는 쌤꺼 배끼기
+# 아래가 뭔지는 쌤꺼 보면됨
 
 # Linux Kernel 상 tgid를 사용한다는 부분
 # https://elixir.bootlin.com/linux/latest/source/include/linux/sched.h#L962
@@ -58,10 +58,15 @@ logging.basicConfig(level=logging.DEBUG,
 
 # CPU는 오로지 한 순간에 한 가지 일을 합니다
 # 실제로는 정말 한 가지를 하는데 아주 빠른 속도로 Multi-Tasking을 하는 것 뿐입니다
-# 컴퓨터는 요즘 나오는 것들 최소 2 ~ 3FHz
+# 컴퓨터는 요즘 나오는 것들 최소 2 ~ 3GHz
 # f = 1 / T -> T = 1 / f
 # GHz = 10^9 Hz
 # 현재 구동되는 가장 똥컴도 최소 1초에 최소 프로그램 명령 자체를 20억번 실행 할 수 있다는 뜻
+
+# Hz(헤르츠)
+# 헤르츠의 정의는? 주파수, 진동수 -> 1초에 몇 번 진동하는지의 척도
+# 3GHz면 이 컴퓨터의 CPU는 1초에 30억번 진동한다는 뜻
+# = 1초에 30억 개의 명령을 처리할 수 있다는 뜻
 
 # 작업관리자를 보면 앱 + 백그라운드 프로세스 까지 내꺼는 65개가 돌고 있음
 # 실제로 CPU가 이 모든 동작들을 실행하는데 하나 실행하는데 0.03초 걸리고 바로 다음꺼 실행하고 하는 것
@@ -114,11 +119,13 @@ logging.basicConfig(level=logging.DEBUG,
 # 이것을 방지하기 위한 개념으로 사용되는 것이 Context Switching 입니다
 # 하드웨어 레지스터 정보를 메모리인 스택에 저장한다는 것이 주된 관점
 # 그럼 이것은 과연 좋을까?
+
 # Context Switching을 많이 하게 되면 비용이 많이 들게 된다
 # 그리고 응답속도도 줄어들 수 있음 (메모리계층, 레지스터로 올라올수록 용량은 적고 속도는 빨라짐)
 # Context Switching은 메모리 계층 구조상
 # 레지스터 -> 메모리, 메모리 -> 레지스터 연산이므로 성능상 좋지는 못함
 # 그럼에도 불구하고 데이터 무결성을 보장하기 위해 반드시 필요함 (CPU레벨에서 무결성 보장)
+# 즉 Context Switching으로 CPU 레벨에서는 무결성이 보장되는 것
 # 프로그래머가 코드를 어떻게 작성하느냐에 따라서도 어느정도는 조정할 수 있는 요소임
 # (또 다른 무결성 문제가 있음)
 
@@ -172,10 +179,117 @@ def deposit(money):
         # +20000
 
 def perform_process():
+    # mp(multiprocessing으로 만든 값은 여러 프로세스가 공유해서 사용 가능)
     money = mp.Value('i', 20000)
 
     p1 = mp.Process(target=withdraw, args=(money, ))
     p2 = mp.Process(target=deposit, args=(money, ))
+    # p1이 빼려고 하는 순간
+    # p2가 들어가서 더하고
+    # 혹은
+    # p2가 더하려고 하는 순간
+    # p1이 들어가서 빼면서 값이 꼬임
+
+    # p1
+    # A1. mov money, eax
+    # A2. add 1, eax
+    # A3. mov eax, money
+
+    # p2
+    # B1. mov money, eax
+    # B2. sub 1, eax
+    # B3. mov eax, money
+
+    # 시나리오
+    # A1이 실행되고 제어권이 넘어가서 B1 ~ B3이 실행됨
+    # 이후 다시 제어권이 넘어가서 A2부터 시작함
+
+    # money = 20000
+    # mov money, eax로 인해 eax에 20000이 저장됨
+    # 제어권이 넘어가면서 stack에 p1 프로세스의 하드웨어 레지스터(eax) 정보가 저장됨
+
+    # B1을 진행하면서 역시 eax에는 20000이 저장됨
+    # B2를 진행하면서 eax값은 19999가 되었음
+    # B3을 진행하면서 money에 19999를 저장함
+    # 제어권이 넘어가면서 stack에 p2 프로세스의  하드웨어 레지스터(eax) 정보가 저장됨
+
+    # 다시 제어권이 넘어오면서 p1의 정보를 복원하여 eax는 20000인 상태
+    # A2를 진행하면서 eax의 값은 20001이 되었음
+    # A3을 진행하면서 money 값은 20001이 되어버림
+    # p2에서 진행했던 뺄셈이 씹힘
+
+    # => 실행을 보장해줘야함 = 데이터 무결성을 보장
+    # 뺄셈 혹은 덧셈이 끝날 때까진 아무것도 하지마!
+    # 이것의 다른 표현이 바로 Lock()입니다 [ 락 ]
+
+    p1.start()
+    p2.start()
+
+    p1.join()
+    p2.join()
+
+    print("최종 결과 = {}".format(money.value))
+
+
+def withdraw_lock(money, lock):
+    for _ in range(200000):
+        lock.acquire()
+        money.value -= 1
+        lock.release()
+
+def deposit_lock(money, lock):
+    for _ in range(200000):
+        lock.acquire()
+        money.value += 1
+        lock.release()
+
+# withdraw와 deposit을 200000으로 늘리면 속도가 상당히 느려짐
+# 연산마다 lock을 거니까 매순간 Context Switching이 발생
+
+def perform_process_lock():
+
+    lock = mp.Lock()
+
+    money = mp.Value('i', 20000)
+
+    p1 = mp.Process(target=withdraw_lock, args=(money, lock))
+    p2 = mp.Process(target=deposit_lock, args=(money, lock))
+
+    p1.start()
+    p2.start()
+
+    p1.join()
+    p2.join()
+
+    print("최종 결과 = {}".format(money.value))
+
+
+def advanced_withdraw(money, lock):
+    lock.acquire()
+
+    for _ in range(200000):
+        money.value -= 1
+
+    lock.release()
+
+def advanced_deposit(money, lock):
+    lock.acquire()
+
+    for _ in range(200000):
+        money.value += 1
+
+    lock.release()
+    # lock을 어디에 걸어주냐에 따라 결과가 달라질 수 있다
+    # 시스템 관련사항 - 스레드 검색해서 이슈 확인해볼 것
+
+def advanced_perform_process():
+    lock = mp.Lock()
+
+    money = mp.Value('i', 20000)
+    # money까지 200000으로 늘리면 더더 느려짐
+
+    p1 = mp.Process(target=advanced_withdraw, args=(money, lock,))
+    p2 = mp.Process(target=advanced_deposit, args=(money, lock,))
 
     p1.start()
     p2.start()
@@ -197,8 +311,8 @@ def thread_test_sequence():
     #
     #     thread.start()
 
-    for _ in range(10):
-        perform_process()
+    # for _ in range(10):
+    #     perform_process()
         # 출력 결과는 20000이라고 예상했지만 10개의 결과 각각 다르게 나옴
         # 20000 이상도 있고 20000 이하도 있음
         # 이런 문제가 발생한 주원인은?
@@ -207,3 +321,18 @@ def thread_test_sequence():
         # 이 싸우는 상황을 중재해주는데 운영체제
         # 중재하고 나면 무슨 문제가 남아있냐
         # 뭐 한정적 자원 머시기... 치고박고 싸운대
+
+    # for _ in range(10):
+    #     perform_process_lock()
+        # lock을 거니 20000만 10번 출력 완료!
+
+        # 근데 여기에도 문제가 있음
+        # 속도. 숫자를 늘리면 느려지는 문제
+        # Context Switching이 너무 빈번해짐 -> 메모리 연산임. 여기서는 레지스터 연산이 필요
+        # 그래서 Context Switching을 최소화 시켜줘야 함
+
+    for _ in range(10):
+        advanced_perform_process()
+        # 그렇게 빠른 것 같지는 않으나 이전보다는 빨라짐
+
+
