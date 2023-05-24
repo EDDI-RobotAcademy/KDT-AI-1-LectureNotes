@@ -244,6 +244,39 @@ def perform_process():
 
     print("최종 결과 = {}".format(money.value))
 
+def advanced_withdraw(money, lock):
+    lock.acquire()
+
+    for _ in range(200000):
+        money.value -= 1
+
+    lock.release()
+
+def advanced_deposit(money, lock):
+    lock.acquire()
+
+    for _ in range(200000):
+        money.value += 1
+
+    lock.release()
+
+
+def advanced_perform_process():
+    lock = mp.Lock()
+
+    money = mp.Value('i', 20000)
+
+    p1 = mp.Process(target=advanced_withdraw, args=(money, lock,))
+    p2 = mp.Process(target=advanced_deposit, args=(money, lock,))
+
+    p1.start()
+    p2.start()
+
+    p1.join()
+    p2.join()
+
+    print("최종 결과 = {}".format(money.value))
+
 
 def withdraw_lock(money, lock):
     for _ in range(200000):
@@ -287,5 +320,8 @@ def thread_test_sequence():
     # for _ in range(10):
     #     perform_process()
 
+    # for _ in range(10):
+    #     perform_process_lock()
+
     for _ in range(10):
-        perform_process_lock()
+        advanced_perform_process()
