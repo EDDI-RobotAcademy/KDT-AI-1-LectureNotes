@@ -1,7 +1,9 @@
 # This is a sample Python script.
 
 from basics.basic_grammer import python_basics
+from basics.python_class import class_test_function
 from basics.python_function import functions_test
+from problem.gas_station_prob import gas_station_problem_solve
 
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -18,3 +20,5 @@ if __name__ == '__main__':
 
     #python_basics()
     #functions_test()
+    gas_station_problem_solve()
+    class_test_function()
