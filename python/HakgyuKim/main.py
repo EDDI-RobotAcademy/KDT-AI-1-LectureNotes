@@ -6,8 +6,9 @@ from homework.thread_homework import homework
 
 from problem.gas_station_prob import gas_station_problem_solve
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 
+from router.request_receiver.request_receive_router import request_receiver
 
 
 def print_hi(name):
@@ -31,3 +32,5 @@ app = FastAPI()
 @app.get("/")
 async def root_index():
     return { "message": "Hello from FastAPI" }
+
+app.include_router(request_receiver)
