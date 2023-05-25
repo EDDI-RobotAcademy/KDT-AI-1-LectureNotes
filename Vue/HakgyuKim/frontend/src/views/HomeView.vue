@@ -74,6 +74,10 @@
           >Food Aggregate Root 만들기</router-link
         >
         |
+        <router-link to="/fastapi-data-send-page">FastAPI 테스트</router-link> |
+        <router-link to="/vps-homework1">Vue Python Spring 통신 homework</router-link> |
+        
+        
       </nav>
     </div>
   </v-container>

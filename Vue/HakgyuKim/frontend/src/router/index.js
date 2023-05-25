@@ -14,6 +14,7 @@ import homeworkRoutes from "./homework";
 import plotRoutes from "./plot";
 import filesTestRoutes from "./files";
 import foodSetRoutes from "./food";
+import fastApiRoutes from "./fastapi";
 
 Vue.use(VueRouter);
 
@@ -42,6 +43,7 @@ const routes = [
   ...plotRoutes,
   ...filesTestRoutes,
   ...foodSetRoutes,
+  ...fastApiRoutes,
 ];
 
 const router = new VueRouter({
