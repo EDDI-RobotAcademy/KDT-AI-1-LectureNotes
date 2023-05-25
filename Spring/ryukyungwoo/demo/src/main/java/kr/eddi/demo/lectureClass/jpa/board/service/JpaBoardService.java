@@ -13,5 +13,6 @@ public interface JpaBoardService {
     JpaBoard read(Long boardId);
 
     void delete(Long boardId);
-    JpaBoard modify (Long boardId, RequestBoardForm requestBoardForm);
+
+    JpaBoard modify(Long boardId, RequestBoardForm requestBoardForm);
 }
