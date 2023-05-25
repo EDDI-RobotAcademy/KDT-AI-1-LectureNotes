@@ -38,3 +38,13 @@ async def root_index():
 
 
 app.include_router(request_receiver)
+
+origins = ["http://localhost:8080"]
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
