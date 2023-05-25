@@ -5,6 +5,10 @@ from basics.python_class import class_test_function
 from basics.thread_test import thread_test_sequence
 from problem.advanced_multi_process import adv_parallel_process_problem
 from problem.parallel_process import parallel_process_problem
+from fastapi import Depends, FastAPI
+from router.request_receiver.request_receive_router import request_receiver
+
+
 
 
 
@@ -17,13 +21,21 @@ def print_hi(name):
 
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    python_basics()
-    functions_test()
-    gas_station_problem_solve()
-    class_test_function()
-    # thread_test_sequence()
-    # parallel_process_problem()
-    adv_parallel_process_problem()
+# if __name__ == '__main__':
+#     python_basics()
+#     functions_test()
+#     gas_station_problem_solve()
+#     class_test_function()
+#     # thread_test_sequence()
+#     # parallel_process_problem()
+#     adv_parallel_process_problem()
 
-    print(list(range(6, 1, -6)))
+
+app = FastAPI()
+
+
+@app.get("/")
+async def root_index():
+    return { "message": "Hello from FastAPI" }
+
+app.include_router(request_receiver)
