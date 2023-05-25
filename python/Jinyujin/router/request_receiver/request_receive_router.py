@@ -1,3 +1,5 @@
+import random
+
 from fastapi import APIRouter
 
 request_receiver = APIRouter()
@@ -13,4 +15,4 @@ async def receive_spring_data():
 # Integer에 대응하는 라우터
 @request_receiver.get("/request_int_data")
 async def request_integer_process():
-    return 3
+    return random.randrange(1, 10)
