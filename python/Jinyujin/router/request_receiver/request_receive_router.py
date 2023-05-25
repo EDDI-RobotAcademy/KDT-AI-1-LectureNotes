@@ -8,3 +8,9 @@ async def receive_spring_data():
     print("Receive Spring Data!")
     ready_asset = {'name': 'Hi', 'major': 'C'}
     return ready_asset
+
+
+# Integer에 대응하는 라우터
+@request_receiver.get("/request_int_data")
+async def request_integer_process():
+    return 3
