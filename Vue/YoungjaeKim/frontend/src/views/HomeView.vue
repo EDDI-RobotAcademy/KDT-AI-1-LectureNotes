@@ -39,6 +39,7 @@
         <router-link to="/d3-health-print-page">d3 health 문제</router-link> |
         <router-link to="/file-handler-test-page">File 처리 테스트</router-link> |
         <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
+        <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
       </nav>
     </div>
   </v-container>

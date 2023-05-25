@@ -10,11 +10,11 @@ import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 Vue.use(VueRouter)
 
 const problemRoutes = [
-    {
-        path: '/problem-page1',
-        name: 'ProblemPage1',
-        component: ProblemPage1
-    },
+    //{
+        //path: '/problem-page1',
+        //name: 'ProblemPage1',
+        //component: ProblemPage1
+    //},
     {
         path: '/problem-page2',
         name: 'Problem2Page',

@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import FoodAggregateRootRegisterPage from '@/views/aggregateRootTest/FoodAggregateRootRegisterPage.vue'
+import FoodAggregateRootTestPage from '@/views/aggregateRootTest/FoodAggregateRootTestPage.vue'
 
 Vue.use(VueRouter)
 
 const foodSetRoutes = [
     {
         path: '/food-register',
-        name: 'FoodAggregateRootRegisterPage',
-        component: FoodAggregateRootRegisterPage
+        name: 'FoodAggregateRootTestPage',
+        component: FoodAggregateRootTestPage
     },
 ]
 
