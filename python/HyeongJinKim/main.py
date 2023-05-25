@@ -7,6 +7,7 @@ from basics.therad_test import thread_test_sequence
 from problem.python_problem1 import coordinate
 from problem.python_problem2_advenced import adv_parallel_process_problem
 from problem.python_problem2 import parallel_process_problem
+from router.request_receiver.request_receive_router import request_receiver
 
 
 def print_hi(name):
@@ -29,4 +30,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root_index():
-    return {"message": "Hello from FastAPI"}
+    return { "message": "Hello from FastAPI" }
+
+
+app.include_router(request_receiver)
