@@ -1,3 +1,6 @@
+from fastapi import Depends, FastAPI
+from router.request_receiver.request_receive_router import request_receiver
+
 from basics.basic_grammar import python_basics
 from basics.python_class import class_test_function
 from basics.python_functions import functions_test
@@ -16,5 +19,15 @@ if __name__ == '__main__':
     # functions_test()
     # class_test_function()
     # thread_test_sequence()
-    thread_homework()
+    # thread_homework()
+    print("Hello")
 
+app = FastAPI()
+
+
+@app.get("/")
+async def root_index():
+    return {"message": "Hello from FastAPI"}
+
+
+app.include_router(request_receiver)
