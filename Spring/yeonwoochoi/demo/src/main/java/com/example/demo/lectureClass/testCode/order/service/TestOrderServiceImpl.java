@@ -50,11 +50,10 @@ public class TestOrderServiceImpl implements TestOrderService {
     }
 
     @Override
-    public List<TestOrder> orderListForAccount(
-            TestOrderListRequestForm orderListRequestForm, Long accountId) {
+    public List<TestOrder> orderListForAccount(TestOrderListRequestForm orderListRequestForm, Long accountId) {
 
-        final TestAccount account = isValidateAccount(
-                alwaysReturnFirst(orderListRequestForm.getUserToken(), accountId));
+        // TestAccount에 회원 정보
+        final TestAccount account = isValidateAccount(alwaysReturnFirst(orderListRequestForm.getUserToken(), accountId));
 
         if (account == null) return null;
 

@@ -82,15 +82,29 @@ public class OrderTest {
         final String password = "test";
         final Long accountId = 2L;
 
+        // Request 요청
+        // Response 응답
+
         // 로그인하면 동작하는 코드
+        // 회원 정보를 폼으로 받아서 객체를 만듬
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        // 서비스에서 로그인 기능을 하고 email, password 정보로 로그인하고, 그 값을 responseForm에 대입
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
+        // userToken - 로그인 상태에서 누군지 알려주는 식별 형태, 보안성
+        // 로그인 상태(responseForm)가 되고, 로그인이 되면(getUserToken()) UserToken을
+        // 문자열(toString()) 형태로 가져온다.
+        // 결과값을 userToken에 대입한다.
         String userToken = responseForm.getUserToken().toString();
 
+        // 주문 상품을 폼으로 받아서 userToken 정보를 객체로 만듬
         TestOrderListRequestForm orderListRequestForm = new TestOrderListRequestForm(userToken);
+        // 서비스에서 회원이 주문한 상품 userToken, accountId
         List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm, accountId);
+
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
 
+        // 상품을 리스트 형태로 뽑아줌
+        //             상품      상품들
         for (TestOrder order : orderListForAccount) {
             //Equals(A, B) 일 때, A와 B가 같아야 테스트가 통과 ! 다르면 실패 !
             assertEquals(accountId, order.getTestAccount().getId());

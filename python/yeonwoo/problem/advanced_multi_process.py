@@ -9,14 +9,11 @@ required_total_time = 10
 def adv_three_times_process(first):
     adv_process_shared_data(first, required_total_time, 3)
 
-
-
 def adv_process_shared_data(recv_number, total_time, consume_time):
     for _ in range(total_time, 1, -consume_time):
         recv_number.value += consume_time
         print(recv_number.value)
         time.sleep(consume_time)
-
 
 def adv_five_times_process(second):
     adv_process_shared_data(second, required_total_time, 5)

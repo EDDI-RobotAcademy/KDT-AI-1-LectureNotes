@@ -147,7 +147,7 @@ public class AccountTest {
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
-        //True 조건의 결과값이 true여야 성공
+        // True 조건의 결과값이 true여야 성공
         assertTrue(responseForm.getUserToken() != null);
     }
 

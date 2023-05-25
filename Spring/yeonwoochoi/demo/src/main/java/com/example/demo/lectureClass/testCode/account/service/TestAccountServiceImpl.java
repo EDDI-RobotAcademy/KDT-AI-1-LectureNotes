@@ -34,6 +34,8 @@ public class TestAccountServiceImpl implements TestAccountService {
         }
         return testAccountRepository.save(requestForm.toTestAccount());
     }
+    // 상품 구매내역을 조회할때
+    //
     @Override
     public TestAccountLoginResponseForm login(TestAccountRequestForm requestForm) {
         final Optional<TestAccount> maybeAccount =
