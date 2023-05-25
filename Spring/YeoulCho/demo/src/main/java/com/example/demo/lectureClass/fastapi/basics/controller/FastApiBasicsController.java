@@ -34,7 +34,6 @@ public class FastApiBasicsController {
         log.info("fastapi integer request");
 
         final String FASTAPI_REQUEST_URL="http://localhost:8000/request-int-data";
-        fastApiService.integerRequest(FASTAPI_REQUEST_URL);
-        return null;
+        return fastApiService.integerRequest(FASTAPI_REQUEST_URL);
     }
 }
