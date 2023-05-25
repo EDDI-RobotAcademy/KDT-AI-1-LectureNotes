@@ -3,6 +3,8 @@ from problem.thread_prob import All_add_process
 
 from fastapi import Depends, FastAPI
 
+from router.request_receiver.request_receive_router import request_receiver
+
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -25,3 +27,5 @@ app = FastAPI()
 @app.get("/")
 async def root_index():
     return { "message": "Hello fro, FastAPI" }
+
+app.include_router(request_receiver)
