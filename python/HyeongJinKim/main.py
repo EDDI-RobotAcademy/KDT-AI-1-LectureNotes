@@ -1,3 +1,5 @@
+from fastapi import Depends, FastAPI
+
 from basics.basic_grammer import python_basics
 from basics.python_class import class_test_function
 from basics.python_functions import functions_test
@@ -12,11 +14,19 @@ def print_hi(name):
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 # Press the green button in the gutter to run the script.
 
-if __name__ == '__main__':
-    python_basics()
-    functions_test()
-    coordinate(3)
-    class_test_function()
+# if __name__ == '__main__':
+    # python_basics()
+    # functions_test()
+    # coordinate(3)
+    # class_test_function()
     # thread_test_sequence()
     # parallel_process_problem()
-    adv_parallel_process_problem()
+    # adv_parallel_process_problem()
+
+
+app = FastAPI()
+
+
+@app.get("/")
+async def root_index():
+    return {"message": "Hello from FastAPI"}
