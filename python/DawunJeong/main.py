@@ -3,7 +3,9 @@ from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.thread_test import thread_test_sequence
 from homework.python_homework import homework_problem1, homework_test_sequence
+from problem.advanced_multi_process import adv_parallel_process_problem
 from problem.gas_station_prob import gas_station_problem_solve
+from problem.parallel_process import parallel_process_problem
 
 
 def print_hi(name):
@@ -19,4 +21,8 @@ if __name__ == '__main__':
     gas_station_problem_solve()
     class_test_function()
     # thread_test_sequence()
-    homework_test_sequence()
+    #homework_test_sequence()
+    #parallel_process_problem()
+    adv_parallel_process_problem()
+
+    print(list(range(6, 1, -6)))
