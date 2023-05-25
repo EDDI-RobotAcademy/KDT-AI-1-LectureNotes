@@ -23,4 +23,13 @@ public class FastApiBasicsController {
 
         fastApiService.stringRequest(FASTAPI_REQUEST_URL);
     }
+
+    @GetMapping("/fastapi-integer-request")
+    public Integer fastApiIntegerRequest () {
+        log.info("fastapi integer request");
+
+        final String FASTAPI_REQUEST_URL = "http://localhost:8000/request-int-data";
+
+        return fastApiService.integerRequest(FASTAPI_REQUEST_URL);
+    }
 }
