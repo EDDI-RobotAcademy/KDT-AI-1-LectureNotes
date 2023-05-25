@@ -1,10 +1,10 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.5'
+	id 'org.springframework.boot' version '3.0.6'
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
-group = 'ke.eddi'
+group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
@@ -20,12 +20,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-
-	// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-cbor
-	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.13.4'
-
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
