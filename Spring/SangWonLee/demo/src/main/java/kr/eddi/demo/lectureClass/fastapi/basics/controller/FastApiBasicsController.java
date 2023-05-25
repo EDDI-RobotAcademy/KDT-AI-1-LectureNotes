@@ -16,11 +16,22 @@ public class FastApiBasicsController {
     final private FastApiService fastApiService;
 
     @GetMapping("/fastapi-string-request")
-    public void fastApiStringRequest () {
+    public void fastApiStringRequest() {
         log.info("fastapi string request");
 
         final String FASTAPI_REQUEST_URL = "http://localhost:8000/request-data";
 
         fastApiService.stringRequest(FASTAPI_REQUEST_URL);
+    }
+
+    @GetMapping("/fastapi-integer-request")
+    public Integer fastApiIntegerRequest() {
+        log.info("fastapi integer request");
+
+        final String FASTAPI_REQUEST_URL = "http://localhost:8000/request-int-data";
+
+        fastApiService.integerRequest(FASTAPI_REQUEST_URL);
+
+        return fastApiService.integerRequest(FASTAPI_REQUEST_URL);
     }
 }

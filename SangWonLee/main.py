@@ -21,14 +21,14 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
     print("Hello Python!")
-    # python_basics()
-    # functions_test()
+# python_basics()
+# functions_test()
 
-    # gas_station_problem_solve()
-    # class_test_function()
-    # thread_test_sequence()
-    # parallel_process_problem()
-    # adv_parallel_process_problem()
+# gas_station_problem_solve()
+# class_test_function()
+# thread_test_sequence()
+# parallel_process_problem()
+# adv_parallel_process_problem()
 
 app = FastAPI()
 
