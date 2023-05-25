@@ -1,6 +1,8 @@
 class Person:
     name = "기본값"
 
+    # 메서드의 첫 번째 매개변수는 반드시 self로 지정
+    # self는 인스턴스 자신을 의미
     def print_info(self):
         print("내 이름은 {0}".format(self.name))
 
