@@ -163,6 +163,7 @@ class ThreadPool(object):
     def make_active(self, name):
         with self.__lock:
             self.__active.append(name)
+
             time.sleep(3)
             logging.debug('Running: %s', self.__active)
 
@@ -332,8 +333,3 @@ def thread_test_sequence():
 
     for _ in range(10):
         advanced_perform_process()
-
-# 광역으로 잡고 있으면 시간이 짧지만 lock걸려있어서 복잡한 식일 경우에는
-# 메모리를 너무 붙잡고 잇음, 간단한 식이면 매우 좋다.
-# 부분적으로 잡아놓으면 시간은 오래걸리지만 lock이 계속 걸어서 복잡한 경우에
-# 좋다.
