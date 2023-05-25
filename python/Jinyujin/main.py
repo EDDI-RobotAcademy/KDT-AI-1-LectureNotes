@@ -3,6 +3,7 @@ from basics.basic_grammar import python_basics
 from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.thread_test import thread_test_sequence
+from router.request_receiver.request_receive_router import request_receiver
 from solved.homework_first import gas_station_problem_solve
 from homework.homework_second import homework2
 from solved.homework_second.advanced_homework_second import adv_parallel_process_problem
@@ -40,3 +41,7 @@ app = FastAPI()
 @app.get("/")
 async def root_index():
     return {"message": "Hello from FastAPI"}
+
+
+app.include_router(request_receiver)
+# 여기에 좌르륵 쓰기에 더러워 보이니까 이쁘게 패키지 안에 넣자

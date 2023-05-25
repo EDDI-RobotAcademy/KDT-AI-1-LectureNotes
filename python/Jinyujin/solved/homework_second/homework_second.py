@@ -18,14 +18,6 @@ import multiprocessing as mp
 import time
 
 
-def three_times_process(number, lock):
-    lock.acquire()
-
-    process_shared_data(number, 6, 3)
-
-    lock.release()
-
-
 def process_shared_data(number, total_time, consume_time):
     # len(list(range(60, 0, -3)))
     # 이렇게 하면 리스트 길이 반환(length같음)
@@ -38,7 +30,16 @@ def process_shared_data(number, total_time, consume_time):
         # logging.debug 아니고 print를 써도됨
         # print를 어떤 것을 어떤 이유로 할 것인지 파악하는 연습하기
         # 쌤처럼 왜 이러는지 알기 위해 나중에 print(number.value)를 추가해준 것과 같은 연습!!!
-        # 근데 logging.debug는 터미널에 출력이 안되는데 print()는 터미널에 다 출력이 되어 버릴 수도..
+        # 근데 logging.debug는 터미널에 출력이 안되는데 (빨간색으로 떠서 로그인걸 알 수 있는데)
+        # print()는 터미널에 다 출력이 되어 버릴 수도..
+
+
+def three_times_process(number, lock):
+    lock.acquire()
+
+    process_shared_data(number, 6, 3)
+
+    lock.release()
 
 
 def five_times_process(number, lock):
