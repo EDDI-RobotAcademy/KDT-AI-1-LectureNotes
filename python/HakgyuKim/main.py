@@ -6,6 +6,8 @@ from homework.thread_homework import homework
 
 from problem.gas_station_prob import gas_station_problem_solve
 
+from fastapi import FastAPI
+
 
 
 def print_hi(name):
@@ -20,5 +22,12 @@ if __name__ == '__main__':
     # gas_station_problem_solve()
     # class_test_function()
     # thread_test_sequence()
+    #
+    # homework()
+    print("hello")
 
-    homework()
+app = FastAPI()
+
+@app.get("/")
+async def root_index():
+    return { "message": "Hello from FastAPI" }
