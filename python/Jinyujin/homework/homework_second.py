@@ -4,9 +4,7 @@ import logging
 
 
 def three_seconds(number, lock):
-
-
-    for _ in range(60//3):
+    for _ in range(60 // 3):
         lock.acquire()
         number.value += 3
 
@@ -18,9 +16,7 @@ def three_seconds(number, lock):
 
 
 def five_seconds(number, lock):
-
-
-    for _ in range(60//5):
+    for _ in range(60 // 5):
         lock.acquire()
         number.value += 5
 
@@ -32,9 +28,7 @@ def five_seconds(number, lock):
 
 
 def six_seconds(number, lock):
-
-
-    for _ in range(60//6):
+    for _ in range(60 // 6):
         lock.acquire()
         number.value += 6
 

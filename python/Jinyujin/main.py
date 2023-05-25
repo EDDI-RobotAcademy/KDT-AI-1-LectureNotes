@@ -3,8 +3,10 @@ from basics.basic_grammar import python_basics
 from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.thread_test import thread_test_sequence
-from homework.homework1 import gas_station_problem_solve
-from homework.homework2 import homework2
+from solved.homework_first import gas_station_problem_solve
+from homework.homework_second import homework2
+from solved.homework_second.advanced_homework_second import adv_parallel_process_problem
+from solved.homework_second.homework_second import parallel_process_problem
 
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -23,7 +25,9 @@ if __name__ == '__main__':
     functions_test()
     gas_station_problem_solve()
     class_test_function()
-    thread_test_sequence()
-    homework2()
+    # thread_test_sequence()
+    # homework2()
+    parallel_process_problem()
+    adv_parallel_process_problem()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
