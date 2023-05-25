@@ -46,6 +46,7 @@
         <router-link to="/d3-health-homework-page">운동 문제 풀기!</router-link> |
         <router-link to="/file-handler-page">파일 테스트!</router-link> |
         <router-link to="/food-register">Aggregate Root 만들기</router-link> |
+        <router-link to="/fastapi-test-page">뭐지!!</router-link> |
       </nav>
     </div>
   </v-container>
