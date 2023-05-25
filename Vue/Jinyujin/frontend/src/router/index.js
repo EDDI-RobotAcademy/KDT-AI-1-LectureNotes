@@ -17,6 +17,7 @@ import d3plotTestRoutes from './d3plot'
 import filesTestRoutes from './files'
 import foodSetRoutes from './food'
 import fastApiTestRoutes from './fastapi'
+import vueSpringRoutes from './vueSpringFastApi'
 
 // 지저분한 궁극적인 이유?
 // 분류가 안되어서 - 즉 도메인 정리가 안됨
@@ -41,6 +42,7 @@ const routes = [
   ...filesTestRoutes,
   ...foodSetRoutes,
   ...fastApiTestRoutes,
+  ...vueSpringRoutes,
 ]
 
 const router = new VueRouter({
