@@ -2,6 +2,7 @@ from basics.basic_grammar import python_basics
 from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.thread_test import thread_test_sequence
+from homework.fastapi_homework import homework_request
 from homework.thread_homework import homework
 
 from problem.gas_station_prob import gas_station_problem_solve
@@ -9,6 +10,7 @@ from problem.gas_station_prob import gas_station_problem_solve
 from fastapi import Depends, FastAPI
 
 from router.request_receiver.request_receive_router import request_receiver
+
 
 
 def print_hi(name):
@@ -29,8 +31,19 @@ if __name__ == '__main__':
 
 app = FastAPI()
 
+origins = ["http://localhost:8080"]
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 @app.get("/")
 async def root_index():
     return { "message": "Hello from FastAPI" }
 
 app.include_router(request_receiver)
+
+app.include_router(homework_request)
