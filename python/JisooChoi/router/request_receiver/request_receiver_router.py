@@ -4,6 +4,7 @@ from fastapi import APIRouter
 
 request_receiver = APIRouter()
 
+# => Python 으로 Controller 를 만들었다.
 @request_receiver.get("/request-data")
 async def receiver_spring_data():
     print("Receiver Spring Data!")
