@@ -3,6 +3,7 @@ from problem.thread_prob import All_add_process
 
 from fastapi import Depends, FastAPI
 
+from router.problem_receiver.vue_receiver_router import problem_receiver
 from router.request_receiver.request_receive_router import request_receiver
 
 
@@ -29,3 +30,4 @@ async def root_index():
     return { "message": "Hello fro, FastAPI" }
 
 app.include_router(request_receiver)
+app.include_router(problem_receiver)
