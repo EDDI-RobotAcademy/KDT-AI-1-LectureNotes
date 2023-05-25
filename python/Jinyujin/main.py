@@ -8,6 +8,8 @@ from homework.homework_second import homework2
 from solved.homework_second.advanced_homework_second import adv_parallel_process_problem
 from solved.homework_second.homework_second import parallel_process_problem
 
+from fastapi import Depends, FastAPI
+
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
@@ -19,15 +21,22 @@ def print_hi(name):
 
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    # print_hi('PyCharm')
-    python_basics()
-    functions_test()
-    gas_station_problem_solve()
-    class_test_function()
-    # thread_test_sequence()
-    # homework2()
-    parallel_process_problem()
-    adv_parallel_process_problem()
+# if __name__ == '__main__':
+# print_hi('PyCharm')
+# python_basics()
+# functions_test()
+# gas_station_problem_solve()
+# class_test_function()
+# # thread_test_sequence()
+# # homework2()
+# parallel_process_problem()
+# adv_parallel_process_problem()
+
+app = FastAPI()
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+@app.get("/")
+async def root_index():
+    return {"message": "Hello from FastAPI"}
