@@ -8,7 +8,7 @@ gasStations = []
 print("position of gas station")
 
 
-def getDistance(gasStation, myPosition):
+def getDistance(gasStations, myPosition):
     return ((gasStations[i][0] - myPosition[0]) ** 2 +
             (gasStations[i][1] - myPosition[1]) ** 2) ** (1 / 2)
 
