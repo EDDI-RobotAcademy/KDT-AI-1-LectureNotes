@@ -6,6 +6,7 @@ from basics.python_class import class_test_function, AccessControlTest
 from basics.python_function import functions_test
 from basics.thread_test import thread_test_sequence
 from problem.Q2_thread import perform_add_process, perform_add_process_lock
+from problem.Q3_vueSpringFastAPI import prb3
 from problem.gas_station_prob import gas_station_problem_solve
 from router.request_receiver.request_receiver_router import request_receiver
 
@@ -34,8 +35,21 @@ if __name__ == '__main__':
     print("hi")
 
 app = FastAPI()
+
 @app.get("/")
 async def root_index():
     return {"message": "Hello from FASTAPI"}
 
 app.include_router(request_receiver)
+
+app.include_router(prb3)
+
+origins = ["http://localhost:8080"]
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
