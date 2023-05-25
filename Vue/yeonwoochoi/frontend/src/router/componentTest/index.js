@@ -1,22 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import HtmlTest from '@/views/html/HtmlTest.vue'
-import CssTest from '@/views/css/CssTest.vue'
+import ComponentTestPage from '@/views/basics/componentTest/ComponentTestPage.vue'
 
 Vue.use(VueRouter)
 
-const htmlCssRoutes = [
+const componentTestRoutes = [
     {
-        path: '/htmlTest',
-        name: 'HtmlTest',
-        component: HtmlTest
-    },
-    {
-        path: '/cssTest',
-        name: 'CssTest',
-        component: CssTest
+        path: '/global-component-test-page',
+        name: 'ComponentTestPage',
+        component: ComponentTestPage
     },
 ]
 
-export default htmlCssRoutes
+export default componentTestRoutes
