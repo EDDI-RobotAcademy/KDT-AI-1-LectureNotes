@@ -28,6 +28,20 @@ def adv_parallel_process_problem():
     first = mp.Value('i', 0)
     second = mp.Value('i', 0)
     third = mp.Value('i', 0)
+    
+    # 100개의 데이터를 처리해야함
+    # A - 25개
+    # B - 25개
+    # C - 25개
+    # D - 25개
+    # 다 계산하고 합산
+
+    # 8개 (1, 2, 3, 4, 5, 6, 7, 8)
+    # A - (1, 2) = 3
+    # B - (3, 4) = 7
+    # C - (5, 6) = 11
+    # D - (7, 8) = 15
+    # 합은 36
 
     p1 = mp.Process(target=adv_three_times_process, args=(first,))
     p2 = mp.Process(target=adv_five_times_process, args=(second,))
