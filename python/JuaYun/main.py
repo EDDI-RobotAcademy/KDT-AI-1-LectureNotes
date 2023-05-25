@@ -10,11 +10,18 @@ def print_hi(name):
 
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # python_basics()
     # functions_test()
     # gas_station_problem_solve()
     # class_test_function()
     # thread_test_sequence()
     # All_add_process()
-    adv_parallel_process_problem()
+    # adv_parallel_process_problem()
+
+app = FastAPI()
+
+
+@app.get("/")
+async def root_index():
+    return { "message": "Hello fro, FastAPI" }
