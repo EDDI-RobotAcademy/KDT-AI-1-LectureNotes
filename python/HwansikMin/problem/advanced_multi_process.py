@@ -28,7 +28,7 @@ def adv_parallel_process_problem():
     first = mp.Value('i', 0)
     second = mp.Value('i', 0)
     third = mp.Value('i', 0)
-    
+
     # 100개의 데이터를 처리해야함
     # A - 25개
     # B - 25개
