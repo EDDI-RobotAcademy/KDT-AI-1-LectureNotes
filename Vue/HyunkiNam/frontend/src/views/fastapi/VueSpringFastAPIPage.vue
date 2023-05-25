@@ -38,7 +38,7 @@ export default {
         },
         OnIntegerSum() {
             const { firstInteger, secondInteger, thirdInteger } = this
-            this.sumInteger = firstInteger + secondInteger + thirdInteger
+            this.sumInteger = (firstInteger * 1.25) + (secondInteger * 1.5) + (thirdInteger * 1.75)
         }
     },
 }
