@@ -47,7 +47,8 @@ public class JpaAccountServiceImpl implements JpaAccountService{
         List<JpaAccountResponseForm> responseFormList = new ArrayList<>();
 
         for (JpaAccountRole accountRole: matchedAccountRoleList) {
-            final Optional<JpaAccount> maybeAccount = accountRepository.findById(accountRole.getId());
+            final Optional<JpaAccount> maybeAccount =
+                    accountRepository.findById(accountRole.getId());
 
             if (maybeAccount.isEmpty()) {
                 return null;
