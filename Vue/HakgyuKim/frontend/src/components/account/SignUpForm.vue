@@ -28,6 +28,7 @@
                                         이메일 <br/>중복 확인
                                     </v-btn>
                                 </div>
+
                                 <v-btn type="submit" block x-large rounded
                                         color="orange lighten-1" class="mt-6"
                                         :disabled="!isFormValid()">회원 신청하기</v-btn>
@@ -43,7 +44,9 @@
 <script>
 import axiosInst from '@/utility/axiosInst'
 import { mapActions } from 'vuex'
+
 const accountModule = 'accountModule'
+
 export default {
     data () {
         return {
@@ -60,7 +63,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions(accountModule, ['requestSpringToCheckEmailDuplication']),
+        ...mapActions('accountModule', ['requestSpringToCheckEmailDuplication']),
         onSubmit () {
             if (this.$refs.form.validate()) {
                 const { email } = this
@@ -68,6 +71,7 @@ export default {
             } else {
                 alert('올바른 정보를 입력하세요!')
             }
+
             if (!this.emailPass) {
                 alert("이메일 중복 확인을 해주세요!")
             }
@@ -87,9 +91,11 @@ export default {
         isFormValid () {
             return this.emailPass && this.email_rule[1](this.email) === true
         }
-    }
+    },
 }
+
 </script>
+
 <style lang="">
     
 </style>

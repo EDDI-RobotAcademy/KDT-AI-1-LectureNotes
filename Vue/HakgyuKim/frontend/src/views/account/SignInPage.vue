@@ -7,11 +7,12 @@
 <script>
 import SignInForm from "@/components/account/SignInForm.vue"
 import { mapActions } from "vuex";
+
 const authenticationModule = 'authenticationModule'
 
 export default {
     components: {
-        SignInForm
+        SignInForm,
     },
     methods: {
         ...mapActions(authenticationModule, ['requestGithubLoginToSpring']),
@@ -21,6 +22,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style lang="">

@@ -13,7 +13,8 @@
                         <v-card-text class="text-center px-12 py-16">
                             <v-form @submit.prevent="onSubmit" ref="form">
                                 <div class="text-h4 font-weight-black mb-10">Github Oauth 로그인</div>
-
+                        
+                                
                                 <v-btn type="submit" block x-large rounded
                                         color="gray lighten-1" class="mt-6"
                                         :disabled="false">
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+
 export default {
     
     methods: {
@@ -43,6 +45,7 @@ export default {
         },
     },
 }
+
 </script>
 
 <style lang="">

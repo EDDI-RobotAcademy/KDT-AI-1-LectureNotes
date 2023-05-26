@@ -2,6 +2,7 @@ package com.example.demo.lectureClass.authentication.github.service;
 
 import com.example.demo.lectureClass.authentication.github.service.request.GithubOauthTokenRequest;
 import com.example.demo.lectureClass.authentication.github.service.response.GithubOauthAccessTokenResponse;
+import com.example.demo.lectureClass.utility.PropertyUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,11 @@ import org.springframework.web.client.RestTemplate;
 public class GithubOauthServiceImpl implements GithubOauthService {
 
     final private RestTemplate restTemplate;
+    final private PropertyUtil propertyUtil;
+
     @Override
     public String getAuthorizeCode() {
-        final String CLIENT_ID = "yourGithubOAuthAppsId";
+        final String CLIENT_ID = propertyUtil.getProperty("client_id");
         final String URL = "https://github.com/login/oauth/authorize";
 
         // https://github.com/login/oauth/authorize?client_id=yourGithubOAuthAppsId&scope=repo:status read:repo_hook user:email
@@ -26,12 +29,12 @@ public class GithubOauthServiceImpl implements GithubOauthService {
     public String getAccessToken(String code) {
         final String REQUEST_GITHUB_ACCESS_TOKEN_URL =
                 "https://github.com/login/oauth/access_token";
-        final String CLIENT_ID = "yourGithubOAuthAppsId";
-        final String YOUR_SECRETS = "";
+        final String CLIENT_ID = propertyUtil.getProperty("client_id");
+        final String CLIENT_SECRETS = propertyUtil.getProperty("client_secrets");
 
         return restTemplate.postForObject(
                 REQUEST_GITHUB_ACCESS_TOKEN_URL,
-                new GithubOauthTokenRequest(CLIENT_ID, YOUR_SECRETS, code),
+                new GithubOauthTokenRequest(CLIENT_ID, CLIENT_SECRETS, code),
                 GithubOauthAccessTokenResponse.class).getAccessToken();
     }
 }
