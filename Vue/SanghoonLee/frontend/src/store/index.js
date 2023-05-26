@@ -9,6 +9,7 @@ import filesModule from './files/FilesModule'
 import foodModule from './food/FoodModule'
 import fastApiModule from './fastapi/FastApiModule'
 import springModule from './spring/FastApiModule'
+import accountModule from './account/AccountModule'
 
 Vue.use(Vuex)
 
@@ -22,6 +23,7 @@ const store = new Vuex.Store({
     foodModule: foodModule,
     fastApiModule: fastApiModule,
     springModule: springModule,
+    accountModule: accountModule,
   },
 })
 
