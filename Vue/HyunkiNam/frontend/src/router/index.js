@@ -14,6 +14,7 @@ import d3plotTestRoutes from './d3plot'
 import fileRoutes from './files'
 import foodSetRoutes from './food'
 import fastApiTestRoutes from './fastapi'
+import accountTestRoutes from './account'
 // @는 현재 src 폴더를 의미함
 
 
@@ -34,7 +35,8 @@ const routes = [
   ...d3plotTestRoutes,
   ...fileRoutes,
   ...foodSetRoutes,
-  ...fastApiTestRoutes
+  ...fastApiTestRoutes,
+  ...accountTestRoutes,
 ]
 
 const router = new VueRouter({
