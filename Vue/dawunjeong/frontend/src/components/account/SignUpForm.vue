@@ -24,14 +24,14 @@
                                     <v-btn text large outlined style="font-size: 13px"
                                             class="mt-3 ml-5" color="teal lighten-1"
                                             @click="checkDuplicateEmail"
-                                            :disabled="email == ''">
+                                            :disabled="false">
                                         이메일 <br/>중복 확인
                                     </v-btn>
                                 </div>
 
                                 <v-btn type="submit" block x-large rounded
                                         color="orange lighten-1" class="mt-6"
-                                        :disabled="emailPass == false">회원 신청하기</v-btn>
+                                        :disabled="!isFormValid()">회원 신청하기</v-btn>
                             </v-form>
                         </v-card-text>
                     </v-card>
@@ -43,7 +43,6 @@
 
 <script>
 import axiosInst from '@/utility/axiosInst'
-import axios from 'axios'
 import { mapActions } from 'vuex'
 
 const accountModule = 'accountModule'
@@ -77,19 +76,22 @@ export default {
                 alert("이메일 중복 확인을 해주세요!")
             }
         },
-        checkDuplicateEmail () {
+        async checkDuplicateEmail () {
             const emailValid = this.email.match(
                 /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             )
+            this.emailPass = false
 
             if (emailValid) {
                 const { email } = this
                 console.log('before actions - email: ' + email)
-                this.requestSpringToCheckEmailDuplication({ email })
-                //axiosInst(`/account/check-email/${email}`)
+                this.emailPass = await this.requestSpringToCheckEmailDuplication({ email })
             }
+        },
+        isFormValid () {
+            return this.emailPass && this.email_rule[1](this.email) === true
         }
-    }
+    },
 }
 
 </script>
