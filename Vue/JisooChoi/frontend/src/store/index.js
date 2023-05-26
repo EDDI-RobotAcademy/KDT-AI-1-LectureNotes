@@ -9,6 +9,7 @@ import filesModule from './files/FilesModule'
 import d3ProbModule from '@/store/d3Prob/D3ProbModule.js'
 import foodModule from '@/store/food/FoodModule.js'
 import fastApiModule from '@/store/fastapi/FastApiModule.js'
+import springModule from './spring/FastApiModule.js'
 
 Vue.use(Vuex)
 
@@ -21,6 +22,7 @@ const store = new Vuex.Store({
     d3ProbModule: d3ProbModule,
     foodModule: foodModule,
     fastApiModule : fastApiModule,
+    springModule : springModule, 
   },
 })
 
