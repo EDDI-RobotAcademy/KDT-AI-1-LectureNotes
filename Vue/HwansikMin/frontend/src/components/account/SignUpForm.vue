@@ -42,7 +42,11 @@
 </template>
 
 <script>
+import axiosInst from '@/utility/axiosInst'
+import axios from 'axios'
+import { mapActions } from 'vuex'
 
+const accountModule = 'accountModule'
 export default {
     data () {
         return {
@@ -59,6 +63,7 @@ export default {
         }
     },
     methods: {
+        ...mapActions('accountModule', ['requestSpringToCheckEmailDuplication']),
         onSubmit () {
             if (this.$refs.form.validate()) {
                 const { email } = this
@@ -69,6 +74,17 @@ export default {
 
             if (!this.emailPass) {
                 alert("이메일 중복 확인을 해주세요!")
+            }
+        },
+        checkDuplicateEmail () {
+            const emailValid = this.email.match(
+                /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )
+            if (emailValid) {
+                const { email } = this
+                console.log('before actions - email: ' + email)
+                this.requestSpringToCheckEmailDuplication({ email })
+                //axiosInst(`/account/check-email/${email}`)
             }
         }
     }
