@@ -18,6 +18,7 @@ import filesTestRoutes from './files'
 import foodRoutes from './food'
 import fastApiTestRoutes from './fastapi'
 import fastApiHomeworkRoutes from './fastapiHomework'
+import accountTestRoutes from './account'
 
 
 Vue.use(VueRouter)
@@ -39,6 +40,7 @@ const routes = [
   ...foodRoutes,
   ...fastApiTestRoutes,
   ...fastApiHomeworkRoutes,
+  ...accountTestRoutes
 ]
 
 const router = new VueRouter({
