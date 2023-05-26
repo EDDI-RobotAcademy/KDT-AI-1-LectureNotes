@@ -3,9 +3,7 @@ package com.example.demo.lectureClass.authentication.github.controller;
 import com.example.demo.lectureClass.authentication.github.service.GithubOauthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -20,5 +18,14 @@ public class GithubAuthController {
         log.info("requestGithubAuthorizeCode()");
 
         return githubOauthService.getAuthorizeCode();
+    }
+
+    @GetMapping("/github/oauth-code")
+    public void getGithubUserInfo(@RequestParam String code) {
+        log.info("getGithubUserInfo(): " + code);
+
+        String accessToken = githubOauthService.getAccessToken(code);
+
+        log.info("accessToken: " + accessToken);
     }
 }
