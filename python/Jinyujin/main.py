@@ -37,6 +37,8 @@ def print_hi(name):
 app = FastAPI()
 
 origins = ["http://localhost:8080"]
+           # "http://localhost:8081"]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -44,7 +46,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
