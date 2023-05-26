@@ -1,9 +1,8 @@
-import axiosInst from '@/utility/axiosInst'
-import axios from 'axios'
+import axiosInstances from '@/utility/axiosInst'
 
 export default {
     requestfirstNumberToSpring({ }) {
-        return axiosInst.get('/vue-spring/first-number')
+        return axiosInstances.axiosInst.get('/vue-spring/first-number')
             .then((res) => {
                 return res.data
             })
@@ -12,21 +11,24 @@ export default {
             })
     },
     requestSecondNumberToSpring({ }) {
-        return axiosInst.get('/vue-spring/second-number')
+        return axiosInstances.springAxiosInst.get('/vue-spring/second-number')
             .then((res) => {
                 return res.data
+                console.log('data: ' + res.data)
             })
             .catch(() => {
                 alert('문제 발생!')
             })
     },
-    requestThirdNumberToSpring({ }) {
-        return axios.get('http://localhost:8000/request_third_number')
+    requestThirdNumberToFastApi({ }) {
+        return axiosInstances.fastApiAxiosInst.get('/request_third_number')
             .then((res) => {
                 return res.data
             })
             .catch(() => {
                 alert('문제 발생!')
+                //console.log('제발: ' + res.data)
             })
+        
     },
 }
