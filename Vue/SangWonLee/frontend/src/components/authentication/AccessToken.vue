@@ -2,13 +2,16 @@
 </template>
 
 <script>
-import AuthenticationModule from '@/store/authentication/AuthenticationModule';
+
 import { mapActions } from 'vuex';
+const authenticationModule = 'authenticationModule'
+
 export default {
     methods: {
-        ...mapActions(AuthenticationModule, ['getAccessTokenFromSpringRedirection']),
+        ...mapActions(authenticationModule, ['getAccessTokenFromSpringRedirection']),
         async setRedirectData() {
             const code = this.$route.query.code
+            console.log('code: ' + code)
             await this.getAccessTokenFromSpringRedirection({ code })
         }
     },
