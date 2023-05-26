@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <h3>Vue <-> Spring <-> FastAPI</h3>
-        <p>{{ receivedInteger }}</p>
+        <p>{{ receivedSpringFromFastApiInteger  }}</p>
     </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(fastApiModule, ['receivedInteger'])
+        ...mapState(fastApiModule, ['receivedSpringFromFastApiInteger'])
     },
     methods: {
         ...mapActions(fastApiModule, [

@@ -1,10 +1,11 @@
 # 락 없이 분리 시켜 속도를 높였다
 
+# 하위 로직에서 C언어의 프로세스 생성하는 코드를 동작시켜서
+# 여러 개의 main 코드를 돌리는 구조를 가지고 있습니다.
 import multiprocessing as mp
 import time
 
 required_total_time = 10
-
 
 def adv_three_times_process(first):
     adv_process_shared_data(first, required_total_time, 3)
@@ -23,6 +24,7 @@ def adv_six_times_process(third):
 
 def adv_parallel_process_problem():
     lock = mp.Lock()
+    # 첫 번째 인자는 정수형 integer의 약자, 소수점의 경우 float → ‘f’, 문자 1개의 경우 char → ‘c’ 형태이다.
     first = mp.Value('i', 0)
     second = mp.Value('i', 0)
     third = mp.Value('i', 0)

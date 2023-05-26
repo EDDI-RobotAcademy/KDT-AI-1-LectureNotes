@@ -24,6 +24,18 @@ def print_hi(name):
 
 app = FastAPI()
 
+# 데이터를 외부에서 가져옴 (파이썬, 스프링)
+# 뷰에서 버튼을 누를때 웹으로 전송이 되는데
+# 스프링에서는 콘피그를 만들어서 방어해줌?
+#
+origins = {"http://localhost:8080"}
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins
+
+)
+
 @app.get("/")
 async def root_index():
     return { "message": "Hello from FastAPI" }
