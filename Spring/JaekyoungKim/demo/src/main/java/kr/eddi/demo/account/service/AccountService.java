@@ -1,0 +1,9 @@
+package kr.eddi.demo.account.service;
+
+import kr.eddi.demo.account.service.accountRegisterRequest.AccountRegisterRequest;
+
+public interface AccountService {
+    Boolean checkEmailDuplication(String email);
+
+    Boolean signUp(AccountRegisterRequest request);
+}
