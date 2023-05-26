@@ -12,27 +12,27 @@ export default {
             .then((res) => {
                 if (res.data) {
                     alert('사용 가능한 이메일입니다!')
-                    this.emailPass = true
+                    return true
                 } else {
                     alert('중복된 이메일입니다!')
-                    this.emailPass = false
+                    return false
                 }
             })
             .catch((res) => {
                 alert("문제 발생!")
             })
     },
-    // requestCreateBoardToSpring ({}, payload) {
+    requestCreateBoardToSpring ({}, payload) {
 
-    //     const { title, content, writer } = payload
+        const { title, content, writer } = payload
 
-    //     return axiosInst.post('/jpa-board/register', { title, content, writer })
-    //         .then((res) => {
-    //             alert('게시물 등록 성공!')
-    //             return res
-    //         })
-    //         .catch(() => {
-    //             alert('문제 발생!')
-    //         })
-    // },
+        return axiosInst.post('/jpa-board/register', { title, content, writer })
+            .then((res) => {
+                alert('게시물 등록 성공!')
+                return res
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
 }
