@@ -1,4 +1,3 @@
-
 server:
   port: 7777
 
@@ -19,4 +18,12 @@ spring:
     show-sql: true
     generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
+
+  cache:
+    type: redis
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      username: default
+      password: eddi@123
