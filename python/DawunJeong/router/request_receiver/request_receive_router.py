@@ -11,8 +11,9 @@ async def receive_spring_data():
 
 @request_receiver.get("/request-int-data")
 async def request_integer_process():
-    return random.randrange(3,7)
+    return random.randrange(10,21)
 
+# 아래 두 개는 과제
 @request_receiver.get("/request-second-data")
 async def request_second_number_process():
     return random.randrange(1,10)
@@ -20,3 +21,7 @@ async def request_second_number_process():
 @request_receiver.get("/request-third-data")
 async def request_second_number_process():
     return random.randrange(1,10)
+
+@request_receiver.get('/integer-request')
+async def integer_request_receiver():
+    return random.randrange(15, 21)

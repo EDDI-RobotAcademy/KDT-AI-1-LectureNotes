@@ -11,6 +11,7 @@ from fastapi import Depends, FastAPI
 
 from router.request_receiver.request_receive_router import request_receiver
 
+from fastapi.middleware.cors import CORSMiddleware
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -32,15 +33,8 @@ if __name__ == '__main__':
 
 app = FastAPI()
 
-@app.get("/")
-async def root_index():
-    return { "message": "Hello from FastAPI" }
-
-
-app.include_router(request_receiver)
-
 origins = ["http://localhost:8080"]
-from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -48,3 +42,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+async def root_index():
+    return { "message": "Hello from FastAPI" }
+
+
+app.include_router(request_receiver)

@@ -1,30 +1,34 @@
 <template lang="">
     <div>
-        <h2>Vue <-> Spring <-> FastAPI</h2>
-        <p>{{ receivedInteger }}</p>
+        <h3>Vue <-> Spring <-> FastAPI</h3>
+        <p>{{ receivedSpringFromFastApiInteger }}</p>
     </div>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
+
 const fastApiModule = 'fastApiModule'
-import { mapActions } from 'vuex';
 
 export default {
-    data() {
+    data () {
         return {
-            receivedInteger: 0
+            
         }
+    },
+    computed: {
+        ...mapState(fastApiModule, ['receivedSpringFromFastApiInteger'])
     },
     methods: {
         ...mapActions(fastApiModule, [
             'requestIntegerToFastApiAfterSpring'
-        ])
+        ]),
     },
     async created () {
-        const receivedData = await this.requestIntegerToFastApiAfterSpring()
-        this.receivedInteger = receivedData
+        await this.requestIntegerToFastApiAfterSpring()
     }
 }
+
 </script>
 
 <style lang="">
