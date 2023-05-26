@@ -4,6 +4,7 @@
         <p>{{ receivedSpringFromFastApiInteger }}</p>
         <p>{{ receivedFastApiInteger }}</p>
         <p>{{ receivedSpringInteger }}</p>
+        <p>세 정보의 합: {{ compositionInteger }}</p>
     </div>
 </template>
 
@@ -16,12 +17,16 @@ const springModule = 'springModule'
 export default {
     data () {
         return {
-            
         }
     },
     computed: {
         ...mapState(fastApiModule, ['receivedFastApiInteger', 'receivedSpringFromFastApiInteger']),
-        ...mapState(springModule, ['receivedSpringInteger'])
+        ...mapState(springModule, ['receivedSpringInteger']),
+        compositionInteger () {
+            return this.$store.state.fastApiModule.receivedFastApiInteger +
+                this.$store.state.fastApiModule.receivedSpringFromFastApiInteger +
+                this.$store.state.springModule.receivedSpringInteger
+        }
     },
     methods: {
         ...mapActions(fastApiModule, [
