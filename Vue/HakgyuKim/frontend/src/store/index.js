@@ -7,6 +7,8 @@ import exerciseModule from "./d3Homework1/ExerciseModule";
 import filesModule from "./files/FilesModule";
 import foodModule from "./food/FoodModule";
 import FastApiModule from "./fastapi/FastApiModule";
+import accountModule from "./account/AccountModule";
+import authenticationModule from './authentication/AuthenticationModule'
 
 Vue.use(Vuex);
 
@@ -17,7 +19,9 @@ const store = new Vuex.Store({
     exerciseModule: exerciseModule,
     filesModule: filesModule,
     foodModule: foodModule,
-    FastApiModule: FastApiModule
+    FastApiModule: FastApiModule,
+    accountModule: accountModule,
+    authenticationModule: authenticationModule,
   },
 });
 
