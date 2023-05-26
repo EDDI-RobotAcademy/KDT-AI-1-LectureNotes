@@ -22,9 +22,7 @@ public class GameScore {
 
     @Override
     public String toString() {
-        return "GameScore{" +
-                "totalScore=" + totalScore +
-                '}';
+        return "점수: " + totalScore ;
     }
 
     public int getTotalScore() {
