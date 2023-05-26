@@ -8,6 +8,7 @@ import fileModule from '@/store/files/FileModule'
 import foodModule from '@/store/food/FoodModule'
 import FastApiModule from './fastapi/FastApiModule'
 import accountModule from './account/AccountModule'
+import authenticationModule from './authentication/AuthenticationModule'
 
 Vue.use(Vuex)
 
@@ -21,6 +22,7 @@ const store = new Vuex.Store({
     foodModule: foodModule,
     fastApiModule: FastApiModule,
     accountModule: accountModule,
+    authenticationModule: authenticationModule,
   }
 })
 

@@ -6,14 +6,18 @@
 
 <script>
 import SignInForm from '@/components/account/SignInForm.vue';
+import { mapActions } from "vuex"
+
+const authenticationModule = 'authenticationModule'
 
 export default {
     components: {
         SignInForm
     },
     methods: {
-        onSubmit() {
-
+        ...mapActions(authenticationModule, ['requestGithubLoginToSpring']),
+        async onSubmit() {
+            window.location.href = await this.requestGithubLoginToSpring
         }
     }
 }

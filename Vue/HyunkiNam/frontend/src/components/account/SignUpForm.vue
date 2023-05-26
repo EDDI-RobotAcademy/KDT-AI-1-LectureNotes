@@ -86,12 +86,11 @@ export default {
                 const { email } = this
                 console.log('before actions - email: ' + email)
                 this.emailPass = await this.requestSpringToCheckEmailDuplication({ email })
-
             }
         },
         isFormValid() {
-            return this.emailPass && this.email_rule[1](this.email === true)
-        },
+            return this.emailPass && this.email_rule[1](this.email) === true
+        }
     },
 }
 

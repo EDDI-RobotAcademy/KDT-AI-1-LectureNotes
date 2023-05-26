@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### 보안설정 ###
+test.properties
