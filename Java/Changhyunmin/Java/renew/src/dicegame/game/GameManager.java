@@ -3,13 +3,14 @@ package dicegame.game;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import dicegame.game.GameScore;
 
 public class GameManager {
-    final private int PLAYER_NUM;
+    final private int PLAYER_NUM = new Scanner(System.in).nextInt();
+    ;
     final private List<Player> playerList = new ArrayList<>();
 
     public GameManager() {
-        PLAYER_NUM = new Scanner(System.in).nextInt();
 
         for (int i = 0; i < PLAYER_NUM; i++) {
 
@@ -19,9 +20,10 @@ public class GameManager {
     }
     private int findTargetPlayerIndex (int currentPlayerIndex) {
         // 상대편 찾기 (1:1 상황)
+
         int targetPlayerIndex = 0;
         if (currentPlayerIndex == 0) {
-            targetPlayerIndex = 1;
+            targetPlayerIndex = PLAYER_NUM;
         }
         return targetPlayerIndex;
     }
@@ -49,10 +51,11 @@ public class GameManager {
 
         for (int i = 0; i < PLAYER_NUM; i++) {
 
-
             int currentPlayerSpecialDiceNumber = findSpecialDiceNumber(i);
             if (currentPlayerSpecialDiceNumber == 0) { continue; }
+
             // TODO: 확장성이 떨어지므로 개선 필요 -> 상대편 찾기 (1:1 상황)
+
             int targetPlayerIndex = findTargetPlayerIndex(i);
 
             GameScore targetPlayerScore =
@@ -63,10 +66,16 @@ public class GameManager {
 
             switch (currentPlayerSpecialDiceNumber) {
                 case STEAL:
-                    targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
+                    for (int ii = 0; ii < playerList.size(); ii++){
+                      playerList.get(ii).getGameScore();
+                        targetPlayerScore.takeScore
+                                (playerList.get(ii).getGameScore(), STEAL_SCORE);
+                        currentPlayerScore.addScore(STEAL_SCORE * PLAYER_NUM);
+                    }
+                    //targetPlayerScore.takeScore(currentPlayerScore, STEAL_SCORE);
                     break;
                 case BUFF:
-                    currentPlayerScore.addScore(BUFF_SCORE);
+                    currentPlayerScore.addScore(BUFF_SCORE * PLAYER_NUM);
                     break;
                 case DEATH:
                     currentPlayerScore.loseAll(DEATH_SCORE);
@@ -82,21 +91,14 @@ public class GameManager {
     }
 
     public void checkWinner() {
-        GameScore firstPlayerScore = playerList.get(0).getGameScore();
-        GameScore secondPlayerScore = playerList.get(1).getGameScore();
-
-        final int firstPlayerScoreTotalScore = firstPlayerScore.getTotalScore();
-        final int secondPlayerScoreTotalScore = secondPlayerScore.getTotalScore();
-
-        if (firstPlayerScoreTotalScore > secondPlayerScoreTotalScore) {
-            System.out.println("승자: " + playerList.get(0).getName());
-            return;
+        List<Integer> ResultScoreList = new ArrayList<>();
+        for (int i = 0; i < playerList.size(); i++) {
+        GameScore ResultScore = playerList.get(i).getGameScore();
+        ResultScoreList.add(ResultScore.getTotalScore());
         }
-        if (firstPlayerScoreTotalScore < secondPlayerScoreTotalScore) {
-            System.out.println("승자: " + playerList.get(1).getName());
-            return;
-        }
+        int[] rank = new int[ResultScoreList.size()];
 
-        System.out.println("무승부");
+
+
     }
 }

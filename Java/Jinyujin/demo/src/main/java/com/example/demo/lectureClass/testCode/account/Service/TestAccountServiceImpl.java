@@ -64,6 +64,7 @@ public class TestAccountServiceImpl implements TestAccountService{
 
         TestAccount account = maybeAccount.get();
         // 있으면 account에 저장
+        // TestAccount 형식으로 저장하면 그 형식에 맞춰서 다 들고 오게 됨
 
         if (account.getPassword().equals(requestForm.getPassword())) {
             log.debug("로그인 성공!");
