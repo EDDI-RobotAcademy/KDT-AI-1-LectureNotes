@@ -12,7 +12,7 @@ import fastApiModule from '@/store/fastapi/FastApiModule.js'
 import springModule from './spring/FastApiModule.js'
 import accountModule from '@/store/account/AccountModule.js'
 
-import authenticationModule from '@/store/authentication/AuthenticationModule.js'
+import authenticationModule from '@/store/authentication/AuthenticationModule'
 
 Vue.use(Vuex)
 

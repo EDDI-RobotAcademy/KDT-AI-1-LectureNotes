@@ -1,18 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import mutations from "@/store/authentication/mutations"
-import actions from "@/store/authentication/actions"
-import state from "@/store/authentication/states"
+import mutations from "@/store/account/mutations"
+import actions from "@/store/account/actions"
+import state from "@/store/account/states"
 
 Vue.use(Vuex)
 
 
-const AuthenticationModule = {
+const AccountModule = {
     namespaced: true,
     state, // 게시물 상태
     actions,
     mutations,
 }
 
-export default AuthenticationModule
+export default AccountModule
