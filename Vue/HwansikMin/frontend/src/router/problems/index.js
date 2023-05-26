@@ -7,6 +7,8 @@ import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
 import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
 import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
 
+import CompositionProblemPage from '@/views/homework/composition/problem/CompositionProblemPage.vue'
+
 Vue.use(VueRouter)
 
 const problemRoutes = [
@@ -34,6 +36,11 @@ const problemRoutes = [
         path: '/problem-page5',
         name: 'Problem5Page',
         component: Problem5Page
+    },
+    {
+        path: '/composition-problem-page',
+        name: 'CompositionProblemPage',
+        component: CompositionProblemPage
     },
 ]
 
