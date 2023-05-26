@@ -1,18 +1,20 @@
 <template lang="">
     <div>
-        <p>임시</p>
+        <sign-in-form @submit="onSubmit"></sign-in-form>
     </div>
 </template>
 
 <script>
-
+import SignInForm from "@/components/account/SignInForm.vue"
 
 export default {
     components: {
-
+        SignInForm,
     },
     methods: {
+        onSubmit () {
 
+        }
     }
 }
 
