@@ -3,7 +3,6 @@
         <label>
             <input type="checkbox" v-model="isChecked">{{ isChecked }}
         </label>
-        
     </div>
 </template>
 <script>
