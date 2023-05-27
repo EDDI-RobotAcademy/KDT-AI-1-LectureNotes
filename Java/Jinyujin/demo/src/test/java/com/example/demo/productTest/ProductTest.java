@@ -1,6 +1,6 @@
 package com.example.demo.productTest;
 
-import com.example.demo.lectureClass.testCode.product.Service.TestProductService;
+import com.example.demo.lectureClass.testCode.product.service.TestProductService;
 import com.example.demo.lectureClass.testCode.product.controller.form.TestProductRequestForm;
 import com.example.demo.lectureClass.testCode.product.entity.TestProduct;
 import org.junit.jupiter.api.DisplayName;

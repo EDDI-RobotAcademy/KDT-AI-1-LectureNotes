@@ -11,7 +11,7 @@
             <h6>3인 경우 자신에게 2점을 가산합니다.</h6>
             <h6>4인 경우 무조건 패배합니다.</h6>
         </div>
-        <v-btn color="primary" @click="startDiceGameWithComputer"> 컴퓨터와 주사위 게임 시작! </v-btn>
+            <v-btn color="primary" @click="startDiceGameWithComputer"> 컴퓨터와 주사위 게임 시작! </v-btn>
         <p>{{ result }}</p>
         <table v-for="(player,index) in this.playerList" :key="index">
             <tr>

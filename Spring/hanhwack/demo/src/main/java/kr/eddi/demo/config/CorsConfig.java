@@ -10,8 +10,8 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://127.0.0.1:8081")    // vue는 허용하겠다는 소리
-                .allowedOrigins("http://localhost:8081")
+                .allowedOrigins("http://127.0.0.1:8080")    // vue는 허용하겠다는 소리
+                .allowedOrigins("http://localhost:8080")
                 .allowedMethods("GET", "POST", "PUT", "DELETE");
     }
 }

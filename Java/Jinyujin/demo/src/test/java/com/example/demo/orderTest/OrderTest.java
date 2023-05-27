@@ -9,6 +9,7 @@ import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderLis
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderRequestForm;
 import com.example.demo.lectureClass.testCode.order.entity.TestOrder;
 import com.example.demo.lectureClass.testCode.order.service.TestOrderService;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//@Slf4j
 @SpringBootTest
 public class OrderTest {
 
@@ -56,7 +58,9 @@ public class OrderTest {
         // 얘는 상품이랑 토큰 정보 두 개 다 처리해야함
         // 그래서 사실상 orderService에서 order를 해줘야 하고
         // 주문이 들어갈꺼니까 리턴된 오더를 봐야함
-        TestOrder order = testOrderService.order(orderRequestForm, accountId);  // 실제로 accountId 주면 안됨
+        TestOrder order = testOrderService.order(orderRequestForm, accountId);
+        // 실제로 accountId 주면 안됨
+        // 원래는 userToken으로 찾는데 지금은 accountId로 고정시켜서 찾기 위함
 
         assertEquals(productId, order.getTestProduct().getId());
         assertEquals(accountId, order.getTestAccount().getId());
@@ -71,40 +75,33 @@ public class OrderTest {
 
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
+        // 주문한 회원에 대한 정보 가져오기
+        // email과 password를 requestForm 형식으로 받고
+        // userToken으로 반환해주는 것
+
         String userToken = responseForm.getUserToken().toString();
 
+        // 요청한 상품 받아오기
         TestOrderListRequestForm orderListRequestForm = new TestOrderListRequestForm(userToken);
+        // 로그인 완료하면 userToken 반환받음
+        // 그 userToken이 주문한 상품 받아오고 service로 찾아오기
         List<TestOrder> orderListForAccount = testOrderService.orderListForAccount(orderListRequestForm, accountId);
+        // 계정에 대한 주문 리스트
         System.out.println("orderListForAccount size: " + orderListForAccount.size());
+        // 출력문은 서비스 임플 작성하고 와서 출력해줌
+//        log.info("orderListForAccount size: " + orderListForAccount.size());
+        // log.info는 서버에서 제대로 실행되는지 확인하려는 것
+        // test 페이지에서 사용하려면 gradle에서 뭔가를 추가해야 한대
 
+        // 리스트는 foreach 돌리기
         for (TestOrder order: orderListForAccount) {
             assertEquals(accountId, order.getTestAccount().getId());
+            // 리턴을 해도 되지만 지금은 리턴 값이 없음
+            // 그래서 assertEquals 이용
+            // 내가 위에 입력해둔 aacount id가 order에 있는 id와 같은지 확인
+            // assertEquals,True는 서비스 임플 진행하고 화서 확인해도 될 듯?
         }
     }
-    /* “회원이 주문한 상품을 조회합니다”
-        회원 이메일이랑 패스워드 작성하고
-        폼이랑 유저토큰 그대로 가져옴
-        ----- 여기까지는 주문한 회원에 대한 정보 가져오기 -----
-        오더리퀘스트 폼을 작성함 - 요청한 상품 받아오기
-        이걸 가지고 작업해야함
-        오더서비스.orderListForAccount -> 계정에 대한 주문 리스트라는 것을 알 수 있음
-        그리고 orderList를 받아오는데 이거는 어카운트에 관한 것이니까
-        orderListForAccount라고 만들어도 됨
-        asssertEquals(accountId)
-        -> 리턴을 해도 되지만 지금은 리턴이 없으니까 이퀄스로 작성
-        리스트는 foreach돌림
-        그래서 테스트 오더 객체를 가진 오더리스트포어카운트에 있는 내역들을 하나씩 order에 담아줌
-        그리고 내가 입력해둔 accountId가 order에 있는 아이디와 같냐
-       (어카운트 아이디에는 아이디 나올 것이니까 위에 추가해주기
-       1번 회원이 구매한 오더리스트를 쭉 볼 것)
-
-       이제 테스트오더리퀘스트폼 가서 작성해주기
-       테스트 오더 서비스와 임플에도 구색 맞춰주기
-
-       작성하고 와서 sout 추가 -> 리스트 사이즈 확인
-       -> 여기서는 log.info 쓰는게 안 맞는건가?
-       ------------ 사용자 주문 내역 조회 완료 ------------
-     */
 
     // 추가 구매 유도
     @Test
