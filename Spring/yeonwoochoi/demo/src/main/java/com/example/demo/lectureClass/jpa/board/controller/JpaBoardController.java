@@ -51,9 +51,13 @@ public class JpaBoardController {
     @PostMapping("/register") // 작은 주소
     // JpaBoard 타입
     // @RequestBody 받아온 값을 받는다.
+    // 프론트에서 requestBoardForm으로 받음
     public JpaBoard registerBoard (@RequestBody RequestBoardForm requestBoardForm) {
         log.info("registerBoard()");
 
+        // 서비스에서 기능
+        // 받아온 requestBoardForm를 등록
+        // toJpaBoard() -> title, writer, content
         return boardService.register(requestBoardForm.toJpaBoard());
     }
 
@@ -61,10 +65,11 @@ public class JpaBoardController {
     // Id값을 읽고 객체를 준다.
     // ("/{boardId}") 가변인자 처리 >> 안하게 되면 100만개 하나 하나 작성
     @GetMapping("/{boardId}")
+    // 데이터를 받아올 때는 @RequestParam을 쓴다.
     public JpaBoard readBoard (@PathVariable("boardId") Long boardId) {
         log.info("boardRead()");
 
-        // 서비스에 리드에 전달
+        // 서비스에 read(boardId) 전달
         return boardService.read(boardId);
     }
 
@@ -72,20 +77,25 @@ public class JpaBoardController {
     // "/{boardId}" Id값을 읽고 아무것도 안줌
     @DeleteMapping("/{boardId}")
     public void deleteBoard (@PathVariable("boardId") Long boardId) {
+        // 읽기에 대한 정보를 보려고 log를 찍어본 것
         log.info("boardRead()");
 
+        // 서비스에 delete(boardId) 전달
         boardService.delete(boardId);
     }
 
     // 수정
     // Id값을 읽고 무언가를 줌
     @PutMapping("/{boardId}")
-    // @PathVariable 가변인자 (1 ~ 100까지 수정하기 힘들어서 입력값이 수정될 수 있도록 사용한다.)
+    // @PathVariable
     // PathVariable를 통하여 boardId 값을 전달한다.
     public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
+                                 // RequestBoardForm
+                                 // toJpaBoard() -> title, writer, content
                                  @RequestBody RequestBoardForm requestBoardForm) {
         log.info("modifyBoard(): " + requestBoardForm + ", id: " + boardId);
 
+        // 서비스에 modify(boardId, requestBoardForm) 전달
         return boardService.modify(boardId, requestBoardForm);
     }
 }

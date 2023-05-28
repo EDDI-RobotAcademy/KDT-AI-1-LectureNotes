@@ -17,8 +17,6 @@ public class Dice {
 
     @Override
     public String toString() {
-        return "Dice{" +
-                "diceNumber=" + diceNumber +
-                '}';
+        return "주사위 값: " + diceNumber;
     }
 }

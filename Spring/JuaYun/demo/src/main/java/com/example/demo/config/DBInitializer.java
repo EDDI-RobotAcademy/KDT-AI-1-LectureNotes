@@ -6,6 +6,9 @@ import com.example.demo.lectureClass.aggregateRoot.food.entity.Category;
 import com.example.demo.lectureClass.aggregateRoot.food.entity.CategoryType;
 import com.example.demo.lectureClass.aggregateRoot.food.repository.AmountRepository;
 import com.example.demo.lectureClass.aggregateRoot.food.repository.CategoryRepository;
+import com.example.demo.lectureClass.refactorAccount.entity.Role;
+import com.example.demo.lectureClass.refactorAccount.entity.RoleType;
+import com.example.demo.lectureClass.refactorAccount.repository.RoleRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -79,12 +82,12 @@ public class DBInitializer {
             final Set<RoleType> roles =
                     roleRepository.findAll().stream()
                             .map(Role::getRoleType)
-                            .collect(collectors.teSet());
+                            .collect(Collectors.toSet());
 
             for (RoleType type: RoleType.values()) {
                 if (!roles.contains(type)) {
                     final Role role = new Role(type);
-                    roleRepository.sane(role);
+                    roleRepository.save(role);
                 }
             }
         } catch (Exception e) {
