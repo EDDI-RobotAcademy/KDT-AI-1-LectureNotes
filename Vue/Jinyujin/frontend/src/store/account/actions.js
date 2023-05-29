@@ -22,7 +22,7 @@ export default {
                 alert("문제 발생!")
             })
     },
-    requestRegisterAccountToSpring({}, payload) {
+    requestRegisterAccountToSpring({ }, payload) {
         const { email } = payload
         return axiosInstances.springAxiosInst.post('/account/sign-up', { email })
             .then((res) => {

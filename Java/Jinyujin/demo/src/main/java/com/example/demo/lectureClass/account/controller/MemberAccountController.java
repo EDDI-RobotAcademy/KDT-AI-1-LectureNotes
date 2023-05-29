@@ -27,4 +27,9 @@ public class MemberAccountController {
 
         return accountService.signUp(form.toAccountRegisterRequest());
     }
+
+    //    @GetMapping("/github/login")
+//    public void githubLoginCallback(HttpServletResponse response) throws IOException {
+//        response.sendRedirect("http://localhost:8080/");
+//    }
 }

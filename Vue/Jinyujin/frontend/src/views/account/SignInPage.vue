@@ -1,42 +1,26 @@
 <template lang="">
     <div>
-        <p>임시</p>
-    </div>
-</template>
-
-<script>
-export default {
-    components: {
-    },
-    methods: {
-    }
-}
-</script><template lang="">
-    <div>
         <sign-in-form @submit="onSubmit"></sign-in-form>
     </div>
 </template>
 
 <script>
 import SignInForm from "@/components/account/SignInForm.vue"
-
+import { mapActions } from "vuex";
+const authenticationModule = 'authenticationModule'
 export default {
     components: {
         SignInForm,
     },
     methods: {
-        onSubmit () {
-
+        ...mapActions(authenticationModule, ['requestGithubLoginToSpring']),
+        async onSubmit() {
+            console.log('Sign In Request to Spring!')
+            window.location.href = await this.requestGithubLoginToSpring()
         }
     }
 }
-
 </script>
-
-<style lang="">
-    
-</style>
-
 <style lang="">
     
 </style>
