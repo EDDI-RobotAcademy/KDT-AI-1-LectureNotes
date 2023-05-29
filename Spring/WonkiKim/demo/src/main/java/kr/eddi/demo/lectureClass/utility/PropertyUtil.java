@@ -7,7 +7,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @RequiredArgsConstructor
-@PropertySource("classpath:secret.properties")
+@PropertySource("classpath:secrte.properties")
 public class PropertyUtil {
 
     final private Environment environment;
