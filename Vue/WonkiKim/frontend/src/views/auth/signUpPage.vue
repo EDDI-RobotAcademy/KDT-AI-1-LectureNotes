@@ -20,7 +20,7 @@ export default {
     methods: {
       submit() {
           const {email, password} = this
-          axiosInst.post("/auth/sign-up", {email, password})
+          axiosInst.post("/auth-account/sign-up", {email, password})
             .then(()=>alert("success"))
             .catch(()=>alert("fail"))
       }
