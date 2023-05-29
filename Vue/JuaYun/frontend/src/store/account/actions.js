@@ -1,14 +1,14 @@
 import {
 } from './mutation-types'
 
-import axiosInst from '@/utility/axiosInst'
+import axiosInstances from '@/utility/axiosInst'
 
 export default {
-    requestSpringToCheckEmailDuplication ({}, payload) {
+    requestSpringToCheckEmailDuplication ({ }, payload) {
         const { email } = payload
         console.log('email: ' + email)
 
-        return axiosInst.springAxiosInst.get(`/account/check-email/${email}`)
+        return axiosInstances.springAxiosInst.get(`/account/check-email/${email}`)
             .then((res) => {
                 if (res.data) {
                     alert('사용 가능한 이메일입니다!')
@@ -22,11 +22,11 @@ export default {
                 alert("문제 발생!")
             })
     },
-    requestRegisterAccountToSpring ({}, payload) {
+    requestRegisterAccountToSpring ({ }, payload) {
 
-        const { email} = payload
+        const { email } = payload
 
-        return axiosInst.post('/account/sign-up', { email })
+        return axiosInstances.springAxiosInst.post('/account/sign-up', { email })
             .then((res) => {
                 alert('회원 신청하기 성공!')
                 return res.data
