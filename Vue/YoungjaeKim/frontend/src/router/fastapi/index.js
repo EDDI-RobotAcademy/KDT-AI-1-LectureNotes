@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import FastApiDataSendPage from '@/views/fastapi/FastApiDataSendPage.vue'
+import FastApiDataSendTestPage from '@/views/fastapi/FastApiDataSendTestPage.vue'
 
 Vue.use(VueRouter)
 
 const fastApiTestRoutes = [
     {
         path: '/fastapi-test-page',
-        name: 'FastApiDataSendPage',
-        component: FastApiDataSendPage
+        name: 'FastApiDataSendTestPage',
+        component: FastApiDataSendTestPage
     }
 ]
 

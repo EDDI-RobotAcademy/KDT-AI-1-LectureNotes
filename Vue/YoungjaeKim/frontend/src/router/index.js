@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import ProductListPage from '@/views/product/ProductListPage.vue'
-
 import vuetifyTestRoutes from './uiVuetify'
 //import productRoutes from './product'
 import boardRoutes from './board'
@@ -17,6 +15,7 @@ import d3PlotTestRoutes from './d3plot'
 import filesTestRoutes from './files'
 import foodSetRoutes from './food'
 import fastApiTestRoutes from './fastapi'
+import accountTestRoutes from './account'
 
 Vue.use(VueRouter)
 
@@ -35,11 +34,12 @@ const routes = [
   ...filesTestRoutes,
   ...foodSetRoutes,
   ...fastApiTestRoutes,
+  ...accountTestRoutes,
 ]
 
 const router = new VueRouter({
-  mode : 'history',
-  base : process.env.BASE_URL,
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

@@ -36,7 +36,7 @@
             </v-btn>
         </v-app-bar>
 
-        <v-navigation-drawer app v-model="navigation_drewer">
+        <v-navigation-drawer app v-model="navigation_drawer">
             <v-list-item>
                 <v-list-item-content>
                     <v-list-item-title class="text-h6">EDDI</v-list-item-title>

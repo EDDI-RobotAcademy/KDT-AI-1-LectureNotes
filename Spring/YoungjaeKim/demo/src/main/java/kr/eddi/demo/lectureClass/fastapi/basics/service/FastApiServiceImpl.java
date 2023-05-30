@@ -34,10 +34,8 @@ public class FastApiServiceImpl implements FastApiService {
     public Integer integerRequest(String fastapiRequestUrl) {
         RestTemplate restTemplate = new RestTemplate();
 
-        Integer result = restTemplate.getForObject(
+        return restTemplate.getForObject(
                 fastapiRequestUrl,
                 Integer.class);
-
-        return result;
     }
 }

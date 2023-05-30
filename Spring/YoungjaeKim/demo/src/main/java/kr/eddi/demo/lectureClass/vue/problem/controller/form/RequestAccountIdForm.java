@@ -10,9 +10,9 @@ import lombok.ToString;
 @NoArgsConstructor
 public class RequestAccountIdForm {
 
-    private Long gameAccountId;
+    private int gameAccountId;
 
-    public RequestAccountIdForm(Long gameAccountId) {
+    public RequestAccountIdForm(int gameAccountId) {
         this.gameAccountId = gameAccountId;
     }
 }
