@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @RequiredArgsConstructor
-@PropertySource("classpath:test.properties")
+@PropertySource(value = {"classpath:github.properties", "classpath:redis.properties"})
 public class PropertyUtil {
 
     final private Environment environment;
