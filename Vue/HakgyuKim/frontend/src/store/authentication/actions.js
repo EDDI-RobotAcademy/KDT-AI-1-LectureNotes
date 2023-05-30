@@ -2,6 +2,7 @@ import {
 } from './mutation-types'
 
 import axiosInstances from '@/utility/axiosInst'
+import router from '@/router'
 
 export default {
 
@@ -24,7 +25,8 @@ export default {
         setTimeout(() => console.log('after'), 3000)
         axiosInstances.springAxiosInst.get(`/authentication/github/oauth-code?code=${code}`)
             .then((res) => {
-                alert("res: " + JSON.stringify(res.data))
+                // alert("res: " + JSON.stringify(res.data))
+                localStorage.setItem("userToken", res.data)
                 router.push('/')
             })
             .catch((res) => {
