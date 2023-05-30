@@ -85,7 +85,9 @@ public class TestAccountServiceImpl implements TestAccountService {
                     (new TestAccountResponseForm(
                              account.getId(), account.getEmail()));
         }
-
         return responseFormList;
+
+        // 여기는 JpaAccount 와는 다르게 이미 계정이 있다는 가정을 하고 시작하기 때문에
+        // 계정이 없다는 가정자체가 필요가 없음
     }
 }
