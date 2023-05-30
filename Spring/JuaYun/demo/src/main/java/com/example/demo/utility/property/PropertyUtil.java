@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.utility.property;
+package com.example.demo.utility.property;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @RequiredArgsConstructor
-@PropertySource("classpath:test.properties")
+@PropertySource(value = {"classpath:github.properties", "classpath:redis.properties"})
 public class PropertyUtil {
 
     final private Environment environment;

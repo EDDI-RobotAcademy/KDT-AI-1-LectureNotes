@@ -3,7 +3,7 @@ package com.example.demo.lectureClass.authentication.github.service;
 import com.example.demo.lectureClass.authentication.github.service.request.GithubOauthTokenRequest;
 import com.example.demo.lectureClass.authentication.github.service.response.GithubOauthAccessTokenResponse;
 import com.example.demo.lectureClass.authentication.github.service.response.GithubOauthAccountInfoResponse;
-import com.example.demo.lectureClass.utility.property.PropertyUtil;
+import com.example.demo.utility.property.PropertyUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
