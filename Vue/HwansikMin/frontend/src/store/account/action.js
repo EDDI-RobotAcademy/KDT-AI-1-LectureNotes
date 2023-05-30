@@ -4,7 +4,7 @@ import {
 import axiosInstances from '@/utility/axiosInst'
 
 export default {
-    requestSpringToCheckEmailDuplication ({}, payload) {
+    requestSpringToCheckEmailDuplication ({ }, payload) {
         const { email } = payload
         console.log('email: ' + email)
 
@@ -22,7 +22,7 @@ export default {
                 alert("문제 발생!")
             })
     },
-    requestCreateBoardToSpring ({}, payload) {
+    requestRegisterAccountToSpring ({ }, payload) {
 
         const { title, content, writer } = payload
 
