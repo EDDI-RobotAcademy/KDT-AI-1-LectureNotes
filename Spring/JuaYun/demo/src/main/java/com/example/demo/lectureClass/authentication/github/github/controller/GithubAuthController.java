@@ -1,6 +1,6 @@
-package com.example.demo.lectureClass.authentication.github.controller;
+package com.example.demo.lectureClass.authentication.github.github.controller;
 
-import com.example.demo.lectureClass.authentication.github.service.GithubOauthService;
+import com.example.demo.lectureClass.authentication.github.github.service.GithubOauthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
