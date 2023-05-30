@@ -11,6 +11,13 @@
                     </router-link>
                     <v-card width="460">
                         <v-card-text class="text-center px-12 py-16">
+                            <!--
+                                유효성 검사를 위해
+                                v-text-field 에다가 :rules="ruleName"
+                                
+                                그리고 폼 안에 데이터 모두 유효성 검사가 통과했는지 안 했는지
+                                판단하기 위해 v-form 에다가 ref="form"를 넣어준다.
+                            -->
                             <v-form @submit.prevent="onSubmit" ref="form">
                                 <div class="text-h4 font-weight-black mb-10">회원 신청하기</div>
                                 <div class="d-flex">
@@ -65,6 +72,15 @@ export default {
     methods: {
         ...mapActions('accountModule', ['requestSpringToCheckEmailDuplication']),
         onSubmit () {
+            /*
+                저장 버튼을 눌렀을 때,
+                유효성 검사가 모두 통과했는지 안 했는지 확인하는 방법
+
+                const validata = this.$refs.form.validata();
+
+                이거 한 줄만 넣으면 v-text-field 안에 :rules가 사용된
+                필드들이 모두 유효성 검사를 통과하면 ture를 반환한다.
+            */
             if (this.$refs.form.validate()) {
                 const { email } = this
                 this.$emit("submit", { email })
@@ -90,6 +106,9 @@ export default {
         },
         isFormValid () {
             return this.emailPass && this.email_rule[1](this.email) === true
+            /*
+                아이디 중복이 되지 않고, 올바른 형식의 아이디이면 return
+            */
         }
     },
 }

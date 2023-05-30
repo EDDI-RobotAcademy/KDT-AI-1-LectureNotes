@@ -4,6 +4,7 @@ import {
 import axiosInstances from '@/utility/axiosInst'
 
 export default {
+    // 아이디 중복확인
     requestSpringToCheckEmailDuplication ({ }, payload) {
         const { email } = payload
         console.log('email: ' + email)
@@ -22,6 +23,7 @@ export default {
                 alert("문제 발생!")
             })
     },
+    // 회원 가입
     requestRegisterAccountToSpring ({ }, payload) {
 
         const { email } = payload

@@ -5,9 +5,11 @@ import {
 import axiosInstances from '@/utility/axiosInst'
 
 export default {
-
+    /*
+        Github Oauth Apps에 있는 client_id를 넣어서 URL 요청하려고
+        주소값을 String으로 받아오는 부분
+    */
     requestGithubLoginToSpring ({ }) {
-
         return axiosInstances.springAxiosInst.get('/authentication/github/login')
             .then((res) => {
                 return res.data
