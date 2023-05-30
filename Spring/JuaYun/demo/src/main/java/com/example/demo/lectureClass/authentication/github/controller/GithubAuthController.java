@@ -1,6 +1,8 @@
-package com.example.demo.lectureClass.authentication.github.github.controller;
+package com.example.demo.lectureClass.authentication.github.controller;
 
-import com.example.demo.lectureClass.authentication.github.github.service.GithubOauthService;
+import com.example.demo.lectureClass.authentication.github.service.GithubOauthService;
+import com.example.demo.lectureClass.authentication.github.service.response.GithubOauthAccountInfoResponse;
+import com.example.demo.lectureClass.authentication.redis.RedisService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/authentication")
 public class GithubAuthController {
     final private GithubOauthService githubOauthService;
+
+    final private RedisService redisService;
 
     // Github OAuth 인증 과정 요약 정리
     // 1. 사용자가 깃헙 로그인 인증을 요청하면
@@ -44,7 +48,10 @@ public class GithubAuthController {
         log.info("getGithubUserInfo(): " + code);
 
         String accessToken = githubOauthService.getAccessToken(code);
-
         log.info("accessToken: " + accessToken);
+
+        GithubOauthAccountInfoResponse oauthAccountInfoResponse =
+                githubOauthService.getAccountInfo(accessToken);
+        //redisService.getValueByKey();
     }
 }

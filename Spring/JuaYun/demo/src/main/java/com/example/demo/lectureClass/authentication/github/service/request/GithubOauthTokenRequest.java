@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.authentication.github.github.service.request;
+package com.example.demo.lectureClass.authentication.github.service.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
