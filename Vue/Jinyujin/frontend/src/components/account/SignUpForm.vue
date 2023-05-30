@@ -48,7 +48,7 @@ import { mapActions } from 'vuex'
 const accountModule = 'accountModule'
 
 export default {
-    data () {
+    data() {
         return {
             email: "",
             emailPass: false,
@@ -64,7 +64,7 @@ export default {
     },
     methods: {
         ...mapActions('accountModule', ['requestSpringToCheckEmailDuplication']),
-        onSubmit () {
+        onSubmit() {
             if (this.$refs.form.validate()) {
                 const { email } = this
                 this.$emit("submit", { email })
@@ -76,7 +76,7 @@ export default {
                 alert("이메일 중복 확인을 해주세요!")
             }
         },
-        async checkDuplicateEmail () {
+        async checkDuplicateEmail() {
             const emailValid = this.email.match(
                 /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             )
@@ -88,7 +88,7 @@ export default {
                 this.emailPass = await this.requestSpringToCheckEmailDuplication({ email })
             }
         },
-        isFormValid () {
+        isFormValid() {
             return this.emailPass && this.email_rule[1](this.email) === true
         }
     },

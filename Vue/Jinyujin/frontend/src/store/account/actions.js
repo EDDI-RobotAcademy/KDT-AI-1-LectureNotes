@@ -23,7 +23,9 @@ export default {
             })
     },
     requestRegisterAccountToSpring({ }, payload) {
+
         const { email } = payload
+
         return axiosInstances.springAxiosInst.post('/account/sign-up', { email })
             .then((res) => {
                 alert('회원 신청하기 성공!')

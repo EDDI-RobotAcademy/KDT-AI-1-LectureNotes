@@ -18,7 +18,7 @@
                                         :src="require('@/assets/icon-github.svg')" 
                                         width="120" class="mx-auto mb-6"></v-img>
                                 </div>
-
+                                
                                 <v-btn type="submit" block x-large rounded
                                         color="gray lighten-1" class="mt-6"
                                         :disabled="false">
@@ -40,14 +40,16 @@
 </template>
 
 <script>
+
 export default {
-    
+
     methods: {
-        onSubmit () {
+        onSubmit() {
             this.$emit("submit")
         },
     },
 }
+
 </script>
 
 <style lang="">

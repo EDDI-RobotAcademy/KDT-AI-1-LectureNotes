@@ -7,7 +7,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @RequiredArgsConstructor
-//@PropertySource("classpath:test.properties")
+@PropertySource(value = {"classpath:github.properties", "classpath:redis.properties"})
 // 이거 때문에 파일 경로 못 찾는다는 오류 있음
 public class PropertyUtil {
 

@@ -10,7 +10,7 @@ import foodModule from './food/FoodModule'
 import fastApiModule from './fastapi/FastApiModule'
 import vueSpringFastApiModule from './vueSpringFastApi/VueSpringFastApiModule'
 import accountModule from './account/AccountModule'
-import authenticationModule from './account/AccountModule'
+import authenticationModule from './authentication/AuthenticationModule'
 
 Vue.use(Vuex)
 

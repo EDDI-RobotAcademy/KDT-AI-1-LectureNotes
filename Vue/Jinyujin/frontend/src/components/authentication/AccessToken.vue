@@ -2,9 +2,10 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 const authenticationModule = 'authenticationModule'
 
-import { mapActions } from 'vuex';
 export default {
     methods: {
         ...mapActions(authenticationModule, ['getAccessTokenFromSpringRedirection']),

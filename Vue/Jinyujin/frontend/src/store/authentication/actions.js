@@ -6,6 +6,7 @@ import axiosInstances from '@/utility/axiosInst'
 export default {
 
     requestGithubLoginToSpring({ }) {
+
         return axiosInstances.springAxiosInst.get('/authentication/github/login')
             .then((res) => {
                 console.log('result: ' + res.data)
@@ -15,7 +16,7 @@ export default {
                 alert("문제 발생!")
             })
     },
-    getAccessToknFromSpringRedirection(payload) {
+    getAccessTokenFromSpringRedirection({ }, payload) {
         const { code } = payload
         console.log('ready to request access token: ' + JSON.stringify(payload))
         console.log('code: ' + code)
