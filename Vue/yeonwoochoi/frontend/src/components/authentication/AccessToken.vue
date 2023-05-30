@@ -3,6 +3,9 @@
 
 <script>
 import { mapActions } from 'vuex';
+
+const authenticationModule = 'authenticationModule'
+
 export default {
     methods: {
         ...mapActions(authenticationModule, ['getAccessTokenFromSpringRedirection']),
@@ -17,7 +20,6 @@ export default {
     }
 }
 </script>
-
 <style lang="">
     
 </style>
