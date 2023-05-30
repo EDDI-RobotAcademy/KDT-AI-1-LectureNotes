@@ -14,4 +14,4 @@ const AuthenticationModule = {
     mutations,
 }
 
-export default AuthenticationModul
+export default AuthenticationModule
