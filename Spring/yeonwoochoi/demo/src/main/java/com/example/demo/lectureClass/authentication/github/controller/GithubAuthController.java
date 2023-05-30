@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.authentication.github.controller;
 
+import com.example.demo.lectureClass.account.service.AccountService;
 import com.example.demo.lectureClass.authentication.github.service.GithubOauthService;
 import com.example.demo.lectureClass.authentication.github.service.response.GithubOauthAccountInfoResponse;
 import com.example.demo.lectureClass.authentication.redis.RedisService;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GithubAuthController {
 
     final private GithubOauthService githubOauthService;
+    final private AccountService accountService;
     final private RedisService redisService;
 
     // Github OAuth 인증 과정 요약 정리
@@ -51,7 +55,13 @@ public class GithubAuthController {
 
         GithubOauthAccountInfoResponse oauthAccountInfoResponse =
                 githubOauthService.getAccountInfo(accessToken);
-        //redisService.getValueByKey();
+
+        String email = oauthAccountInfoResponse.getEmail();
+        Long accountId = accountService.findAccountIdByEmail(email);
+        UUID userToken = UUID.randomUUID();
+        log.info("accountId: " + accountId + ", userToken: " + userToken);
+
+        redisService.setKeyAndValue(userToken.toString(), accountId);
     }
 
 }

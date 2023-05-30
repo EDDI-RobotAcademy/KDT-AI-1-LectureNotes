@@ -33,4 +33,18 @@ public class AccountServiceImpl implements AccountService {
 
         return true;
     }
+    @Override
+    public Long findAccountIdByEmail(String email) {
+        if (email == null) {
+            return -1L;
+        }
+
+        final Optional<MemberAccount> maybeAccount = accountRepository.findByEmail(email);
+
+        if (maybeAccount.isEmpty()) {
+            return -1L;
+        }
+
+        return maybeAccount.get().getId();
+    }
 }
