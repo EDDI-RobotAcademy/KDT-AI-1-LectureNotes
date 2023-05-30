@@ -2,7 +2,7 @@ import {
 } from './mutation-types'
 import axiosInstances from '@/utility/axiosInst'
 export default {
-    requestSpringToCheckEmailDuplication ({}, payload) {
+    requestSpringToCheckEmailDuplication ({ }, payload) {
         const { email } = payload
         console.log('email: ' + email)
         return axiosInstances.springAxiosInst.get(`/account/check-email/${email}`)
@@ -22,7 +22,7 @@ export default {
             })
     },
 
-    requestRegisterAccountToSpring ({}, payload) {
+    requestRegisterAccountToSpring ({ }, payload) {
 
         const { email } = payload
 
