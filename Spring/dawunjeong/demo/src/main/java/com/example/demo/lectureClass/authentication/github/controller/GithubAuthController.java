@@ -30,6 +30,7 @@ public class GithubAuthController {
 
     @GetMapping("/github/oauth-code")
     public void getGithubUserInfo(@RequestParam String code) {
+        final Long NO_ACCOUNT = -1L;
         log.info("getGithubUserInfo(): " + code);
 
         String accessToken = githubOauthService.getAccessToken(code);
@@ -40,6 +41,11 @@ public class GithubAuthController {
 
         String email = oauthAccountInfoResponse.getEmail();
         Long accountId = accountService.findAccountIdByEmail(email);
+
+        if(accountId == NO_ACCOUNT){
+            accountId = accountService.signUpWithEmail(email);
+        }
+
         UUID userToken = UUID.randomUUID();
         log.info("accountId: " + accountId + ", userToken: " + userToken);
 

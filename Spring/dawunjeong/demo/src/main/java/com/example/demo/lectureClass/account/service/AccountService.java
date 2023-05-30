@@ -8,4 +8,6 @@ public interface AccountService {
     Boolean signUp(AccountRegisterRequest request);
 
     Long findAccountIdByEmail(String email);
+
+    Long signUpWithEmail(String email);
 }
