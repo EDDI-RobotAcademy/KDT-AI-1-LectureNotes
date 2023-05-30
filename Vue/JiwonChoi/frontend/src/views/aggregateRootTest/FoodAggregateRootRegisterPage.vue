@@ -8,31 +8,34 @@
   <div>
     <v-container>
       <h2>식재료 등록</h2>
-      <food-aggregate-root-register-form @submit="onSubmit" />
+      <food-aggregate-root-register-form @submit="onSubmit"/>
     </v-container>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import FoodAggregateRootRegisterForm from "@/components/food/FoodAggregateRootRegisterForm.vue";
+import { mapActions } from 'vuex';
+import FoodAggregateRootRegisterForm from '@/components/food/FoodAggregateRootRegisterForm.vue';
 
-const foodModule = "foodModule";
+const foodModule = 'foodModule'
 
 export default {
-  components: {
-    FoodAggregateRootRegisterForm,
-  },
-  methods: {
-    ...mapActions(foodModule, ["requestCreateFoodToSpring"]),
-    async onSubmit(payload) {
-      await this.requestCreateFoodToSpring(payload);
-      await this.$router.push({
-        name: "home",
-      });
+    components: {
+      FoodAggregateRootRegisterForm
     },
-  },
-};
+    methods: {
+      ...mapActions(foodModule, ['requestCreateFoodToSpring']),
+      async onSubmit (payload) {
+        await this.requestCreateFoodToSpring(payload)
+        await this.$router.push({
+          name: 'home',
+        })
+      }
+    },
+}
+
 </script>
 
-<style lang=""></style>
+<style lang="">
+    
+</style>
