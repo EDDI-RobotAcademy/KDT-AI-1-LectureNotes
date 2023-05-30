@@ -5,22 +5,24 @@
 </template>
 
 <script>
-import SignInForm from '@/components/account/SignInForm.vue';
-import { mapActions } from "vuex"
+import SignInForm from "@/components/account/SignInForm.vue"
+import { mapActions } from "vuex";
 
 const authenticationModule = 'authenticationModule'
 
 export default {
     components: {
-        SignInForm
+        SignInForm,
     },
     methods: {
         ...mapActions(authenticationModule, ['requestGithubLoginToSpring']),
         async onSubmit() {
-            window.location.href = await this.requestGithubLoginToSpring
+            console.log('Sign In Request to Spring!')
+            window.location.href = await this.requestGithubLoginToSpring()
         }
     }
 }
+
 </script>
 
 <style lang="">

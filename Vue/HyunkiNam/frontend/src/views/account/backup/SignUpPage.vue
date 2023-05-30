@@ -7,7 +7,9 @@
 <script>
 import SignUpForm from "@/components/account/SignUpForm.vue"
 import { mapActions } from "vuex";
+
 const accountModule = 'accountModule'
+
 export default {
     components: {
         SignUpForm
@@ -22,6 +24,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style lang="">
