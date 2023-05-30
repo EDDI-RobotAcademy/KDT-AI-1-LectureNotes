@@ -24,12 +24,12 @@ export default {
     },
     requestRegisterAccountToSpring ({ }, payload) {
 
-        const { title, content, writer } = payload
+        const { email } = payload
 
-        return axiosInst.post('/jpa-board/register', { title, content, writer })
+        return axiosInstances.springAxiosInst.post('/account/sign-up', { email })
             .then((res) => {
-                alert('게시물 등록 성공!')
-                return res
+                alert('회원 신청하기 성공!')
+                return res.data
             })
             .catch(() => {
                 alert('문제 발생!')

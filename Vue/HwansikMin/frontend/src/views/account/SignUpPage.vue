@@ -9,12 +9,12 @@ import SignUpForm from "@/components/account/SignUpForm.vue"
 import { mapActions } from "vuex";
 
 const accountModule = 'accountModule'
+
 export default {
     components: {
         SignUpForm
     },
     methods: {
-        
         ...mapActions(accountModule, ['requestRegisterAccountToSpring']),
         async onSubmit (payload) {
             const isSuccess = await this.requestRegisterAccountToSpring(payload)

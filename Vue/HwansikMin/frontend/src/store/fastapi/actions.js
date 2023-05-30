@@ -14,7 +14,7 @@ export default {
             .catch((res) => {
                 alert('문제 발생!')
             })
-        },
+    },
     requestIntegerToFastApi ({ commit }) {
         return axiosInstances.fastApiAxiosInst.get('/integer-request')
             .then((res) => {

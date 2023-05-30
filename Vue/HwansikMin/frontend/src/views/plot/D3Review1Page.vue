@@ -67,7 +67,7 @@ export default {
         const g = svg.append("g")
         console.log(this.data.healthAmount)
         console.log(this.data.date)
-        
+
         // const parseTime = d3.timeParse("%Y-%m-%d")
         // https://d3-wiki.readthedocs.io/zh_CN/master/Time-Formatting/
         // 날짜 속성 알려주는 사이트
@@ -126,7 +126,7 @@ export default {
             .attr("stroke", "steelblue")
             .attr("stroke-width", 1.5)
             .attr("d", line)
-            
+
         // this.data = await this.requestHealthDataToSpring()
     },
     methods: {

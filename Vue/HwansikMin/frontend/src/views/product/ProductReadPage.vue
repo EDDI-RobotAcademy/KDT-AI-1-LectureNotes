@@ -16,7 +16,9 @@
 <script>
 import ProductReadForm from '@/components/product/ProductReadForm.vue'
 import { mapActions, mapState } from 'vuex';
+
 const productModule = 'productModule'
+
 export default {
     components: {
         ProductReadForm

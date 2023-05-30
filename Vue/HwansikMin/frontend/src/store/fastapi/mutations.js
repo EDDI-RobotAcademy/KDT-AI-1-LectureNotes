@@ -5,7 +5,6 @@ import {
 
 export default {
     [REQUEST_INTEGER_TO_FASTAPI_AFTER_SPRING] (state, receivedData) {
-        state.receivedInteger = receivedData
         state.receivedSpringFromFastApiInteger = receivedData
     },
     [REQUEST_INTEGER_TO_FASTAPI] (state, receivedData) {

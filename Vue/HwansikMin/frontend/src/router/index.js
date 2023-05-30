@@ -22,7 +22,6 @@ import authenticationTestRoutes from './authentication'
 Vue.use(VueRouter)
 
 const routes = [
-  
   ...defaultSetRoutes,
   ...htmlCssRoutes,
   ...vueBasicRoutes,
