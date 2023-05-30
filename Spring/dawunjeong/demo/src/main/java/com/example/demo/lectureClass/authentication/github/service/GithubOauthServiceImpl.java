@@ -56,7 +56,6 @@ public class GithubOauthServiceImpl implements GithubOauthService {
                 HttpMethod.GET,
                 request,
                 GithubOauthAccountInfoResponse.class).getBody();
-//        response.setEmail("jeongdawun3@gmail.com");
 
         log.info("result: " + response);
 
