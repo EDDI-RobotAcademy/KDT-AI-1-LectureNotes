@@ -9,6 +9,7 @@ timeout을 2500으로 설정한 것은 모든 요청이 최대 2.5초 동안 실
 // Legacy 구성은 아래를 참고
 const axiosInst = axios.create({
     baseURL: 'http://localhost:7777',
+    // baseURL: 'http://192.168.20.3:7777',
     timeout: 2500
 })
 // 신규 구성은 이 부분을 참고

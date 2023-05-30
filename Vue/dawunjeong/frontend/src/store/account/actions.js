@@ -6,7 +6,6 @@ import axiosInstances from '@/utility/axiosInst'
 export default {
     requestSpringToCheckEmailDuplication ({ }, payload) {
         const { email } = payload
-        console.log('email: ' + email)
 
         return axiosInstances.springAxiosInst.get(`/account/check-email/${email}`)
             .then((res) => {
