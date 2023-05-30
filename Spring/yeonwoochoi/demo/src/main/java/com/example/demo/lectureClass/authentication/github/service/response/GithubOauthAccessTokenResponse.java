@@ -12,4 +12,5 @@ public class GithubOauthAccessTokenResponse {
 
     @JsonProperty("access_token")
     private String accessToken;
+
 }

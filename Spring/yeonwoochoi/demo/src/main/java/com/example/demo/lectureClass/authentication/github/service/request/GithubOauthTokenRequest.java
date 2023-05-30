@@ -17,4 +17,5 @@ public class GithubOauthTokenRequest {
     private String clientSecrt;
 
     private String code;
+
 }

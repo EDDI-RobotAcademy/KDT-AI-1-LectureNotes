@@ -59,5 +59,6 @@ public class GithubOauthServiceImpl implements GithubOauthService {
         log.info("result: " + response);
 
         return response;
+
     }
 }
