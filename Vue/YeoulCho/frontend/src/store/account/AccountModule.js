@@ -7,14 +7,11 @@ import state from "@/store/account/states"
 
 Vue.use(Vuex)
 
-
-
 const AccountModule = {
     namespaced: true,
-    state, 
+    state,
     actions,
-    
-    mutations, 
+    mutations,
 }
 
 export default AccountModule

@@ -16,23 +16,22 @@
       <!--
         사용하고 싶은 아이콘을 자유롭게 선택해서 UI를 꾸미세요.
         https://pictogrammers.com/library/mdi/?welcome
+
         아이콘 따올때 맨 앞에 mdi 키워드가 붙어야 합니다.
       -->
       <v-btn text @click="clickToggle">
         <span>테스트</span>
         <v-icon right>mdi-hand-back-left-outline</v-icon>
       </v-btn>
-      <v-btn v-if="!isLogin" text @click="signUp">
+      <v-btn v-if="!isAuthenticated" text @click="signUp">
         <span>회원가입</span>
         <v-icon right>mdi-account-plus-outline</v-icon>
       </v-btn>
-      <v-btn v-if="!isLogin" text @click="signIn">
+      <v-btn v-if="!isAuthenticated" text @click="signIn">
         <span>로그인</span>
         <v-icon right>mdi-login</v-icon>
-      </v-btn> 
-
-      
-      <v-btn v-if="isLogin" @click="signOut">
+      </v-btn>
+      <v-btn v-if="isAuthenticated" text @click="signOut">
         <span>로그아웃</span>
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
@@ -68,44 +67,57 @@
 
 <script>
 import router from '@/router'
+import { mapState } from 'vuex'
+
+const authenticationModule = 'authenticationModule'
+
 export default {
-    data () {
-      return {
-        navigation_drawer: false,
-        links: [
-          { icon: 'mdi-home', text: 'Home', route: '/' }
-        ],
-        accountId: 0,
-        isLogin: false,
-      }
-    },
-    methods: {
-      clickToggle () {
-        alert('토글')
-      },
-      signUp () {
-        router.push('/problem5-page2')
-      },
-      signIn () {
-        router.push('/problem5-page2')
-      },
-      signOut () {
-        localStorage.removeItem("loginUserInfo")
-        this.islogin = false
-      },
-      goToHome () {
-        // 자기 참조 형태에서 push()는 오류가 발생하므로 go()로 변경함
-        router.push('/')
-      }
-    },
-    mounted(){
-      this.accountId=localStorage.getItem("loginUserInfo")
-      console.log(this.islogin)
-      if(this.accountId >0){
-        this.isLogin = true
-        localStorage.setItem("islogin", "true")
-      }
+  data () {
+    return {
+      navigation_drawer: false,
+      links: [
+        { icon: 'mdi-home', text: 'Home', route: '/' }
+      ],
+      accountId: 0,
+      //isLogin: false,
     }
+  },
+  computed: {
+    ...mapState(authenticationModule, ['isAuthenticated'])
+  },
+  methods: {
+    clickToggle () {
+      alert('토글')
+    },
+    signUp () {
+      router.push('/problem-page5')
+    },
+    signIn () {
+      router.push('/problem-page5')
+    },
+    signOut () {
+      //localStorage.removeItem("loginUserInfo")
+      //this.isLogin = false
+
+      localStorage.removeItem("userToken")
+      this.$store.state.authenticationModule.isAuthenticated = false
+    },
+    goToHome () {
+      // 자기 참조 형태에서 push()는 오류가 발생하므로 go()로 변경함
+      router.push('/')
+    }
+  },
+  mounted () {
+    //this.accountId = localStorage.getItem("loginUserInfo")
+    this.accountId = localStorage.getItem("userToken")
+    if (this.accountId > 0) {
+      //this.isLogin = true
+      this.$store.state.authenticationModule.isAuthenticated = true
+    } else {
+      //this.isLogin = false
+      this.$store.state.authenticationModule.isAuthenticated = false
+    }
+  }
 }
 </script>
 

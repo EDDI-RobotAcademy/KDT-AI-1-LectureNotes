@@ -8,6 +8,8 @@ import filesModule from './file/FilesModule'
 import foodModule from './food/FoodModule'
 import fastApiModule from './fastapi/FastApiModule'
 import accountModule from '@/store/account/AccountModule'
+import authenticationModule from './authentication/AuthenticationModule'
+
 Vue.use(Vuex)
 // Vuex를 사용하여 Store 객체를 생성
 const store = new Vuex.Store({
@@ -20,7 +22,7 @@ const store = new Vuex.Store({
     foodModule: foodModule,
     fastApiModule: fastApiModule,
     accountModule: accountModule,
-
+    authenticationModule: authenticationModule,
 
   },
 })

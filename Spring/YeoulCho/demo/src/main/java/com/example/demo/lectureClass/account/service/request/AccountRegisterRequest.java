@@ -7,9 +7,9 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public class AccountRegisterRequest {
-    private String email;
+    final private String email;
 
-    public MemberAccount toAccount(){
+    public MemberAccount toAccount() {
         return new MemberAccount(email);
     }
 }

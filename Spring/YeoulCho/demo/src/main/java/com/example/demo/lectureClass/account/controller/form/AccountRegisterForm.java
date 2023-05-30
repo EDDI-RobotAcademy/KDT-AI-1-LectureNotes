@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.account.form;
+package com.example.demo.lectureClass.account.controller.form;
 
 import com.example.demo.lectureClass.account.service.request.AccountRegisterRequest;
 import lombok.Getter;
@@ -15,8 +15,7 @@ public class AccountRegisterForm {
         this.email = email;
     }
 
-    public AccountRegisterRequest toAccountRegisterRequest(){
-        return new AccountRegisterRequest();
-
+    public AccountRegisterRequest toAccountRegisterRequest() {
+        return new AccountRegisterRequest(email);
     }
 }

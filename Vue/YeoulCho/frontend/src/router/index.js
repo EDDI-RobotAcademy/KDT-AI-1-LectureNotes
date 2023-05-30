@@ -18,6 +18,8 @@ import filesTestRoutes from './files'
 import foodRoutes from './food'
 import fastapiTestRoutes from './fastapi'
 import accountTestRoutes from './account'
+import authenticationTestRoutes from './authentication'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -36,8 +38,8 @@ const routes = [
   ...filesTestRoutes,
   ...foodRoutes,
   ...fastapiTestRoutes,
-  ...accountTestRoutes
-
+  ...accountTestRoutes,
+  ...authenticationTestRoutes,
 ]
 
 const router = new VueRouter({

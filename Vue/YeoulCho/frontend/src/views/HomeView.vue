@@ -51,6 +51,7 @@
       <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
       <router-link to="/food-register-page">Food Aggergate Root 만들기</router-link> |
       <router-link to="/sign-up-page">회원가입</router-link> |
+      <router-link to="/github-sign-in-page">Github 로그인</router-link> |
 
 
       
