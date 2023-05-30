@@ -35,13 +35,4 @@ export default {
                 alert('문제 발생!')
             })
     },
-    requestGithubLoginToSpring({ }) {
-      return axiosInstances.springAxiosInst.get('/account/github/login')
-        .then((res) => {
-            return res.data
-        })
-        .catch((res) => {
-            alert("문제 발생")
-        })
-    }
 }

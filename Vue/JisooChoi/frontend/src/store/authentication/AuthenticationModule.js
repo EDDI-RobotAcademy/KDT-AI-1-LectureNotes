@@ -7,10 +7,9 @@ import state from "@/store/authentication/states"
 
 Vue.use(Vuex)
 
-
 const AuthenticationModule = {
     namespaced: true,
-    state, // 게시물 상태
+    state,
     actions,
     mutations,
 }
