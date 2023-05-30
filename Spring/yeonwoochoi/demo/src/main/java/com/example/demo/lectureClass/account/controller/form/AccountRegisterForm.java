@@ -10,7 +10,6 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class AccountRegisterForm {
-
     private String email;
 
     public AccountRegisterForm(String email) {

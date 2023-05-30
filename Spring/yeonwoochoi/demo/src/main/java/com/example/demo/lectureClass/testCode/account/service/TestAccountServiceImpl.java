@@ -84,6 +84,20 @@ public class TestAccountServiceImpl implements TestAccountService {
 
         return responseFormList;
     }
+    @Override
+    public String login(AccountLoginRequest request) {
+        final Optional<Account> maybeAccount = accountRepository.findByEmail(request.getEmail());
+        if (maybeAccount.isEmpty()) {
+            return null;
+        }
+        final Account account = maybeAccount.get();
+        if (account.getPassword().equals(request.getPassword())) {
+            final String userToken = UUID.randomUUID().toString();
+            userTokenRepository.save(userToken, account.getId());
+            return userToken;
+        }
+        return null;
+    }
 }
 
 
