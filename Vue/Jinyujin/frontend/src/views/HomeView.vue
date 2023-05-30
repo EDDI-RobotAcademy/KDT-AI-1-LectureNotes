@@ -50,6 +50,7 @@
         <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
         <router-link to="/vue-spring">Vue + Spring + FastAPI 숙제 [1]</router-link> |
         <router-link to="/sign-up-page">회원가입</router-link> |
+        <router-link to="/github-sign-in-page">Github 로그인</router-link> |
       </nav>
     </div>
   </v-container>
