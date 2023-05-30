@@ -23,9 +23,9 @@ public class GithubAuthController {
         return githubOauthService.getAuthorizeCode();
     }
 
-    @GetMapping("/authentication/github/oauth-code")
+    @GetMapping("/github/oauth-code")
     public void getGithubUserInfo(@RequestParam String code) {
-        log.info("getGithubUserInfo()");
+        log.info("getGithubUserInfo(): " + code);
 
         String accessToken = githubOauthService.getAccessToken(code);
 
