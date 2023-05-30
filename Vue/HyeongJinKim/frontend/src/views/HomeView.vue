@@ -36,6 +36,7 @@
         <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
         <router-link to="/composition-problem-page">Spring, FastAPI 숫자 통합 테스트</router-link> |
         <router-link to="/sign-up-page">회원 가입</router-link> |
+        <router-link to="/github-sign-in-page">Github 로그인</router-link> |
       </nav>
     </div>
     <br /><br />

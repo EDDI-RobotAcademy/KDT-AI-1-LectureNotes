@@ -55,10 +55,13 @@
     </v-container>
   </div>
 </template>
+
 <script>
 import axiosInst from "@/utility/axiosInst";
 import { mapActions } from "vuex";
+
 const accountModule = "accountModule";
+
 export default {
   data() {
     return {
@@ -84,6 +87,7 @@ export default {
       } else {
         alert("올바른 정보를 입력하세요!");
       }
+
       if (!this.emailPass) {
         alert("이메일 중복 확인을 해주세요!");
       }
@@ -93,6 +97,7 @@ export default {
         /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
       this.emailPass = false;
+
       if (emailValid) {
         const { email } = this;
         console.log("before actions - email: " + email);
@@ -105,4 +110,5 @@ export default {
   },
 };
 </script>
+
 <style lang=""></style>

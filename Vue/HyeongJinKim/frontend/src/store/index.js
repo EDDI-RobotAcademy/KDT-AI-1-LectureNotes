@@ -10,6 +10,7 @@ import foodModule from "@/store/food/FoodModule.js";
 import fastApiModule from "./fastapi/FastApiModule.js";
 import springModule from "./spring/FastApiModule.js";
 import accountModule from "./account/AccountModule.js";
+import authenticationModule from "./authentication/AuthenticationModule.js";
 
 Vue.use(Vuex);
 
@@ -24,6 +25,7 @@ const store = new Vuex.Store({
     fastApiModule: fastApiModule,
     springModule: springModule,
     accountModule: accountModule,
+    authenticationModule: authenticationModule,
   },
 });
 
