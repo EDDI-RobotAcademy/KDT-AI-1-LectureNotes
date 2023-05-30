@@ -77,6 +77,8 @@
         <router-link to="/fastapi-data-send-page">FastAPI 테스트</router-link> |
         <router-link to="/vps-homework1">Vue Python Spring 통신 homework</router-link> |
         <router-link to="/sign-up-page">회원 가입</router-link> |
+        <router-link to="/github-sign-in-page">Github 로그인</router-link> |
+        
         
         
       </nav>

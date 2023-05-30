@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Member;
 import java.util.Optional;
 
 @Slf4j
@@ -47,5 +48,18 @@ public class AccountServiceImpl implements AccountService {
         }
 
         return maybeAccount.get().getId();
+    }
+
+    @Override
+    public Long signUpWithEmail(String email) {
+        final Optional<MemberAccount> maybeAccount = accountRepository.findByEmail(email);
+
+        if (maybeAccount.isPresent()) {
+            return maybeAccount.get().getId();
+        }
+
+        final MemberAccount account = new MemberAccount(email);
+
+        return accountRepository.save(account).getId();
     }
 }
