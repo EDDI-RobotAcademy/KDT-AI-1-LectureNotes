@@ -23,15 +23,15 @@
           <v-icon right>mdi-hand-back-left-outline</v-icon>
         </v-btn>
         <!--!는 부정-->
-        <v-btn v-if="!isLogin" text @click="signUp">
+        <v-btn v-if="!isAuthenticated" text @click="signUp">
           <span>회원가입</span>
           <v-icon right>mdi-account-plus-outline</v-icon>
         </v-btn>
-        <v-btn v-if="!isLogin" text @click="signIn">
+        <v-btn v-if="!isAuthenticated" text @click="signIn">
           <span>로그인</span>
           <v-icon right>mdi-login</v-icon>
         </v-btn>
-        <v-btn v-if="isLogin" text @click="signOut">
+        <v-btn v-if="isAuthenticated" text @click="signOut">
           <span>로그아웃</span>
           <v-icon right>mdi-exit-to-app</v-icon>
         </v-btn>
@@ -67,6 +67,10 @@
   
   <script>
   import router from '@/router'
+import { mapState } from 'vuex'
+
+  const authenticationModule = 'authenticationModule'
+
   export default {
       
       data () {
@@ -76,9 +80,12 @@
             { icon: 'mdi-home', text: 'Home', route: '/' }
           ],
           accountId: 0,
-          isLogin: false
+          // isLogin: false
         }
       },
+      computed: {
+        ...mapState(authenticationModule, ['isAuthenticated'])
+      },  
       methods: {
         clickToggle () {
           alert('토글')
@@ -91,16 +98,26 @@
           router.push("/problem-page5")
         },
         signOut () {
-          localStorage.removeItem("loginUserInfo")
+          //localStorage.removeItem("loginUserInfo")
+          //this.isLogin = false
+
+          localStorage.removeItem("userToken")
+          this.$store.state.authenticationModule.isAuthenticated = false
         },
         goToHome () {
           router.push('/')
         }
       },
       mounted () {
-        this.accountId = localStorage.getItem("loginUserInfo")
+        // this.accountId = localStorage.getItem("loginUserInfo")
+        this.accountId = localStorage.getItem("userToken")
         if (this.accountId > 0) {
-          this.isLogin = true
+          // this.isLogin = true
+          this.$store.state.authenticationModule.isAuthenticated = true
+        } else {
+          this.isLogin = false
+          //this.isLogin = false
+          this.$store.state.authenticationModule.isAuthenticated = false
         }
       }
   }
