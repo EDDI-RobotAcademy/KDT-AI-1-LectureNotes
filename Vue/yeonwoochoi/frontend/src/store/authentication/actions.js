@@ -12,9 +12,13 @@ export default {
                 alert("문제 발생!")
             })
     },
-    getAccessTokenFromSpringRedirection (payload) {
+    getAccessTokenFromSpringRedirection ({ }, payload) {
         const { code } = payload
-        axiosInstances.springAxiosInst(`/authentication/github/oauth-code?code=${code}`)
+        console.log('ready to request access token: ' + JSON.stringify(payload))
+        console.log('code: ' + code)
+
+        setTimeout(() => console.log('after'), 3000)
+        axiosInstances.springAxiosInst.get(`/authentication/github/oauth-code?code=${code}`)
             .then((res) => {
                 alert("res: " + JSON.stringify(res.data))
                 router.push('/')
