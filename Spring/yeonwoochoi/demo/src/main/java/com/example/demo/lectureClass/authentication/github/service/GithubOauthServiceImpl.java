@@ -16,7 +16,8 @@ import org.springframework.web.client.RestOperations;
 @Service
 @RequiredArgsConstructor
 public class GithubOauthServiceImpl implements GithubOauthService {
-    private RestOperations restTemplate;
+
+    final private RestOperations restTemplate;
     final private PropertyUtil propertyUtil;
 
     @Override
@@ -61,4 +62,6 @@ public class GithubOauthServiceImpl implements GithubOauthService {
         return response;
 
     }
+
+
 }
