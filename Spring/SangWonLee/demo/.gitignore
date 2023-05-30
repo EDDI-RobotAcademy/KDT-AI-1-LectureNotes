@@ -37,4 +37,6 @@ out/
 .vscode/
 
 ### 보안설정 ###
-test.properties/
+test.properties
+github.properties
+redis.properties

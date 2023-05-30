@@ -4,6 +4,8 @@
 <script>
 
 import { mapActions } from 'vuex';
+import router from '@/router';
+
 const authenticationModule = 'authenticationModule'
 
 export default {
@@ -13,6 +15,7 @@ export default {
             const code = this.$route.query.code
             console.log('code: ' + code)
             await this.getAccessTokenFromSpringRedirection({ code })
+            router.push('/')
         }
     },
     created() {
