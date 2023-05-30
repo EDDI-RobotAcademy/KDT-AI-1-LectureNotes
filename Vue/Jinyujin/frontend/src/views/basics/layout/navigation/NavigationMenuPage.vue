@@ -101,12 +101,12 @@
           alert('토글')
         },
         signUp () {
-          alert('회원가입')
-          router.push('/make-character')
+          // alert('회원가입')
+          router.push('/sign-up-page')
         },
         signIn () {
-          alert('로그인')
-          router.push('/make-character')
+          // alert('로그인')
+          router.push('/github-sign-in-page')
         },
           signOut() {
               // localStorage.removeItem("loginUserInfo")
