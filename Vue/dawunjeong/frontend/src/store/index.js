@@ -11,6 +11,7 @@ import fastApiModule from '@/store/fastapi/FastApiModule.js'
 import fastApiHomeworkModule from '@/store/fastapiHomework/FastApiHomeworkModule.js'
 import springModule from './spring/SpringModule'
 import accountModule from './account/AccountModule'
+import authenticationModule from './authentication/AuthenticationModule'
 
 Vue.use(Vuex)
 
@@ -26,6 +27,7 @@ const store = new Vuex.Store({
     fastApiHomeworkModule: fastApiHomeworkModule,
     springModule: springModule,
     accountModule: accountModule,
+    authenticationModule: authenticationModule
   },
 })
 

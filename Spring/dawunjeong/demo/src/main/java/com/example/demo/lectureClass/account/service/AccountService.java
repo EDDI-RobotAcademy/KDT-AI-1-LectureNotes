@@ -6,4 +6,6 @@ public interface AccountService {
     Boolean checkEmailDuplication(String email);
 
     Boolean signUp(AccountRegisterRequest request);
+
+    Long findAccountIdByEmail(String email);
 }

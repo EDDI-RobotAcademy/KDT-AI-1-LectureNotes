@@ -7,7 +7,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @RequiredArgsConstructor
-@PropertySource("classpath:test.properties")
+@PropertySource(value={"classpath:test.properties", "classpath:redis.properties"})
 public class PropertyUtil {
 
     final private Environment environment;
