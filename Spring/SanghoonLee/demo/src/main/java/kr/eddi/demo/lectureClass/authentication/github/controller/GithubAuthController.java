@@ -47,7 +47,7 @@ public class GithubAuthController {
     }
 
     @GetMapping("/github/oauth-code")
-    public void getGithubUserInfo(@RequestParam String code) {
+    public String getGithubUserInfo(@RequestParam String code) {
         final Long NO_ACCOUNT = -1L;
 
         log.info("getGithubUserInfo(): " + code);
@@ -66,9 +66,11 @@ public class GithubAuthController {
             accountId = accountService.signUpWithEmail(email);
         }
 
-        UUID userToken = UUID.randomUUID();
+        String userToken = UUID.randomUUID().toString();
         log.info("accountId: " + accountId + ", userToken: " + userToken);
 
-        redisService.setKeyAndValue(userToken.toString(), accountId);
+        redisService.setKeyAndValue(userToken, accountId);
+
+        return userToken;
     }
 }
