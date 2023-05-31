@@ -75,8 +75,12 @@
   </template>
   
   <script>
+  import {
+    GITHUB_LOGIN_COMPLETE,
+  } from '@/store/authentication/mutation-types'
+
   import router from '@/router'
-  import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
 
   const authenticationModule = 'authenticationModule'
 
@@ -88,15 +92,17 @@
           links: [
             { icon: 'mdi-home', text: 'Home', route: '/' }
           ],
-          accountId: 0,
-          isLogin: true,
+          // accountId: 0,
+          // isLogin: true,
+          userToken: null
         }
     },
     computed: {
       ...mapState(authenticationModule, ['isAuthenticated'])
     },
 
-      methods: {
+    methods: {
+        ...mapMutations(authenticationModule, ['GITHUB_LOGIN_COMPLETE']),
         clickToggle () {
           alert('토글')
         },
@@ -114,7 +120,9 @@
 
               // 어딘가에서 loginUserInfo를 쓰고 있을 것이기에 새로 막아줘야 한대
               localStorage.removeItem("userToken")
-              this.$store.state.authenticationModule.isAuthenticated = false
+              // this.$store.state.authenticationModule.isAuthenticated = false
+              // mutation-types를 import 함으로써 이런 지저분한 형태 제거 가능
+              this[GITHUB_LOGIN_COMPLETE](false)
         },
         goToHome () {
           router.push('/')
@@ -123,13 +131,21 @@
       mounted() {
         // accountId가 0보다 클 경우 로그아웃 창 뜰 수 있도록
         // this.accountId = localStorage.getItem("logInUserInfo")
-        this.accountId = localStorage.getItem("userToken")
-        if (this.accountId > 0) {
+        // this.accountId = localStorage.getItem("userToken")
+        // if (this.accountId > 0) {
           // this.isLogin = true
-          this.$store.state.authenticationModule.isAuthenticated = true
-        } else {
+          // this.$store.state.authenticationModule.isAuthenticated = true
+        // } else {
           // this.isLogin = false
-          this.$store.state.authenticationModule.isAuthenticated = false
+          // this.$store.state.authenticationModule.isAuthenticated = false
+        // }
+
+        this.userToken = localStorage.getItem("userToken")
+        
+        if (this.userToken == null) {
+          this[GITHUB_LOGIN_COMPLETE](false)
+        } else {
+          this[GITHUB_LOGIN_COMPLETE](true)
         }
       },
   }
