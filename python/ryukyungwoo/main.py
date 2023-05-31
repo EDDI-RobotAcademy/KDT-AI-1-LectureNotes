@@ -9,6 +9,7 @@ from problem.parallel_process import parallel_process_problem
 
 from fastapi import Depends, FastAPI
 
+from router.machine_learning.ml_router import ml_router
 from router.request_receiver.request_receive_router import request_receiver
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -39,3 +40,4 @@ async def root_index():
     return {"message": "Hello from FastAPI"}
 
 app.include_router(request_receiver)
+app.include_router(ml_router)
