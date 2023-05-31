@@ -14,6 +14,10 @@ import defaultSetRoutes from './defaultRouterSet'
 import d3PlotTestRoutes from './d3plot'
 import filesTestRoutes from './files'
 import foodSetRoutes from './food'
+import fastApiTestRoutes from './fastapi'
+import accountTestRoutes from './account'
+import authenticationTestRoutes from './authentication'
+import afterLoginTestRoutes from './afterLogin'
 
 Vue.use(VueRouter)
 
@@ -31,6 +35,10 @@ const routes = [
   ...d3PlotTestRoutes,
   ...filesTestRoutes,
   ...foodSetRoutes,
+  ...fastApiTestRoutes,
+  ...accountTestRoutes,
+  ...authenticationTestRoutes,
+  ...afterLoginTestRoutes,
 ]
 
 const router = new VueRouter({
