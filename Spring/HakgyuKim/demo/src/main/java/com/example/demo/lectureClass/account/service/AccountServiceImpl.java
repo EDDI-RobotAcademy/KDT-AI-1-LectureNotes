@@ -3,6 +3,7 @@ package com.example.demo.lectureClass.account.service;
 import com.example.demo.lectureClass.account.entity.MemberAccount;
 import com.example.demo.lectureClass.account.repository.AccountRepository;
 import com.example.demo.lectureClass.account.service.request.AccountRegisterRequest;
+import com.example.demo.lectureClass.afterLogin.controller.form.AccountResponseForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -61,5 +62,21 @@ public class AccountServiceImpl implements AccountService {
         final MemberAccount account = new MemberAccount(email);
 
         return accountRepository.save(account).getId();
+    }
+
+    @Override
+    public AccountResponseForm findAccountInfoById(Long accountId) {
+        Optional<MemberAccount> maybeAccount = accountRepository.findById(accountId);
+
+        if (maybeAccount.isEmpty()) {
+            log.info("계정 존재 하지 않습니다");
+            return null;
+        } else {
+
+            final MemberAccount account = maybeAccount.get();
+            final AccountResponseForm responseForm = new AccountResponseForm(account.getEmail());
+            log.info("account: " + account);
+            return responseForm;
+        }
     }
 }

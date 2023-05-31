@@ -17,6 +17,7 @@ import foodSetRoutes from "./food";
 import fastApiRoutes from "./fastapi";
 import accountTestRoutes from "./account";
 import authenticationTestRoutes from './authentication'
+import afterLoginRoutes from "./afterLogin";
 
 Vue.use(VueRouter);
 
@@ -48,6 +49,7 @@ const routes = [
   ...fastApiRoutes,
   ...accountTestRoutes,
   ...authenticationTestRoutes,
+  ...afterLoginRoutes
 ];
 
 const router = new VueRouter({
