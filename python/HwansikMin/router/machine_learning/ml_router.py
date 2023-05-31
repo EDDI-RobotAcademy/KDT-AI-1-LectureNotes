@@ -36,9 +36,9 @@ async def get_device_details():
         cpu_details = tf.config.experimental.get_device_details(cpu)
         print(cpu_details)
 
-        #print("Device name:", cpu_details['name'])
-        #print("Device index:", cpu_details['device_index'])
-        #print("Device physical device desc:", cpu_details['physical_device_desc'])
+        # print("Device name:", cpu_details['name'])
+        # print("Device index:", cpu_details['device_index'])
+        # print("Device physical device desc:", cpu_details['physical_device_desc'])
 
     # cpu-z라는 툴을 다운 받아봅시다.
     # 여러분들 컴퓨터의 스펙 사항을 해당 툴을 통해서 확인 할 수 있습니다.
@@ -48,11 +48,11 @@ async def get_device_details():
 # 30 ~ 40대의 신용 정보 가상으로 만들어보기
 @ml_router.get('/create-virtual-credit')
 async def create_virtual_credit():
-    mean_age = 35   # 평균(mean)
-    std_dev_age = 5 # 표준편차(standard deviation)
+    mean_age = 35    # 평균(mean)
+    std_dev_age = 5  # 표준편차(standard deviation)
 
-    #mean_credit_score = 700
-    #std_dev_credit_score = 50
+    # mean_credit_score = 700
+    # std_dev_credit_score = 50
 
     mean_income = 6000
     std_dev_income = 1500

@@ -42,7 +42,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root_index():
-    return {"message": "Hello from FastAPI"}
+    return { "message": "Hello from FastAPI" }
 
 
 app.include_router(request_receiver)
