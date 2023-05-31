@@ -61,4 +61,16 @@ public class AccountServiceImpl implements AccountService {
 
         return accountRepository.save(account).getId();
     }
+
+    @Override
+    public MemberAccount findAccountInfoById(Long accountId) {
+        final Optional<MemberAccount> maybeAccount = accountRepository.findById(accountId);
+
+        if (maybeAccount.isEmpty()) {
+            log.info("이런 계정은 존재하지 않습니다(해킹이 의심됩니다!)");
+            return null;
+        }
+
+        return maybeAccount.get();
+    }
 }
