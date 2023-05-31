@@ -27,6 +27,10 @@ export default {
                 location.href = "이동할 페이지 주소";
             */
             window.location.href = await this.requestGithubLoginToSpring()
+            /*
+                requestGithubLoginToSpring() 나의 Github URL이 들어갈 것이고,
+                나의 Github URL로 이동할 것이다.
+            */
         }
     }
 }

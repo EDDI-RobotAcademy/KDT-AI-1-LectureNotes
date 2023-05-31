@@ -38,6 +38,10 @@ public class GithubAuthController {
 
         log.info("getGithubUserInfo(): " + code);
 
+        /*
+            accessToken 는
+            restTemplate.postForObject(...)를 반환받는다.
+        */
         String accessToken = githubOauthService.getAccessToken(code);
         log.info("accessToken: " + accessToken);
 
