@@ -3,6 +3,9 @@ from fastapi import APIRouter
 from tensorflow.python.client import device_lib
 import tensorflow as tf
 
+import numpy as np
+import pandas as pd
+
 ml_router = APIRouter()
 
 
@@ -38,4 +41,32 @@ async def get_device_details():
 
     # cpu-z 라는 툴을 다운 받아 봅시다.
     # 각자의 컴퓨터 스펙 사항과 python 코드가 구동한 결과가 일치 해야 올 바르게 작동 합니다.
-    
+
+
+# 30 ~ 40대의 신용 정보 가상으로 만들어보기
+@ml_router.get("/create-virtual-credit")
+async def create_virtual_credit():
+    mean_age = 35 # 평균(mean)
+    std_dev_age = 5 # 표준편차 (standard deviation)
+
+    # mean_credit_score = 700
+    # std_dev_dredit_score = 50
+
+    mean_income = 6000
+    std_dev_income = 1500
+
+    mean_arrears_percent = 0.36
+    std_dev_arrears_percent = 0.1
+
+    data_size = 1000
+    age = np.round(np.random.normal(mean_age, std_dev_age, data_size)).astype(int)
+    income = np.random.normal(mean_income, std_dev_income, data_size)
+    arrears_rate = np.random.normal(mean_arrears_percent, std_dev_arrears_percent, data_size)
+
+    virtual_credit_data = pd.DataFrame({
+        '나이': age,
+        '소득': income,
+        '연체율': arrears_rate
+    })
+
+    print(virtual_credit_data)
