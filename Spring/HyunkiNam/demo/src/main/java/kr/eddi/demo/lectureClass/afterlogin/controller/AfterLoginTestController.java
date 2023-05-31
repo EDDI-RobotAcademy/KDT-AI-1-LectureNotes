@@ -1,5 +1,6 @@
 package kr.eddi.demo.lectureClass.afterlogin.controller;
 
+import kr.eddi.demo.lectureClass.account.controller.form.AccountResponseForm;
 import kr.eddi.demo.lectureClass.account.entity.MemberAccount;
 import kr.eddi.demo.lectureClass.account.service.AccountService;
 import kr.eddi.demo.lectureClass.afterlogin.controller.form.AfterLoginRequestForm;
@@ -21,7 +22,7 @@ public class AfterLoginTestController {
     final private RedisService redisService;
 
     @PostMapping("/test")
-    public MemberAccount afterLoginTest (@RequestBody AfterLoginRequestForm requestForm) {
+    public AccountResponseForm afterLoginTest (@RequestBody AfterLoginRequestForm requestForm) {
         log.info("afterLoginTest(): " + requestForm);
 
         Long accountId = redisService.getValueByKey(requestForm.getUserToken());
