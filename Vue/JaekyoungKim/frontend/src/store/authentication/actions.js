@@ -1,9 +1,8 @@
-import { json } from 'd3'
 import {
+    GITHUB_LOGIN_COMPLETE
 } from './mutation-types'
 
 import axiosInstances from '@/utility/axiosInst'
-import router from '@/router'
 
 export default {
 
@@ -18,19 +17,16 @@ export default {
                 alert("문제 발생!")
             })
     },
-    getAccessTokenFromSpringRedirection({ },payload){
-        console.log('ready to request access token: ' + JSON.stringify(payload))
-        console.log('code: ' + code)
-
-        setTimeout(() => console.log('after'), 3000)
+    getAccessTokenFromSpringRedirection ({ commit }, payload) {
+        const { code } = payload
         axiosInstances.springAxiosInst.get(`/authentication/github/oauth-code?code=${code}`)
-        .then((res)=>{
-            alert("res: "+JSON.stringify(res.data))
-            router.push('/')
-        })
-        .catch((res)=>{
-
-        })
-
+            .then((res) => {
+            //alert("res: " + JSON.stringify(res.data))
+            localStorage.setItem("userToken", res.data)
+            commit(GITHUB_LOGIN_COMPLETE, true)
+            })
+            .catch((res) => {
+                alert('문제 발생!')
+            })
     }
 }

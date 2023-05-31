@@ -2,8 +2,11 @@
 </template>
 
 <script>
-const AuthenticationModule='authenticationModule'
 import { mapActions } from 'vuex';
+
+const authenticationModule = 'authenticationModule'
+import router from '@/router';
+
 export default {
     methods: {
         ...mapActions(authenticationModule, ['getAccessTokenFromSpringRedirection']),
@@ -11,6 +14,7 @@ export default {
             const code = this.$route.query.code
             console.log('code: ' + code)
             await this.getAccessTokenFromSpringRedirection({ code })
+            router.push('/')
         }
     },
     created () {
