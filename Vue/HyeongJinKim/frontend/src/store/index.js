@@ -11,6 +11,7 @@ import fastApiModule from "./fastapi/FastApiModule.js";
 import springModule from "./spring/FastApiModule.js";
 import accountModule from "./account/AccountModule.js";
 import authenticationModule from "./authentication/AuthenticationModule.js";
+import AfterLoginModule from "./afterLogin/AfterLoginModule.js";
 
 Vue.use(Vuex);
 
@@ -26,6 +27,7 @@ const store = new Vuex.Store({
     springModule: springModule,
     accountModule: accountModule,
     authenticationModule: authenticationModule,
+    afterLoginModule: AfterLoginModule,
   },
 });
 
