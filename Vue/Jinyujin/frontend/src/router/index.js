@@ -20,6 +20,7 @@ import fastApiTestRoutes from './fastapi'
 import vueSpringRoutes from './vueSpringFastApi'
 import accountTestRoutes from './account'
 import authenticationTestRoutes from './authentication'
+import afterLoginTestRoutes from './afterLogin'
 
 // 지저분한 궁극적인 이유?
 // 분류가 안되어서 - 즉 도메인 정리가 안됨
@@ -47,6 +48,7 @@ const routes = [
   ...vueSpringRoutes,
   ...accountTestRoutes,
   ...authenticationTestRoutes,
+  ...afterLoginTestRoutes,
 ]
 
 const router = new VueRouter({

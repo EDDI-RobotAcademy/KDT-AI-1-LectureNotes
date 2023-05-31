@@ -51,6 +51,7 @@
         <router-link to="/vue-spring">Vue + Spring + FastAPI 숙제 [1]</router-link> |
         <router-link to="/sign-up-page">회원가입</router-link> |
         <router-link to="/github-sign-in-page">Github 로그인</router-link> |
+        <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
       </nav>
     </div>
   </v-container>

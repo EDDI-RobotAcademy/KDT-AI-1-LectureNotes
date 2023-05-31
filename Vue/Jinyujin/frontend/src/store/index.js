@@ -11,6 +11,7 @@ import fastApiModule from './fastapi/FastApiModule'
 import vueSpringFastApiModule from './vueSpringFastApi/VueSpringFastApiModule'
 import accountModule from './account/AccountModule'
 import authenticationModule from './authentication/AuthenticationModule'
+import afterLoginModule from './afterLogin/AfterLoginModule'
 
 Vue.use(Vuex)
 
@@ -26,6 +27,7 @@ const store = new Vuex.Store({
     vueSpringFastApiModule: vueSpringFastApiModule,
     accountModule: accountModule,
     authenticationModule: authenticationModule,
+    afterLoginModule: afterLoginModule,
   },
 })
 
