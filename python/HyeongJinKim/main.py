@@ -7,6 +7,7 @@ from basics.therad_test import thread_test_sequence
 from problem.python_problem1 import coordinate
 from problem.python_problem2_advenced import adv_parallel_process_problem
 from problem.python_problem2 import parallel_process_problem
+from router.machine_learning.ml_router import ml_router
 from router.request_receiver.request_receive_router import request_receiver
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -28,7 +29,7 @@ def print_hi(name):
 
 app = FastAPI()
 
-origins = ["https://localhost:8080"]
+origins = ["http://localhost:8080"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -42,5 +43,5 @@ app.add_middleware(
 async def root_index():
     return { "message": "Hello from FastAPI" }
 
-
 app.include_router(request_receiver)
+app.include_router(ml_router)
