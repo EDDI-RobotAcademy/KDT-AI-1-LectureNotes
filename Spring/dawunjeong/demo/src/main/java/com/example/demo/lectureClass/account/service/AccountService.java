@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.account.service;
 
+import com.example.demo.lectureClass.account.entity.MemberAccount;
 import com.example.demo.lectureClass.account.service.request.AccountRegisterRequest;
 
 public interface AccountService {
@@ -10,4 +11,6 @@ public interface AccountService {
     Long findAccountIdByEmail(String email);
 
     Long signUpWithEmail(String email);
+
+    MemberAccount findAccountInfoById(Long accountId);
 }
