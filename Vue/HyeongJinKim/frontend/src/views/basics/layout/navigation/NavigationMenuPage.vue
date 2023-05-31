@@ -73,15 +73,17 @@
 </template>
 
 <script>
+import { GITHUB_LOGIN_COMPLETE } from "@/store/authentication/mutation-types";
 import router from "@/router";
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 const authenticationModule = "authenticationModule";
 export default {
   data() {
     return {
       navigation_drawer: false,
       links: [{ icon: "mdi-home", text: "Home", route: "/" }],
-      accountId: 0,
+      //accountId: 0,
+      userToken: 0,
       //isLogin: false,
     };
   },
@@ -89,6 +91,7 @@ export default {
     ...mapState(authenticationModule, ["isAuthenticated"]),
   },
   methods: {
+    ...mapMutations(authenticationModule, ["GITHUB_LOGIN_COMPLETE"]),
     clickToggle() {
       alert("토글");
     },
@@ -102,6 +105,7 @@ export default {
       //localStorage.removeItem("loginUserInfo")
       //this.isLogin = false
       localStorage.removeItem("userToken");
+      this[GITHUB_LOGIN_COMPLETE](false);
       this.$store.state.authenticationModule.isAuthenticated = false;
     },
     goToHome() {
@@ -111,13 +115,22 @@ export default {
   },
   mounted() {
     //this.accountId = localStorage.getItem("loginUserInfo")
-    this.accountId = localStorage.getItem("userToken");
-    if (this.accountId > 0) {
-      //this.isLogin = true
-      this.$store.state.authenticationModule.isAuthenticated = true;
+    //this.accountId = localStorage.getItem("userToken");
+    //if (this.accountId > 0) {
+    //this.isLogin = true
+    //this.$store.state.authenticationModule.isAuthenticated = true;
+    //this[GITHUB_LOGIN_COMPLETE](true);
+    //} else {
+    //this.isLogin = false
+    //this.$store.state.authenticationModule.isAuthenticated = false;
+    //this[GITHUB_LOGIN_COMPLETE](false);
+    //}
+    this.userToken = localStorage.getItem("userToken");
+
+    if (this.userToken == null) {
+      this[GITHUB_LOGIN_COMPLETE](false);
     } else {
-      //this.isLogin = false
-      this.$store.state.authenticationModule.isAuthenticated = false;
+      this[GITHUB_LOGIN_COMPLETE](true);
     }
   },
 };
