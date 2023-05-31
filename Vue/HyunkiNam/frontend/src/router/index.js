@@ -16,6 +16,7 @@ import foodSetRoutes from './food'
 import fastApiTestRoutes from './fastapi'
 import accountTestRoutes from './account'
 import authenticationTestRoutes from './authentication'
+import afterLoginTestRoutes from './afterLogin'
 // @는 현재 src 폴더를 의미함
 
 
@@ -39,6 +40,7 @@ const routes = [
   ...fastApiTestRoutes,
   ...accountTestRoutes,
   ...authenticationTestRoutes,
+  ...afterLoginTestRoutes,
 ]
 
 const router = new VueRouter({
