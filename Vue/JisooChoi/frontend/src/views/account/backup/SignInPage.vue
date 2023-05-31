@@ -24,7 +24,7 @@ export default {
                 주소의 히스토리가 기록된다.
 
                 즉, 특정 URL 페이지로 이동한다는 것이다.
-                location.href = "이동할 페이지 주소"; 
+                location.href = "이동할 페이지 주소";
             */
             window.location.href = await this.requestGithubLoginToSpring()
         }
