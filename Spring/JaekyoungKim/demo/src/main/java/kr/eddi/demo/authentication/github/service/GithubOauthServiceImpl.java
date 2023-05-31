@@ -2,10 +2,14 @@ package kr.eddi.demo.authentication.github.service;
 
 
 import kr.eddi.demo.authentication.github.service.reponse.GithubOauthAccessTokenResponse;
+import kr.eddi.demo.authentication.github.service.reponse.GithubOauthAccountInfoResponse;
 import kr.eddi.demo.authentication.github.service.request.GithubOauthTokenRequest;
 import kr.eddi.demo.utility.property.PropertyUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,6 +20,7 @@ public class GithubOauthServiceImpl implements GithubOauthService {
 
     final private RestTemplate restTemplate;
     final private PropertyUtil propertyUtil;
+
     @Override
     public String getAuthorizeCode() {
         final String CLIENT_ID = propertyUtil.getProperty("client_id");
@@ -36,5 +41,25 @@ public class GithubOauthServiceImpl implements GithubOauthService {
                 REQUEST_GITHUB_ACCESS_TOKEN_URL,
                 new GithubOauthTokenRequest(CLIENT_ID, CLIENT_SECRETS, code),
                 GithubOauthAccessTokenResponse.class).getAccessToken();
+    }
+
+    @Override
+    public GithubOauthAccountInfoResponse getAccountInfo(String accessToken) {
+        final String REQUEST_GITHUB_USER_API_URL =
+                "https://api.github.com/user";
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBearerAuth(accessToken);
+        HttpEntity<Void> request = new HttpEntity<>(headers);
+
+        GithubOauthAccountInfoResponse response = restTemplate.exchange(
+                REQUEST_GITHUB_USER_API_URL,
+                HttpMethod.GET,
+                request,
+                GithubOauthAccountInfoResponse.class).getBody();
+
+        log.info("result: " + response);
+
+        return response;
     }
 }
