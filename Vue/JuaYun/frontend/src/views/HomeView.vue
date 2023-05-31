@@ -47,6 +47,7 @@
         <router-link to="/fastapi-prob">vue spring fastapi 문제은행1</router-link> |
         <router-link to="/sign-up-page">회원 가입</router-link> |
         <router-link to="/github-sign-in-page">로그인</router-link> |
+        <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
       </nav>
     </div>
   </v-container>

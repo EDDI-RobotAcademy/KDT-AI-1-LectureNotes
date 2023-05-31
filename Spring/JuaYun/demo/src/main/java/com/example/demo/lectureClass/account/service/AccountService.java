@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.account.service;
 
+import com.example.demo.lectureClass.account.controller.form.AccountResponseForm;
 import com.example.demo.lectureClass.account.request.AccountRegisterRequest;
 
 
@@ -11,4 +12,6 @@ public interface AccountService {
     Long findAccountIdByEmail(String email);
 
     Long signUpWithEmail(String email);
+
+    AccountResponseForm findAccountInfoById(Long accountId);
 }
