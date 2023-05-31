@@ -90,3 +90,19 @@ async def create_virtual_credit():
 
     print(virtual_credit_date)
 
+# pip install openpyxl
+@ml_router.get('/make-exel')
+async def make_excel():
+    info_data = {'이름': ['가가가', '나나나', '다다다'],
+                 '나이': [10, 20, 30],
+                 '성별': ['남', '여', '남']}
+
+    df = pd.DataFrame(info_data)
+
+    # CSV 만들기
+    file_path = './data.csv'
+    df.to_csv(file_path, index=False)
+
+    # 엑셀 만들기
+    file_path = './data.xlsx'
+    df.to_excel(file_path, index=False)
