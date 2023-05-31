@@ -19,6 +19,12 @@ public class RedisServiceImpl implements RedisService{
     public void setKeyAndValue(String token, Long accountId) {
         String accountIdToString = String.valueOf(accountId);
         ValueOperations<String, String> value = redisTemplate.opsForValue();
+
+        /*
+            유지 시간을 늘리고 싶다면
+            Duration.ofMinutes() 인 부분을 바꾸어주면 된다.
+            -> 우리는 현재는 3분으로 되어있다.
+        */
         value.set(token, accountIdToString, Duration.ofMinutes(3));
     }
 
