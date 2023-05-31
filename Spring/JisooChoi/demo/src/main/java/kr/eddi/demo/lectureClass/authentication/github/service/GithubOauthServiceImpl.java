@@ -23,7 +23,6 @@ public class GithubOauthServiceImpl implements GithubOauthService {
 
     @Override
     public String getAuthorizeCode() {
-//        final String CLIENT_ID = "yourGithubOAuthAppsId";
         final String CLIENT_ID = propertyUtil.getProperty("client_id");
         final String URL = "https://github.com/login/oauth/authorize";
 
@@ -35,14 +34,11 @@ public class GithubOauthServiceImpl implements GithubOauthService {
     public String getAccessToken(String code) {
         final String REQUEST_GITHUB_ACCESS_TOKEN_URL =
                 "https://github.com/login/oauth/access_token";
-//        final String CLIENT_ID = "yourGithubOAuthAppsId";
-//        final String YOUR_SECRETS = "";
         final String CLIENT_ID = propertyUtil.getProperty("client_id");
         final String CLIENT_SECRETS = propertyUtil.getProperty("client_secrets");
 
         return restTemplate.postForObject(
                 REQUEST_GITHUB_ACCESS_TOKEN_URL,
-//                new GithubOauthTokenRequest(CLIENT_ID, YOUR_SECRETS, code),
                 new GithubOauthTokenRequest(CLIENT_ID, CLIENT_SECRETS, code),
                 GithubOauthAccessTokenResponse.class).getAccessToken();
     }

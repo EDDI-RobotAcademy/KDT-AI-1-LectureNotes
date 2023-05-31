@@ -3,6 +3,7 @@ package kr.eddi.demo.lectureClass.account.service;
 import kr.eddi.demo.lectureClass.account.entity.MemberAccount;
 import kr.eddi.demo.lectureClass.account.repository.AccountRepository;
 import kr.eddi.demo.lectureClass.account.service.request.AccountRegisterRequest;
+import kr.eddi.demo.lectureClass.account.controller.form.AccountResponseForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -60,5 +61,20 @@ public class AccountServiceImpl implements AccountService {
         final MemberAccount account = new MemberAccount(email);
 
         return accountRepository.save(account).getId();
+    }
+
+    @Override
+    public AccountResponseForm findAccountInfoById(Long accountId) {
+        final Optional<MemberAccount> maybeAccount = accountRepository.findById(accountId);
+
+        if (maybeAccount.isEmpty()) {
+            log.info("이런 계정은 존재하지 않습니다(해킹이 의심됩니다!)");
+            return null;
+        }
+
+        final MemberAccount account = maybeAccount.get();
+        final AccountResponseForm responseForm = new AccountResponseForm(account.getEmail());
+
+        return responseForm;
     }
 }
