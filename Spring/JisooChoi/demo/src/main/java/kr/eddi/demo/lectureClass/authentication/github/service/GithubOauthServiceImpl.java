@@ -32,6 +32,14 @@ public class GithubOauthServiceImpl implements GithubOauthService {
 
     @Override
     public String getAccessToken(String code) {
+        /*
+            ★ 이 메서드의 전체적인 코드 흐름은
+
+            Github 에 권한 인증(?) 을 받은 code 를 보내주고,
+            (= Authorization code 를 보내서)
+
+            AccessToken 요청을 한다.
+         */
         final String REQUEST_GITHUB_ACCESS_TOKEN_URL =
                 "https://github.com/login/oauth/access_token";
 
@@ -52,13 +60,9 @@ public class GithubOauthServiceImpl implements GithubOauthService {
                 A. URL 주소로 POST 요청을 보내고 객체로 결과를 반환받는다.
         */
         return restTemplate.postForObject(
-                REQUEST_GITHUB_ACCESS_TOKEN_URL,
-                new GithubOauthTokenRequest(CLIENT_ID, CLIENT_SECRETS, code), // Github 토큰의 완전체 모습같음 ..
-                GithubOauthAccessTokenResponse.class).getAccessToken();
-        /*
-                Q. 위의 코드에서 사용하는 .class 의 용도가 무엇인가 ?
-                (위의 return 형태가 너무 어려움)
-        */
+                REQUEST_GITHUB_ACCESS_TOKEN_URL, // 요청할 주소
+                new GithubOauthTokenRequest(CLIENT_ID, CLIENT_SECRETS, code), // Github 토큰의 완전체 모습을 가지고
+                GithubOauthAccessTokenResponse.class).getAccessToken(); // 해당 타입으로 리턴 받겠다.
 
     }
 
@@ -70,19 +74,44 @@ public class GithubOauthServiceImpl implements GithubOauthService {
         /*
             HTTP 헤더는 클라이언트와 서버가 요청 또는 응답으로
             부가적인 정보를 전송할 수 있도록 한다.
+
+            HTTP POST 를 요청할 때 보내는
+            데이터(body)를 설명해주는 헤더(Header)도 만들어서 같이 보내주어야 한다.
         */
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(accessToken);
+
+        /*
+            요청하기 위해 헤더(Header)와 데이터(body) 합치기
+
+            Q. Header -> accessToken 존재
+               Body -> 사용자 정보 존재
+               이를 하나로 묶는 건가 ?
+
+            Spring Framework 에서 제공해주는
+            HttpEntity 클래스는 Header 와 Body 를 합쳐준다.
+
+            ★ 그러나 우리는 현재 headers 만 넣은 듯 ?
+         */
         HttpEntity<Void> request = new HttpEntity<>(headers);
 
+        /*
+            POST 요청해보기
+
+            RestTemplate 는 HTTP 메소드에 의한 평범한 기능 템플릿을 제공해주고,
+            더 나아가 특병한 케이스를 지원하는  exchange 와 execute 메서드를 제공해준다.
+
+            exchange() : 모든 HTTP 요청 메소드를 지원하며 원하는 서버에 요청시켜주는 메소드
+         */
         GithubOauthAccountInfoResponse response = restTemplate.exchange(
-                REQUEST_GITHUB_USER_API_URL,
-                HttpMethod.GET,
-                request,
-                GithubOauthAccountInfoResponse.class).getBody();
+                REQUEST_GITHUB_USER_API_URL, // 요청할 서버 주소
+                HttpMethod.GET, // 요청할 방식
+                request, // 요청할 때 보낼 데이터 (accessToken)
+                GithubOauthAccountInfoResponse.class).getBody(); // 요청시 반환된는 데이터 타입
 
         log.info("result: " + response);
 
+        // response 에 서버에서 응답해준 데이터가 저장될 것이다.
         return response;
     }
 

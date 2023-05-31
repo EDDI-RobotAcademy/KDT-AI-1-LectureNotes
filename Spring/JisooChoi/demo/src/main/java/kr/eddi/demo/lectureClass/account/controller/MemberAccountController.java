@@ -29,7 +29,7 @@ public class MemberAccountController {
             form.toAccountRegisterRequest()로 보내는 이유 ?
 
             -> A.
-            Service 에서 최적화되지 않은 작업들을 Request 를 통해 제어가 가능하며,
+            Service 에서 최적화되지 않은 작업들은 Request 를 통해 제어가 가능하며,
             Request 는 Service 에 실질적인 요청을 한다.
             RequestForm 이 양식 이라면, Request 는 실질적인 요청인 것이다.
             그래서 Service 가 이 요청을 처리하는 구조로 구성한다.
@@ -43,6 +43,5 @@ public class MemberAccountController {
 //    public void githubLoginCallback(HttpServletResponse response) {
 //        response.sendRedirect("http://localhost:8080/");
 //    }
-
 
 }
