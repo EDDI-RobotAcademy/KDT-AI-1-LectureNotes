@@ -4,6 +4,7 @@ from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.thread_test import thread_test_sequence
 from homework.homework_third import vsf_receive
+from router.machine_learning.ml_router import ml_router
 from router.request_receiver.request_receive_router import request_receiver
 from solved.homework_first import gas_station_problem_solve
 from homework.homework_second import homework2
@@ -57,3 +58,4 @@ async def root_index():
 # 여기에 좌르륵 쓰기에 더러워 보이니까 이쁘게 패키지 안에 넣자
 app.include_router(request_receiver)
 app.include_router(vsf_receive)
+app.include_router(ml_router)
