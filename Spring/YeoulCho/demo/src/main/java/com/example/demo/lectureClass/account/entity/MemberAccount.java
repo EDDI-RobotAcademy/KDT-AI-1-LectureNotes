@@ -6,8 +6,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
+@ToString
 @NoArgsConstructor
 public class MemberAccount {
 
@@ -15,7 +17,7 @@ public class MemberAccount {
     @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Getter
     private String email;
 
     public MemberAccount(String email) {

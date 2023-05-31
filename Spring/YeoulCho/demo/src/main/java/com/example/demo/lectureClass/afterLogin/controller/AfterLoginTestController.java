@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.afterLogin.controller;
 
+import com.example.demo.lectureClass.account.controller.form.AccountResponseForm;
 import com.example.demo.lectureClass.account.service.AccountService;
 import com.example.demo.lectureClass.afterLogin.form.AfterLoginRequestForm;
 import com.example.demo.lectureClass.authentication.redis.RedisService;
@@ -17,13 +18,13 @@ public class AfterLoginTestController {
     final private RedisService redisService;
 
     @PostMapping("/test")
-    public void afterLoginTest(@RequestBody AfterLoginRequestForm requestForm){
-        log.info("requestForm() " + requestForm);
+    public AccountResponseForm afterLoginTest(@RequestBody AfterLoginRequestForm requestForm){
+        log.info("afterLoginTest(): " + requestForm);
 
         Long accountId =redisService.getValueByKey(requestForm.getUserToken());
         log.info("accountId " + accountId);
 
-        accountService.findAccountInfoById(accountId);
+        return accountService.findAccountInfoById(accountId);
 
     }
 }
