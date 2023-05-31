@@ -66,8 +66,12 @@
   </template>
   
   <script>
+  import {
+    GITHUB_LOGIN_COMPLETE,
+  } from '@/store/authentication/mutation-types'
+
   import router from '@/router'
-import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
 
   const authenticationModule = 'authenticationModule'
 
@@ -79,14 +83,16 @@ import { mapState } from 'vuex'
           links: [
             { icon: 'mdi-home', text: 'Home', route: '/' }
           ],
-          accountId: 0,
+          // accountId: 0,
           // isLogin: false
+          userToken: 0,
         }
       },
       computed: {
         ...mapState(authenticationModule, ['isAuthenticated'])
       },  
       methods: {
+        ...mapMutations(authenticationModule, ['GITHUB_LOGIN_COMPLETE']),
         clickToggle () {
           alert('토글')
         },
@@ -102,7 +108,8 @@ import { mapState } from 'vuex'
           //this.isLogin = false
 
           localStorage.removeItem("userToken")
-          this.$store.state.authenticationModule.isAuthenticated = false
+          this[GITHUB_LOGIN_COMPLETE](false)
+          // this.$store.state.authenticationModule.isAuthenticated = false
         },
         goToHome () {
           router.push('/')
@@ -110,17 +117,28 @@ import { mapState } from 'vuex'
       },
       mounted () {
         // this.accountId = localStorage.getItem("loginUserInfo")
-        this.accountId = localStorage.getItem("userToken")
-        if (this.accountId > 0) {
-          // this.isLogin = true
-          this.$store.state.authenticationModule.isAuthenticated = true
-        } else {
-          this.isLogin = false
-          //this.isLogin = false
-          this.$store.state.authenticationModule.isAuthenticated = false
+        // this.accountId = localStorage.getItem("userToken")
+        // if (this.accountId > 0) {
+        //   // this.isLogin = true
+        //   // this.$store.state.authenticationModule.isAuthenticated = true
+        //   this[GITHUB_LOGIN_COMPLETE](true)
+        // } else {
+        //   this.isLogin = false
+        //   //this.isLogin = false
+        //   // this.$store.state.authenticationModule.isAuthenticated = false
+        //   this[GITHUB_LOGIN_COMPLETE](false)
+          // 이런 식으로 하면 직접 store에 접근할 필요가 없음 
+          this.userToken = localStorage.getItem("userToken")
+
+          if (this.userToken == null) {
+            this[GITHUB_LOGIN_COMPLETE](false)
+          } else {
+            this[GITHUB_LOGIN_COMPLETE](true)
+          }
         }
       }
-  }
+     
+  
   </script>
   
   <style lang="">
