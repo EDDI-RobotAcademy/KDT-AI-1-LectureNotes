@@ -20,7 +20,7 @@ export default {
         ...mapActions(afterLoginModule, ['requestSomeDataToSpringWithUserToken']),
         async afterLoginTokenTest () {
             const userToken = localStorage.getItem("userToken")
-            alert('token 값: ' + userToken)
+            //alert('token 값: ' + userToken)
             
             const memberInfo = await this.requestSomeDataToSpringWithUserToken({ userToken, testNumber: 3 })
             alert('memberInfo: ' + JSON.stringify(memberInfo))
