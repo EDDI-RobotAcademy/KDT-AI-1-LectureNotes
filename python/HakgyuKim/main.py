@@ -9,6 +9,7 @@ from problem.gas_station_prob import gas_station_problem_solve
 
 from fastapi import Depends, FastAPI
 
+from router.machine_learning.ml_router import ml_router
 from router.request_receiver.request_receive_router import request_receiver
 
 
@@ -47,3 +48,4 @@ async def root_index():
 app.include_router(request_receiver)
 
 app.include_router(homework_request)
+app.include_router(ml_router)
