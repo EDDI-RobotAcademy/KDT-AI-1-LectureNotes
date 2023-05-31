@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.account.service;
 
+import com.example.demo.lectureClass.account.controller.form.AccountResponseForm;
 import com.example.demo.lectureClass.account.entity.MemberAccount;
 import com.example.demo.lectureClass.account.repository.AccountRepository;
 import com.example.demo.lectureClass.account.service.request.AccountRegisterRequest;
@@ -63,13 +64,17 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public MemberAccount findAccountInfoById(Long accountId) {
+    public AccountResponseForm findAccountInfoById(Long accountId) {
         final Optional<MemberAccount> maybeAccount = accountRepository.findById(accountId);
 
         if(maybeAccount.isEmpty()) {
             log.info("이런 계정은 존재하지 않습니다!(해킹이 의심됩니다!)");
             return null;
         }
-        return maybeAccount.get();
+        final MemberAccount account = maybeAccount.get();
+
+        AccountResponseForm responseForm = new AccountResponseForm(account.getEmail());
+
+        return responseForm;
     }
 }
