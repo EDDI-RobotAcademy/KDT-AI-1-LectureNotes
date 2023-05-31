@@ -1,5 +1,6 @@
 package kr.eddi.demo.lectureClass.account.service;
 
+import kr.eddi.demo.lectureClass.account.controller.form.AccountResponseForm;
 import kr.eddi.demo.lectureClass.account.entity.MemberAccount;
 import kr.eddi.demo.lectureClass.account.repository.AccountRepository;
 import kr.eddi.demo.lectureClass.account.service.request.AccountRegisterRequest;
@@ -63,7 +64,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public MemberAccount findAccountInfoById(Long accountId) {
+    public AccountResponseForm findAccountInfoById(Long accountId) {
         final Optional<MemberAccount> maybeAccount = accountRepository.findById(accountId);
 
         if (maybeAccount.isEmpty()) {
@@ -71,6 +72,9 @@ public class AccountServiceImpl implements AccountService {
             return null;
         }
 
-        return maybeAccount.get();
+        final MemberAccount account = maybeAccount.get();
+        final AccountResponseForm responseForm = new AccountResponseForm(account.getEmail());
+
+        return responseForm;
     }
 }
