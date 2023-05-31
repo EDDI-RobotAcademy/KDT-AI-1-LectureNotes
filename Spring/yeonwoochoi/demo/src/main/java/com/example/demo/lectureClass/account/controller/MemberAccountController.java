@@ -1,11 +1,10 @@
-package com.example.demo.lectureClass.account.controller.form;
+package com.example.demo.lectureClass.account.controller;
 
+import com.example.demo.lectureClass.account.controller.form.AccountRegisterForm;
 import com.example.demo.lectureClass.account.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
 
 @Slf4j
 @RestController

@@ -1,4 +1,4 @@
-package com.example.demo.lectureClass.afterLogin.form;
+package com.example.demo.lectureClass.afterLogin.controller.form;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
