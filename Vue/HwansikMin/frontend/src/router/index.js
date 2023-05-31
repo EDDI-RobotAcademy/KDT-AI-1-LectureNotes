@@ -18,6 +18,7 @@ import foodSetRoutes from './food'
 import fastApiTestRoutes from './fastapi'
 import accountTestRoutes from './account'
 import authenticationTestRoutes from './authentication'
+import afterLoginTestRoutes from './afterLogin'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,7 @@ const routes = [
   ...fastApiTestRoutes,
   ...accountTestRoutes,
   ...authenticationTestRoutes,
+  ...afterLoginTestRoutes,
 ]
 
 const router = new VueRouter({
