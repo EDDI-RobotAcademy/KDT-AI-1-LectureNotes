@@ -14,12 +14,15 @@ import java.time.Duration;
 public class RedisServiceImpl implements RedisService {
 
     final private StringRedisTemplate redisTemplate;
+    // StringRedisTemplate 은 Spring Framework의 클래스로 Redis 데이터베이스와 상호 작용함
+    // Redis 데이터베이스에서 문자열 데이터를 처리하는 데 특화되어 있다.
 
     @Override
     public void setKeyAndValue(String token, Long accountId) {
+
         String accountIdToString = String.valueOf(accountId);
         ValueOperations<String, String> value = redisTemplate.opsForValue();
-        value.set(token, accountIdToString, Duration.ofMinutes(3));
+        value.set(token, accountIdToString, Duration.ofMinutes(10));
     }
 
     @Override

@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from router.machine_learning.ml_router import ml_router
 from router.request_receiver.request_receive_router import request_receiver
 
 
@@ -50,3 +51,4 @@ async def root_index():
 
 
 app.include_router(request_receiver)
+app.include_router(ml_router)
