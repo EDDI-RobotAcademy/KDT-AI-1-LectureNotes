@@ -94,3 +94,18 @@ async def create_virtual_credit():
     })
 
     print(virtual_credit_data)
+
+
+# pip install openpyxl
+@ml_router.get('/make-excel')
+async def make_excel():
+    info_data = {
+        '이름': ['가가가', '나나나', '다다다'],
+        '나이': [10, 20, 30],
+        '성별': ['남', '남', '여']
+    }
+
+    df = pd.DataFrame(info_data)
+
+    file_path = './data.xlsx'
+    df.to_excel(file_path, index=False)
