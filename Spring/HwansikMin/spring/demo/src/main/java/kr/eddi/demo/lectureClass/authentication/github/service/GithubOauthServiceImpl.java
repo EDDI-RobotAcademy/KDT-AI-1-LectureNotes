@@ -1,6 +1,5 @@
 package kr.eddi.demo.lectureClass.authentication.github.service;
 
-
 import kr.eddi.demo.lectureClass.authentication.github.service.request.GithubOauthTokenRequest;
 import kr.eddi.demo.lectureClass.authentication.github.service.response.GithubOauthAccessTokenResponse;
 import kr.eddi.demo.lectureClass.authentication.github.service.response.GithubOauthAccountInfoResponse;
