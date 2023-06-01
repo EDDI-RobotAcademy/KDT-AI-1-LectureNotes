@@ -12,6 +12,7 @@
                     <v-card width="460">
                         <v-card-text class="text-center px-12 py-16">
                             <v-form @submit.prevent="onSubmit" ref="form">
+                                <!-- ref="form" form안의 모든 유효성 검사가 통과해야 한다는 뜻 -->
                                 <div class="text-h4 font-weight-black mb-10">Github Oauth 로그인</div>
                                 <div class="d-flex">
                                     <v-img
@@ -22,6 +23,11 @@
                                 <v-btn type="submit" block x-large rounded
                                         color="gray lighten-1" class="mt-6"
                                         :disabled="false">
+                                        <!-- 
+                                            disabled: 버튼을 사용할 수 없게 하는 불리언 속성
+                                            disabled가 true이면 버튼 클릭 불가
+                                            disabled를 false로 하여 입력 폼 활성화
+                                         -->
                                     로그인
                                 </v-btn>
 

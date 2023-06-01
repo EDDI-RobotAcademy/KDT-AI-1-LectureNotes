@@ -18,6 +18,7 @@ public class AccountServiceImpl implements AccountService{
 
     final private AccountRepository accountRepository;
 
+    // 이메일 중복 확인
     @Override
     public Boolean checkEmailDuplication(String email) {
         Optional<MemberAccount> maybeAccount = accountRepository.findByEmail(email);
@@ -29,6 +30,7 @@ public class AccountServiceImpl implements AccountService{
         }
     }
 
+    // 회원 가입
     @Override
     public Boolean signUp(AccountRegisterRequest request) {
         accountRepository.save(request.toAccount());

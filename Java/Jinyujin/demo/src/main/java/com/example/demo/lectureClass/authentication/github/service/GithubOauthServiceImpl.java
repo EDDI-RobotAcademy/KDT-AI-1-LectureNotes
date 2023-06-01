@@ -23,6 +23,7 @@ public class GithubOauthServiceImpl implements GithubOauthService{
     @Override
     public String getAuthorizeCode() {
         final String CLIENT_ID = propertyUtil.getProperty("client_id");
+        // github.properties에 있는 client_id를 가져와서 CLIENT_ID에 담을 수 있음
         final String URL = "https://github.com/login/oauth/authorize";
 
         // https://github.com/login/oauth/authorize?client_id=yourGithubOAuthAppsId&scope=repo:status read:repo_hook user:email
