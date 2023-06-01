@@ -1,5 +1,6 @@
 from fastapi import Depends, FastAPI
 from router.request_receiver.request_receive_router import request_receiver
+from router.machine_learning.ml_router import ml_router
 
 from basics.basic_grammar import python_basics
 from basics.python_class import class_test_function
@@ -39,3 +40,4 @@ async def root_index():
 
 
 app.include_router(request_receiver)
+app.include_router(ml_router)
