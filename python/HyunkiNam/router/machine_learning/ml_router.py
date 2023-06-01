@@ -8,12 +8,14 @@ import pandas as pd
 
 ml_router = APIRouter()
 
+
 @ml_router.get("/ml-device-info")
 async def print_device_info():
     print("device info:", device_lib.list_local_devices())
     devices = device_lib.list_local_devices()
     device_info = [{'name': device.name, 'device_type': device.device_type} for device in devices]
     return device_info
+
 
 @ml_router.get('/get-all-physical-cpu')
 async def print_all_physical_cpu():
@@ -24,6 +26,7 @@ async def print_all_physical_cpu():
     logical_cpus = tf.config.list_logical_devices('CPU')
     for logical_cpu in logical_cpus:
         print(logical_cpu)
+
 
 @ml_router.get('/get-device-details')
 async def get_device_details():
@@ -36,13 +39,14 @@ async def get_device_details():
         # print("Device index:", cpu_details['device_index'])
         # print("Device physical device desc::", cpu_details['physical_device_desc'])
 
+
 @ml_router.get('/create-virtual-credit')
 async def create_virtual_credit():
-    mean_age = 35   # 평균(mean)
-    std_dev_age = 5 # 표준편차(standard deviation)
+    mean_age = 35  # 평균(mean)
+    std_dev_age = 5  # 표준편차(standard deviation)
 
-    #mean_credit_score = 700
-    #std_dev_credit_score = 50
+    # mean_credit_score = 700
+    # std_dev_credit_score = 50
 
     mean_income = 6000
     std_dev_income = 1500
@@ -84,3 +88,18 @@ async def create_virtual_credit():
     })
 
     print(virtual_credit_data)
+
+
+# pip install openpyxl
+@ml_router.get('/make-excel')
+async def make_excel():
+    info_data = {
+        '이름': ['가가가', '나나나', '다다다'],
+        '나이': [10, 20, 30],
+        '성별': ['남', '남', '여']
+    }
+
+    df = pd.DataFrame(info_data)
+
+    file_path = './data.xlsx'
+    df.to_excel(file_path, index=False)
