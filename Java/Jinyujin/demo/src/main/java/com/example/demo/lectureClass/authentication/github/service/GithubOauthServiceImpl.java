@@ -38,9 +38,25 @@ public class GithubOauthServiceImpl implements GithubOauthService{
         final String CLIENT_SECRETS = propertyUtil.getProperty("client_secrets");
 
         return restTemplate.postForObject(
+                // restTemplate.postForObject(): restTmplate 내부에 있는 메서드
+                // HTTP POST 요청을 보내고, 응답을 받아 자동으로 객체로 변환하는 기능
+                // 이를 통해 API 서버와의 통신을 간단하게 처리
+                // 내가 카카오 맵을 쓸 때 나는 음식점을 검색했을 때
+                // 음식점 위치들의 데이터들을 반환해주는 게 스프링
+                // 그 음식점 데이터들을 반환해주는 게 API
                 REQUEST_GITHUB_ACCESS_TOKEN_URL,
                 new GithubOauthTokenRequest(CLIENT_ID, CLIENT_SECRETS, code),
                 GithubOauthAccessTokenResponse.class).getAccessToken();
+                /*
+                    REQUEST_GITHUB_ACCESS_TOKEN_URL,
+                    new GithubOauthTokenRequest(CLIENT_ID, CLIENT_SECRETS, code),
+                    GithubOauthAccessTokenResponse.class)
+                    얘네들을 HTTP POST로 요청을 보내고 accessToken을 응답받는 것
+
+                    GithubOauthAccessTokenResponse.class
+                    Github API에서 Access Token 요청에 대한 응답을 받을 때 사용되는 클래스
+                    -> Github API에서 반환하는 JSON 응답을 자동으로 객체로 변환해주는 역할
+                */
     }
 
     @Override
@@ -50,6 +66,7 @@ public class GithubOauthServiceImpl implements GithubOauthService{
 
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(accessToken);
+        // 서버 측에서 인증된 사용자인지 토큰으로 확인하도록
         HttpEntity<Void> request = new HttpEntity<>(headers);
 
         GithubOauthAccountInfoResponse response = restTemplate.exchange(
@@ -57,6 +74,7 @@ public class GithubOauthServiceImpl implements GithubOauthService{
                 HttpMethod.GET,
                 request,
                 GithubOauthAccountInfoResponse.class).getBody();
+        // 원래 accessToken으로 회원 정보를 받아오는 코드 형식 같음
 
         log.info("result: " + response);
 

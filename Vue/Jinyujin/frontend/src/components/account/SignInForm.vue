@@ -12,7 +12,13 @@
                     <v-card width="460">
                         <v-card-text class="text-center px-12 py-16">
                             <v-form @submit.prevent="onSubmit" ref="form">
-                                <!-- ref="form" form안의 모든 유효성 검사가 통과해야 한다는 뜻 -->
+                                <!-- 
+                                    ref="form" form안의 모든 유효성 검사가 통과해야 한다는 뜻
+                                    로그인 성공하면 
+                                    window.location.href = await this.requestGithubLoginToSpring()
+                                    실행하여 새로운 페이지로 넘어가는 거고
+                                    로그인 안되면 회원 신청하는 페이지로 넘어가도록
+                                -->
                                 <div class="text-h4 font-weight-black mb-10">Github Oauth 로그인</div>
                                 <div class="d-flex">
                                     <v-img
