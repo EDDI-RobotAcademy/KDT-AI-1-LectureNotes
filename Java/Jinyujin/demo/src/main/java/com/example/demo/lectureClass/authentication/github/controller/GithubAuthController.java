@@ -70,6 +70,7 @@ public class GithubAuthController {
         log.info("accountId: " + accountId + ", userToken: " + userToken);
 
         redisService.setKeyAndValue(userToken, accountId);
+        // userToken으로 accountId 가져오기 (key - value)
 
         return userToken;
     }

@@ -19,13 +19,20 @@ public class RedisServiceImpl implements RedisService{
     public void setKeyAndValue(String token, Long accountId) {
         String accountIdToString = String.valueOf(accountId);
         ValueOperations<String, String> value = redisTemplate.opsForValue();
+        // ValueOperations<key, value>
+        // Redis에서 값을 저장하고 검색하는데 사용할 수 있는 ValueOperations 인터페이스
         value.set(token, accountIdToString, Duration.ofMinutes(3));
+        // Redis에 token이라는 key와 accountIdtoString이라는 value를 저장하며
+        // 유효기간은 3분
+
+        // 즉, Redis에 key와 value를 3분 간 저장하는 메서드
     }
 
     @Override
     public Long getValueByKey(String token) {
         ValueOperations<String, String> value = redisTemplate.opsForValue();
         String tmpAccountId = value.get(token);
+        // 저장한 token으로 value를 가져와서 tmpAccountId에 저장해줌
         Long accountId;
 
         if (tmpAccountId == null) {
