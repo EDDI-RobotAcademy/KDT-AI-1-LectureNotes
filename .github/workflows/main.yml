@@ -46,7 +46,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/${{ github.actor }}/KDT-AI-1-LectureNotes:latest
+          tags: ghcr.io/${{ github.actor }}/kdt-ai-1-lecturenotes:latest
           platforms: linux/arm64
           
   deploy:
