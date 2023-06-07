@@ -44,8 +44,9 @@ public class GithubAuthController {
     @GetMapping("/github/login")
     public String requestGithubAuthorizeCode() {
         log.info("requestGithubAuthorizeCode()");
-
+        // vue에서 requestGithubLoginToSpring 메소드로 날아온거
         return githubOauthService.getAuthorizeCode();
+
     }
 
     @GetMapping("/github/oauth-code")

@@ -4,14 +4,17 @@ import axiosInstances from "@/utility/axiosInst";
 
 export default {
   requestGithubLoginToSpring({}) {
-    return axiosInstances.springAxiosInst
-      .get("/authentication/github/login")
-      .then((res) => {
-        return res.data;
-      })
-      .catch((res) => {
-        alert("문제 발생!");
-      });
+    return (
+      axiosInstances.springAxiosInst
+        .get("/authentication/github/login")
+        // spring 링크로 연결
+        .then((res) => {
+          return res.data;
+        })
+        .catch((res) => {
+          alert("문제 발생!");
+        })
+    );
   },
   getAccessTokenFromSpringRedirection({ commit }, payload) {
     const { code } = payload;
