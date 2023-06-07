@@ -44,7 +44,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-					file: ./Dockerfile
+          file: ./Dockerfile
           push: true
           tags: ghcr.io/cjw0824/fastapi-server:latest
           platforms: linux/arm64
