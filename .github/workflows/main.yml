@@ -1,0 +1,84 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/fastapi-server
+  VERSION: ${{ github.sha }}
+  NAME: fastapi-server
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Configure Docker
+        uses: docker/setup-buildx-action@v1
+        
+      - name: Cache Docker Layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ env.VERSION }}
+          restore-keys: |
+            ${{ runner.os }}-buildx
+
+      - name: Set up Docker BuildKit
+        run: |
+          echo "DOCKER_BUILDKIT=1" >> $GITHUB_ENV
+      
+            
+      - name: Login to GHOR
+        uses: docker/login-action@v1
+        with: 
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{  secrets.SHCR_TOKEN }}
+        
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ghcr.io/dbswndk/fastapi-server:latest
+          
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: [ self-hosted, deploy-fastapi ]
+    steps:
+      - name: Login to ghcr
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
+      - name: Deploy to prod
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST_PROD }}
+          username: ec2-user
+          key: ${{ secrets.PRIVATE_KEY }}
+          script_stop: true
+          script: |
+            pwd
+            ls -al
+            cd ci_cd/actions-runner-fastapi
+            pwd
+            
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            
+            docker pull ghcr.io/dbswndk/fastapi-server:latest
+            docker image prune -f
+            docker logout
+            
+            docker-compose up -d
