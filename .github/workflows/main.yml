@@ -6,7 +6,7 @@ on:
       - main
       
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/KDT-AI-1-LectureNotes
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/kdt-ai-1-lecturenotes
   VERSION: ${{ github.sha }}
   NAME: fastapi-server
   
@@ -46,7 +46,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/dusdn943/KDT-AI-1-LectureNotes:latest
+          tags: ghcr.io/dusdn943/kdt-ai-1-lecturenotes:latest
           platforms: linux/arm64
           
   deploy:
@@ -76,7 +76,7 @@ jobs:
             
             echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
-            docker pull ghcr.io/dusdn943/KDT-AI-1-LectureNotes:latest
+            docker pull ghcr.io/dusdn943/kdt-ai-1-lecturenotes:latest
             
             docker image prune -f
             docker logout
