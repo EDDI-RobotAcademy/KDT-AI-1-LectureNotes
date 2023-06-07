@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   frontend:
-    image: ghcr.io/yeoulcho/KDT-AI-1-LectureNotes:latest
+    image: ghcr.io/yeoulcho/kdt-ai-1-lecturenotes:latest
     container_name: docker-fastapi-deploy-server
     ports:
       - 8000:8000
