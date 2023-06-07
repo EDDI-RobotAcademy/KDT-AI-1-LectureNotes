@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  app:
+    image: ghcr.io/dusdn943/fastapi-for-aws-deploy-test:latest
+    container_name: docker-fastapi-deploy-server
+    ports:
+      - "8000:8000"
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
