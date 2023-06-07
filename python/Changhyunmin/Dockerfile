@@ -1,7 +1,7 @@
 FROM arm64v8/python:3.8
 
 COPY ./app /app
-COPY requirements.txt /app
+COPY ./python/Changhyunmin/requirements.txt /app
 WORKDIR /app
 
 RUN pip install -r requirements.txt
