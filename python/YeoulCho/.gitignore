@@ -177,3 +177,8 @@ pyrightconfig.json
 
 # 고객 정보 파일 (외부 유출되면 안됨)
 customer_data.xlsx
+chunk*.xlsx
+self_employed_data.xlsx
+president_data.xlsx
+IBK사잇돌2.xlsx
+except_extract_data.xlsx
