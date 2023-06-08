@@ -8,4 +8,4 @@ seperate_range = 5000
 
 for i in range(0, total_rows, seperate_range):
     chunk = df[i:i+seperate_range]
-    chunk.to_excel(f'chunk_{i+1}--{i+len(chunk)}.xlsx', index=False)
+    chunk.to_excel(f'chunk_{i+1}-{i+len(chunk)}.xlsx', index=False)
