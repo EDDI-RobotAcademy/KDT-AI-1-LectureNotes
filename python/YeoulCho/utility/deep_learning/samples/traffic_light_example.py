@@ -3,9 +3,17 @@ from keras import Sequential
 from keras.layers import Dense
 from tensorflow import keras
 
-signals = ["빨간색", "노란색", "초록색"]
-actions = ["전진", "정지"]
+signals = ["빨간색", "노란색", "초록색"] # x
+actions = ["전진", "정지"] # y
+# 차량의 행위 = a * 신호등 색상
+# y = ax +b
+# y = ax
 
+# 대출 가능한 금액 = a1 * 미상환금액 + a2 * 미상환건수 + a3 * 연체율
+# 사용자 점수 = a1 * 미상환금액 + a2 * 미상화건수 + a3 * 연체율
+# 사용자 점수 얼마 미만 대출 컷
+# 범주 어디서 어디까진  3100, 어디서 어디까진 3700
+# 아까 예제에서 만든 형태 = a1 * 미상환금액 + 1 * 미상환건수 + 1 * 연체율
 data = []
 labels = []
 
