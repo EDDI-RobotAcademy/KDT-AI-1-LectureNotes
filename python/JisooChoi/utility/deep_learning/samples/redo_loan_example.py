@@ -70,4 +70,4 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 model.fit(X, one_hot_labels, epochs=100, batch_size=32)
 
-model.save("loan_model.h5")
+model.save("loan_model.h5") # 학습한 데이터

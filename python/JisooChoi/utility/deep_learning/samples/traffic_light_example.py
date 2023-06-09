@@ -17,7 +17,7 @@ actions = ["전진", "정지"] # y
 data = []
 labels = []
 
-for _ in range(100):
+for _ in range(100): # 샘플 데이터
     signal = np.random.choice(signals)
     if signal == "노란색":
         action = "정지"
@@ -42,10 +42,15 @@ encoded_action = keras.utils.to_categorical(mapped_labels, num_classes=len(actio
 
 model = Sequential()
 model.add(Dense(32, input_dim=len(signals), activation="relu"))
+# 32는 2의 n승
+# 정확도를 높이려면 이 부분을 추가해서 사용하면 된다.
+# 예시 ) model.add(Dense(64, input_dim=len(signals), activation="relu"))
+
 model.add(Dense(len(actions), activation="softmax"))
 
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
+# 5000번 학습
 model.fit(encoded_traffic_light, encoded_action, epochs=5000, batch_size=32)
 
 test_traffic_light = "초록색"
