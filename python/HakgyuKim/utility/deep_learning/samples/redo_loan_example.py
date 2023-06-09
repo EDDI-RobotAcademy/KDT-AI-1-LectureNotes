@@ -57,19 +57,19 @@ print(y)
 
 # 데이터 셋 구성
 X = np.column_stack((random_outstanding_amounts, random_outstanding_counts, random_deliquency_rates))
-
+print('x:', X)
 one_hot_labels = np.eye(num_classes + 1)[y]
 print(one_hot_labels)
 
-model = Sequential()
-model.add(Dense(32, activation='relu', input_shape=(3, )))
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(32, activation='relu'))
-model.add(Dense(num_classes + 1, activation='softmax'))
-
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-
-model.fit(X, one_hot_labels, epochs=100, batch_size=32)
-
-model.save("loan_model.h5")
+# model = Sequential()
+# model.add(Dense(32, activation='relu', input_shape=(3, )))
+# model.add(Dense(64, activation='relu'))
+# model.add(Dropout(0.5))
+# model.add(Dense(32, activation='relu'))
+# model.add(Dense(num_classes + 1, activation='softmax'))
+#
+# model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+#
+# model.fit(X, one_hot_labels, epochs=100, batch_size=32)
+#
+# model.save("loan_model.h5")

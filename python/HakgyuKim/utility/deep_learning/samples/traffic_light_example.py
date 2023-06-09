@@ -29,8 +29,8 @@ mapped_labels = [vehicle_action_mapping[action] for action in labels]
 
 encoded_traffic_light = keras.utils.to_categorical(mapped_data, num_classes=len(signals))
 encoded_action = keras.utils.to_categorical(mapped_labels, num_classes=len(actions))
-#print(encoded_traffic_light)
-#print(encoded_action)
+print(encoded_traffic_light)
+print(encoded_action)
 
 model = Sequential()
 model.add(Dense(32, input_dim=len(signals), activation="relu"))
