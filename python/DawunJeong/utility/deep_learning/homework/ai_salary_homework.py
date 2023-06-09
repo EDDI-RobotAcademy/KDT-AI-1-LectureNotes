@@ -58,6 +58,8 @@ model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accur
 
 model.fit(encoded_offer_salary, encoded_action, epochs=50, batch_size=32)
 
+model.save("ai_salary_model.h5")
+
 # 테스트
 # 1번 방식
 # offer_salary = 38000000
