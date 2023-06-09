@@ -16,6 +16,10 @@ goods_name = ['IBK사잇돌2', '햇살론-근로자(원금균등-12개월변동�
 
 print(len(goods_code))
 print(range(len(goods_name)))
+# goods_name 리스트의 길이만큼 범위를 둔다
+# -> print(range(6))과 마찬가지임
+# 여기서 range() 함수를 쓴 큰 이유는 없는 것 같음
+# 보통 for문 돌릴 때 범위 구하려고 쓰는 듯
 
 for i in range(len(goods_code)):
     filtered_df = df[df['GOODS_CD'].astype(str) == goods_code[i]]
