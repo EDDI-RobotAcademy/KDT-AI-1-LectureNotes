@@ -52,19 +52,20 @@
         <router-link to="/sign-up-page">회원가입</router-link> |
         <router-link to="/github-sign-in-page">Github 로그인</router-link> |
         <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
+        <router-link to="/fastapi-keras">Keras - FastAPI 통신 테스트</router-link> |
       </nav>
     </div>
   </v-container>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import HelloWorld from '../components/HelloWorld'
 
-  export default {
-    name: 'Home',
+export default {
+  name: 'Home',
 
-    components: {
-      HelloWorld,
-    },
-  }
+  components: {
+    HelloWorld,
+  },
+}
 </script>

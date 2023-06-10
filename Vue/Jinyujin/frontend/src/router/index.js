@@ -17,7 +17,6 @@ import d3plotTestRoutes from './d3plot'
 import filesTestRoutes from './files'
 import foodSetRoutes from './food'
 import fastApiTestRoutes from './fastapi'
-import vueSpringRoutes from './vueSpringFastApi'
 import accountTestRoutes from './account'
 import authenticationTestRoutes from './authentication'
 import afterLoginTestRoutes from './afterLogin'
@@ -45,7 +44,6 @@ const routes = [
   ...filesTestRoutes,
   ...foodSetRoutes,
   ...fastApiTestRoutes,
-  ...vueSpringRoutes,
   ...accountTestRoutes,
   ...authenticationTestRoutes,
   ...afterLoginTestRoutes,
