@@ -1,19 +1,12 @@
 # This is a sample Python script.
-from basics.basic_grammar import python_basics
-from basics.python_class import class_test_function
-from basics.python_functions import functions_test
-from basics.thread_test import thread_test_sequence
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from homework.homework_keras.keras_salary_inference import keras_salary_inference
 from homework.homework_third import vsf_receive
 from router.machine_learning.ml_router import ml_router
 from router.request_receiver.request_receive_router import request_receiver
-from solved.homework_first import gas_station_problem_solve
-from homework.homework_second import homework2
-from solved.homework_second.advanced_homework_second import adv_parallel_process_problem
-from solved.homework_second.homework_second import parallel_process_problem
 
-from fastapi import Depends, FastAPI
-
-from fastapi.middleware.cors import CORSMiddleware
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
@@ -59,3 +52,4 @@ async def root_index():
 app.include_router(request_receiver)
 app.include_router(vsf_receive)
 app.include_router(ml_router)
+app.include_router(keras_salary_inference)
