@@ -40,13 +40,13 @@ for _ in range(100):
     salary.append(proposal)
     labels.append(action)
 
-print(salary)
+# print(salary)
 # print(labels)
 
 # # 연봉에 대한 맵핑
 proposal_mapping = {proposal: i for i, proposal in enumerate(proposals)}
 mapped_salary = [proposal_mapping[proposal] for proposal in salary]
-print(mapped_salary)
+# print(mapped_salary)
 
 # 컴퓨터 행위에 대한 맵핑
 computer_action_mapping = {action: i for i, action in enumerate(actions)}
@@ -59,20 +59,15 @@ encoded_action = keras.utils.to_categorical(mapped_labels, num_classes=len(actio
 # print(encoded_action)
 
 model = Sequential()
-model.add(Dense(32, input_dim=len(proposals), activation='relu'))
-model.add(Dense(len(actions), activation='softmax'))
+# Sequential() 메서드를 사용하여 입력층부터 출력층까지 순차적 모델 구성
+model.add(Dense(32, input_dim=len(proposals), activation='relu')) # 입력층 추가
+model.add(Dense(len(actions), activation='softmax')) # 출력층 추가
+
+# print(model.summary())
 
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
-model.fit(encoded_proposal, encoded_action, epochs=500, batch_size=32)
-
-# test_proposal = 4000
-# mapped_test_proposal = proposal_mapping[test_proposal]
-# encoded_test_proposal = keras.utils.to_categorical([mapped_test_proposal], num_classes=len(proposals))
-#
-# predictions = model.predict(encoded_test_proposal)
-# predicted_action_index = np.argmax(predictions)
-# predicted_action = actions[predicted_action_index]
+model.fit(encoded_proposal, encoded_action, epochs=150, batch_size=32)
 
 model.save("homework_salary_model.h5")
 
