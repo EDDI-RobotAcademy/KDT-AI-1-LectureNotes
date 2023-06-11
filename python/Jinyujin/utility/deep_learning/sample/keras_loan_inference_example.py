@@ -17,6 +17,8 @@ new_data = np.array([[미상환금액, 미상환건수, 연체율]])
 prediction = loaded_model.predict(new_data)
 
 predicted_class = np.argmax(prediction)
+# numpy.argmax()
+# 축에 따라 최대값을 반환
 loan_amount = loan_amounts_range[predicted_class]
 print("Predicted loan amount:", loan_amount)
 
@@ -25,3 +27,7 @@ print("Predicted loan amount:", loan_amount)
 # Predicted loan amount: 31000000
 # 그런데 미상환금액, 미상환건수, 연체율을 다르게 했는데도 계속 같은 금액을 예측해줌
 # -> 망한 학습임 뭔가 잘못된 것
+
+# redo로 재학습시킴
+# 1/1 [==============================] - 0s 95ms/step
+# Predicted loan amount: 33000000

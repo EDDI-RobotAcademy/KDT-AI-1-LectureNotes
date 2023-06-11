@@ -9,11 +9,12 @@ step_size = 100
 num_samples = 1000
 # 미상환 금액
 random_outstanding_amounts = np.random.randint(min_loan_amount, max_loan_amount + 1, size=num_samples) * 10000000
-# 미산환 건수
+# 미상환 건수
 random_outstanding_counts = np.random.randint(1, 10, size=num_samples)
 # 연체율
 random_deliquency_rates = np.random.uniform(0.0, 0.3, size=num_samples)
 
+# 대출 금액 범위: 3000부터 4500까지 step_size 단위(100)로 배열 생성됨
 loan_amounts_range = np.arange(min_loan_amount, max_loan_amount + step_size, step_size)
 num_classes = len(loan_amounts_range) - 1
 
@@ -51,16 +52,22 @@ for i in range(num_samples):
         else:
             y[i] = len(loan_amounts_range) - 1
 
-print(y)
+# print(y)
+# amount에 대한 y값을 정해준 것 같음
 
 # 데이터 셋 구성
 X = np.column_stack((random_outstanding_amounts, random_outstanding_counts, random_deliquency_rates))
+# numpy.colum_stack(): 1차원 배열을 열로 하여 2차원 배열로 만들어줌 -> X축으로
 
 one_hot_labels = np.eye(num_classes + 1)[y]
+# 행렬을 num_classes + 1 크기로 한 단위행렬을 반환해줌
+# 쉽게 말해 위에서 구한 y값을 0,1로 엔코딩해준 것
 print(one_hot_labels)
 
+# 딥러닝 모델을 만드는 방법 중 하나가 Sequential model만들기!
 model = Sequential()
 model.add(Dense(32, activation='relu', input_shape=(3, )))
+# 처음 추가할 때는 input_shape() 필요
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(32, activation='relu'))
@@ -68,6 +75,7 @@ model.add(Dense(num_classes + 1, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
+# 학습
 model.fit(X, one_hot_labels, epochs=100, batch_size=32)
 
 model.save("loan_model.h5")
