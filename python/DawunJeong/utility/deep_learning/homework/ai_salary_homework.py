@@ -1,5 +1,5 @@
 import numpy as np
-from keras import Sequential
+from keras.models import Sequential
 from keras.layers import Dense
 from tensorflow import keras
 
@@ -22,16 +22,17 @@ actions = ["입사", "거절"]
 data = []
 labels = []
 
-# 학습시키기
+# 데이터 만들기
 # 100번 반복하면서 생성된 11개의 salary를 signal로 설정하고
 # 이에 따른 action을 대입해준다.
 # 3500만 원 이하일 때 "거절"
+# 3500만 원 이상일 때 "입사"
 for _ in range(100):
     signal = np.random.choice(salary_amounts_range)
     if signal < 35000000:
         action = "거절"
     else:
-        action = "거절" if signal < 35000000 else "입사"
+        action = "입사"
 
     data.append(signal)
     labels.append(action)
@@ -56,7 +57,8 @@ model.add(Dense(len(actions), activation="softmax"))
 
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
-model.fit(encoded_offer_salary, encoded_action, epochs=50, batch_size=32)
+# 학습 시키기, epochs에 설정된 값이 학습 횟수
+model.fit(encoded_offer_salary, encoded_action, epochs=10000, batch_size=32)
 
 model.save("ai_salary_model.h5")
 
