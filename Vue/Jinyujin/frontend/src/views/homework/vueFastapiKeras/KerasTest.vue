@@ -1,10 +1,10 @@
 <template lang="">
     <div>
-        <h3> 회사가 제시한 연봉은 {{ testSalary }}</h3></br>
+        <h3> 회사가 제시한 연봉은 {{ result.testSalary }}</h3></br>
         <v-btn color="primary" @click="showResult">회사올래?</v-btn>
         <div v-if="isPressedButton">
             <p></p>
-            <p>컴퓨터는 회사에 {{ result }}</p>
+            <p>컴퓨터는 회사에 {{ result.action }}</p>
         </div>
     </div>
 </template>
@@ -18,16 +18,16 @@ export default {
         return {
             result: "",
             isPressedButton: false,
-            testSalary: '',
         }
     },
     methods: {
-        ...mapActions(kerasModule, ['requestPredictedResultToFastapi',
-            'requestTestSalaryToFastapi']),
+        // ...mapActions(kerasModule, ['requestPredictedResultToFastapi',
+        //     'requestTestSalaryToFastapi']),
+        ...mapActions(kerasModule, ['requestPredictedResultToFastapi']),
         async showResult() {
             this.isPressedButton = true,
-                this.result = await this.requestPredictedResultToFastapi(),
-                this.testSalary = await this.requestTestSalaryToFastapi()
+                // this.testSalary = await this.requestTestSalaryToFastapi()
+                this.result = await this.requestPredictedResultToFastapi()
         },
     },
 }

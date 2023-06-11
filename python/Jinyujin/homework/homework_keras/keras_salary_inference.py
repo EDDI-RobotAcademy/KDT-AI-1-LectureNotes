@@ -7,16 +7,17 @@ from starlette.responses import JSONResponse
 keras_salary_inference = APIRouter()
 
 
-@keras_salary_inference.get("/test-salary")
-async def return_test_salary():
-    min_proposal_salary = 30000000
-    max_proposal_salary = 40000000
-    step_size = 1000000
-    proposals = np.arange(min_proposal_salary, max_proposal_salary + step_size, step_size)
-
-    test_salary = np.random.choice(proposals)
-
-    return test_salary
+# @keras_salary_inference.get("/test-salary")
+# async def return_test_salary():
+#     min_proposal_salary = 30000000
+#     max_proposal_salary = 40000000
+#     step_size = 1000000
+#     proposals = np.arange(min_proposal_salary, max_proposal_salary + step_size, step_size)
+#
+#     test_salary = int(np.random.choice(proposals))
+#     # 출력안되던 오류가 int를 붙여서 데이터 타입을 설정해주니 에러 사라짐!
+#
+#     return test_salary
 
 
 @keras_salary_inference.get("/keras")
@@ -28,7 +29,8 @@ async def return_predicted_action():
 
     salary_model = load_model("homework_salary_model.h5")
 
-    test_salary = await return_test_salary()
+    # test_salary = await return_test_salary()
+    test_salary = int(np.random.choice(proposals))
 
     salary_mapping = {proposal: i for i, proposal in enumerate(proposals)}
     mapped_test_salary = salary_mapping[test_salary]
@@ -40,6 +42,5 @@ async def return_predicted_action():
     predicted_class = np.argmax(prediction)
     predicted_action = actions[predicted_class]
 
-    return predicted_action
-
-
+    return {"testSalary": test_salary,
+            "action": predicted_action}
