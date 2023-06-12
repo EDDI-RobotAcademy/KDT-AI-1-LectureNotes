@@ -6,7 +6,7 @@ min_loan_amount = 30000000
 max_loan_amount = 45000000
 step_size = 1000000
 
-num_samples = 1000
+num_samples = 10000
 # 미상환 금액
 random_outstanding_amounts = np.random.randint(min_loan_amount, max_loan_amount + 1, size=num_samples)
 # 미상환 건수
@@ -91,6 +91,6 @@ model.add(Dense(num_classes + 1, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-model.fit(X, one_hot_labels, epochs=5000, batch_size=32)
+model.fit(X, one_hot_labels, epochs=100000, batch_size=32)
 
 model.save('loan_model.h5')
