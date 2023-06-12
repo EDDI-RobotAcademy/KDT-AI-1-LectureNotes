@@ -1,18 +1,11 @@
 import numpy as np
 
-vector1 = np.array(list(range(1, 11)))
-print(vector1)
-
-vector1 = np.arange(1, 11)
-print(vector1)
-
 matrix1 = np.array([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
     [10, 11, 12],
 ])
-print(matrix1)
 
 matrix2 = np.matrix([
     list(range(1, 4)),
@@ -20,16 +13,15 @@ matrix2 = np.matrix([
     list(range(7, 10)),
     list(range(10, 13)),
 ])
-print(matrix2)
 
 matrix3 = matrix1 + matrix2
 print(matrix3)
 
-# matrix4 = matrix1 * matrix2
-# print(matrix4)
+#matrix4 = matrix1 * matrix2
+#print(matrix4)
 # 행렬은 (m, n) 형태의 차원을 가지고 있습니다.
 # 곱셈 연산이 가능하려면 아래 조건을 만족해야 합니다.
-# 행렬 A (mA, nA) 와 행렬 B (mB, nB)가 있을때
+# 행렬 A (mA, nA) 와 행렬 B (mB, nB)가 있을 때
 # nA와 mB의 차원이 서로 일치해야 곱셈이 가능합니다.
 # 그러므로 둘의 연산을 가능하게 만들려면 전치(Transpose)를 해줘야 합니다.
 # * Transpose : 세로 셀 범위를 가로 범위로, 가로 셀 범위를 세로 범위로 바꾸어 반환,
@@ -53,6 +45,7 @@ matrix2 = np.matrix([
 # 실제 수학에서 전치 행렬에 해당하는 T 형태의 기호를 사용하여 전치가 가능함
 # (원래 파이썬이 초기에 과학자들을 대상으로 만들어졌기 때문에 이러한 기능도 지원이 되고 있음)
 matrix5 = matrix1 * matrix2.T
+print(matrix5)
 print(matrix5.shape)
 
 vector1 = np.arange(1, 11)
