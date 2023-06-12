@@ -42,6 +42,13 @@ encoded_action = keras.utils.to_categorical(mapped_labels, num_classes=len(actio
 
 model = Sequential()
 model.add(Dense(32, input_dim=len(signals), activation="relu"))
+model.add(Dense(64, activation="relu"))
+model.add(Dense(128, activation="relu"))
+model.add(Dense(64, activation="relu"))
+model.add(Dense(32, activation="relu"))
+model.add(Dense(16, activation="relu"))
+model.add(Dense(8, activation="tanh"))
+model.add(Dense(4, activation="tanh"))
 model.add(Dense(len(actions), activation="softmax"))
 
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
