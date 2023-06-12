@@ -20,6 +20,8 @@ step_size = 100
 # proposals = ["3000", "3100", "3200", "3300", "3400", "3500", "3600", "3700", "3800", "3900", "4000"] # x
 
 proposals = np.arange(min_proposal_salary, max_proposal_salary + step_size, step_size)
+# proposals = list(range(salary_min, salary_max, salary_step))
+
 # for i in range(min_proposal_salary, max_proposal_salary, step_size):
 #     proposals.append(i)
 
