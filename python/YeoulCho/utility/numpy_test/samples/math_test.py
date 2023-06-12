@@ -1,5 +1,6 @@
 import math
 import numpy as np
+# 수입, 미상환금액, 연체비율
 def calculate_score(income, outstanding_amount, delinquency_rate):
     # 임의 가중치
     income_weight = 0.4
