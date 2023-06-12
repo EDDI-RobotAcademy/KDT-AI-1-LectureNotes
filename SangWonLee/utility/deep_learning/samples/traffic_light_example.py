@@ -54,13 +54,21 @@ mapped_labels = [vehicle_action_mapping[action] for action in labels]
 print(mapped_labels)
 
 encoded_traffic_light = keras.utils.to_categorical(mapped_data, num_classes=len(signals))
-# len(signals)만큼의
+# mapped_data를 len(signals)만큼의 이진 클래스 행렬로 변환한다.
 encoded_action = keras.utils.to_categorical(mapped_labels, num_classes=len(actions))
+# mapped_labels를 len(actions)만큼의 이진 클래스 행렬로 변환한다.
 print(encoded_traffic_light)
 print(encoded_action)
 
 model = Sequential()
 model.add(Dense(32, input_dim=len(signals), activation="relu"))
+model.add(Dense(64, activation="relu"))
+model.add(Dense(128, activation="relu"))
+model.add(Dense(64, activation="relu"))
+model.add(Dense(32, activation="relu"))
+model.add(Dense(16, activation="relu"))
+model.add(Dense(8, activation="tanh"))
+model.add(Dense(4, activation="tanh"))
 model.add(Dense(len(actions), activation="softmax"))
 
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
