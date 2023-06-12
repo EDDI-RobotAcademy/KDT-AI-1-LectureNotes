@@ -57,18 +57,34 @@ encoded_traffic_light = keras.utils.to_categorical(mapped_data, num_classes=len(
 # mapped_data의 각 요소를 len(signals)만큼의 이진 벡터로 변환한다. 0 = [1,0,0], 1 = [0,1,0], 2 = [0,0,1]
 encoded_action = keras.utils.to_categorical(mapped_labels, num_classes=len(actions))
 # mapped_lables의 각 요소를 len(actions)만큼의 이진 벡터로 변환한다.
+
+# mapped_data를 len(signals)만큼의 이진 클래스 행렬로 변환한다.
+encoded_action = keras.utils.to_categorical(mapped_labels, num_classes=len(actions))
+# mapped_labels를 len(actions)만큼의 이진 클래스 행렬로 변환한다.
+
 print(encoded_traffic_light)
 print(encoded_action)
 
 model = Sequential()
 # Sequential 클래스의 인스턴스 생성
 model.add(Dense(32, input_dim=len(signals), activation="relu"))
+
 # Dense는 완전 연결 레이어로, 각 입력 노드가 모든 출력 노드와 연결되어 있다.
 # 유닛 수는 32, 입력 데이터는 signals의 길이 만큼의 값
 # relu는 입력값이 0보다 작으면 0 출력하고, 0보다 크면 그대로 출력
 model.summary()
 # Param 은 레이어가 가지는 파라미터의 수를 말함 (입력 차원 + 1) x 유닛수 임
 # ex) 위에는 (len(signals)+ 1) x 32 = 128
+
+
+model.add(Dense(64, activation="relu"))
+model.add(Dense(128, activation="relu"))
+model.add(Dense(64, activation="relu"))
+model.add(Dense(32, activation="relu"))
+model.add(Dense(16, activation="relu"))
+model.add(Dense(8, activation="tanh"))
+model.add(Dense(4, activation="tanh"))
+# 왜인진 모르겠지만 모델의 표현력을 증가시키기 위해 여러개의 Dense 레이어를 쌓았다.
 
 model.add(Dense(len(actions), activation="softmax"))
 # 이전 레이어의 Output Shape가 32 이므로, 입력 차원은 32임.
