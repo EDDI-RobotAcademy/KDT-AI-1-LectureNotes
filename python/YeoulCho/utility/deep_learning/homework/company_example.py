@@ -37,9 +37,9 @@ vehicle_action_mapping = {action: i for i, action in enumerate(actions)}
 mapped_labels = [vehicle_action_mapping[action] for action in labels]
 #print(mapped_labels)
 
-encoded_traffic_light = keras.utils.to_categorical(mapped_data, num_classes=len(salarys))
+encoded_salary = keras.utils.to_categorical(mapped_data, num_classes=len(salarys))
 encoded_action = keras.utils.to_categorical(mapped_labels, num_classes=len(actions))
-#print(encoded_traffic_light)
+#print(encoded_salary)
 #print(encoded_action)
 
 model = Sequential()
@@ -50,22 +50,24 @@ model.add(Dense(len(actions), activation="softmax"))
 
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
-model.fit(encoded_traffic_light, encoded_action, epochs=5000, batch_size=32)
+model.fit(encoded_salary, encoded_action, epochs=5000, batch_size=32)
+
+model.save("keras_model.h5")
 
 
-for i in range(10):
-    salary = np.random.choice(salarys)
-
-    test_salary = salary
-    mapped_test_signal = signal_mapping[test_salary]
-    encoded_test_signal = keras.utils.to_categorical([mapped_test_signal], num_classes=len(salarys))
-
-    predictions = model.predict(encoded_test_signal)
-    predicted_action_index = np.argmax(predictions)
-    predicted_action = actions[predicted_action_index]
-
-    print("테스트 신호:", test_salary)
-    print("예측된 입사 상태:", predicted_action)
+# for i in range(10):
+#     salary = np.random.choice(salarys)
+#
+#     test_salary = salary
+#     mapped_test_signal = signal_mapping[test_salary]
+#     encoded_test_signal = keras.utils.to_categorical([mapped_test_signal], num_classes=len(salarys))
+#
+#     predictions = model.predict(encoded_test_signal)
+#     predicted_action_index = np.argmax(predictions)
+#     predicted_action = actions[predicted_action_index]
+#
+#     print("테스트 신호:", test_salary)
+#     print("예측된 입사 상태:", predicted_action)
 
 # test_salary = 3500
 # mapped_test_signal = signal_mapping[test_salary]
