@@ -53,6 +53,7 @@
       <router-link to="/sign-up-page">회원가입</router-link> |
       <router-link to="/github-sign-in-page">Github 로그인</router-link> |
       <router-link to="/after-login-sample">로그인이후 작업</router-link> |
+      <router-link to="/vue-keras-fastapi">Vue + Keras + Fastapi</router-link> |
 
       
       

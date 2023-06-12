@@ -14,7 +14,7 @@ import Problem6Page from '@/views/homework/problem6/Problem6Page.vue'
 import D3problemPage from '@/views/homework/d3problem/D3Problem.vue'
 import D3HealthPrintPage from '@/views/homework/d3problem/teacher/D3HealthPrintPage.vue'
 import vueSpringFastAPI from '@/views/homework/vueSpringFastAPI/vueSpringFastAPI.vue'
-
+import VueKerasFastAPI from '@/views/homework/keras_fastapi/VueKerasFastAPI.vue'
 Vue.use(VueRouter)
 
 const problemRoutes = [
@@ -82,6 +82,11 @@ const problemRoutes = [
         path: '/vue-spring',
         name: 'vueSpringFastAPI',
         component: vueSpringFastAPI
+      },
+      {
+        path: '/vue-keras-fastapi',
+        name: 'VueKerasFastAPI',
+        component: VueKerasFastAPI
       },
 ]
 
