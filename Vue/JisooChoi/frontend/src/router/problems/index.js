@@ -24,6 +24,9 @@ import VueProb6 from "@/views/basics/homework/problem6/VueProb6.vue";
 
 import CompositionProblemPage from "@/views/basics/homework/composition/problem/CompositionProblemPage.vue";
 
+// Vue + FastAPI + Keras 문제 은행 [ 1 ]
+import ComputerIncome from "@/views/basics/homework/computerTest/ComputerAnnualIncomeTest.vue";
+
 Vue.use(VueRouter);
 
 const problemRoutes = [
@@ -76,6 +79,11 @@ const problemRoutes = [
     path: "/composition-problem-page",
     name: "CompositionProblemPage",
     component: CompositionProblemPage,
+  },
+  {
+    path: "/computer-income-homework-page",
+    name: "ComputerIncome",
+    component: ComputerIncome,
   },
 ];
 
