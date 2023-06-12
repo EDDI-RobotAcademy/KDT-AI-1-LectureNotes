@@ -1,29 +1,30 @@
 import numpy as np
 
-matrix1 = np.array([
+matrix1 = np.array([ # 행렬
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
     [10, 11, 12],
 ])
 
-matrix2 = np.matrix([
+matrix2 = np.matrix([ # 행렬
     list(range(1, 4)),
     list(range(4, 7)),
     list(range(7, 10)),
     list(range(10, 13)),
 ])
 
-matrix3 = matrix1 + matrix2
+matrix3 = matrix1 + matrix2 # 행렬의 덧셈
 
+# 아래 코드는 오류가 난다. (지켜 져야 할 조건을 만족 시키지 못함)
 # matrix4 = matrix1 * matrix2
 # print(matrix4)
+
 # 행렬은 (m, n) 형태의 차원을 가지고 있습니다.
 # 곱셈 연산이 가능하려면 아래 조건을 만족해야 합니다.
 # 행렬 A (mA, nA) 와 행렬 B (mB, nB)가 있을 때
-# nA와 mB의 차원이 서로 일치해야 곱셈이 가능합니다.
+# nA와 mB의 차원(=원소)이 서로 일치해야 곱셈이 가능합니다.
 # 그러므로 둘의 연산을 가능하게 만들려면 전치(Transpose)를 해줘야 합니다.
-
 matrix2 = matrix2.transpose()
 print("matrix1: \n", matrix1)
 print("matrix2: \n", matrix2)
