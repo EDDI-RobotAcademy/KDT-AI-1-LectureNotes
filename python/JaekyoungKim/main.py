@@ -8,6 +8,8 @@ from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.basic_grammar import python_basics
 from basics.thread_test import thread_test_sequence
+from router.machine_learning.ml_router import ml_router
+
 from router.request_receiver.request_receive_router import request_receiver
 
 
@@ -44,3 +46,5 @@ async def root_index():
 
 
 app.include_router(request_receiver)
+
+app.include_router(ml_router)
