@@ -188,3 +188,6 @@ except_extract_data.xlsx
 SBI저축은행스피드론.xlsx
 참좋은론ipass론.xlsx
 온라인햇살론_분석정보.xlsx
+
+# 모델 정보
+*.h5
