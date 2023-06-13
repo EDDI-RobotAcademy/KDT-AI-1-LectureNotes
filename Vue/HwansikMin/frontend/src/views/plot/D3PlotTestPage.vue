@@ -119,7 +119,7 @@ export default {
             .attr("dy", "0.71em")
             .attr("text-anchor", "end")
             .text("Price: ($)")
-            
+
         g.append("path")
             .datum(this.reg_data)
             // 위에서도 40만큼 공간을 확보하므로 전체 구성이 깨지지 않으려면

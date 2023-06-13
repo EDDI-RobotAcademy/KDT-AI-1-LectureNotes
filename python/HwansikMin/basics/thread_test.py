@@ -3,7 +3,7 @@ import threading
 import time
 
 logging.basicConfig(level=logging.DEBUG,
-                    format='(%(threadName)-8s) %(message)s',)
+                    format='(%(threadName)-8s) %(message)s', )
 
 
 # 프로세스(Process)와 스레드(Thread)
@@ -198,8 +198,8 @@ def perform_process():
     # mp(multiprocessing으로 만든 값은 여러 프로세스가 공유해서 사용 가능)
     money = mp.Value('i', 20000)
 
-    p1 = mp.Process(target=withdraw, args=(money, ))
-    p2 = mp.Process(target=deposit, args=(money, ))
+    p1 = mp.Process(target=withdraw, args=(money,))
+    p2 = mp.Process(target=deposit, args=(money,))
     # p1이 빼려고 하는 순간
     # p2가 들어가서 더하고
     # 혹은
@@ -263,8 +263,8 @@ def perform_process_lock():
 
     money = mp.Value('i', 20000)
 
-    p1 = mp.Process(target=withdraw_lock, args=(money, lock, ))
-    p2 = mp.Process(target=deposit_lock, args=(money, lock, ))
+    p1 = mp.Process(target=withdraw_lock, args=(money, lock,))
+    p2 = mp.Process(target=deposit_lock, args=(money, lock,))
 
     p1.start()
     p2.start()

@@ -23,7 +23,7 @@ const d3PlotTestRoutes = [
     name: 'D3Review1Page',
     component: D3Review1Page
   }
-
+  
 ]
 
 export default d3PlotTestRoutes

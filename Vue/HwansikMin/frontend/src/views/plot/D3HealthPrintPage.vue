@@ -58,7 +58,7 @@ export default {
         const g = svg.append("g")
 
         g.append("g")
-        .attr("transform", "translate(0," +  (height - 40) + ")")
+            .attr("transform", "translate(0," +  (height - 40) + ")")
             .call(d3.axisBottom(this.xScale).ticks(7))
             .append("text")
 

@@ -21,6 +21,7 @@ export default {
             vital: 0,
             dexterity: 0,
             whoAmI: 0,
+
             isSuccessToGetData: false
         }
     },
@@ -35,7 +36,7 @@ export default {
                     this.vital = res.data.vital
                     this.dexterity = res.data.dexterity
                     this.whoAmI = res.data.whosAccountId
-                    
+
                     this.isSuccessToGetData = true
                 })
         }
