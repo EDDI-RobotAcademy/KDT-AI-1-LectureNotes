@@ -68,6 +68,10 @@
         <router-link to="/d3-plot-test">d3 plotting 테스트</router-link> |
         <router-link to="/d3-health-print-page">d3 health 문제</router-link>
         |
+        <router-link to="/food-register">FoodAggregateRoot 만들기</router-link>
+        |
+        <hr />
+        <router-link to="/sanrio-main-page">☆</router-link>
       </nav>
     </div>
   </v-container>
