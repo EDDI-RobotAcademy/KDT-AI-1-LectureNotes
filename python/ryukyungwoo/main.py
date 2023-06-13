@@ -6,6 +6,7 @@ from problem.advanced_multi_process import adv_parallel_process_problem
 from problem.gas_station_prob import gas_station_problem_solve
 from problem.number_add_prob import number_add_prob_process
 from problem.parallel_process import parallel_process_problem
+from notification.email.email_notification_router import email_notification_router
 
 from fastapi import Depends, FastAPI
 
@@ -41,3 +42,4 @@ async def root_index():
 
 app.include_router(request_receiver)
 app.include_router(ml_router)
+app.include_router(email_notification_router)
