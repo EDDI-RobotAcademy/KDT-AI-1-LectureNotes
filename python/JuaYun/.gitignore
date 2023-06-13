@@ -190,3 +190,6 @@ SBI저축은행스피드론.xlsx
 
 # 모델 정보
 *.h5
+
+# 개인 정보
+naver/account
