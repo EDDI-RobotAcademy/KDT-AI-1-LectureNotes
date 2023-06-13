@@ -37,3 +37,5 @@ out/
 .vscode/
 
 ### 보안 설정 ###
+github.properties
+redis.properties
