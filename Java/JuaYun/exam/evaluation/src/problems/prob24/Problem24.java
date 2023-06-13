@@ -9,6 +9,13 @@ package problems.prob24;
 //      x*x로 처리해도 무방하니 편한 형태로 사용하면 되겠습니다.
 public class Problem24 {
     public static void main(String[] args) {
+        final NavigationMap map = new NavigationMap();
+        map.printMyCoordinate();
 
+        map.findGasStation();
+        map.printGasStationCoordinates();
+
+        map.calculateDistanceOfGasStation();
+        map.findShortest();
     }
 }
