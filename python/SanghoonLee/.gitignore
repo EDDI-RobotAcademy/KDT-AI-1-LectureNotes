@@ -191,3 +191,6 @@ except_extract_data.xlsx
 
 # 모델 정보
 *.h5
+
+# 개인 정보
+naver/account

@@ -2,8 +2,8 @@ import axios from "axios";
 
 // Legacy 구성은 아래를 참고
 const axiosInst = axios.create({
-    //baseURL: 'http://localhost:7777',
-    baseURL: 'http://192.168.20.3:7777',
+    baseURL: 'http://localhost:7777',
+    //baseURL: 'http://192.168.20.3:7777',
     timeout: 2500
 })
 // 신규 구성은 이 부분을 참고
