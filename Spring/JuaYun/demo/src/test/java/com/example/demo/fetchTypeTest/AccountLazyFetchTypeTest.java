@@ -52,7 +52,7 @@ public class AccountLazyFetchTypeTest {
     void 일반회원_조회 () {
         final String role = "NORMAL";
 
-        JpaAccountRoleRequestForm requestForm = new JpaAccountRoleRequestForm(role);
+//        JpaAccountRoleRequestForm requestForm = new JpaAccountRoleRequestForm(role);
         List<JpaAccountResponseForm> normalAccountList = accountService.accountListWithRole(role);
 
         for (JpaAccountResponseForm responseForm: normalAccountList) {

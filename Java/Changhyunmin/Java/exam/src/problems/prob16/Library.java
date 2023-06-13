@@ -1,34 +1,29 @@
 package problems.prob16;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 class Library {
-    String Name;
-    int Age;
-    String LibraryID;
-    int LibraryPassword;
+    private List<Account> accountList;
+    private List<Book>bookList;
+    private List<BorrowBook>borrowList;
+    private Scanner sc;
 
-    String Book1 = "미술책";
-    String Book2 = "전공책";
-    String Book3 = "코딩책";
-
-    public Library(String name, int age, String libraryID, int libraryPassword) {
-        Name = name;
-        Age = age;
-        LibraryID = libraryID;
-        LibraryPassword = libraryPassword;
-
-    }
-    void Member(){
-        System.out.println("이름: " + Name);
-        System.out.println("나이: " + Age);
-        System.out.println("ID: " + LibraryID);
-        System.out.println("비밀번호" + LibraryPassword);
-
+    private void presetBookList(){
+        bookList.add(new Book("20대 공부해라",1));
+        bookList.add(new Book("30대 공부해라",2));
+        bookList.add(new Book("40대 공부해라",1));
     }
 
-    public void Books() {
-        System.out.println("도서관리목록");
-        System.out.println("1." + Book1);
-        System.out.println("2." +Book2);
-        System.out.println("3." +Book3);
+    public Library() {
+        accountList = new ArrayList<>();
+        bookList = new ArrayList<>();
+        borrowList = new ArrayList<>();
+
+        presetBookList();
+        
     }
+
 }
 
