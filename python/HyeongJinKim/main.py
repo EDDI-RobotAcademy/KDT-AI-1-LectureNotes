@@ -4,6 +4,7 @@ from basics.basic_grammer import python_basics
 from basics.python_class import class_test_function
 from basics.python_functions import functions_test
 from basics.therad_test import thread_test_sequence
+from notification.email.email_notification_router import email_notification_router
 from problem.python_problem1 import coordinate
 from problem.python_problem2_advenced import adv_parallel_process_problem
 from problem.python_problem2 import parallel_process_problem
@@ -45,3 +46,4 @@ async def root_index():
 
 app.include_router(request_receiver)
 app.include_router(ml_router)
+app.include_router(email_notification_router)
