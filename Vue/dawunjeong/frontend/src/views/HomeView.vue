@@ -46,6 +46,14 @@
         <router-link to="/d3-health-homework-page">운동 문제 풀기!</router-link> |
         <router-link to="/file-handler-page">파일 테스트!</router-link> |
         <router-link to="/food-register">Aggregate Root 만들기</router-link> |
+        <router-link to="/fastapi-test-page">뭐지!!</router-link> |
+        <router-link to="/fastapi-homework-page">fastapi 과제</router-link> |
+        <router-link to="/composition-problem-page">fastapi 과제 풀이 페이지</router-link> |
+        <router-link to="/sign-up-page">회원 가입</router-link> |
+        <router-link to="/github-sign-in-page">Github 로그인</router-link> |
+        <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
+        <router-link to="/get-salary-page">Keras</router-link> |
+        <router-link to="/payment-page">결제 버튼 테스트</router-link> |
       </nav>
     </div>
   </v-container>
