@@ -36,7 +36,7 @@ public class JpaBoardServiceImpl implements JpaBoardService {
             log.info("정보가 없습니다!");
             return null;
         }
-        
+
         return maybeJpaBoard.get();
     }
 

@@ -2,7 +2,7 @@
     <v-container>
         <v-row>
             <v-col cols="12">
-                <v-img :src="require(`@/assets/downloadImg/${imageName}`)"
+                <v-img :src="imagePath"
                         aspect-ratio="1" class="grey lighten-2">
                     <template v-slot:placeholder>
                         <v-row class="fill-height ma-0" align="center" justify="center">
@@ -18,15 +18,18 @@
 
 <script>
 import { mapActions } from 'vuex'
+
 const uiVuetifyModule = 'uiVuetifyModule'
+
 export default {
     data () {
         return {
-            imageName: '',
+            imagePath: '',
         }
     },
     async mounted () {
-        this.imageName = await this.requestImagePathToSpring()
+        const imageName = await this.requestImagePathToSpring()
+        this.imagePath = require(`@/assets/downloadImg/${imageName}`)
     },
     methods: {
         ...mapActions(uiVuetifyModule, ['requestImagePathToSpring']),

@@ -1,8 +1,8 @@
 <template>
     <v-container>
         <!--
-            Vue vue = ner vue();
-            vue.globalComponent(int counter);
+            Vue vue = new Vue();
+            vue.globalComponent(counter);
 
             public void globalComponent(int counter) {
                 initial-test = counter;
@@ -19,7 +19,7 @@
             }
         -->
         <local-component :initial-value="number1" :initial-value2="number2"/><br>
-        <!-- 이후 값이 증가하던 말던 상관없음-->
+        <!-- 이후 값이 증가하던 말던 상관없음 -->
         <button @click="plusNumber1">number1 증가</button>{{ number1 }}<br>
         <button @click="plusNumber2">number2 증가</button>{{ number2 }}<br>
     </v-container>
@@ -37,7 +37,7 @@ export default {
         return {
             counter: 0,
             number1: 3,
-            number2: 7
+            number2: 7,
         }
     },
     methods: {
@@ -49,6 +49,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>

@@ -9,6 +9,7 @@ import BuyFruitPage from '@/views/homework/problem3/BuyFruitPage.vue'
 import GameCharacterPage from '@/views/homework/problem4/GameCharacterPage.vue'
 import BuyFruitsPage from '@/views/homework/weekendhomework1/BuyFruitsPage.vue'
 import ImagegetPage from '@/views/homework/problem6/ImagegetPage.vue'
+import KerasHomeworkPage from '@/views/homework/keras/KerasHomeworkPage.vue'
 
 Vue.use(VueRouter)
 
@@ -47,6 +48,11 @@ const homeworkRoutes = [
     path: '/image-get-page',
     name: 'ImagegetPage',
     component: ImagegetPage
+  },
+  {
+    path: '/get-salary-page',
+    name: 'KerasHomeworkPage',
+    component: KerasHomeworkPage
   },
 ]
 

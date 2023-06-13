@@ -14,7 +14,7 @@
             </tr>
             <tr v-else v-for="product in products" :key="product.productId">
                 <td align="center">
-                    {{ product.productId }}
+                    {{ product.email }}
                 </td>
                 <td align="center">
                     <router-link :to="{ 

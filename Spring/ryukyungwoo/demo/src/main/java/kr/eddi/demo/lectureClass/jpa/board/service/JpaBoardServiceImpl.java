@@ -1,4 +1,3 @@
-
 package kr.eddi.demo.lectureClass.jpa.board.service;
 
 import kr.eddi.demo.lectureClass.jpa.board.controller.form.RequestBoardForm;
@@ -28,6 +27,7 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     public JpaBoard register(JpaBoard jpaBoard) {
         return boardRepository.save(jpaBoard);
     }
+
     @Override
     public JpaBoard read(Long boardId) {
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
@@ -44,6 +44,7 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     public void delete(Long boardId) {
         boardRepository.deleteById(boardId);
     }
+
     @Override
     public JpaBoard modify(Long boardId, RequestBoardForm requestBoardForm) {
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
@@ -59,4 +60,5 @@ public class JpaBoardServiceImpl implements JpaBoardService {
 
         return boardRepository.save(board);
     }
+
 }
