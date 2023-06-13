@@ -10,6 +10,7 @@ import Homework4 from "@/views/homework/problem4/Homework4.vue";
 import Homework6 from "@/views/homework/problem6/Homework6Page.vue";
 import ImagePage from "@/views/homework/problem6/ImagePage.vue";
 import D3Homework1Page from "@/views/homework/D3Homework1Page.vue";
+import VPSHomework1Page from "@/views/homework/vuePythonSpringBank1/VuePythonSpringBank1Page.vue"
 
 Vue.use(VueRouter);
 
@@ -63,6 +64,11 @@ const homeworkRoutes = [
     path: "/d3-homework1",
     name: "D3Homework1Page",
     component: D3Homework1Page,
+  },
+  {
+    path: "/vps-homework1",
+    name: "VPSHomework1Page",
+    component: VPSHomework1Page,
   },
 ];
 
