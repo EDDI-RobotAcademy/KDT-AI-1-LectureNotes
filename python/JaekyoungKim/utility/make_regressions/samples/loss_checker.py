@@ -1,14 +1,11 @@
 import math
-
 import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 from keras.wrappers.scikit_learn import KerasRegressor
 from sklearn.model_selection import KFold, cross_val_score
-
 from sklearn.datasets import make_regression
 from sklearn.model_selection import train_test_split
-
 import pandas as pd
 
 df = pd.read_excel('../../../온라인햇살론_분석정보.xlsx')
