@@ -1,4 +1,6 @@
 from fastapi import Depends, FastAPI, Query
+
+from notification.email.email_notification_router import email_notification_router
 from router.request_receiver.request_receive_router import request_receiver
 from router.machine_learning.ml_router import ml_router
 
@@ -50,3 +52,4 @@ async def receive_salary_data(salary: int = Query(None)):
 
 app.include_router(request_receiver)
 app.include_router(ml_router)
+app.include_router(email_notification_router)
