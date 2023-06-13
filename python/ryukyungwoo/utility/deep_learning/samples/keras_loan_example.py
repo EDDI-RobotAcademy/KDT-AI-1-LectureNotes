@@ -8,11 +8,15 @@ step_size = 10000000
 
 num_samples = 10
 # 미상환 금액
-random_outstanding_amounts = np.random.randint(min_loan_amount, max_loan_amount + 1, size=num_samples)
+random_outstanding_amounts = np.random.randint(min_loan_amount, max_loan_amount + 1,
+                                               size=num_samples, dtype=np.uint64) * 10000000
+print(random_outstanding_amounts)
 # 미산환 건수
 random_outstanding_counts = np.random.randint(1, 5, size=num_samples)
+print(random_outstanding_counts)
 # 연체율
 random_deliquency_rates = np.random.uniform(0.0, 0.3, size=num_samples)
+print(random_deliquency_rates)
 
 loan_amounts_range = np.arange(min_loan_amount, max_loan_amount + step_size, step_size)
 num_classes = len(loan_amounts_range) - 1

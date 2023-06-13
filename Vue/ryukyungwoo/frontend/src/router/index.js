@@ -18,6 +18,7 @@ import fastApiTestRoutes from './fastapi'
 import accountTestRoutes from './account'
 import authenticationTestRoutes from './authentication'
 import afterLoginTestRoutes from './afterLogin'
+import paymentRoutes from './payment'
 
 Vue.use(VueRouter)
 
@@ -38,7 +39,8 @@ const routes = [
   ...fastApiTestRoutes,
   ...accountTestRoutes,
   ...authenticationTestRoutes,
-  ...afterLoginTestRoutes
+  ...afterLoginTestRoutes,
+  ...paymentRoutes,
 ]
 
 const router = new VueRouter({
