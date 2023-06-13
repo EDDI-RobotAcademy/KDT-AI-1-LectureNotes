@@ -8,9 +8,9 @@ loan_amounts_range = np.arange(min_loan_amount, max_loan_amount + step_size, ste
 
 loaded_model = load_model("loan_model.h5")
 
-미상환금액 = 2000000000000
-미상환건수 = 1000
-연체율 = 0.5
+미상환금액 = 1000000
+미상환건수 = 1
+연체율 = 0.1
 
 new_data = np.array([[미상환금액, 미상환건수, 연체율]])
 
