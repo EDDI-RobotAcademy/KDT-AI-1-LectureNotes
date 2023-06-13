@@ -11,6 +11,7 @@ import accountModule from '@/store/account/AccountModule'
 import authenticationModule from './authentication/AuthenticationModule'
 import afterLoginModule from './afterLogin/AfterLoginModule'
 
+
 Vue.use(Vuex)
 // Vuex를 사용하여 Store 객체를 생성
 const store = new Vuex.Store({
@@ -24,7 +25,8 @@ const store = new Vuex.Store({
     fastApiModule: fastApiModule,
     accountModule: accountModule,
     authenticationModule: authenticationModule,
-    afterLoginModule: afterLoginModule
+    afterLoginModule: afterLoginModule,
+    
 
   },
 })
