@@ -16,7 +16,9 @@
 
 <script>
 import { mapActions } from 'vuex';
+
 const filesModule = 'filesModule'
+
 export default {
     data () {
         return {
@@ -33,6 +35,7 @@ export default {
             // 왼쪽을 오른쪽으로 가공해서 바꿔침 (각각의 요소마다 적용함): 람다(Lambda)라고 부름
     }
 }
+
 </script>
 
 <style lang="">

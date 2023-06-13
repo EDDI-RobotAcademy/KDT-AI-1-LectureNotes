@@ -9,7 +9,9 @@
 <script>
 import ProductModifyForm from '@/components/product/ProductModifyForm.vue'
 import { mapActions, mapState } from 'vuex';
+
 const productModule = 'productModule'
+
 export default {
     components: {
         ProductModifyForm,
@@ -30,6 +32,7 @@ export default {
         async onSubmit (payload) {
             const { productName, price } = payload
             const productId = this.productId
+
             await this.requestProductModifyToSpring({ productName, price, productId })
             await this.$router.push({
                 name: 'ProductReadPage',

@@ -13,15 +13,15 @@
             <p>안녕! <span class="browntext">밤색이닷!</span></p>
             <p class="ns-font">한글 폰트 테스트 - 밤색이닷!</p>
         </div>
-        <p><a href="http://threejs.org/"><b>Three.js</b></a></p>
+        <p><a href="https://threejs.org/"><b>Three.js</b></a></p>
         <h1 class="shadow-option1">Micro-Frontend</h1>
         <h1 class="shadow-option2">Micro-Frontend</h1>
         <h1 class="shadow-option3">Micro-Frontend</h1>
         <h1 class="shadow-option4">Micro-Frontend</h1>
         <p class="align-right">오른쪽 정렬</p>
-        <p class="align-left">왼쪽 정렬</p>
-        <p class="align-center">가운데 정렬: 우으으으으으으으으으으으으으으으으어오오요요요오오오오오으으응오오오옹오우으으으으으어오오요요요오오오오오으으응오오오옹오</p>
-        <p class="align-justify">양쪽 정렬: 우으으으으으으으으으으으으으으오오오여오요오오오오오오오오오오우우우웅우으으으으으으오오오여오요오오오오오오오오오오우우</p>
+        <p class="align-left">오른쪽 정렬</p>
+        <p class="align-center">가운데 정렬: 으아나ㅓㄹ아너 인오링ㅁ홈ㅇㄹ허밍림ㄴ 얾닝럼ㄴㅇ리멍 린ㅁㅇ러ㅣㅁ어밇 ㅁ얼힌ㅇㄹ 혼이ㅏㅓ ㄹ화ㅣㅇㄴㅀㄴ 일힌ㅇㄹ혼 잃노일혼 이랗ㄴ 힌ㅇㄹ회</p>
+        <p class="align-justify">양쪽 정렬: 으아나ㅓㄹ아너 인오링ㅁ홈ㅇㄹ허밍림ㄴ 얾닝럼ㄴㅇ리멍 린ㅁㅇ러ㅣㅁ어밇 ㅁ얼힌ㅇㄹ 혼이ㅏㅓ ㄹ화ㅣㅇㄴㅀㄴ 일힌ㅇㄹ혼 잃노일혼 이랗ㄴ 힌ㅇㄹ회</p>
         <div class="box1"></div>
         <div class="box2"></div>
         <div class="box3">box-sizing = "content-box"</div>
@@ -62,7 +62,7 @@
 <script>
 
 export default {
-
+    
 }
 
 </script>
@@ -120,10 +120,10 @@ export default {
         background-color: #000;
         color: #000;
         text-shadow: 0 0 4px #ccc, 
-        0 -5px 4px #ff3, 
-        2px -10px 6px #fd3, 
-        -2px -15px 11px #f80, 
-        2px -19px 18px #f20;
+            0 -5px 4px #ff3,
+            2px -10px 6px #fd3,
+            -2px -15px 11px #f80,
+            2px -19px 18px #f20;
     }
     .align-left {
         text-align: left;
@@ -148,7 +148,7 @@ export default {
         background-color: royalblue;
     }
     div {
-        margin: 10px
+        margin: 10px;
     }
     .box3 {
         box-sizing: content-box;
@@ -190,11 +190,11 @@ export default {
         float: right;
         border: 1px solid black;
     }
-    /* container 내의 모든 u1 */
+    /* container 내의 모든 ul */
     #container ul {
         border: 1px dotted blue;
     }
-    /* container 바로 하위의 u1만 적용 */
+    /* container 바로 하위의 ul만 적용 */
     #container2 > ul {
         border: 1px dotted darkcyan;
     }

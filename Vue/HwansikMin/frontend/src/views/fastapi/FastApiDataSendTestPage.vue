@@ -1,13 +1,15 @@
 <template lang="">
     <div>
         <h3>Vue <-> Spring <-> FastAPI</h3>
-        <p>{{ receivedInteger }}</p>
+        <p>{{ receivedSpringFromFastApiInteger }}</p>
     </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex';
+
 const fastApiModule = 'fastApiModule'
+
 export default {
     data () {
         return {
@@ -15,7 +17,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(fastApiModule, ['receivedInteger'])
+        ...mapState(fastApiModule, ['receivedSpringFromFastApiInteger'])
     },
     methods: {
         ...mapActions(fastApiModule, [
@@ -26,6 +28,7 @@ export default {
         await this.requestIntegerToFastApiAfterSpring()
     }
 }
+
 </script>
 
 <style lang="">

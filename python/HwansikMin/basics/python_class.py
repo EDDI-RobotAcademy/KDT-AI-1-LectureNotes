@@ -19,7 +19,7 @@ class NonSelfTest:
 
 
 class Vehicles:
-    #def __init__(self):
+    # def __init__(self):
     #    print("나는 기본 생성자야!")
 
     def __init__(self, speed):
