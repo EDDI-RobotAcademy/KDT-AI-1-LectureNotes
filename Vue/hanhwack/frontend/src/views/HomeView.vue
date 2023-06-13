@@ -86,6 +86,8 @@
           >Food Aggregate Root 만들기</router-link
         >
         |
+        <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
+
       </nav>
     </div>
   </v-container>
