@@ -41,7 +41,10 @@ export default {
   },
 
   methods: {
-    ...mapActions(boardModule, ["requestBoardToSpring", "requestDeleteBoardToSpring"]),
+    ...mapActions(boardModule, [
+      "requestBoardToSpring",
+      "requestDeleteBoardToSpring",
+    ]),
     // boardModule에 requestBoardToSpring, requestDeleteBoardToSpring 맵핑
 
     async onDelete() {

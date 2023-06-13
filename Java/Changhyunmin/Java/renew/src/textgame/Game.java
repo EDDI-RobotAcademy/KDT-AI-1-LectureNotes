@@ -150,6 +150,7 @@ public class Game {
                     if (m2.HP <= 0) {
                         System.out.println(m2.name + "을 쓰러트렸습니다!");
                         c.getEXP(100);
+                        c.LevelUP();
                         c.getItems(m2.itemDrop());
                         break Battle;
                     }
