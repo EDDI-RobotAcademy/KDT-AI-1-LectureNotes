@@ -3,7 +3,6 @@ package dicegame.game;
 import java.util.ArrayList;
 import java.util.List;
 
-// Player(플레이어)에게 필요한게 뭐지 ?
 public class Player {
     final private int MAX_DICE_NUM = 3;
     final private String name;
@@ -50,10 +49,7 @@ public class Player {
     }
     @Override
     public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", gameDiceList=" + gameDiceList +
-                ", gameScore=" + gameScore +
-                '}';
+        return  name + gameDiceList +
+                gameScore ;
     }
 }
