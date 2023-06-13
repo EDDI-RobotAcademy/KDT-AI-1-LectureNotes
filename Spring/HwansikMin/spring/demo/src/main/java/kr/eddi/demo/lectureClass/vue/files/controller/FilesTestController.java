@@ -21,8 +21,8 @@ public class FilesTestController {
 
     @PostMapping(value = "/uploadImgsWithText",
             consumes = {
-                    MediaType.MULTIPART_FORM_DATA_VALUE,
-                    MediaType.APPLICATION_JSON_VALUE })
+                MediaType.MULTIPART_FORM_DATA_VALUE,
+                MediaType.APPLICATION_JSON_VALUE })
     public Boolean fileRegisterRequestHandler (
             @RequestPart(value = "imageFileList") List<MultipartFile> fileList,
             @RequestPart(value = "fileInfo") FileInfoRequestForm info)

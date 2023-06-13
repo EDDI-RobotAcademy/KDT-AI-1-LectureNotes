@@ -50,8 +50,11 @@
             <router-link to="/file-list-show-page">받은 사진 표출</router-link>|
             <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
             <router-link to="re-problem-page">시험 대비 문제 1페이지</router-link>|
-            <router-link to="re-second-page">시험 대비 문제 2번</router-link>
-            
+            <router-link to="re-second-page">시험 대비 문제 2번</router-link>|
+            <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
+            <router-link to="/fastapi-number-page"> 숫자 세개 문제</router-link>|
+            <router-link to="/sign-up-page">회원 가입</router-link>|
+            <router-link to="/github-sign-in-page">Github 로그인</router-link>
         </nav></div>
       </v-container>
 </template>

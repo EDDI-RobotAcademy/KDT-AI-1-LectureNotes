@@ -9,7 +9,9 @@
 <script>
 import ProductRegisterForm from '@/components/product/ProductRegisterForm.vue'
 import { mapActions } from 'vuex';
+
 const productModule = 'productModule'
+
 export default {
     components: {
         ProductRegisterForm,

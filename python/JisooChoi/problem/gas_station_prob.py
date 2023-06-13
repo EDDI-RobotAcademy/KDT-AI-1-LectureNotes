@@ -8,14 +8,13 @@ import random
 # 주유소 좌표 3곳 : [[5, 3], [2, 7], [6, 5]] -> 리스트 형태로 리스트에 들어가기 ?
 
 # (3, 2) 좌표와 가장 가까운 주유소는 (2, 7)이므로,
-# (3, 2) - (2, 7) = + (0, 3)
+# (3, 2) - (2, 7) = 1 + 5 = (6칸)
 
 # 다른 주유소들의 거리도 구해보자면
-# (3, 2) - (5, 3) = - (2, 1)
-# (3, 2) - (6, 5) = - (3, 3)
+# (3, 2) - (5, 3) = 2 + 1 = (3칸)
+# (3, 2) - (6, 5) = 3 + 3 = (6칸)
 
-# 이러한 구조의 문제
-
+# 내가 푼 코드 (칸으로)
 def gas_prob():
     gasStation = []
     for i in range(3):
@@ -34,19 +33,25 @@ def gas_prob():
 
     print()
 
-    distance = []
+    min_distance = 999999999999999999
     for num in gasStation:
-        distance.append([ai - bi for ai, bi in zip(num, humanStation)])
-    print("주유소와 나의 거리를 각각 계산: ",distance)
+        x = num[0]
+        y = num[1]
+        print(x, y)
 
-    print()
+        # 나의 위치와 주유소 위치를 계산하고 싶어
+        distance_x = abs(humanStation[0] - x)
+        distance_y = abs(humanStation[1] - y)
 
-    print("제일 가까운 주유소:",min(distance))
+        distance_res = distance_x + distance_y
+        print("계산된 거리 :", distance_res)
+
+        if distance_res < min_distance:
+            min_distance = distance_res
+    print(min_distance)
 
 
-
-# 아래는 강사님 코드
-
+# 아래는 강사님 코드 (대각선)
 import math
 import random
 
@@ -89,3 +94,4 @@ def gas_station_problem_solve():
 
     distances.sort()
     print('최단거리 =', distances[0])
+

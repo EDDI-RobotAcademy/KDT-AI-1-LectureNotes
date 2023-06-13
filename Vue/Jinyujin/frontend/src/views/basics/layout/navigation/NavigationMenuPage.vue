@@ -27,15 +27,15 @@
           <span>테스트</span>
           <v-icon right>mdi-hand-back-left-outline</v-icon>
         </v-btn>
-        <v-btn v-if="!isLogin" text @click="signUp">
+        <v-btn v-if="!isAuthenticated" text @click="signUp">
           <span>회원가입</span>
           <v-icon right>mdi-account-plus-outline</v-icon>
         </v-btn>
-        <v-btn v-if="!isLogin" text @click="signIn">
+        <v-btn v-if="!isAuthenticated" text @click="signIn">
           <span>로그인</span>
           <v-icon right>mdi-login</v-icon>
         </v-btn>
-        <v-btn v-if="isLogin" text @click="signOut"> 
+        <v-btn v-if="isAuthenticated" text @click="signOut"> 
           <!-- 
             먼저 회원가입과 로그인 버튼 뜨고 로그아웃은 로그인 된 후 떠도 된다
             그래서 일단 회원가입과 로그인 버튼만 뜨게 하고 로그아웃은 숨겨놓음
@@ -75,7 +75,15 @@
   </template>
   
   <script>
+  import {
+    GITHUB_LOGIN_COMPLETE,
+  } from '@/store/authentication/mutation-types'
+
   import router from '@/router'
+  import { mapState, mapMutations } from 'vuex'
+
+  const authenticationModule = 'authenticationModule'
+
   export default {
       
       data () {
@@ -84,36 +92,61 @@
           links: [
             { icon: 'mdi-home', text: 'Home', route: '/' }
           ],
-          gameId: 0,
-          isLogin: false,
+          // accountId: 0,
+          // isLogin: true,
+          userToken: null
         }
-      },
-      methods: {
+    },
+    computed: {
+      ...mapState(authenticationModule, ['isAuthenticated'])
+    },
+
+    methods: {
+        ...mapMutations(authenticationModule, ['GITHUB_LOGIN_COMPLETE']),
         clickToggle () {
           alert('토글')
         },
         signUp () {
-          alert('회원가입')
-          router.push('/make-character')
+          // alert('회원가입')
+          router.push('/sign-up-page')
         },
         signIn () {
-          alert('로그인')
-          router.push('/make-character')
+          // alert('로그인')
+          router.push('/github-sign-in-page')
         },
-        signOut () {
-          alert('로그아웃')
+          signOut() {
+              // localStorage.removeItem("loginUserInfo")
+              // this.isLogin = false
+
+              // 어딘가에서 loginUserInfo를 쓰고 있을 것이기에 새로 막아줘야 한대
+              localStorage.removeItem("userToken")
+              // this.$store.state.authenticationModule.isAuthenticated = false
+              // mutation-types를 import 함으로써 이런 지저분한 형태 제거 가능
+              this[GITHUB_LOGIN_COMPLETE](false)
         },
         goToHome () {
           router.push('/')
         }
       },
       mounted() {
-        // gameId가 0보다 클 경우 로그아웃 창 뜰 수 있도록
-        this.gameId = localStorage.getItem("logInUserInfo")
-        if (this.gameId > 0) {
-          this.isLogin = true
-        }
+        // accountId가 0보다 클 경우 로그아웃 창 뜰 수 있도록
+        // this.accountId = localStorage.getItem("logInUserInfo")
+        // this.accountId = localStorage.getItem("userToken")
+        // if (this.accountId > 0) {
+          // this.isLogin = true
+          // this.$store.state.authenticationModule.isAuthenticated = true
+        // } else {
+          // this.isLogin = false
+          // this.$store.state.authenticationModule.isAuthenticated = false
+        // }
 
+        this.userToken = localStorage.getItem("userToken")
+        
+        if (this.userToken == null) {
+          this[GITHUB_LOGIN_COMPLETE](false)
+        } else {
+          this[GITHUB_LOGIN_COMPLETE](true)
+        }
       },
   }
   </script>

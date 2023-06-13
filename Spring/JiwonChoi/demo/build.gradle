@@ -24,6 +24,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.projectlombok:lombok:1.18.22'
 	testImplementation 'org.projectlombok:lombok:1.18.22'
+
+	//https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-cbor
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.13.4'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
