@@ -4,6 +4,7 @@ from basics.python_functions import functions_test
 from basics.thread_test import thread_test_sequence
 from homework.fastapi_homework import homework_request
 from homework.thread_homework import homework
+from notification.email.email_notification_router import email_notification_router
 
 from problem.gas_station_prob import gas_station_problem_solve
 
@@ -49,3 +50,4 @@ app.include_router(request_receiver)
 
 app.include_router(homework_request)
 app.include_router(ml_router)
+app.include_router(email_notification_router)
