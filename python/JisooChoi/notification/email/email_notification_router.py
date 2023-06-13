@@ -74,10 +74,11 @@ async def email_notification():
         }
     }
 
-    title = '가자!'
-    content = '간다'
+    title = '가즈아!'
+    content = '간드아'
     sender = naver_user_info['smtp_user_id']
     receiver = naver_user_info['smtp_user_id']
+    # receiver = "다른사람이메일" # 다른 사람에게 보낼 때
 
     msg = MIMEText(_text = content, _charset='utf-8')
     msg_dict['image']['filename'] = 'image/voice_phishing.jpg'
