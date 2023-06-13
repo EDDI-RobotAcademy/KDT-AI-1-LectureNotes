@@ -9,7 +9,9 @@
 <script>
 import * as d3 from "d3"
 import { mapActions, mapState } from "vuex"
+
 const d3PlotModule = 'd3PlotModule'
+
 export default {
     data () {
         return {
@@ -54,10 +56,12 @@ export default {
                     .attr("width", width + 100)
                     .attr("height", height + 100)
         const g = svg.append("g")
+
         g.append("g")
             .attr("transform", "translate(0," +  (height - 40) + ")")
             .call(d3.axisBottom(this.xScale).ticks(7))
             .append("text")
+
         g.append("g")
             .call(d3.axisLeft(this.yScale))
             .attr('transform', `translate(40, 0)`)
@@ -68,6 +72,7 @@ export default {
             .attr("dy", "0.71em")
             .attr("text-anchor", "end")
             .text("운동량(백분율)")
+
     }
 }
 </script>
