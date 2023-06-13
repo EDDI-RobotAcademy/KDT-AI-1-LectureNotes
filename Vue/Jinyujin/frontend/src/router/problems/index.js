@@ -10,6 +10,10 @@ import HiResponsePage from '@/views/basics/axios/HiResponsePage.vue'
 
 import FruitPriceSum from '@/views/homework/buyFruits/FruitPriceSum.vue'
 
+import VueSpring from '@/views/homework/vueSpringFastApi/VueSpring.vue'
+
+import KerasTest from '@/views/homework/vueFastapiKeras/KerasTest.vue'
+
 Vue.use(VueRouter)
 
 const prolblemsRoutes = [
@@ -32,6 +36,16 @@ const prolblemsRoutes = [
         path: '/fruit-price-sum',
         name: 'FruitPriceSum',
         component: FruitPriceSum
+    },
+    {
+        path: '/vue-spring',
+        name: 'VueSpring',
+        component: VueSpring
+    },
+    {
+        path: '/fastapi-keras',
+        name: 'KerasTest',
+        component: KerasTest
     },
 ]
 

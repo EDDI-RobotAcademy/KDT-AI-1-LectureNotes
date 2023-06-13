@@ -1,5 +1,4 @@
 <template>
-  <hello-world />
   <v-container>
     <div>
       <nav>
@@ -48,19 +47,25 @@
         <router-link to="/file-handler-test-page">File 처리 테스트</router-link> |
         <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
         <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
+        <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
+        <router-link to="/vue-spring">Vue + Spring + FastAPI 숙제 [1]</router-link> |
+        <router-link to="/sign-up-page">회원가입</router-link> |
+        <router-link to="/github-sign-in-page">Github 로그인</router-link> |
+        <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
+        <router-link to="/fastapi-keras">Keras - FastAPI 통신 테스트</router-link> |
       </nav>
     </div>
   </v-container>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import HelloWorld from '../components/HelloWorld'
 
-  export default {
-    name: 'Home',
+export default {
+  name: 'Home',
 
-    components: {
-      HelloWorld,
-    },
-  }
+  components: {
+    HelloWorld,
+  },
+}
 </script>
