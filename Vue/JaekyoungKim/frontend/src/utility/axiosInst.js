@@ -1,9 +1,18 @@
 import axios from "axios";
 
+// Legacy 구성은 아래를 참고
 const axiosInst = axios.create({
     baseURL: 'http://localhost:7777',
+    //baseURL: 'http://192.168.20.3:7777',
     timeout: 2500
 })
-// axios뒤에 붙이던 로컬 호스트를 기본으로 잡아주는 것
+// 신규 구성은 이 부분을 참고
+// TODO: 추후 리팩토링을 진행해야 합니다 (우선순위 p3 ~ p4 정도)
+const springAxiosInst = axiosInst
 
-export default axiosInst
+const fastApiAxiosInst = axios.create({
+    baseURL: 'http://localhost:8000',
+    timeout: 2500
+})
+
+export default { axiosInst, springAxiosInst, fastApiAxiosInst }
