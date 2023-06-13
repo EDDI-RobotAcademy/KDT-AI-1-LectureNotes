@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <navigation-menu-page/>
-    <v-main>
+    <v-main style="padding-top: 20px;">
       <router-view/>
     </v-main>
   </v-app>
@@ -40,4 +40,5 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>

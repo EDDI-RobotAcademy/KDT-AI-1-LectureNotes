@@ -3,7 +3,11 @@ module.exports = defineConfig({
   lintOnSave: false,
   transpileDependencies: [
     'vuetify'
-  ]
+  ],
+  devServer: {
+    proxy: 'http://localhost:7777'
+  }
+ 
 
 })
 
