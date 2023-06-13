@@ -6,16 +6,17 @@
 </template>
 
 <script>
+
 export default {
-    data() {
+    data () {
         return {
-            message: '초기값'
+            message: '초기값',
         }
-    }
+    }    
 }
 
 </script>
 
 <style>
-
+    
 </style>

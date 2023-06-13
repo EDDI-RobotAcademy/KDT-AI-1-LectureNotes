@@ -14,9 +14,9 @@ public class NormalAccountRegisterRequestForm {
 
     final private RoleType roleType;
 
-    public NormalAccountRegisterRequest toAccountRegisterRequest () {
+//    public NormalAccountRegisterRequest toAccountRegisterRequest () {
 
-        return new NormalAccountRegisterRequest(
-                email, password, roleType);
-    }
+//        return new NormalAccountRegisterRequest(
+//                email, password, roleType);
+//    }
 }

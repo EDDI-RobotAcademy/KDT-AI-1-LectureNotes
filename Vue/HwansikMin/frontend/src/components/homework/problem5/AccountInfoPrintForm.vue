@@ -6,6 +6,7 @@
 
 <script>
 import axios from 'axios';
+
 export default {
     data () {
         return {
@@ -19,6 +20,7 @@ export default {
             .then((res) => {
                 this.email = res.data
             })
+
     }
 }
 

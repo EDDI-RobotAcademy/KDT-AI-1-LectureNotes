@@ -43,7 +43,10 @@
         <router-link to="/d3-review1-page">D3 Review 1</router-link> |
         <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
         <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
-
+        <router-link to="/composition-problem-page">Spring, FastAPI 숫자 통합 테스트</router-link> |
+        <router-link to="/sign-up-page">회원 가입</router-link> |
+        <router-link to="/github-sign-in-page">Github 로그인</router-link> |
+        <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
 
         
       </nav>

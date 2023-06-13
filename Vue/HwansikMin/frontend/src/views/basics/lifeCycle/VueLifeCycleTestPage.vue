@@ -30,7 +30,7 @@ export default {
             monsterList: [
                 { id: 1, name: '슬라임', hp: 30 },
                 { id: 2, name: '슬라임', hp: 30 },
-                { id: 3, name: '슬라임', hp: 30 }
+                { id: 3, name: '슬라임', hp: 30 },
             ]
         }
     },
@@ -62,7 +62,7 @@ export default {
                     console.log('count: ' + (count++) + ', a: ' + a + ', b: ' + b.id)
                     return a > b.id ? a : b.id
                 }, 0)
-            
+
                 // JavaScript에서 랜덤값 활용 (몬스터 도감 개수만큼)
                 let idx = Math.floor(Math.random() * this.monsterBook.length)
 
@@ -90,7 +90,7 @@ export default {
     },
     beforeUpdate () {
         console.log('beforeUpdate() 동작!')
-        
+
         this.checkKilledMonster()
     },
     updated () {
