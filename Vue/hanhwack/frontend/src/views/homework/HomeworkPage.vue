@@ -31,7 +31,7 @@ export default {
     components: {
     "subs-local-component": SubsLocalComponent,
     "double-local-component": DoubleLocalComponent,
-    "basic-cal-loacl-component": BasicCalLocalComponent,
+    BasicCalLocalComponent,
     "checkbox-local-component": CheckboxLocalComponent,
 
 },
