@@ -74,6 +74,7 @@
           >Spring, FastAPI 숫자 통합 테스트</router-link
         >
         |
+        <router-link to="/payment-page">결제 버튼 테스트</router-link> |
       </nav>
     </div>
   </v-container>

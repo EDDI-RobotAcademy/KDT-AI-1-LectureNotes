@@ -20,6 +20,7 @@ import foodSetRoutes from "./food";
 import accountTestRoutes from "./account";
 import authenticationTestRoutes from "./authentication";
 
+import paymentRoutes from "./payment";
 Vue.use(VueRouter);
 
 const routes = [
@@ -40,6 +41,8 @@ const routes = [
   ...foodSetRoutes,
   ...accountTestRoutes,
   ...authenticationTestRoutes,
+
+  ...paymentRoutes,
 ];
 
 const router = new VueRouter({
