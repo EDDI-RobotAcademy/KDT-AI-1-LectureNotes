@@ -1,12 +1,11 @@
 package com.example.demo.lectureClass.refactorAccount.service;
 
-import com.example.demo.lectureClass.refactorAccount.controller.form.RefactorAccountRegisterRequestForm;
 import com.example.demo.lectureClass.refactorAccount.entity.RefactorAccount;
 import com.example.demo.lectureClass.refactorAccount.entity.RefactorAccountRole;
 import com.example.demo.lectureClass.refactorAccount.entity.Role;
 import com.example.demo.lectureClass.refactorAccount.repository.RefactorAccountRepository;
 import com.example.demo.lectureClass.refactorAccount.repository.RefactorAccountRoleRepository;
-import com.example.demo.lectureClass.refactorAccount.repository.RefactorRoleRepository;
+import com.example.demo.lectureClass.refactorAccount.repository.RoleRepository;
 import com.example.demo.lectureClass.refactorAccount.request.RefactorAccountRegisterRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +18,7 @@ public class RefactorAccountServiceImpl implements RefactorAccountService{
 
     final private RefactorAccountRepository accountRepository;
     final private RefactorAccountRoleRepository accountRoleRepository;
-    final private RefactorRoleRepository roleRepository;
+    final private RoleRepository roleRepository;
 
     @Override
     public Boolean register(RefactorAccountRegisterRequest request) {
