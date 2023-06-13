@@ -3,6 +3,7 @@ from typing import Optional
 
 from fastapi import FastAPI
 
+from notification.email.email_notification_router import email_notification_router
 from problem.Q3_vueSpringFastAPI import prb3
 
 from router.machine_learning.ml_router import ml_router
@@ -49,6 +50,9 @@ app.include_router(request_receiver)
 app.include_router(prb3)
 app.include_router(ml_router)
 app.include_router(vue_keras_fastapi)
+app.include_router(email_notification_router)
+
+
 
 origins = ["http://localhost:8080"]
 from fastapi.middleware.cors import CORSMiddleware
