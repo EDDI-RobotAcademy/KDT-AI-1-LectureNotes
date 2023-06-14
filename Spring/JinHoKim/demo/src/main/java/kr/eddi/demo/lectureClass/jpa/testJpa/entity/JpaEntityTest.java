@@ -1,6 +1,5 @@
 package kr.eddi.demo.lectureClass.jpa.testJpa.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

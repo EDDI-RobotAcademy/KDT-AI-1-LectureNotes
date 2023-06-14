@@ -9,6 +9,7 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 public class Dice {
+
     final private static int MIN = 1;
     final private static int MAX = 6;
     final private int diceNumber;
@@ -16,5 +17,4 @@ public class Dice {
     public Dice() {
         this.diceNumber = CustomRandom.generateNumber(MIN, MAX);
     }
-
 }

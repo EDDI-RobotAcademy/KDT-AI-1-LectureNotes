@@ -25,7 +25,7 @@ public class TestOrderServiceImpl implements TestOrderService {
     final private TestAccountRepository accountRepository;
     final private TestProductRepository productRepository;
     final private TestOrderRepository orderRepository;
-
+    
     // 지금 redis를 쓸 수 없으므로 임시 방편용
     private Long alwaysReturnFirst (String userToken, Long accountId) {
         return accountId;
