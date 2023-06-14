@@ -1,10 +1,13 @@
 package kr.eddi.demo.lectureClass.account.controller;
 
+import jakarta.servlet.http.HttpServletResponse;
 import kr.eddi.demo.lectureClass.account.controller.form.AccountRegisterForm;
 import kr.eddi.demo.lectureClass.account.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @Slf4j
 @RestController
@@ -27,4 +30,9 @@ public class MemberAccountController {
 
         return accountService.signUp(form.toAccountRegisterRequest());
     }
+
+    //    @GetMapping("/github/login")
+//    public void githubLoginCallback(HttpServletResponse response) throws IOException {
+//        response.sendRedirect("http://localhost:8080/");
+//    }
 }
