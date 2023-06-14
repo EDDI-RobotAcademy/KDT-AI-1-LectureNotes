@@ -1,37 +1,37 @@
+
 <template lang="">
     <div>
-        <h2>상품 게시판</h2>
-        <div style="text-align: left margin: 15px">
-            <router-link :to="{ name: 'BBoardRegisterPage' }">
-                게시물 작성
+        <h2>상품 통신 연습 게시판</h2>
+        <div style="text-align: left; margin: 15px;">
+            <router-link :to="{ name: 'BoardCommunicationRegisterPage' }">
+                상품 등록
             </router-link>
         </div>
-        <bboard-list-form :bboards="bboards"/>
+        <board-communication-list-form :boards="boards"/>
     </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import BboardListForm from '@/components/practice/bboard/BboardListForm.vue'
+import BoardCommunicationListForm from '@/components/practice/boardCommunication/BoardCommunicationListForm.vue'
 
-const bboardModule = 'bboardModule'
+const boardCommunicationModule = 'boardCommunicationModule'
 
 export default {
-     components: { BboardListForm },
+    components: { BoardCommunicationListForm },
     computed: {
-        ...mapState(boardModule, ['boards']),
+        ...mapState(boardCommunicationModule, ['boards']),
     },
     mounted() {
-        this.requestBoardListToSpring()
+        this.requestBoardCommunicationListToSpring()
     },
     methods: {
         ...mapActions(
-            boardModule, ['requestBoardListToSpring']
+            boardCommunicationModule, ['requestBoardCommunicationListToSpring']
         )
     },
 }
 </script>
 
 <style lang="">
-    
 </style>

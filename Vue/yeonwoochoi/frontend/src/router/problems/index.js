@@ -1,36 +1,46 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import ProductListPage from '@/views/product/ProductListPage.vue'
-import ProductRegisterPage from '@/views/product/ProductRegisterPage.vue'
-import ProductReadPage from '@/views/product/ProductReadPage.vue'
-import ProductModifyPage from '@/views/product/ProductModifyPage.vue'
+import ProblemPage1 from '@/views/homework/problem1/ProblemPage.vue'
+import Problem2Page from '@/views/homework/problem2/Problem2Page.vue'
+import Problem3Page from '@/views/homework/problem3/Problem3Page.vue'
+import Problem4Page from '@/views/homework/problem4/Problem4Page.vue'
+import Problem5Page from '@/views/homework/problem5/Problem5Page.vue'
+import CopositionProblemPage from '@/views/homework/coposition/problem/CopositionProblemPage.vue'
 
 Vue.use(VueRouter)
 
-const productRoutes = [
+const problemRoutes = [
     {
-        path: '/product-list-page',
-        name: 'ProductListPage',
-        component: ProductListPage
+        path: '/problem-page1',
+        name: 'ProblemPage1',
+        component: ProblemPage1
     },
     {
-        path: '/product-register-page',
-        name: 'ProductRegisterPage',
-        component: ProductRegisterPage
+        path: '/problem-page2',
+        name: 'Problem2Page',
+        component: Problem2Page
     },
     {
-        path: '/product-read-page/:productId',
-        name: 'ProductReadPage',
-        components: { default: ProductReadPage },
-        props: { default: true },
+        path: '/problem-page3',
+        name: 'Problem3Page',
+        component: Problem3Page
     },
     {
-        path: '/product-modify-page/:productId',
-        name: 'ProductModifyPage',
-        components: { default: ProductModifyPage },
-        props: { default: true },
+        path: '/problem-page4',
+        name: 'Problem4Page',
+        component: Problem4Page
+    },
+    {
+        path: '/problem-page5',
+        name: 'Problem5Page',
+        component: Problem5Page
+    },
+    {
+        path: '/coposition-problem-page',
+        name: 'CopositionProblemPage',
+        component: CopositionProblemPage
     },
 ]
 
-export default productRoutes
+export default problemRoutes

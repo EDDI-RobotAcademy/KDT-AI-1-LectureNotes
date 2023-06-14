@@ -16,6 +16,10 @@ import solvedRoutes from './solved'
 import d3plotTestRoutes from './d3plot'
 import filesTestRoutes from './files'
 import foodSetRoutes from './food'
+import fastApiTestRoutes from './fastapi'
+import accountTestRoutes from './account'
+import authenticationTestRoutes from './authentication'
+import afterLoginTestRoutes from './afterLogin'
 
 // 지저분한 궁극적인 이유?
 // 분류가 안되어서 - 즉 도메인 정리가 안됨
@@ -39,6 +43,10 @@ const routes = [
   ...d3plotTestRoutes,
   ...filesTestRoutes,
   ...foodSetRoutes,
+  ...fastApiTestRoutes,
+  ...accountTestRoutes,
+  ...authenticationTestRoutes,
+  ...afterLoginTestRoutes,
 ]
 
 const router = new VueRouter({
