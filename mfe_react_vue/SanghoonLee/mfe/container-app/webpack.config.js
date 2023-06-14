@@ -27,13 +27,13 @@ module.exports = (_, argv) => ({
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: "./public/index.html",
     }),
     new ExternalTemplateRemotePlugin(),
     new ModuleFederationPlugin({
-      name: "container-app",
+      name: "containerApp",
       remotes: {
-        vueModuleApp: 'vueModuleApp@http://localhost:3002/remoteEntry.js'
+        vueModuleApp: 'vueModuleApp@http://localhost:3001/remoteEntry.js'
       },
     }),
   ],
