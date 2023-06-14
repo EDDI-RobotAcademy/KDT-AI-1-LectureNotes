@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/fastapi-test")
-public class FastAPIBasicsCntroller {
+public class FastApiBasicsCntroller {
 
     final private FastApiService fastApiService;
 
@@ -23,7 +23,6 @@ public class FastAPIBasicsCntroller {
 
         fastApiService.stringRequest(FASTAPI_REQUEST_URL);
     }
-
 
     @GetMapping("/fastapi-integer-request")
     public Integer fastApiIntegerRequest () {
