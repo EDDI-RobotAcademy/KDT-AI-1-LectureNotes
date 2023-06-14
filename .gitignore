@@ -207,3 +207,6 @@ exam/second/hanhwack/frontend/.env.development
 exam/second/hanhwack/frontend/.env.production
 Vue/hanhwack/frontend/.env.development
 Vue/hanhwack/frontend/.env.production
+
+# 기업 문서 및 개인 정보 보안 설정
+*.xlsx
