@@ -6,6 +6,7 @@ import uiVuetifyModule from '@/store/uiVeutify/UiVuetifyModule'
 import d3PlotModule from '@/store/d3Plot/D3PlotModule'
 import fileModule from '@/store/files/FileModule'
 import foodModule from '@/store/food/FoodModule'
+import FastApiModule from './fastapi/FastApiModule'
 
 Vue.use(Vuex)
 
@@ -17,6 +18,7 @@ const store = new Vuex.Store({
     d3PlotModule: d3PlotModule,
     fileModule: fileModule,
     foodModule: foodModule,
+    fastApiModule: FastApiModule
   }
 })
 

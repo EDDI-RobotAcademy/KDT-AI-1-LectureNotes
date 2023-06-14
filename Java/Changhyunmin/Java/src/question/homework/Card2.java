@@ -7,6 +7,7 @@ public class Card2 {
     public void cardList() {
         for (int i = 0; i < CardValue; i++) {
         }
+
         CardNum.add("A");
         CardNum.add("2");
         CardNum.add("3");
