@@ -13,4 +13,8 @@ async def receive_spring_data():
 
 @request_receiver.get("/request-int-data")
 async def request_integer_process():
-    return random.randrange(3, 7)
+    return random.randrange(10, 21)
+
+@request_receiver.get("/integer-request")
+async def integer_request_receiver():
+    return random.randrange(15, 21)

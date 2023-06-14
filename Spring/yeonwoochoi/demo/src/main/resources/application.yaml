@@ -26,3 +26,12 @@ spring:
 
 #          hibernate:     이부분들은
 #      ddl-auto: update   쿼리를 자동 생성해주는 부분 (주석해놓은 두 부분만 바꾸게 될 것이다.)
+
+  cache:
+    type: redis
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    username: default
+    password: dusdn@0523
