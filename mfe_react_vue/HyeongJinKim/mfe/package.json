@@ -1,0 +1,19 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "container-app",
+      "vue-module-app"
+    ]
+  },
+  "scripts": {
+    "start": "lerna run --parallel start",
+    "build": "lerna run build"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "external-remotes-plugin": "^1.0.0",
+    "lerna": "^7.0.1"
+  }
+}
