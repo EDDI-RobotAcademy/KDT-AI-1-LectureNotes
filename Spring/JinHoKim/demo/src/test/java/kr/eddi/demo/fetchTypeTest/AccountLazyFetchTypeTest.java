@@ -5,6 +5,10 @@ import kr.eddi.demo.lectureClass.fetchType.account.controller.form.JpaAccountRol
 import kr.eddi.demo.lectureClass.fetchType.account.controller.form.JpaAccountWithRoleRequestForm;
 import kr.eddi.demo.lectureClass.fetchType.account.entity.JpaAccount;
 import kr.eddi.demo.lectureClass.fetchType.account.service.JpaAccountService;
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.AccountRoleRequestForm;
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
+import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
+import kr.eddi.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +17,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 public class AccountLazyFetchTypeTest {
 
     @Autowired
     private JpaAccountService accountService;
-
+    
     @Test
     @DisplayName("FetchType = LAZY, 일반 회원 가입")
     void 일반_회원_가입 () {

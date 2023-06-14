@@ -58,7 +58,6 @@ public class TestAccountServiceImpl implements TestAccountService {
         return new TestAccountLoginResponseForm(null);
     }
 
-
     @Override
     public TestAccount registerWithRole(TestAccountWithRoleRequestForm requestForm) {
         final Optional<TestAccount> maybeAccount =
