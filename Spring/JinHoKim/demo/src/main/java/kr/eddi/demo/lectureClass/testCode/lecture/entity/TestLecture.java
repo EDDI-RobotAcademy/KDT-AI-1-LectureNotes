@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 public class TestLecture {
-
     @Id
     @Column(name = "lecture_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

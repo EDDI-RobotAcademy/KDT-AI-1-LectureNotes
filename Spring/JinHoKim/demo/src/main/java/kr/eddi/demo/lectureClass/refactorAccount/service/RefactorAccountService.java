@@ -5,4 +5,3 @@ import kr.eddi.demo.lectureClass.refactorAccount.service.request.RefactorAccount
 public interface RefactorAccountService {
     Boolean register(RefactorAccountRegisterRequest request);
 }
-
