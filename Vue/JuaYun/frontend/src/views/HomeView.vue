@@ -44,7 +44,11 @@
         <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
         <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
         <router-link to="/fastapi-test-page">FastApi 숫자 테스트 하기</router-link> |
-
+        <router-link to="/fastapi-prob">vue spring fastapi 문제은행1</router-link> |
+        <router-link to="/sign-up-page">회원 가입</router-link> |
+        <router-link to="/github-sign-in-page">로그인</router-link> |
+        <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
+        <router-link to="/payment-page">결제 버튼 테스트</router-link> |
       </nav>
     </div>
   </v-container>
