@@ -20,5 +20,18 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: update
+      # ddl-auto: update (상태를 지속적으로 유지하기 위해 사용)
+      # ddl-auto: create (기존에 있던 내용을 밀어버리고 상태를 유지하기 위해 사용)
+      # create-drop (매번 생성했다가 삭제하게 만들때 사용)
+
 #          hibernate:     이부분들은
 #      ddl-auto: update   쿼리를 자동 생성해주는 부분 (주석해놓은 두 부분만 바꾸게 될 것이다.)
+
+  cache:
+    type: redis
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    username: default
+    password: dusdn@0523

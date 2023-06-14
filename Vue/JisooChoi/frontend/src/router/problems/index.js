@@ -22,6 +22,11 @@ import Problem5Page from "@/views/basics/homework/problem5/review/Problem5Page.v
 // 숙제6 (backlog 작성하면서 문풀)
 import VueProb6 from "@/views/basics/homework/problem6/VueProb6.vue";
 
+import CompositionProblemPage from "@/views/basics/homework/composition/problem/CompositionProblemPage.vue";
+
+// Vue + FastAPI + Keras 문제 은행 [ 1 ]
+import ComputerIncome from "@/views/basics/homework/computerTest/ComputerAnnualIncomeTest.vue";
+
 Vue.use(VueRouter);
 
 const problemRoutes = [
@@ -69,6 +74,16 @@ const problemRoutes = [
     path: "/vue-prob6",
     name: "VueProb6",
     component: VueProb6,
+  },
+  {
+    path: "/composition-problem-page",
+    name: "CompositionProblemPage",
+    component: CompositionProblemPage,
+  },
+  {
+    path: "/computer-income-homework-page",
+    name: "ComputerIncome",
+    component: ComputerIncome,
   },
 ];
 

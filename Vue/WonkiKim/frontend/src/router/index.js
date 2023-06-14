@@ -38,6 +38,9 @@ import uiVuetify from "@/router/uiVuetify";
 import vuetifyTestRoutes from "@/router/uiVuetify";
 import FileHandlerPage from "@/views/file/FileHandlerPage.vue";
 import FileListShowPage from "@/views/file/FileListShowPage.vue";
+import VSPTest from "@/views/basics/axios/VSPTest.vue";
+import VspProblem from "@/views/basics/axios/VspProblem.vue";
+import authRoutes from "@/router/auth";
 
 
 Vue.use(VueRouter)
@@ -181,7 +184,18 @@ const routes = [
     path: '/file-list-show-page',
     name: 'FileListShowPage',
     component: FileListShowPage
-  }
+  },
+  {
+    path: '/vsp-test',
+    name: 'VspTest',
+    component: VSPTest
+  },
+  {
+    path: '/vsp-problem',
+    name: 'VspProblem',
+    component: VspProblem
+  },
+  ...authRoutes
 
   
 ]
