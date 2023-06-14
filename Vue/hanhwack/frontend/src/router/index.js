@@ -13,6 +13,8 @@ import defaultSetRoutes from "./defaultRouterSet";
 import d3PlotTestRoutes from "./d3plot";
 import filesTestRoutes from "./files";
 import foodSetRoutes from "./food";
+import fastApiTestRoutes from './fastapi'
+
 
 Vue.use(VueRouter);
 
@@ -30,6 +32,8 @@ const routes = [
   ...d3PlotTestRoutes,
   ...filesTestRoutes,
   ...foodSetRoutes,
+  ...fastApiTestRoutes,
+
 ];
 
 const router = new VueRouter({
