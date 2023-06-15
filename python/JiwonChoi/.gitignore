@@ -176,6 +176,7 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 # 고객 정보 파일 (외부 유출되면 안됨)
+*.xlsx
 customer_data.xlsx
 chunk*.xlsx
 self_employed_data.xlsx
