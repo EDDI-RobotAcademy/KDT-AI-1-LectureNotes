@@ -4,12 +4,14 @@ import kr.eddi.demo.lectureClass.jpa.product.controller.form.RequestProductForm;
 import kr.eddi.demo.lectureClass.jpa.product.entity.JpaProduct;
 import kr.eddi.demo.lectureClass.jpa.product.service.JpaProductService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+@Slf4j
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/jpa-product")
 public class JpaProductController {
 
@@ -17,29 +19,40 @@ public class JpaProductController {
 
     @GetMapping("/list")
     public List<JpaProduct> productList() {
+        log.info("productList()");
+
         List<JpaProduct> returnedProductList = productService.list();
+        log.info("returnedProductList: " + returnedProductList);
 
         return returnedProductList;
     }
 
     @PostMapping("/register")
-    public JpaProduct registerProduct(@RequestBody RequestProductForm requestProductForm) {
+    public JpaProduct registerProduct (@RequestBody RequestProductForm requestProductForm) {
+        log.info("registerBoard()");
+
         return productService.register(requestProductForm.toJpaProduct());
     }
 
     @GetMapping("/{productId}")
-    public JpaProduct readProduct(@PathVariable Long productId) {
+    public JpaProduct readProduct (@PathVariable("productId") Long productId) {
+        log.info("readProduct()");
+
         return productService.read(productId);
     }
 
     @DeleteMapping("/{productId}")
-    public void deleteProduct(@PathVariable Long productId) {
+    public void deleteProduct (@PathVariable("productId") Long productId) {
+        log.info("deleteProduct()");
+
         productService.delete(productId);
     }
 
     @PutMapping("/{productId}")
-    public JpaProduct modifyProduct(@PathVariable Long productId,
-                                    @RequestBody RequestProductForm requestProductForm) {
+    public JpaProduct modifyProduct (@PathVariable("productId") Long productId,
+                                 @RequestBody RequestProductForm requestProductForm) {
+        log.info("modifyProduct(): " + requestProductForm + ", id: " + productId);
+
         return productService.modify(productId, requestProductForm);
     }
 }

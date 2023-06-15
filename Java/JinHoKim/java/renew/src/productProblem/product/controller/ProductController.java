@@ -1,4 +1,5 @@
 package productProblem.product.controller;
+
 import productProblem.product.RefactorManager;
 import utility.generator.SequenceGenerator;
 
@@ -10,10 +11,13 @@ public class ProductController {
         RefactorManager manager = new RefactorManager();
         manager.addRandomMember();
         manager.printMemberList();
+
         manager.addRandomProduct();
         manager.printProductList();
+
         manager.buyRandomProduct();
         manager.printProductList();
+
         manager.addMember();
         manager.printMemberList();
     }

@@ -1,6 +1,7 @@
 package kr.eddi.demo.lectureClass.vue.basics.controller;
 
 import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
+import kr.eddi.demo.lectureClass.vue.basics.controller.form.VueRequestRequestOne;
 import kr.eddi.demo.lectureClass.vue.basics.controller.form.VueRequestTestDataForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -18,13 +19,17 @@ public class VueTestController {
     전송한 이름에 해당하는 studentName, studentAge 같은 정보가 정확하게 일치해야 합니다.
      */
     @PostMapping("/receive-test")
-    public void receiveTest(@RequestBody VueRequestTestDataForm vueRequestTestDataForm) {
+    public void receiveTest (@RequestBody VueRequestTestDataForm vueRequestTestDataForm) {
         log.info("received data: " + vueRequestTestDataForm);
     }
 
+    @PostMapping("/send-one")
+    public void sendOne (@RequestBody VueRequestRequestOne vueRequestRequestOne) {
+        log.info("received data: " + vueRequestRequestOne);
+    }
 
     @GetMapping("/get-random-dice")
-    public Integer getRandomDice() {
+    public Integer getRandomDice () {
         final int MIN = 1;
         final int MAX = 6;
 
@@ -33,5 +38,3 @@ public class VueTestController {
         return CustomRandom.generateNumber(MIN, MAX);
     }
 }
-
-

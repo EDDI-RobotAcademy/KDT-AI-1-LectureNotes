@@ -22,6 +22,7 @@ public class FoodRegisterRequest {
     final private AmountType amountType;
     final private String uniqueRandomName;
 
+
     public Food toFood() {
         return new Food(
                 foodName,

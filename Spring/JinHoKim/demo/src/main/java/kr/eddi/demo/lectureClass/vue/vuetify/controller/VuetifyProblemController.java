@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class VuetifyProblemController {
 
     @GetMapping("/image-path")
-    public String returnImagePath() {
-        return "cloud.jpg";
+    public String returnImagePath () {
+        log.info("returnImagePath()");
+
+        return "loz.jpg";
     }
 }
