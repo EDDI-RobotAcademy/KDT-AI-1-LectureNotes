@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from homework.homework_keras.keras_salary_inference import keras_salary_inference
 from homework.homework_third import vsf_receive
+from notification.email.email_notification_router import email_notification_router
 from router.machine_learning.ml_router import ml_router
 from router.request_receiver.request_receive_router import request_receiver
 
@@ -53,3 +54,5 @@ app.include_router(request_receiver)
 app.include_router(vsf_receive)
 app.include_router(ml_router)
 app.include_router(keras_salary_inference)
+app.include_router(email_notification_router)
+
