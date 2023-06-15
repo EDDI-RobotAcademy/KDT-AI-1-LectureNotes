@@ -3,7 +3,7 @@ import numpy as np
 traffic_light = ["빨간색", "노란색", "초록색"]
 
 def one_hot_encode(signal):
-    encoded_signal = np.zeros(len(traffic_light))
+    encoded_signal = np.zeros(len(traffic_light)) #[0. 0. 0.]
     encoded_signal[traffic_light.index(signal)] = 1
     return encoded_signal
 
