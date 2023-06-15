@@ -31,10 +31,10 @@ module.exports = (_, argv) => ({
     }),
     new ExternalTemplateRemotePlugin(),
     new ModuleFederationPlugin({
-      name: "containerApp",
+      name: "ContainerApp",
       remotes: {
         vueModuleApp:
-          "vueModuleApp@http://15.165.10.222:90/vue/remoteEntry.js",
+          "vueModuleApp@http://15.165.10.222/vue/remoteEntry.js",
       },
     }),
   ],

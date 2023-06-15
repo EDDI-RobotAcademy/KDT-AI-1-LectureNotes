@@ -9,7 +9,7 @@ services:
       - /home/ec2-user/mfe/vue:/usr/share/nginx/html/vue
       - /home/ec2-user/mfe/container:/usr/share/nginx/html/container
     ports: 
-      - "90:90"
+      - "80:80"
     networks:
       - app
 
