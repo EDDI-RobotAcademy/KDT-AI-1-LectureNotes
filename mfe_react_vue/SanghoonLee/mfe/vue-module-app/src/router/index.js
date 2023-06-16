@@ -12,7 +12,7 @@ const routes = [
   {
       path: '/board-register-page',
       name: 'BoardRegisterPage',
-      components: { default: BoardRegisterPage },
+      component: BoardRegisterPage,
   },
   {
       path: '/board-read-page/:boardId',
