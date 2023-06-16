@@ -14,12 +14,12 @@
 // npm install vuex --save-dev
 import { mapActions, mapState } from 'vuex';
 import BoardListForm from '../components/BoardListForm.vue'
-//import { boardModule } from '../../../store'
+import { RouterLink } from 'vue-router'
 
 const boardModule = 'boardModule'
 
 export default {
-    components: { BoardListForm },
+    components: { BoardListForm, RouterLink },
     computed: {
         ...mapState(boardModule, ['boards']),
     },
