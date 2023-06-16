@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <form @submit.prevent="onSubmit">
+        <form @submit.prevent.stop="onSubmit">
             <table>
                 <tr>
                     <td>제목</td>
@@ -23,7 +23,7 @@
             </table>
 
             <div>
-                <button type="submit">등록</button> /
+                <button type="submit">등록</button>
                 <router-link :to="{ name: 'BoardListPage' }">
                     취소
                 </router-link>
@@ -45,7 +45,6 @@ export default {
     methods: {
         onSubmit () {
             const { title, writer, content } = this
-            // BoardRegisterPage의 @submit은 여기의 submit에 대응함
             this.$emit('submit', { title, writer, content })
         }
     }
