@@ -29,7 +29,7 @@ def calculate_loan(score):
         if key <= score < key_list[idx + 1]:
             return loan_score_table[key]
 
-        return 0
+    return 0
 
 class Payment(BaseModel):
     income: float
