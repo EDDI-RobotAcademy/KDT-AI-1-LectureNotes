@@ -3,7 +3,6 @@ import {
     REQUEST_BOARD_TO_SPRING,
 } from './mutation-types'
 import axiosInst from '../../utility/axiosInst'
-
 export default {
     requestBoardToSpring ({ commit }, boardId) {
         return axiosInst.springAxiosInst.get(`/jpa-board/${boardId}`)
@@ -17,19 +16,19 @@ export default {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
             })
     },
-    // requestCreateBoardToSpring ({}, payload) {
+    requestCreateBoardToSpring ({}, payload) {
 
-    //     const { title, content, writer } = payload
+        const { title, content, writer } = payload
 
-    //     return axiosInst.post('/jpa-board/register', { title, content, writer })
-    //         .then((res) => {
-    //             alert('게시물 등록 성공!')
-    //             return res
-    //         })
-    //         .catch(() => {
-    //             alert('문제 발생!')
-    //         })
-    // },
+        return axiosInst.springAxiosInst.post('/jpa-board/register', { title, content, writer })
+            .then((res) => {
+                alert('게시물 등록 성공!')
+                return res
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
     // requestDeleteBoardToSpring ({}, boardId) {
     //     return axiosInst.delete(`/jpa-board/${boardId}`)
     //         .then((res) => {
@@ -41,10 +40,8 @@ export default {
     // },
     // requestBoardModifyToSpring ({}, payload) {
     //     const { title, content, boardId, writer } = payload
-
     //     console.log("title: " + title + ", content: " + content + 
     //                 ", writer: " + writer + ", boardId: " + boardId)
-
     //     return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
     //         .then((res) => {
     //             alert("수정 성공!")
