@@ -4,37 +4,37 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const ExternalTemplateRemotePlugin = require('external-remotes-plugin')
 
 module.exports = (_, argv) => ({
-  mode: "production",
-  entry: "./src/index",
-  devServer: {
-    static: path.join(__dirname, 'dist'),
-    port: 3000,
-  },
-  output: {
-    publicPath: '/container/',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        loader: "babel-loader",
-        exclude: /node_modules/,
-        options: {
-          presets: ['@babel/preset-react']
-        },
-      },
+    mode: "production",
+    entry: "./src/index",
+    devServer: {
+        static: path.join(__dirname, 'dist'),
+        port: 3000,
+    },
+    output: {
+        publicPath: '/container/',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                loader: "babel-loader",
+                exclude: /node_modules/,
+                options: {
+                    presets: ['@babel/preset-react']
+                },
+            },
+        ],
+    },
+    plugins: [
+        new HtmlWebPackPlugin({
+            template: "./public/index.html",
+        }),
+        new ExternalTemplateRemotePlugin(),
+        new ModuleFederationPlugin({
+            name: "containerApp",
+            remotes: {
+                vueModuleApp: 'vueModuleApp@http://3.36.251.74:3001/remoteEntry.js'
+            },
+        }),
     ],
-  },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: "./public/index.html",
-    }),
-    new ExternalTemplateRemotePlugin(),
-    new ModuleFederationPlugin({
-      name: "containerApp",
-      remotes: {
-        vueModuleApp: 'vueModuleApp@http://3.36.251.74/vue/remoteEntry.js'
-      },
-    }),
-  ],
 });
