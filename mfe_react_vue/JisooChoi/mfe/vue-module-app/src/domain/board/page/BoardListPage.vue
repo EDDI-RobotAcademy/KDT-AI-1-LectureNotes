@@ -9,12 +9,15 @@
         <board-list-form :boards="boards"/>
     </div>
 </template>
+
 <script>
 // npm install vuex --save-dev
 import { mapActions, mapState } from 'vuex';
 import BoardListForm from '../components/BoardListForm.vue'
 import { RouterLink } from 'vue-router'
+
 const boardModule = 'boardModule'
+
 export default {
     components: { BoardListForm, RouterLink },
     computed: {
@@ -30,6 +33,7 @@ export default {
     }
 }
 </script>
+
 <style lang="">
     
 </style>
