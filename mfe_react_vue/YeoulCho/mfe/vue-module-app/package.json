@@ -1,21 +1,25 @@
 {
   "name": "vue-module-app",
   "version": "1.0.0",
+  "author": {
+    "name": "Jack Herrington",
+    "email": "jherr@pobox.com"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "start": "webpack-dev-server --open --mode development",
     "start:live": "webpack-dev-server --open --mode development --live-reload"
   },
-  "license": "MIT",
-  "author": {
-    "name": "Jack Herrington",
-    "email": "jherr@pobox.com"
+  "dependencies": {
+    "vue": "^3.2.19",
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
+    "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/compiler-sfc": "^3.2.19",
     "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.2",
@@ -31,7 +35,5 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.2"
   },
-  "dependencies": {
-    "vue": "^3.2.19"
-  }
+  "license": "MIT"
 }
