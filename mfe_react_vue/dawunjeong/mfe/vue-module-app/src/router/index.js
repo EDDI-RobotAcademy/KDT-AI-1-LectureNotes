@@ -2,6 +2,7 @@ import {createRouter, createWebHashHistory} from 'vue-router'
 import BoardListPage from '../domain/board/page/BoardListPage.vue'
 import BoardRegisterPage from '../domain/board/page/BoardRegisterPage.vue'
 import BoardReadPage from '../domain/board/page/BoardReadPage.vue'
+import BoardModifyPage from '../domain/board/page/BoardModifyPage.vue'
 
 const routes = [
   {
@@ -12,7 +13,7 @@ const routes = [
   {
     path: '/board-register-page',
     name: 'BoardRegisterPage',
-    components: { default: BoardRegisterPage },
+    component: BoardRegisterPage,
   },
   {
     path: '/board-read-page/:boardId',
@@ -20,16 +21,16 @@ const routes = [
     components: { default: BoardReadPage },
     props: { default: true },
   },
-  // {
-  //   path: '/board-modify-page/:boardId',
-  //   name: 'BoardModifyPage',
-  //   components: {
-  //     default: BoardModifyPage
-  //   },
-  //   props: {
-  //     default: true
-  //   },
-  // },
+  {
+    path: '/board-modify-page/:boardId',
+    name: 'BoardModifyPage',
+    components: {
+      default: BoardModifyPage
+    },
+    props: {
+      default: true
+    },
+  },
 ]
 
 const router = createRouter({

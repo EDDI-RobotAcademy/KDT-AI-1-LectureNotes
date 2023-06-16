@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <form @submit.prevent="onSubmit">
+        <form @submit.prevent.stop="onSubmit">
             <table>
                 <tr>
                     <td>제목</td>
