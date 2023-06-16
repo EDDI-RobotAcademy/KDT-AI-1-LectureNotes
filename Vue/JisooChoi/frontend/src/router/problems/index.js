@@ -24,8 +24,11 @@ import VueProb6 from "@/views/basics/homework/problem6/VueProb6.vue";
 
 import CompositionProblemPage from "@/views/basics/homework/composition/problem/CompositionProblemPage.vue";
 
+// 아래 문제 은행 두개는 fastAPI와의 통신을 위한 숙제
 // Vue + FastAPI + Keras 문제 은행 [ 1 ]
 import ComputerIncome from "@/views/basics/homework/computerTest/ComputerAnnualIncomeTest.vue";
+// Vue + Spring + FastAPI 문제 은행 [ 1 ]
+import NumberTrafficTest from "@/views/basics/homework/ThreeTrafficTest/NumberTrafficTest.vue";
 
 Vue.use(VueRouter);
 
@@ -84,6 +87,11 @@ const problemRoutes = [
     path: "/computer-income-homework-page",
     name: "ComputerIncome",
     component: ComputerIncome,
+  },
+  {
+    path: "/number-traffic-page",
+    name: "NumberTrafficTest",
+    component: NumberTrafficTest,
   },
 ];
 
