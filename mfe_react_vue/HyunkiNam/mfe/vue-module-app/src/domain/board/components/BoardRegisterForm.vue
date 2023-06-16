@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <form @submit.prevent="onSubmit">
+        <form @submit.prevent.stop="onSubmit">
             <table>
                 <tr>
                     <td>제목</td>
@@ -35,7 +35,7 @@
 <script>
 export default {
     name: "BoardRegisterForm",
-    data () {
+    data() {
         return {
             title: '제목을 입력하세요',
             writer: '누구세요 ?',
@@ -43,7 +43,7 @@ export default {
         }
     },
     methods: {
-        onSubmit () {
+        onSubmit() {
             const { title, writer, content } = this
             this.$emit('submit', { title, writer, content })
         }
