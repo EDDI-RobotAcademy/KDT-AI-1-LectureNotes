@@ -8,6 +8,11 @@ import d3PlotModule from '@/store/d3Plot/D3PlotModule'
 import filesModule from '@/store/files/FilesModule'
 import foodModule from './food/FoodModule'
 import fastApiModule from './fastapi/FastApiModule'
+import vueSpringFastApiModule from './vueSpringFastApi/VueSpringFastApiModule'
+import accountModule from './account/AccountModule'
+import authenticationModule from './authentication/AuthenticationModule'
+import afterLoginModule from './afterLogin/AfterLoginModule'
+import kerasModule from './keras/KerasModule'
 
 Vue.use(Vuex)
 
@@ -19,7 +24,12 @@ const store = new Vuex.Store({
     d3PlotModule: d3PlotModule,
     filesModule: filesModule,
     foodModule: foodModule,
-    fastApiModule: fastApiModule
+    fastApiModule: fastApiModule,
+    vueSpringFastApiModule: vueSpringFastApiModule,
+    accountModule: accountModule,
+    authenticationModule: authenticationModule,
+    afterLoginModule: afterLoginModule,
+    kerasModule: kerasModule,
   },
 })
 

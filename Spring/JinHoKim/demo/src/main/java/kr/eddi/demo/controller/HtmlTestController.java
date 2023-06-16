@@ -1,9 +1,11 @@
 package kr.eddi.demo.controller;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -30,6 +32,7 @@ public class HtmlTestController {
     @GetMapping("/print-time")
     public String printTime (Locale locale, Model model) {
         log.info("Is it Ok ?");
+
         Date date = new Date();
         DateFormat dateFormat =
                 DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);

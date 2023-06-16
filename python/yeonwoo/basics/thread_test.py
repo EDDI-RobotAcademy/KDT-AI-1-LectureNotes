@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.DEBUG,
 # 다만 차이가 있다면 Process는 그룹 대장의 역할을 의미함
 # 과거 S사가 휘황찬란했던 시절을 생각해보면 S사 하는 순간 떠오르는 인물이 있었음
 # 그것이 S사는 Thread Group ID에 해당하며 S사 회장은 Process에 해당함
-# S사의 모든 직원들고 자기 자신의 Process가 있지만 소속은 S사였음
+# S사의 모든 직원들과 자기 자신의 Process가 있지만 소속은 S사였음
 # 그러므로 Thread Group ID는 동일하되 Process ID가 다른 형태임
 # 이것은 AWS에서도 살펴볼 수 있는 내용인데
 # 우리는 Linux Instance를 사용하고 있으므로

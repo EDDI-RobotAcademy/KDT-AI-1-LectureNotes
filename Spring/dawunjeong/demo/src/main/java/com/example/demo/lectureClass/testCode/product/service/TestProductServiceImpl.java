@@ -13,19 +13,10 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class TestProductServiceImpl implements TestProductService{
-
     final private TestProductRepository productRepository;
 
     @Override
     public TestProduct register(TestProductRequestForm requestForm) {
-        final Optional<TestProduct> maybeProduct =
-                productRepository.findByProductName(requestForm.getProductName());
-
-        if(maybeProduct.isPresent()) {
-            log.debug("이미 등록된 상품입니다!");
-            return null;
-        }
-
         return productRepository.save(requestForm.toTestProduct());
     }
 }

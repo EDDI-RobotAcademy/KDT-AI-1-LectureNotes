@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -26,6 +28,17 @@ public class FastApiBasicsController {
 
         final String FASTAPI_REQUEST_URL = "http://localhost:8000/request-int-data";
         return fastApiService.integerRequest(FASTAPI_REQUEST_URL);
+    }
+
+    @GetMapping("request-random-number")
+    public Integer requestRandomNumber() {
+        return (int) (Math.random() * 21 + 5);
+    }
+
+    @GetMapping("request-random-number-to-fastapi")
+    public Integer requestRandomNumber2fastapi() {
+        final String FASTAPI_REQUEST_URL = "http://localhost:8000/request-random-number";
+        return fastApiService.requestRandomNumber(FASTAPI_REQUEST_URL);
     }
 
 }

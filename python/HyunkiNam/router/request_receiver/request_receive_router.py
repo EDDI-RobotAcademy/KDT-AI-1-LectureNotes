@@ -13,4 +13,9 @@ async def receive_spring_data():
 @request_receiver.get("/request-int-data")
 async def receive_integer_data():
     print("Receive Integer Data!")
-    return random.randrange(3,7)
+    return random.randrange(10,20)
+
+@request_receiver.get("/request-int-data-to-vue")
+async def receive_vue_data():
+    print("Receive Vue Data!")
+    return random.randrange(15,20)

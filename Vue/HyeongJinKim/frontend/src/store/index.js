@@ -7,6 +7,11 @@ import uiVuetifyModule from "@/store/uiVuetify/UiVuetifyModule.js";
 import d3PlotModule from "@/store/d3Plot/D3PlotModule.js";
 import filesModule from "@/store/files/FilesModule.js";
 import foodModule from "@/store/food/FoodModule.js";
+import fastApiModule from "./fastapi/FastApiModule.js";
+import springModule from "./spring/FastApiModule.js";
+import accountModule from "./account/AccountModule.js";
+import authenticationModule from "./authentication/AuthenticationModule.js";
+import AfterLoginModule from "./afterLogin/AfterLoginModule.js";
 
 Vue.use(Vuex);
 
@@ -18,6 +23,11 @@ const store = new Vuex.Store({
     d3PlotModule: d3PlotModule,
     filesModule: filesModule,
     foodModule: foodModule,
+    fastApiModule: fastApiModule,
+    springModule: springModule,
+    accountModule: accountModule,
+    authenticationModule: authenticationModule,
+    afterLoginModule: AfterLoginModule,
   },
 });
 

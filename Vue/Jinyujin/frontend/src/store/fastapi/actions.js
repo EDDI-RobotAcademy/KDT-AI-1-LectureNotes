@@ -4,7 +4,7 @@ export default {
     requestIntegerToFastApiAfterSpring({ }) {
         return axiosInst.get('/fastapi-test/fastapi-integer-request')
             .then((res) => {
-                alert('응답 데이터: ' + res.data)
+                alert('응답 데이터: ' + JSON.stringify(res.data))
                 return res.data
             })
             .catch(() => {

@@ -8,8 +8,6 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 public class OrderedFruits {
-
     final private String name;
     final private Integer min;
-
 }

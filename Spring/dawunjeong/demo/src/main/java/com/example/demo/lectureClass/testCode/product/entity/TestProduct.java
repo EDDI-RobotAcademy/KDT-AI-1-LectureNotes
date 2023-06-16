@@ -13,16 +13,10 @@ public class TestProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @ManyToOne
-    @Getter
-    private TestSellerAccount testSellerAccount;
-
     private String productName;
-
     private Integer price;
 
-    public TestProduct(TestSellerAccount testSellerAccount, String productName, Integer price) {
-        this.testSellerAccount = testSellerAccount;
+    public TestProduct(String productName, Integer price) {
         this.productName = productName;
         this.price = price;
     }

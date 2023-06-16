@@ -1,3 +1,4 @@
 export default {
-  receivedInteger: 0
+  receivedSpringFromFastApiInteger: 0,
+  receivedFastApiInteger: 0,
 }

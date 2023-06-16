@@ -6,6 +6,8 @@ request_receiver = APIRouter()
 
 
 @request_receiver.get("/request_data")
+# 파이썬으로 컨트롤러 만든 것
+# 사실상 스프링과 다를바가 없음
 async def receive_spring_data():
     print("Receive Spring Data!")
     ready_asset = {'name': 'Hi', 'major': 'C'}

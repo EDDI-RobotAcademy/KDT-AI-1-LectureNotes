@@ -8,9 +8,13 @@ from problem.gas_station_prob import gas_station_problem_solve
 from problem.parallel_process import parallel_process_problem
 
 from fastapi import Depends, FastAPI
+from router.machine_learning.ml_router import ml_router
 
 from router.request_receiver.request_receive_router import request_receiver
+from router.homework.homework_router import homework_router
+from notification.email.email_notification_router import email_notification_router
 
+from fastapi.middleware.cors import CORSMiddleware
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -32,9 +36,22 @@ if __name__ == '__main__':
 
 app = FastAPI()
 
+origins = ["http://localhost:8080"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/")
 async def root_index():
     return { "message": "Hello from FastAPI" }
 
 
 app.include_router(request_receiver)
+app.include_router(ml_router)
+app.include_router(homework_router)
+app.include_router(email_notification_router)

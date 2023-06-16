@@ -39,7 +39,9 @@
         <router-link to="/d3-health-print-page">D3HealthPrintPage</router-link>|
         <router-link to="/file-handler-page">FileHandlerPage</router-link>|
         <router-link to="/file-list-show-page">FileListShow</router-link>|
-        <router-link to="/vsp-test">vsp-test</router-link>
+        <router-link to="/vsp-test">vsp-test</router-link>|
+        <router-link to="/vsp-problem">vsp-problem</router-link>|
+          <router-link to="/sign-up-page">authSignUp</router-link>
       </nav>
     </div>
   </v-container>

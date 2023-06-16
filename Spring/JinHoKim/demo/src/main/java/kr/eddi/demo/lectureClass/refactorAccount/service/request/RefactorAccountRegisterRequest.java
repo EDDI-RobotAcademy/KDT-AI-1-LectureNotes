@@ -13,7 +13,8 @@ public class RefactorAccountRegisterRequest {
     final private String password;
     final private RoleType roleType;
 
-    public RefactorAccount toRefactorAccount() {
+    public RefactorAccount toRefactorAccount () {
+
         return new RefactorAccount(email, password);
     }
 }

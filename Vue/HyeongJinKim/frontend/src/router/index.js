@@ -14,6 +14,11 @@ import vuetifyTestRoutes from "./uiVuetify";
 import d3PlotTestRoutes from "./plot";
 import filesTestRoutes from "./files";
 import foodSetRoutes from "./food";
+import fastApiTestRoutes from "./fastapi";
+import accountTestRoutes from "./account";
+import authenticationTestRoutes from "./authentication";
+import afterLoginTestRoutes from "./afterLogin";
+import paymentRoutes from "./payment";
 
 Vue.use(VueRouter);
 
@@ -31,6 +36,11 @@ const routes = [
   ...d3PlotTestRoutes,
   ...filesTestRoutes,
   ...foodSetRoutes,
+  ...fastApiTestRoutes,
+  ...accountTestRoutes,
+  ...authenticationTestRoutes,
+  ...afterLoginTestRoutes,
+  ...paymentRoutes,
 ];
 
 const router = new VueRouter({
