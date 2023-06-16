@@ -2,9 +2,9 @@
     <div>
         <h2>안녕 나는 Vue Component: Board란다</h2>
         <div style="text-align: left; margin: 15px;">
-            <!-- <router-link :to="{ name: 'BoardRegisterPage' }">
+            <router-link :to="{ name: 'BoardRegisterPage' }">
                 게시물 작성
-            </router-link> -->
+            </router-link>
         </div>
         <board-list-form :boards="boards"/>
     </div>
@@ -14,7 +14,6 @@
 // npm install vuex --save-dev
 import { mapActions, mapState } from 'vuex';
 import BoardListForm from '../components/BoardListForm.vue'
-//import { boardModule } from '../../../store'
 
 const boardModule = 'boardModule'
 
