@@ -24,10 +24,7 @@ export default {
         ...mapState(boardModule, ['boards']),
     },
     mounted () {
-        console.log(boardModule.state)
-        console.log(boardModule.actions)
-        //this.requestBoardListToSpring()
-        this.$store.dispatch(`${boardModule}/requestBoardListToSrping`)
+        this.requestBoardListToSpring()
     },
     methods: {
         ...mapActions(
