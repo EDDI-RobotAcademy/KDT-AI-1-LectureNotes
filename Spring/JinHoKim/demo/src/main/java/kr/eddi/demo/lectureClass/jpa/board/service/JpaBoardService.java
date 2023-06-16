@@ -4,7 +4,7 @@ import kr.eddi.demo.lectureClass.jpa.board.controller.form.RequestBoardForm;
 import kr.eddi.demo.lectureClass.jpa.board.entity.JpaBoard;
 
 import java.util.List;
-//3
+
 public interface JpaBoardService {
     List<JpaBoard> list();
 

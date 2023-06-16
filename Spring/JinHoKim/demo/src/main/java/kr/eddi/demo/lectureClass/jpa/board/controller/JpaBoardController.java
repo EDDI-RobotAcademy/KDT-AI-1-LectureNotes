@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -18,17 +18,20 @@ public class JpaBoardController {
 
     final private JpaBoardService boardService;
 
-    @GetMapping("/list") //1
+    @GetMapping("/list")
     public List<JpaBoard> boardList () {
         log.info("boardList()");
 
         List<JpaBoard> returnedBoardList = boardService.list();
         log.info("returnedBoardList: " + returnedBoardList);
 
+        final UUID uniqueId = UUID.randomUUID();
+        log.info("uniqueId: " + uniqueId);
+
         return returnedBoardList;
     }
 
-    @PostMapping("/register")//2
+    @PostMapping("/register")
     public JpaBoard registerBoard (@RequestBody RequestBoardForm requestBoardForm) {
         log.info("registerBoard()");
 
@@ -50,7 +53,7 @@ public class JpaBoardController {
     }
 
     @PutMapping("/{boardId}")
-    public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,// PathVaribale 을 통해 가변인자를 찾아 가져옴
+    public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
                                  @RequestBody RequestBoardForm requestBoardForm) {
         log.info("modifyBoard(): " + requestBoardForm + ", id: " + boardId);
 

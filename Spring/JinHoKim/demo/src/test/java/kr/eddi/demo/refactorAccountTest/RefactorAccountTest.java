@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.management.relation.Role;
-
 import static kr.eddi.demo.lectureClass.refactorAccount.entity.RoleType.BUSINESS;
 import static kr.eddi.demo.lectureClass.refactorAccount.entity.RoleType.NORMAL;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -22,8 +20,8 @@ public class RefactorAccountTest {
 
     @Test
     @DisplayName("회원가입 (회원 Role enum으로 리팩토링)")
-    void 회원_가입_enum_타입_Role() {
-        final String email = "test@test.com";
+    void 회원_가입_enum_타입_Role () {
+        final String email = "test@gmail.com";
         final String password = "test";
         final RoleType role = NORMAL;
 
@@ -31,9 +29,8 @@ public class RefactorAccountTest {
                 new RefactorAccountRegisterRequestForm(email, password, role);
 
         Boolean isSuccess = refactorAccountService.register(
-                requestForm.toRefactorAccountRegisterRequest());
+                    requestForm.toRefactorAccountRegisterRequest());
 
         assertTrue(isSuccess);
-
     }
 }

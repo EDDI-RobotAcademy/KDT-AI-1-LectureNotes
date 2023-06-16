@@ -27,20 +27,19 @@
         <span>테스트</span>
         <v-icon right>mdi-hand-back-left-outline</v-icon>
       </v-btn>
-      <v-btn v-if="!isLogin" @click="signUp">
+      <v-btn v-if="!isAuthenticated" text @click="signUp">
         <span>회원가입</span>
         <v-icon right>mdi-account-plus-outline</v-icon>
       </v-btn>
-      <v-btn v-if="!isLogin" @click="signIn">
+      <v-btn v-if="!isAuthenticated" text @click="signIn">
         <span>로그인</span>
         <v-icon right>mdi-login</v-icon>
       </v-btn>
-      <v-btn v-if="isLogin" @click="signOut">
+      <v-btn v-if="isAuthenticated" text @click="signOut">
         <span>로그아웃</span>
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
     </v-app-bar>
-
     <v-navigation-drawer app v-model="navigation_drawer">
       <v-list-item>
         <v-list-item-content>
@@ -48,7 +47,6 @@
           <v-list-item-subtitle>페이지 기능</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-
       <v-divider></v-divider>
 
       <v-list nav dense>
@@ -75,29 +73,40 @@
 </template>
 
 <script>
+import { GITHUB_LOGIN_COMPLETE } from "@/store/authentication/mutation-types";
 import router from "@/router";
+import { mapState, mapMutations } from "vuex";
+const authenticationModule = "authenticationModule";
 export default {
   data() {
     return {
       navigation_drawer: false,
       links: [{ icon: "mdi-home", text: "Home", route: "/" }],
-      accountId: 0,
-      isLogin: false,
+      //accountId: 0,
+      userToken: 0,
+      //isLogin: false,
     };
   },
+  computed: {
+    ...mapState(authenticationModule, ["isAuthenticated"]),
+  },
   methods: {
+    ...mapMutations(authenticationModule, ["GITHUB_LOGIN_COMPLETE"]),
     clickToggle() {
       alert("토글");
     },
     signUp() {
-      router.push("/vue-homework-page5");
+      router.push("/problem-page5");
     },
     signIn() {
-      router.push("/vue-homework-page5");
+      router.push("/problem-page5");
     },
     signOut() {
-      localStorage.removeItem("loginUserInfo");
-      this.isLogin = false;
+      //localStorage.removeItem("loginUserInfo")
+      //this.isLogin = false
+      localStorage.removeItem("userToken");
+      this[GITHUB_LOGIN_COMPLETE](false);
+      this.$store.state.authenticationModule.isAuthenticated = false;
     },
     goToHome() {
       // 자기 참조 형태에서 push()는 오류가 발생하므로 go()로 변경함
@@ -105,12 +114,25 @@ export default {
     },
   },
   mounted() {
-    this.accountId = localStorage.getItem("loginUserInfo");
-    if (this.accountId > 0) {
-      this.isLogin = true;
+    //this.accountId = localStorage.getItem("loginUserInfo")
+    //this.accountId = localStorage.getItem("userToken");
+    //if (this.accountId > 0) {
+    //this.isLogin = true
+    //this.$store.state.authenticationModule.isAuthenticated = true;
+    //this[GITHUB_LOGIN_COMPLETE](true);
+    //} else {
+    //this.isLogin = false
+    //this.$store.state.authenticationModule.isAuthenticated = false;
+    //this[GITHUB_LOGIN_COMPLETE](false);
+    //}
+    this.userToken = localStorage.getItem("userToken");
+
+    if (this.userToken == null) {
+      this[GITHUB_LOGIN_COMPLETE](false);
+    } else {
+      this[GITHUB_LOGIN_COMPLETE](true);
     }
   },
 };
 </script>
-
-<style></style>
+<style lang=""></style>

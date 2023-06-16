@@ -1,7 +1,7 @@
 package genericTest;
 
-import gameRpg.characterModel.RefactorGameCharacter;
-import gameRpg.characterModel.RefactorMonster;
+import game.rpg.characterModel.RefactorGameCharacter;
+import game.rpg.characterModel.RefactorMonster;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,6 @@ class GiveMeAnything {
     // public RefactorGameCharacter canReturnAnyThing (List<RefactorGameCharacter>, int index)
     // 단점: 문법이 ........ 좀 괴랄하다.
     public <T> T canReturnAnyThing (List<T> inputList, int index) {
-
         return inputList.get(index);
     }
 }

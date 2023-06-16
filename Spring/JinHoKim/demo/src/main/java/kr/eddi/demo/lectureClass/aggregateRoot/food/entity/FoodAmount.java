@@ -24,11 +24,6 @@ public class FoodAmount {
     private Food food;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    // optional 속성은 연관된 엔티티가 필수적인지를 지정합니다.
-    // optional = false 로 설정하면 연관된 엔티티가 반드시 존재해야 한다는 의미입니다.
-    // 따라서 해당 연관 관계는 null 이 아닌 값을 가져야 합니다.
-    // 만약 optional = true 로 설정하면 연관된 엔티티가 없을 때에도 관계를 유지할 수 있으며,
-    // 연관된 엔티티는 null 이 될 수 있습니다.
     @JoinColumn(name = "amount_id")
     private Amount amount;
 
