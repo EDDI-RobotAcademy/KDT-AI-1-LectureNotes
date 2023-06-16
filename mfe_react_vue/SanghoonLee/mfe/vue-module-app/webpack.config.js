@@ -59,7 +59,7 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       exposes: {
         './Sample': './src/bootstrap',
-        './store': './src/store/board/BoardModule'
+        './Store': './src/store/board/BoardModule'
       },
       shared: require("./package.json").dependencies
     }),

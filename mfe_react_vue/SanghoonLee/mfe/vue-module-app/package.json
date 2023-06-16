@@ -18,6 +18,7 @@
     "@babel/preset-env": "^7.15.8",
     "@vue/compiler-sfc": "^3.2.19",
     "autoprefixer": "^10.1.0",
+    "axios": "^1.4.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
     "html-webpack-plugin": "^5.3.2",
@@ -32,7 +33,7 @@
     "webpack-dev-server": "^4.13.2"
   },
   "dependencies": {
-    "vuex": "^4.1.0",
-    "vue": "^3.2.19"
+    "vue": "^3.2.19",
+    "vuex": "^4.1.0"
   }
 }
