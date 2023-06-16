@@ -18,19 +18,17 @@ export default {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
             })
     },
-    // requestCreateBoardToSpring ({}, payload) {
-
-    //     const { title, content, writer } = payload
-
-    //     return axiosInst.post('/jpa-board/register', { title, content, writer })
-    //         .then((res) => {
-    //             alert('게시물 등록 성공!')
-    //             return res
-    //         })
-    //         .catch(() => {
-    //             alert('문제 발생!')
-    //         })
-    // },
+    requestCreateBoardToSpring ({}, payload) {
+        const { title, content, writer } = payload
+        return axiosInst.springAxiosInst.post('/jpa-board/register', { title, content, writer })
+            .then((res) => {
+                alert('게시물 등록 성공!')
+                return res
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
     // requestDeleteBoardToSpring ({}, boardId) {
     //     return axiosInst.delete(`/jpa-board/${boardId}`)
     //         .then((res) => {
