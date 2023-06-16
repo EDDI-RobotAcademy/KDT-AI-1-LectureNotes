@@ -4,9 +4,10 @@ import "./index.css";
 
 import Sample from './domain/Sample.vue';
 import store from './store'
+import router from './router'
 
 const mount = (el) => {
-    const app = createApp(Sample).use(store)
+    const app = createApp(Sample).use(store).use(router)
     app.mount(el)
 };
 
