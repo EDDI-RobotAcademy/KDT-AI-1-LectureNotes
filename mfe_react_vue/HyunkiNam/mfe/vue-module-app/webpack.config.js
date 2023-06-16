@@ -5,7 +5,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = (_, argv) => ({
-  mode: 'production',
+  mode: 'development',
   cache: false,
   devtool: 'source-map',
   optimization: {
@@ -59,7 +59,9 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       exposes: {
         './Sample': './src/bootstrap',
+        './Store': './src/store/board/BoardModule'
       },
+      shared: require("./package.json").dependencies
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
