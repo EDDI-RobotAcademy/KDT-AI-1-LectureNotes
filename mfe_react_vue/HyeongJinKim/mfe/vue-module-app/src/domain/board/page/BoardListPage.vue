@@ -1,8 +1,10 @@
 <template lang="">
   <div>
-    <h2>Vue + Spring + JPA 게시판</h2>
+    <h2>안녕 나는 Vue Component: Board란다</h2>
     <div style="text-align: left; margin: 15px">
-      <!-- <router-link :to="{ name: 'BoardRegisterPage' }"> 게시물 작성 </router-link> -->
+      <!-- <router-link :to="{ name: 'BoardRegisterPage' }">
+              게시물 작성
+          </router-link> -->
     </div>
     <board-list-form :boards="boards" />
   </div>
@@ -10,8 +12,7 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import BoardListForm from "@/components/board/components/BoardListForm.vue";
-
+import BoardListForm from "../components/BoardListForm.vue";
 const boardModule = "boardModule";
 export default {
   components: { BoardListForm },

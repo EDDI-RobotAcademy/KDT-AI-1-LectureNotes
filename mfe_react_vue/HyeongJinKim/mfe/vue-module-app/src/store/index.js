@@ -1,14 +1,10 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import { createStore } from "vuex";
 
-import boardModule from "@/store/board/BoardModule.js";
+import boardModule from "./board/BoardModule";
 
-Vue.use(Vuex);
-
-const store = new Vuex.Store({
+export default createStore({
   modules: {
-    boardModule: boardModule,
+    boardModule,
   },
 });
-
-export default store;
+export { boardModule };
