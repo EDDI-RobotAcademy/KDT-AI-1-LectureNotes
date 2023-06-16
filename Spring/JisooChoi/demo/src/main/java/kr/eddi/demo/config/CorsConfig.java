@@ -12,7 +12,8 @@ public class CorsConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins(
                         "http://127.0.0.1:8080/", // vue는 허용하겠다는 소리
-                        "http://localhost:8080/"
+                        "http://localhost:8080/",
+                        "http://localhost:3001"
 //                        "http://192.168.20.3:8080/"
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE");
