@@ -4,14 +4,14 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const ExternalTemplateRemotePlugin = require('external-remotes-plugin')
 
 module.exports = (_, argv) => ({
-  mode: "development",
+  mode: "production",
   entry: "./src/index",
   devServer: {
     static: path.join(__dirname, 'dist'),
     port: 3000,
   },
   output: {
-    publicPath: 'auto',
+    publicPath: '/container/',
   },
   module: {
     rules: [
@@ -32,9 +32,9 @@ module.exports = (_, argv) => ({
     }),
     new ExternalTemplateRemotePlugin(),
     new ModuleFederationPlugin({
-      name: "containerApp",
+      name: "ContainerApp",
       remotes: {
-        vueModuleApp: 'vueModuleApp@http://localhost:3001/remoteEntry.js'
+        vueModuleApp: 'vueModuleApp@http://43.202.26.168/vue/remoteEntry.js'
       },
     }),
   ],

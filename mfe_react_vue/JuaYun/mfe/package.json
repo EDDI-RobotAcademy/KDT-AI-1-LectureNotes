@@ -12,7 +12,9 @@
     "build": "lerna run build"
   },
   "devDependencies": {
+    "axios": "^1.4.0",
     "external-remotes-plugin": "^1.0.0",
-    "lerna": "^7.0.1"
+    "lerna": "^7.0.1",
+    "vuex": "^4.1.0"
   }
 }
