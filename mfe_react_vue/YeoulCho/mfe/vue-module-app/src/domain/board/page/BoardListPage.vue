@@ -11,7 +11,7 @@
 </template>
 
 <script>
-
+// npm install vuex --save-dev
 import BoardListForm from '../components/BoardListForm.vue';
 import { mapActions, mapState } from 'vuex';
 
@@ -24,6 +24,10 @@ export default {
     },
     mounted () {
         this.requestBoardListToSpring()
+        // console.log(boardModule.state)
+        // console.log(boardModule.actions)
+        // //this.requestBoardListToSpring()
+        // this.$store.dispatch(`${boardModule}/requestBoardListToSrping`)
     },
     methods: {
         ...mapActions(
