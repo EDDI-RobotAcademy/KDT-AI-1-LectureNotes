@@ -2,34 +2,34 @@
     <div>
         <h2>안녕 나는 Vue Component: Board란다</h2>
         <div style="text-align: left; margin: 15px;">
-            <!-- <router-link :to={name: 'BoardRegisterPage'}>
+            <!-- <router-link :to="{ name: 'BoardRegisterPage' }">
                 게시물 작성
             </router-link> -->
         </div>
-        <board-list-form :boards="boards">
+        <board-list-form :boards="boards"/>
     </div>
 </template>
-
 <script>
-import { mapActions, mapState } from "vuex";
-import BoardListForm from "@/components/board/components/BoardListForm.vue";
-
-const boardModule = "boardModule";
-
+// npm install vuex --save-dev
+import { mapActions, mapState } from 'vuex';
+import BoardListForm from '../components/BoardListForm.vue'
+//import { boardModule } from '../../../store'
+const boardModule = 'boardModule'
 export default {
-    components: {BoardListForm},
+    components: { BoardListForm },
     computed: {
-        ...mapState(boardModule, ["boards"]),
+        ...mapState(boardModule, ['boards']),
     },
-    mounted() {
-        this.requestBoardListToSpring();
+    mounted () {
+        this.requestBoardListToSpring()
     },
     methods: {
-        ...mapActions(boardModule, ["requestBoardListToSpring"]),
-    },
-};
+        ...mapActions(
+            boardModule, ['requestBoardListToSpring']
+        )
+    }
+}
 </script>
-
 <style lang="">
     
 </style>

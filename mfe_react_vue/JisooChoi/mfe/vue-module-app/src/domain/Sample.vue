@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-
+import BoardListPage from './board/page/BoardListPage.vue';
 const count = ref(0)
 </script>
 
@@ -9,4 +9,5 @@ const count = ref(0)
   <button @click="count++">
     빨리 버튼 눌러봐 {{ count }} 번 눌럿어
   </button>
+  <BoardListPage/>
 </template>
