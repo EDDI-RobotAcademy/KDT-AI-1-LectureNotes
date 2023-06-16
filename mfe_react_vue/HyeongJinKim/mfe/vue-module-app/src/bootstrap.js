@@ -2,7 +2,7 @@ import { createApp } from "vue";
 
 import "./index.css";
 
-import Sample from "./components/Sample.vue";
+import Sample from "./domain/Sample.vue";
 
 const mount = (el) => {
   const app = createApp(Sample);
