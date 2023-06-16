@@ -7,13 +7,13 @@ import axiosInst from '../../utility/axiosInst'
 
 export default {
     requestBoardToSpring ({ commit }, boardId) {
-        return axiosInst.get(`/jpa-board/${boardId}`)
+        return axiosInst.springAxiosInst.get(`/jpa-board/${boardId}`)
             .then((res) => {
                 commit(REQUEST_BOARD_TO_SPRING, res.data)
             })
     },
     requestBoardListToSpring ({ commit }) {
-        axiosInst.get('/jpa-board/list')
+        axiosInst.springAxiosInst.get('/jpa-board/list')
             .then((res) => {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
             })
@@ -22,7 +22,7 @@ export default {
 
         const { title, content, writer } = payload
 
-        return axiosInst.post('/jpa-board/register', { title, content, writer })
+        return axiosInst.springAxiosInst.post('/jpa-board/register', { title, content, writer })
             .then((res) => {
                 alert('게시물 등록 성공!')
                 return res
@@ -32,7 +32,7 @@ export default {
             })
     },
     requestDeleteBoardToSpring ({}, boardId) {
-        return axiosInst.delete(`/jpa-board/${boardId}`)
+        return axiosInst.springAxiosInst.delete(`/jpa-board/${boardId}`)
             .then((res) => {
                 alert('삭제 성공!')
             })
@@ -46,7 +46,7 @@ export default {
         console.log("title: " + title + ", content: " + content + 
                     ", writer: " + writer + ", boardId: " + boardId)
 
-        return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
+        return axiosInst.springAxiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
             .then((res) => {
                 alert("수정 성공!")
             })
