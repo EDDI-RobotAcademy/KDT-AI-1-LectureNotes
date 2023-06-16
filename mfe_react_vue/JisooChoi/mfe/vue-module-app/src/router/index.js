@@ -11,7 +11,7 @@ const routes = [
   {
       path: '/board-register-page',
       name: 'BoardRegisterPage',
-      component: BoardRegisterPage
+      components: { default: BoardRegisterPage },
   },
   // {
   //     path: '/board-read-page/:boardId',
