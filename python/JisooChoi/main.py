@@ -7,6 +7,7 @@ from problem.advanced_multi_process import adv_parallel_process_problem
 from problem.gas_station_prob import gas_station_problem_solve, gas_prob
 
 from fastapi import Depends, FastAPI
+from pydantic import BaseModel
 
 from router.machine_learning.ml_router import ml_router
 from router.request_receiver.request_receiver_router import request_receiver
@@ -30,6 +31,9 @@ from utility.deep_learning.homework.computer_random_income import random_income
 
 app = FastAPI()
 
+class Item(BaseModel):
+    name: str
+
 origins = ["http://localhost:8080"]
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -45,6 +49,10 @@ app.add_middleware(
 async def root_index():
     return { "message": "Hello from FastAPI" }
 
+
+@app.post("/")
+async def post_data(item: Item):
+    return item
 
 # 파이썬 도메인 분리를 위한 코드
 # app.include_router(request_receiver)
