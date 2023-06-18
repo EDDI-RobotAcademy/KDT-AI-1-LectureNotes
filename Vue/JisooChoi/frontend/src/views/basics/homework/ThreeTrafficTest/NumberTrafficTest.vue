@@ -1,11 +1,11 @@
 <template lang="">
     <div>
         <h1>Vue + Spring + FastAPI 문제 은행 [ 1 ]</h1>
-        <!-- 1. vue와 spring 통신 -->
+        <p>1. vue와 spring 통신</p>
         {{ receivedSpringIntegerTraffic }}
-        <!-- 2. vue <-> spring <-> fastAPI 통신 -->
+        <p>2. vue <-> spring <-> fastAPI 통신</p>
         {{ receivedVueFromSpringIntegerTraffic }}
-        <!-- 3. vue와 fastAPI 통신 -->
+        <p>3. vue와 fastAPI 통신</p>
         {{ receivedFastApiIntegerTraffic }}
     </div>
 </template>
@@ -35,9 +35,9 @@ export default {
         ]),
     },
     async created () {
+        await this.receivedSpringIntegerTraffic()
         await this.receivedVueFromSpringIntegerTraffic()
         await this.receivedFastApiIntegerTraffic()
-        await this.receivedSpringIntegerTraffic()
     }
 }
 </script>
