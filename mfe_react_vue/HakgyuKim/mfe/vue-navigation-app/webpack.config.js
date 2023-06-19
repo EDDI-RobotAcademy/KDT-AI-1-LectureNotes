@@ -2,7 +2,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { VueLoaderPlugin } = require("vue-loader");
-const path = require("path")
+const path = require("path");
+const { DefinePlugin } = require("webpack");
 
 module.exports = (_, argv) => ({
   mode: 'development',
@@ -64,6 +65,10 @@ module.exports = (_, argv) => ({
     ],
   },
   plugins: [
+    new DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false,
+    }),
     new MiniCssExtractPlugin,
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
