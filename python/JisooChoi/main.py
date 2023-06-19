@@ -12,6 +12,7 @@ from pydantic import BaseModel
 from router.machine_learning.ml_router import ml_router
 from router.request_receiver.request_receiver_router import request_receiver
 from utility.deep_learning.homework.computer_random_income import random_income
+from problem.trafficTest import traffic_test
 
 # def print_hi(name):
 #     # Use a breakpoint in the code line below to debug your script.
@@ -59,3 +60,4 @@ app.include_router(request_receiver)
 app.include_router(ml_router)
 app.include_router(email_notification_router)
 app.include_router(random_income)
+app.include_router(traffic_test)
