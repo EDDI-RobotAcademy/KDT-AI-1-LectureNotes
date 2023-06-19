@@ -1,4 +1,6 @@
 from fastapi import Depends, FastAPI
+from pydantic import BaseModel
+from starlette.responses import JSONResponse
 
 from basics.basic_grammer import python_basics
 from basics.python_class import class_test_function
@@ -44,6 +46,16 @@ app.add_middleware(
 async def root_index():
     return { "message": "Hello from FastAPI" }
 
-app.include_router(request_receiver)
-app.include_router(ml_router)
-app.include_router(email_notification_router)
+
+class Item(BaseModel):
+    user_id: str
+    password: str
+
+
+@app.post("/items")
+async def create_item(item: Item):
+    return item
+
+# app.include_router(request_receiver)
+# app.include_router(ml_router)
+# app.include_router(email_notification_router)
