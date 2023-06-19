@@ -28,13 +28,13 @@
     </v-btn>
     <v-btn v-if="!islogin" text @click="signUp">
         <span>회원가입</span>
-        <v-icon right>mdi-account-pluss-outline</v-icon>
+        <v-icon right>mdi-account-plus-outline</v-icon>
     </v-btn>
     <v-btn v-if="!islogin" text @click="signIn">
         <span>로그인</span>
         <v-icon right>mdi-login</v-icon>
     </v-btn>
-    <v-btn v-if="!islogin" text @click="signOut">
+    <v-btn v-if="islogin" text @click="signOut">
         <span>로그아웃</span>
         <v-icon right>mdi-exit-to-app</v-icon>
     </v-btn>
@@ -54,7 +54,8 @@ export default {
                 { title: '클릭 ㄴㄴ' },
                 { title: '이렇게 나오지' },
                 { title: '요롱롱' },
-            ]
+            ],
+            islogin: true,
         }
     },
     methods: {
