@@ -1,21 +1,24 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { VueLoaderPlugin } = require("vue-loader");
+const path = require("path")
 
 module.exports = (_, argv) => ({
-  output: {
-    publicPath: "http://localhost:8080/",
+  mode: 'development',
+  cache: false,
+  devtool: 'source-map',
+  optimization: {
+    minimize: false,
   },
-
+  target: 'web',
+  entry: path.resolve(__dirname, './src/index'),
+  output: {
+    publicPath: "auto",
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"],
   },
-
-  devServer: {
-    port: 8080,
-    historyApiFallback: true,
-  },
-
   module: {
     rules: [
       {
@@ -37,23 +40,58 @@ module.exports = (_, argv) => ({
         ],
       },
       {
-        test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {}
+          },
+          'css-loader',
+        ]
       },
+      {
+        test: /\.sass$/,
+        use: ['vue-style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["vue-style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.svg$/,
+        use: 'svg-loader',
+      }
     ],
   },
-
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "vue_navigation_app",
+      name: "vueNavigationApp",
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      exposes: {
+        './VueNavigation': './src/bootstrap',
+      },
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: path.resolve(__dirname, './public/index.html'),
+      chunks: ['main'],
     }),
   ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname),
+    },
+    compress: true,
+    port: 3002,
+    hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
+    }
+  },
 });
