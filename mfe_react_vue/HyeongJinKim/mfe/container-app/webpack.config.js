@@ -34,6 +34,7 @@ module.exports = (_, argv) => ({
       name: "containerApp",
       remotes: {
         vueModuleApp: "vueModuleApp@http://localhost:3001/remoteEntry.js",
+        vueNavigationApp: "vueNavigationApp@http://localhost:3002/remoteEntry.js",
       },
     }),
   ],
