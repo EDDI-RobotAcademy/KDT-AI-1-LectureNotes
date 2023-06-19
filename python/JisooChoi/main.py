@@ -55,7 +55,7 @@ async def post_data(item: Item):
     return item
 
 # 파이썬 도메인 분리를 위한 코드
-# app.include_router(request_receiver)
-# app.include_router(ml_router)
-# app.include_router(email_notification_router)
+app.include_router(request_receiver)
+app.include_router(ml_router)
+app.include_router(email_notification_router)
 app.include_router(random_income)
