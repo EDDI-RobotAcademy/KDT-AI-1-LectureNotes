@@ -4,7 +4,8 @@
   "workspaces": {
     "packages": [
       "container-app",
-      "vue-module-app"
+      "vue-module-app",
+      "vue-navigation-app"
     ]
   },
   "scripts": {
