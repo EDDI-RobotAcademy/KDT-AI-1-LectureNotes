@@ -13,13 +13,13 @@ const App = () => {
 
   return (
     <div>
+      <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef}/>
       <div style=
-          {{ margin: '10px', padding: '10px', textAlign: 'center', backgroundColor: 'cyan' }}>
+          {{ margin: '10px', padding: '10px', textAlign: 'center',
+              backgroundColor: 'cyan', position: 'relative', zIndex: 1 }}>
         <h1>나는 React로 만들어진 Container!</h1>
         <div ref={vueRef}/>
       </div>
-      <!-- 왜 ? 내리니까 정상적으로 동작하냐 ? -->
-      <div ref={vuetifyNavigationRef}/>
     </div>
   )
 };
