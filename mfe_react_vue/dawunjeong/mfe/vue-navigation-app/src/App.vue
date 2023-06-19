@@ -1,8 +1,21 @@
 <template>
-  <div class="mt-10 text-3xl mx-auto max-w-6xl">
-    <div>Name: vue-navigation-app</div>
-    <div>Framework: vue3</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Tailwind</div>
+  <div style="height: 64px">
+      <v-app>
+          <NavigationBarPage/>
+      </v-app>        
   </div>
 </template>
+
+<script>
+
+  import { defineComponent } from 'vue';
+  import NavigationBarPage from './navigation/page/NavigationBarPage.vue';
+  
+  export default defineComponent({
+    name: 'App',
+    components: {
+      NavigationBarPage
+    },
+  })
+
+</script>
