@@ -8,7 +8,7 @@ const count = ref(0)
 <template>
   
   <p>나는 Vue Module App</p>
-  <button @click="count++">
+  <button title="clickTest" @click="count++">
     빨리 버튼 눌러봐 {{ count }} 번 눌럿어
   </button>
   <router-view/>
