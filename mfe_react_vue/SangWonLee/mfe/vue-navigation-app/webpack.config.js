@@ -1,8 +1,9 @@
-const path = require("path");
-const { VueLoaderPlugin } = require("vue-loader");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { VueLoaderPlugin } = require("vue-loader");
+const path = require("path");
+const { DefinePlugin } = require("webpack");
 
 module.exports = (_, argv) => ({
   mode: "development",
@@ -12,18 +13,12 @@ module.exports = (_, argv) => ({
     minimize: false,
   },
   target: "web",
-  entry: path.resolve(__dirname, "./src/index.js"),
+  entry: path.resolve(__dirname, "./src/index"),
   output: {
     publicPath: "auto",
   },
   resolve: {
-    extensions: [".vue", ".js", ".json"],
-    alias: {
-      vue: "vue/dist/vue.esm-bundler.js",
-    },
-  },
-  experiments: {
-    topLevelAwait: true,
+    extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"],
   },
   module: {
     rules: [
@@ -32,11 +27,18 @@ module.exports = (_, argv) => ({
         loader: "vue-loader",
       },
       {
-        test: /\.png$/,
-        use: {
-          loader: "url-loader",
-          options: { limit: 8192 },
-        },
+        test: /\.tsx?$/,
+        use: [
+          "babel-loader",
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: true,
+              appendTsSuffixTo: ["\\.vue$"],
+              happyPackMode: true,
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,
@@ -48,18 +50,34 @@ module.exports = (_, argv) => ({
           "css-loader",
         ],
       },
+      {
+        test: /\.sass$/,
+        use: ["vue-style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["vue-style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.svg$/,
+        use: "svg-loader",
+      },
     ],
   },
   plugins: [
+    new DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false,
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
     }),
+    new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "vueModuleApp",
+      name: "vueNavigationApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./Sample": "./src/bootstrap",
-        "./Store": "./src/store/board/BoardModule",
+        "./VueNavigation": "./src/bootstrap",
       },
       shared: require("./package.json").dependencies,
     }),
@@ -67,14 +85,13 @@ module.exports = (_, argv) => ({
       template: path.resolve(__dirname, "./public/index.html"),
       chunks: ["main"],
     }),
-    new VueLoaderPlugin(),
   ],
   devServer: {
     static: {
       directory: path.join(__dirname),
     },
     compress: true,
-    port: 3001,
+    port: 3002,
     hot: true,
     headers: {
       "Access-Control-Allow-Origin": "*",
