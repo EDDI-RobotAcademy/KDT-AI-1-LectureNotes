@@ -1,4 +1,4 @@
-import("./bootloader");
+import("./bootstrap");
 
 /*
 @babel/preset-typescript
