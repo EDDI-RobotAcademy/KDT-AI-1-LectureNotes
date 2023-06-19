@@ -49,6 +49,8 @@
         <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
         <router-link to="/vue-fastapi-keras-page">Vue + FastAPI + Keras</router-link> |
         <router-link to="/payment-page">결제시 메일</router-link> |
+        <router-link to="/chat-page">웹소켓 채팅 테스트</router-link> |
+
       </nav>
     </div>
   </v-container>
