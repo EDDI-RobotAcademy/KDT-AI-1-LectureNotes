@@ -33,7 +33,7 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "containerApp",
       remotes: {
-        vueModuleApp: 'vueModuleApp@http://43.201.44.74/vue/remoteEntry.js'
+        vueModuleApp: 'vueModuleApp@http://43.201.44.74/vue/remoteEntry.js',
       },
     }),
   ],
