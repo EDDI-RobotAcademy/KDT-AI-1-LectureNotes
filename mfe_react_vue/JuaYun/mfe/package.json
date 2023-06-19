@@ -4,7 +4,8 @@
   "workspaces": {
     "packages": [
       "container-app",
-      "vue-module-app"
+      "vue-module-app",
+      "vue-navigation-app"
     ]
   },
   "scripts": {
@@ -17,5 +18,9 @@
     "lerna": "^7.0.1",
     "vue-router": "^4.2.2",
     "vuex": "^4.1.0"
+  },
+  "dependencies": {
+    "vuetify": "^3.3.3",
+    "webfontloader": "^1.6.28"
   }
 }
