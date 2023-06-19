@@ -7,19 +7,19 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
-@NoArgsConstructor
 @Getter
+@ToString
+@NoArgsConstructor
 public class JpaProduct {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
 
     @Setter
     private String productName;
-
     @Setter
     private Integer price;
 

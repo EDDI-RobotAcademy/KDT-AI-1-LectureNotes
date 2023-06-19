@@ -47,6 +47,12 @@
         <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
         <router-link to="/food-aggregate-root-register-page">Aggrigate Root 만들기</router-link> |
         <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
+        <router-link to="/composition-problem-page">Spring, FastAPI 통합 숫자 테스트</router-link> |
+        <router-link to="/sign-up-page">회원 가입</router-link> |
+        <router-link to="/github-sign-in-page">Github 로그인</router-link> |
+        <router-link to="/after-login/sample">토큰 전송</router-link> |
+        <router-link to="/computer-income-homework-page">Vue + FastAPI + Keras 문제 은행 [ 1 ]</router-link> |
+        <router-link to="/payment-page">결제 페이지</router-link> |
       </nav>
     </div>
   </v-container>

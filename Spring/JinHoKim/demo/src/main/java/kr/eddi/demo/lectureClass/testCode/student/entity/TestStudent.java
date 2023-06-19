@@ -9,7 +9,6 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 public class TestStudent {
-
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,15 +10,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-//DB에 Save 로 저장하는곳
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class JpaBoardServiceImpl implements JpaBoardService {
 
-    final private JpaBoardRepository boardRepository; // Db 저장소
+    final private JpaBoardRepository boardRepository;
 
-    @Override//1
+    @Override
     public List<JpaBoard> list() {
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardId"));
     }
@@ -31,6 +31,7 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     @Override
     public JpaBoard read(Long boardId) {
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
+
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");
             return null;
@@ -47,14 +48,14 @@ public class JpaBoardServiceImpl implements JpaBoardService {
     @Override
     public JpaBoard modify(Long boardId, RequestBoardForm requestBoardForm) {
         Optional<JpaBoard> maybeJpaBoard = boardRepository.findById(boardId);
-        //findById 고유값 찾기 Optional 있을 수도 있고 없을 수도 있기 때문에 Optional 처리
+
         if (maybeJpaBoard.isEmpty()) {
             log.info("정보가 없습니다!");
             return null;
         }
 
         JpaBoard board = maybeJpaBoard.get();
-        board.setTitle(requestBoardForm.getTitle()); //setter 로 내용 바꿈
+        board.setTitle(requestBoardForm.getTitle());
         board.setContent(requestBoardForm.getContent());
 
         return boardRepository.save(board);

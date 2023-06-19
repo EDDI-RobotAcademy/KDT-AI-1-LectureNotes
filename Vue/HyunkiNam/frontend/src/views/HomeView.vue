@@ -43,8 +43,12 @@
         <router-link to="/file-list-show-page">파일 리스트</router-link> |
         <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
         <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
-
-
+        <router-link to="/vue-spring-fastapi-page">Vue + Spring + FastAPI 문제 은행 [ 1 ]</router-link> |
+        <router-link to="/sign-up-page">회원 가입</router-link> |
+        <router-link to="/github-sign-in-page">Github 로그인</router-link> |
+        <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
+        <router-link to="/vue-fastapi-keras-page">Vue + FastAPI + Keras</router-link> |
+        <router-link to="/payment-page">결제시 메일</router-link> |
       </nav>
     </div>
   </v-container>

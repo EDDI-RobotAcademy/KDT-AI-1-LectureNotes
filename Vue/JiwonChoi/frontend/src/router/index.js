@@ -12,10 +12,15 @@ import vueBasicRoutes from "./vueBasic";
 import htmlCssRoutes from "./htmlCss";
 import defaultSetRoutes from "./defaultRouterSet";
 import d3PlotTestRoutes from "./d3plot";
-import foodRoutes from "./food";
 import sanrioRoutes from "./sanrio";
 import test2Routes from "./test2";
 
+import foodSetRoutes from "./food";
+
+import accountTestRoutes from "./account";
+import authenticationTestRoutes from "./authentication";
+
+import paymentRoutes from "./payment";
 Vue.use(VueRouter);
 
 const routes = [
@@ -30,9 +35,14 @@ const routes = [
   ...productRoutes,
   ...vuetifyTestRoutes,
   ...d3PlotTestRoutes,
-  ...foodRoutes,
+
   ...sanrioRoutes,
   ...test2Routes,
+  ...foodSetRoutes,
+  ...accountTestRoutes,
+  ...authenticationTestRoutes,
+
+  ...paymentRoutes,
 ];
 
 const router = new VueRouter({
