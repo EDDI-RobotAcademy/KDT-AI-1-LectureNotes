@@ -6,19 +6,19 @@ import {
 import axiosInst from '../../utility/axiosInst'
 
 export default {
-    requestBoardToSpring({ commit }, boardId) {
+    requestBoardToSpring ({ commit }, boardId) {
         return axiosInst.springAxiosInst.get(`/jpa-board/${boardId}`)
             .then((res) => {
                 commit(REQUEST_BOARD_TO_SPRING, res.data)
             })
     },
-    requestBoardListToSpring({ commit }) {
+    requestBoardListToSpring ({ commit }) {
         axiosInst.springAxiosInst.get('/jpa-board/list')
             .then((res) => {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
             })
     },
-    requestCreateBoardToSpring({ }, payload) {
+    requestCreateBoardToSpring ({}, payload) {
 
         const { title, content, writer } = payload
 
@@ -31,7 +31,7 @@ export default {
                 alert('문제 발생!')
             })
     },
-    requestDeleteBoardToSpring({ }, boardId) {
+    requestDeleteBoardToSpring ({}, boardId) {
         return axiosInst.springAxiosInst.delete(`/jpa-board/${boardId}`)
             .then((res) => {
                 alert('삭제 성공!')
@@ -40,11 +40,11 @@ export default {
                 alert('문제 발생!')
             })
     },
-    requestBoardModifyToSpring({ }, payload) {
+    requestBoardModifyToSpring ({}, payload) {
         const { title, content, boardId, writer } = payload
 
-        console.log("title: " + title + ", content: " + content +
-            ", writer: " + writer + ", boardId: " + boardId)
+        console.log("title: " + title + ", content: " + content + 
+                    ", writer: " + writer + ", boardId: " + boardId)
 
         return axiosInst.springAxiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
             .then((res) => {

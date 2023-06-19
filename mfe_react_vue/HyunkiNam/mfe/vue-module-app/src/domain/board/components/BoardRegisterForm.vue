@@ -1,5 +1,6 @@
 <template lang="">
     <div>
+        <!-- event 중복 전파 방지를 위해 prevent.stop을 해야함 -->
         <form @submit.prevent.stop="onSubmit">
             <table>
                 <tr>
@@ -35,7 +36,7 @@
 <script>
 export default {
     name: "BoardRegisterForm",
-    data() {
+    data () {
         return {
             title: '제목을 입력하세요',
             writer: '누구세요 ?',
@@ -43,7 +44,7 @@ export default {
         }
     },
     methods: {
-        onSubmit() {
+        onSubmit () {
             const { title, writer, content } = this
             this.$emit('submit', { title, writer, content })
         }

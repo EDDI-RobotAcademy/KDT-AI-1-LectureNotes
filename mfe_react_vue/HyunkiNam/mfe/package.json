@@ -4,7 +4,8 @@
   "workspaces": {
     "packages": [
       "container-app",
-      "vue-module-app"
+      "vue-module-app",
+      "vue-navigation-app"
     ]
   },
   "scripts": {
@@ -14,8 +15,5 @@
   "devDependencies": {
     "external-remotes-plugin": "^1.0.0",
     "lerna": "^7.0.1"
-  },
-  "dependencies": {
-    "vuex": "^4.1.0"
   }
 }

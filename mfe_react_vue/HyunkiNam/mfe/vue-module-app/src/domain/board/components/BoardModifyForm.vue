@@ -5,7 +5,6 @@
                 <tr>
                     <td>게시물 번호</td>
                     <td>
-                        <!-- 수정되면 안되는 요소에는 disabled 작성 -->
                         <input type="text" :value="board.boardId" disabled/>
                     </td>
                 </tr>
@@ -37,7 +36,6 @@
 
             <div>
                 <button type="submit">수정 완료</button>
-                <!-- BoardReadPage로 이동하는데 boardId를 같이 가지고 감 -->
                 <router-link :to="{ 
                     name: 'BoardReadPage', 
                     params: { boardId: board.boardId.toString() }
@@ -55,7 +53,7 @@ export default {
             required: true,
         }
     },
-    data() {
+    data () {
         return {
             title: '',
             content: '',
@@ -63,16 +61,15 @@ export default {
             createDate: '',
         }
     },
-    created() {
+    created () {
         this.title = this.board.title
         this.content = this.board.content
         this.writer = this.board.writer
         this.createDate = this.board.createDate
     },
     methods: {
-        onSubmit() {
+        onSubmit () {
             const { title, content, writer } = this
-            // BoardModifyPage에 값을 전달하면서 submit 이벤트 발생
             this.$emit('submit', { title, content, writer })
         }
     }
