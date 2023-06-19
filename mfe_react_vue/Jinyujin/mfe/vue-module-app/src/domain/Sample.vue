@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import BoardListPage from './board/page/BoardListPage.vue';
 
 const count = ref(0)
 </script>

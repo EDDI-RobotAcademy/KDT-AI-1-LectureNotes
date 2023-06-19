@@ -54,7 +54,8 @@
         <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
         <router-link to="/fastapi-keras">Keras - FastAPI 통신 테스트</router-link> |
         <router-link to="/payment-page">결제 버튼 테스트</router-link> |
-      </nav>
+        <router-link to="/chat-page">웹소켓 채팅 테스트</router-link> |
+        </nav>
     </div>
   </v-container>
 </template>
