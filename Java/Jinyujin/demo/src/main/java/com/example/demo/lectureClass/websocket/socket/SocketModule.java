@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Component
+@Component // 이걸 붙이면 해당 클래스는 자동으로 빈이 생성됨
 public class SocketModule {
 
     private final SocketIOServer server;

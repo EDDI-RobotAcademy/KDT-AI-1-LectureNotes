@@ -19,6 +19,11 @@ public class WebSocketController {
 
     @GetMapping("/{room}")
     public List<Message> getMessage(@PathVariable String room) {
+
         return messageService.getMessages(room);
     }
+    /*
+      room에서는 리스트로 메세지를 얻는다
+      메세지 엔티티에는 메세지 타입, 방, 내용, 작성자가 있음
+    */
 }
