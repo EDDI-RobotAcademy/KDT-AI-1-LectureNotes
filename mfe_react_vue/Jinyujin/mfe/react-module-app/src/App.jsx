@@ -7,7 +7,6 @@ import "./index.css";
 
 const App = () => (
   <div className="container">
-    <p>Hi</p>
     <Counter/>
   </div>
 );

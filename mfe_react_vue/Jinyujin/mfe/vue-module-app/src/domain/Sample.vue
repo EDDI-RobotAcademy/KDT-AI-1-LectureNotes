@@ -9,5 +9,6 @@ const count = ref(0)
   <button title="clickTest" @click="count++">
     빨리 버튼 눌러봐 {{ count }} 번 눌럿어
   </button>
-  <router-view />
+  <router-view /> 
+  <!-- board를 가져오는 태그 -->
 </template>

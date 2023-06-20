@@ -19,8 +19,15 @@ const Counter = () => {
           브라우저에 전달해주는 역할을 한다고 함 */}
         <button onClick={onIncrement}>+</button>
         <button onClick={onDecrement}>-</button>
+        {/* <button onClick={onIncrement}>+</button>
+        <button onClick={onDecrement}>-</button> */}
     </div>
   )
 }
 
 export default Counter
+// 위 export를 주석처리하면 contianer-app/App에서
+// navigation을 import 했던 것처럼 해줬어야 함
+// 지금은 이 방식이 깔끔하니 그냥 놔둠
+// 해당 사항은 Micro Frontend 이슈에 있음 
+// export 방식에 따라 import할 때 차이가
