@@ -16,11 +16,23 @@
     "axios": "^1.4.0",
     "external-remotes-plugin": "^1.0.0",
     "lerna": "^7.0.1",
+    "sass": "^1.63.4",
     "vue-router": "^4.2.2",
     "vuex": "^4.1.0"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.22.5",
+    "@mdi/font": "^7.2.96",
+    "@types/webfontloader": "^1.6.35",
+    "roboto-fontface": "^0.10.0",
+    "sass-loader": "^13.3.2",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.1.3",
+    "vue-cli-plugin-vuetify": "^2.5.8",
+    "vue-style-loader": "^4.1.3",
+    "vue-svg-inline-loader": "^2.1.5",
     "vuetify": "^3.3.3",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "webpack-plugin-vuetify": "^2.0.1"
   }
 }
