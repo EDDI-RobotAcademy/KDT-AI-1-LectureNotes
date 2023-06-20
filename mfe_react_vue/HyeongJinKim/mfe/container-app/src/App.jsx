@@ -17,6 +17,7 @@ const App = () => {
       <div
         style={{
           margin: "10px",
+          marginTop: "70px",
           padding: "10px",
           textAlign: "center",
           backgroundColor: "cyan",
