@@ -43,6 +43,14 @@ module.exports = (_, argv) => ({
           loader: "babel-loader",
         },
       },
+      // {
+      //   test: /\.jsx?$/,
+      //   loader: "babel-loader",
+      //   exclude: /node_modules/,
+      //   options: {
+      //     presets: ['@babel/preset-react']
+      //   },
+      // },
     ],
   },
 
@@ -52,7 +60,7 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       exposes: {
         './ReactSample': './src/bootstrap.js',
-        // './Counter': './src/components/Counter.js'
+        './Counter': './src/components/Counter.js'
       },
       shared: {
         ...deps,
