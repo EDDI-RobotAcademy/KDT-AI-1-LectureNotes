@@ -77,8 +77,7 @@ export default {
             alert('고 홈')
         }
     }
-}e: \ JavaScript
-
+}
 </script>
 
 
