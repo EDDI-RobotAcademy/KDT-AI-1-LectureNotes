@@ -5,7 +5,8 @@
     "packages": [
       "container-app",
       "vue-module-app",
-      "vue-navigation-app"
+      "vue-navigation-app",
+      "react-module-app"
     ]
   },
   "scripts": {
