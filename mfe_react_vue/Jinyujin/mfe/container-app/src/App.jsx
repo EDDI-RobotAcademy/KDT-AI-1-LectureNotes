@@ -16,7 +16,6 @@ const App = () => {
 
   return (
     <div>
-      <div ref={vuetifyNavigationRef} />
       <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef} />
       <div style=
         {{
@@ -32,8 +31,8 @@ const App = () => {
       {/* 
         여기서도 Counter 페이지의 count가 먹혀야 하는데 div 밖에서는 안먹힘 
         -> position: relative로 해결
+        이 속성을 사용하면 다른 요소들과 충돌을 피할 수 있음
       */}
-    
     </div>
   )
 };

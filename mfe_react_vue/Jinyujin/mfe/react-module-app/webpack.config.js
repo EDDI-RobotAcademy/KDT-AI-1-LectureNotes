@@ -56,12 +56,15 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
+      // ModuleFederation(연합)Plugin: reactModuleApp에서 expose하고 싶은 페이지들을
+      // 함께 모아서 remoteEntry.js라는 파일로 연결시켜줄 수 있는 것 같음
       name: "reactModuleApp",
       filename: "remoteEntry.js",
-      exposes: {
-        './ReactSample': './src/bootstrap.js',
+      exposes: { // exposes에서 노출할 컴포넌트 혹은 모듈 지정
+        './ReactSample': './src/bootstrap.js', 
+        // './src/bootstrap.js' 파일을 './ReactSample' 컴포넌트로 노출
         './Counter': './src/components/Counter.js'
-        // 리액트 쪽에서도 연결시켜줘야 함 (container-app)
+        // './src/components/Counter.js' 파일을 './Counter' 컴포넌트로 노출
       },
       shared: {
         ...deps,
@@ -79,6 +82,8 @@ module.exports = (_, argv) => ({
       template: "./public/index.html",
       chunks: ['main'],
     }),
-    new ExternalTemplateRemotesPlugin(), // 외부꺼를 사용할꺼라고 하면서 만드심
+    new ExternalTemplateRemotesPlugin(), 
+    // ExternalTemplateRemotesPlugin(): 외부 템플릿을 사용하기 위해 추가했다고 하심
+    // 왜 여기서만 사용했는지는 잘 모르겠지만 일단 이렇게 알고 넘어가자
   ],
 });

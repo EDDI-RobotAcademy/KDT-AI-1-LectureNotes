@@ -4,9 +4,14 @@ import React, { useState } from 'react' // imr
 // rafce(import React부분은 지움)
 const Counter = () => {
     // count는 vue의 state
-    // setcount는 vue의 action
+    // setCount는 vue의 action
     // useState를 통해 count를 초기값 0으로 설정
     const [count, setCount] = useState(0)
+    // state를 사용하는 이유: state가 변경될 때마다
+    // 자동으로 state와 관련된 html이 재렌더링 되어짐
+    // 로고와 같이 거의 바뀌지 않는 데이터는 굳이 state에 저장할 필요 없음
+    // vue에서 하던 것처럼 board와 같이 잘 바뀔 수 있는 데이터들을
+    // 저장하는 것이 좋음
 
     const onIncrement = () => setCount(count + 1)
     const onDecrement = () => setCount(count - 1)
@@ -19,8 +24,6 @@ const Counter = () => {
           브라우저에 전달해주는 역할을 한다고 함 */}
         <button onClick={onIncrement}>+</button>
         <button onClick={onDecrement}>-</button>
-        {/* <button onClick={onIncrement}>+</button>
-        <button onClick={onDecrement}>-</button> */}
     </div>
   )
 }
