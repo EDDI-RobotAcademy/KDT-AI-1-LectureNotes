@@ -72,6 +72,6 @@ module.exports = (_, argv) => ({
       template: "./public/index.html",
       chunks: ['main'],
     }),
-    new ExternalTemplateRemotesPlugin(), // 외부에서 배치할꺼라고 하면서 만드심
+    new ExternalTemplateRemotesPlugin(), // 외부꺼를 사용할꺼라고 하면서 만드심
   ],
 });
