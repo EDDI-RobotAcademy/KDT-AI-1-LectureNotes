@@ -5,7 +5,8 @@
     "packages": [
       "container-app",
       "vue-module-app",
-      "vue-navigation-app"
+      "vue-navigation-app",
+      "react-module-app"
     ]
   },
   "scripts": {
@@ -13,12 +14,7 @@
     "build": "lerna run build"
   },
   "devDependencies": {
-    "@mdi/font": "^7.2.96",
     "external-remotes-plugin": "^1.0.0",
-    "lerna": "^7.0.1",
-    "mini-css-extract-plugin": "^2.7.6",
-    "roboto-fontface": "^0.10.0",
-    "sass": "^1.63.4",
-    "webfontloader": "^1.6.28"
+    "lerna": "^7.0.1"
   }
 }

@@ -7,7 +7,7 @@ import "./index.css";
 
 const App = () => (
   <div className="container">
-    <Counter />
+    <Counter/>
   </div>
 );
 
