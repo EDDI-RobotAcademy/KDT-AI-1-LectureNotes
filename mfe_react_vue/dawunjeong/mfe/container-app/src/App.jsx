@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { mount } from 'vueModuleApp/Sample';
 import { navigationMount } from 'vueNavigationApp/VueNavigation';
-import Counter from 'reactModuleApp/Counter'
+import Counter from 'reactModuleApp/Counter';
 
 const App = () => {
   const vueRef = useRef(null)
@@ -20,8 +20,8 @@ const App = () => {
               backgroundColor: 'cyan', position: 'relative', zIndex: 1 }}>
         <h1>나는 React로 만들어진 Container!</h1>
         <div ref={vueRef}/>
-        <Counter/>
       </div>
+      <Counter/>
     </div>
   )
 };
