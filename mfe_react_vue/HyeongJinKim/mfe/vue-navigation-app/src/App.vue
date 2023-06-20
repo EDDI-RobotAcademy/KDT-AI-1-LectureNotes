@@ -11,7 +11,7 @@ import { defineComponent } from "vue";
 import NavigationBarPage from "./navigation/page/NavigationBarPage.vue";
 
 export default defineComponent({
-  name: "app",
+  name: "App",
   components: {
     NavigationBarPage,
   },

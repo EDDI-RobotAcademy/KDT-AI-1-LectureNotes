@@ -9,7 +9,7 @@
         <th align="center" width="14%">등록일자</th>
       </tr>
       <tr v-if="!boards || (Array.isArray(boards) && boards.length === 0)">
-        <td colspan="4">현재 등록된 게시물이 없습니다!</td>
+        <td colspan="4">등록된 게시물이 없습니다!</td>
       </tr>
 
       <tr v-else v-for="board in boards" :key="board.boardId">

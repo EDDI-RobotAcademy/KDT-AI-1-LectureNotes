@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <h2>안녕 나는 Vue Component: Board란다</h2>
+    <h2>여기는 Vue Component: Board</h2>
     <div style="text-align: left; margin: 15px">
       <router-link :to="{ name: 'BoardRegisterPage' }"> 게시물 작성 </router-link>
     </div>

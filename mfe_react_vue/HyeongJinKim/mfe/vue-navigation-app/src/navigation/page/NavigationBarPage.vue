@@ -15,7 +15,7 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item v-for="(item, title) in items" :key="index" :title="index">
+        <v-list-item v-for="(item, index) in items" :key="index" :value="index">
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -23,7 +23,7 @@
 
     <v-btn text @click="clickToggle">
       <span>클릭 토글</span>
-      <v-icon right>mdi-hand-bakc-left-outline</v-icon>
+      <v-icon right>mdi-hand-back-left-outline</v-icon>
     </v-btn>
     <v-btn v-if="!isLogin" text @click="signUp">
       <span>회원가입</span>
@@ -72,7 +72,7 @@ export default {
       alert("로그아웃");
     },
     gotoHome() {
-      alert("메인");
+      alert("홈");
     },
   },
 };
