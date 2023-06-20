@@ -52,7 +52,7 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       exposes: {
         './ReactSample': './src/bootstrap.js',
-        // './Counter': './src/components/Counter.js'
+        './Counter': './src/components/Counter.js'
       },
       shared: {
         ...deps,
