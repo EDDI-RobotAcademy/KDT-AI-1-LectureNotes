@@ -12,7 +12,7 @@ module.exports = (_, argv) => ({
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
   },
   devServer: {
-    // static: path.join(__dirname, 'dist'),
+    //static: path.join(__dirname, 'dist'),
     port: 3000,
     historyApiFallback: true,
   },
@@ -58,7 +58,8 @@ module.exports = (_, argv) => ({
       name: "containerApp",
       remotes: {
         vueModuleApp: 'vueModuleApp@http://localhost:3001/remoteEntry.js',
-        vueNavigationApp: 'vueNavigationApp@http://localhost:3002/remoteEntry.js'
+        vueNavigationApp: 'vueNavigationApp@http://localhost:3002/remoteEntry.js',
+        reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
       },
       shared: {
         ...deps,
