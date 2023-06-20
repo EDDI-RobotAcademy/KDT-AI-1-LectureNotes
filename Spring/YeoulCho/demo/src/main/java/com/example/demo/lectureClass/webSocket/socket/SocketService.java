@@ -22,7 +22,9 @@ public class SocketService {
             }
         }
     }
-
+    // builder 패턴이란 하나씩정하겠다...
+    // 새로 메세지를 만들껀데 한번에 넣는게 아니라 messageType에 넣고, content에 넣고 룸에 넣겠다.
+    // 만든메세지를 보냄.
     public void saveMessage(SocketIOClient senderClient, Message message) {
         Message storedMessage = messageService.saveMessage(Message.builder()
                 .messageType(MessageType.SERVER)
@@ -33,7 +35,9 @@ public class SocketService {
 
         sendSocketMessage(senderClient, storedMessage, message.getRoom());
     }
-
+    // 초기에 ~~환영합니다 ~~나갔습니다 보내는거
+    // username이 없다 => 서버니까
+    // 서버가 보내는 메세지
     public void saveInfoMessage(SocketIOClient senderClient, String message, String room) {
         Message storedMessage = messageService.saveMessage(Message.builder()
                 .messageType(MessageType.SERVER)
