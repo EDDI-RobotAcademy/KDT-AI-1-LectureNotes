@@ -31,27 +31,27 @@ export default {
                 alert('문제 발생!')
             })
     },
-    // requestDeleteBoardToSpring ({}, boardId) {
-    //     return axiosInst.delete(`/jpa-board/${boardId}`)
-    //         .then((res) => {
-    //             alert('삭제 성공!')
-    //         })
-    //         .catch(() => {
-    //             alert('문제 발생!')
-    //         })
-    // },
-    // requestBoardModifyToSpring ({}, payload) {
-    //     const { title, content, boardId, writer } = payload
+    requestDeleteBoardToSpring ({}, boardId) {
+        return axiosInst.springAxiosInst.delete(`/jpa-board/${boardId}`)
+            .then((res) => {
+                alert('삭제 성공!')
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
+    requestBoardModifyToSpring ({}, payload) {
+        const { title, content, boardId, writer } = payload
 
-    //     console.log("title: " + title + ", content: " + content + 
-    //                 ", writer: " + writer + ", boardId: " + boardId)
+        console.log("title: " + title + ", content: " + content + 
+                    ", writer: " + writer + ", boardId: " + boardId)
 
-    //     return axiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
-    //         .then((res) => {
-    //             alert("수정 성공!")
-    //         })
-    //         .catch(() => {
-    //             alert('문제 발생!')
-    //         })
-    // }
+        return axiosInst.springAxiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
+            .then((res) => {
+                alert("수정 성공!")
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    }
 }
