@@ -23,7 +23,7 @@ const BoardModifyForm = ({board, isLoading, onModify}) => {
             setTitle(board.title)
             setContent(board.content)
         }
-    })
+    }, [board])
 
   return (
     <div>
@@ -43,7 +43,7 @@ const BoardModifyForm = ({board, isLoading, onModify}) => {
                     <tr>
                         <td>제목</td>
                         <td>
-                            <input type="text" value={board.title} onChange={handleChangeTitle}/>
+                            <input type="text" value={title} onChange={handleChangeTitle}/>
                         </td>
                     </tr>
                     <tr>
@@ -55,7 +55,7 @@ const BoardModifyForm = ({board, isLoading, onModify}) => {
                     <tr>
                         <td>내용</td>
                         <td>
-                            <textarea value={board.content} rows="5" onChange={handleChangeContent}/>
+                            <textarea value={content} rows="5" onChange={handleChangeContent}/>
                         </td>
                     </tr>
                 </tbody>
