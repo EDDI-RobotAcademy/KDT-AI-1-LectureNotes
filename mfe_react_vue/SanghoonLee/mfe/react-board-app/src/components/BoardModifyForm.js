@@ -31,9 +31,9 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
       <h2>게시물 수정</h2>
       { isLoading && "로딩중 .........." }
       { !isLoading && board && (
-        <>
+        <div>
             <form onSubmit={handleSubmit}>
-                <table border="1">
+                <table>
                     <tbody>
                         <tr>
                             <td>번호</td>
@@ -44,7 +44,7 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
                         <tr>
                             <td>제목</td>
                             <td>
-                                <input type="text" value={board.title} onChange={handleChangeTitle}/>
+                                <input type="text" value={title} onChange={handleChangeTitle}/>
                             </td>
                         </tr>
                         <tr>
@@ -56,7 +56,7 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
                         <tr>
                             <td>내용</td>
                             <td>
-                                <textarea value={board.content} rows="5" onChange={handleChangeContent}/>
+                                <textarea value={content} rows="5" onChange={handleChangeContent}/>
                             </td>
                         </tr>
                     </tbody>
@@ -67,7 +67,7 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
                     <Link to={`/read/${board.boardId}`}>취소</Link>
                 </div>
             </form>
-        </>
+        </div>
       )}
     </div>
   )
