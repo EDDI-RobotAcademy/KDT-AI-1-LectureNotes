@@ -27,25 +27,24 @@ const BoardListForm = ({ boards, isLoading }) => {
               </tr>
             </thead>
             <tbody>
-              {!boards.length && (
+              {!boards.length ? (
                 <tr>
-                  <td colSpan={4}>등록된 게시물이 존재하지 않습니다</td>
+                  <td colSpan={4}>등록된 게시물이 존재하지 않습니다!</td>
                 </tr>
-              )}
-              {!!boards.length &&
-                boards.map((board) => {
+              ) : (
+                boards.map((board) => (
                   <tr key={board.boardId}>
                     <td align="center">{board.boardId}</td>
                     <td align="left">{board.title}</td>
                     <td align="right">{board.writer}</td>
                     <td align="center">{board.createDate}</td>
-                  </tr>;
-                })}
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </>
       )}
-      BoardListPage
     </div>
   );
 };
