@@ -13,6 +13,7 @@ const App = () => {
   return (
     <>
       <Routes>
+        {/* exact의 경우 정확하게 이 경로에 해당하는 동작에 대해서만 BoardListPage가 동작한다 */}
         <Route element={<BoardListPage/>} path="/" exact></Route>
         <Route element={<BoardRegisterPage/>} path="/register"></Route>
         <Route element={<BoardReadPage/>} path="/read/:boardId"></Route>
