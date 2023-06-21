@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import * as axiosClient from "../api/board"
 import BoardModifyForm from '../components/BoardModifyForm'
 
-const BoardModifyPage = () => {
+const BoardModifyPage = ({ match, history }) => {
   const { boardId } = useParams()
 
   const [board, setBoard] = useState(null)
