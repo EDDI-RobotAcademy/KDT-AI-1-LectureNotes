@@ -14,8 +14,9 @@ public class CorsConfig implements WebMvcConfigurer {
                         "http://127.0.0.1:8080/", // vue는 허용하겠다는 소리
                         "http://localhost:8080/",
                         "http://localhost:3000",
-                        "http://localhost:3001",
-                        "http://localhost:3002"
+                        "http://localhost:3001", // 뷰 게시판
+                        "http://localhost:3002", // 리액트 네비게이션
+                        "http://localhost:3004" // 리액트 게시판
 //                        "http://192.168.20.3:8080/"
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE");
