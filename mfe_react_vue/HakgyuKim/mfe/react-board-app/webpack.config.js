@@ -1,3 +1,4 @@
+const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
@@ -9,21 +10,14 @@ module.exports = (_, argv) => ({
   output: {
     publicPath: "auto",
   },
-
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
-
   devServer: {
     port: 3004,
     historyApiFallback: true,
-    hot: true,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
-    }
   },
+
   module: {
     rules: [
       {
@@ -44,21 +38,15 @@ module.exports = (_, argv) => ({
           loader: "babel-loader",
         },
       },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ['@babel/env', '@babel/preset-react']},
-      },
     ],
   },
+
   plugins: [
     new ModuleFederationPlugin({
-      name: "reactModuleApp",
+      name: "react_board_app",
       filename: "remoteEntry.js",
-      exposes: {
-        './ReactSample': './src/bootstrap.js',
-      },
+      remotes: {},
+      exposes: {},
       shared: {
         ...deps,
         react: {
