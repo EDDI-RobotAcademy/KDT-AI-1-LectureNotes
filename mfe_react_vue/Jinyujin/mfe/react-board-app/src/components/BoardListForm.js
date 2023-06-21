@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom' // imrr
 // props로 받는 정보가 {boards, isLoading}
 const BoardListForm = ({boards, isLoading}) => {
     return (
-      <div>
+      <div align="center">
       <h2>React로 만든 게시판</h2>
       { isLoading && "로딩중 ..........." }
       { !isLoading && boards && (
@@ -43,8 +43,9 @@ const BoardListForm = ({boards, isLoading}) => {
                             ) : (boards.map((board) => (
                         <tr key={board.boardId}>
                             <td align="center">{board.boardId}</td>
-                            <td align="left">{
-                                board.title}</td>
+                                <td align="left">
+                                    <Link to={`/read/${board.boardId}`}>{board.title}</Link>
+                                </td>
                             <td align="right">{board.writer}</td>
                             <td align="center">{board.createDate}</td>
                         </tr>

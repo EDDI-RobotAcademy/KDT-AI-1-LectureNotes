@@ -9,10 +9,14 @@ import * as axiosClient from "../api/board"
 
 const BoardListPage = () => {
     const [boards, setBoards] = useState([]) // useState([]): 초기값 설정 - 빈 배열이라는 뜻
+    // boards는 상태 변수, setBoards는 상태를 업데이트 하는 변수
+    // boards의 상태가 변화하는걸 setBoards에 담아서 나타냄
     const [isLoading, setLoading] = useState([])
 
     const listBoard = async () => {
         setLoading(true)
+        // isLoading 상태를 true로 설정
+
         try {
             const response = await axiosClient.fetchBoardList()
 
