@@ -25,23 +25,22 @@ const BoardListForm = ({ boards, isLoading }) => { // rafce
             </th>
           </thead>
           <tbody>
-            { !boards.lengh && (
-              <tr>
-                <td colSpan={4}>
-                  등록된 게시물이 존재하지 않습니다!
-                </td>
-              </tr>
-            )}
-            { !!boards.lengh && boards.map((board) => {
-              <tr key={board.boardId}>
-                <td align='center'>{board.boardId}</td>
-                <td align='left'>
-                  {board.title}
-                </td>
-                <td align='right'>{board.writer}</td>
-                <td align='center'>{board.createDate}</td>
-              </tr>
-            })}
+            { !boards.length ? (
+                <tr>
+                  <td colSpan={4}>
+                    등록된 게시물이 존재하지 않습니다!
+                  </td>
+                </tr>
+              ) : ( boards.map((board) => (
+                <tr key={board.boardId}>
+                  <td align="center">{ board.boardId }</td>
+                  <td align="left">
+                    { board.title }
+                  </td>
+                  <td align="right">{ board.writer }</td>
+                  <td align="center">{ board.createDate }</td>
+                </tr>
+              )))}
           </tbody>
         </table>
         </>
