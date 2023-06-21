@@ -23,11 +23,13 @@ const BoardRegisterForm = ({ onRegister }) => {
 
   const handleSubmit = useCallback(
     (e) => {
+        // vue에서 prevent() 써서 submit 막고 커스텀 submit 처리하려고 함
         e.preventDefault();
         
         onRegister( title, content, writer )
     },
     [title, content, writer, onRegister]
+    // title, content, writer, onRegister 중 하나라도 바뀌면 실행
 )
 
   return (
