@@ -35,7 +35,7 @@ const BoardListForm = ({ boards, isLoading }) => { // rafce
                 <tr key={board.boardId}>
                   <td align="center">{ board.boardId }</td>
                   <td align="left">
-                    { board.title }
+                    <Link to={`/read/${board.boardId}`}>{ board.title }</Link>
                   </td>
                   <td align="right">{ board.writer }</td>
                   <td align="center">{ board.createDate }</td>
