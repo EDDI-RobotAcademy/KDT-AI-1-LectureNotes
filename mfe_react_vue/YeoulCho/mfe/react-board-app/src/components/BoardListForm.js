@@ -1,4 +1,4 @@
-import React from 'react' //reafc
+import React from 'react' //rafce
 import { Link } from 'react-router-dom' //imrr
 
 const BoardListForm = ( { boards, isLoading } ) => {
