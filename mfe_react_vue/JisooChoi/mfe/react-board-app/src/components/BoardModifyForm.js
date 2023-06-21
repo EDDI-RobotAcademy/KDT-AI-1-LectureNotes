@@ -1,77 +1,75 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+const BoardModifyForm = ({ board, isLoading, onModify }) => {
+  const [title, setTitle] = useState("")
+  const [content, setContent] = useState("")
 
-const BoardModifyForm = ({board, isLoading, onModify}) => {
-    const [title, setTitle] = useState("")
-    const [content, setContent] = useState("")
+  const handleChangeTitle = (e) => {
+    setTitle(e.target.value)
+  }
 
-    const handleChangeTitle = (e) => {
-        setTitle(e.target.value)
+  const handleChangeContent = (e) => {
+    setContent(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    onModify(board.boardId, title, content, board.writer)
+  }
+
+  useEffect(() => {
+    if (board) {
+      setTitle(board.title)
+      setContent(board.content)
     }
-
-    const handleChangeContent = (e) => {
-        setContent(e.target.value)
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        onModify(board.boardId, title, content, board.writer)
-    }
-
-    useEffect(() => {
-        if(board) {
-            setTitle(board.title)
-            setContent(board.content)
-        }
-    })
+  }, [board])
 
   return (
     <div align="center">
       <h2>게시물 수정</h2>
-      {isLoading && "로딩중 .........."}
-      {!isLoading && board && (
-        <>
-        <form onSubmit={handleSubmit}>
-            <table border="1">
-                <tbody>
+      { isLoading && "로딩중 .........." }
+      { !isLoading && board && (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <table>
+                    <tbody>
                         <tr>
                             <td>번호</td>
                             <td>
-                                <input type="text" value={ board.title } disabled/>
+                                <input type="text" value={board.boardId} disabled/>
                             </td>
                         </tr>
                         <tr>
                             <td>제목</td>
                             <td>
-                                <input type="text" value={ board.title } onChange={handleChangeTitle}/>
+                                <input type="text" value={title} onChange={handleChangeTitle}/>
                             </td>
                         </tr>
                         <tr>
                             <td>작성자</td>
                             <td>
-                                <input type="text" value={ board.writer } disabled/>
+                                <input type="text" value={board.writer} disabled/>
                             </td>
                         </tr>
                         <tr>
                             <td>내용</td>
                             <td>
-                                <textarea value={ board.content } rows="5" onChange={handleChangeContent}/>
+                                <textarea value={content} rows="5" onChange={handleChangeContent}/>
                             </td>
                         </tr>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
 
-            <div>
-                <button type="submit">수정</button>
-                <Link to={`/read/${board.boardId}`}>취소</Link>
-            </div>
-        </form>
-        </>
+                <div>
+                    <button type="submit">수정</button>
+                    <Link to={`/read/${board.boardId}`}>취소</Link>
+                </div>
+            </form>
+        </div>
       )}
     </div>
   )
 }
-
 export default BoardModifyForm
