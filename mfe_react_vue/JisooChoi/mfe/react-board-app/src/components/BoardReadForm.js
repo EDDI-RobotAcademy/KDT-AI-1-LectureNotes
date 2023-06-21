@@ -13,25 +13,25 @@ const BoardReadForm = ({boardId, board, isLoading, onRemove}) => {
                 <tr>
                   <td>번호</td>
                   <td>
-                    <input type="text" value={ board.title } readonly/>
+                    <input type="text" value={ board.title } readOnly/>
                   </td>
                 </tr>
                 <tr>
                   <td>제목</td>
                   <td>
-                    <input type="text" value={ board.title } readonly/>
+                    <input type="text" value={ board.title } readOnly/>
                   </td>
                 </tr>
                 <tr>
                   <td>작성자</td>
                   <td>
-                    <input type="text" value={ board.writer } readonly/>
+                    <input type="text" value={ board.writer } readOnly/>
                   </td>
                 </tr>
                 <tr>
                   <td>내용</td>
                   <td>
-                    <textarea value={ board.content } readonly/>
+                    <textarea value={ board.content } readOnly/>
                   </td>
                 </tr>
           </tbody>
