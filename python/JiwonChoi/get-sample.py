@@ -1,6 +1,6 @@
 import pandas as pd
 
-일부_고객_대출_정보 = pd.read_excel('chunk_155001-155746.xlsx')
+일부_고객_대출_정보 = pd.read_excel('customer_datas/chunk_155001-155746.xlsx')
 
 print(일부_고객_대출_정보.head(10))
 
