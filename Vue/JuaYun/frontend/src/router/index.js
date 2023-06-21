@@ -19,6 +19,7 @@ import accountTestRoutes from './account'
 import authenticationTestRoutes from './authentication'
 import afterLoginRoutes from './afterLogin'
 import paymentRoutes from './payment'
+import chatRoutes from './chat'
 
 
 
@@ -41,7 +42,8 @@ const routes = [
   ...accountTestRoutes,
   ...authenticationTestRoutes,
   ...afterLoginRoutes,
-  ...paymentRoutes
+  ...paymentRoutes,
+  ...chatRoutes
 ]
 
 const router = new VueRouter({
