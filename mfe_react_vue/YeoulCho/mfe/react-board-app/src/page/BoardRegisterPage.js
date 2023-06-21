@@ -14,7 +14,8 @@ const BoardRegisterPage = ({history}) => {
             
             alert("게시물 등록 성공!")
 
-            navigate("read/" + response.data)
+            console.log(response.data.boardId)
+            navigate("/read/" + response.data.boardId)
         } catch (e) {
             console.log(e)
         }
