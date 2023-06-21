@@ -13,7 +13,7 @@ const BoardRegisterPage = ({ history }) => {
 
       alert("게시물 등록 성공!");
 
-      navigate("/read/" + response.data);
+      navigate("/read/" + response.data.boardId);
     } catch (e) {
       console.log(e);
     }

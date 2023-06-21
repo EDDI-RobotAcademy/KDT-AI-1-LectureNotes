@@ -10,3 +10,6 @@ export const fetchBoard = (boardId) =>
 
 export const removeBoard = (boardId) =>
   axios.delete(`http://localhost:7777/jpa-board/${boardId}`);
+
+export const modifyBoard = (boardId, title, content, writer) =>
+  axios.put(`http://localhost:7777/jpa-board/${boardId}`, { title, content, writer });
