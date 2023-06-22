@@ -3,7 +3,6 @@ import {
     REQUEST_INTEGER_TO_FASTAPI
 } from './mutation-types'
 
-import axiosInst from '@/utility/axiosInst'
 import axiosInstances from '@/utility/axiosInst'
 
 export default {
@@ -24,5 +23,5 @@ export default {
             .catch((res) => {
                 alert('문제 발생!')
             })
-    }
+    },
 }
