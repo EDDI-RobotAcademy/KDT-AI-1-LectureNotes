@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { mount } from 'vueModuleApp/Sample';
 import { navigationMount } from 'vueNavigationApp/VueNavigation';
 import Counter from 'reactModuleApp/Counter'
+import BoardApp from 'reactBoardApp/BoardApp'
+import { BrowserRouter } from 'react-router-dom'
 
 const App = () => {
   const vueRef = useRef(null)
@@ -25,8 +27,11 @@ const App = () => {
         <h1>나는 React로 만들어진 Container!</h1>
         <div ref={vueRef} />
       </div>
-      <div style={{ zIndex: 9999, position: 'relative' }}>
+      <div style={{ position: 'relative' }}>
         <Counter/> 
+        <BrowserRouter>
+          <BoardApp />
+        </BrowserRouter>
       </div>
       {/* 
         여기서도 Counter 페이지의 count가 먹혀야 하는데 div 밖에서는 안먹힘 
