@@ -1,4 +1,3 @@
-const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
@@ -10,13 +9,11 @@ module.exports = (_, argv) => ({
   output: {
     publicPath: "auto",
   },
-
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
-
   devServer: {
-    port: 3004,
+    port: 3005,
     historyApiFallback: true,
     hot: true,
     headers: {
@@ -25,7 +22,6 @@ module.exports = (_, argv) => ({
       'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
     }
   },
-
   module: {
     rules: [
       {
@@ -46,30 +42,31 @@ module.exports = (_, argv) => ({
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "babel-loader",
+        options: { presets: ['@babel/env', '@babel/preset-react']},
+      },
     ],
   },
-
   plugins: [
     new ModuleFederationPlugin({
-      name: "reactBoardApp",
+      name: "reactZustandTodoApp",
       filename: "remoteEntry.js",
-      exposes: {
-        './ReactBoard': './src/bootstrap.js',
-        './BoardApp': './src/BoardApp.jsx',
-      },
+      exposes: {},
       shared: {
         ...deps,
         react: {
           singleton: true,
           requiredVersion: deps.react,
         },
-        "react-router-dom": {
+        "react-dom": {
           singleton: true,
-          requiredVersion: deps["react-router-dom"]
-        }
+          requiredVersion: deps["react-dom"],
+        },
       },
     }),
-    // 외부에 붙여야 하니까 아래와 같이 넣어준다.
     new HtmlWebPackPlugin({
       template: "./public/index.html",
       chunks: ['main'],
