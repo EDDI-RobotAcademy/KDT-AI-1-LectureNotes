@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react' //rafce
-import { useNavigate, useParams } from 'react-router-dom' //imrr
+import React, { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import * as axiosClient from "../api/board"
 import BoardModifyForm from '../components/BoardModifyForm'
 
-const BoardModifyPage = () => {
+const BoardModifyPage = ({ match, history }) => {
   const { boardId } = useParams()
 
   const [board, setBoard] = useState(null)
@@ -34,7 +34,7 @@ const BoardModifyPage = () => {
   }
 
   useEffect(() => {
-    readBoard(boardId) 
+    readBoard(boardId)
   }, [boardId])
 
   return (
