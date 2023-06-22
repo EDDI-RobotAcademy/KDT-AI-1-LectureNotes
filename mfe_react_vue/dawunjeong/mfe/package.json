@@ -6,7 +6,8 @@
       "container-app",
       "vue-module-app",
       "vue-navigation-app",
-      "react-module-app"
+      "react-module-app",
+      "react-board-app"
     ]
   },
   "scripts": {

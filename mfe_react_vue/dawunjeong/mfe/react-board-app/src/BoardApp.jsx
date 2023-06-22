@@ -9,10 +9,10 @@ import BoardRegisterPage from "./page/BoardRegisterPage"
 import BoardReadPage from "./page/BoardReadPage"
 import BoardModifyPage from "./page/BoardModifyPage"
 
-const App = () => {
+const BoardApp = () => {
   return (
     <>
-      <Routes>
+      <Routes >
         <Route element={<BoardListPage/>} path="/" exact></Route>
         <Route element={<BoardRegisterPage/>} path="/register" exact></Route>
         <Route element={<BoardReadPage/>} path="/read/:boardId" exact></Route>
@@ -22,4 +22,4 @@ const App = () => {
   )
 };
 
-export { App }
+export default BoardApp
