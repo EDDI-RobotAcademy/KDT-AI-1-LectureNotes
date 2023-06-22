@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotePlugin = require("external-remotes-plugin");
+
 const deps = require("./package.json").dependencies;
 
 module.exports = (_, argv) => ({
@@ -11,7 +12,7 @@ module.exports = (_, argv) => ({
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
-    // static: path.join(__dirname, "dist"),
+    //static: path.join(__dirname, 'dist'),
     port: 3000,
     historyApiFallback: true,
   },
@@ -60,6 +61,7 @@ module.exports = (_, argv) => ({
         vueNavigationApp:
           "vueNavigationApp@http://localhost:3002/remoteEntry.js",
         reactModuleApp: "reactModuleApp@http://localhost:3003/remoteEntry.js",
+        reactBoardApp: "reactBoardApp@http://localhost:3004/remoteEntry.js",
       },
       shared: {
         ...deps,
@@ -70,6 +72,9 @@ module.exports = (_, argv) => ({
         "react-dom": {
           singleton: true,
           requiredVersion: deps["react-dom"],
+        },
+        "react-router-dom": {
+          singleton: true,
         },
       },
     }),
