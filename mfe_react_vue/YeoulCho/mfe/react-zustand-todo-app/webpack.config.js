@@ -13,7 +13,7 @@ module.exports = (_, argv) => ({
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
-    port: 3006,
+    port: 3005,
     historyApiFallback: true,
     hot: true,
     headers: {
