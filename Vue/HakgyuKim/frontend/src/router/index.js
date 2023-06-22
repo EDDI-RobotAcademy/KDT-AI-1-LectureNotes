@@ -19,6 +19,7 @@ import accountTestRoutes from "./account";
 import authenticationTestRoutes from './authentication'
 import afterLoginRoutes from "./afterLogin";
 import paymentRoutes from "./payment";
+import chatRoutes from "./chat";
 
 Vue.use(VueRouter);
 
@@ -52,6 +53,7 @@ const routes = [
   ...authenticationTestRoutes,
   ...afterLoginRoutes,
   ...paymentRoutes,
+  ...chatRoutes,
 ];
 
 const router = new VueRouter({

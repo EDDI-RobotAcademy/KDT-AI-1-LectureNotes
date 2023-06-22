@@ -177,18 +177,18 @@ pyrightconfig.json
 
 # 고객 정보 파일 (외부 유출되면 안됨)
 *.xlsx
-customer_data.xlsx
+customer_datas/customer_data.xlsx
 chunk*.xlsx
 self_employed_data.xlsx
 president_data.xlsx
-IBK사잇돌2.xlsx
-햇살론-근로자(원금균등-12개월변동금리).xlsx
-온라인햇살론.xlsx
-참좋은사업자대출.xlsx
-SBI저축은행스피드론.xlsx
-참좋은론iPass론.xlsx
+customer_datas/IBK사잇돌2.xlsx
+customer_datas/햇살론-근로자(원금균등-12개월변동금리).xlsx
+customer_datas/온라인햇살론.xlsx
+customer_datas/참좋은사업자대출.xlsx
+customer_datas/SBI저축은행스피드론.xlsx
+customer_datas/참좋은론iPass론.xlsx
 except_extract_data.xlsx
-온라인햇살론_분석정보.xlsx
+customer_datas/온라인햇살론_분석정보.xlsx
 
 # 모델 정보
 *.h5
