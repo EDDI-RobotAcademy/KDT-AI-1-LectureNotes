@@ -23,10 +23,12 @@ const App = () => {
         <h1>나는 React로 만들어진 Container!</h1>
         <div ref={vueRef}/>
       </div>
-      <Counter/>
-      <BrowserRouter>
-        <BoardApp/>
-      </BrowserRouter>
+      <div style={{ position: 'relative'}}>
+        <Counter/>
+        <BrowserRouter>
+          <BoardApp/>
+        </BrowserRouter>
+      </div>
     </div>
   )
 };
