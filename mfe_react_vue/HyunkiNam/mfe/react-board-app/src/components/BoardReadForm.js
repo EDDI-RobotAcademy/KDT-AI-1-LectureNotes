@@ -5,7 +5,7 @@ const BoardReadForm = ({ boardId, board, isLoading, onRemove }) => {
     return (
         <div>
             <h2>게시물 조회</h2>
-            {isLoading && "로딩중 ..........."}
+            {isLoading && "로딩중 .........."}
             {!isLoading && board && (
                 <>
                     <table border="1">
@@ -36,12 +36,13 @@ const BoardReadForm = ({ boardId, board, isLoading, onRemove }) => {
                             </tr>
                         </tbody>
                     </table>
+
                     <Link to={`/modify/${boardId}`}>수정</Link>
                     <button onClick={onRemove}>삭제</button>
                     <Link to="/">돌아가기</Link>
                 </>
             )}
-        </div >
+        </div>
     )
 }
 
