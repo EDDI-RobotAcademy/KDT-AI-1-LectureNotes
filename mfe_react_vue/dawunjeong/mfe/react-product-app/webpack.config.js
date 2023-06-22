@@ -14,15 +14,10 @@ module.exports = (_, argv) => ({
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
-    port: 3004,
+    port: 3005,
     historyApiFallback: true,
-    hot: true,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
-    }
   },
+
   module: {
     rules: [
       {
@@ -48,12 +43,10 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "reactBoardApp",
+      name: "react_product_app",
       filename: "remoteEntry.js",
-      exposes: {
-        './ReactBoard': './src/bootstrap.js',
-        './BoardApp': './src/BoardApp.jsx',
-      },
+      remotes: {},
+      exposes: {},
       shared: {
         ...deps,
         react: {
@@ -64,10 +57,6 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
-        "react-router-dom": {
-          singleton: true,
-          requiredVersion: deps["react-router-dom"]
-        }
       },
     }),
     new HtmlWebPackPlugin({
