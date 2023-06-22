@@ -6,14 +6,14 @@ import App from "./App.vue";
 
 import { loadFonts } from "./plugin/webfontloader";
 
-import * as components from "vuetify/components";
-import * as directives from "vuetify/directives";
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 import { createVuetify } from "vuetify";
 
 const navigationMount = (el) => {
 
     loadFonts()
-
+    
     const vuetify = createVuetify({
         components, directives
     })

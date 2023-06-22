@@ -1,9 +1,9 @@
 <template>
-    <div style="height: 64px">
-        <v-app>
-            <NavigationBarPage/>
-        </v-app>
-    </div>
+  <div style="height: 64px">
+      <v-app>
+        <NavigationBarPage/>
+      </v-app>
+  </div>
 </template>
 
 <script>

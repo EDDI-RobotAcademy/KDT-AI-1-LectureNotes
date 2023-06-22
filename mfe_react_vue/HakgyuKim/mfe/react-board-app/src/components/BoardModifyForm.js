@@ -1,42 +1,39 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const BoardModifyForm = ({ board, isLoading, onModify }) => {
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
 
-  const handleChangeTitle = useCallback((e) => {
+  const handleChangeTitle = (e) => {
     setTitle(e.target.value)
-  }, [])
+  }
 
   const handleChangeContent = (e) => {
     setContent(e.target.value)
   }
 
-  const handleSubmit = useCallback(
-    (e) => {
-        e.preventDefault();
-        
-        onModify( board.boardId, title, content, board.writer)
-    },
-    [title, content, onModify]
-)
-
-useEffect(() => {
-  if (board) {
-    setTitle(board.title)
-    setContent(board.content)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    onModify(board.boardId, title, content, board.writer)
   }
-}, [board])
+
+  useEffect(() => {
+    if (board) {
+      setTitle(board.title)
+      setContent(board.content)
+    }
+  }, [board])
 
   return (
     <div align="center">
       <h2>게시물 수정</h2>
       { isLoading && "로딩중 .........." }
       { !isLoading && board && (
-        <>
+        <div>
             <form onSubmit={handleSubmit}>
-                <table border="1">
+                <table>
                     <tbody>
                         <tr>
                             <td>번호</td>
@@ -70,7 +67,7 @@ useEffect(() => {
                     <Link to={`/read/${board.boardId}`}>취소</Link>
                 </div>
             </form>
-        </>
+        </div>
       )}
     </div>
   )
