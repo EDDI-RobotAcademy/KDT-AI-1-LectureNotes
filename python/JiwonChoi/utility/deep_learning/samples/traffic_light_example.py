@@ -38,15 +38,18 @@ mapped_labels = [vehicle_action_mapping[action] for action in labels]
 
 encoded_traffic_light = keras.utils.to_categorical(mapped_data, num_classes=len(signals))
 encoded_action = keras.utils.to_categorical(mapped_labels, num_classes=len(actions))
-#print(encoded_traffic_light)
-#print(encoded_action)
+print(encoded_traffic_light)
+print(encoded_action)
 
+# 1. Sequential 모델 생성
 model = Sequential()
+# 2. 입력층과 은닉층 추가
 model.add(Dense(32, input_dim=len(signals), activation="relu"))
+# 3. 출력층 추가
 model.add(Dense(len(actions), activation="softmax"))
-
+# 모델 컴파일
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
-
+#모델 학습
 model.fit(encoded_traffic_light, encoded_action, epochs=5000, batch_size=32)
 
 test_traffic_light = "초록색"

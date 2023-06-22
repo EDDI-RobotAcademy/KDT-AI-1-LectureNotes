@@ -59,7 +59,9 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       exposes: {
         './Sample': './src/bootstrap',
+        './Store': './src/store/board/BoardModule'
       },
+      shared: require("./package.json").dependencies
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
@@ -77,7 +79,7 @@ module.exports = (_, argv) => ({
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
     }
   },
 });

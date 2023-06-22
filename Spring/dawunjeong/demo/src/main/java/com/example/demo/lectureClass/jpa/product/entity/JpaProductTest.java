@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -22,11 +23,16 @@ public class JpaProductTest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
 
+    @Setter
     private String name;
+    @Setter
     private String price;
     private String manufacturer;
+    @Setter
     private String expirationDate;
+    @Setter
     private String productionDate;
+    @Setter
     private String details;
 
     public JpaProductTest(String name, String price, String manufacturer, String expirationDate, String productionDate, String details) {
