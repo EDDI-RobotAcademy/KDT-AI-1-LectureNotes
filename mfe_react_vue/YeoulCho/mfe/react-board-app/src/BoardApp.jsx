@@ -10,7 +10,7 @@ import BoardModifyPage from "./page/BoardModifyPage";
 
 
 /* route 컴포넌트를 정의하고 렌더링을 하는 역할*/
-const App = () => {
+const BoardApp = () => {
   return(
   <>
     <Routes>
@@ -23,4 +23,4 @@ const App = () => {
   </>
 )};
 
-export { App }
+export default BoardApp
