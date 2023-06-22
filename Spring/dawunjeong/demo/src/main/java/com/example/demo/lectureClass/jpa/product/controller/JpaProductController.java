@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.jpa.product.controller;
 
+import com.example.demo.lectureClass.jpa.board.controller.form.RequestBoardForm;
 import com.example.demo.lectureClass.jpa.product.controller.form.RequestProductForm;
 import com.example.demo.lectureClass.jpa.product.entity.JpaProductTest;
 import com.example.demo.lectureClass.jpa.product.service.JpaProductService;
@@ -44,5 +45,13 @@ public class JpaProductController {
         log.info("deleteProduct()");
 
         productService.delete(productId);
+    }
+
+    @PutMapping("/{productId}")
+    public JpaProductTest modifyProduct (@PathVariable("productId") Long productId,
+                                 @RequestBody RequestProductForm requestProductForm) {
+        log.info("modifyProduct(): " + requestProductForm + ", id: " + productId);
+
+        return productService.modify(productId, requestProductForm);
     }
 }
