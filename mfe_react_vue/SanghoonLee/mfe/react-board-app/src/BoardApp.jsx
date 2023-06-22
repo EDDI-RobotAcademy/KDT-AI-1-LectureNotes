@@ -9,7 +9,7 @@ import BoardRegisterPage from "./page/BoardRegisterPage"
 import BoardReadPage from "./page/BoardReadPage"
 import BoardModifyPage from "./page/BoardModifyPage"
 
-const App = () => {
+const BoardApp = () => {
   return (
     <>
       <Routes>
@@ -23,4 +23,4 @@ const App = () => {
   )
 };
 
-export { App }
+export default BoardApp
