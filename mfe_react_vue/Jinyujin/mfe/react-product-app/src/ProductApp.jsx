@@ -9,7 +9,7 @@ import ProductRegisterPage from './page/ProductRegisterPage'
 import ProductReadPage from './page/ProductReadPage'
 import ProductModifyPage from './page/ProductModifyPage'
 
-const App = () => {
+const ProductApp = () => {
   return (
     <>
       <Routes>
@@ -21,4 +21,4 @@ const App = () => {
     </>
   )
 };
-export { App }
+export default ProductApp

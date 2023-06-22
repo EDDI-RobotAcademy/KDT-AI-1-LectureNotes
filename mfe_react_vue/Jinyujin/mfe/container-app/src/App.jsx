@@ -6,6 +6,7 @@ import { navigationMount } from 'vueNavigationApp/VueNavigation';
 import Counter from 'reactModuleApp/Counter'
 import BoardApp from 'reactBoardApp/BoardApp'
 import { BrowserRouter } from 'react-router-dom'
+import ProductApp from "reactProductApp/ProductApp";
 
 const App = () => {
   const vueRef = useRef(null)
@@ -31,6 +32,7 @@ const App = () => {
         <Counter/> 
         <BrowserRouter>
           <BoardApp />
+          <ProductApp/>
         </BrowserRouter>
       </div>
       {/* 

@@ -20,6 +20,7 @@ const ZustandInputTodo = () => {
             setMessage('')
         } else {
             setMessage('올바르게 입력 해주세요')
+            // 빈칸에 아무것도 안쓰고 엔터치면 이 메세지 나옴
         }
     }
 

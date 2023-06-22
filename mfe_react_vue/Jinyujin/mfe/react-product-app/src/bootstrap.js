@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { App } from "./App";
+import ProductApp from "./ProductApp";
 import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.render(
     <BrowserRouter>
-        <App />
+        <ProductApp />
     </BrowserRouter>,
     document.getElementById("react-product-module")
 )

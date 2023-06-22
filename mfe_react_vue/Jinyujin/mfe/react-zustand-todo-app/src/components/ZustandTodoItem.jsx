@@ -18,7 +18,6 @@ const ZustandTodoItem = ({ props }) => {
 
     const editInputRef = useRef(null)
 
-    // 클릭에 대응할 것 생성
     const handleEditing = () => {
         setEditing(true)
     }
@@ -36,6 +35,7 @@ const ZustandTodoItem = ({ props }) => {
               <input type="checkbox" checked={props.completed} onChange={() => handleChange(props.id)} />
               <button onClick={handleEditing}>
                   <AiFillEdit style={{ color: '#64B5F6', fontsize: '16px' }} />
+                  {/* AiFillEdit은 아이콘 이름 */}
               </button>
               <button onClick={(() => deleteTodo(props.id))}>
                   <FaTrash style={{color: '', fontsize: '16px'}}/>
