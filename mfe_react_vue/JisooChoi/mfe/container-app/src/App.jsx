@@ -9,24 +9,10 @@ const App = () => {
   const vueRef = useRef(null)
   const vuetifyNavigationRef = useRef(null)
 
-  const [ReactBoardApplication, setReactBoardApplication] = useState(null)
-
   useEffect(() => {
     mount(vueRef.current)
     navigationMount(vuetifyNavigationRef.current)
-
-    const loadReactBoardApplication = async () => {
-      const { default: App } = await import('reactBoardApp/ReactBoardApplication')
-      setReactBoardApplication(() => App)
-
-    }
-
-    loadReactBoardApplication()
   }, []);
-
-  if (!ReactBoardApplication) {
-    return <div>로딩중이니까 기다리세요</div>
-  }
 
   return (
     <div>
@@ -37,10 +23,12 @@ const App = () => {
         <h1>나는 React로 만들어진 Container!</h1>
         <div ref={vueRef}/>
       </div>
-      <Counter/>
-      <BrowserRouter>
-        <BoardApp/>
-      </BrowserRouter>
+      <div style={{ position: 'relative' }}>
+        <Counter/>
+        <BrowserRouter>
+          <BoardApp/>
+        </BrowserRouter>
+      </div>
     </div>
   )
 };

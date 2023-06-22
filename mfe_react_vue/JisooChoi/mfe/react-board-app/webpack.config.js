@@ -2,7 +2,6 @@ const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
-
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   mode: 'development',
@@ -10,11 +9,9 @@ module.exports = (_, argv) => ({
   output: {
     publicPath: "auto",
   },
-
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
-
   devServer: {
     port: 3004,
     historyApiFallback: true,
@@ -25,8 +22,7 @@ module.exports = (_, argv) => ({
       'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
     }
   },
-
-  module: {
+   module: {
     rules: [
       {
         test: /\.m?js/,
@@ -48,7 +44,6 @@ module.exports = (_, argv) => ({
       },
     ],
   },
-
   plugins: [
     new ModuleFederationPlugin({
       name: "reactBoardApp",
@@ -63,13 +58,16 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps.react,
         },
+        "react-dom": {
+          singleton: true,
+          requiredVersion: deps["react-dom"],
+        },
         "react-router-dom": {
           singleton: true,
           requiredVersion: deps["react-router-dom"]
         }
       },
     }),
-    // 외부에 붙여야 하니까 아래와 같이 넣어준다.
     new HtmlWebPackPlugin({
       template: "./public/index.html",
       chunks: ['main'],
