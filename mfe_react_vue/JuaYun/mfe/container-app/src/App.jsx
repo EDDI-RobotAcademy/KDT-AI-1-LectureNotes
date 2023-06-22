@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { mount } from 'vueModuleApp/Sample';
 import { navigationMount } from 'vueNavigationApp/VueNavigation';
 import Counter from 'reactModuleApp/Counter';
+import BoardApp from 'reactBoardApp/BoardApp'
+import { BrowserRouter } from 'react-router-dom'
 
 const App = () => {
   const vueRef = useRef(null)
@@ -22,6 +24,9 @@ const App = () => {
         <div ref={vueRef}/>
       </div>
       <Counter/>
+      <BrowserRouter>
+        <BoardApp/>
+      </BrowserRouter>
     </div>
   )
 };
