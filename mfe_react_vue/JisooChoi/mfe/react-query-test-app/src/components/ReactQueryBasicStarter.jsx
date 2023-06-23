@@ -16,10 +16,9 @@ export const ReactQueryBasicStarter = () => {
 const ReactQueryExecutor = () => {
   const { isLoading, error, data, isFetching } = useQuery("repoData", () => 
     axios.get(
-      "https://api.github.com/repos/zisoo-choi/backend-for-aws-deploy-test"
+      "https://api.github.com/repos/zisoo-choi/micro-prontend-practice"
     )
     .then((res) => res.data)
-    .catch((res) => res.data)
   )
 
   if (isLoading) return "로딩중 ........"
