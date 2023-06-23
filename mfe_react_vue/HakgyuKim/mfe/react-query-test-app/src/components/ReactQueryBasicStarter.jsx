@@ -15,7 +15,7 @@ export const ReactQueryBasicStarter = () => {
 const ReactQueryExecutor = () => {
   const { isLoading, error, data, isFetching } = useQuery("repoData", () => 
     axios.get(
-      "http://api.github.com/repos/silenc3502/backend-for-aws-deploy-test"
+      "http://api.github.com/repos/zage4448/kdt1-study-3-team1-back"
     )
     .then((res) => res.data)
   )
