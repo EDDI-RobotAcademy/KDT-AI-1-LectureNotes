@@ -76,7 +76,12 @@ module.exports = (_, argv) => ({
           requiredVersion: deps["react-dom"],
         },
         "react-router-dom": {
-          singleton: true
+          singleton: true,
+          requiredVersion: deps["react-router-dom"]
+        },
+        "react-query": {
+          singleton: true,
+          requiredVersion: deps["react-query"]
         }
       }
     }),
