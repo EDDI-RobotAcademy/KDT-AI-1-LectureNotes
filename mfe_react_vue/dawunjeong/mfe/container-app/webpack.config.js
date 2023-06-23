@@ -63,7 +63,8 @@ module.exports = (_, argv) => ({
         // reactModuleApp은 사실상 React Counter App임
         reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
         reactBoardApp: 'reactBoardApp@http://localhost:3004/remoteEntry.js',
-        reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3006/remoteEntry.js'
+        reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3006/remoteEntry.js',
+        reactQueryTestApp: 'reactQueryTestApp@http://localhost:3007/remoteEntry.js'
       },
       shared: {
         ...deps,
