@@ -14,6 +14,12 @@ import homeworkRoutes from "./homework";
 import plotRoutes from "./plot";
 import filesTestRoutes from "./files";
 import foodSetRoutes from "./food";
+import fastApiRoutes from "./fastapi";
+import accountTestRoutes from "./account";
+import authenticationTestRoutes from './authentication'
+import afterLoginRoutes from "./afterLogin";
+import paymentRoutes from "./payment";
+import chatRoutes from "./chat";
 
 Vue.use(VueRouter);
 
@@ -42,6 +48,12 @@ const routes = [
   ...plotRoutes,
   ...filesTestRoutes,
   ...foodSetRoutes,
+  ...fastApiRoutes,
+  ...accountTestRoutes,
+  ...authenticationTestRoutes,
+  ...afterLoginRoutes,
+  ...paymentRoutes,
+  ...chatRoutes,
 ];
 
 const router = new VueRouter({

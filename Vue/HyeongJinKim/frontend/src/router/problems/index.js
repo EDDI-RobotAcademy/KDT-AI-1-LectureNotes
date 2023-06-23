@@ -9,6 +9,8 @@ import VueHomeworkPage3Copy from "@/components/homework/problem3/VueHomeworkPage
 import VueHomeworkPage4 from "@/components/homework/problem4/VueHomeworkPage4.vue";
 import VueHomeworkPage5 from "@/views/homework/problem5/VueHomeworkPage5.vue";
 
+import CompositionProblemPage from "@/views/homework/composition/problem/CompositionProblemPage.vue"
+
 Vue.use(VueRouter);
 
 const problemRoutes = [
@@ -46,6 +48,11 @@ const problemRoutes = [
     path: "/vue-basic-probs",
     name: "VueBasicProbs",
     component: VueBasicProbs,
+  },
+  {
+    path: "/composition-problem-probs",
+    name: "CompositionProblemPage",
+    component: CompositionProblemPage,
   },
 ];
 export default problemRoutes;

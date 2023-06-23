@@ -30,6 +30,17 @@ public class FastApiServiceImpl implements FastApiService {
         log.info("result: " + result);
     }
 
+//    @Override
+//    public void stringRequest(String fastapiRequestUrl) {
+//        RestTemplate restTemplate = new RestTemplate();
+//
+//        String result = restTemplate.getForObject(
+//                fastapiRequestUrl,
+//                String.class);
+//
+//        log.info("result: " + result);
+//    }
+
     @Override
     public Integer integerRequest(String fastapiRequestUrl){
         RestTemplate restTemplate = new RestTemplate();

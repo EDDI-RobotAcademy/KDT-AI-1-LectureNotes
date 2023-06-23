@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+import random
 
 request_receiver = APIRouter()
 
@@ -10,4 +11,4 @@ async def receive_spring_data():
 
 @request_receiver.get("/request-int-data")
 async def request_integer_data():
-    return 3
+    return random.randrange(1, 10)

@@ -44,14 +44,15 @@ public class DBInitializer {
                     roleRepository.findAll().stream()
                             .map(Role::getRoleType)
                             .collect(Collectors.toSet());
-            for (RoleType type : RoleType.values()) {
+
+            for (RoleType type: RoleType.values()) {
                 if (!roles.contains(type)) {
                     final Role role = new Role(type);
                     roleRepository.save(role);
                 }
             }
         } catch (Exception e) {
-            log.error(e.getMessage(),e);
+            log.error(e.getMessage(), e);
         }
     }
 
