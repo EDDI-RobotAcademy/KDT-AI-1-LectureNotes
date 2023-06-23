@@ -19,7 +19,6 @@ const ReactQueryExecutor = () => {
       "https://api.github.com/repos/silenc3502/backend-for-aws-deploy-test"
     )
     .then((res) => res.data)
-    .catch((res) => res.data)
   )
 
   if (isLoading) return "로딩중 ........"
