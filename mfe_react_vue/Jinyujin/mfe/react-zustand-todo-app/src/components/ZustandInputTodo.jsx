@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
 import { useTodoStore } from '../zustand/store'
 
+// todo 입력 폼
 const ZustandInputTodo = () => {
     const [title, setTitle] = useState("")
     const [message, setMessage] = useState("")
+    // state를 사용하면 데이터가 자동으로 재렌더링 되어짐
 
     const addTodoItem = useTodoStore((state) => state.addTodoItem)
     const handleChange = (e) => {
@@ -15,6 +17,7 @@ const ZustandInputTodo = () => {
         e.preventDefault()
 
         if (title.trim()) {
+            // trim: 문자열 좌우에서 공백을 제거하는 함수
             addTodoItem(title)
             setTitle('')
             setMessage('')
@@ -34,7 +37,7 @@ const ZustandInputTodo = () => {
                     onChange={handleChange} />
                 <button>
                     <FaPlusCircle
-                        style={{ color: '', fontSize: '12px', marginTop: '2px' }} />
+                        style={{ color: '', fontSize: '10px', marginTop: '2px' }} />
                 </button>
             </form>
             <span>{message}</span>
