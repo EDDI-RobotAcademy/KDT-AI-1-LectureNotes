@@ -34,7 +34,7 @@ const ZustandTodoItem = ({ props }) => {
         <button onClick={() => deleteTodo(props.id)}>
           <FaTrash style={{ color: '', fontSize: '16px' }} />
         </button>
-        <span>
+        <span style={{ textDecoration: props.completed ? 'line-through' : 'none' }}>
           {props.title}
         </span>
       </div>
