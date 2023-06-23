@@ -58,7 +58,10 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "reactZustandTodoApp",
       filename: "remoteEntry.js",
-      exposes: {},
+      exposes: {
+        "./ZustandTodoAppBootStrap": './src/bootstrap.js',
+        './ZustandTodoApp': './src/TodoApp.jsx',
+      },
       shared: {
         ...deps,
         react: {

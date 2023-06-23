@@ -62,6 +62,7 @@ module.exports = (_, argv) => ({
         reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
         reactBoardApp: 'reactBoardApp@http://localhost:3004/remoteEntry.js',
         reactProductApp: 'reactProductApp@http://localhost:3005/remoteEntry.js',
+        reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3006/remoteEntry.js',
       },
       // remote app을 빌드하면 각각 app의 remoteEntry.js라는 파일이 생성됨
       // 그것이 호스트 앱인 containerApp에 각 remote app의 컨테이너를 최종 전달하는 것

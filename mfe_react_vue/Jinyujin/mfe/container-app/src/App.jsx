@@ -7,6 +7,7 @@ import Counter from 'reactModuleApp/Counter'
 import BoardApp from 'reactBoardApp/BoardApp'
 import { BrowserRouter } from 'react-router-dom'
 import ProductApp from "reactProductApp/ProductApp";
+import ZustandTodoApp from "reactZustandTodoApp/ZustandTodoApp"
 
 const App = () => {
   const vueRef = useRef(null)
@@ -40,6 +41,7 @@ const App = () => {
         -> position: relative로 해결
         이 속성을 사용하면 다른 요소들과 충돌을 피할 수 있음
       */}
+      <ZustandTodoApp />
     </div>
   )
 };
