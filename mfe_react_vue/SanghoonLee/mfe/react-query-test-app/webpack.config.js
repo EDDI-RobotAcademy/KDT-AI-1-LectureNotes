@@ -13,7 +13,7 @@ module.exports = (_, argv) => ({
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
-    port: 3005,
+    port: 3006,
     historyApiFallback: true,
     hot: true,
     headers: {
@@ -52,11 +52,11 @@ module.exports = (_, argv) => ({
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "reactZustandTodoApp",
+      name: "reactQueryTestApp",
       filename: "remoteEntry.js",
       exposes: {
-        './ZustandTodoAppBootstrap': './src/bootstrap.js',
-        './ZustandTodoApp': './src/TodoApp.jsx'
+        './ReactQueryTestAppBootstrap': './src/bootstrap.js',
+        './ReactQueryTest': './src/ReactQueryTestApp.jsx'
       },
       shared: {
         ...deps,
