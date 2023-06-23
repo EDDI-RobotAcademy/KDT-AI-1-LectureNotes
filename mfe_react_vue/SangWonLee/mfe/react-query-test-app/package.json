@@ -1,10 +1,10 @@
 {
-  "name": "react-board-app",
+  "name": "react-query-test-app",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build:start": "cd dist && PORT=3004 npx serve",
+    "build:start": "cd dist && PORT=3006 npx serve",
     "start": "webpack serve --open --mode development",
     "start:live": "webpack serve --open --mode development --live-reload --hot"
   },
@@ -21,11 +21,9 @@
     "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
-    "external-remotes-plugin": "^1.0.0",
     "html-webpack-plugin": "^5.3.2",
     "postcss": "^8.2.1",
     "postcss-loader": "^4.1.0",
-    "react-router-dom": "^6.13.0",
     "style-loader": "^3.3.0",
     "webpack": "^5.57.1",
     "webpack-cli": "^4.10.0",
