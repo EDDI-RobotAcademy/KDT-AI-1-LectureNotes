@@ -9,7 +9,8 @@
       "react-module-app",
       "react-board-app",
       "react-zustand-todo-app",
-      "react-product-app"
+      "react-product-app",
+      "react-query-test-app"
     ]
   },
   "scripts": {

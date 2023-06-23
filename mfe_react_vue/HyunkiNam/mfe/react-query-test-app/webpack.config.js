@@ -46,7 +46,7 @@ module.exports = (_, argv) => ({
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
-        options: { presets: ['@babel/env', '@babel/preset-react']},
+        options: { presets: ['@babel/env', '@babel/preset-react'] },
       },
     ],
   },
@@ -54,7 +54,10 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "reactQueryTestApp",
       filename: "remoteEntry.js",
-      exposes: {},
+      exposes: {
+        "./ReactQueryTestAppBootStrap": "./src/bootstrap.js",
+        "./ReactQueryTest": "./src/ReactQueryTestApp.jsx"
+      },
       shared: {
         ...deps,
         react: {
@@ -65,6 +68,10 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: deps["react-router-dom"]
+        }
       },
     }),
     new HtmlWebPackPlugin({

@@ -61,6 +61,7 @@ module.exports = (_, argv) => ({
         reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
         reactBoardApp: 'reactBoardApp@http://localhost:3004/remoteEntry.js',
         reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3005/remoteEntry.js',
+        reactQueryTestApp: 'reactQueryTestApp@http://localhost:3006/remoteEntry.js',
         reactProductApp: 'reactProductApp@http://localhost:3015/remoteEntry.js',
       },
       shared: {
