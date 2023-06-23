@@ -1,4 +1,3 @@
-const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
@@ -14,7 +13,7 @@ module.exports = (_, argv) => ({
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
-    port: 3004,
+    port: 3006,
     historyApiFallback: true,
     hot: true,
     headers: {
@@ -43,16 +42,21 @@ module.exports = (_, argv) => ({
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "babel-loader",
+        options: { presets: ['@babel/env', '@babel/preset-react']},
+      },
     ],
   },
-
   plugins: [
     new ModuleFederationPlugin({
-      name: "reactBoardApp",
+      name: "reactQueryTestApp",
       filename: "remoteEntry.js",
       exposes: {
-        './ReactBoard': './src/bootstrap.js',
-        './BoardApp': './src/BoardApp.jsx',
+        './ReactQueryTestAppBootstrap': './src/bootstrap.js',
+        './ReactQueryTest': './src/ReactQueryTestApp.jsx'
       },
       shared: {
         ...deps,
@@ -64,10 +68,6 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
-        "react-router-dom": {
-          singleton: true,
-          requiredVersion: deps["react-router-dom"]
-        }
       },
     }),
     new HtmlWebPackPlugin({
