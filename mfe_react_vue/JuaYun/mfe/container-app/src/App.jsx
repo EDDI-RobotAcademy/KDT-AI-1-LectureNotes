@@ -39,8 +39,8 @@ const App = () => {
         <BrowserRouter>
           <BoardApp/>
         </BrowserRouter>
+        <TodoApp/>
       </div>
-      <TodoApp/>
     </div>
   )
 };
