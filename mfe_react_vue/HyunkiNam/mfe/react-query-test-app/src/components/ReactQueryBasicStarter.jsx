@@ -8,18 +8,18 @@ export const ReactQueryBasicStarter = () => {
   return (
     // vuex actions의 역할의 컴포넌트들과 연결한다 보면 됨
     <QueryClientProvider client={queryClient}>
-      <ReactQueryExecutor/>
+      <ReactQueryExecutor />
     </QueryClientProvider>
   )
 }
 
 const ReactQueryExecutor = () => {
-  const { isLoading, error, data, isFetching } = useQuery("repoData", () => 
+  const { isLoading, error, data, isFetching } = useQuery("repoData", () =>
     axios.get(
-      "https://api.github.com/repos/silenc3502/backend-for-aws-deploy-test"
+      "https://api.github.com/repos/namhyunki/KDT-AI-1-LectureNotes"
     )
-    .then((res) => res.data)
-    .catch((res) => res.data)
+      .then((res) => res.data)
+      .catch((res) => res.data)
   )
 
   if (isLoading) return "로딩중 ........"
@@ -28,7 +28,7 @@ const ReactQueryExecutor = () => {
 
   return (
     <div>
-      <h1>{ data.name }</h1>
+      <h1>{data.name}</h1>
     </div>
   )
 }
