@@ -19,26 +19,26 @@ const ZustandTodoItem = ({ props }) => {
 
   const handleUpdatedDone = (event) => {
     if (event.key === 'Enter') {
-        setUpdate(editInputRef.current.value, props.id)
-        setEditing(false)
+      setUpdate(editInputRef.current.value, props.id)
+      setEditing(false)
     }
   }
 
   return (
     <li>
       <div>
-        <input type="checkbox" checked={props.completed} onChange={() => handleChange(props.id)}/>
+        <input type="checkbox" checked={props.completed} onChange={() => handleChange(props.id)} />
         <button onClick={handleEditing}>
-          <AiFillEdit style={{ color: '#64B5F6', fontSize: '16px' }}/>
+          <AiFillEdit style={{ color: '#64B5F6', fontSize: '16px' }} />
         </button>
         <button onClick={() => deleteTodo(props.id)}>
-          <FaTrash style={{ color: '', fontSize: '16px' }}/>
+          <FaTrash style={{ color: '', fontSize: '16px' }} />
         </button>
         <span>
-          { props.title }
+          {props.title}
         </span>
       </div>
-      <input type="text" ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone}/>
+      {editing && <input type="text" ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone} />}
     </li>
   )
 }

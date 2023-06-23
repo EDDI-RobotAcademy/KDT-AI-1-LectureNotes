@@ -46,7 +46,7 @@ module.exports = (_, argv) => ({
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
-        options: { presets: ['@babel/env', '@babel/preset-react']},
+        options: { presets: ['@babel/env', '@babel/preset-react'] },
       },
     ],
   },
@@ -54,7 +54,10 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "reactZustandTodoApp",
       filename: "remoteEntry.js",
-      exposes: {},
+      exposes: {
+        './ZustandTodoAppBootstrap': './src/bootstrap.js',
+        './ZustandTodoApp': './src/TodoApp.jsx'
+      },
       shared: {
         ...deps,
         react: {
