@@ -1,4 +1,3 @@
-const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotePlugin = require('external-remotes-plugin')
@@ -62,6 +61,7 @@ module.exports = (_, argv) => ({
         reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
         reactBoardApp: 'reactBoardApp@http://localhost:3004/remoteEntry.js',
         reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3005/remoteEntry.js',
+        reactProductApp: 'reactProductApp@http://localhost:3015/remoteEntry.js',
       },
       shared: {
         ...deps,

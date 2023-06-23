@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { BrowserRouter } from 'react-router-dom'
 
 // Vue Micro Frontend Apps
@@ -11,6 +11,7 @@ import { navigationMount } from 'vueNavigationApp/VueNavigation';
 import Counter from 'reactModuleApp/Counter';
 import BoardApp from 'reactBoardApp/BoardApp';
 import TodoApp from "reactZustandTodoApp/ZustandTodoApp";
+import ProductApp from 'reactProductApp/ProductApp';
 // React에 vue를 붙일 때는 실제 React와 vue의 동작이 다르기 때문에
 // React에 컴포넌트 형태로 붙이지 않고
 // bootstrap에서 실제 vue가 구동해서 그린 결과만 붙이기 위해 mount 계열 사용
@@ -40,9 +41,15 @@ const App = () => {
         <Counter />
         <BrowserRouter>
           <BoardApp />
+          <ProductApp />
         </BrowserRouter>
       </div>
       <TodoApp />
+      {/* <div style={{ position: 'relative' }}>
+        <BrowserRouter>
+          <ProductApp />
+        </BrowserRouter>
+      </div> */}
     </div>
   )
 };

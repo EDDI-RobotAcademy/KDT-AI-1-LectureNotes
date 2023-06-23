@@ -15,7 +15,8 @@ public class CorsConfig implements WebMvcConfigurer {
                         "http://localhost:3001",
                         "http://localhost:3004",
                         "http://localhost:3005",
-                        "http://localhost:3010") // 보안에서 vue는 허용하겠다.
+                        "http://localhost:3010",
+                        "http://localhost:3015") // 보안에서 vue는 허용하겠다.
                 .allowedMethods("GET", "POST", "PUT", "DELETE");
     }
 }
