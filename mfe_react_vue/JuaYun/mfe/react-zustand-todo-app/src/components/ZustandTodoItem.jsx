@@ -22,7 +22,7 @@ const ZustandTodoItem = ({ props }) => {
 
   // 사용안함
   const handleEditing = () => {
-    setEditing(true)
+    setEditing(!editing)
   }
 
   // 수정
@@ -37,18 +37,20 @@ const ZustandTodoItem = ({ props }) => {
     <li>
       <div>
         <input type="checkbox" checked={props.completed} onChange={() => handleChange(props.id)}/>
-        <button onClick={handleEditing}>
+        <span style={{ textDecoration: props.completed ? 'line-through' : 'none' }}>
+          {/* 체크박스를 눌렀을때 선이 생김 */}
+          { props.title }
+        </span>
+        <button onClick={(() => handleEditing(props.id))}>
           <AiFillEdit style={{ color: '#64B5F6', fontSize: '12px' }}/>
         </button>
-        <button onClick={() => deleteTodo(props.id)}>
+        <button onClick={(() => deleteTodo(props.id))}>
             {/* 삭제버튼 */}
           <FaTrash style={{ color: '', fontSize: '12px' }}/>
         </button>
-        <span>
-          { props.title }
-        </span>
       </div>
-      <input type='text' ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone}/>
+      {/* editing && 이렇게 설정해줘야 수정을 클릭하면 열리고 닫힘 */}
+      {editing && <input type='text' ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone}/>}
     </li>
   )
 }
