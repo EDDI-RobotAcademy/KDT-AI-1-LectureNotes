@@ -44,7 +44,7 @@ const ZustandTodoItem = ({ props }) => {
           { props.title }
         </span>
       </div>
-      <input type="text" ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone}/>
+      {editing == true && <input type="text" ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone}/>}
     </li>
   )
 }

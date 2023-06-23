@@ -61,6 +61,7 @@ module.exports = (_, argv) => ({
         vueNavigationApp: 'vueNavigationApp@http://localhost:3002/remoteEntry.js',
         reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
         reactBoardApp: 'reactBoardApp@http://localhost:3004/remoteEntry.js',
+        reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3006/remoteEntry.js'
       },
       shared: {
         ...deps,
