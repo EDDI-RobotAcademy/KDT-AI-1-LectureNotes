@@ -54,7 +54,10 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "reactQueryTestApp",
       filename: "remoteEntry.js",
-      exposes: {},
+      exposes: {
+        './ReactQueryTestAppBootstrap': './src/bootstrap.js',
+        './ReactQueryTest': './src/ReactQueryTestApp.jsx',
+      },
       shared: {
         ...deps,
         react: {
