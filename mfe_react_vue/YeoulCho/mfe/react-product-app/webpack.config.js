@@ -14,7 +14,7 @@ module.exports = (_, argv) => ({
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
-    port: 3004,
+    port: 3009,
     historyApiFallback: true,
     hot: true,
     headers: {
@@ -23,6 +23,7 @@ module.exports = (_, argv) => ({
       'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
     }
   },
+
   module: {
     rules: [
       {
@@ -48,11 +49,11 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "reactBoardApp",
+      name: "reactProductApp",
       filename: "remoteEntry.js",
       exposes: {
-        './ReactBoard': './src/bootstrap.js',
-        './BoardApp': './src/BoardApp.jsx',
+        './ReactProduct': './src/bootstrap.js',
+        './ProductApp': './src/ProductApp.jsx',
       },
       shared: {
         ...deps,

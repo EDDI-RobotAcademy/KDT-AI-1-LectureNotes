@@ -9,8 +9,8 @@ import BoardReadPage from "./page/BoardReadPage";
 import BoardModifyPage from "./page/BoardModifyPage";
 
 
-
-const App = () => {
+/* route 컴포넌트를 정의하고 렌더링을 하는 역할*/
+const BoardApp = () => {
   return(
   <>
     <Routes>
@@ -23,4 +23,4 @@ const App = () => {
   </>
 )};
 
-export { App }
+export default BoardApp
