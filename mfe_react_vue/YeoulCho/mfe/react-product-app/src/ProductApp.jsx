@@ -9,7 +9,7 @@ import ProductModifyPage from "./page/ProductModifyPage";
 import ProductReadPage from "./page/ProductReadPage"
 
 /* route 컴포넌트를 정의하고 렌더링을 하는 역할*/
-const App = () => {
+const ProductApp = () => {
   return(
   <>
     <Routes>
@@ -22,4 +22,4 @@ const App = () => {
   </>
 )};
 
-export { App }
+export default ProductApp

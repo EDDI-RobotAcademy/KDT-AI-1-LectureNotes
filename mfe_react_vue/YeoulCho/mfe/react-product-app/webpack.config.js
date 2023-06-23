@@ -16,6 +16,12 @@ module.exports = (_, argv) => ({
   devServer: {
     port: 3009,
     historyApiFallback: true,
+    hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
+    }
   },
 
   module: {
@@ -43,10 +49,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "react_product_app",
+      name: "reactProductApp",
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      exposes: {
+        './ReactProduct': './src/bootstrap.js',
+        './ProductApp': './src/ProductApp.jsx',
+      },
       shared: {
         ...deps,
         react: {
@@ -57,6 +65,10 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: deps["react-router-dom"]
+        }
       },
     }),
     new HtmlWebPackPlugin({
