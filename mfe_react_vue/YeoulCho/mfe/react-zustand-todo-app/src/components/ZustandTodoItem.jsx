@@ -19,7 +19,7 @@ const ZustandTodoItem = ({ props }) => {
   const editInputRef = useRef(null)
 
   const handleEditing = () => {
-    setEditing(true)
+    setEditing(!editing)
   }
 
   const handleUpdatedDone = (event) => {
@@ -43,9 +43,9 @@ const ZustandTodoItem = ({ props }) => {
           { props.title }
         </span>
       </div>
-      <input type="text" ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone}/>
+      {editing && <input type="text" ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone}/>}
     </li>
   )
-}
+  }
 
 export default ZustandTodoItem
