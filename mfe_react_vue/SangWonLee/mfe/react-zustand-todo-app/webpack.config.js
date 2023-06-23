@@ -1,11 +1,11 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
+const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
 
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
-  mode: "development",
-  entry: "./src/index",
+  mode: 'development',
+  entry: './src/index',
   output: {
     publicPath: "auto",
   },
@@ -17,11 +17,10 @@ module.exports = (_, argv) => ({
     historyApiFallback: true,
     hot: true,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers":
-        "X-Requested-With, content-type, Authroization",
-    },
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
+    }
   },
   module: {
     rules: [
@@ -47,7 +46,7 @@ module.exports = (_, argv) => ({
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
-        options: { presets: ["@babel/env", "@babel/preset-react"] },
+        options: { presets: ['@babel/env', '@babel/preset-react']},
       },
     ],
   },
@@ -56,8 +55,8 @@ module.exports = (_, argv) => ({
       name: "reactZustandTodoApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./ZustandTodoAppBootstrap": "./src/bootstrap.js",
-        "./ZustandTodoApp": "./src/TodoApp.jsx",
+        './ZustandTodoAppBootstrap': './src/bootstrap.js',
+        './ZustandTodoApp': './src/TodoApp.jsx'
       },
       shared: {
         ...deps,
@@ -73,7 +72,7 @@ module.exports = (_, argv) => ({
     }),
     new HtmlWebPackPlugin({
       template: "./public/index.html",
-      chunks: ["main"],
+      chunks: ['main'],
     }),
     new ExternalTemplateRemotesPlugin(),
   ],

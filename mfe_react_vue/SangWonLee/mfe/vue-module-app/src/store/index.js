@@ -1,11 +1,11 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex'
 
-import boardModule from "./board/BoardModule";
+import boardModule from './board/BoardModule'
 
 export default createStore({
-  modules: {
-    boardModule,
-  },
+    modules: {
+        boardModule,
+    },
 });
 
 export { boardModule };

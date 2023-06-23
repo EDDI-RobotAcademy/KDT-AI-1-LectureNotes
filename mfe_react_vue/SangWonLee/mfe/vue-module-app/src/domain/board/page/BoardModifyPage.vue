@@ -9,7 +9,9 @@
 <script>
 import BoardModifyForm from '../components/BoardModifyForm.vue'
 import { mapActions, mapState } from 'vuex';
+
 const boardModule = 'boardModule'
+
 export default {
     components: {
         BoardModifyForm,
@@ -27,9 +29,10 @@ export default {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestBoardModifyToSpring']
         ),
-        async onSubmit(payload) {
+        async onSubmit (payload) {
             const { title, content, writer } = payload
             const boardId = this.boardId
+
             await this.requestBoardModifyToSpring({ title, content, writer, boardId })
             await this.$router.push({
                 name: 'BoardReadPage',
@@ -37,7 +40,7 @@ export default {
             })
         }
     },
-    created() {
+    created () {
         this.requestBoardToSpring(this.boardId)
     }
 }

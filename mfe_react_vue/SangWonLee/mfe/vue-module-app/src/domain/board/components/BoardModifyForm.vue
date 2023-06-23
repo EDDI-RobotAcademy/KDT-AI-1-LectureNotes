@@ -53,7 +53,7 @@ export default {
             required: true,
         }
     },
-    data() {
+    data () {
         return {
             title: '',
             content: '',
@@ -61,14 +61,14 @@ export default {
             createDate: '',
         }
     },
-    created() {
+    created () {
         this.title = this.board.title
         this.content = this.board.content
         this.writer = this.board.writer
         this.createDate = this.board.createDate
     },
     methods: {
-        onSubmit() {
+        onSubmit () {
             const { title, content, writer } = this
             this.$emit('submit', { title, content, writer })
         }

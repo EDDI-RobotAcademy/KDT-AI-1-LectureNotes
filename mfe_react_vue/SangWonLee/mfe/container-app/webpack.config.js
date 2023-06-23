@@ -1,15 +1,15 @@
-const path = require("path");
+const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const ExternalTemplateRemotePlugin = require("external-remotes-plugin");
+const ExternalTemplateRemotePlugin = require('external-remotes-plugin')
 
-const deps = require("./package.json").dependencies;
+const deps = require("./package.json").dependencies
 
 module.exports = (_, argv) => ({
   mode: "development",
   entry: "./src/index",
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
   },
   devServer: {
     //static: path.join(__dirname, 'dist'),
@@ -17,7 +17,7 @@ module.exports = (_, argv) => ({
     historyApiFallback: true,
   },
   output: {
-    publicPath: "auto",
+    publicPath: 'auto',
   },
   module: {
     rules: [
@@ -37,7 +37,7 @@ module.exports = (_, argv) => ({
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-        },
+        }
       },
       // {
       //   test: /\.jsx?$/,
@@ -58,14 +58,12 @@ module.exports = (_, argv) => ({
       name: "containerApp",
       remotes: {
         // vueModuleApp은 Vue Counter App과 Vue Board App이 합쳐져 있음
-        vueModuleApp: "vueModuleApp@http://localhost:3001/remoteEntry.js",
-        vueNavigationApp:
-          "vueNavigationApp@http://localhost:3002/remoteEntry.js",
+        vueModuleApp: 'vueModuleApp@http://localhost:3001/remoteEntry.js',
+        vueNavigationApp: 'vueNavigationApp@http://localhost:3002/remoteEntry.js',
         // reactModuleApp은 사실상 React Counter App임
-        reactModuleApp: "reactModuleApp@http://localhost:3003/remoteEntry.js",
-        reactBoardApp: "reactBoardApp@http://localhost:3004/remoteEntry.js",
-        reactZustandTodoApp:
-          "reactZustandTodoApp@http://localhost:3005/remoteEntry.js",
+        reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
+        reactBoardApp: 'reactBoardApp@http://localhost:3004/remoteEntry.js',
+        reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3005/remoteEntry.js',
       },
       shared: {
         ...deps,
@@ -78,9 +76,9 @@ module.exports = (_, argv) => ({
           requiredVersion: deps["react-dom"],
         },
         "react-router-dom": {
-          singleton: true,
-        },
-      },
+          singleton: true
+        }
+      }
     }),
   ],
 });

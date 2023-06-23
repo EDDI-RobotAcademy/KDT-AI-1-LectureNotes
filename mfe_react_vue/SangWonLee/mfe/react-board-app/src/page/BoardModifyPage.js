@@ -1,45 +1,45 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import * as axiosClient from "../api/board";
-import BoardModifyForm from "../components/BoardModifyForm";
+import React, { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import * as axiosClient from "../api/board"
+import BoardModifyForm from '../components/BoardModifyForm'
 
-const BoardModifyPage = () => {
-  const { boardId } = useParams();
+const BoardModifyPage = ({ match, history }) => {
+  const { boardId } = useParams()
 
-  const [board, setBoard] = useState(null);
-  const [isLoading, setLoading] = useState(false);
+  const [board, setBoard] = useState(null)
+  const [isLoading, setLoading] = useState(false)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const onModify = async (boardId, title, content, writer) => {
     try {
-      await axiosClient.modifyBoard(boardId, title, content, writer);
-      alert("게시물이 성공적으로 수정되었습니다!");
-      navigate("/read/" + boardId);
+      await axiosClient.modifyBoard(boardId, title, content, writer)
+      alert('게시물이 성공적으로 수정되었습니다!')
+      navigate("/read/" + boardId)
     } catch (e) {
-      console.log(e);
+      console.log(e)
     }
-  };
+  }
 
   const readBoard = async (boardId) => {
-    setLoading(true);
+    setLoading(true)
 
     try {
-      const response = await axiosClient.fetchBoard(boardId);
-      setBoard(response.data);
-      setLoading(false);
+      const response = await axiosClient.fetchBoard(boardId)
+      setBoard(response.data)
+      setLoading(false)
     } catch (e) {
-      throw e;
+      throw e
     }
-  };
+  }
 
   useEffect(() => {
-    readBoard(boardId);
-  }, [boardId]);
+    readBoard(boardId)
+  }, [boardId])
 
   return (
-    <BoardModifyForm board={board} isLoading={isLoading} onModify={onModify} />
-  );
-};
+    <BoardModifyForm board={board} isLoading={isLoading} onModify={onModify}/>
+  )
+}
 
-export default BoardModifyPage;
+export default BoardModifyPage

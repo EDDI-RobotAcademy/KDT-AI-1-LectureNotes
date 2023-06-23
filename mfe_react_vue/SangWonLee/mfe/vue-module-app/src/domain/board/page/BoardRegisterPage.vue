@@ -20,9 +20,9 @@ export default {
         ...mapActions(
             boardModule, ['requestCreateBoardToSpring']
         ),
-        async onSubmit(payload) {
+        async onSubmit (payload) {
             const board = await this.requestCreateBoardToSpring(payload)
-            console.log('typeof(board): ' + typeof (board))
+            console.log('typeof(board): ' + typeof(board))
             console.log('board: ' + JSON.stringify(board))
             await this.$router.push({
                 name: 'BoardReadPage',
