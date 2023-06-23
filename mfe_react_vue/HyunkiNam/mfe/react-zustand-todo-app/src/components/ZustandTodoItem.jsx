@@ -14,7 +14,7 @@ const ZustandTodoItem = ({ props }) => {
   const editInputRef = useRef(null)
 
   const handleEditing = () => {
-    setEditing(true)
+    setEditing(!editing)
   }
 
   const handleUpdatedDone = (event) => {
