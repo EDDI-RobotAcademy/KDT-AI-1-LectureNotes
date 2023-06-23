@@ -18,7 +18,6 @@ const ReactQueryExecutor = () => {
     axios
       .get("https://api.github.com/repos/bbbii/algorithm-for-coding-test")
       .then((res) => res.data)
-      .catch((res) => res.data)
   );
 
   if (isLoading) return "로딩중...";
