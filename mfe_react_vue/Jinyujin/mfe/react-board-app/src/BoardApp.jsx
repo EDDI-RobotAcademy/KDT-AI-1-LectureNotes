@@ -11,7 +11,7 @@ import BoardRegisterPage from './page/BoardRegisterPage'
 import BoardReadPage from './page/BoardReadPage'
 import BoardModifyPage from './page/BoardModifyPage'
 
-const App = () => {
+const BoardApp = () => {
   return (
     <>
       <Routes>
@@ -24,4 +24,4 @@ const App = () => {
   )
 };
 // /:boardId 이렇게 하면 Vue랑 똑같이 가변인자로 사용 가능
-export { App }
+export default BoardApp

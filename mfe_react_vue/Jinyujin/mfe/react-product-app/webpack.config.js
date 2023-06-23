@@ -15,7 +15,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 3004,
+    port: 3005,
     historyApiFallback: true,
     hot: true,
     headers: {
@@ -50,11 +50,11 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "reactBoardApp", // 여기 이름과 exposes에서 지을 이름 헷갈리게 짓지 말기
+      name: "reactProductApp",
       filename: "remoteEntry.js",
-      exposes: { 
-        './ReactBoard': './src/bootstrap.js',
-        './BoardApp': './src/BoardApp.jsx',
+      exposes: {
+        './ReactProduct': './src/bootstrap.js',
+        './ProductApp': './src/ProductApp.jsx',
       },
       shared: {
         ...deps,
