@@ -47,10 +47,10 @@ export default {
             }
 
             const board = await this.requestCreateBoardToSpring(payload)
-            // await this.$router.push({
-            //     name: 'VuetifyBoardRead',
-            //     params: { boardId: board.boardId.toString() }
-            // })
+            await this.$router.push({
+                name: 'VuetifyBoardRead',
+                params: { boardId: board.boardId.toString() }
+            })
         },
         onCancel () {
             this.$router.go(-1)

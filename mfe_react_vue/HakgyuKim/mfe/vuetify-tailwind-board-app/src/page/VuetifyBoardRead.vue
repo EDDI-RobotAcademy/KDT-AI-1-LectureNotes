@@ -20,10 +20,16 @@
           </v-col>
         </v-row>
         <v-row justify="end">
-          <v-col cols="12" style="text-align: right">
-            <v-btn class="ml-2" color="primary" @click="onSubmit">수정하기</v-btn>
-            <v-btn class="ml-2" color="error" @click="onSubmit">삭제</v-btn>
-            <v-btn class="ml-2" color="secondary" @click="onCancel">돌아가기</v-btn>
+          <v-col cols="auto">
+            <v-btn color="primary" @click="onModify">수정하기</v-btn>
+          </v-col>
+          <v-col cols="auto">
+            <v-btn color="error" @click="onDelete">삭제</v-btn>
+          </v-col>
+          <v-col cols="auto">
+            <router-link :to="{ name: 'VuetifyBoardList' }">
+              <v-btn color="secondary">돌아가기</v-btn>
+            </router-link>
           </v-col>
         </v-row>
       </v-card-text>
@@ -49,10 +55,11 @@ export default {
   },
   methods: {
     ...mapActions(
-        boardModule, ['requestBoardToSpring']
+        boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
     ),
     async onDelete () {
-
+        await this.requestDeleteBoardToSpring(this.boardId)
+        await this.$router.push({ name: 'VuetifyBoardList' })
     }
   },
   created () {
