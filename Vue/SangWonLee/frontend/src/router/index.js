@@ -16,6 +16,7 @@ import defaultSetRoutes from "./defaultRouterSet";
 import d3PlotTestRoutes from "./d3plot";
 import filesTestRoutes from "./files";
 import foodSetRoutes from "./food";
+import chatRoutes from "./chat";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,7 @@ const routes = [
   ...d3PlotTestRoutes,
   ...filesTestRoutes,
   ...foodSetRoutes,
+  ...chatRoutes,
 ];
 
 const router = new VueRouter({
