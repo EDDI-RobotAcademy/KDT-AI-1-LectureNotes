@@ -13,22 +13,24 @@ import * as labsComponents from 'vuetify/labs/components'
 import { createVuetify, VuetifyOptions } from "vuetify/lib/framework.mjs"
 
 // for use(storeModule)
-// import boardModule from './store/index'
+import boardModule from './store/index'
 
 import router from './router'
 
 const vuetifyTailwindBoardAppMount = (el: string | Element) => {
+  loadFonts().then(() => {
     const vuetify = createVuetify({
-        components: {
-            ...components,
-            ...labsComponents
-        },
-        directives: {
-            ...directives
-        }
+      components: {
+        ...components,
+        ...labsComponents
+      },
+      directives: {
+        ...directives
+      }
     })
-    const app = createApp(App).use(vuetify).use(router)
+    const app = createApp(App).use(vuetify).use(router).use(boardModule)
     app.mount(el)
+  })
 };
 
 const root = document.querySelector('#vuetify-tailwind-board-app')
