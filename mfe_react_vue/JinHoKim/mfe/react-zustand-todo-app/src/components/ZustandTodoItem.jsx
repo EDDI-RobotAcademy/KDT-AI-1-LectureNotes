@@ -14,7 +14,7 @@ const ZustandTodoItem = ({ props }) => {
   const editInputRef = useRef(null)
 
   const handleEditing = () => {
-    setEditing(true)
+    setEditing(!editing)
   }
 
   const handleUpdatedDone = (event) => {
@@ -34,11 +34,11 @@ const ZustandTodoItem = ({ props }) => {
         <button onClick={() => deleteTodo(props.id)}>
           <FaTrash style={{ color: '', fontSize: '16px' }}/>
         </button>
-        <span>
+        <span style={{textDecoration: props.completed ? 'line-through' : 'none'}}>
           { props.title }
         </span>
       </div>
-      <input type="text" ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone}/>
+      {editing && <input type="text" ref={editInputRef} defaultValue={props.title} onKeyDown={handleUpdatedDone} />}
     </li>
   )
 }
