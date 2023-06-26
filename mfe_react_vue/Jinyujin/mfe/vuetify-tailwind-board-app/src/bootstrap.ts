@@ -13,33 +13,39 @@ import * as labsComponents from 'vuetify/labs/components'
 import { createVuetify, VuetifyOptions } from "vuetify/lib/framework.mjs";
 
 // for use(storeModule)
-// import board@Module from './store/index'
 
 import router from './router'
+import boardModule from "./store/index";
 
 // vuetifyTailwindBoardAppMount함수는 el파라미터로 문자열이나 Element 객체를 받아와서 실행
 // Element 객체란?
-// 좀 어려운데 문서상의 각각의 태그(엘리먼트)의 내용들을 추상화한 객체 - 쌤한테 물어보기
+// 좀 어려운데 문서상의 각각 요소(element)의 내용들을 추상화한 객체 
 const vuetifyTailwindBoardAppMount = (el: string | Element) => {
     const vuetify = createVuetify({
         // createVuetify 함수를 사용하여 vuetify 객체 생성
         components: {
             ...components,
             ...labsComponents
+            // 여기서 ...은 맵핑시켜주는 것 
+            // 이렇게하면 components의 요소들 + labsComponents의 요소들이 
+            // 한꺼번에 상위 components의 요소가 된다 
         },
         directives: {
             ...directives
         }
     })
 
-    const app = createApp(App).use(vuetify).use(router)
+    const app = createApp(App).use(vuetify).use(boardModule).use(router)
     // createApp 함수를 사용하여 Vue 애플리케이션 객체 생성
     app.mount(el)
-    // 생성한 애플리케이션 객체에 
+    // 생성한 애플리케이션 객체를 mount함
 };
 
 const root = document.querySelector('#vuetify-tailwind-board-app')
+// querySelector: id가 vuetify-tailwind-board-app인 요소를 찾음
 
 if (root) { vuetifyTailwindBoardAppMount(root) }
+// root 요소가 존재한다면 vuetifyTailwindBoardAppMount함수를 실행
 
 export { vuetifyTailwindBoardAppMount }
+// vuetifyTailwindBoardAppMount 함수를 외부에서 사용할 수 있도록 export함
