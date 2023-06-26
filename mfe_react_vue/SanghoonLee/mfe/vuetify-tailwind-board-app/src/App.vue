@@ -10,6 +10,10 @@
 import { defineComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
+import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/dist/vuetify.min.css'
+import 'vuetify/styles'
+
 export default defineComponent({
   name: 'App',
 
