@@ -47,10 +47,10 @@
               }
   
               const board = await this.requestCreateBoardToSpring(payload)
-              // await this.$router.push({
-              //     name: 'VuetifyBoardRead',
-              //     params: { boardId: board.boardId.toString() }
-              // })
+              await this.$router.push({
+                  name: 'VuetifyBoardRead',
+                  params: { boardId: board.boardId.toString() }
+              })
           },
           onCancel () {
               // 입력한 숫자에 따라 뒤로가기 2번, 3번 등등의 역할을 수행하게 만들 수 있음
