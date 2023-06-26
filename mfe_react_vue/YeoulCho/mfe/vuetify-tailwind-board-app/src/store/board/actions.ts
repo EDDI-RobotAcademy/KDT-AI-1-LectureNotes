@@ -15,6 +15,7 @@ export type BoardActions = {
         title: string, content: string, writer:string
     }): Promise<AxiosResponse> 
     // commit할 때 context, commit 안할꺼아 unknown
+    requestDeleteBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void>
 }
 
 const actions: BoardActions = {
@@ -46,7 +47,17 @@ const actions: BoardActions = {
             alert('requestCreateBoardToSpring() 문제 발생')
             throw error
         }
+    },
+    async requestDeleteBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void>{
+        try{
+            await axiosInst.springAxiosInst.delete(`jpa-board/${boardId}`)
+            alert('삭제 성공')
+        }catch(error){
+            alert('requestDeleteBoardToSpring() 문제 발생')
+            throw error
+        }
     }
+    
 
 }
 export default actions
