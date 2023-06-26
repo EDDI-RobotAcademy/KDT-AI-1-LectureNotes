@@ -2,7 +2,9 @@
     <v-container>
       <h2>안녕 Vue3 TypeScript 기반 Board App이야</h2>
       <div style="text-align: left; margin: 15px;">
+        <router-link :to="{ name: 'VuetifyBoardRegister' }">
         게시물 작성
+      </router-link>
       </div>
       <v-data-table
           v-model:items-per-page="perPage"
