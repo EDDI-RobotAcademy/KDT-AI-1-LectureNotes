@@ -2,11 +2,14 @@ import { ActionContext } from "vuex";
 import { BoardState, Board } from "./states";
 import { REQUEST_BOARD_LIST_TO_SPRING, REQUEST_BOARD_TO_SPRING } from "./mutation-types";
 import axiosInst from "../../utility/axiosInstance";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 
 export type BoardActions = {
-  requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): void;
-  requestBoardListToSpring(context: ActionContext<BoardState, any>): void;
+  requestBoardToSpring(
+    context: ActionContext<BoardState, any>,
+    boardId: number
+  ): Promise<void>;
+  requestBoardListToSpring(context: ActionContext<BoardState, any>): Promise<void>;
   requestCreateBoardToSpring(
     context: ActionContext<BoardState, unknown>,
     payload: {
@@ -18,6 +21,15 @@ export type BoardActions = {
   requestDeleteBoardToSpring(
     context: ActionContext<BoardState, any>,
     boardId: number
+  ): Promise<void>;
+  requestModifyBoardToSpring(
+    context: ActionContext<BoardState, any>,
+    payload: {
+      title: string;
+      content: string;
+      writer: string;
+      boardId: number;
+    }
   ): Promise<void>;
 };
 
@@ -33,6 +45,7 @@ const actions: BoardActions = {
       context.commit(REQUEST_BOARD_TO_SPRING, res.data);
     } catch (error) {
       alert("requestBoardToSpring() 문제 발생!");
+      throw error;
     }
   },
   async requestBoardListToSpring(context: ActionContext<BoardState, any>): Promise<void> {
@@ -43,7 +56,8 @@ const actions: BoardActions = {
       const data: Board[] = res.data;
       context.commit(REQUEST_BOARD_LIST_TO_SPRING, data);
     } catch (error) {
-      console.error(error);
+      console.error("requestBoardListToSpring(): " + error);
+      throw error;
     }
   },
   async requestCreateBoardToSpring(
@@ -72,11 +86,35 @@ const actions: BoardActions = {
   ): Promise<void> {
     try {
       await axiosInst.springAxiosInst.delete(`/jpa-board/${boardId}`);
-      alert("삭제 성공");
+      alert("삭제 성공!");
     } catch (error) {
       alert("requestDeleteBoardToSpring() 문제 발생");
       throw error;
     }
   },
+  async requestModifyBoardToSpring(
+    context: ActionContext<BoardState, any>,
+    payload: {
+      title: string;
+      content: string;
+      writer: string;
+      boardId: number;
+    }
+  ): Promise<void> {
+    const { title, content, writer, boardId } = payload;
+
+    try {
+      await axiosInst.springAxiosInst.put(`/jpa-board/${boardId}`, {
+        title,
+        content,
+        writer,
+      });
+      alert("수정 성공!");
+    } catch (error) {
+      alert("requestModifyBoardToSpring() 문제 발생");
+      throw error;
+    }
+  },
 };
+
 export default actions;

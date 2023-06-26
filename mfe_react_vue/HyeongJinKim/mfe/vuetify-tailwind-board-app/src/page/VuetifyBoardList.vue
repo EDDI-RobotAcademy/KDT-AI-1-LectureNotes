@@ -65,7 +65,7 @@ export default {
         },
         { title: "제목", align: "end", key: "title" },
         { title: "작성자", align: "end", key: "writer" },
-        { title: "작성일자", align: "end", key: "createaDate" },
+        { title: "작성일자", align: "end", key: "createDate" },
       ],
       perPage: 5,
       pagination: {
