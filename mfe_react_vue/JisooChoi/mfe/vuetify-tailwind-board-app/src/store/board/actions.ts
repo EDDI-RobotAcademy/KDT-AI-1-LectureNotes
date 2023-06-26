@@ -14,6 +14,9 @@ export type BoardActions = {
         title: string, content: string, writer: string
     }):Promise<AxiosResponse>
     requestDeleteBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void>
+    requestModifyBoardToSpring(context: ActionContext<BoardState, any>, payload: {
+        title: string, content: string, writer: string, boardId: number
+    }): Promise<void>
 }
 
 const actions: BoardActions = {
@@ -55,6 +58,18 @@ const actions: BoardActions = {
             alert('삭제 성공!')
         } catch (error) {
             alert('requestDeleteBoardToSpring() 문제발생')
+            throw error
+        }
+    },
+    async requestModifyBoardToSpring(context: ActionContext<BoardState, any>, payload: {
+        title: string, content: string, writer: string, boardId: number
+    }): Promise<void> {
+        const {title, content, writer, boardId} = payload
+
+        try {
+            await axiosInst.springAxiosInst.put(`/jpa-board/${boardId}`, {title, content, writer})
+        } catch (error) {
+            alert('requestModifyBoardToSpring() 문제발생')
             throw error
         }
     }
