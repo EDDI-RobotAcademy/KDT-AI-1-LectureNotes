@@ -2,7 +2,7 @@ import { ActionContext } from "vuex";
 import { BoardState, Board } from "./states";
 import { REQUEST_BOARD_LIST_TO_SPRING, REQUEST_BOARD_TO_SPRING } from "./mutation-types";
 import axiosInst from "../../utility/axiosInstance";
-import { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 
 export type BoardActions = {
   requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): void;
@@ -15,6 +15,10 @@ export type BoardActions = {
       writer: string;
     }
   ): Promise<AxiosResponse>;
+  requestDeleteBoardToSpring(
+    context: ActionContext<BoardState, any>,
+    boardId: number
+  ): Promise<void>;
 };
 
 const actions: BoardActions = {
@@ -59,6 +63,18 @@ const actions: BoardActions = {
       return res.data;
     } catch (error) {
       alert("requestCreateBoardToSpring() 문제 발생");
+      throw error;
+    }
+  },
+  async requestDeleteBoardToSpring(
+    context: ActionContext<BoardState, any>,
+    boardId: number
+  ): Promise<void> {
+    try {
+      await axiosInst.springAxiosInst.delete(`/jpa-board/${boardId}`);
+      alert("삭제 성공");
+    } catch (error) {
+      alert("requestDeleteBoardToSpring() 문제 발생");
       throw error;
     }
   },
