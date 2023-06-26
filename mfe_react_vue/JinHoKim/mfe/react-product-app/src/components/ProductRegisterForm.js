@@ -57,4 +57,4 @@ const ProductRegisterForm = ({ onRegister }) => {
   )
 }
 
-export default BoardRegisterForm
+export default ProductRegisterForm
