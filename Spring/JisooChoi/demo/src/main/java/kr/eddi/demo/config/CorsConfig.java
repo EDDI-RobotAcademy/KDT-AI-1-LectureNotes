@@ -19,6 +19,7 @@ public class CorsConfig implements WebMvcConfigurer {
                         "http://localhost:3004", // 리액트 게시판
                         "http://localhost:3005", // 주스탠드
                         "http://localhost:3006",
+                        "http://localhost:3007",
                         "http://localhost:3010", // 혼자 실습 시작
                         "http://localhost:3011"
 //                        "http://192.168.20.3:8080/"
