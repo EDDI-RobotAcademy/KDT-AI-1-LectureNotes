@@ -1,6 +1,25 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "build": "lerna run build",
+    "start": "lerna run --parallel start"
+  },
+  "dependencies": {
+    "@mdi/font": "5.9.55",
+    "roboto-fontface": "*",
+    "vuetify": "^3.0.0-beta.0",
+    "vuex": "^3.6.2",
+    "webfontloader": "^1.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "custom-event-polyfill": "^1.0.7",
+    "external-remotes-plugin": "^1.0.0",
+    "lerna": "^7.0.1",
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
+  },
   "workspaces": {
     "packages": [
       "container-app",
@@ -12,14 +31,5 @@
       "react-product-app",
       "react-query-test-app"
     ]
-  },
-  "scripts": {
-    "start": "lerna run --parallel start",
-    "build": "lerna run build"
-  },
-  "devDependencies": {
-    "custom-event-polyfill": "^1.0.7",
-    "external-remotes-plugin": "^1.0.0",
-    "lerna": "^7.0.1"
   }
 }
