@@ -9,6 +9,9 @@ import { AxiosResponse } from 'axios'
 
 export type BoardActions = {
     requestBoardListToSpring(context: ActionContext<BoardState, any>): void
+    requestCreateBoardToSpring(context: ActionContext<BoardState, unknown>, payload: {
+        title: string, content: string, writer: string
+    }): Promise<AxiosResponse>
 }
 
 const actions: BoardActions = {
@@ -20,7 +23,21 @@ const actions: BoardActions = {
         } catch (error) {
             console.error(error)
         }
-    }
+    },
+    async requestCreateBoardToSpring(context: ActionContext<BoardState, unknown>, payload: {
+        title: string, content: string, writer: string
+        }): Promise<AxiosResponse> {
+
+        const { title, content, writer } = payload
+
+        try {
+            const res: AxiosResponse = await axiosInst.springAxiosInst.post('/jpa-board/register', { title, content, writer })
+            return res.data
+        } catch (error) {
+            alert('requestCreateBoardToSpring() 문제 발생')
+            throw error
+        }
+    },
 }
 
 export default actions
