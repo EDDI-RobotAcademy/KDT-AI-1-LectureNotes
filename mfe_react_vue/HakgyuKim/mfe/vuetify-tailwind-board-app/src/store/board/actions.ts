@@ -8,12 +8,15 @@ import axiosInst from '../../utility/axiosInstance'
 import { AxiosResponse } from 'axios'
 
 export type BoardActions = {
-    requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): void
-    requestBoardListToSpring(context: ActionContext<BoardState, any>):void
+    requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void>
+    requestBoardListToSpring(context: ActionContext<BoardState, any>): Promise<void>
     requestCreateBoardToSpring(context: ActionContext<BoardState, unknown>, payload: {
         title: string, content: string, writer: string
     }): Promise<AxiosResponse>
     requestDeleteBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void>
+    requestModifyBoardToSpring(context: ActionContext<BoardState, any>, payload: {
+        title: string, content: string, writer: string, boardId: number
+    }): Promise<void>
 }
 
 const actions: BoardActions = {
@@ -54,6 +57,20 @@ const actions: BoardActions = {
             alert('삭제 성공!')
         } catch (error) {
             alert('requestDeleteBoardToSpring() 문제 발생')
+            throw error
+        }
+    },
+    async requestModifyBoardToSpring(context: ActionContext<BoardState, any>, payload: {
+        title: string, content: string, writer: string, boardId: number
+    }): Promise<void> {
+
+        const { title, content, writer, boardId } = payload
+
+        try {
+            await axiosInst.springAxiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
+            alert('수정 성공!')
+        } catch (error) {
+            alert('requestModifyBoardToSpring() 문제 발생')
             throw error
         }
     },
