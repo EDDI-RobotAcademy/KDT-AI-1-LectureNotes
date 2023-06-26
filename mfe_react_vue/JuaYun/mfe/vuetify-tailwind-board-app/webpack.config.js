@@ -15,11 +15,12 @@ module.exports = (_, argv) => ({
   target: 'web',
   entry: path.resolve(__dirname, './src/index'),
   output: {
-    publicPath: "http://localhost:3007/",
+    publicPath: "auto",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"],
   },
+  
   module: {
     rules: [
       {
@@ -64,6 +65,7 @@ module.exports = (_, argv) => ({
       }
     ],
   },
+
   plugins: [
     new DefinePlugin({
       __VUE_OPTIONS_API__: true,
@@ -77,6 +79,7 @@ module.exports = (_, argv) => ({
       name: "vuetifyTailwindBoardApp",
       filename: "remoteEntry.js",
       exposes: {
+        
       },
       shared: require("./package.json").dependencies,
     }),
