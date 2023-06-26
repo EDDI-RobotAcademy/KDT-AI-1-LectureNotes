@@ -23,12 +23,9 @@
     </v-row>
   </v-container>
 </template>
-
 <script>
 import { mapActions } from "vuex";
-
 const boardModule = "boardModule";
-
 export default {
   data() {
     return {
@@ -45,12 +42,11 @@ export default {
         writer: this.writer,
         content: this.content,
       };
-
-      const board = await this.requestCreateBoardToSpring;
-      //   await this.$router.push({
-      //     name: "VuetifyBoardRead",
-      //     params: { boardId: board.boardId.toString() },
-      //   });
+      const board = await this.requestCreateBoardToSpring(payload);
+      await this.$router.push({
+        name: "VuetifyBoardRead",
+        params: { boardId: board.boardId.toString() },
+      });
     },
     onCancel() {
       // 입력한 숫자에 따라 뒤로가기 2번, 3번 등등의 역할을 수행하게 만들 수 있음
@@ -59,5 +55,4 @@ export default {
   },
 };
 </script>
-
 <style lang=""></style>
