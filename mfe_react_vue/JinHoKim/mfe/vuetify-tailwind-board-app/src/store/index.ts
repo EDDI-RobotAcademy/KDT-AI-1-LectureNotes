@@ -23,6 +23,8 @@ export type AppStore = Store<RootState> & {
   ): ReturnType<BoardActions[K]>
 }
 
+export const storeKey: InjectionKey<AppStore> = Symbol('AppStore')
+
 export default createStore<RootState>({
   modules: {
     boardModule,
