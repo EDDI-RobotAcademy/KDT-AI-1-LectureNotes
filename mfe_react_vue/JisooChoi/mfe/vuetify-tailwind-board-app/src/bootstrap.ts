@@ -15,7 +15,7 @@ import { createVuetify, VuetifyOptions } from "vuetify/lib/framework.mjs";
 // for use(storeModule)
 // import boardModule from './store/index
 
-// import router from './router'
+import router from './router'
 
 const vuetifyTaildBoardAppMount = (el: string | Element) => {
     const vuetify = createVuetify({
@@ -28,7 +28,7 @@ const vuetifyTaildBoardAppMount = (el: string | Element) => {
         }
     })
 
-    const app = createApp(App).use(vuetify)
+    const app = createApp(App).use(vuetify).use(router)
     app.mount(el)
 };
 
