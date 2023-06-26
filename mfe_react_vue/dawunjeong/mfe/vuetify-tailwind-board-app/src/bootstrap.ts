@@ -13,7 +13,7 @@ import * as labsComponents from 'vuetify/labs/components';
 import { createVuetify, VuetifyOptions } from "vuetify";
 
 // for use(storeModule)
-// import boardModule from './store/index'
+import boardModule from './store/index'
 
 import router from './router';
 
@@ -28,7 +28,7 @@ const vuetifyTailwindBoardAppMount = (el: string | Element) => {
         },
     })
 
-    const app = createApp(App).use(vuetify).use(router)
+    const app = createApp(App).use(vuetify).use(boardModule).use(router)
     app.mount(el)
 };
 

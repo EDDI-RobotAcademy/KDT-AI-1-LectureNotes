@@ -23,7 +23,7 @@
 
 <script>
 import { RouterLink } from 'vue-router';
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 const boardModule = 'boardModule'
 
