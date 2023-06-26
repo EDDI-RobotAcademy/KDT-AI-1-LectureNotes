@@ -70,8 +70,11 @@
         |
         <router-link to="/food-register">FoodAggregateRoot 만들기</router-link>
         |
-        <hr />
-        <router-link to="/sanrio-main-page">☆</router-link>
+        <router-link to="/composition-problem-page"
+          >Spring, FastAPI 숫자 통합 테스트</router-link
+        >
+        |
+        <router-link to="/payment-page">결제 버튼 테스트</router-link> |
       </nav>
     </div>
   </v-container>

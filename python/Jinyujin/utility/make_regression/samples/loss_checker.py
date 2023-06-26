@@ -1,4 +1,5 @@
 # 대출 해줄 수 있냐 없냐에서 제일 중요한건 갚을 수 있는 능력이 있는지를 보는 것!
+# 세금과 생활비 포함하여 산정
 
 import numpy as np
 from keras.models import Sequential
@@ -59,7 +60,23 @@ def calculate_score(income,
         return -1
 
     income_log = np.log10(available_income) * income_weight
+    # 왜 로그를 사용할까?
+    # 데이터 분석 시에는 log를 취하면 정규성이 높아지고
+    # 분석에서 정확한 값을 얻을 수 있기 때문임
+    # 로그를 취해 데이터 간 편차를 줄여서 정규성을 높일 수 있음
+    # 그래서 비교 분석을 비교적 쉽게 할 수 있다고 함!
+
+    # 로그를 만들 때 가중치(income_weight)를 붙여주는 이유는?
+    # income에는 양수의 가중치이고 다른 애들은 음수의 가중치를 설정해 주었다
+    # why?
+    # 데이터 분석 시 가중치를 설정하지 않으면 통계 결과가 과소평가 또는 과대평가 될 수 있는 위험이 존재
+    # 예를 들어 화장품 구매 수에 대한 통계를 분석하는데 여자보다 남자가 더 많이 조사된다면
+    # 해당년도 화장품 구매가 줄어든 것으로 나타날 것
+    # 그래서 여성에 대한 가중치는 높이고 남성에 대한 가중치는 줄여서
+    # 남녀 비율을 우리나라 인구의 남녀비인 50:50으로 맞추는 작업을 해주어야 함
+
     private_loan_outstanding_amount_log = math.log10(private_loan_outstanding_amount + 1)
+    # +1을 해준 이유: 로그 함수의 인자가 0이 되는 것을 방지하기 위함
     private_loan_outstanding_amount_score = \
         private_loan_outstanding_amount_log * private_loan_outstanding_amount_weight
 
@@ -92,7 +109,7 @@ print("은행빚: {0}".format(outstanding_amount))
 # 사채만 없으면 거의 다 total_score 양수로 나와 대출을 승인 받는 모습을 보임
 # 사채가 있으면 거의 음수로 나와서 대출을 거절 당하는 모습
 
-print(income[0], income[1])
+# print(income[0], income[1])
 
 total_score = []
 for i in range(sample_number):

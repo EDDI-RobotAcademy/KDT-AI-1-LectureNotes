@@ -10,9 +10,11 @@ public class Member {
         this.email = email;
         this.password = password;
     }
+
     public int getMemberId() {
         return memberId;
     }
+
     @Override
     public String toString() {
         return "TestMember{" +

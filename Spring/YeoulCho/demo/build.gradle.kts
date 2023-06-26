@@ -30,7 +30,7 @@ dependencies {
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.13.4")
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
-
+    implementation ("com.corundumstudio.socketio:netty-socketio:2.0.2")
 }
 
 tasks.withType<Test> {

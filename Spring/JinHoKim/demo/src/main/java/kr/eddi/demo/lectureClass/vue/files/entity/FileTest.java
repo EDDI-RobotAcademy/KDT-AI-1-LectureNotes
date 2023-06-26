@@ -17,6 +17,7 @@ public class FileTest {
 
     private Integer price;
     private String productName;
+
     @Getter
     private String imagePath;
 

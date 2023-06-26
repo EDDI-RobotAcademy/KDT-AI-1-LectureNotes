@@ -1,5 +1,6 @@
 package com.example.demo.lectureClass.jpa.product.service;
 
+import com.example.demo.lectureClass.jpa.product.controller.form.RequestProductForm;
 import com.example.demo.lectureClass.jpa.product.entity.JpaProductTest;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface JpaProductService {
 
     void delete(Long productId);
 
+    JpaProductTest modify(Long productId, RequestProductForm requestProductForm);
 }
