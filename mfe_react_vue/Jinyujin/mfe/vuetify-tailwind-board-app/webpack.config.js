@@ -77,6 +77,9 @@ module.exports = (_, argv) => ({
       name: "vuetifyTailwindBoardApp",
       filename: "remoteEntry.js",
       exposes: {
+        // bootstrap에 있는 mount 계열들 전달하기
+        './vuetifyBoardBootstrap': './src/bootstrap',
+        './vuetifyBoardModuleStore': './src/store/board/boardModule',
       },
       shared: require("./package.json").dependencies,
     }),

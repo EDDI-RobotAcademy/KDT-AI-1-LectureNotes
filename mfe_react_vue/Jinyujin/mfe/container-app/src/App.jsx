@@ -9,6 +9,7 @@ import { BrowserRouter } from 'react-router-dom'
 // import {'bootstrap mount 이름'} from 'remotes App 이름'/'remotes의 exposes 설정(오른쪽 이름)' 형태로 작성
 import { mount } from 'vueModuleApp/Sample';
 import { navigationMount } from 'vueNavigationApp/VueNavigation';
+import { vuetifyTailwindBoardAppMount } from 'vuetifyTailwindBoardApp/vuetifyBoardBootstrap'
 
 // import '사용하는 함수' from remotes-App'/'remotes의 exposes 설정(오른쪽 이름)' 형태로 작성
 import Counter from 'reactModuleApp/Counter'
@@ -22,9 +23,12 @@ import ReactQueryTestApp from "reactQueryTestApp/ReactQueryTestApp"
 // bootstrap에서 실제 vue가 구동해서 그린 결과만 붙이기 위해 mount 계열을 사용합니다
 // 고로 Vue 계열들은 전부 붙을 때 useRef() 계열과 useEffect() 계열을 사용하여 붙이고 있습니다
 
+import VuetifyTailwindBoardAppRouterComponent from "./router/VuetifyTailwindBoardAppRouterComponent";
+
 const App = () => {
   const vueRef = useRef(null)
   const vuetifyNavigationRef = useRef(null)
+  const vuetifyTailwindBoardRef = useRef(null)
 
   useEffect(() => {
     mount(vueRef.current)
@@ -33,7 +37,8 @@ const App = () => {
 
   return (
     <div>
-      <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef} />
+      <VuetifyTailwindBoardAppRouterComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef} />
+      {/* <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef} /> */}
       <div style=
         {{
           margin: '10px', padding: '10px', textAlign: 'center',
@@ -56,7 +61,7 @@ const App = () => {
       */}
       <ZustandTodoApp />
       <ReactQueryTestApp />
-      
+      <div ref={vuetifyNavigationRef} />
     </div>
   )
 };
