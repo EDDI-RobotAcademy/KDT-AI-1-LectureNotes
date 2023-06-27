@@ -9,11 +9,15 @@ import { AxiosResponse } from 'axios' // axios 요청했을 때 돌아오는 정
 import { async } from '../../../../vue-navigation-app/src/plugin/webfontloader';
 
 export type BoardActions = {
-    requestBoardListToSpring(context: ActionContext<BoardState, any>): void
+    requestBoardListToSpring(context: ActionContext<BoardState, any>): Promise<void>
     requestCreateBoardToSpring(context: ActionContext<BoardState, unknown>, payload: {
         title: string, content: string, writer: string
     }): Promise<AxiosResponse>
-    requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): void
+    requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void>
+    requestDeleteBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void>
+    requestModifyBoardToSpring(context: ActionContext<BoardState, any>, payload: {
+        title: string, content: string, writer: string, boardId: number
+    }): Promise<void>
 }
 
 const actions: BoardActions = {
@@ -23,7 +27,8 @@ const actions: BoardActions = {
             const data: Board[] = res.data
             context.commit(REQUEST_BOARD_LIST_TO_SPRING, data)
         } catch (error) {
-            console.error(error)
+            console.error('requestBoardListToSpring(): ' + error)
+            throw error
         }
     },
     async requestCreateBoardToSpring(context: ActionContext<BoardState, unknown>, payload: {
@@ -48,6 +53,29 @@ const actions: BoardActions = {
             alert('requestBoardToSpring() 문제 발생!')
         }
     },
+    async requestDeleteBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void> {
+        try {
+            await axiosInst.springAxiosInst.delete(`/jpa-board/${boardId}`)
+            alert('삭제 성공!')
+        } catch (error) {
+            alert('requestDeleteBoardToSpring() 문제 발생')
+            throw error
+        }
+    },
+    async requestModifyBoardToSpring(context: ActionContext<BoardState, any>, payload: {
+        title: string, content: string, writer: string, boardId: number
+    }): Promise<void> {
+
+        const { title, content, writer, boardId } = payload
+
+        try {
+            await axiosInst.springAxiosInst.put(`/jpa-board/${boardId}`, { title, content, writer })
+            alert('수정 성공!')
+        } catch (error) {
+            alert('requestModifyBoardToSpring() 문제 발생')
+            throw error
+        }
+    }
 }
 
 export default actions

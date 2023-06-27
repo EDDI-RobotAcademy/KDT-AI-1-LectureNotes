@@ -45,8 +45,12 @@ export default {
     },
     methods: {
         ...mapActions(boardModule, ['requestBoardListToSpring']),
-        readRow() {
-
+        readRow(event, { item }) {
+            const selectedRowBoardId = item.selectable.boardId
+            this.$router.push({
+                name: 'VuetifyBoardRead',
+                params: { boardId: selectedRowBoardId.toString() }
+            })
         }
     },
     data() {
