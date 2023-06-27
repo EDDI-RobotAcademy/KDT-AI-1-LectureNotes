@@ -4,7 +4,7 @@ import { REQUEST_BOARD_LIST_TO_SPRING, REQUEST_BOARD_TO_SPRING } from "./mutatio
 
 export interface BoardMutations extends MutationTree<BoardState> {
   [REQUEST_BOARD_LIST_TO_SPRING](state: BoardState, receivedData: Board[]): void;
-  [REQUEST_BOARD_TO_SPRING](state: BoardState, receivedDate: Board): void;
+  [REQUEST_BOARD_TO_SPRING](state: BoardState, receivedData: Board): void;
 }
 
 const mutations: MutationTree<BoardState> = {

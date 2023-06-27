@@ -76,7 +76,10 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "vuetifyTailwindBoardApp",
       filename: "remoteEntry.js",
-      exposes: {},
+      exposes: {
+        "./vuetifyBoardBootstrap": "./src/bootstrap",
+        "./vuetifyBoardModuleStore": "./src/store/board/boardModule",
+      },
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({
