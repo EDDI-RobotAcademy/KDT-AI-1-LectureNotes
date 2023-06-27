@@ -63,6 +63,7 @@ module.exports = (_, argv) => ({
         reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3005/remoteEntry.js',
         reactQueryTestApp: 'reactQueryTestApp@http://localhost:3006/remoteEntry.js',
         reactProductApp: 'reactProductApp@http://localhost:3015/remoteEntry.js',
+        vuetifyTailwindBoardApp: 'vuetifyTailwindBoardApp@http://localhost:3007/remoteEntry.js',
       },
       shared: {
         ...deps,

@@ -29,7 +29,8 @@
       "react-board-app",
       "react-zustand-todo-app",
       "react-product-app",
-      "react-query-test-app"
+      "react-query-test-app",
+      "vuetify-tailwind-board-app"
     ]
   }
 }

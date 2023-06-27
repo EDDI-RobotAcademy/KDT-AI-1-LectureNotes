@@ -34,18 +34,18 @@ export default {
     },
     computed: {
         ...mapState(boardModule, ['boards']),
-        pagedItems () {
+        pagedItems() {
             const startIdx = (this.pagination.page - 1) * this.perPage
             const endIdx = startIdx + this.perPage
             return this.boards.slice(startIdx, endIdx)
         }
     },
-    mounted () {
+    mounted() {
         this.requestBoardListToSpring()
     },
     methods: {
         ...mapActions(boardModule, ['requestBoardListToSpring']),
-        readRow (event, { item }) {
+        readRow(event, { item }) {
             const selectedRowBoardId = item.selectable.boardId
 
             this.$router.push({
@@ -54,10 +54,10 @@ export default {
             })
         }
     },
-    data () {
+    data() {
         return {
             headerTitle: [
-                { 
+                {
                     title: 'No',
                     align: 'start',
                     sortable: true,

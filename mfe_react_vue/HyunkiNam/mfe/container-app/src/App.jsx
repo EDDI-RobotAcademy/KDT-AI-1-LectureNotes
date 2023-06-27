@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 // Vue Micro Frontend Apps
 // import { 'bootstrap mount 이름'} from 'remotes App 이름'/'remotes의 exposes 설정(오른쪽 이름)' 형태로 작성
 import { mount } from 'vueModuleApp/Sample';
 import { navigationMount } from 'vueNavigationApp/VueNavigation';
+import { vuetifyTailwindBoardAppMount } from 'vuetifyTailwindBoardApp/vuetifyBoardBootstrap'
 
 // React Micro Frontend Apps
 // import '사용하는 함수' from 'remotes App'/'remotes의 exposes 설정(오른쪽 이름)' 형태로 작성
@@ -17,10 +18,12 @@ import QueryTestApp from 'reactQueryTestApp/ReactQueryTest';
 // React에 컴포넌트 형태로 붙이지 않고
 // bootstrap에서 실제 vue가 구동해서 그린 결과만 붙이기 위해 mount 계열 사용
 // 고로 vue 계열들은 전부 붙을 때 useRef() 계열과 useEffect() 계열을 사용해서 붙임
+import VuetifyTailwindBoardAppRouterComponent from "./router/vuetifyTailwindBoard/VuetifyTailwindBoardAppRouterComponent";
 
 const App = () => {
   const vueRef = useRef(null)
   const vuetifyNavigationRef = useRef(null)
+  const vuetifyTailwindBoardRef = useRef(null)
 
   useEffect(() => {
     mount(vueRef.current)
@@ -30,6 +33,9 @@ const App = () => {
   return (
     <div>
       <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef} />
+      <div style={{ position: 'relative' }}>
+        <VuetifyTailwindBoardAppRouterComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef} />
+      </div>
       <div style=
         {{
           margin: '10px', padding: '10px', textAlign: 'center',
