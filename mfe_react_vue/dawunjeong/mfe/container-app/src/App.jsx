@@ -12,6 +12,7 @@ import Counter from 'reactModuleApp/Counter';
 import BoardApp from 'reactBoardApp/BoardApp'
 import TodoApp from 'reactZustandTodoApp/ZustandTodoApp'
 import ReactQueryTestApp from 'reactQueryTestApp/ReactQueryTest'
+import VuetifyTailwindBoardAppRouterComponent from "./router/vuetifyTailwindBoard/VuetifyTailwindBoardAppRouterComponent";
 // React에 vue를 붙일 때는 실제 React와 vue의 동작이 다르기 때문에
 // React에 컴포넌트 형태로 붙이지 않고
 // bootstrap에서 실제 vue가 구동해서 그린 결과만 붙이기 위해 mount 계열을 사용합니다
@@ -20,6 +21,7 @@ import ReactQueryTestApp from 'reactQueryTestApp/ReactQueryTest'
 const App = () => {
   const vueRef = useRef(null)
   const vuetifyNavigationRef = useRef(null)
+  const vuetifyTailwindBoardRef = useRef(null)
 
   useEffect(() => {
     mount(vueRef.current)
@@ -29,6 +31,7 @@ const App = () => {
   return (
     <div>
       <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef}/>
+      <VuetifyTailwindBoardAppRouterComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}/>
       <div style=
           {{ margin: '10px', padding: '10px', textAlign: 'center',
               backgroundColor: 'cyan', position: 'relative', zIndex: 1 }}>
@@ -43,6 +46,7 @@ const App = () => {
       </div>
       <TodoApp/>
       <ReactQueryTestApp/>
+      <div ref={vuetifyNavigationRef}/>
     </div>
   )
 };
