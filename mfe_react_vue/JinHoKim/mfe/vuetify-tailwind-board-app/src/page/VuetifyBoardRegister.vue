@@ -30,33 +30,33 @@ import { mapActions } from 'vuex';
 const boardModule = 'boardModule'
 
 export default {
-  data() {
-    return {
-      title: '',
-      writer: '',
-      content: '',
-    }
-  },
-  methods: {
-    ...mapActions(boardModule, ['requestCreateBoardToSpring']),
-    async onSubmit() {
-      const payload = {
-        title: this.title,
-        writer: this.writer,
-        content: this.content
-      }
-
-      const board = await this.requestCreateBoardToSpring(payload)
-      await this.$router.push({
-        name: 'VuetifyBoardRead',
-        params: { boardId: board.boardId.toString() }
-      })
+    data () {
+        return {
+            title: '',
+            writer: '',
+            content: '',
+        }
     },
-    onCancel() {
-      // 입력한 숫자에 따라 뒤로가기 2번, 3번 등등의 역할을 수행하게 만들 수 있음
-      this.$router.go(-1)
+    methods: {
+        ...mapActions(boardModule, ['requestCreateBoardToSpring']),
+        async onSubmit () {
+            const payload = {
+                title: this.title,
+                writer: this.writer,
+                content: this.content
+            }
+
+            const board = await this.requestCreateBoardToSpring(payload)
+            await this.$router.push({
+                name: 'VuetifyBoardRead',
+                params: { boardId: board.boardId.toString() }
+            })
+        },
+        onCancel () {
+            // 입력한 숫자에 따라 뒤로가기 2번, 3번 등등의 역할을 수행하게 만들 수 있음
+            this.$router.go(-1)
+        }
     }
-  }
 }
 </script>
 

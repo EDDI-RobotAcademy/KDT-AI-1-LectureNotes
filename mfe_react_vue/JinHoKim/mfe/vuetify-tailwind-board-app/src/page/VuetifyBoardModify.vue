@@ -47,46 +47,46 @@ import { mapActions, mapState } from 'vuex';
 const boardModule = 'boardModule'
 
 export default {
-  props: {
-    boardId: {
-      type: String,
-      required: true,
+    props: {
+        boardId: {
+            type: String,
+            required: true,
+        },
     },
-  },
-  data() {
-    return {
-      title: '',
-      content: '',
-      writer: '',
-    }
-  },
-  computed: {
-    ...mapState(boardModule, ['board'])
-  },
-  methods: {
-    ...mapActions(boardModule, ['requestBoardToSpring', 'requestModifyBoardToSpring']),
-    async onModify() {
-      const payload = {
-        title: this.title,
-        writer: this.writer,
-        content: this.content,
-        boardId: this.boardId
-      }
+    data () {
+        return {
+            title: '',
+            content: '',
+            writer: '',
+        }
+    },
+    computed: {
+        ...mapState(boardModule, ['board'])
+    },
+    methods: {
+        ...mapActions(boardModule, ['requestBoardToSpring', 'requestModifyBoardToSpring']),
+        async onModify () {
+            const payload = {
+                title: this.title,
+                writer: this.writer,
+                content: this.content,
+                boardId: this.boardId
+            }
 
-      await this.requestModifyBoardToSpring(payload)
-      await this.$router.push({
-        name: 'VuetifyBoardRead',
-        params: { boardId: this.boardId }
-      })
+            await this.requestModifyBoardToSpring(payload)
+            await this.$router.push({
+                name: 'VuetifyBoardRead',
+                params: { boardId: this.boardId }
+            })
+        }
+    },
+    created () {
+        this.requestBoardToSpring(this.boardId).then(() => {
+            this.title = this.board.title
+            this.writer = this.board.writer
+            this.content = this.board.content
+        })
     }
-  },
-  created() {
-    this.requestBoardToSpring(this.boardId).then(() => {
-      this.title = this.board.title
-      this.writer = this.board.writer
-      this.content = this.board.content
-    })
-  }
 }
 </script>
 <style lang="">

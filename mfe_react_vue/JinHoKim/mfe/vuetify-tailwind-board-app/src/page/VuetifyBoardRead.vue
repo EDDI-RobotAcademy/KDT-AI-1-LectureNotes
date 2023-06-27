@@ -47,27 +47,27 @@ import { mapActions, mapState } from 'vuex';
 const boardModule = 'boardModule'
 
 export default {
-  props: {
-    boardId: {
-      type: String,
-      required: true,
+    props: {
+        boardId: {
+            type: String,
+            required: true,
+        }
+    },
+    computed: {
+        ...mapState(boardModule, ['board'])
+    },
+    methods: {
+        ...mapActions(
+            boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
+        ),
+        async onDelete () {
+            await this.requestDeleteBoardToSpring(this.boardId)
+            await this.$router.push({ name: 'VuetifyBoardList' })
+        }
+    },
+    created () {
+        this.requestBoardToSpring(this.boardId)
     }
-  },
-  computed: {
-    ...mapState(boardModule, ['board'])
-  },
-  methods: {
-    ...mapActions(
-      boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
-    ),
-    async onDelete() {
-      await this.requestDeleteBoardToSpring(this.boardId)
-      await this.$router.push({ name: 'VuetifyBoardList' })
-    }
-  },
-  created() {
-    this.requestBoardToSpring(this.boardId)
-  }
 }
 </script>
 

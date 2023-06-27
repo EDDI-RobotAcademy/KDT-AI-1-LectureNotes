@@ -6,6 +6,7 @@ import {
 } from './mutation-types'
 import axiosInst from '../../utility/axiosInstance'
 import { AxiosResponse } from 'axios'
+import { async } from '../../../../vue-navigation-app/src/plugin/webfontloader';
 
 export type BoardActions = {
     requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void>

@@ -29,50 +29,50 @@ import { mapActions, mapState } from 'vuex';
 const boardModule = 'boardModule'
 
 export default {
-  components: {
-    RouterLink
-  },
-  computed: {
-    ...mapState(boardModule, ['boards']),
-    pagedItems() {
-      const startIdx = (this.pagination.page - 1) * this.perPage
-      const endIdx = startIdx + this.perPage
-      return this.boards.slice(startIdx, endIdx)
-    }
-  },
-  mounted() {
-    this.requestBoardListToSpring()
-  },
-  methods: {
-    ...mapActions(boardModule, ['requestBoardListToSpring']),
-    readRow(event, { item }) {
-      const selectedRowBoardId = item.selectable.boardId
+    components: {
+        RouterLink
+    },
+    computed: {
+        ...mapState(boardModule, ['boards']),
+        pagedItems () {
+            const startIdx = (this.pagination.page - 1) * this.perPage
+            const endIdx = startIdx + this.perPage
+            return this.boards.slice(startIdx, endIdx)
+        }
+    },
+    mounted () {
+        this.requestBoardListToSpring()
+    },
+    methods: {
+        ...mapActions(boardModule, ['requestBoardListToSpring']),
+        readRow (event, { item }) {
+            const selectedRowBoardId = item.selectable.boardId
 
-      this.$router.push({
-        name: 'VuetifyBoardRead',
-        params: { boardId: selectedRowBoardId.toString() }
-      })
+            this.$router.push({
+                name: 'VuetifyBoardRead',
+                params: { boardId: selectedRowBoardId.toString() }
+            })
+        }
+    },
+    data () {
+        return {
+            headerTitle: [
+                { 
+                    title: 'No',
+                    align: 'start',
+                    sortable: true,
+                    key: 'boardId',
+                },
+                { title: '제목', align: 'end', key: 'title' },
+                { title: '작성자', align: 'end', key: 'writer' },
+                { title: '작성일자', align: 'end', key: 'createDate' },
+            ],
+            perPage: 5,
+            pagination: {
+                page: 1,
+            }
+        }
     }
-  },
-  data() {
-    return {
-      headerTitle: [
-        {
-          title: 'No',
-          align: 'start',
-          sortable: true,
-          key: 'boardId',
-        },
-        { title: '제목', align: 'end', key: 'title' },
-        { title: '작성자', align: 'end', key: 'writer' },
-        { title: '작성일자', align: 'end', key: 'createDate' },
-      ],
-      perPage: 5,
-      pagination: {
-        page: 1,
-      }
-    }
-  }
 }
 
 </script>
