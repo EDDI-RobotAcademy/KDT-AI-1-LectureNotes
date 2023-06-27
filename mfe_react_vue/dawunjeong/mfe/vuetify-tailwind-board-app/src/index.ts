@@ -6,5 +6,3 @@ import("./bootstrap");
 // 4. axios
 // 5. vue-router
 // 6. @types/vue-router
-// 7. @vue/runtime-core
-// 8. mini-css-extract-plugin
