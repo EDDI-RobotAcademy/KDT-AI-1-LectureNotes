@@ -21,24 +21,26 @@ import boardModule from "./store/index";
 // Element 객체란?
 // 좀 어려운데 문서상의 각각 요소(element)의 내용들을 추상화한 객체 
 const vuetifyTailwindBoardAppMount = (el: string | Element) => {
-    const vuetify = createVuetify({
-        // createVuetify 함수를 사용하여 vuetify 객체 생성
-        components: {
-            ...components,
-            ...labsComponents
-            // 여기서 ...은 맵핑시켜주는 것 
-            // 이렇게하면 components의 요소들 + labsComponents의 요소들이 
-            // 한꺼번에 상위 components의 요소가 된다 
-        },
-        directives: {
-            ...directives
-        }
-    })
+    loadFonts().then(() => {
+        const vuetify = createVuetify({
+            // createVuetify 함수를 사용하여 vuetify 객체 생성
+            components: {
+                ...components,
+                ...labsComponents
+                // 여기서 ...은 맵핑시켜주는 것 
+                // 이렇게하면 components의 요소들 + labsComponents의 요소들이 
+                // 한꺼번에 상위 components의 요소가 된다 
+            },
+            directives: {
+                ...directives
+            }
+        })
 
-    const app = createApp(App).use(vuetify).use(boardModule).use(router)
-    // createApp 함수를 사용하여 Vue 애플리케이션 객체 생성
-    app.mount(el)
-    // 생성한 애플리케이션 객체를 mount함
+        const app = createApp(App).use(vuetify).use(boardModule).use(router)
+        // createApp 함수를 사용하여 Vue 애플리케이션 객체 생성
+        app.mount(el)
+        // 생성한 애플리케이션 객체를 mount함
+    })    
 };
 
 const root = document.querySelector('#vuetify-tailwind-board-app')
