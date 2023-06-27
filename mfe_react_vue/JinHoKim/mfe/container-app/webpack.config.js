@@ -60,11 +60,12 @@ module.exports = (_, argv) => ({
         // vueModuleApp은 Vue Counter App과 Vue Board App이 합쳐져 있음
         vueModuleApp: 'vueModuleApp@http://localhost:3001/remoteEntry.js',
         vueNavigationApp: 'vueNavigationApp@http://localhost:3002/remoteEntry.js',
-        // reactModuleApp은 사실상 react counter app임
+        // reactModuleApp은 사실상 React Counter App임
         reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
         reactBoardApp: 'reactBoardApp@http://localhost:3004/remoteEntry.js',
         reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3005/remoteEntry.js',
         reactQueryTestApp: 'reactQueryTestApp@http://localhost:3006/remoteEntry.js',
+        vuetifyTailwindBoardApp: 'vuetifyTailwindBoardApp@http://localhost:3007/remoteEntry.js',
       },
       shared: {
         ...deps,
