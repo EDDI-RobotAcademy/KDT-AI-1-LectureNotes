@@ -81,6 +81,12 @@ module.exports = (_, argv) => ({
         './vuetifyBoardModuleStore': './src/store/board/boardModule'
       },
       shared: require("./package.json").dependencies,
+      shared: {
+        vuetify: {
+          singleton: true,
+          requiredVersion: "^3.3.5"
+        }
+      }
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './public/index.html'),

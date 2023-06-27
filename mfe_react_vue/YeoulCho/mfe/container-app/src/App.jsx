@@ -32,8 +32,10 @@ const App = () => {
 
   return (
     <div>
-      {/* <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef}/> */}
-      <VuetifyTailwindBoardAppRouterComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}/>
+      <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef}/>
+        <div style={{position: 'relative'}}>
+          <VuetifyTailwindBoardAppRouterComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}/>
+        </div>
       <div style=
           {{ margin: '10px', padding: '10px', textAlign: 'center',
               backgroundColor: 'cyan', position: 'relative', zIndex: 1 }}>
@@ -48,7 +50,7 @@ const App = () => {
       </div>
       <TodoApp/>
       <ReactQueryTestApp/>
-      <div ref={vuetifyNavigationRef}/>
+      {/* <div ref={vuetifyNavigationRef}/> */}
     </div>
   )
 };
