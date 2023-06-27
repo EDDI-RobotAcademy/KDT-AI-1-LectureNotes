@@ -77,6 +77,8 @@ module.exports = (_, argv) => ({
       name: "vuetifyTailwindBoardApp",
       filename: "remoteEntry.js",
       exposes: {
+        './vuetifyBoardBootstrap': './src/bootstrap',
+        './vuetifyBoardModuleStore': './src/store/board/boardModule'
       },
       shared: require("./package.json").dependencies,
     }),
