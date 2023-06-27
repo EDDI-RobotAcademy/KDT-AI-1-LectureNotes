@@ -72,4 +72,5 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
     </div>
   )
 }
+
 export default BoardModifyForm

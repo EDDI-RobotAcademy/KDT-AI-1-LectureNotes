@@ -2,6 +2,7 @@ const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
+
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   mode: 'development',
@@ -22,7 +23,7 @@ module.exports = (_, argv) => ({
       'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
     }
   },
-   module: {
+  module: {
     rules: [
       {
         test: /\.m?js/,
@@ -44,6 +45,7 @@ module.exports = (_, argv) => ({
       },
     ],
   },
+
   plugins: [
     new ModuleFederationPlugin({
       name: "reactBoardApp",

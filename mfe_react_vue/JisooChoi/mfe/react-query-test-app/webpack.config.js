@@ -9,7 +9,6 @@ module.exports = (_, argv) => ({
   output: {
     publicPath: "auto",
   },
-
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
@@ -51,7 +50,6 @@ module.exports = (_, argv) => ({
       },
     ],
   },
-
   plugins: [
     new ModuleFederationPlugin({
       name: "reactQueryTestApp",

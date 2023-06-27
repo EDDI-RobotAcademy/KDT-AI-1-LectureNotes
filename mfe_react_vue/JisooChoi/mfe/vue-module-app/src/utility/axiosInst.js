@@ -10,4 +10,4 @@ const fastApiAxiosInst = axios.create({
     timeout: 2500
 })
 
-export default {springAxiosInst, fastApiAxiosInst }
+export default { springAxiosInst, fastApiAxiosInst }

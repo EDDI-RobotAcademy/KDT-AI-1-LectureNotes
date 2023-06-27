@@ -3,7 +3,6 @@ export interface BoardState {
     board: Board | null
 }
 
-// 타입을 지정해주는 인터페이스
 export interface Board {
     boardId: number
     title: string

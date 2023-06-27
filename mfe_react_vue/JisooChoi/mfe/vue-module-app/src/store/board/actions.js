@@ -2,7 +2,9 @@ import {
     REQUEST_BOARD_LIST_TO_SPRING,
     REQUEST_BOARD_TO_SPRING,
 } from './mutation-types'
+
 import axiosInst from '../../utility/axiosInst'
+
 export default {
     requestBoardToSpring ({ commit }, boardId) {
         return axiosInst.springAxiosInst.get(`/jpa-board/${boardId}`)
@@ -17,7 +19,9 @@ export default {
             })
     },
     requestCreateBoardToSpring ({}, payload) {
+
         const { title, content, writer } = payload
+
         return axiosInst.springAxiosInst.post('/jpa-board/register', { title, content, writer })
             .then((res) => {
                 alert('게시물 등록 성공!')

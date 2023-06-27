@@ -74,8 +74,12 @@ module.exports = (_, argv) => ({
     }),
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "vuetifyTaildBoardApp",
+      name: "vuetifyTailwindBoardApp",
       filename: "remoteEntry.js",
+      exposes: {
+        './vuetifyBoardBootstrap': './src/bootstrap',
+        './vuetifyBoardModuleStore': './src/store/board/boardModule',
+      },
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({
@@ -87,7 +91,7 @@ module.exports = (_, argv) => ({
     static: {
       directory: path.join(__dirname),
     },
-    historyApiFallback: true, // 새로고침 시 대응이 된다.
+    historyApiFallback: true,
     compress: true,
     port: 3007,
     hot: true,

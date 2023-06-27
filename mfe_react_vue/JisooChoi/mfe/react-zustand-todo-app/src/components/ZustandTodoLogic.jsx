@@ -5,8 +5,8 @@ import ZustandTodoList from './ZustandTodoList'
 const ZustandTodoLogic = () => {
   return (
     <div>
-        <ZustandInputTodo />
-        <ZustandTodoList />
+      <ZustandInputTodo/>
+      <ZustandTodoList/>
     </div>
   )
 }

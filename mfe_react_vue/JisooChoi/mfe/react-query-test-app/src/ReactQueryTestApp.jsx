@@ -5,7 +5,7 @@ import { ReactQueryBasicStarter } from "./components/ReactQueryBasicStarter";
 
 import "./index.css";
 
-const ReactQueryTestApp = () => (
+export const ReactQueryTestApp = () => (
   <div className="container">
     <ReactQueryBasicStarter/>
   </div>
