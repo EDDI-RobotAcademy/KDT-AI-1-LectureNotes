@@ -6,12 +6,14 @@ import {
 } from './mutation-types'
 import axiosInst from '../../utility/axiosInstances'
 import { AxiosResponse } from 'axios' // axios 요청했을 때 돌아오는 정보에 대한 응답
+import { async } from '../../../../vue-navigation-app/src/plugin/webfontloader';
 
 export type BoardActions = {
     requestBoardListToSpring(context: ActionContext<BoardState, any>): void
     requestCreateBoardToSpring(context: ActionContext<BoardState, unknown>, payload: {
         title: string, content: string, writer: string
     }): Promise<AxiosResponse>
+    requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): void
 }
 
 const actions: BoardActions = {
@@ -37,7 +39,15 @@ const actions: BoardActions = {
             alert('requestCreateBoardToSpring() 문제 발생')
             throw error
         }
-    }
+    },
+    async requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void> {
+        try {
+            const res: AxiosResponse<Board> = await axiosInst.springAxiosInst.get(`/jpa-board/${boardId}`)
+            context.commit(REQUEST_BOARD_TO_SPRING, res.data)
+        } catch (error) {
+            alert('requestBoardToSpring() 문제 발생!')
+        }
+    },
 }
 
 export default actions

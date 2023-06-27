@@ -11,7 +11,6 @@
         :headers="headerTitle"
         :items="pagedItems"
         :pagination.sync="pagination"
-        item-value="name"
         class="elevation-1"
         @click:row="readRow"
         item-value="boardId"/>
