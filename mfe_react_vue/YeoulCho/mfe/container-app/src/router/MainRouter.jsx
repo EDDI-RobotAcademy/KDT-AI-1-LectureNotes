@@ -1,10 +1,13 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react'
-import { BrowserRouter, Link } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import {Button}  from '@mui/material'
 import { navigationMount } from 'vueNavigationApp/VueNavigation'
+import VuetifyTypeScriptBoardAppRouter from './vuetifyTypeScriptBoardApp/vuetifyTypeScriptBoardAppRouter'
+
 
 const MainRouter = () => {
     const vuetifyNavigationRef = useRef(null)
+    const vuetifyTailwindBoardRef =useRef(null)
 
     const [naviHeight, setNaviHeight] = useState(0)
     const buttonRef = useRef(null)
@@ -45,8 +48,20 @@ const MainRouter = () => {
             <div>
                 <div style={{position: 'relative'}}>
                     <Button ref={buttonRef} component={Link} to="/" varient="contained">홈</Button>
+                    <Button component={Link} to="//vuetify-typescript-board-app" varient="contained">vuetify TypeScript Board App</Button>
                 </div>
             </div>
+            <Routes>
+                <Route
+                    exact path ="/vuetify-typescript-board-app"
+                    element={
+                    <VuetifyTypeScriptBoardAppRouter 
+                    vuetifyTailwindBoardRef={vuetifyTailwindBoardRef} 
+                    naviHeight={naviHeight}
+                    />
+                    }>
+                </Route>
+            </Routes>
             </BrowserRouter>
         </Suspense>
     </div>
