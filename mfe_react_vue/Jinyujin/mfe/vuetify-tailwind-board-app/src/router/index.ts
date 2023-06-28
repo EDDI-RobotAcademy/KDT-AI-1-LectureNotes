@@ -14,6 +14,7 @@ const routes: Array<RouteRecordRaw> = [
         path: '/vuetify-typescript-board-app',
         name: 'VuetifyBoardList',
         component: VuetifyBoardList,
+        // components라고 하면 안됨!
     },
     {
         path: '/vuetify-typescript-board-app/register',
