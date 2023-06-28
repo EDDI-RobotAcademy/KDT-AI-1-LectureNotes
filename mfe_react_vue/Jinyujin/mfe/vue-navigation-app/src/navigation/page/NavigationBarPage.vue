@@ -79,8 +79,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#data-v-app {
+    height: 64px;
+}
+.app-container {
+    height: 64px;
+}
+.main-container {
+    max-height: 100%;
+    overflow-y: auto;
+}
 .v-application--wrap {
-    min-height: 0vh !important;
+    height: 64px !important;
 }
 .v-application {
     height: 64px
