@@ -69,6 +69,10 @@ module.exports = (_, argv) => ({
         "react-router-dom": {
           singleton: true,
           requiredVersion: deps["react-router-dom"]
+        },
+        vuetify: {
+          singleton: true,
+          requiredVersion: "^3.3.3"
         }
       },
     }),

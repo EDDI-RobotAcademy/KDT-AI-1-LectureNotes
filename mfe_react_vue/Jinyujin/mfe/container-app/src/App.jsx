@@ -23,7 +23,9 @@ import ReactQueryTestApp from "reactQueryTestApp/ReactQueryTestApp"
 // bootstrap에서 실제 vue가 구동해서 그린 결과만 붙이기 위해 mount 계열을 사용합니다
 // 고로 Vue 계열들은 전부 붙을 때 useRef() 계열과 useEffect() 계열을 사용하여 붙이고 있습니다
 
-import VuetifyTailwindBoardAppRouterComponent from "./router/VuetifyTailwindBoardAppRouterComponent";
+import VuetifyTailwindBoardAppRouterComponent from "./router/vuetifyTailwindBoard/VuetifyTailwindBoardAppRouterComponent";
+
+import MainRouter from './router/MainRouter'
 
 const App = () => {
   const vueRef = useRef(null)
@@ -37,9 +39,10 @@ const App = () => {
 
   return (
     <div>
-      <VuetifyTailwindBoardAppRouterComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef} />
-      {/* <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef} /> */}
-      <div style=
+      <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef} />
+      <MainRouter/>
+        {/* <VuetifyTailwindBoardAppRouterComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef} /> */}
+      {/* <div style=
         {{
           margin: '10px', padding: '10px', textAlign: 'center',
           backgroundColor: 'cyan', position: 'relative'
@@ -53,15 +56,15 @@ const App = () => {
           <BoardApp />
           <ProductApp/>
         </BrowserRouter>
-      </div>
+      </div> */}
       {/* 
         여기서도 Counter 페이지의 count가 먹혀야 하는데 div 밖에서는 안먹힘 
         -> position: relative로 해결
         이 속성을 사용하면 다른 요소들과 충돌을 피할 수 있음
       */}
-      <ZustandTodoApp />
-      <ReactQueryTestApp />
-      <div ref={vuetifyNavigationRef} />
+      {/* <ZustandTodoApp />
+      <ReactQueryTestApp /> */}
+      {/* <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef} /> */}
     </div>
   )
 };
