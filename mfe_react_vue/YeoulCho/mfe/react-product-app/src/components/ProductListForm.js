@@ -9,7 +9,7 @@ const ProductListForm = ( {products, isLoading}) => {
         {isLoading && "로딩중..............."}
         {!isLoading && products && (
             <>
-            <Link to="/register">상품 등록하기</Link>
+            <Link to="/react-product-app/register">상품 등록하기</Link>
             <table>
                 <thead>
                     <tr>
@@ -34,7 +34,7 @@ const ProductListForm = ( {products, isLoading}) => {
                     ): (products.map((product) =>(
                         <tr key={product.productId}>
                             <td align="center">{product.productId}</td>
-                            <td align="left"><Link to={`/read/${product.productId}`}>{product.productName}</Link></td>
+                            <td align="left"><Link to={`/react-product-app/read/${product.productId}`}>{product.productName}</Link></td>
                             <td align="right">{product.price}</td>
                         </tr>
                     )))}

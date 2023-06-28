@@ -10,11 +10,11 @@ import Home from './containerApp/Home';
 import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
 import ReactProductAppRouter from './productBoardApp/ReactProductAppRouter'
 import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes'
+
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
   const vuetifyNavigationRef = useRef(null)
   const vuetifyTailwindBoardRef = useRef(null)
-  const reactProductBoardModuleRef =useRef(null)
 
   const [naviHeight, setNaviHeight] = useState(0)
   const buttonRef = useRef(null)
@@ -68,7 +68,7 @@ const MainRouter = () => {
                 <Button component={Link} to="/react-counter-app" variant="contained">
                   React 카운터
                 </Button>
-                <Button component={Link} to="/product-board-app" variant="contained">
+                <Button component={Link} to="/react-product-app" variant="contained">
                   Product 게시판
                 </Button>
                 <Button component={Link} to="/react-board-app" variant="contained">
@@ -100,14 +100,9 @@ const MainRouter = () => {
                 element={
                   <ReactCounterAppRouter/>
                 }/>
-              <Route
-                exact path="/product-board-app"
-                element={
-                  <ReactProductAppRouter
-                  reactProductBoardModuleRef={reactProductBoardModuleRef}/>
-                }/>
             </Routes>
             <ReactBoardRoutes/>
+            <ReactProductAppRouter/>
           </BrowserRouter>
         </Suspense>
     </div>

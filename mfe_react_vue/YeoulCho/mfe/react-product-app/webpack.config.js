@@ -8,7 +8,7 @@ module.exports = (_, argv) => ({
   mode: 'development',
   entry: './src/index',
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3009/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
@@ -54,6 +54,10 @@ module.exports = (_, argv) => ({
       exposes: {
         './ReactProduct': './src/bootstrap.js',
         './ProductApp': './src/ProductApp.jsx',
+        './ProductListPage': './src/page/ProductListPage.js',
+        './ProductReadPage': './src/page/ProductReadPage.js',
+        './ProductModifyPage': './src/page/ProductModifyPage.js',
+        './ProductRegisterPage': './src/page/ProductRegisterPage.js'
       },
       shared: {
         ...deps,

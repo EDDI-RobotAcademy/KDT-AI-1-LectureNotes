@@ -38,7 +38,7 @@ const PriductRegisterForm = ({onRegister}) => {
         </table>
         <div>
           <button type="submit">등록</button>
-          <Link to="/">취소</Link>
+          <Link to="/react-product-app">취소</Link>
         </div>
       </form>
     </div>

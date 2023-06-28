@@ -28,9 +28,9 @@ const ProductReadForm = ({productId, product, isLoading, onRemove}) => {
                     </td>
                 </tr>
                 </table>
-                <Link to={`/modify/${productId}`}>수정</Link>
+                <Link to={`/react-product-app/modify/${productId}`}>수정</Link>
                 <button onClick={onRemove}>삭제</button>
-                <Link to="/">돌아가기</Link>
+                <Link to="/react-product-app">돌아가기</Link>
                 </>)}
 </div>
   )}
