@@ -6,6 +6,7 @@ import {
 } from './mutation-types'
 import axiosInst from '../../utility/axiosInstance'
 import { AxiosResponse } from 'axios'
+// import { async } from '../../../../vue-navigation-app/src/plugin/webfontloader';
 
 export type BoardActions = {
     requestBoardToSpring(context: ActionContext<BoardState, any>, boardId: number): Promise<void>
@@ -41,7 +42,7 @@ const actions: BoardActions = {
     },
     async requestCreateBoardToSpring(context: ActionContext<BoardState, unknown>, payload: {
         title: string, content: string, writer: string
-    }): Promise<AxiosResponse> {
+        }): Promise<AxiosResponse> {
 
         const { title, content, writer } = payload
 
