@@ -17,7 +17,6 @@ const mutations: MutationTree<BoardState> = {
     [REQUEST_BOARD_TO_SPRING](state: BoardState, receivedData: Board): void {
         state.board = receivedData
     }
-
 }
 
 export default mutations as BoardMutations
