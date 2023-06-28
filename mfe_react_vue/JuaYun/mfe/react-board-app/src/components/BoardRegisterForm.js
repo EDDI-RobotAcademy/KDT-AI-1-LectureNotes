@@ -62,7 +62,7 @@ const BoardRegisterForm = ({ onRegister }) => {
 
         <div>
           <button type="submit">등록</button>
-          <Link to="/">최소</Link>
+          <Link to="/react-board-app">최소</Link>
         </div>
       </form>
     </div>

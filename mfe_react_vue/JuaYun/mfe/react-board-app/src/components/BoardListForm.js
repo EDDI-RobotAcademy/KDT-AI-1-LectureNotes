@@ -38,7 +38,7 @@ const BoardListForm = ({ boards, isLoading }) => {
                   <td align="center">{ board.boardId }</td>
                   <td align="left">
                     {/* 가변인자 처리는 ``을 사용 */}
-                    <Link to={`/read/${board.boardId}`}>{ board.title }</Link>
+                    <Link to={`/react-board-app/read/${board.boardId}`}>{ board.title }</Link>
                   </td>
                   <td align="right">{ board.writer }</td>
                   <td align="center">{ board.createDate }</td>
@@ -46,7 +46,7 @@ const BoardListForm = ({ boards, isLoading }) => {
               )))}
             </tbody>
           </table>
-          <Link to="/register">글쓰기</Link>
+          <Link to="/react-board-app/register">글쓰기</Link>
         </>
       )}
     </div>
