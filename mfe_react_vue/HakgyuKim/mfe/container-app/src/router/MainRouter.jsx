@@ -7,6 +7,7 @@ import { navigationMount } from 'vueNavigationApp/VueNavigation'
 import VuetifyTypeScriptBoardAppRouter from './vuetifyTypescriptBoardApp/vuetifyTypeScriptBoardAppRouter';
 import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
 import Home from './containerApp/Home';
+import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -61,6 +62,9 @@ const MainRouter = () => {
               <Button component={Link} to="/vue-module-app" variant="contained">
                 Vue 게시판
               </Button>
+              <Button component={Link} to="/react-counter-app" variant="contained">
+                React 카운터
+              </Button>
             </div>
           </div>
           <Routes>
@@ -75,15 +79,20 @@ const MainRouter = () => {
                   vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
                   naviHeight={naviHeight}
                 />
-              }/>
-             <Route
+            }/>
+            <Route
               exact path="/vue-module-app"
               element={
                 <VueModuleAppRouter
                   vueModuleRef={vueModuleRef}
                 />
-              }/>
-          </Routes>
+            }/>
+            <Route
+              exact path="/react-counter-app"
+              element={
+                <ReactCounterAppRouter/>
+            }/>
+        </Routes>
         </BrowserRouter>
       </Suspense>
     </div>
