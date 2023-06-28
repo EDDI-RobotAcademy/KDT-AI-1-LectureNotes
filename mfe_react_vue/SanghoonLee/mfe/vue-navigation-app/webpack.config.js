@@ -80,6 +80,12 @@ module.exports = (_, argv) => ({
         './VueNavigation': './src/bootstrap',
       },
       shared: require("./package.json").dependencies,
+      shared: {
+        vuetify: {
+          singleton: true,
+          requiredVersion: "^3.3.3",
+        },
+      },
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
