@@ -11,7 +11,7 @@ const VuetifyTypeScriptBoardAppRouter = ({vuetifyTailwindBoardRef}) => {
   }, [vuetifyTailwindBoardRef])
 
   return (
-    <div>
+    <div style={{position: 'relative'}}>
       <div>
         <div ref={vuetifyTailwindBoardRef}/>
       </div>
