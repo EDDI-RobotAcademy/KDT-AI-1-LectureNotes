@@ -32,7 +32,7 @@ const BoardReadPage = ({ match, history }) => {
     try {
       await axiosClient.removeBoard(boardId)
       alert('게시물이 삭제되었습니다')
-      navigate("/")
+      navigate("/react-board-app")
     } catch (e) {
         console.log(e)
     }
