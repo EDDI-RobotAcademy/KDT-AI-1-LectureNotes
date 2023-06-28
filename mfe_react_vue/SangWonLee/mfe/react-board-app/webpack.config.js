@@ -1,14 +1,14 @@
-const path = require("path")
+const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
+const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
 
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
-  mode: 'development',
-  entry: './src/index',
+  mode: "development",
+  entry: "./src/index",
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3004/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
@@ -18,10 +18,11 @@ module.exports = (_, argv) => ({
     historyApiFallback: true,
     hot: true,
     headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
-    }
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authroization",
+    },
   },
   module: {
     rules: [
@@ -51,8 +52,12 @@ module.exports = (_, argv) => ({
       name: "reactBoardApp",
       filename: "remoteEntry.js",
       exposes: {
-        './ReactBoard': './src/bootstrap.js',
-        './BoardApp': './src/BoardApp.jsx',
+        "./ReactBoard": "./src/bootstrap.js",
+        "./BoardApp": "./src/BoardApp.jsx",
+        "./BoardListPage": "./src/page/BoardListPage.js",
+        "./BoardReadPage": "./src/page/BoardReadPage.js",
+        "./BoardRegisterPage": "./src/page/BoardRegisterPage.js",
+        "./BoardModifyPage": "./src/page/BoardModifyPage.js",
       },
       shared: {
         ...deps,
@@ -66,13 +71,13 @@ module.exports = (_, argv) => ({
         },
         "react-router-dom": {
           singleton: true,
-          requiredVersion: deps["react-router-dom"]
-        }
+          requiredVersion: deps["react-router-dom"],
+        },
       },
     }),
     new HtmlWebPackPlugin({
       template: "./public/index.html",
-      chunks: ['main'],
+      chunks: ["main"],
     }),
     new ExternalTemplateRemotesPlugin(),
   ],

@@ -5,8 +5,13 @@ import { Button } from "@mui/material";
 
 import { navigationMount } from "vueNavigationApp/VueNavigation";
 import VuetifyTypeScriptBoardAppRouter from "./vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppRouter";
+import VueModuleAppRouter from "./vueModuleApp/VueModuleAppRouter";
+import Home from "./containerApp/Home";
+import ReactCounterAppRouter from "./reactModuleApp/ReactCounterAppRouter";
+import ReactBoardRoutes from "./reactBoardApp/ReactBoardRoutes";
 
 const MainRouter = () => {
+  const vueModuleRef = useRef(null);
   const vuetifyNavigationRef = useRef(null);
   const vuetifyTailwindBoardRef = useRef(null);
 
@@ -67,22 +72,50 @@ const MainRouter = () => {
                 to="/vuetify-typescript-board-app"
                 variant="contained"
               >
-                Vuetify TypeScript Board App
+                Vuetify TypeScript 게시판
+              </Button>
+              <Button component={Link} to="/vue-module-app" variant="contained">
+                Vue 게시판
+              </Button>
+              <Button
+                component={Link}
+                to="/react-counter-app"
+                variant="contained"
+              >
+                React 카운터
+              </Button>
+              <Button
+                component={Link}
+                to="/react-board-app"
+                variant="contained"
+              >
+                React 게시판
               </Button>
             </div>
           </div>
           <Routes>
+            <Route exact path="/" element={<Home />} />
             <Route
               exact
               path="/vuetify-typescript-board-app"
               element={
                 <VuetifyTypeScriptBoardAppRouter
                   vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
-                  naviHeight={naviHeight}
                 />
               }
-            ></Route>
+            />
+            <Route
+              exact
+              path="/vue-module-app"
+              element={<VueModuleAppRouter vueModuleRef={vueModuleRef} />}
+            />
+            <Route
+              exact
+              path="/react-counter-app"
+              element={<ReactCounterAppRouter />}
+            />
           </Routes>
+          <ReactBoardRoutes />
         </BrowserRouter>
       </Suspense>
     </div>
