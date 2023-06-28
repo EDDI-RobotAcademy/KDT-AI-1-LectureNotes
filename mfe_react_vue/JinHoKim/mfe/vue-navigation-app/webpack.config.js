@@ -15,7 +15,7 @@ module.exports = (_, argv) => ({
   target: 'web',
   entry: path.resolve(__dirname, './src/index'),
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3002/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"],
