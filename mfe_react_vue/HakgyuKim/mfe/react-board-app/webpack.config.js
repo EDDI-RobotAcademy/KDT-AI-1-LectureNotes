@@ -53,6 +53,10 @@ module.exports = (_, argv) => ({
       exposes: {
         './ReactBoard': './src/bootstrap.js',
         './BoardApp': './src/BoardApp.jsx',
+        './BoardListPage': './src/page/BoardListPage.js',
+        './BoardReadPage': './src/page/BoardReadPage.js',
+        './BoardModifyPage': './src/page/BoardModifyPage.js',
+        './BoardRegisterPage': './src/page/BoardRegisterPage.js',
       },
       shared: {
         ...deps,
