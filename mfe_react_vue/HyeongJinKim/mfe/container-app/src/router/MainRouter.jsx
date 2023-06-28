@@ -6,6 +6,8 @@ import { Button } from "@mui/material";
 import { navigationMount } from "vueNavigationApp/VueNavigation";
 import VuetifyTypeScriptBoardAppRouter from "./vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppRouter";
 import VueModuleAppRouter from "./vueModuleApp/VueModuleAppRouter";
+import Home from "./containerApp/Home";
+import ReactCounterAppRouter from "./reactModuleApp/ReactCounterAppRouter";
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null);
@@ -69,9 +71,13 @@ const MainRouter = () => {
               <Button component={Link} to="/vue-module-app" variant="contained">
                 Vue 게시판
               </Button>
+              <Button component={Link} to="/react-counter-app" variant="contained">
+                React 카운터
+              </Button>
             </div>
           </div>
           <Routes>
+            <Route exact path="/" element={<Home />} />
             <Route
               exact
               path="/vuetify-typescript-board-app"
@@ -86,6 +92,7 @@ const MainRouter = () => {
               path="/vue-module-app"
               element={<VueModuleAppRouter vueModuleRef={vueModuleRef} />}
             />
+            <Route exact path="/react-counter-app" element={<ReactCounterAppRouter />} />
           </Routes>
         </BrowserRouter>
       </Suspense>

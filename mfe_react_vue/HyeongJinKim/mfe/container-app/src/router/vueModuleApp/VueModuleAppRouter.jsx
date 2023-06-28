@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
 
-import { mount } from "vueModuleApp/Sample";
-
-const VueModuleAppRouter = ({ vueModuleRef, naviHeight }) => {
+const VueModuleAppRouter = ({ vueModuleRef }) => {
   useEffect(() => {
-    mount(vueModuleRef.current);
-  }, []);
+    const loadRemoteComponent = async () => {
+      const { mount } = await import("vueModuleApp/Sample");
+      mount(vueModuleRef.current);
+    };
+
+    loadRemoteComponent();
+  }, [vueModuleRef]);
 
   return (
     <div>
       <div>
-        <div ref={vueModuleRef} />
+        <div style={{ position: "relative" }} ref={vueModuleRef} />
       </div>
     </div>
   );

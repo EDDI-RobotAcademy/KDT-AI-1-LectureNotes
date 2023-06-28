@@ -17,13 +17,13 @@ const Counter = () => {
         현재 count: <strong>{count}</strong>
       </p>
       <button
-        style={{ height: "50px", width: "50px", fontSize: "30px" }}
+        style={{ height: "50px", width: "50px", fontSize: "30px", position: "relative" }}
         onClick={onIncrement}
       >
         +
       </button>
       <button
-        style={{ height: "50px", width: "50px", fontSize: "30px" }}
+        style={{ height: "50px", width: "50px", fontSize: "30px", position: "relative" }}
         onClick={onDecrement}
       >
         -
