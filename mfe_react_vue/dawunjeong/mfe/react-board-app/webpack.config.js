@@ -43,10 +43,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "react_board_app",
+      name: "reactBoardApp",
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      exposes: {
+        './ReactBoard': './src/bootstrap.js',
+        './BoardApp': './src/BoardApp.jsx',
+      },
       shared: {
         ...deps,
         react: {
@@ -57,6 +59,10 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: deps["react-router-dom"]
+        }
       },
     }),
     new HtmlWebPackPlugin({

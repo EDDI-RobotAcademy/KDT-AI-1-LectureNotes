@@ -37,7 +37,7 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
                         <tr>
                             <td>번호</td>
                                 <td>
-                                    <input type="text" defaultValue={board.boardId} />
+                                    <input type="text" value={board.boardId} disabled/>
                                 </td>
                         </tr>
                         <tr>

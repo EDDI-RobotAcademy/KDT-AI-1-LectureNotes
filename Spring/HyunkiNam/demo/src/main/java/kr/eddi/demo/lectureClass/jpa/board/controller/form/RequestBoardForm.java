@@ -8,12 +8,13 @@ import lombok.ToString;
 
 @Getter
 @ToString
-@NoArgsConstructor
+//@NoArgsConstructor
+@RequiredArgsConstructor
 // 전달 받을 데이터 Form
 public class RequestBoardForm {
-    private String title;
-    private String content;
-    private String writer;
+    final private String title;
+    final private String content;
+    final private String writer;
     
     // 전달 받은 값들을 가지고 JpaBoard 형식 만들어주기
     public JpaBoard toJpaBoard() {
