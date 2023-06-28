@@ -2,34 +2,34 @@ import React, { useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const BoardRegisterForm = ({ onRegister }) => {
-    const [title, setTitle] = useState("")
-    const [content, setContent] = useState("")
-    const [writer, setWriter] = useState("")
+  const [title, setTitle] = useState("")
+  const [content, setContent] = useState("")
+  const [writer, setWriter] = useState("")
 
-    // react는 v-model이 없으므로
-    // 다 이렇게 만들어야 한다.
-    const handleChangeTitle = useCallback((e) => {
-        setTitle(e.target.value)
-    }, [])
+  // React는 v-model이 없습니다.
+  // 다 이렇게 만드세요.
+  const handleChangeTitle = useCallback((e) => {
+    setTitle(e.target.value)
+  }, [])
 
-    const handleChangeContent = useCallback((e) => {
-        setContent(e.target.value)
-    }, [])
+  const handleChangeContent = useCallback((e) => {
+    setContent(e.target.value)
+  }, [])
 
-    const handleChangeWriter = useCallback((e) => {
-        setWriter(e.target.value)
-    }, [])
+  const handleChangeWriter = useCallback((e) => {
+    setWriter(e.target.value)
+  }, [])
 
-    const handleSubmit = useCallback(
-        (e) => {
-            // vue에서 prevent() 써서 submit 막고 커스텀 submit 처리하려고 함
-            e.preventDefault();
-            
-            onRegister(title, content, writer)
-        },
-        [title, content, writer, onRegister]
-        // title, content, writer, onRegister 중 하나라도 바뀌면 실행 (트리거가 되는 얘들)
-    )
+  const handleSubmit = useCallback(
+    (e) => {
+        // vue에서 prevent() 써서 submit 막고 커스텀 submit 처리하려고함
+        e.preventDefault();
+        
+        onRegister(title, content, writer)
+    },
+    [title, content, writer, onRegister]
+    // title, content, writer, onRegister 중 하나라도 바뀌면 실행
+  )
 
   return (
     <div align="center">

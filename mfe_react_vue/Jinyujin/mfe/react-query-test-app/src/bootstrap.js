@@ -3,4 +3,4 @@ import ReactDOM from "react-dom";
 
 import ReactQueryTestApp from './ReactQueryTestApp'
 
-ReactDOM.render(<ReactQueryTestApp />, document.getElementById("react-query-test-module"));
+ReactDOM.render(<ReactQueryTestApp />, document.getElementById("react-query-test-app"));
