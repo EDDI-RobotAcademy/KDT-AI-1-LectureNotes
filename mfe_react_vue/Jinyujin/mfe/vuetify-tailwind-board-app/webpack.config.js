@@ -100,6 +100,7 @@ module.exports = (_, argv) => ({
     },
     compress: true,
     port: 3008,
+    historyApiFallback: true,
     hot: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
