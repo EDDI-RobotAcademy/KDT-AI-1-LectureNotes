@@ -4,8 +4,13 @@ import { mount } from 'vueModuleApp/Sample';
 
 const VueModuleAppRouter = ({ vueModuleRef }) => {
     useEffect(() => {
-        mount(vueModuleRef.current)
-    }, [])
+        const loadRemoteComponent = async () => {
+          const { mount } = await import('vueModuleApp/Sample')
+          mount(vueModuleRef.current)
+        }
+    
+        loadRemoteComponent()
+    }, [vueModuleRef])
 
     return (
         <div>
