@@ -8,7 +8,7 @@ const VueModuleAppRouter = ({ vueModuleRef }) => {
   }, [])
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <div>
         <div ref={vueModuleRef}/>
       </div>
