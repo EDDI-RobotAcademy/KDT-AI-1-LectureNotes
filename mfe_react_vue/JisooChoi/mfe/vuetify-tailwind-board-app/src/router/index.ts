@@ -6,28 +6,32 @@ import VuetifyBoardRead from "../page/VuetifyBoardRead.vue"
 import VuetifyBoardModify from "../page/VuetifyBoardModify.vue"
 
 const routes: Array<RouteRecordRaw> = [
-    {
-        path: '/',
-        name: 'VuetifyBoardList',
-        component: VuetifyBoardList,
-    },
-    {
-        path: '/vuetify-board-register',
-        name: 'VuetifyBoardRegister',
-        component: VuetifyBoardRegister,
-    },
-    {
-        path: '/vuetify-board-read/:boardId',
-        name: 'VuetifyBoardRead',
-        components: { default: VuetifyBoardRead },
-        props: { default: true },
-    },
-    {
-        path: '/vuetify-board-modify/:boardId',
-        name: 'VuetifyBoardModify',
-        components: { default: VuetifyBoardModify },
-        props: { default: true },
-    },
+        {
+            path: '/',
+            redirect: '/vuetify-typescript-board-app'
+        },
+        {
+            path: '/vuetify-typescript-board-app',
+            name: 'VuetifyBoardList',
+            component: VuetifyBoardList,
+        },
+        {
+            path: '/vuetify-typescript-board-app/register',
+            name: 'VuetifyBoardRegister',
+            component: VuetifyBoardRegister,
+        },
+        {
+            path: '/vuetify-typescript-board-app/read/:boardId',
+            name: 'VuetifyBoardRead',
+            components: { default: VuetifyBoardRead },
+            props: { default: true },
+        },
+        {
+            path: '/vuetify-typescript-board-app/modify/:boardId',
+            name: 'VuetifyBoardModify',
+            components: { default: VuetifyBoardModify },
+            props: { default: true },
+        }
 ]
 
 const router = createRouter({
