@@ -32,7 +32,7 @@ const BoardReadPage = () => {
     try {
       await axiosClient.removeBoard(boardId);
       alert("게시물이 삭제되었습니다.");
-      navigate("/");
+      navigate("/react-board-app");
     } catch (e) {
       console.log(e);
     }
@@ -43,12 +43,7 @@ const BoardReadPage = () => {
   }, [boardId]);
 
   return (
-    <BoardReadForm
-      boardId={boardId}
-      board={board}
-      isLoading={isLoading}
-      onRemove={onRemove}
-    />
+    <BoardReadForm boardId={boardId} board={board} isLoading={isLoading} onRemove={onRemove} />
   );
 };
 
