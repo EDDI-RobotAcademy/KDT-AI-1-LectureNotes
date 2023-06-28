@@ -8,6 +8,7 @@ import VuetifyTypeScriptBoardAppRouter from './vuetifyTypeScriptBoardApp/Vuetify
 import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
 import Home from './containerApp/Home';
 import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
+import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes';
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -62,9 +63,12 @@ const MainRouter = () => {
                 </Button>
                 <Button component={Link} to="/vue-module-app" variant="contained">
                   Vue 게시판
-              </Button>
-              <Button component={Link} to="/react-counter-app" variant="contained">
+                </Button>
+                <Button component={Link} to="/react-counter-app" variant="contained">
                   React 카운터
+                </Button>
+                <Button component={Link} to="/react-board-app" variant="contained">
+                  React 게시판
                 </Button>
               </div>
             </div>
@@ -86,13 +90,14 @@ const MainRouter = () => {
                   <VueModuleAppRouter
                     vueModuleRef={vueModuleRef}
                   />
-                } />
-            <Route
+                }/>
+              <Route
                 exact path="/react-counter-app"
                 element={
                   <ReactCounterAppRouter/>
                 }/>
             </Routes>
+            <ReactBoardRoutes/>
           </BrowserRouter>
         </Suspense>
     </div>
