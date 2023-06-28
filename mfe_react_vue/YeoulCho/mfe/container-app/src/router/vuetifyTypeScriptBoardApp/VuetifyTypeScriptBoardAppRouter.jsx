@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react'
 
-const VuetifyTypeScriptBoardAppRouter = ({ vuetifyTypeScriptBoardRef, naviHeight}) => {
-    useEffect(()=>{
-        const loadRemoteComponent = async () =>{
-            const {vuetifyTypeScriptBoardAppMount} =await import('vuetifyTailwindBoardApp/vuetifyBoardBootstrap')
-            vuetifyTypeScriptBoardAppMount(vuetifyTypeScriptBoardRef.current)
-        }
+const VuetifyTypeScriptBoardAppRouter = ({vuetifyTailwindBoardRef, naviHeight}) => {
+  useEffect(() => {
+    const loadRemoteComponent = async () => {
+      const { vuetifyTailwindBoardAppMount } = await import('vuetifyTailwindBoardApp/vuetifyBoardBootstrap')
+      vuetifyTailwindBoardAppMount(vuetifyTailwindBoardRef.current)
+    }
 
-        loadRemoteComponent()
-    },[vuetifyTypeScriptBoardRef])
+    loadRemoteComponent()
+  }, [vuetifyTailwindBoardRef])
+
   return (
-
     <div>
-        <div>
-            <div ref={vuetifyTypeScriptBoardRef}></div>
-        </div>
+      <div>
+        <div ref={vuetifyTailwindBoardRef}/>
+      </div>
     </div>
   )
 }
