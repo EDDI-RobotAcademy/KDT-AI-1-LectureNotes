@@ -47,7 +47,7 @@ module.exports = (_, argv) => ({
             loader: MiniCssExtractPlugin.loader,
             options: {}
           },
-          'css-loader', 
+          'css-loader',
         ]
       },
       {
@@ -56,7 +56,7 @@ module.exports = (_, argv) => ({
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ["vue-style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.svg$/,
@@ -69,18 +69,20 @@ module.exports = (_, argv) => ({
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false,
     }),
-    new MiniCssExtractPlugin,
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
       name: "vueNavigationApp",
       filename: "remoteEntry.js",
       exposes: {
-        './VueNavigation': './src/bootstrap'
+        './VueNavigation': './src/bootstrap',
       },
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, "./public/index.html"),
+      template: path.resolve(__dirname, './public/index.html'),
       chunks: ['main'],
     }),
   ],
