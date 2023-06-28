@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "external-remotes-plugin": "^1.0.0",
-    "lerna": "^7.0.1"
+    "lerna": "^7.0.1",
+    "memory-fs": "^0.5.0"
   }
 }

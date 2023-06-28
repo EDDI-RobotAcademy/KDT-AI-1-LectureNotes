@@ -72,14 +72,35 @@ export default {
       alert("로그아웃");
     },
     gotoHome() {
-      alert("홈");
+      alert("고 홈");
     },
   },
 };
 </script>
 
 <style scoped lang="scss">
+#data-v-app {
+  height: 64px;
+}
+.app-container {
+  height: 64px;
+}
+.main-container {
+  max-height: 100%;
+  overflow-y: auto;
+}
 .v-application--wrap {
-  min-height: 0vh !important;
+  height: 64px !important;
+}
+.v-application {
+  height: 64px;
+}
+.v-main {
+  height: 64px;
+}
+.v-application__wrap {
+  > .v-app-bar {
+    height: 64px;
+  }
 }
 </style>
