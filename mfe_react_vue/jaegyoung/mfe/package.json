@@ -6,7 +6,11 @@
       "container-app",
       "vue-module-app",
       "vue-navigation-app",
-      "react-module-app"
+      "react-module-app",
+      "react-board-app",
+      "react-zustand-todo-app",
+      "react-query-test-app",
+      "vuetify-tailwind-board-app"
     ]
   },
   "scripts": {
@@ -16,9 +20,5 @@
   "devDependencies": {
     "external-remotes-plugin": "^1.0.0",
     "lerna": "^7.0.1"
-  },
-  "dependencies": {
-    "aphrodite": "^2.4.0",
-    "webfontloader": "^1.6.28"
   }
 }
