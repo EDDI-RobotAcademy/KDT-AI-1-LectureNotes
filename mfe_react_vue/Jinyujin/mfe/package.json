@@ -10,7 +10,8 @@
       "react-board-app",
       "react-product-app",
       "react-zustand-todo-app",
-      "react-query-test-app"
+      "react-query-test-app",
+      "vuetify-tailwind-board-app"
     ]
   },
   "scripts": {
