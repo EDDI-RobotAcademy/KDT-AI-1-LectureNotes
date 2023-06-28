@@ -82,4 +82,15 @@ export default {
 .v-application--wrap {
     min-height: 0vh !important;
 }
+.v-application {
+    height: 64px
+}
+.v-main {
+    height: 64px
+}
+.v-application__wrap {
+    > .v-app-bar {
+        height: 64px;
+    }
+} 
 </style>
