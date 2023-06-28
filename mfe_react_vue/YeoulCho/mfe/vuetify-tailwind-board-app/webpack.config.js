@@ -15,7 +15,7 @@ module.exports = (_, argv) => ({
   target: 'web',
   entry: path.resolve(__dirname, './src/index'),
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3007/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"],
@@ -74,10 +74,11 @@ module.exports = (_, argv) => ({
     }),
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "vueNavigationApp",
+      name: "vuetifyTailwindBoardApp",
       filename: "remoteEntry.js",
       exposes: {
-        './VueNavigation': './src/bootstrap',
+        './vuetifyBoardBootstrap': './src/bootstrap',
+        './vuetifyBoardModuleStore': './src/store/board/boardModule'
       },
       shared: require("./package.json").dependencies,
       shared: {
@@ -96,8 +97,9 @@ module.exports = (_, argv) => ({
     static: {
       directory: path.join(__dirname),
     },
+    historyApiFallback: true,
     compress: true,
-    port: 3002,
+    port: 3007,
     hot: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
