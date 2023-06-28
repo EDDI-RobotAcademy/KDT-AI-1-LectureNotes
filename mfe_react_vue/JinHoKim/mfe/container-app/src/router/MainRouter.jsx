@@ -6,6 +6,7 @@ import { Button } from '@mui/material'
 import { navigationMount } from 'vueNavigationApp/VueNavigation';
 import VuetifyTypeScriptBoardAppRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppRouter';
 import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
+import Home from './containerApp/Home';
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -64,6 +65,10 @@ const MainRouter = () => {
               </div>
             </div>
             <Routes>
+              <Route
+                exact path="/"
+                element={<Home/>}
+                />
               <Route
                 exact path="/vuetify-typescript-board-app"
                 element={
