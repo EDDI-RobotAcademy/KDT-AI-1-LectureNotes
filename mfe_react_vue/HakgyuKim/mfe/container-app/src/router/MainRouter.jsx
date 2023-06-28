@@ -5,8 +5,10 @@ import { Button } from '@mui/material';
 
 import { navigationMount } from 'vueNavigationApp/VueNavigation'
 import VuetifyTypeScriptBoardAppRouter from './vuetifyTypescriptBoardApp/vuetifyTypeScriptBoardAppRouter';
+import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
 
 const MainRouter = () => {
+  const vueModuleRef = useRef(null)
   const vuetifyNavigationRef = useRef(null)
   const vuetifyTailwindBoardRef = useRef(null)
 
@@ -52,17 +54,30 @@ const MainRouter = () => {
           <div>
             <div style={{ position: 'relative'}}>
               <Button ref={buttonRef} component={Link} to="/" variant="contained">홈</Button>
-              <Button component={Link} to="/vuetify-typescript-board-app" variant="contained">Vuetify TypeScript Board App</Button>
+              <Button component={Link} to="/vuetify-typescript-board-app" variant="contained">
+                Vuetify TypeScript Board App
+              </Button>
+              <Button component={Link} to="/vue-module-app" variant="contained">
+                Vue 게시판
+              </Button>
             </div>
           </div>
           <Routes>
             <Route
               exact path="/vuetify-typescript-board-app"
-              element={<VuetifyTypeScriptBoardAppRouter
-                          vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
-                          naviHeight={naviHeight}
-                        />
-                      }/>
+              element={
+                <VuetifyTypeScriptBoardAppRouter
+                  vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
+                  naviHeight={naviHeight}
+                />
+              }/>
+             <Route
+              exact path="/vue-module-app"
+              element={
+                <VueModuleAppRouter
+                  vueModuleRef={vueModuleRef}
+                />
+              }/>
           </Routes>
         </BrowserRouter>
       </Suspense>
