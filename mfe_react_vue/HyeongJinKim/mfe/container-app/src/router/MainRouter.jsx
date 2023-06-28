@@ -5,8 +5,10 @@ import { Button } from "@mui/material";
 
 import { navigationMount } from "vueNavigationApp/VueNavigation";
 import VuetifyTypeScriptBoardAppRouter from "./vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppRouter";
+import VueModuleAppRouter from "./vueModuleApp/VueModuleAppRouter";
 
 const MainRouter = () => {
+  const vueModuleRef = useRef(null);
   const vuetifyNavigationRef = useRef(null);
   const vuetifyTailwindBoardRef = useRef(null);
 
@@ -50,7 +52,7 @@ const MainRouter = () => {
   return (
     <div>
       <div ref={vuetifyNavigationRef} />
-      <Suspense fallback={<div>로딩중 .........</div>}>
+      <Suspense fallback={<div>로딩중...</div>}>
         <BrowserRouter>
           <div>
             <div style={{ position: "relative" }}>
@@ -62,7 +64,10 @@ const MainRouter = () => {
                 to="/vuetify-typescript-board-app"
                 variant="contained"
               >
-                Vuetify TypeScript Board App
+                Vuetify TypeScript 게시판
+              </Button>
+              <Button component={Link} to="/vue-module-app" variant="contained">
+                Vue 게시판
               </Button>
             </div>
           </div>
@@ -73,9 +78,13 @@ const MainRouter = () => {
               element={
                 <VuetifyTypeScriptBoardAppRouter
                   vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
-                  naviHeight={naviHeight}
                 />
               }
+            />
+            <Route
+              exact
+              path="/vue-module-app"
+              element={<VueModuleAppRouter vueModuleRef={vueModuleRef} />}
             />
           </Routes>
         </BrowserRouter>
