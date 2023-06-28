@@ -8,6 +8,8 @@ import { loadFonts } from "./plugins/webfontloader";
 
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+/* 주어진 코드는 vuetify/directives에서 모든 지시자(directive)를 가져오는 구문입니다.
+Vue.js에서 지시자는 DOM 요소에 추가적인 동작과 반응성을 부여하기 위해 사용됩니다 */
 import * as labsComponents from 'vuetify/labs/components'
 
 import { createVuetify, VuetifyOptions } from "vuetify/lib/framework.mjs";
