@@ -74,6 +74,7 @@ module.exports = (_, argv) => ({
       directory: path.join(__dirname),
     },
     compress: true,
+    historyApiFallback: true,
     port: 3001,
     hot: true,
     headers: {

@@ -12,12 +12,12 @@ module.exports = (_, argv) => ({
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
   },
   devServer: {
-    //static: path.join(__dirname, 'dist'),
+    // static: path.join(__dirname, 'dist'),
     port: 3000,
     historyApiFallback: true,
   },
   output: {
-    publicPath: 'auto',
+    publicPath: 'http://localhost:3000/',
   },
   module: {
     rules: [
