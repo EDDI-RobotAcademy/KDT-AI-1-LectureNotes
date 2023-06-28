@@ -62,8 +62,7 @@ const MainRouter = () => {
                     vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
                     naviHeight={naviHeight}
                   /> 
-                }>
-              </Route>
+                }/>
             </Routes>
           </BrowserRouter>
         </Suspense>
