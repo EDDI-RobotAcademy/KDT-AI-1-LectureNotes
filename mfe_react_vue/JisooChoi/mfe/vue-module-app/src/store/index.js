@@ -7,4 +7,5 @@ export default createStore({
         boardModule,
     },
 });
+
 export { boardModule };

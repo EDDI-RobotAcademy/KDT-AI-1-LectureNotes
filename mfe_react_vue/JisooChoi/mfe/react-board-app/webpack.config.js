@@ -10,16 +10,19 @@ module.exports = (_, argv) => ({
   output: {
     publicPath: "auto",
   },
-
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
-
   devServer: {
     port: 3004,
     historyApiFallback: true,
+    hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
+    }
   },
-
   module: {
     rules: [
       {
@@ -45,10 +48,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "react_board_app",
+      name: "reactBoardApp",
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      exposes: {
+        './ReactBoard': './src/bootstrap.js',
+        './BoardApp': './src/BoardApp.jsx',
+      },
       shared: {
         ...deps,
         react: {
@@ -59,9 +64,12 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: deps["react-router-dom"]
+        }
       },
     }),
-    // 외부에 붙여야 하니까 아래와 같이 넣어준다.
     new HtmlWebPackPlugin({
       template: "./public/index.html",
       chunks: ['main'],

@@ -13,7 +13,7 @@ import { createVuetify } from "vuetify";
 const navigationMount = (el) => {
 
     loadFonts()
-
+    
     const vuetify = createVuetify({
         components, directives
     })
