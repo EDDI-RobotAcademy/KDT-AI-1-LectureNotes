@@ -15,7 +15,7 @@ module.exports = (_, argv) => ({
     historyApiFallback: true,
   },
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3000/",
   },
   module: {
     rules: [
