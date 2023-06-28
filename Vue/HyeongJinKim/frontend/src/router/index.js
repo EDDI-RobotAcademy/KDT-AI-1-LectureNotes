@@ -20,6 +20,7 @@ import authenticationTestRoutes from "./authentication";
 import afterLoginTestRoutes from "./afterLogin";
 import paymentRoutes from "./payment";
 import chatRoutes from "./chat";
+import awsSdkTestRoutes from "./aws";
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,7 @@ const routes = [
   ...afterLoginTestRoutes,
   ...paymentRoutes,
   ...chatRoutes,
+  ...awsSdkTestRoutes,
 ];
 
 const router = new VueRouter({
