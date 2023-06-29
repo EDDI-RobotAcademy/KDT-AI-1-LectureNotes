@@ -26,15 +26,15 @@ const TypescriptBoardReadPage = () => {
   })
 
   const handleEditClick = () => {
-    console.log('수정')
+    navigate(`/react-query-zustand-mui-typescript-board-app/modify/${boardId}`)
   }
 
   const handleDeleteClick = () => {
-    console.log('삭제')
   }
 
   const handleCancelClick = () => {
-    console.log('돌아가기')
+    queryClient.invalidateQueries('boardList')
+    navigate('/react-query-zustand-mui-typescript-board-app')
   }
 
   return (
