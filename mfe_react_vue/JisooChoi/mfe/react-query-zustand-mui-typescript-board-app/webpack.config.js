@@ -7,13 +7,13 @@ module.exports = (_, argv) => ({
   mode: 'development',
   entry: './src/index',
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3008/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
-    port: 3006,
+    port: 3008,
     historyApiFallback: true,
     hot: true,
     headers: {
@@ -42,22 +42,14 @@ module.exports = (_, argv) => ({
           loader: "babel-loader",
         },
       },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ['@babel/env', '@babel/preset-react']},
-      },
     ],
   },
+
   plugins: [
     new ModuleFederationPlugin({
-      name: "reactQueryTestApp",
+      name: "reactQueryZustandMuiTypescriptBoardApp",
       filename: "remoteEntry.js",
-      exposes: {
-        './ReactQueryTestAppBootstrap': './src/bootstrap.js',
-        './ReactQueryTest': './src/ReactQueryTestApp.jsx'
-      },
+      exposes: {},
       shared: {
         ...deps,
         react: {
@@ -70,8 +62,8 @@ module.exports = (_, argv) => ({
         },
         "react-router-dom": {
           singleton: true,
-          requiredVersion: deps["react-router-dom"],
-        },
+          requiredVersion: deps["react-router-dom"]
+        }
       },
     }),
     new HtmlWebPackPlugin({
