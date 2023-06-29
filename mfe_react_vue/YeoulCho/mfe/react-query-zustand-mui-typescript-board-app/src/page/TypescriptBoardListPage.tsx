@@ -1,10 +1,11 @@
 import React from 'react'
 import { Button, Container, Table, TableContainer, TableHead, TableRow, Paper, TableCell } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { useBoardListQuery } from '../api/BoardApi'
 
 const TypescriptBoardListPage = () => {
 
-  const boards =[]
+  const {data:boards, isLoading, isError } =useBoardListQuery()
 
   return (
     <Container maxWidth="lg">
