@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import TypescriptBoardListPage from './page/TypescriptBoardListPage'
+import TypescriptBoardListPage from '../page/TypescriptBoardListPage'
 
 const MainRouter = () => {
   return (
