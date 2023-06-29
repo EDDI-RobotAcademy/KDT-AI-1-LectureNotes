@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { useQueryClient } from "react-query";
+import { useNavigate, useParams } from "react-router-dom";
+import { useBoardQuery, useBoardUpdateMutation } from "../api/BoardApi";
 
 import { Box, Button, Container, TextField } from "@mui/material";
-import { useNavigate, useParams } from "react-router-dom";
-import { useQueryClient } from "react-query";
-import { useBoardQuery } from "../api/BoardApi";
 
 interface RouteParams {
   boardId: string;
@@ -16,13 +16,29 @@ const TypescriptBoardModifyPage = () => {
   const queryClient = useQueryClient();
 
   const { data: board, isLoading, isError } = useBoardQuery(boardId || "");
-  //   const mutation = useBoardUpdateMutation();
+  const mutation = useBoardUpdateMutation();
 
   const [title, setTitle] = useState(board?.title || "");
   const [content, setContent] = useState(board?.content || "");
 
-  const handleEditFinishClick = () => {
-    // navigate(`/react-query-zustand-mui-typescript-board-app/modify/${boardId}`);
+  const handleEditFinishClick = async () => {
+    const { writer } = board || {};
+
+    console.log("수정 완료 눌렸니 ?");
+
+    if (title && content && writer) {
+      const updatedData = {
+        boardId,
+        title,
+        content,
+        writer,
+      };
+
+      await mutation.mutateAsync(updatedData);
+
+      queryClient.invalidateQueries(["board", boardId]);
+      navigate(`/react-query-zustand-mui-typescript-board-app/read/${boardId}`);
+    }
   };
 
   const handleCancelClick = () => {
@@ -35,8 +51,9 @@ const TypescriptBoardModifyPage = () => {
         <TextField
           label="제목"
           name="title"
-          value={board?.title || ""}
+          value={title}
           sx={{ borderRadius: "4px" }}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <TextField
           label="작성자"
@@ -56,10 +73,11 @@ const TypescriptBoardModifyPage = () => {
           label="내용"
           name="content"
           multiline
-          value={board?.content || ""}
+          value={content}
           minRows={20}
           maxRows={20}
           sx={{ borderRadius: "4px" }}
+          onChange={(e) => setContent(e.target.value)}
         />
         <Button variant="outlined" onClick={handleEditFinishClick}>
           수정 완료
