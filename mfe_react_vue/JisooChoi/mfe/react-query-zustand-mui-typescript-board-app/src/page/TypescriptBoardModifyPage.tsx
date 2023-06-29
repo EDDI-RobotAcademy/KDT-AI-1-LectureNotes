@@ -2,7 +2,7 @@ import { Box, Button, Container, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import { useQueryClient } from 'react-query'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useBoardQuery } from '../api/BoardApi'
+import { useBoardQuery, useBoardUpdateMutation } from '../api/BoardApi'
 
 interface RouteParams {
     boardId: string
@@ -15,13 +15,24 @@ const TypescriptBoardModifyPage = () => {
   const queryClient = useQueryClient()
 
   const { data: board, isLoading, isError } = useBoardQuery(boardId || '')
-  //const mutation = useBoardUpdateMutation()
+  const mutation = useBoardUpdateMutation()
 
   const [title, setTitle] = useState(board?.title || '')
   const [content, setContent] = useState(board?.content || '')
 
-  const handleEditFinishClick = () => {
-    //navigate(`/react-query-zustand-mui-typescript-board-app/modify/${boardId}`)
+  const handleEditFinishClick = async () => {
+    const { writer } = board || {}
+
+    if(title && content && writer) {
+        const updateDate = {
+            boardId, title, content, writer
+        }
+
+        await mutation.mutateAsync(updateDate)
+
+        queryClient.invalidateQueries(['board', boardId]) // borad 캐시 정보 다 날리세요 
+        navigate(`/react-query-zustand-mui-typescript-board-app/read/${boardId}`)
+    }
   }
 
   const handleCancelClick = () => {
@@ -32,14 +43,16 @@ const TypescriptBoardModifyPage = () => {
     <Container maxWidth="md" sx={{ marginTop: '2rem' }}>
       <Box display="flex" flexDirection="column" gap={2} p={2}>
         <TextField label="제목" name="title"
-                    value={ board?.title || '' } sx={{ borderRadius: '4px' }}/>
+                    value={ title } sx={{ borderRadius: '4px' }}
+                    onChange={ (e) => setTitle(e.target.value)}/> {/* 변경하려는 값에만 해당 이벤트를 준다. */}
         <TextField label="작성자" name="writer" disabled 
                     value={ board?.writer || '' } sx={{ borderRadius: '4px' }}/>
         <TextField label="작성일자" name="createDate" disabled 
                     value={ board?.createDate || '' } sx={{ borderRadius: '4px' }}/>
         <TextField label="내용" name="content" multiline
-                    value={ board?.content || '' }
-                    minRows={20} maxRows={20} sx={{ borderRadius: '4px' }}/>
+                    value={ content }
+                    minRows={20} maxRows={20} sx={{ borderRadius: '4px' }}
+                    onChange={ (e) => setContent(e.target.value)} />
         <Button variant='outlined' onClick={ handleEditFinishClick }>수정 완료</Button>
         <Button variant='outlined' onClick={ handleCancelClick }>취소</Button>
       </Box>
