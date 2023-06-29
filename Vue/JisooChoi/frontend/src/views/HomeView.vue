@@ -53,6 +53,8 @@
         <router-link to="/after-login/sample">토큰 전송</router-link> |
         <router-link to="/computer-income-homework-page">Vue + FastAPI + Keras 문제 은행 [ 1 ]</router-link> |
         <router-link to="/payment-page">결제 페이지</router-link> |
+        <router-link to="/number-traffic-page">Vue + Spring + FastAPI 문제 은행 [ 1 ]</router-link> |
+        <router-link to="/chat-page">웹소켓 채팅 테스트</router-link> |
       </nav>
     </div>
   </v-container>

@@ -1,6 +1,7 @@
 package kr.eddi.demo.lectureClass.fastapi.basics.controller;
 
 import kr.eddi.demo.lectureClass.fastapi.basics.service.FastApiService;
+import kr.eddi.demo.lectureClass.vue.controller.utility.random.CustomRandom;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,5 +32,10 @@ public class FastApiBasicsController {
         final String FASTAPI_REQUEST_URL = "http://localhost:8000/request-int-data";
 
         return fastApiService.integerRequest(FASTAPI_REQUEST_URL);
+    }
+
+    @GetMapping("/getInteger")
+    public Integer VueIntegerRequest(){
+        return CustomRandom.generateNumber(5,20);
     }
 }

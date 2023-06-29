@@ -1,4 +1,5 @@
 package kr.eddi.demo.controller;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,6 @@ public class TestRestController {
     // Request(요청)을 하면 클라이언트
     @GetMapping("/first")
     public String firstTest () {
-        return "응 이건 첫 번째야 정말!";
+        return "응 이건 첫 번째야!";
     }
 }

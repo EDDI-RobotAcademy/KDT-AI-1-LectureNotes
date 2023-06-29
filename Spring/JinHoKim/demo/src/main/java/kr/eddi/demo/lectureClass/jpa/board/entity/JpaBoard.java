@@ -5,14 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-//1
+
 @Entity
 @Getter
 @ToString
@@ -25,7 +23,6 @@ public class JpaBoard {
 
     @Setter
     private String title;
-
     private String writer;
 
     @Setter
@@ -42,7 +39,6 @@ public class JpaBoard {
     private LocalDateTime createDate;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
-    @CreationTimestamp
+    @UpdateTimestamp
     private LocalDateTime updateDate;
 }
-

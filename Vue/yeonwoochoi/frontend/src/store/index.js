@@ -7,6 +7,10 @@ import d3PlotModule from './d3Plot/D3PlotModule'
 import filesModule from './files/FilesModule'
 import foodModule from './food/FoodModule'
 import fastApiModule from './fastapi/FastApiModule'
+import springModule from './spring/FastApiModule'
+import accountModule from './account/AccountModule'
+import authenticationModule from './authentication/AuthenticationModule'
+import afterLoginModule from './afterLogin/AfterLoginModule'
 
 Vue.use(Vuex)
 
@@ -18,7 +22,11 @@ const store = new Vuex.Store({
     d3PlotModule: d3PlotModule,
     filesModule: filesModule,
     foodModule: foodModule,
-    fastApiModule: fastApiModule
+    fastApiModule: fastApiModule,
+    springModule: springModule,
+    accountModule: accountModule,
+    authenticationModule: authenticationModule,
+    afterLoginModule: afterLoginModule,
   },
 })
 

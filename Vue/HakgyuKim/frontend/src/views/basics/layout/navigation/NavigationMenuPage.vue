@@ -36,6 +36,10 @@
         <span>카페</span>
         <v-icon right>mdi-coffee</v-icon>
       </v-btn>
+      <v-btn @click="clearLocalStorage">
+        <span>로컬 지우기</span>
+        <v-icon right>mdi-eraser</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer app v-model="navigation_drawer">
@@ -82,7 +86,10 @@ export default {
     methods: {
       goToHome () {
         router.push('/')
+      },
+      clearLocalStorage() {
+        localStorage.clear()
       }
-    }
+    },
 }
 </script>
