@@ -10,7 +10,7 @@ const TypeScriptBoardRegisterPage = () => {
   const mutation = useMutation(registerBoard, {
     onSuccess: (data) => {
       queryClient.setQueryData('board', data)
-      navigate(`/react-query-zustand-typescript-board-app/read/${data.boardId}`)
+      navigate(`/react-query-zustand-mui-typescript-board-app/read/${data.boardId}`)
     }
   })
 

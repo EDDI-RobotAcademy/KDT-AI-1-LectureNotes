@@ -34,7 +34,7 @@ const TypeScriptBoardListPage = () => {
   return (
     <Container maxWidth="lg">
       <h2>안녕 React-Query + Zustand + Typescript + React Board App이야!</h2>
-      <Button component={Link} to="/react-query-zustand-typescript-board-app/register" variant="contained"
+      <Button component={Link} to="/react-query-zustand-mui-typescript-board-app/register" variant="contained"
             color="primary" style={{ marginTop: '20px' }}>
           글쓰기
         </Button>
