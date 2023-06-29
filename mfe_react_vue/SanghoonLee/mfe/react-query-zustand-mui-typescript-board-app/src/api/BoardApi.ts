@@ -26,3 +26,12 @@ export const registerBoard = async (
   const response = await axiosInst.springAxiosInst.post<Board>('/jpa-board/register', data)
   return response.data
 }
+
+export const fetchBoard = async (boardId: string): Promise<Board | null> => {
+  const response = await axiosInst.springAxiosInst.get<Board>(`/jpa-board/${boardId}`)
+  return response.data
+}
+
+export const useBoardQuery = (boardId: string): UseQueryResult<Board | null, unknown> => {
+  return useQuery(['board', boardId], () => fetchBoard(boardId))
+}
