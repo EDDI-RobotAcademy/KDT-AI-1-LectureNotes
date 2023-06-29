@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Button,
+  CircularProgress,
   Container,
   Paper,
   Table,
@@ -9,11 +10,38 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { fetchBoardList, useBoardListQuery } from "../api/BoardApi";
+import useBoardStore from "../store/BoardStore";
 
 const TypescriptBoardListPage = () => {
-  const boards = [];
+  const { data: boards, isLoading, isError } = useBoardListQuery();
+  const setBoards = useBoardStore((state) => state.setBoards);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchBoardList();
+      console.log(data);
+      setBoards(data);
+    };
+
+    fetchData();
+  }, [setBoards]);
+
+  if (isLoading) {
+    return <CircularProgress />;
+  }
+
+  if (isError) {
+    return <Typography>리스트를 가져오는 도중 에러가 발생하였습니다</Typography>;
+  }
+
+  const handleRowClick = (boardId: number) => {
+    navigate(`/react-query-zustand-mui-typescript-board-app/read/${boardId}`);
+  };
 
   return (
     <Container maxWidth="lg">
@@ -44,7 +72,17 @@ const TypescriptBoardListPage = () => {
                 </TableCell>
               </TableRow>
             ) : (
-              console.log("데이터 있음")
+              boards?.map((board) => (
+                <TableRow
+                  key={board.boardId}
+                  onClick={() => handleRowClick(board.boardId)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <TableCell>{board.title}</TableCell>
+                  <TableCell>{board.writer}</TableCell>
+                  <TableCell>{board.createDate}</TableCell>
+                </TableRow>
+              ))
             )}
           </TableBody>
         </Table>
