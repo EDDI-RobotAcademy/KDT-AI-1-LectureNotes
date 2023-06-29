@@ -20,7 +20,7 @@ ReactDOM.render(
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
                 <ReactQueryZustandMuiTypescriptBoardApp/>
-            </BrowserRouter>,
+            </BrowserRouter>
         </QueryClientProvider>
     </React.StrictMode>,    
     document.getElementById("react-query-zustand-mui-typescript-board-app")

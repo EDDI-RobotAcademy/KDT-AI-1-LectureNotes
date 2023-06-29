@@ -1,1 +1,2 @@
-import("./ReactQueryZustandMuiTypescriptBoardApp");
+import("./bootstrap");
+//ReactQueryZustandMuiTypescriptBoardApp
