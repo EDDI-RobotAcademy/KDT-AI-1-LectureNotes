@@ -4,7 +4,7 @@ import { Board } from '../entity/Board'
 import useBoardStore from '../store/BoardStore'
 
 export const fetchBoardList = async (): Promise<Board[]> => {
-    const response = await axiosInst.springAxiosInst.get<Board[]>('jpa-board/list')
+    const response = await axiosInst.springAxiosInst.get<Board[]>('/jpa-board/list')
     return response.data
 }
 
@@ -23,6 +23,15 @@ export const useBoardListQuery = (): UseQueryResult<Board[], unknown> => {
 export const registerBoard = async(
     data: {title: string; writer: string; content: string}
 ): Promise<Board> =>{
-    const response = await axiosInst.springAxiosInst.post<Board>('jpa-board/register', data)
+    const response = await axiosInst.springAxiosInst.post<Board>('/jpa-board/register', data)
     return response.data
+}
+
+export const fetchBoard = async (boardId: string): Promise<Board | null> => {
+    const response = await axiosInst.springAxiosInst.get<Board>(`/jpa-board/${boardId}`)
+    return response.data
+}
+
+export const useBoardQuery = (boardId: string): UseQueryResult<Board | null, unknown> => {
+    return useQuery(['board', boardId], () => fetchBoard(boardId))
 }
