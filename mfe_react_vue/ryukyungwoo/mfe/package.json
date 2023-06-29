@@ -10,7 +10,6 @@
       "react-board-app",
       "react-zustand-todo-app",
       "react-query-test-app",
-      "react-query-test-app",
       "vuetify-tailwind-board-app"
     ]
   },
@@ -19,7 +18,6 @@
     "build": "lerna run build"
   },
   "devDependencies": {
-    "aws-sdk": "^2.1405.0",
     "external-remotes-plugin": "^1.0.0",
     "lerna": "^7.0.1"
   }

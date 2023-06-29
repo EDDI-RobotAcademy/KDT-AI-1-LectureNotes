@@ -55,7 +55,7 @@ module.exports = (_, argv) => ({
       name: "reactZustandTodoApp",
       filename: "remoteEntry.js",
       exposes: {
-        '/ZustandTodoAppBootstrap': './src/bootstrap.js',
+        './ZustandTodoAppBootstrap': './src/bootstrap.js',
         './ZustandTodoApp': './src/TodoApp.jsx'
       },
       shared: {

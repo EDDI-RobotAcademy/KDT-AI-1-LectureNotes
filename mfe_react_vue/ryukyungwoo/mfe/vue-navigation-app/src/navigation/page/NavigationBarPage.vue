@@ -86,7 +86,7 @@ export default {
     height: 64px;
 }
 .main-container {
-    height: 64px;
+    max-height: 100%;
     overflow-y: auto;
 }
 .v-application--wrap {
