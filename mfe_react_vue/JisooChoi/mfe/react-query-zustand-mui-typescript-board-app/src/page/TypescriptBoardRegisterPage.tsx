@@ -7,10 +7,10 @@ import { registerBoard } from '../api/BoardApi'
 
 const TypescriptBoardRegisterPage = () => {
     const navigate = useNavigate()
-    const QueryClient = useQueryClient()
+    const queryClient = useQueryClient()
     const mutation = useMutation(registerBoard, {
         onSuccess: (data) => {
-            QueryClient.setQueryData('board', data)
+            queryClient.setQueryData('board', data)
             navigate(`/react-query-zustand-mui-typescript-board-app/read/${data.boardId}`)
         }
     })
