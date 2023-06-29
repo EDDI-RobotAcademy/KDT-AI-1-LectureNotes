@@ -19,5 +19,11 @@ export const useBoardListQuery = (): UseQueryResult<Board[], unknown> => {
 
     return queryResult
 }
+// ↑ 간단하게 우리는 여기서 acions 을 만들었다고 생각하면 된다.
 
-// 간단하게 우리는 여기서 acions 을 만들었다고 생각하면 된다.
+export const registerBoard = async (
+    data: { title: string; writer: string; content: string }
+  ): Promise<Board> => {
+    const response = await axiosInst.springAxiosInst.post<Board>('/jpa-board/register', data)
+    return response.data
+  }
