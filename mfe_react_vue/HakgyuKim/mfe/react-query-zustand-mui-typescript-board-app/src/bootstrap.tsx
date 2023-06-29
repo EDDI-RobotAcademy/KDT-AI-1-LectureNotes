@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ReactQueryZustandMuiTypescriptBoardApp from './ReactQueryZustandMuiTypescriptBoardApp'
-import { QueryClient } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter } from 'react-router-dom'
 
 const queryClient = new QueryClient({
@@ -16,12 +16,12 @@ const queryClient = new QueryClient({
 })
 
 ReactDOM.render(
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <ReactQueryZustandMuiTypescriptBoardApp/>
-        </BrowserRouter>
-      </QueryClientProvider>
-    </React.StrictMode>,
-    document.getElementById("react-query-zustand-mui-typescript-board-app")
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <ReactQueryZustandMuiTypescriptBoardApp/>
+      </BrowserRouter>
+    </QueryClientProvider>
+  </React.StrictMode>,
+  document.getElementById("react-query-zustand-mui-typescript-board-app")
 )
