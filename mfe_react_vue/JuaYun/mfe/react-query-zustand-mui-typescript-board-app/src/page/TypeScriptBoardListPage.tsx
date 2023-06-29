@@ -58,7 +58,8 @@ const TypeScriptBoardListPage = () => {
                   <TableRow key={board.boardId} onClick={() => handleRowClick(board.boardId)} style={{ cursor: 'pointer' }}>
                     <TableCell>{ board.title }</TableCell>
                     <TableCell>{ board.writer }</TableCell>
-                    <TableCell>{ board.content }</TableCell>
+                    {/* back 에서 createdDate 라고 작성되있어서 createData론 안나옴 */}
+                    <TableCell>{ board.createdDate }</TableCell>
                   </TableRow>
                 ))
               )}
