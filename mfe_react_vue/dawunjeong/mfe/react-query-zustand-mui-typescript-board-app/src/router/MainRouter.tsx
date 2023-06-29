@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import TypescriptBoardListPage from '../page/TypescriptBoardListPage'
 import TypescriptBoardRegisterPage from '../page/TypescriptBoardRegisterPage'
 import TypescriptBoardReadPage from '../page/TypescriptBoardReadPage'
+import TypescriptBoardModifyPage from '../page/TypescriptBoardModifyPage'
 
 const MainRouter = () => {
   return (
@@ -13,6 +14,7 @@ const MainRouter = () => {
           <Route path="/react-query-zustand-mui-typescript-board-app" element={<TypescriptBoardListPage/>}/>
           <Route path="/react-query-zustand-mui-typescript-board-app/register" element={<TypescriptBoardRegisterPage/>}/>
           <Route path="/react-query-zustand-mui-typescript-board-app/read/:boardId" element={<TypescriptBoardReadPage/>}/>
+          <Route path="/react-query-zustand-mui-typescript-board-app/modify/:boardId" element={<TypescriptBoardModifyPage/>}/>
         </Routes>
       </Suspense>
     </>
