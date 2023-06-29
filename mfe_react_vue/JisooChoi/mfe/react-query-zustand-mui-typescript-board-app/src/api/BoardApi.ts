@@ -55,5 +55,8 @@ export const useBoardUpdateMutation = (): UseMutationResult<Board, unknown, Boar
             QueryClient.setQueryData(['board', data.boardId], data)
         }
     })
+}
 
+export const deleteBoard = async ( boardId: string): Promise<void> =>  {
+    await axiosInst.springAxiosInst.delete(`/jpa-board/${boardId}`)
 }
