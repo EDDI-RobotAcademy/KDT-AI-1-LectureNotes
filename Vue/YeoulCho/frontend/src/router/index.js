@@ -22,6 +22,7 @@ import authenticationTestRoutes from './authentication'
 import afterLoginTestRoutes from './afterLogin'
 import paymentRoutes from './payment'
 import chatRoutes from './chat'
+import s3Routes from './s3'
 Vue.use(VueRouter)
 
 const routes = [
@@ -44,7 +45,8 @@ const routes = [
   ...authenticationTestRoutes,
   ...afterLoginTestRoutes,
   ...paymentRoutes,
-  ...chatRoutes
+  ...chatRoutes,
+  ...s3Routes,
 ]
 
 const router = new VueRouter({

@@ -10,6 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 // 시장 진입을 먼저 했기 때문(관성)입니다. -> 왜 아직도 SI는 JSP를 쓰나요? 와 같은 질문
 const BoardReadPage = () => {
     // boardId를 받아와야함
+    // {}는 객체 [] 배열
     const { boardId} = useParams()
 
     const [ board, setBoard] = useState(null)

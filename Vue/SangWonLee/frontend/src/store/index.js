@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import boardModule from "@/store/board/BoardModule.js";
-import productModule from "@/store/product/ProductModule.js";
+import productModule from "@/store/product/productModule.js";
 import uiVuetifyModule from "@/store/uiVuetify/UiVuetifyModule.js";
 import d3PlotModule from "./d3Plot/D3PlotModule";
 import filesModule from "./files/FilesModule";
