@@ -52,3 +52,7 @@ export const useBoardUpdateMutation = (): UseMutationResult<Board, unknown, Boar
         }
     })
 }
+
+export const deleteBoard = async (boardId: string): Promise<void> => {
+    await axiosInst.springAxiosInst.delete(`/jpa-board/${boardId}`)
+  }
