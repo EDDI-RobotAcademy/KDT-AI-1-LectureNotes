@@ -1,4 +1,4 @@
-import { UseQueryResult, useQuery } from 'react-query'
+import { UseMutationResult, UseQueryResult, useMutation, useQuery, useQueryClient } from 'react-query'
 import axiosInst from '../utility/axiosInstance'
 import { Board } from '../entity/Board'
 import useBoardStore from '../store/BoardStore'
@@ -34,4 +34,21 @@ export const fetchBoard = async (boardId: string): Promise<Board | null> => {
 
 export const useBoardQuery = (boardId: string): UseQueryResult<Board | null, unknown> => {
     return useQuery(['board', boardId], () => fetchBoard(boardId))
+}
+
+export const updateBoard = async (updatedData:Board): Promise<Board> => {
+    const {boardId, title, content, writer} = updatedData
+    const response = await axiosInst.springAxiosInst.put<Board>(`/jpa-board/${boardId}`, { title, content, writer })
+    return response.data
+
+}
+
+export const useBoardUpdateMutation = (): UseMutationResult<Board, unknown, Board>  => {
+    const QueryClient = useQueryClient()
+
+    return useMutation (updateBoard, {
+        onSuccess: (data) => {
+            QueryClient.setQueryData(['board', data.boardId], data)
+        }
+    })
 }
