@@ -14,7 +14,7 @@ module.exports = (_, argv) => ({
   target: 'web',
   entry: path.resolve(__dirname, './src/index.js'),
   output: {
-    publicPath: 'auto',
+    publicPath: 'http://localhost:3001/',
   },
   resolve: {
     extensions: [".vue", ".js", ".json"],
@@ -73,6 +73,7 @@ module.exports = (_, argv) => ({
     static: {
       directory: path.join(__dirname),
     },
+    historyApiFallback: true,
     compress: true,
     port: 3001,
     hot: true,
