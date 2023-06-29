@@ -1,4 +1,3 @@
-const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
@@ -8,13 +7,13 @@ module.exports = (_, argv) => ({
   mode: 'development',
   entry: './src/index',
   output: {
-    publicPath: "http://localhost:3004/",
+    publicPath: "http://localhost:3008/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
-    port: 3004,
+    port: 3008,
     historyApiFallback: true,
     hot: true,
     headers: {
@@ -48,16 +47,9 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "reactBoardApp",
+      name: "reactQueryZustandMuiTypescriptBoardApp",
       filename: "remoteEntry.js",
-      exposes: {
-        './ReactBoard': './src/bootstrap.js',
-        './BoardApp': './src/BoardApp.jsx',
-        './BoardListPage': './src/page/BoardListPage.js',
-        './BoardReadPage': './src/page/BoardReadPage.js',
-        './BoardRegisterPage': './src/page/BoardRegisterPage.js',
-        './BoardModifyPage': './src/page/BoardModifyPage.js',
-      },
+      exposes: {},
       shared: {
         ...deps,
         react: {
