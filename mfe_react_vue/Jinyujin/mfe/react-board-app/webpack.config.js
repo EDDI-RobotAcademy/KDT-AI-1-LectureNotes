@@ -50,10 +50,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "react_board_app",
+      name: "reactBoardApp", // 여기 이름과 exposes에서 지을 이름 헷갈리게 짓지 말기
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      exposes: { 
+        './ReactBoard': './src/bootstrap.js',
+        './BoardApp': './src/BoardApp.jsx',
+      },
       shared: {
         ...deps,
         react: {
@@ -64,6 +66,10 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: deps["react-router-dom"]
+        }
       },
     }),
     new HtmlWebPackPlugin({

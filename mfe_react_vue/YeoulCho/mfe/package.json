@@ -7,7 +7,11 @@
       "vue-module-app",
       "vue-navigation-app",
       "react-module-app",
-      "react-board-app"
+      "react-board-app",
+      "react-product-app",
+      "react-zustand-todo-app",
+      "react-query-test-app",
+      "vuetify-tailwind-board-app"
     ]
   },
   "scripts": {

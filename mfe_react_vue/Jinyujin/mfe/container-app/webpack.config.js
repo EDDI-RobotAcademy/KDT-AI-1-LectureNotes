@@ -60,6 +60,11 @@ module.exports = (_, argv) => ({
         vueModuleApp: 'vueModuleApp@http://localhost:3001/remoteEntry.js',
         vueNavigationApp: 'vueNavigationApp@http://localhost:3002/remoteEntry.js',
         reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
+        reactBoardApp: 'reactBoardApp@http://localhost:3004/remoteEntry.js',
+        reactProductApp: 'reactProductApp@http://localhost:3005/remoteEntry.js',
+        reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3006/remoteEntry.js',
+        reactQueryTestApp: 'reactQueryTestApp@http://localhost:3007/remoteEntry.js',
+        vuetifyTailwindBoardApp: 'vuetifyTailwindBoardApp@http://localhost:3008/remoteEntry.js',
       },
       // remote app을 빌드하면 각각 app의 remoteEntry.js라는 파일이 생성됨
       // 그것이 호스트 앱인 containerApp에 각 remote app의 컨테이너를 최종 전달하는 것
@@ -72,6 +77,9 @@ module.exports = (_, argv) => ({
         "react-dom": {
           singleton: true,
           requiredVersion: deps["react-dom"],
+        },
+        "react-router-dom": {
+          singleton: true
         }
       }
     }),

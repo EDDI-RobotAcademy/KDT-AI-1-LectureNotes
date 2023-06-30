@@ -5,7 +5,6 @@ import * as axiosClient from "../api/board"
 const BoardListPage = () => {
   const[boards, setBoards] = useState([])
   const[isLoading, setLoading] = useState([false])
-  
   const listBoard = async () => {
     setLoading(true)
     try{

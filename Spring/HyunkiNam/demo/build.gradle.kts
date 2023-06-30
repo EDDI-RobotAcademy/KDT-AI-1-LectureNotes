@@ -26,6 +26,7 @@ dependencies {
 	implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.14.2")
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	implementation("com.corundumstudio.socketio:netty-socketio:2.0.2")
 
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("com.mysql:mysql-connector-j")
