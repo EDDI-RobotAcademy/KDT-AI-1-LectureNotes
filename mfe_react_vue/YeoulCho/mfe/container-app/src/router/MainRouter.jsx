@@ -15,6 +15,7 @@ import ReactTypescriptMuiBoardRoutes from './muiTypescriptBaordApp/ReactTypescri
 import VueModuleAppRegisterRouter from './vueModuleApp/VueModuleAppRegisterRouter';
 import VueModuleAppReadRouter from './vueModuleApp/VueModuleAppReadRouter';
 import VueModuleAppModifyRouter from './vueModuleApp/VueModuleAppModifyRouter';
+import VueModuleAppListRouter from './vueModuleApp/VueModuleAppListRouter';
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -96,13 +97,13 @@ const MainRouter = () => {
                     vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
                   /> 
                 }/>
-              <Route
+              {/* <Route
                 exact path="/vue-module-app"
                 element={
                   <VueModuleAppRouter
                     vueModuleRef={vueModuleRef}
                   />
-                }/>
+                }/> */}
               <Route
                 exact path="/react-counter-app"
                 element={
@@ -127,6 +128,11 @@ const MainRouter = () => {
                 exact path="/vue-module-app/board-modify-page/:boardId"
                 element={
                   <VueModuleAppModifyRouter/>
+                }/>
+                <Route
+                exact path="/vue-module-app"
+                element={
+                  <VueModuleAppListRouter/>
                 }/>
             </Routes>
           </BrowserRouter>
