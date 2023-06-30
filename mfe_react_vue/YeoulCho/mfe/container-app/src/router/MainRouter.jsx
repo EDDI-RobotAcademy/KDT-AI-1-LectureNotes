@@ -12,6 +12,8 @@ import ReactProductAppRouter from './productBoardApp/ReactProductAppRouter'
 import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes'
 import ReactTypescriptMuiBoardRoutes from './muiTypescriptBaordApp/ReactTypescriptMuiBoardRoutes';
 
+import VueModuleAppRegisterRouter from './vueModuleApp/VueModuleAppRegisterRouter';
+
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
   const vuetifyNavigationRef = useRef(null)
@@ -108,6 +110,13 @@ const MainRouter = () => {
             <ReactBoardRoutes/>
             <ReactProductAppRouter/>
             <ReactTypescriptMuiBoardRoutes/>
+            <Routes>
+              <Route
+                exact path="/vue-module-app/board-register-page"
+                element={
+                  <VueModuleAppRegisterRouter/>
+                }/>
+            </Routes>
           </BrowserRouter>
         </Suspense>
     </div>
