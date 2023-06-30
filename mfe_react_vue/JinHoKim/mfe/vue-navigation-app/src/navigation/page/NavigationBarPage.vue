@@ -44,7 +44,7 @@
 import 'vuetify/dist/vuetify.min.css'
 
 export default {
-    data() {
+    data () {
         return {
             navigation_drawer: false,
             isLogin: false,
@@ -57,21 +57,21 @@ export default {
         }
     },
     methods: {
-        clickToggle() {
+        clickToggle () {
             alert('토글')
         },
-        signUp() {
+        signUp () {
             alert('회원 가입')
         },
-        signIn() {
+        signIn () {
             this.isLogin = true
             alert('로그인')
         },
-        signOut() {
+        signOut () {
             this.isLogin = false
             alert('로그아웃')
         },
-        gotoHome() {
+        gotoHome () {
             alert('고 홈')
         }
     }
@@ -82,30 +82,25 @@ export default {
 #data-v-app {
     height: 64px;
 }
-
 .app-container {
     height: 64px;
 }
-
 .main-container {
     max-height: 100%;
     overflow-y: auto;
 }
-
 .v-application--wrap {
     height: 64px !important;
 }
-
 .v-application {
     height: 64px;
 }
-
 .v-main {
     height: 64px;
 }
-
 .v-application__wrap {
-    >.v-app-bar {
+    > .v-app-bar {
         height: 64px;
     }
-}</style>
+}
+</style>

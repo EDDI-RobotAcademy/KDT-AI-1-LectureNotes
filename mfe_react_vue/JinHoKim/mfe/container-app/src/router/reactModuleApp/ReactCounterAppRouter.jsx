@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Counter from 'reactModuleApp/Counter'
+import Counter from 'reactModuleApp/Counter';
 
 const ReactCounterAppRouter = () => {
   return (
