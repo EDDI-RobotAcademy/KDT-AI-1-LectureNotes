@@ -10,6 +10,7 @@ import Home from './containerApp/Home';
 import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
 import ReactProductAppRouter from './productBoardApp/ReactProductAppRouter'
 import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes'
+import ReactTypescriptMuiBoardRoutes from './muiTypescriptBaordApp/ReactTypescriptMuiBoardRoutes';
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -74,6 +75,9 @@ const MainRouter = () => {
                 <Button component={Link} to="/react-board-app" variant="contained">
                   React 게시판
                 </Button>
+                <Button component={Link} to="/react-query-zustand-mui-typescript-board-app" variant="contained">
+                  Mui typescript 게시판
+                </Button>
               </div>
             </div>
             <Routes>
@@ -103,6 +107,7 @@ const MainRouter = () => {
             </Routes>
             <ReactBoardRoutes/>
             <ReactProductAppRouter/>
+            <ReactTypescriptMuiBoardRoutes/>
           </BrowserRouter>
         </Suspense>
     </div>
