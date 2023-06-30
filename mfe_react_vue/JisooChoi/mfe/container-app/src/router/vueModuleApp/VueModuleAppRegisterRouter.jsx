@@ -13,7 +13,11 @@ const VueModuleAppRegisterRouter = () => {
   }, [vueModuleRegisterRef])
 
   return (
-    <div ref={vueModuleRegisterRef}/>
+    <div>
+      <div>
+        <div style={{ position: 'relative' }} ref={vueModuleRegisterRef}/>
+      </div>
+    </div>
   )
 }
 

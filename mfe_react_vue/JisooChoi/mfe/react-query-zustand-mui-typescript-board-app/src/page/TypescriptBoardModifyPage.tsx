@@ -23,18 +23,20 @@ const TypescriptBoardModifyPage = () => {
   const handleEditFinishClick = async () => {
     const { writer } = board || {}
 
-    if(title && content && writer) {
-        const updateDate = {
-            boardId, title, content, writer
-        }
+    console.log('수정 완료 눌렸니 ?')
+    
+    if (title && content && writer) {
+      const updatedData = {
+        boardId, title, content, writer
+      }
 
-        await mutation.mutateAsync(updateDate)
+      await mutation.mutateAsync(updatedData)
 
-        queryClient.invalidateQueries(['board', boardId]) // borad 캐시 정보 다 날리세요 
-        navigate(`/react-query-zustand-mui-typescript-board-app/read/${boardId}`)
+      queryClient.invalidateQueries(['board', boardId])
+      navigate(`/react-query-zustand-mui-typescript-board-app/read/${boardId}`)
     }
   }
-
+  
   const handleCancelClick = () => {
     navigate(`/react-query-zustand-mui-typescript-board-app/read/${boardId}`)
   }
@@ -44,15 +46,14 @@ const TypescriptBoardModifyPage = () => {
       <Box display="flex" flexDirection="column" gap={2} p={2}>
         <TextField label="제목" name="title"
                     value={ title } sx={{ borderRadius: '4px' }}
-                    onChange={ (e) => setTitle(e.target.value)}/> {/* 변경하려는 값에만 해당 이벤트를 준다. */}
+                    onChange={ (e) => setTitle(e.target.value) }/>
         <TextField label="작성자" name="writer" disabled 
                     value={ board?.writer || '' } sx={{ borderRadius: '4px' }}/>
         <TextField label="작성일자" name="createDate" disabled 
                     value={ board?.createDate || '' } sx={{ borderRadius: '4px' }}/>
         <TextField label="내용" name="content" multiline
-                    value={ content }
-                    minRows={20} maxRows={20} sx={{ borderRadius: '4px' }}
-                    onChange={ (e) => setContent(e.target.value)} />
+                    value={ content } minRows={20} maxRows={20} sx={{ borderRadius: '4px' }}
+                    onChange={ (e) => setContent(e.target.value) }/>
         <Button variant='outlined' onClick={ handleEditFinishClick }>수정 완료</Button>
         <Button variant='outlined' onClick={ handleCancelClick }>취소</Button>
       </Box>

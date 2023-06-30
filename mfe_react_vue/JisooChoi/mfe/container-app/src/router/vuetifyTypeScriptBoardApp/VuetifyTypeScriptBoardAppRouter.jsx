@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
-const VuetifyTailwindBoardAppRouterComponent = ({ vuetifyTailwindBoardRef }) => {
+const VuetifyTypeScriptBoardAppRouter = ({ vuetifyTailwindBoardRef }) => {
   useEffect(() => {
     const loadRemoteComponent = async () => {
       const { vuetifyTailwindBoardAppMount } = await import('vuetifyTailwindBoardApp/vuetifyBoardBootstrap')
@@ -11,12 +11,12 @@ const VuetifyTailwindBoardAppRouterComponent = ({ vuetifyTailwindBoardRef }) => 
   }, [vuetifyTailwindBoardRef])
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div>
       <div>
-        <div ref={vuetifyTailwindBoardRef} />
+        <div ref={vuetifyTailwindBoardRef}/>
       </div>
     </div>
   )
 }
 
-export default VuetifyTailwindBoardAppRouterComponent
+export default VuetifyTypeScriptBoardAppRouter

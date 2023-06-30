@@ -14,6 +14,7 @@ const BoardApp = () => {
     <>
       <Routes>
         {/* exact의 경우 정확하게 이 경로에 해당하는 동작에 대해서만 BoardListPage가 동작한다 */}
+        <Route path="/" element={<Navigate to="/react-board-app" replace/>} />
         <Route element={<BoardListPage/>} path="/react-board-app" exact></Route>
         <Route element={<BoardRegisterPage/>} path="/react-board-app/register"></Route>
         <Route element={<BoardReadPage/>} path="/react-board-app/read/:boardId"></Route>

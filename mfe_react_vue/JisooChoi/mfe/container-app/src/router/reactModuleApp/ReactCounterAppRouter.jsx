@@ -5,9 +5,9 @@ import Counter from 'reactModuleApp/Counter';
 const ReactCounterAppRouter = () => {
   return (
     <div>
-        <div>
-            <Counter/>
-        </div>
+      <div>
+        <Counter/>
+      </div>
     </div>
   )
 }
