@@ -52,6 +52,8 @@ module.exports = (_, argv) => ({
       // 결론적으로 현재 React Container에
       // remotes React Component를 붙이는 것이기 때문에 가능함
       exposes: {
+        './TypescriptBoard': './src/bootstrap.tsx',
+        './TypescriptBoardApp': './src/ReactQueryZustandMuiTypescriptBoardApp.tsx',
         './TypescriptBoardListPage': './src/page/TypescriptBoardListPage.tsx',
         './TypescriptBoardReadPage': './src/page/TypescriptBoardReadPage.tsx',
         './TypescriptBoardRegisterPage': './src/page/TypescriptBoardRegisterPage.tsx',
@@ -71,6 +73,10 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-router-dom"]
         },
+        "react-query": {
+          singleton: true,
+          requiredVersion: deps["react-query"]
+        }
       },
     }),
     new HtmlWebPackPlugin({
