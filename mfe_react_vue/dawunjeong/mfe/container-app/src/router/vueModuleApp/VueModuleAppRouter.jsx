@@ -5,15 +5,15 @@ const VueModuleAppRouter = ({ vueModuleRef }) => {
     const loadRemoteComponent = async () => {
       const { mount } = await import('vueModuleApp/Sample')
       mount(vueModuleRef.current)
-  }
+    }
 
     loadRemoteComponent()
   }, [vueModuleRef])
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div>
       <div>
-        <div ref={vueModuleRef}/>
+        <div style={{ position: 'relative' }} ref={vueModuleRef}/>
       </div>
     </div>
   )

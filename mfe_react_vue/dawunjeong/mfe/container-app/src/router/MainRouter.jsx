@@ -4,12 +4,15 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { Button } from '@mui/material'
 
 import { navigationMount } from 'vueNavigationApp/VueNavigation';
-// import VuetifyTypeScriptBoardAppRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppRouter';
-// import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
+import VuetifyTypeScriptBoardAppRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppRouter';
+import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
 import Home from './containerApp/Home';
-// import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
-// import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes';
+import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
+import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes';
 import ReactTypescriptMuiBoardRoutes from './muiTypescriptBoardApp/ReactTypescriptMuiBoardRoutes';
+import VueModuleAppRegisterRouter from './vueModuleApp/VueModuleAppRegisterRouter';
+import VueModuleAppReadRouter from './vueModuleApp/VueModuleAppReadRouter';
+import VueModuleAppModifyRouter from './vueModuleApp/VueModuleAppModifyRouter';
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -81,7 +84,7 @@ const MainRouter = () => {
                 exact path="/"
                 element={<Home/>}
                 />
-              {/* <Route
+              <Route
                 exact path="/vuetify-typescript-board-app"
                 element={
                   <VuetifyTypeScriptBoardAppRouter
@@ -99,10 +102,27 @@ const MainRouter = () => {
                 exact path="/react-counter-app"
                 element={
                   <ReactCounterAppRouter/>
-                }/> */}
+                }/>
             </Routes>
-            {/* <ReactBoardRoutes/> */}
-            <ReactTypescriptMuiBoardRoutes naviHeight={naviHeight}/>
+            <ReactBoardRoutes/>
+            <ReactTypescriptMuiBoardRoutes/>
+            <Routes>
+              <Route
+                exact path="/vue-module-app/board-register-page"
+                element={
+                  <VueModuleAppRegisterRouter/>
+                }/>
+              <Route
+                exact path="/vue-module-app/board-read-page/:boardId"
+                element={
+                  <VueModuleAppReadRouter/>
+                }/>
+              <Route
+                exact path="/vue-module-app/board-modify-page/:boardId"
+                element={
+                  <VueModuleAppModifyRouter/>
+                }/>
+            </Routes>
           </BrowserRouter>
         </Suspense>
     </div>
