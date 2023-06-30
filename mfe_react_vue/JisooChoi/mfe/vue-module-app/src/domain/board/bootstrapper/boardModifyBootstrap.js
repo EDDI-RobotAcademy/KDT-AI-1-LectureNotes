@@ -1,14 +1,17 @@
 import { mount } from "../../../bootstrap"
 import router from '../../../router'
 
-const registerBootstrapMount = (el) => {
+const modifyBootstrapMount = (el, boardId) => {
   const vueBoardApp = mount(el)
 
   const newRoute = {
-    name: 'BoardRegisterPage',
+    name: 'BoardModifyPage',
+    params: {
+      boardId: boardId,
+    }
   }
 
   router.push(newRoute)
 }
 
-export { registerBootstrapMount }
+export { modifyBootstrapMount }
