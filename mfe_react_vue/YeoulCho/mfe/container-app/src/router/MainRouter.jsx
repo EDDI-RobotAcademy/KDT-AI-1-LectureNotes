@@ -14,6 +14,7 @@ import ReactTypescriptMuiBoardRoutes from './muiTypescriptBaordApp/ReactTypescri
 
 import VueModuleAppRegisterRouter from './vueModuleApp/VueModuleAppRegisterRouter';
 import VueModuleAppReadRouter from './vueModuleApp/VueModuleAppReadRouter';
+import VueModuleAppModifyRouter from './vueModuleApp/VueModuleAppModifyRouter';
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -121,6 +122,11 @@ const MainRouter = () => {
                 exact path="/vue-module-app/board-read-page/:boardId"
                 element={
                   <VueModuleAppReadRouter/>
+                }/>
+                <Route
+                exact path="/vue-module-app/board-modify-page/:boardId"
+                element={
+                  <VueModuleAppModifyRouter/>
                 }/>
             </Routes>
           </BrowserRouter>
