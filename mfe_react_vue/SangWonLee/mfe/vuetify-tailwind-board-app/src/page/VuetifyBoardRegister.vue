@@ -30,7 +30,7 @@ import { mapActions } from 'vuex';
 const boardModule = 'boardModule'
 
 export default {
-    data() {
+    data () {
         return {
             title: '',
             writer: '',
@@ -39,7 +39,7 @@ export default {
     },
     methods: {
         ...mapActions(boardModule, ['requestCreateBoardToSpring']),
-        async onSubmit() {
+        async onSubmit () {
             const payload = {
                 title: this.title,
                 writer: this.writer,
@@ -52,7 +52,7 @@ export default {
                 params: { boardId: board.boardId.toString() }
             })
         },
-        onCancel() {
+        onCancel () {
             // 입력한 숫자에 따라 뒤로가기 2번, 3번 등등의 역할을 수행하게 만들 수 있음
             this.$router.go(-1)
         }

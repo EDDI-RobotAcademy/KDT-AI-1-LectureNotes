@@ -43,7 +43,9 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
+
 const boardModule = 'boardModule'
+
 export default {
     props: {
         boardId: {
@@ -51,7 +53,7 @@ export default {
             required: true,
         },
     },
-    data() {
+    data () {
         return {
             title: '',
             content: '',
@@ -63,13 +65,14 @@ export default {
     },
     methods: {
         ...mapActions(boardModule, ['requestBoardToSpring', 'requestModifyBoardToSpring']),
-        async onModify() {
+        async onModify () {
             const payload = {
                 title: this.title,
                 writer: this.writer,
                 content: this.content,
                 boardId: this.boardId
             }
+
             await this.requestModifyBoardToSpring(payload)
             await this.$router.push({
                 name: 'VuetifyBoardRead',
@@ -77,7 +80,7 @@ export default {
             })
         }
     },
-    created() {
+    created () {
         this.requestBoardToSpring(this.boardId).then(() => {
             this.title = this.board.title
             this.writer = this.board.writer

@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { VueLoaderPlugin } = require("vue-loader");
@@ -6,14 +6,14 @@ const path = require("path");
 const { DefinePlugin } = require("webpack");
 
 module.exports = (_, argv) => ({
-  mode: "development",
+  mode: 'development',
   cache: false,
-  devtool: "source-map",
+  devtool: 'source-map',
   optimization: {
     minimize: false,
   },
-  target: "web",
-  entry: path.resolve(__dirname, "./src/index"),
+  target: 'web',
+  entry: path.resolve(__dirname, './src/index'),
   output: {
     publicPath: "http://localhost:3007/",
   },
@@ -45,14 +45,14 @@ module.exports = (_, argv) => ({
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {},
+            options: {}
           },
-          "css-loader",
-        ],
+          'css-loader',
+        ]
       },
       {
         test: /\.sass$/,
-        use: ["vue-style-loader", "css-loader", "sass-loader"],
+        use: ['vue-style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.s[ac]ss$/i,
@@ -60,8 +60,8 @@ module.exports = (_, argv) => ({
       },
       {
         test: /\.svg$/,
-        use: "svg-loader",
-      },
+        use: 'svg-loader',
+      }
     ],
   },
   plugins: [
@@ -70,15 +70,19 @@ module.exports = (_, argv) => ({
       __VUE_PROD_DEVTOOLS__: false,
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: '[name].css',
     }),
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
       name: "vuetifyTailwindBoardApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./vuetifyBoardBootstrap": "./src/bootstrap",
-        "./vuetifyBoardModuleStore": "./src/store/board/boardModule",
+        './vuetifyBoardBootstrap': './src/bootstrap',
+        './vuetifyBoardModuleStore': './src/store/board/boardModule',
+        './boardRegisterBootstrap': './src/bootstrapper/boardRegisterBootstrap',
+        './boardReadBootstrap': './src/bootstrapper/boardReadBootstrap',
+        './boardModifyBootstrap': './src/bootstrapper/boardModifyBootstrap',
+        './boardListBootstrap': './src/bootstrapper/boardListBootstrap',
       },
       shared: require("./package.json").dependencies,
       shared: {
@@ -89,8 +93,8 @@ module.exports = (_, argv) => ({
       },
     }),
     new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, "./public/index.html"),
-      chunks: ["main"],
+      template: path.resolve(__dirname, './public/index.html'),
+      chunks: ['main'],
     }),
   ],
   devServer: {
@@ -102,10 +106,9 @@ module.exports = (_, argv) => ({
     port: 3007,
     hot: true,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers":
-        "X-Requested-With, content-type, Authroization",
-    },
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
+    }
   },
 });

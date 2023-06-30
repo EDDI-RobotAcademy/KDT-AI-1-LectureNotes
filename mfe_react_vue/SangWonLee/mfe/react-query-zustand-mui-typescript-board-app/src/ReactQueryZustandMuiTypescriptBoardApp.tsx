@@ -5,7 +5,9 @@ import "./index.scss";
 import MainRouter from "./router/MainRouter";
 
 const ReactQueryZustandMuiTypescriptBoardApp: React.FC = () => {
-  return <MainRouter />;
-};
+  return (
+    <MainRouter/>
+  )
+}
 
-export default ReactQueryZustandMuiTypescriptBoardApp;
+export default ReactQueryZustandMuiTypescriptBoardApp

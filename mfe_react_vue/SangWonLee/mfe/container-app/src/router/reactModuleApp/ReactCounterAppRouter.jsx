@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 
-import Counter from "reactModuleApp/Counter";
+import Counter from 'reactModuleApp/Counter';
 
 const ReactCounterAppRouter = () => {
   return (
     <div>
       <div>
-        <Counter />
+        <Counter/>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ReactCounterAppRouter;
+export default ReactCounterAppRouter

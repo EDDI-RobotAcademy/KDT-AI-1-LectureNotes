@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 
 const VueModuleAppRouter = ({ vueModuleRef }) => {
   useEffect(() => {
     const loadRemoteComponent = async () => {
-      const { mount } = await import("vueModuleApp/Sample");
-      mount(vueModuleRef.current);
-    };
+      const { mount } = await import('vueModuleApp/Sample')
+      mount(vueModuleRef.current)
+    }
 
-    loadRemoteComponent();
-  }, [vueModuleRef]);
+    loadRemoteComponent()
+  }, [vueModuleRef])
 
   return (
     <div>
       <div>
-        <div style={{ position: "relative" }} ref={vueModuleRef} />
+        <div style={{ position: 'relative' }} ref={vueModuleRef}/>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default VueModuleAppRouter;
+export default VueModuleAppRouter

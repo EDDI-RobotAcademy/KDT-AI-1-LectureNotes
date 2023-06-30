@@ -21,7 +21,7 @@
             </v-col>
           </v-row>
           <v-row justify="end">
-           <v-col cols="auto">
+            <v-col cols="auto">
               <router-link :to="{ name: 'VuetifyBoardModify', params: { boardId }}">
                 <v-btn color="primary">수정하기</v-btn>
               </router-link>
@@ -43,7 +43,9 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
+
 const boardModule = 'boardModule'
+
 export default {
     props: {
         boardId: {
@@ -58,13 +60,12 @@ export default {
         ...mapActions(
             boardModule, ['requestBoardToSpring', 'requestDeleteBoardToSpring']
         ),
-        async onDelete() {
+        async onDelete () {
             await this.requestDeleteBoardToSpring(this.boardId)
             await this.$router.push({ name: 'VuetifyBoardList' })
-
         }
     },
-    created() {
+    created () {
         this.requestBoardToSpring(this.boardId)
     }
 }

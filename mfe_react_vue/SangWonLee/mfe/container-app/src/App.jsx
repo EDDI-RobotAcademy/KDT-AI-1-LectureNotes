@@ -1,13 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom'
 import MainRouter from "./router/MainRouter";
 
 const App = () => {
   return (
     <div>
-      <MainRouter />
+      <MainRouter/>
     </div>
-  );
+  )
 };
 
 export default App;

@@ -1,11 +1,11 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
+const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
 
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
-  mode: "development",
-  entry: "./src/index",
+  mode: 'development',
+  entry: './src/index',
   output: {
     publicPath: "http://localhost:3008/",
   },
@@ -17,11 +17,10 @@ module.exports = (_, argv) => ({
     historyApiFallback: true,
     hot: true,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers":
-        "X-Requested-With, content-type, Authroization",
-    },
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
+    }
   },
   module: {
     rules: [
@@ -45,12 +44,20 @@ module.exports = (_, argv) => ({
       },
     ],
   },
-
   plugins: [
     new ModuleFederationPlugin({
       name: "reactQueryZustandMuiTypescriptBoardApp",
       filename: "remoteEntry.js",
-      exposes: {},
+      // 결론적으로 현재 React Container에
+      // remotes React Component를 붙이는 것이기 때문에 가능함
+      exposes: {
+        './TypescriptBoard': './src/bootstrap.tsx',
+        './TypescriptBoardApp': './src/ReactQueryZustandMuiTypescriptBoardApp.tsx',
+        './TypescriptBoardListPage': './src/page/TypescriptBoardListPage.tsx',
+        './TypescriptBoardReadPage': './src/page/TypescriptBoardReadPage.tsx',
+        './TypescriptBoardRegisterPage': './src/page/TypescriptBoardRegisterPage.tsx',
+        './TypescriptBoardModifyPage': './src/page/TypescriptBoardModifyPage.tsx',
+      },
       shared: {
         ...deps,
         react: {
@@ -63,13 +70,17 @@ module.exports = (_, argv) => ({
         },
         "react-router-dom": {
           singleton: true,
-          requiredVersion: deps["react-router-dom"],
+          requiredVersion: deps["react-router-dom"]
         },
+        "react-query": {
+          singleton: true,
+          requiredVersion: deps["react-query"]
+        }
       },
     }),
     new HtmlWebPackPlugin({
       template: "./public/index.html",
-      chunks: ["main"],
+      chunks: ['main'],
     }),
     new ExternalTemplateRemotesPlugin(),
   ],
