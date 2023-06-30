@@ -14,6 +14,10 @@ import VueModuleAppRegisterRouter from './vueModuleApp/VueModuleAppRegisterRoute
 import VueModuleAppReadRouter from './vueModuleApp/VueModuleAppReadRouter';
 import VueModuleAppModifyRouter from './vueModuleApp/VueModuleAppModifyRouter';
 import VueModuleAppListRouter from './vueModuleApp/VueModuleAppListRouter';
+import VuetifyBoardAppListRouter from './vuetifyTypeScriptBoardApp/VuetifyBoardAppListRouter';
+import VuetifyBoardAppRegisterRouter from './vuetifyTypeScriptBoardApp/VuetifyBoardAppRegisterRouter';
+import VuetifyBoardAppReadRouter from './vuetifyTypeScriptBoardApp/VuetifyBoardAppReadRouter';
+import VuetifyBoardAppModifyRouter from './vuetifyTypeScriptBoardApp/VuetifyBoardAppModifyRouter';
 
 const MainRouter = () => {
     const vueModuleRef = useRef(null)
@@ -127,6 +131,28 @@ const MainRouter = () => {
                             exact path="/vue-module-app/board-modify-page/:boardId"
                             element={
                                 <VueModuleAppModifyRouter />
+                            } />
+                    </Routes>
+                    <Routes>
+                        <Route
+                            exact path="/vuetify-typescript-board-app"
+                            element={
+                                <VuetifyBoardAppListRouter />
+                            } />
+                        <Route
+                            exact path="/vuetify-typescript-board-app/register"
+                            element={
+                                <VuetifyBoardAppRegisterRouter />
+                            } />
+                        <Route
+                            exact path="/vuetify-typescript-board-app/read/:boardId"
+                            element={
+                                <VuetifyBoardAppReadRouter />
+                            } />
+                        <Route
+                            exact path="/vuetify-typescript-board-app/modify/:boardId"
+                            element={
+                                <VuetifyBoardAppModifyRouter />
                             } />
                     </Routes>
                 </BrowserRouter>
