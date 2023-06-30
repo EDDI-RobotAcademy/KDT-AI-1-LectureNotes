@@ -12,6 +12,12 @@ const VueModuleAppReadRouter = () => {
     }
 
     loadRemoteComponent()
+
+    return () => {
+        console.log('해제 작업 진행중 ......')
+  
+        vueModuleReadRef.current = null
+      }
   }, [vueModuleReadRef, boardId])
 
   return (
