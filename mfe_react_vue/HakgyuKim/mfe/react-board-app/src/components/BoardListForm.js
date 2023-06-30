@@ -1,27 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom' //imrr
+import { Link } from 'react-router-dom' // imrr
 
-const BoardListForm = ( { boards, isLoading } ) => {
+const BoardListForm = ({ boards, isLoading }) => {
   return (
     <div>
       <h2>React로 만든 게시판</h2>
-      { isLoading && "로딩중 .........."}
+      { isLoading && "로딩중 ..........." }
       { !isLoading && boards && (
         <>
           <Link to="/register">글쓰기</Link>
           <table border="1">
             <thead>
               <tr>
-                <th align="center" width="80">
+                <th align='center' width="80">
                   번호
                 </th>
-                <th align="center" width="320">
+                <th align='center' width="320">
                   제목
                 </th>
-                <th align="center" width="100">
+                <th align='center' width="100">
                   작성자
                 </th>
-                <th align="center" width="180">
+                <th align='center' width="180">
                   등록일자
                 </th>
               </tr>
@@ -34,13 +34,13 @@ const BoardListForm = ( { boards, isLoading } ) => {
                   </td>
                 </tr>
               ) : ( boards.map((board) => (
-                <tr key={ board.boardId }>
-                  <td align='center'>{ board.boardId }</td>
-                  <td align='left'>
+                <tr key={board.boardId}>
+                  <td align="center">{ board.boardId }</td>
+                  <td align="left">
                     <Link to={`/read/${board.boardId}`}>{ board.title }</Link>
                   </td>
-                  <td align='right'>{ board.writer }</td>
-                  <td align='center'>{ board.createDate }</td>
+                  <td align="right">{ board.writer }</td>
+                  <td align="center">{ board.createDate }</td>
                 </tr>
               )))}
             </tbody>
