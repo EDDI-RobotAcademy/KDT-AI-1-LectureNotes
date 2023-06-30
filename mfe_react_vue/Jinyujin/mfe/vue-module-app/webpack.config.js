@@ -60,6 +60,7 @@ module.exports = (_, argv) => ({
       exposes: { // 여기있는 Sample을 react한테 보내서 보여줌
         './Sample': './src/bootstrap',
         './Store': './src/store/board/BoardModule', // 여기에 계속 추가시켜야 하는 것 같음
+        './boardRegisterBootstrap': './src/domain/board/bootstrapper/boardRegisterBootstrap'
       },
       shared: require("./package.json").dependencies
     }),
