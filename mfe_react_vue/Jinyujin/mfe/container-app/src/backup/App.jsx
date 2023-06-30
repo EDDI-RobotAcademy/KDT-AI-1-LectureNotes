@@ -18,7 +18,7 @@ import ProductApp from "reactProductApp/ProductApp";
 import ZustandTodoApp from "reactZustandTodoApp/ZustandTodoApp"
 import ReactQueryTestApp from "reactQueryTestApp/ReactQueryTestApp"
 
-// React에 cue를 붙일 때는 실제 React와 vue의 동작이 다르기 때문에
+// React에 vue를 붙일 때는 실제 React와 vue의 동작이 다르기 때문에
 // React에 컴포넌트 형태로 붙이지 않고 
 // bootstrap에서 실제 vue가 구동해서 그린 결과만 붙이기 위해 mount 계열을 사용합니다
 // 고로 Vue 계열들은 전부 붙을 때 useRef() 계열과 useEffect() 계열을 사용하여 붙이고 있습니다
@@ -38,7 +38,8 @@ const App = () => {
   return (
     <div>
       <div style={{ zIndex: 999 }} ref={vuetifyNavigationRef} />
-        <VuetifyTailwindBoardAppRouterComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef} />
+      <VuetifyTailwindBoardAppRouterComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef} />
+      {/* VuetifyTailwindBoardAppRouterComponent에 vuetifyTailwindBoardRef라는 prop이 전달됨 */}
       <div style=
         {{
           margin: '10px', padding: '10px', textAlign: 'center',
