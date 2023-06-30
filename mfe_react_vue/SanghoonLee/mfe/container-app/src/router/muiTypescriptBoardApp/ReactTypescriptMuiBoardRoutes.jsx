@@ -3,6 +3,9 @@ import { Route, Routes } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import TypescriptBoardListPage from 'reactQueryZustandMuiTypescriptBoardApp/TypescriptBoardListPage'
+import TypescriptBoardRegisterPage from 'reactQueryZustandMuiTypescriptBoardApp/TypescriptBoardRegisterPage'
+import TypescriptBoardReadPage from 'reactQueryZustandMuiTypescriptBoardApp/TypescriptBoardReadPage'
+import TypescriptBoardModifyPage from 'reactQueryZustandMuiTypescriptBoardApp/TypescriptBoardModifyPage'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,24 +17,16 @@ const queryClient = new QueryClient({
   }
 })
 
-const ReactTypescriptMuiBoardRoutes = ({ naviHeight }) => {
-  useEffect(() => {
-    const contentWrapper = document.getElementById('content-wrapper')
-    if (contentWrapper && naviHeight) {
-      const marginTop = (naviHeight + 20) + 'px'
-      contentWrapper.style.marginTop = marginTop
-    }
-  })
-
+const ReactTypescriptMuiBoardRoutes = () => {
   return (
     <div>
-      <div di="content-wrapper" style={{ position: 'relative' }}>
+      <div style={{ position: 'relative' }}>
         <QueryClientProvider client={queryClient}>
           <Routes>
             <Route path="/react-query-zustand-mui-typescript-board-app" element={<TypescriptBoardListPage/>} />
-            {/* <Route path="/react-board-app/register" element={<BoardRegisterPage/>} />
-            <Route path="/react-board-app/read/:boardId" element={<BoardReadPage/>} />
-            <Route path="/react-board-app/modify/:boardId" element={<BoardModifyPage/>} /> */}
+            <Route path="/react-query-zustand-mui-typescript-board-app/register" element={<TypescriptBoardRegisterPage/>} />
+            <Route path="/react-query-zustand-mui-typescript-board-app/read/:boardId" element={<TypescriptBoardReadPage/>} />
+            <Route path="/react-query-zustand-mui-typescript-board-app/modify/:boardId" element={<TypescriptBoardModifyPage/>} />
           </Routes>
         </QueryClientProvider>
       </div>
