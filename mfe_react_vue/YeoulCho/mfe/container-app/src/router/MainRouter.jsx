@@ -18,6 +18,7 @@ import VueModuleAppModifyRouter from './vueModuleApp/VueModuleAppModifyRouter';
 import VueModuleAppListRouter from './vueModuleApp/VueModuleAppListRouter';
 
 import VuetifyTypeScriptBoardAppRegisterRouter from './vuetifyTypeScriptBoardApp/vuetifyTypeScriptBoardAppRegisterRouter';
+import VuetifyTypeScriptBoardAppReadRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppReadRouter'
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -142,6 +143,11 @@ const MainRouter = () => {
                 exact path="/vuetify-typescript-board-app/register"
                 element={
                   <VuetifyTypeScriptBoardAppRegisterRouter/>
+                }/>
+                <Route
+                exact path="/vuetify-typescript-board-app/read/:boardId"
+                element={
+                  <VuetifyTypeScriptBoardAppReadRouter/>
                 }/>
             </Routes>
           </BrowserRouter>
