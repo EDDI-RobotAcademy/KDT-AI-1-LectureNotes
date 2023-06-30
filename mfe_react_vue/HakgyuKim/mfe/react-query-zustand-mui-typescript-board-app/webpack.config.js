@@ -49,7 +49,10 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "reactQueryZustandMuiTypescriptBoardApp",
       filename: "remoteEntry.js",
-      exposes: {},
+      exposes: {
+        './TypescriptBoard': './src/bootstrap.tsx',
+        './TypescriptBoardApp': './src/ReactQueryZustandMuiTypescriptBoardApp.tsx',
+      },
       shared: {
         ...deps,
         react: {
@@ -63,6 +66,10 @@ module.exports = (_, argv) => ({
         "react-router-dom": {
           singleton: true,
           requiredVersion: deps["react-router-dom"]
+        },
+        "react-query": {
+          singleton: true,
+          requiredVersion: deps["react-query"]
         }
       },
     }),
