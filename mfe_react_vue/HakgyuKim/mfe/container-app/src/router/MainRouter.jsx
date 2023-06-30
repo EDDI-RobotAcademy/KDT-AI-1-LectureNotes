@@ -4,11 +4,12 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import { Button } from '@mui/material';
 
 import { navigationMount } from 'vueNavigationApp/VueNavigation'
-import VuetifyTypeScriptBoardAppRouter from './vuetifyTypescriptBoardApp/vuetifyTypeScriptBoardAppRouter';
-import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
+// import VuetifyTypeScriptBoardAppRouter from './vuetifyTypescriptBoardApp/vuetifyTypeScriptBoardAppRouter';
+// import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
 import Home from './containerApp/Home';
-import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
-import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes';
+// import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
+// import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes';
+import ReactTypescriptMuiBoardRoutes from './muiTypescriptBoardApp/ReactTypescriptMuiBoardRoutes';
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -69,6 +70,9 @@ const MainRouter = () => {
               <Button component={Link} to="/react-board-app" variant="contained">
                 React 게시판
               </Button>
+              <Button component={Link} to="/react-query-zustand-mui-typescript-board-app" variant="contained">
+                Mui Typescript 게시판
+              </Button>
             </div>
           </div>
           <Routes>
@@ -76,7 +80,7 @@ const MainRouter = () => {
               exact path="/"
               element={<Home/>}  
             />
-            <Route
+            {/* <Route
               exact path="/vuetify-typescript-board-app"
               element={
                 <VuetifyTypeScriptBoardAppRouter
@@ -95,9 +99,10 @@ const MainRouter = () => {
               exact path="/react-counter-app"
               element={
                 <ReactCounterAppRouter/>
-            }/>
+            }/> */}
         </Routes>
-        <ReactBoardRoutes/>
+        {/* <ReactBoardRoutes/> */}
+        <ReactTypescriptMuiBoardRoutes naviHeight={naviHeight}/>
         </BrowserRouter>
       </Suspense>
     </div>
