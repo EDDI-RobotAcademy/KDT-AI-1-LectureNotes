@@ -7,7 +7,7 @@ import TypescriptBoardModifyPage from '../page/TypescriptBoardModifyPage'
 
 const MainRouter = () => {
   return (
-    <div>
+    <>
       <Suspense fallback={<div>로딩중 ........</div>}>
         <Routes>
           <Route path="/" element={<Navigate to="/react-query-zustand-mui-typescript-board-app" replace/>}/>
@@ -17,7 +17,7 @@ const MainRouter = () => {
           <Route path="/react-query-zustand-mui-typescript-board-app/modify/:boardId" element={<TypescriptBoardModifyPage/>}/>
         </Routes>
       </Suspense>
-    </div>
+    </>
   )
 }
 

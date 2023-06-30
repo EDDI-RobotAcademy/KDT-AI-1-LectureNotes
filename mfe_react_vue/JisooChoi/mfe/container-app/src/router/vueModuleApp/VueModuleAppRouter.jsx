@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 
-import { mount } from 'vueModuleApp/Sample';
-
 const VueModuleAppRouter = ({ vueModuleRef }) => {
     useEffect(() => {
         const loadRemoteComponent = async () => {
