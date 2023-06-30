@@ -13,6 +13,7 @@ import ReactTypescriptMuiBoardRoutes from './muiTypescriptBoardApp/ReactTypescri
 import VueModuleAppRegisterRouter from './vueModuleApp/VueModuleAppRegisterRouter';
 import VueModuleAppReadRouter from './vueModuleApp/VueModuleAppReadRouter';
 import VueModuleAppModifyRouter from './vueModuleApp/VueModuleAppModifyRouter';
+import VueModuleAppListRouter from './vueModuleApp/VueModuleAppListRouter';
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null)
@@ -91,13 +92,13 @@ const MainRouter = () => {
                     vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
                   /> 
                 }/>
-              <Route
+              {/* <Route
                 exact path="/vue-module-app"
                 element={
                   <VueModuleAppRouter
                     vueModuleRef={vueModuleRef}
                   />
-                }/>
+                }/> */}
               <Route
                 exact path="/react-counter-app"
                 element={
@@ -106,7 +107,13 @@ const MainRouter = () => {
             </Routes>
             <ReactBoardRoutes/>
             <ReactTypescriptMuiBoardRoutes/>
+            {/* ↓ vue-module-app과 관련된 코드 */}
             <Routes>
+              <Route
+                exact path="/vue-module-app"
+                element={
+                  <VueModuleAppListRouter/>
+                }/>
               <Route
                 exact path="/vue-module-app/board-register-page"
                 element={
