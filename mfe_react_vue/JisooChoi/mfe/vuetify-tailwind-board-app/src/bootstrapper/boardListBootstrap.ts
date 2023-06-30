@@ -1,14 +1,11 @@
 import { vuetifyTailwindBoardAppMount } from "../bootstrap"
 import router from '../router'
 
-const listBootstrapMount = (el, boardId) => {
+const listBootstrapMount = (el) => {
   const vueBoardApp = vuetifyTailwindBoardAppMount(el)
 
   const newRoute = {
     name: 'VuetifyBoardList',
-    params: {
-      boardId: boardId,
-    }
   }
 
   router.push(newRoute)
