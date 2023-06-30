@@ -4,17 +4,21 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import { Button } from '@mui/material';
 
 import { navigationMount } from 'vueNavigationApp/VueNavigation'
-// import VuetifyTypeScriptBoardAppRouter from './vuetifyTypescriptBoardApp/vuetifyTypeScriptBoardAppRouter';
-// import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
 import Home from './containerApp/Home';
-// import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
-// import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes';
+import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
+import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes';
 import ReactTypescriptMuiBoardRoutes from './muiTypescriptBoardApp/ReactTypescriptMuiBoardRoutes';
+import VueModuleAppRegisterRouter from './vueModuleApp/VueModuleAppRegisterRouter';
+import VueModuleAppReadRouter from './vueModuleApp/VueModuleAppReadRouter';
+import VueModuleAppModifyRouter from './vueModuleApp/VueModuleAppModifyRouter';
+import VueModuleAppListRouter from './vueModuleApp/VueModuleAppListRouter';
+import VuetifyTypeScriptBoardAppRegisterRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppRegisterRouter';
+import VuetifyTypeScriptBoardAppReadRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppReadRouter';
+import VuetifyTypeScriptBoardAppModifyRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppModifyRouter';
+import VuetifyTypeScriptBoardAppListRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppListRouter';
 
 const MainRouter = () => {
-  const vueModuleRef = useRef(null)
   const vuetifyNavigationRef = useRef(null)
-  const vuetifyTailwindBoardRef = useRef(null)
 
   const [naviHeight, setNaviHeight] = useState(0)
   const buttonRef = useRef(null)
@@ -80,29 +84,58 @@ const MainRouter = () => {
               exact path="/"
               element={<Home/>}  
             />
-            {/* <Route
-              exact path="/vuetify-typescript-board-app"
-              element={
-                <VuetifyTypeScriptBoardAppRouter
-                  vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
-                  naviHeight={naviHeight}
-                />
-            }/>
-            <Route
-              exact path="/vue-module-app"
-              element={
-                <VueModuleAppRouter
-                  vueModuleRef={vueModuleRef}
-                />
-            }/>
             <Route
               exact path="/react-counter-app"
               element={
                 <ReactCounterAppRouter/>
-            }/> */}
+            }/>
         </Routes>
-        {/* <ReactBoardRoutes/> */}
-        <ReactTypescriptMuiBoardRoutes naviHeight={naviHeight}/>
+        <ReactBoardRoutes/>
+        <ReactTypescriptMuiBoardRoutes/>
+        <Routes>
+          <Route
+            exact path="/vue-module-app/register"
+            element={
+              <VueModuleAppRegisterRouter/>
+            }/>
+          <Route
+            exact path="/vue-module-app/read/:boardId"
+            element={
+              <VueModuleAppReadRouter/>
+            }/>
+          <Route
+            exact path="/vue-module-app/modify/:boardId"
+            element={
+              <VueModuleAppModifyRouter/>
+            }/>
+          <Route
+            exact path="/vue-module-app"
+            element={
+              <VueModuleAppListRouter/>
+            }/>
+        </Routes>
+        <Routes>
+          <Route
+            exact path="/vuetify-typescript-board-app/register"
+            element={
+              <VuetifyTypeScriptBoardAppRegisterRouter/>
+            }/>
+          <Route
+            exact path="/vuetify-typescript-board-app/read/:boardId"
+            element={
+              <VuetifyTypeScriptBoardAppReadRouter/>
+            }/>
+          <Route
+            exact path="/vuetify-typescript-board-app/modify/:boardId"
+            element={
+              <VuetifyTypeScriptBoardAppModifyRouter/>
+            }/>
+          <Route
+            exact path="/vuetify-typescript-board-app"
+            element={
+              <VuetifyTypeScriptBoardAppListRouter/>
+            }/>
+        </Routes>
         </BrowserRouter>
       </Suspense>
     </div>

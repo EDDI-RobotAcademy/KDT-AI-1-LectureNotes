@@ -52,6 +52,10 @@ module.exports = (_, argv) => ({
       exposes: {
         './TypescriptBoard': './src/bootstrap.tsx',
         './TypescriptBoardApp': './src/ReactQueryZustandMuiTypescriptBoardApp.tsx',
+        './TypescriptBoardListPage': './src/page/TypescriptBoardListPage.tsx',
+        './TypescriptBoardReadPage': './src/page/TypescriptBoardReadPage.tsx',
+        './TypescriptBoardRegisterPage': './src/page/TypescriptBoardRegisterPage.tsx',
+        './TypescriptBoardModifyPage': './src/page/TypescriptBoardModifyPage.tsx',
       },
       shared: {
         ...deps,
