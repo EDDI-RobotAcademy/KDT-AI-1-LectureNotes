@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { QueryClient } from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 import TypescriptBoardListPage from 'reactQueryZustandMuiTypescriptBoardApp/TypescriptBoardListPage'
 
@@ -26,12 +26,14 @@ const ReactTypescriptMuiBoardRoutes = ({ naviHeight }) => {
   return (
     <div>
       <div di="content-wrapper" style={{ position: 'relative' }}>
-        <Routes>
-          <Route path="/react-query-zustand-mui-typescript-board-app" element={<TypescriptBoardListPage/>} />
-          {/* <Route path="/react-board-app/register" element={<BoardRegisterPage/>} />
-          <Route path="/react-board-app/read/:boardId" element={<BoardReadPage/>} />
-          <Route path="/react-board-app/modify/:boardId" element={<BoardModifyPage/>} /> */}
-        </Routes>
+        <QueryClientProvider client={queryClient}>
+          <Routes>
+            <Route path="/react-query-zustand-mui-typescript-board-app" element={<TypescriptBoardListPage/>} />
+            {/* <Route path="/react-board-app/register" element={<BoardRegisterPage/>} />
+            <Route path="/react-board-app/read/:boardId" element={<BoardReadPage/>} />
+            <Route path="/react-board-app/modify/:boardId" element={<BoardModifyPage/>} /> */}
+          </Routes>
+        </QueryClientProvider>
       </div>
     </div>
   )
