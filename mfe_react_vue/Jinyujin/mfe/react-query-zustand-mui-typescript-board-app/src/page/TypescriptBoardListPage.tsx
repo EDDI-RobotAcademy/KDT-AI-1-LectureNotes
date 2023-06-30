@@ -1,10 +1,35 @@
-import React from 'react'
-import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
-import { Link } from 'react-router-dom'
-import { useBoardListQuery } from '../api/BoardApi'
+import React, { useEffect } from 'react'
+import { Button, CircularProgress, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import { Link, useNavigate } from 'react-router-dom'
+import { fetchBoardList, useBoardListQuery } from '../api/BoardApi'
+import useBoardStore from '../store/BoardStore'
 
 const TypescriptBoardListPage = () => {
     const { data: boards, isLoading, isError } = useBoardListQuery()
+    const setBoards = useBoardStore((state) => state.setBoards)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await fetchBoardList()
+            console.log(data)
+            setBoards(data)
+        }
+
+        fetchData()
+    }, [setBoards])
+
+    if (isLoading) {
+        return <CircularProgress />
+    }
+
+    if (isError) {
+        return <Typography>리스트를 가져오는 도중 에러가 발생했습니다!</Typography>
+    }
+
+    const handleRowClick = (boardId: number) => {
+        navigate(`/react-query-zustand-mui-typescript-board-app/read/${boardId}`)
+    }
 
     return (
         <Container maxWidth="lg">
@@ -23,12 +48,18 @@ const TypescriptBoardListPage = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {boards.length === 0 ? (
+                        {boards?.length === 0 ? (
                             <TableRow>
                                 <TableCell colSpan={3} align='center'>현재 등록된 게시물이 없습니다!</TableCell>
                             </TableRow>
                         ) : (
-                            console.log('데이터 존재함')
+                            boards?.map((board) => (
+                                <TableRow key={board.boardId} onClick={() => handleRowClick(board.boardId)} style={{ cursor: 'pointer' }}>
+                                    <TableCell>{board.title}</TableCell>
+                                    <TableCell>{board.writer}</TableCell>
+                                    <TableCell>{board.createDate}</TableCell>
+                                </TableRow>
+                            ))
                         )}
                     </TableBody>
                 </Table>
