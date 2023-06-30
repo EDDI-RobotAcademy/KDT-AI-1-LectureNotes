@@ -1,8 +1,8 @@
 export interface Board {
     boardId: number;
     title: string;
-    content: string;
     writer: string;
+    content: string;
     createDate: string;
     updateDate: string;
 }

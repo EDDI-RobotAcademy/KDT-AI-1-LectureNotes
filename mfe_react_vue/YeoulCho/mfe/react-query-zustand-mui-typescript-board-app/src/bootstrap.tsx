@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import ReactQueryZustandMuiTypescriptBoardApp from './ReactQueryZustandMuiTypescriptBoardApp'
+import { QueryClient, QueryClientProvider } from "react-query"
 import { BrowserRouter } from 'react-router-dom'
-import {QueryClient, QueryClientProvider} from "react-query"
 
 const queryClient = new QueryClient({
-    defaultOptions:{
+    defaultOptions: {
         queries: {
             refetchOnWindowFocus: false,
             retry: false,
@@ -19,10 +19,9 @@ ReactDOM.render(
     <React.StrictMode>
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
-                <ReactQueryZustandMuiTypescriptBoardApp/>
+                <ReactQueryZustandMuiTypescriptBoardApp />
             </BrowserRouter>
         </QueryClientProvider>
-    </React.StrictMode>,    
+    </React.StrictMode>,
     document.getElementById("react-query-zustand-mui-typescript-board-app")
-);
-
+)

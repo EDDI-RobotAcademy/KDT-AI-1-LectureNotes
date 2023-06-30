@@ -18,7 +18,6 @@ export default defineComponent({
   name: 'App',
 
   components: {
-   
   },
 
   data () {
