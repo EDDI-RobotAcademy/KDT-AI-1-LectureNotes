@@ -2,7 +2,7 @@ import { Box, Button, Container, TextField } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useQueryClient } from 'react-query'
 import { useNavigate, useParams } from 'react-router-dom'
-import { fetchBoard, useBoardQuery } from '../api/BoardApi'
+import { deleteBoard, fetchBoard, useBoardQuery } from '../api/BoardApi'
 
 interface RouteParams {
   boardId: string
@@ -29,8 +29,10 @@ const TypescriptBoardReadPage = () => {
     navigate(`/react-query-zustand-mui-typescript-board-app/modify/${boardId}`)
   }
 
-  const handleDeleteClick = () => {
-    //
+  const handleDeleteClick = async () => {
+    await deleteBoard(boardId || '')
+    queryClient.invalidateQueries('boardList')
+    navigate('/react-query-zustand-mui-typescript-board-app')
   }
 
   const handleCancelClick = () => {
