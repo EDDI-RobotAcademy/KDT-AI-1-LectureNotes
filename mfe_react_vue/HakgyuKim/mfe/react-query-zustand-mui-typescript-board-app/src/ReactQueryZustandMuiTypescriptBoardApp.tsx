@@ -9,4 +9,5 @@ const ReactQueryZustandMuiTypescriptBoardApp: React.FC = () => {
     <MainRouter/>
   )
 }
+
 export default ReactQueryZustandMuiTypescriptBoardApp

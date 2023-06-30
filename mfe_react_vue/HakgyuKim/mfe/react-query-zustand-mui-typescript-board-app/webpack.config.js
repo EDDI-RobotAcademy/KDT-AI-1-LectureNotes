@@ -19,10 +19,9 @@ module.exports = (_, argv) => ({
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
     }
   },
-
   module: {
     rules: [
       {
@@ -64,10 +63,6 @@ module.exports = (_, argv) => ({
         "react-router-dom": {
           singleton: true,
           requiredVersion: deps["react-router-dom"]
-        },
-        "react-query": {
-          singleton: true,
-          requiredVersion: deps["react-query"]
         }
       },
     }),

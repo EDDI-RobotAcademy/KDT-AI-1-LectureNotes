@@ -8,7 +8,7 @@ interface BoardState {
 
 export const useBoardStore = create<BoardState>((set) => ({
     boards: [],
-    setBoards: (boards) => set({ boards })
+    setBoards: (boards) => set({ boards }),
 }))
 
 export default useBoardStore
