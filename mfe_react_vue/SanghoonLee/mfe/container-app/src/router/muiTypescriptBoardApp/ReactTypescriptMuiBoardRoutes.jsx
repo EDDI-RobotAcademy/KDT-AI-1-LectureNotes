@@ -14,18 +14,10 @@ const queryClient = new QueryClient({
   }
 })
 
-const ReactTypescriptMuiBoardRoutes = ({ naviHeight }) => {
-  useEffect(() => {
-    const contentWrapper = document.getElementById('content-wrapper')
-    if (contentWrapper && naviHeight) {
-      const marginTop = (naviHeight + 20) + 'px'
-      contentWrapper.style.marginTop = marginTop
-    }
-  })
-
+const ReactTypescriptMuiBoardRoutes = () => {
   return (
     <div>
-      <div di="content-wrapper" style={{ position: 'relative' }}>
+      <div style={{ position: 'relative' }}>
         <QueryClientProvider client={queryClient}>
           <Routes>
             <Route path="/react-query-zustand-mui-typescript-board-app" element={<TypescriptBoardListPage/>} />
