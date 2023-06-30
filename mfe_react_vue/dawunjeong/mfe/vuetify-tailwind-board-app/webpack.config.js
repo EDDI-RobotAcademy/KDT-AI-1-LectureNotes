@@ -78,7 +78,11 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       exposes: {
         './vuetifyBoardBootstrap': './src/bootstrap',
-        './VuetifyBoardModuleStore': './src/store/board/boardModule'
+        './VuetifyBoardModuleStore': './src/store/board/boardModule',
+        './boardRegisterBootstrap': './src/bootstrapper/boardRegisterBootstrap',
+        './boardReadBootstrap': './src/bootstrapper/boardReadBootstrap',
+        './boardModifyBootstrap': './src/bootstrapper/boardModifyBootstrap',
+        './boardListBootstrap': './src/bootstrapper/boardListBootstrap',
       },
       shared: require("./package.json").dependencies,
       shared: {
