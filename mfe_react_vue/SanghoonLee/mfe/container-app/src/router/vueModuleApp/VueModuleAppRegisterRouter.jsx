@@ -10,6 +10,12 @@ const VueModuleAppRegisterRouter = () => {
     }
 
     loadRemoteComponent()
+
+    return () => {
+      console.log('해제 작업 진행중 ......')
+
+      vueModuleRegisterRef.current = null
+    }
   }, [vueModuleRegisterRef])
 
   return (
