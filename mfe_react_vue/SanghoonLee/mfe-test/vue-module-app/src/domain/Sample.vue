@@ -1,7 +1,23 @@
 <script setup>
-import { ref } from 'vue';
+import {inject, onMounted, ref} from 'vue';
+import router from "../router";
 
-const count = ref(0)
+const count = ref(0);
+const eventBus = inject('eventBus');
+
+onMounted(() => {
+    console.log('onMounted: ' + eventBus + ', count: ' + count.value);
+    eventBus.on("routing-event", (data) => {
+        console.log("Received data in Vue:", data);
+        router.push(data)
+    });
+
+    eventBus.on("module-unmount", () => {
+        console.log("Received module-unmount event");
+        // cleanup();
+    });
+});
+
 </script>
 
 <template>

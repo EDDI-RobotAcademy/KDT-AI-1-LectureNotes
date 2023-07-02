@@ -7,6 +7,7 @@ import Home from "./router/containerApp/Home";
 import VueEventBusRemoteApp from "./router/vueEventBusTestApp/VueEventBusRemoteApp";
 import {Button} from "@mui/material";
 import VueEventInstantRemoteApp from "./router/vueEventBusTestApp/VueEventInstantRemoteApp";
+import VueModuleAppRouter from "./router/vueModuleApp/VueModuleAppRouter";
 
 const eventBus = mitt();
 
@@ -54,11 +55,17 @@ const App = () => {
                 <Button component={Link} to="/event-instant" variant="contained">
                     즉시 반응(Event Bus)
                 </Button>
-                {/*<button onClick={handleOtherButtonClick}>Vue Remotes로 Emit Event</button>*/}
+                <Button component={Link} to="/event-instant" variant="contained">
+                    즉시 반응(Event Bus)
+                </Button>
+                <Button component={Link} to="/vue-board-app" variant="contained">
+                    Vue 게시판
+                </Button>
                 <Routes>
                     <Route exact path="/" element={<Home/>} />
                     <Route exact path="/vue-event-bus-test" element={<VueEventBusRemoteApp/>} />
                     <Route exact path="/event-instant" element={<VueEventInstantRemoteApp/>} />
+                    <Route exact path="/vue-board-app/*" element={<VueModuleAppRouter/>} />
                 </Routes>
             </div>
         </BrowserRouter>

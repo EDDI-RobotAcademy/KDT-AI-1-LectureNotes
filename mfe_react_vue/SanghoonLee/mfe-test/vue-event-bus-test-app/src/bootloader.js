@@ -8,6 +8,7 @@ let app = null
 
 const mount = (el, eventBus) => {
     console.log('eventBus: ' + eventBus)
+
     app = createApp({
         render: () => h(App, { eventBus })
     })
@@ -18,38 +19,40 @@ const mount = (el, eventBus) => {
 
 const root = document.querySelector('#vue-module-app')
 
-if (root) { mount(root); }
+const eventBus = {
+    listeners: {},
+
+    on(eventName, callback) {
+        if (!this.listeners[eventName]) {
+            this.listeners[eventName] = [];
+        }
+        this.listeners[eventName].push(callback);
+    },
+
+    off(eventName, callback) {
+        if (!this.listeners[eventName]) {
+            return;
+        }
+        const index = this.listeners[eventName].indexOf(callback);
+        if (index !== -1) {
+            this.listeners[eventName].splice(index, 1);
+        }
+    },
+
+    emit(eventName, data) {
+        if (!this.listeners[eventName]) {
+            return;
+        }
+        this.listeners[eventName].forEach((callback) => {
+            callback(data);
+        });
+    },
+};
+
+if (root) { mount(root, eventBus); }
 
 export { mount }
 
-// const eventBus = {
-//     listeners: {},
-//
-//     on(eventName, callback) {
-//         if (!this.listeners[eventName]) {
-//             this.listeners[eventName] = [];
-//         }
-//         this.listeners[eventName].push(callback);
-//     },
-//
-//     off(eventName, callback) {
-//         if (!this.listeners[eventName]) {
-//             return;
-//         }
-//         const index = this.listeners[eventName].indexOf(callback);
-//         if (index !== -1) {
-//             this.listeners[eventName].splice(index, 1);
-//         }
-//     },
-//
-//     emit(eventName, data) {
-//         if (!this.listeners[eventName]) {
-//             return;
-//         }
-//         this.listeners[eventName].forEach((callback) => {
-//             callback(data);
-//         });
-//     },
-// };
+
 
 //if (root) { mount(root, eventBus); }

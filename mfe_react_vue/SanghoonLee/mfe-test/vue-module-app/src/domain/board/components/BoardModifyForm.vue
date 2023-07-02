@@ -38,7 +38,7 @@
                 <button type="submit">수정 완료</button>
                 <router-link :to="{ 
                     name: 'BoardReadPage', 
-                    params: { boardId: board.boardId.toString() }
+                    params: { boardId: board.boardId }
                 }">수정 취소</router-link>
             </div>
         </form>

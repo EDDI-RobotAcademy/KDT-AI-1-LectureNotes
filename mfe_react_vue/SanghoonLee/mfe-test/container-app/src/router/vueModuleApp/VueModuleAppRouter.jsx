@@ -1,47 +1,47 @@
-import React, { useEffect } from 'react'
-import {useNavigate} from "react-router-dom";
+import React, {useEffect, useRef} from 'react'
+import mitt from "mitt";
+import {useLocation, useNavigate} from "react-router-dom";
 
-const VueModuleAppRouter = ({ vueModuleRef, buttonRef }) => {
+const eventBus = mitt();
+
+const VueModuleAppRouter = () => {
+
+  const vueModuleRef = useRef(null);
+  const location = useLocation()
+  const isMountedRef = useRef(false);
+
   useEffect(() => {
-    const loadRemoteComponent = async () => {
-      const { mount } = await import('vueModuleApp/Sample')
-      mount(vueModuleRef.current)
-      console.log(vueModuleRef.current)
+    if (!isMountedRef.current) {
+      const loadRemoteComponent = async () => {
+        const {mount} = await import('vueModuleApp/Sample')
+        mount(vueModuleRef.current, eventBus);
+        isMountedRef.current = true;
+      }
+
+      loadRemoteComponent()
     }
 
-    loadRemoteComponent()
-
     return () => {
-      if (vueModuleRef.current) {
-        // app.unmount() 메서드를 사용하여 vueModuleRef 해제
-        vueModuleRef.current.unmount();
-        console.log(vueModuleRef.current)
+      eventBus.off('routing-event');
+    };
+  }, [])
+
+  useEffect(() => {
+    console.log('라우터 위치 바꿨어: ' + location.pathname)
+    const handleNavigation = () => {
+      console.log('handleNavigation()')
+      if (location.pathname === "/vue-board-app") {
+        console.log('라우터 변경')
+        eventBus.emit('routing-event', '/');
+        // eventBus.emit("module-unmount")
+        // 다른 경로로 이동한 경우에만 eventBus의 구독 해제 등 정리 작업 수행
+        // eventBus.off("dataReceived");
       }
     };
-  }, [vueModuleRef])
 
-  const navigate = useNavigate();
-  const handleButtonClick = (event) => {
-    // 버튼의 ID 값을 확인
-    const buttonId = event.target.id;
-
-    // 원하는 버튼 ID 값에 따라 라우팅 처리
-    if (buttonId === 'vueBoard') {
-      navigate('/vue-module-app');
-    } else if (buttonId === 'reactButton') {
-      navigate('/react-board-app');
-    }
-  };
-
-  useEffect(() => {
-    // Home 컴포넌트가 마운트될 때 버튼 클릭 이벤트 리스너 등록
-    buttonRef.current.addEventListener('click', handleButtonClick);
-
-    // Home 컴포넌트가 언마운트될 때 버튼 클릭 이벤트 리스너 해제
-    return () => {
-      buttonRef.current.removeEventListener('click', handleButtonClick);
-    };
-  }, []);
+    // 컴포넌트가 마운트될 때 호출되는 이벤트 핸들러 등록
+    handleNavigation();
+  }, [location]);
 
   return (
     <div>
