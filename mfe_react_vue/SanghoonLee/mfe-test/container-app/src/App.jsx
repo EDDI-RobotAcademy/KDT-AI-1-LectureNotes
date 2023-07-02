@@ -6,6 +6,7 @@ import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import Home from "./router/containerApp/Home";
 import VueEventBusRemoteApp from "./router/vueEventBusTestApp/VueEventBusRemoteApp";
 import {Button} from "@mui/material";
+import VueEventInstantRemoteApp from "./router/vueEventBusTestApp/VueEventInstantRemoteApp";
 
 const eventBus = mitt();
 
@@ -50,14 +51,14 @@ const App = () => {
                 <Button component={Link} to="/vue-event-bus-test" variant="contained">
                     Vue Event Bus
                 </Button>
-                {/*<Button component={Link} to="/event-instant" variant="contained">*/}
-                {/*    즉시 반응(Event Bus)*/}
-                {/*</Button>*/}
+                <Button component={Link} to="/event-instant" variant="contained">
+                    즉시 반응(Event Bus)
+                </Button>
                 {/*<button onClick={handleOtherButtonClick}>Vue Remotes로 Emit Event</button>*/}
                 <Routes>
                     <Route exact path="/" element={<Home/>} />
                     <Route exact path="/vue-event-bus-test" element={<VueEventBusRemoteApp/>} />
-                    {/*<Route exact path="/event-instant" element={<VueEventInstanceRemoteApp/>} />*/}
+                    <Route exact path="/event-instant" element={<VueEventInstantRemoteApp/>} />
                 </Routes>
             </div>
         </BrowserRouter>

@@ -18,6 +18,10 @@ const mount = (el, eventBus) => {
 
 const root = document.querySelector('#vue-module-app')
 
+if (root) { mount(root); }
+
+export { mount }
+
 // const eventBus = {
 //     listeners: {},
 //
@@ -49,6 +53,3 @@ const root = document.querySelector('#vue-module-app')
 // };
 
 //if (root) { mount(root, eventBus); }
-if (root) { mount(root); }
-
-export { mount }
