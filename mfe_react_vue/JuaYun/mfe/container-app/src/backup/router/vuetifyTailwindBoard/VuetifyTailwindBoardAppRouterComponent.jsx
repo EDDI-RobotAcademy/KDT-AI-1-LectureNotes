@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import VuetifyTailwindBoardComponent from './vuetifyTailwindBoard/VuetifyTailwindBoardComponent'
+import VuetifyTailwindBoardComponent from './VuetifyTailwindBoardComponent'
 
 const VuetifyTailwindBoardAppRouterComponent = ({ vuetifyTailwindBoardRef }) => {
   return (
@@ -11,7 +11,7 @@ const VuetifyTailwindBoardAppRouterComponent = ({ vuetifyTailwindBoardRef }) => 
       </div>
       <Routes>
         <Route path="/vuetify-tailwind-board" 
-            element={<VuetifyTailwindBoardComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}/>} />
+                element={<VuetifyTailwindBoardComponent vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}/>} />
       </Routes>
     </BrowserRouter>
   )
