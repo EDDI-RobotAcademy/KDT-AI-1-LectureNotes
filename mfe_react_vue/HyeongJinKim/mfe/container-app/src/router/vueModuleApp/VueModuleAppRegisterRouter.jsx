@@ -12,7 +12,13 @@ const VueModuleAppRegisterRouter = () => {
     loadRemoteComponent();
   }, [vueModuleRegisterRef]);
 
-  return <div ref={vueModuleRegisterRef} />;
+  return (
+    <div>
+      <div>
+        <div style={{ position: "relative" }} ref={vueModuleRegisterRef} />
+      </div>
+    </div>
+  );
 };
 
 export default VueModuleAppRegisterRouter;
