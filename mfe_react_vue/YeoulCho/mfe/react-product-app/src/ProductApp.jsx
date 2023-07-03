@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./index.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import ProductListPage from "./page/ProductListPage";
 import ProductRegisterPage from "./page/ProductRegisterPage";
 import ProductModifyPage from "./page/ProductModifyPage";
@@ -13,10 +13,11 @@ const ProductApp = () => {
   return(
   <>
     <Routes>
-      <Route element={<ProductListPage/>} path="/" exact></Route>
-      <Route element={<ProductRegisterPage/>} path="/register" exact></Route>
-      <Route element={<ProductReadPage/>} path="/read/:productId" exact></Route>
-      <Route element={<ProductModifyPage/>} path="/modify/:productId" exact></Route>
+      <Route path="/" element={<Navigate to="/react-product-app" replace/>} />
+      <Route element={<ProductListPage/>} path="/react-product-app" exact></Route>
+      <Route element={<ProductRegisterPage/>} path="/react-product-app/register" exact></Route>
+      <Route element={<ProductReadPage/>} path="/react-product-app/read/:productId" exact></Route>
+      <Route element={<ProductModifyPage/>} path="/react-product-app/modify/:productId" exact></Route>
 
     </Routes>
   </>

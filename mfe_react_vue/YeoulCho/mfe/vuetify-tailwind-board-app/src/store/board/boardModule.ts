@@ -1,6 +1,6 @@
-import mutations, {BoardMutations} from './mutations'
-import actions, {BoardActions} from './actions'
-import state, {BoardState} from './states'
+import mutations, { BoardMutations } from './mutations'
+import actions, { BoardActions } from './actions'
+import state, { BoardState } from './states'
 
 export interface BoardModule {
     namespaced: true
