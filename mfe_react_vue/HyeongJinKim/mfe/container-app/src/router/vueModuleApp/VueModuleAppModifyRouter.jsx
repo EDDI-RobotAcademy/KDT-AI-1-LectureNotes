@@ -12,6 +12,12 @@ const VueModuleAppModifyRouter = () => {
     };
 
     loadRemoteComponent();
+
+    return () => {
+      console.log("해제 작업 진행중...");
+
+      vueModuleModifyRef.current = null;
+    };
   }, [vueModuleModifyRef, boardId]);
 
   return (
