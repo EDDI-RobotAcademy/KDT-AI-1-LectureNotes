@@ -8,6 +8,7 @@ import VueEventBusRemoteApp from "./router/vueEventBusTestApp/VueEventBusRemoteA
 import {Button} from "@mui/material";
 import VueEventInstantRemoteApp from "./router/vueEventBusTestApp/VueEventInstantRemoteApp";
 import VueModuleAppRouter from "./router/vueModuleApp/VueModuleAppRouter";
+import VueNavigationBarApp from "./router/vueNavigationApp/VueNavigationBarApp";
 
 const eventBus = mitt();
 
@@ -44,6 +45,7 @@ const App = () => {
 
     return (
         <BrowserRouter>
+            <VueNavigationBarApp/>
             <div>
                 <h1>React Container App</h1>
                 <Button component={Link} to="/" variant="contained">
