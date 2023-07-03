@@ -21,7 +21,10 @@ import boardModule from "./store/index";
 // Element 객체란?
 // 좀 어려운데 문서상의 각각 요소(element)의 내용들을 추상화한 객체 
 const vuetifyTailwindBoardAppMount = (el: string | Element) => {
+    // 마운트하여 화면에 표시하는 역할을 하는 코드
+    // 문자열 또는 요소를 매개변수로 받아들임
     loadFonts().then(() => {
+        // loadFonts(): 마운트하기 전에 폰트를 로드하는 역할
         const vuetify = createVuetify({
             // createVuetify 함수를 사용하여 vuetify 객체 생성
             components: {
@@ -39,8 +42,8 @@ const vuetifyTailwindBoardAppMount = (el: string | Element) => {
         const app = createApp(App).use(vuetify).use(boardModule).use(router)
         // createApp 함수를 사용하여 Vue 애플리케이션 객체 생성
         app.mount(el)
-        // 생성한 애플리케이션 객체를 mount함
-    })    
+        // 생성한 app을 el을 매개변수로 하여 mount함
+    })
 };
 
 const root = document.querySelector('#vuetify-tailwind-board-app')

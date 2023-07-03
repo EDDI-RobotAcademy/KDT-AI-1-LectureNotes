@@ -16,7 +16,7 @@ const BoardRegisterPage = ({ history }) => {
             alert('게시물 등록 성공!')
 
             console.log(response.data.boardId)
-            navigate("/read/" + response.data.boardId)
+            navigate("/react-board-app/read/" + response.data.boardId)
             // 처음에 /read 이렇게 써서 제대로 창이 안나왔음
             // /read/ 꼭 이렇게 잘 써줄 것!
             // 뒤에 가변인자가 붙기 때문임
