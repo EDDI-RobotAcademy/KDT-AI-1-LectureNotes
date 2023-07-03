@@ -8,7 +8,7 @@ import BoardReadForm from "../components/BoardReadForm"
 
 // 그럼 왜 이런 것을 여전히 현업에서 사용하고 있는가 ?
 // 시장 진입을 먼저 했기 때문(관성)입니다 -> '왜 아직도 SI는 JSP를 쓰나요 ?' 와 같은 질문
-const BoardReadPage = () => {
+const BoardReadPage = ({ match, history }) => {
   const { boardId } = useParams()
 
   const [board, setBoard] = useState(null)
@@ -32,7 +32,7 @@ const BoardReadPage = () => {
     try {
       await axiosClient.removeBoard(boardId)
       alert('게시물이 삭제되었습니다')
-      navigate("/")
+      navigate("/react-board-app")
     } catch (e) {
         console.log(e)
     }

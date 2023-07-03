@@ -13,33 +13,33 @@ const BoardReadForm = ({ boardId, board, isLoading, onRemove }) => {
                     <tr>
                         <td>번호</td>
                         <td>
-                            <input type="text" value={board.boardId} readonly/>
+                            <input type="text" value={board.boardId} readOnly/>
                         </td>
                     </tr>
                     <tr>
                         <td>제목</td>
                         <td>
-                            <input type="text" value={board.title} readonly/>
+                            <input type="text" value={board.title} readOnly/>
                         </td>
                     </tr>
                     <tr>
                         <td>작성자</td>
                         <td>
-                            <input type="text" value={board.writer} readonly/>
+                            <input type="text" value={board.writer} readOnly/>
                         </td>
                     </tr>
                     <tr>
                         <td>내용</td>
                         <td>
-                            <textarea value={board.content} readonly/>
+                            <textarea value={board.content} readOnly/>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <Link to={`/modify/${boardId}`}>수정</Link>
+            <Link to={`/react-board-app/modify/${boardId}`}>수정</Link>
             <button onClick={onRemove}>삭제</button>
-            <Link to="/">돌아가기</Link>
+            <Link to="/react-board-app">돌아가기</Link>
         </>
       )}
     </div>

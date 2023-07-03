@@ -6,7 +6,12 @@
       "container-app",
       "vue-module-app",
       "vue-navigation-app",
-      "react-module-app"
+      "react-module-app",
+      "react-board-app",
+      "react-zustand-todo-app",
+      "react-query-test-app",
+      "vuetify-tailwind-board-app",
+      "react-query-zustand-mui-typescript-board-app"
     ]
   },
   "scripts": {
