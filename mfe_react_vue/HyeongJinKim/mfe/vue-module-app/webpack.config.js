@@ -63,6 +63,7 @@ module.exports = (_, argv) => ({
         "./boardRegisterBootstrap": "./src/domain/board/bootstrapper/boardRegisterBootstrap",
         "./boardReadBootstrap": "./src/domain/board/bootstrapper/boardReadBootstrap",
         "./boardModifyBootstrap": "./src/domain/board/bootstrapper/boardModifyBootstrap",
+        "./boardListBootstrap": "./src/domain/board/bootstrapper/boardListBootstrap",
       },
       shared: require("./package.json").dependencies,
     }),

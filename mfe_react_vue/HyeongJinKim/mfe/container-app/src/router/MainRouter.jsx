@@ -13,6 +13,7 @@ import ReactTypescriptMuiBoardRoutes from "./muiTypescriptBoardApp/ReactTypescri
 import VueModuleAppRegisterRouter from "./vueModuleApp/VueModuleAppRegisterRouter";
 import VueModuleAppReadRouter from "./vueModuleApp/VueModuleAppReadRouter";
 import VueModuleAppModifyRouter from "./vueModuleApp/VueModuleAppModifyRouter";
+import VueModuleAppListRouter from "./vueModuleApp/VueModuleAppListRouter";
 
 const MainRouter = () => {
   const vueModuleRef = useRef(null);
@@ -98,16 +99,17 @@ const MainRouter = () => {
                 />
               }
             />
-            <Route
+            {/* <Route
               exact
               path="/vue-module-app"
               element={<VueModuleAppRouter vueModuleRef={vueModuleRef} />}
-            />
+            /> */}
             <Route exact path="/react-counter-app" element={<ReactCounterAppRouter />} />
           </Routes>
           <ReactBoardRoutes />
           <ReactTypescriptMuiBoardRoutes />
           <Routes>
+            <Route exact path="/vue-module-app" element={<VueModuleAppListRouter />} />
             <Route
               exact
               path="/vue-module-app/board-register-page"
