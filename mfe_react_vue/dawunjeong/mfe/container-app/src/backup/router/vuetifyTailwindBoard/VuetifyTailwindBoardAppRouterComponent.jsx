@@ -5,7 +5,7 @@ import VuetifyTailwindBoardComponent from './VuetifyTailwindBoardComponent'
 const VuetifyTailwindBoardAppRouterComponent = ({vuetifyTailwindBoardRef}) => {
   return (
     <BrowserRouter>
-        <div>
+        <div style={{ position: 'relative' }}>
             <Link to="/">홈</Link>
             <Link to="/vuetify-tailwind-board">Vue3 Vuetify 게시판</Link>
         </div>
