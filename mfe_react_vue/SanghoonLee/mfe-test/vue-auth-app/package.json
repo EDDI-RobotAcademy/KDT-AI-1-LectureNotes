@@ -1,5 +1,5 @@
 {
-  "name": "vue-member-app",
+  "name": "vue-auth-app",
   "version": "1.0.0",
   "author": {
     "name": "Jack Herrington",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "start": "webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server --mode development",
     "start:live": "webpack-dev-server --open --mode development --live-reload"
   },
   "dependencies": {
@@ -38,14 +38,16 @@
     "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.2.1",
     "postcss-loader": "^4.1.0",
+    "raw-loader": "^4.0.2",
     "style-loader": "^3.3.0",
     "svg-loader": "^0.0.2",
     "tailwindcss": "^2.0.2",
     "ts-loader": "^8.0.12",
     "typescript": "^4.4.3",
     "vue-cli-plugin-vuetify": "~2.5.8",
-    "vue-loader": "^16.8.1",
+    "vue-loader": "^17.0.1",
     "vue-router": "^4.2.2",
+    "vue-svg-inline-loader": "^2.1.5",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.57.1",
     "webpack-cli": "^4.9.0",

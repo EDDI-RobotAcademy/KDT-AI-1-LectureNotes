@@ -30,6 +30,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
 	implementation 'com.corundumstudio.socketio:netty-socketio:2.0.2'
+	implementation 'org.apache.httpcomponents:httpclient:4.5.13'
 
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
