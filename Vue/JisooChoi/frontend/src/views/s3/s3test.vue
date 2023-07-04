@@ -19,12 +19,9 @@ export default {
     data(){
         return {
             file: null,
-            // awsBucketName: process.env.VUE_APP_S3_BUCKET_NAME, //'vue-s3-test-3333', 
-            // awsBucketRegion: process.env.VUE_APP_S3_REGION, //'ap-northeast-2',
-            // awsIdentityPoolId: process.env.VUE_APP_S3_IDENTITY_POOL_ID, //'ap-northeast-2:10fc27c4-f9c2-4390-85fa-691403fca824',
-            awsBucketName: 'vue-s3-test-3333', 
-            awsBucketRegion: 'ap-northeast-2',
-            awsIdentityPoolId: 'ap-northeast-2:10fc27c4-f9c2-4390-85fa-691403fca824',
+            // awsBucketName: process.env.VUE_APP_S3_BUCKET_NAME,
+            // awsBucketRegion: process.env.VUE_APP_S3_REGION,
+            // awsIdentityPoolId: process.env.VUE_APP_S3_IDENTITY_POOL_ID,
             s3: null,
             awsFileList: [],
             startAfterAwsS3Bucket: null,
