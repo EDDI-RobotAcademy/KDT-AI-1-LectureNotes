@@ -59,7 +59,7 @@ const VueEventBusRemoteApp = () => {
 
     return (
         <div>
-            <div>
+            <div style={{ position: 'relative' }}>
                 <button onClick={handleOtherButtonClick}>Vue Remotes로 Emit Event</button>
                 <p>{message}</p>
                 <div ref={vueModuleRef} />

@@ -6,12 +6,10 @@ import kr.eddi.demo.lectureClass.authentication.github.service.response.GithubOa
 import kr.eddi.demo.lectureClass.utility.property.PropertyUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Service;
+import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
+import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
@@ -25,8 +23,8 @@ public class GithubOauthServiceImpl implements GithubOauthService {
     public String getAuthorizeCode() {
         final String CLIENT_ID = propertyUtil.getProperty("client_id");
         final String URL = "https://github.com/login/oauth/authorize";
+        final String fullUrl = URL + "?client_id=" + CLIENT_ID + "&scope=repo:status read:repo_hook user:email";
 
-        // https://github.com/login/oauth/authorize?client_id=yourGithubOAuthAppsId&scope=repo:status read:repo_hook user:email
         return URL + "?client_id=" + CLIENT_ID + "&scope=repo:status read:repo_hook user:email";
     }
 
