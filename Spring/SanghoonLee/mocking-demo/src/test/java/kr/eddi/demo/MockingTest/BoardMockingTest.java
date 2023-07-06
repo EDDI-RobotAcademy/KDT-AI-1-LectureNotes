@@ -20,7 +20,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 public class BoardMockingTest {
@@ -119,5 +119,14 @@ public class BoardMockingTest {
                 .isEqualTo(actual.getTitle());
         assertThat(mockBoardRepository.findById(0L).get().getContent())
                 .isEqualTo(actual.getContent());
+    }
+
+    @Test
+    @DisplayName("Mocking: 게시물 삭제 테스트")
+    public void 게시물_삭제 () {
+        final JpaBoardServiceImpl sut = new JpaBoardServiceImpl(mockBoardRepository);
+        sut.delete(0L);
+
+        verify(mockBoardRepository, times(1)).deleteById(0L);
     }
 }
