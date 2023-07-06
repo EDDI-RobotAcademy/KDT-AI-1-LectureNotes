@@ -4,7 +4,8 @@ import { Board } from "../entity/Board" // Board 타입을 가져옵니다.
 // 스토어의 인터페이스를 정의합니다. 상태와 액션 함수에 대한 타입을 지정합니다.
 interface BoardState {
     boards: [] // 저장할 boards 상태를 빈 배열로 초기화합니다.
-    setBoards: (boards: Board[]) => void // boards 상태를 업데이트하는 setBoards 액션을 정의합니다. 인수로 Board[] 타입을 받습니다.
+    setBoards: (boards: Board[]) => void 
+    // boards 상태를 업데이트하는 setBoards 액션을 정의합니다. 인수로 Board[] 타입을 받습니다.
 }   // => void는 여기서 타입스크립트 화살표 함수의 반환타입을 의미합니다. 
     // setBoards: (boards: Board[]) => void는 setBoards라는 함수의 시그니처를 정의하는데, 
     // 이 함수는 Board[] 타입의 인수를 받아서 반환값이 없을 것이라는 것을 명시합니다. 

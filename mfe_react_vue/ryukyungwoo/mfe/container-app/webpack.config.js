@@ -15,6 +15,13 @@ module.exports = (_, argv) => ({
     //static: path.join(__dirname, 'dist'),
     port: 3000,
     historyApiFallback: true,
+    compress: true,
+    hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
+    }
   },
   output: {
     publicPath: 'http://localhost:3000/',
@@ -66,6 +73,7 @@ module.exports = (_, argv) => ({
         reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3005/remoteEntry.js',
         reactQueryTestApp: 'reactQueryTestApp@http://localhost:3006/remoteEntry.js',
         vuetifyTailwindBoardApp: 'vuetifyTailwindBoardApp@http://localhost:3007/remoteEntry.js',
+        reactQueryZustandMuiTypescriptBoardApp: 'reactQueryZustandMuiTypescriptBoardApp@http://localhost:3008/remoteEntry.js',
       },
       shared: {
         ...deps,
@@ -79,6 +87,10 @@ module.exports = (_, argv) => ({
         },
         "react-router-dom": {
           singleton: true
+        },
+        "react-query": {
+          singleton: true,
+          requiredVersion: deps["react-query"]
         }
       }
     }),
