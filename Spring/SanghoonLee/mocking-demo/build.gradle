@@ -20,18 +20,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-
-	// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-cbor
-	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.13.4'
-
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
-	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-
-	implementation 'com.corundumstudio.socketio:netty-socketio:2.0.2'
-//	implementation 'org.apache.httpcomponents:httpclient:4.5.13'
-
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'

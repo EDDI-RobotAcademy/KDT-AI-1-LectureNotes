@@ -56,6 +56,14 @@ export default {
             ]
         }
     },
+    inject: ['eventBus', 'count'],
+    mounted () {
+        console.log('Navigation onMounted: ' + this.eventBus);
+        this.eventBus.on("sign-in", (data) => {
+            console.log("Received data in Vue:", data);
+            router.push(data)
+        });
+    },
     methods: {
         clickToggle () {
             alert('토글')
@@ -64,6 +72,8 @@ export default {
             alert('회원 가입')
         },
         signIn () {
+            // Container App -> Navigation App -> Auth App
+            // Navigation App에서 Auth App을 remotes로 등록해야함
             this.isLogin = true
             alert('로그인')
         },
