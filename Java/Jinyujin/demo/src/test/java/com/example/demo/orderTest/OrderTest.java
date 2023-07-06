@@ -9,7 +9,6 @@ import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderLis
 import com.example.demo.lectureClass.testCode.order.controller.form.TestOrderRequestForm;
 import com.example.demo.lectureClass.testCode.order.entity.TestOrder;
 import com.example.demo.lectureClass.testCode.order.service.TestOrderService;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
