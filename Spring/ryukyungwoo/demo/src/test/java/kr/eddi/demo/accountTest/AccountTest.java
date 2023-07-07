@@ -1,15 +1,20 @@
 package kr.eddi.demo.accountTest;
 
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.AccountRoleRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountLoginResponseForm;
 import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountRequestForm;
+import kr.eddi.demo.lectureClass.testCode.account.controller.form.TestAccountWithRoleRequestForm;
 import kr.eddi.demo.lectureClass.testCode.account.entity.TestAccount;
 
 import kr.eddi.demo.lectureClass.testCode.account.repository.TestAccountRepository;
 import kr.eddi.demo.lectureClass.testCode.account.service.TestAccountService;
+import kr.eddi.demo.lectureClass.testCode.order.controller.form.TestAccountResponseForm;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,7 +47,7 @@ public class AccountTest {
         // 요청에 대한 처리를 Service에서 할 필요가 있는가 ?
         // Repository에서 하면 Repository의 목적성에 맞지 않아서라는 답변이 나왔음
         // 결론적으로 Domain Service가 필요한 상황이 만들어짐
-
+        
         // OOP를 진행함에 있어 DDD는 Domain Entity로만 구현할 수 있다 생각할 수 있음.
         // 실제 대부분의 객체지향(OOP) 책에서 하는 이야기가
         // 그냥 class에 데이터 넣고 이 데이터를 제어할 수 있는 매서드를 만들라는 형식으로 설명함
@@ -99,6 +104,17 @@ public class AccountTest {
         assertTrue(account == null);
     }
 
+    @Test
+    @DisplayName("잘못된 비밀번호 정보를 토대로 로그인")
+    void 이메일만_맞게_입력한_상태에서_로그인 () {
+        final String email = "test@test.com";
+        final String password = "응틀렸어";
+
+        TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
+        TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
+
+        assertTrue(responseForm.getUserToken() == null);
+    }
 
     @Test
     @DisplayName("이메일을 잘못 입력한 상태로 로그인")
@@ -115,12 +131,72 @@ public class AccountTest {
     @Test
     @DisplayName("올바른 입력한 정보를 토대로 로그인")
     void 올바른_정보로_로그인 () {
+        // 윈도우의 경우 대소문자 구별이 잘 안되는 문제가 추가로 존재함(이것은 운영체제 문제)
         final String email = "test@test.com";
         final String password = "test";
 
+        // 로그인을 좀 더 잘 관리하기 위해선 docker 기반의 redis에 token 관리가 필요합니다.
+        // token 관리는 Docker redis 및 AWS 설정 이후에 작업해야하므로 잠시 보류합니다.
         TestAccountRequestForm requestForm = new TestAccountRequestForm(email, password);
         TestAccountLoginResponseForm responseForm = testAccountService.login(requestForm);
 
         assertTrue(responseForm.getUserToken() != null);
+    }
+
+    // 로그아웃, 회원 탈퇴와 같은 사항들이 남아있음
+    // 이 사항들은 역시나 로그인 되어 있는 token을 기반으로 진행되어야 합니다.
+    // 그러므로 위 두 가지 사항은 현 시점에선 보류합니다.
+
+    @Test
+    @DisplayName("회원가입을 합니다(일반회원)")
+    void 일반회원_회원가입 () {
+        // 여러가지 방법론들
+        // 1. Account Domain과 AccountRole Domain을 분리하자!
+        // 2. Account Domain에 회원을 구분할 수 있는 Category ID를 만들자!
+        // 3. AccountRole에 Account를 상속 해보자!
+        // 4. 일단은 저는 1번인데,
+        //    제 관점에서는 Account와 AccountRole을 분리하되 모두 Account Domain에 배치합니다.
+        //    결론적으로 Account Domain Entity에 Account와 AccountRole이 배치됩니다.
+
+        final String email = "gogo@gmail.com";
+        final String password = "gogo";
+        final String role = "NORMAL";
+
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("회원가입을 합니다(일반회원)")
+    void 사업자_회원가입 () {
+        final String email = "business@test.com";
+        final String password = "test";
+        final String role = "BUSINESS";
+
+        TestAccountWithRoleRequestForm requestForm = new TestAccountWithRoleRequestForm(email, password, role);
+        TestAccount account = testAccountService.registerWithRole(requestForm);
+
+        assertEquals(email, account.getEmail());
+        assertEquals(password, account.getPassword());
+    }
+
+    @Test
+    @DisplayName("일반 회원만 조회하기")
+    void 일반회원_조회 () {
+        final String role = "NORMAL";
+
+        AccountRoleRequestForm requestForm = new AccountRoleRequestForm(role);
+        List<TestAccountResponseForm> normalAccountList = testAccountService.accountListWithRole(role);
+
+        for (TestAccountResponseForm responseForm: normalAccountList) {
+            System.out.println("responseForm.getAccountId(): " + responseForm.getAccountId());
+            System.out.println("responseForm.getEmail(): " + responseForm.getEmail());
+
+            assertTrue(responseForm.getAccountId() != null);
+            assertTrue(responseForm.getEmail() != null);
+        }
     }
 }

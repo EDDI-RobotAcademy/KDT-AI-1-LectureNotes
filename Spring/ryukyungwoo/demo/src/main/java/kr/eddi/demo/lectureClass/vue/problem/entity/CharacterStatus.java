@@ -4,9 +4,6 @@ import kr.eddi.demo.lectureClass.utility.random.CustomRandom;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Getter
 @ToString
 public class CharacterStatus {
@@ -29,5 +26,4 @@ public class CharacterStatus {
 
         this.whosAccountId = id;
     }
-//    Map<Long, CharacterStatus> chatacterSet = new HashMap<>();
 }

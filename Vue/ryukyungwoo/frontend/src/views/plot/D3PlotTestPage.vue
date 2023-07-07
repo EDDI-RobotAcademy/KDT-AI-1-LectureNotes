@@ -11,6 +11,7 @@
 <script>
 // npm install d3 --save-dev
 import * as d3 from "d3"
+
 export default {
     data () {
         return {
@@ -68,18 +69,22 @@ export default {
                     .attr("width", width + 100)
                     .attr("height", height + 100)
         const g = svg.append("g")
+
         const parseTime = d3.timeParse("%d-%b-%y")
+
         const x = d3.scaleTime()
                     .domain(d3.extent(this.reg_data, (d) => {
                         return parseTime(d.date)
                     }))
                     .rangeRound([0, width])
+
         const y = d3.scaleLinear()
                     .domain(d3.extent(this.reg_data, (d) => {
                         console.log(d)
                         return d.amount
                     }))
                     .rangeRound([height, 0])
+
         const line = d3.line()
                         .x((d) => {
                             return x(parseTime(d.date))
@@ -87,6 +92,7 @@ export default {
                         .y((d) => {
                             return y(d.amount)
                         })
+
         g.append("g")
             // transform은 평행 이동, 회전 변환 등등을 수행할 수 있음
             // translate(0, height)와 같으므로
@@ -95,6 +101,7 @@ export default {
             // 전체 화면에서 오른쪽으로 40만큼 수평이동 시켜서 왼쪽에 숫자를 출력할 구간을 확보함
             .attr("transform", "translate(40," +  height + ")")
             .call(d3.axisBottom(x))
+
         // https://observablehq.com/@d3/d3-line
         g.append("g")
             .call(d3.axisLeft(y))
@@ -112,6 +119,7 @@ export default {
             .attr("dy", "0.71em")
             .attr("text-anchor", "end")
             .text("Price: ($)")
+
         g.append("path")
             .datum(this.reg_data)
             // 위에서도 40만큼 공간을 확보하므로 전체 구성이 깨지지 않으려면
