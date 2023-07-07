@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./index.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import BoardListPage from "./page/BoardListPage"
 import BoardRegisterPage from "./page/BoardRegisterPage"
@@ -14,10 +14,12 @@ const BoardApp = () => {
     <>
       <Routes>
         {/* exact의 경우 정확하게 이 경로에 해당하는 동작에 대해서만 BoardListPage가 동작한다 */}
-        <Route element={<BoardListPage/>} path="/" exact></Route>
-        <Route element={<BoardRegisterPage/>} path="/register"></Route>
-        <Route element={<BoardReadPage/>} path="/read/:boardId"></Route>
-        <Route element={<BoardModifyPage/>} path="/modify/:boardId"></Route>
+        {/* 바로 아래와 같이 구성하면 url에 /~ 가 붙음 */}
+        <Route path="/" element={<Navigate to="/react-board-app" replace/>}/>
+        <Route element={<BoardListPage/>} path="/react-board-app" exact></Route>
+        <Route element={<BoardRegisterPage/>} path="/react-board-app/register"></Route>
+        <Route element={<BoardReadPage/>} path="/react-board-app/read/:boardId"></Route>
+        <Route element={<BoardModifyPage/>} path="/react-board-app/modify/:boardId"></Route>
       </Routes>
     </>
   )

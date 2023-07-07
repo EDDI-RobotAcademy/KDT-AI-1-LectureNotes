@@ -78,15 +78,20 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       exposes: {
         './vuetifyBoardBootstrap': './src/bootstrap',
-        './vuetifyBoardModuleStore': './src/store/board/boardModule'
+        './vuetifyBoardModuleStore': './src/store/board/boardModule',
+        './boardRegisterBootstrap': './src/bootstrapper/boardRegisterBootstrap',
+        './boardReadBootstrap': './src/bootstrapper/boardReadBootstrap',
+        './boardModifyBootstrap': './src/bootstrapper/boardModifyBootstrap',
+        './boardListBootstrap': './src/bootstrapper/boardListBootstrap',
+
       },
       shared: require("./package.json").dependencies,
       shared: {
         vuetify: {
           singleton: true,
-          requiredVersion: "^3.3.5"
-        }
-      }
+          requiredVersion: "^3.3.3",
+        },
+      },
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './public/index.html'),

@@ -52,9 +52,11 @@ export default {
                 params: { boardId: board.boardId.toString() }
             })
         },
-        onCancel() {
+      onCancel() {
+          // 현재 페이지에서 뒤로 가기를 수행하는 메서드
             // 입력한 숫자에 따라 뒤로가기 2번, 3번 등등의 역할을 수행하게 만들 수 있음
             this.$router.go(-1)
+            // 현재 페이지에서 한 번 뒤로 가도록
         }
     }
 }

@@ -14,7 +14,7 @@ module.exports = (_, argv) => ({
   target: 'web',
   entry: path.resolve(__dirname, './src/index.js'),
   output: {
-    publicPath: 'auto',
+    publicPath: 'http://localhost:3001/',
   },
   resolve: {
     extensions: [".vue", ".js", ".json"],
@@ -59,7 +59,11 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       exposes: {
         './Sample': './src/bootstrap',
-        './Store': './src/store/board/BoardModule'
+        './Store': './src/store/board/BoardModule',
+        './boardRegisterBootstrap': './src/domain/board/bootstrapper/boardRegisterBootstrap',
+        './boardReadBootstrap': './src/domain/board/bootstrapper/boardReadBootstrap',
+        './boardModifyBootstrap': './src/domain/board/bootstrapper/boardModifyBootstrap',
+        './boardListBootstrap': './src/domain/board/bootstrapper/boardListBootstrap',
       },
       shared: require("./package.json").dependencies
     }),
@@ -75,6 +79,7 @@ module.exports = (_, argv) => ({
     },
     compress: true,
     port: 3001,
+    historyApiFallback: true,
     hot: true,
     headers: {
       'Access-Control-Allow-Origin': '*',

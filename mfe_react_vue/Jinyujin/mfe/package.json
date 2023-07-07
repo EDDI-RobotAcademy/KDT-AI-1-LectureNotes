@@ -11,7 +11,8 @@
       "react-product-app",
       "react-zustand-todo-app",
       "react-query-test-app",
-      "vuetify-tailwind-board-app"
+      "vuetify-tailwind-board-app",
+      "react-query-zustand-mui-typescript-board-app"
     ]
   },
   "scripts": {

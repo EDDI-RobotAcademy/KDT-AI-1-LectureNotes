@@ -14,7 +14,7 @@ const ProductModifyPage = () => {
         try {
             await axiosClient.modifyProduct(productId, productName, price)
             alert ("상품이 수정되었습니다.")
-            navigate("/read/" + productId)
+            navigate("/react-product-app/read/" + productId)
         } catch(e) {
             throw e
         }

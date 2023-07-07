@@ -62,7 +62,7 @@ const BoardModifyForm = ({board, isLoading, onModify}) => {
             </table>
             <div>
             <button type="sybmit">수정</button>
-            <Link to={`/read/${board.boardId}`}>취소</Link>
+            <Link to={`/react-board-app/read/${board.boardId}`}>취소</Link>
             </div>
         </form>
         </>

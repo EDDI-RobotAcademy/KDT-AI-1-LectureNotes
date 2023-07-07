@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  nginx:
+    image: "nginx:latest"
+    container_name: micro-frontend-deploy-nginx
+    restart: unless-stopped
+    volumes:
+      - /home/ec2-user/mfe/conf:/etc/nginx/conf.d
+      - /home/ec2-user/mfe/vue:/usr/share/nginx/html/vue
+      - /home/ec2-user/mfe/contianer/:/usr/share/nginx/html/container_name
+    ports:
+      -"80:80"
+    networks:
+      - app
+      
+networks:
+  app:
+    driver: bridge

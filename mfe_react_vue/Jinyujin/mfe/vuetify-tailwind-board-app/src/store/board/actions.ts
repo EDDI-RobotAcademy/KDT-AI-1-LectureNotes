@@ -6,10 +6,12 @@ import {
 } from './mutation-types'
 import axiosInst from '../../utility/axiosInstances'
 import { AxiosResponse } from 'axios' // axios 요청했을 때 돌아오는 정보에 대한 응답
-import { async } from '../../../../vue-navigation-app/src/plugin/webfontloader';
+// import { async } from '../../../../vue-navigation-app/src/plugin/webfontloader';
 
 export type BoardActions = {
+    // 여기는 타입 설정
     requestBoardListToSpring(context: ActionContext<BoardState, any>): Promise<void>
+    // ActionContext: 액션에서 스토어의 상태나 다른 액션을 호출하는데 사용됨
     requestCreateBoardToSpring(context: ActionContext<BoardState, unknown>, payload: {
         title: string, content: string, writer: string
     }): Promise<AxiosResponse>
@@ -21,11 +23,13 @@ export type BoardActions = {
 }
 
 const actions: BoardActions = {
+    // 여기서 구체적인 액션 설정
     async requestBoardListToSpring(context: ActionContext<BoardState, any>): Promise<void>{
         try {
             const res: AxiosResponse<any, any> = await axiosInst.springAxiosInst.get('/jpa-board/list')
             const data: Board[] = res.data
             context.commit(REQUEST_BOARD_LIST_TO_SPRING, data)
+            // commit으로 상태 업데이트
         } catch (error) {
             console.error('requestBoardListToSpring(): ' + error)
             throw error

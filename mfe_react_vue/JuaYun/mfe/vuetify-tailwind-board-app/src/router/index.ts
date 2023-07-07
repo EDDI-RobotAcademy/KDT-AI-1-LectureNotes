@@ -8,23 +8,27 @@ import VuetifyBoardModify from "../page/VuetifyBoardModify.vue"
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    redirect: '/vuetify-typescript-board-app'
+  },
+  {
+    path: '/vuetify-typescript-board-app',
     name: 'VuetifyBoardList',
     component: VuetifyBoardList
   },
   {
-    path: '/vuetify-board-register',
+    path: '/vuetify-typescript-board-app/register',
     name: 'VuetifyBoardRegister',
     component: VuetifyBoardRegister,
   },
   {
-    path: '/vuetify-board-read/:boardId',
+    path: '/vuetify-typescript-board-app/read/:boardId',
     name: 'VuetifyBoardRead',
     components: { default: VuetifyBoardRead },
     props: { default: true },
     // components에서 s를 빼면 화면 이 켜지지 않음
   },
   {
-    path: '/vuetify-board-modify/:boardId',
+    path: '/vuetify-typescript-board-app/modify/:boardId',
     name: 'VuetifyBoardModify',
     components: { default: VuetifyBoardModify },
     props: { default: true },
