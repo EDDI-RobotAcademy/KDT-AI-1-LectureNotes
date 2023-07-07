@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 
-const VueModuleAppListRouter = ({ vueModuleListRef }) => {
-  //const vueModuleListRef = useRef(null)
+const VueModuleAppListRouter = () => {
+  const vueModuleListRef = useRef(null)
 
   useEffect(() => {
     const loadRemoteComponent = async () => {
@@ -11,6 +11,12 @@ const VueModuleAppListRouter = ({ vueModuleListRef }) => {
     }
 
     loadRemoteComponent()
+
+    return () => {
+      console.log('해제 작업 진행중 ......')
+
+      vueModuleListRef.current = null
+    }
   }, [vueModuleListRef])
 
   return (

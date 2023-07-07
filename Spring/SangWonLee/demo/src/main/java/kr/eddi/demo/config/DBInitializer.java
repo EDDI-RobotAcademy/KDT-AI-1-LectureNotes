@@ -32,6 +32,7 @@ public class DBInitializer {
 
         initCategoryTypes();
         initAmountTypes();
+
         initAccountRoleTypes();
 
         log.debug("initializer 종료!");

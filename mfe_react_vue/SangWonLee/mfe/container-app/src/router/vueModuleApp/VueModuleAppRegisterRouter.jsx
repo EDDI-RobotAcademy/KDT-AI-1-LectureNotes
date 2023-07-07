@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 
-const VueModuleAppRegisterRouter = ({ vueModuleRegisterRef }) => {
-  //const vueModuleRegisterRef = useRef(null)
+const VueModuleAppRegisterRouter = () => {
+  const vueModuleRegisterRef = useRef(null)
 
   useEffect(() => {
     const loadRemoteComponent = async () => {

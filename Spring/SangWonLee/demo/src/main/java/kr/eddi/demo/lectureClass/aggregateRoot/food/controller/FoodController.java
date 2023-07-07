@@ -21,7 +21,7 @@ public class FoodController {
 
     @PostMapping(value = "/register",
             consumes = { MediaType.MULTIPART_FORM_DATA_VALUE,
-                    MediaType.APPLICATION_JSON_VALUE })
+                         MediaType.APPLICATION_JSON_VALUE })
     public void foodRegister (
             @RequestPart(value = "imageFile") MultipartFile imageFile,
             @RequestPart(value = "foodInfo") FoodRegisterRequestForm foodRegisterForm) {

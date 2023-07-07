@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 
-const VueModuleAppModifyRouter = ({ vueModuleModifyRef }) => {
+const VueModuleAppModifyRouter = () => {
   const { boardId } = useParams()
-  //const vueModuleModifyRef = useRef(null)
+  const vueModuleModifyRef = useRef(null)
 
   useEffect(() => {
     const loadRemoteComponent = async () => {

@@ -1,6 +1,5 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react'
-import ReactDOM from "react-dom";
-import {BrowserRouter, Link, Route, Routes, useNavigate} from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import { Button } from '@mui/material'
 
@@ -57,36 +56,6 @@ const MainRouter = () => {
     }
   }, [])
 
-    const goToVueBoardApp = () => {
-      console.log('이거 되냐 ?')
-
-        if (vueModuleRef.current) {
-            console.log('응 돼')
-            const vueBoardRoute = async () => {
-                const {routingPath} = await import('vueModuleApp/Sample');
-                routingPath(vueModuleRef.current, '/vue-module-app');
-            };
-
-            vueBoardRoute()
-        }
-    }
-
-    const renderReactList = () => {
-        return (
-            <React.Fragment>
-                {/* 다른 React 컴포넌트들 */}
-                <ReactBoardRoutes containerModuleRef={vueModuleRef} />
-            </React.Fragment>
-        );
-    };
-    
-    const goToReactBoardApp = () => {
-      console.log('ref 떼어내고 react 붙이기')
-
-        const reactList = renderReactList();
-        ReactDOM.render(reactList, vueModuleRef.current);
-    }
-
   return (
     <div>
         <div ref={vuetifyNavigationRef} />
@@ -100,30 +69,15 @@ const MainRouter = () => {
                 <Button component={Link} to="/vuetify-typescript-board-app" variant="contained">
                   Vuetify TypeScript 게시판
                 </Button>
-                  {vueModuleRef.current == null ? (
-                      <Button component={Link} to="/vue-module-app" variant="contained">
-                          Vue 게시판
-                      </Button>
-                  ) : (
-                      <Button onClick={ goToVueBoardApp } variant="contained">
-                          Vue 게시판(객체할당)
-                      </Button>
-                  )}
+                <Button component={Link} to="/vue-module-app" variant="contained">
+                  Vue 게시판
+                </Button>
                 <Button component={Link} to="/react-counter-app" variant="contained">
                   React 카운터
                 </Button>
-                  {vueModuleRef.current ? (
-                      <Button onClick={ goToReactBoardApp } variant="contained">
-                          React 게시판 (ref 떼어내기)
-                      </Button>
-                  ) : (
-                      <Button component={Link} to="/react-board-app" variant="contained">
-                          React 게시판
-                      </Button>
-                  )}
-                {/*<Button component={Link} to="/react-board-app" variant="contained">*/}
-                {/*  React 게시판*/}
-                {/*</Button>*/}
+                <Button component={Link} to="/react-board-app" variant="contained">
+                  React 게시판
+                </Button>
                 <Button component={Link} to="/react-query-zustand-mui-typescript-board-app" variant="contained">
                   Mui Typescript 게시판
                 </Button>
@@ -141,34 +95,41 @@ const MainRouter = () => {
                     vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
                   /> 
                 }/>
+              {/* <Route
+                exact path="/vue-module-app"
+                element={
+                  <VueModuleAppRouter
+                    vueModuleRef={vueModuleRef}
+                  />
+                }/> */}
               <Route
                 exact path="/react-counter-app"
                 element={
                   <ReactCounterAppRouter/>
                 }/>
             </Routes>
-            <ReactBoardRoutes containerModuleRef={ vueModuleRef }/>
+            <ReactBoardRoutes/>
             <ReactTypescriptMuiBoardRoutes/>
             <Routes>
               <Route
                 exact path="/vue-module-app"
                 element={
-                  <VueModuleAppListRouter vueModuleListRef={ vueModuleRef }/>
+                  <VueModuleAppListRouter/>
                 }/>
               <Route
                 exact path="/vue-module-app/board-register-page"
                 element={
-                  <VueModuleAppRegisterRouter vueModuleRegisterRef={ vueModuleRef }/>
+                  <VueModuleAppRegisterRouter/>
                 }/>
               <Route
                 exact path="/vue-module-app/board-read-page/:boardId"
                 element={
-                  <VueModuleAppReadRouter vueModuleReadRef={ vueModuleRef }/>
+                  <VueModuleAppReadRouter/>
                 }/>
               <Route
                 exact path="/vue-module-app/board-modify-page/:boardId"
                 element={
-                  <VueModuleAppModifyRouter vueModuleModifyRef={ vueModuleRef }/>
+                  <VueModuleAppModifyRouter/>
                 }/>
             </Routes>
             <Routes>
