@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 @NoArgsConstructor
+@EqualsAndHashCode
 public class JpaBoard {
 
     @Id
