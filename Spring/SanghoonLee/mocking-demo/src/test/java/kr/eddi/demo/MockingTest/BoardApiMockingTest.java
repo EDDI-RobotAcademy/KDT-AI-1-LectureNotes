@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -78,6 +79,7 @@ public class BoardApiMockingTest {
                 // 리스트가 아닌 낱개의 경우 length()는 엔티티의 필드(변수) 개수
                 // $[0], $[1] 은 리스트
                 // 낱개의 경우 $.필드(변수)명으로 작성합니다
+                // 낱개로 주는 경우에 전체 리턴하는 엔티티의 개수를 검증하지 않고 필드 개수를 검증해야함
                 .andExpect(jsonPath("$.length()").value(6))
                 .andExpect(jsonPath("$.title").value("제목"))
                 .andExpect(jsonPath("$.content").value("내용"))
