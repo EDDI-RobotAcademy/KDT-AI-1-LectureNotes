@@ -8,8 +8,7 @@
         <v-btn class="teal ligthen-3" rounded @click="btnClick">버튼</v-btn>
 
         <v-layout justify-center>
-            <!-- fullscreen 옵션을 넣으면 전체 화면으로 처리됨 
-            -->
+            <!-- fullscreen 옵션을 넣으면 전체 화면으로 처리됨 -->
             <v-dialog v-model="isDialogOpened" persistent max-width="400">
                 <template v-slot:activator="{ on }">
                     <v-btn color="primary" dark v-on="on">결제</v-btn>

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// @는 현재 src 폴더를 의미함
 
 import vuetifyTestRoutes from './uiVuetify'
 import productRoutes from './product'
@@ -12,9 +11,15 @@ import componentTestRoutes from './componentTest'
 import vueBasicRoutes from './vueBasic'
 import htmlCssRoutes from './htmlCss'
 import defaultSetRoutes from './defaultRouterSet'
-import homeworkRoutes from './homework'
 import d3PlotTestRoutes from './d3plot'
 import filesTestRoutes from './files'
+import foodSetRoutes from './food'
+import fastApiTestRoutes from './fastapi'
+import accountTestRoutes from './account'
+import authenticationTestRoutes from './authentication'
+import afterLoginTestRoutes from './afterLogin'
+import paymentRoutes from './payment'
+import chatRoutes from './chat'
 
 Vue.use(VueRouter)
 
@@ -29,9 +34,15 @@ const routes = [
   ...boardRoutes,
   ...productRoutes,
   ...vuetifyTestRoutes,
-  ...homeworkRoutes,
   ...d3PlotTestRoutes,
   ...filesTestRoutes,
+  ...foodSetRoutes,
+  ...fastApiTestRoutes,
+  ...accountTestRoutes,
+  ...authenticationTestRoutes,
+  ...afterLoginTestRoutes,
+  ...paymentRoutes,
+  ...chatRoutes
 ]
 
 const router = new VueRouter({

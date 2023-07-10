@@ -98,8 +98,6 @@ def functions_test():
 
     print(shortest_xy(gas_station1, gas_station2, gas_station3, person))
 
-
-
 def random_generate_xy():
     retList = []
 

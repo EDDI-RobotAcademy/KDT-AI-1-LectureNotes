@@ -33,13 +33,23 @@
         <router-link to="/vuetify-table-test">Vuetify Table 테스트</router-link> |
         <router-link to="/vuetify-table-advanced">Vuetify Table 추가 테스트</router-link> |
         <router-link to="/vuetify-image-gallery">Vuetify Image 갤러리</router-link> |
-        <router-link to="/problem-6-page">Vue 문제 은행 [ 6 ]</router-link> |        
         <router-link to="/print-image-test">Vuetify Image 테스트</router-link> |
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
         <router-link to="/carousel-test-page">Carousel 테스트</router-link> |
         <router-link to="/d3-plot-test">d3 plotting 테스트</router-link> |
         <router-link to="/d3-health-print-page">d3 health 문제</router-link> |
         <router-link to="/file-handler-test-page">File 처리 테스트</router-link> |
+        <router-link to="/file-list-show-page">Spring에 요청해서 파일 리스트 보기</router-link> |
+        <router-link to="/d3-review1-page">D3 Review 1</router-link> |
+        <router-link to="/food-register">Food Aggregate Root 만들기</router-link> |
+        <router-link to="/fastapi-test-page">FastAPI 숫자 테스트</router-link> |
+        <router-link to="/composition-problem-page">Spring, FastAPI 숫자 통합 테스트</router-link> |
+        <router-link to="/sign-up-page">회원 가입</router-link> |
+        <router-link to="/github-sign-in-page">Github 로그인</router-link> |
+        <router-link to="/after-login/sample">로그인 이후 작업 테스트</router-link> |
+        <router-link to="/payment-page">결제 버튼 테스트</router-link> |
+        <router-link to="/chat-page">웹소켓 채팅 테스트</router-link> |
+        
       </nav>
     </div>
   </v-container>

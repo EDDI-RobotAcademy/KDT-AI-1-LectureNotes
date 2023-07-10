@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -24,6 +25,9 @@ public class JpaBoardController {
         List<JpaBoard> returnedBoardList = boardService.list();
         log.info("returnedBoardList: " + returnedBoardList);
 
+        final UUID uniqueId = UUID.randomUUID();
+        log.info("uniqueId: " + uniqueId);
+
         return returnedBoardList;
     }
 
@@ -33,6 +37,7 @@ public class JpaBoardController {
 
         return boardService.register(requestBoardForm.toJpaBoard());
     }
+
     @GetMapping("/{boardId}")
     public JpaBoard readBoard (@PathVariable("boardId") Long boardId) {
         log.info("boardRead()");
@@ -46,6 +51,7 @@ public class JpaBoardController {
 
         boardService.delete(boardId);
     }
+
     @PutMapping("/{boardId}")
     public JpaBoard modifyBoard (@PathVariable("boardId") Long boardId,
                                  @RequestBody RequestBoardForm requestBoardForm) {

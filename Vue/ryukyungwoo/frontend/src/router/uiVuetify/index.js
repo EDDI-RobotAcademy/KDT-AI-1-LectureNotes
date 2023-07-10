@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// @는 현재 src 폴더를 의미함
+
 import TableTestPage from '@/views/uiVuetify/TableTestPage.vue'
 import TableAdvanced from '@/views/uiVuetify/TableAdvanced.vue'
 import ImageGalleryTest from '@/views/uiVuetify/ImageGalleryTest.vue'
@@ -41,7 +41,6 @@ const vuetifyTestRoutes = [
     name: 'CarouselTestPage',
     component: CarouselTestPage
   }
-
   
 ]
 

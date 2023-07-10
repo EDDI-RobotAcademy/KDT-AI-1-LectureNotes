@@ -20,3 +20,12 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: update
+
+  cache:
+    type: redis
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    username: default
+    password: eddi@123

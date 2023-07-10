@@ -38,6 +38,7 @@ export default {
         ...mapActions(boardModule, ['requestBoardListToSpring']),
         readRow (readValue) {
             alert('게시물 읽기: ' + JSON.stringify(readValue))
+
             router.push({
                 name: 'BoardReadPage',
                 params: { boardId: readValue.boardId.toString() }
@@ -47,5 +48,6 @@ export default {
 }
 </script>
 
-<style lang="">    
+<style lang="">
+    
 </style>
