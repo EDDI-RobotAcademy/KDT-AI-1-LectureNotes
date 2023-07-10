@@ -54,6 +54,7 @@ public class BoardMockingTest {
         // 가상의 예측되는 결과
         when(mockBoardRepository.save(board))
                 .thenReturn(new JpaBoard("제목", "작성자", "내용"));
+        // 이걸 했을때 뭐가 될것이다.
 
         // 실제 구동 테스트
         final JpaBoardServiceImpl sut = new JpaBoardServiceImpl(mockBoardRepository);
