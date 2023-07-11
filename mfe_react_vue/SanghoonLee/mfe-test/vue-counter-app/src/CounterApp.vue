@@ -1,4 +1,3 @@
-// CounterApp.vue
 <template>
   <div>
     <p>나는 Vue Counter App</p>

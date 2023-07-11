@@ -73,7 +73,7 @@ export default {
         },
         signIn () {
             // Container App -> Navigation App -> Auth App
-            // Navigation App에서 Auth App을 remotes로 등록해야함
+            // Navigation App에서 Auth App을 remotes로 등록해야함 (앞서 Counter App으로 컨셉 검증 완료)
             this.isLogin = true
             alert('로그인')
         },

@@ -2,14 +2,14 @@ import {createApp, h, onUnmounted} from "vue";
 
 import "./index.css";
 
-import App from "./App.vue";
+import VueCounterApp from "./VueCounterApp.vue";
 
 let app = null
 
-const mountCounterContainer = (el, eventBus) => {
-    console.log('vue-counter-container app bootstrap')
+const mountCounter = (el, eventBus) => {
+    console.log('vue-counter-app bootstrap으로 EventBus 전달!')
     app = createApp({
-        render: () => h(App, { eventBus })
+        render: () => h(VueCounterApp, { eventBus })
     })
 
     app.provide("eventBus", eventBus);
@@ -21,7 +21,7 @@ const mountCounterContainer = (el, eventBus) => {
     });
 };
 
-const root = document.querySelector('#vue-counter-container')
+const root = document.querySelector('#vue-counter')
 
 const eventBus = {
     listeners: {},
@@ -53,6 +53,6 @@ const eventBus = {
     },
 };
 
-if (root) { mountCounterContainer(root, eventBus); }
+if (root) { mountCounter(root, eventBus); }
 
-export { mountCounterContainer }
+export { mountCounter }

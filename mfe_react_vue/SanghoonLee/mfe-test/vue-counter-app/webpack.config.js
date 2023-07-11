@@ -49,7 +49,7 @@ module.exports = (_, argv) => ({
       name: "vueCounterApp",
       filename: "remoteEntry.js",
       exposes: {
-        './VueCounter': './src/bootloader',
+        './VueCounter': './src/bootstrap',
         './CounterApp': './src/CounterApp.vue'
       },
       shared: require("./package.json").dependencies,
