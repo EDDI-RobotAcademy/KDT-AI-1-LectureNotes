@@ -27,6 +27,16 @@ export const getters = {
             content: "go",
             createDate: new Date('2023-07-11'),
         }
+    ]),
+
+    getBoard: jest.fn().mockReturnValue([
+        {
+            boardId: 1,
+            title: "title",
+            writer: "writer",
+            content: "content",
+            createDate: new Date('2023-07-11'),
+        }
     ])
 }
 
@@ -46,8 +56,14 @@ export const actions = {
 
         return board
     }),
+
     requestBoardListToSpring: jest.fn(() => {
         return getters.getBoards()
+    }),
+
+    requestBoardToSpring: jest.fn((payload) => {
+        const { boardId } = payload
+        return getters.getBoard()
     })
 }
 
