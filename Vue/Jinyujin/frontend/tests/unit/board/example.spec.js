@@ -85,3 +85,12 @@ describe('requestBoardToSpring', () => {
     // 요청하는 boardId가 board와 같아야 할 것임
   })
 })
+
+describe('requestDeleteBoardToSpring', () => {
+  test('Spring에 게시물 삭제 요청 검증', async () => {
+    const storeMock = createBoardStoreMocks()
+    const boardId = 1
+
+    await expect(storeMock.actions.requestDeleteBoardToSpring({ boardId })).toStrictEqual(true)
+  })
+})

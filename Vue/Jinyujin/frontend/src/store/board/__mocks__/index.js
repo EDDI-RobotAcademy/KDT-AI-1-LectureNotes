@@ -67,6 +67,17 @@ export const actions = {
 
         return getters.getBoard()
     }),
+
+    requestDeleteBoardToSpring: jest.fn ((payload) => {
+        const { boardId } = payload
+
+        // 지우려고 하는 값
+        let board = getters.getBoard()
+
+        if (board[0].boardId == boardId) {
+            return true
+        }
+    }),
 }
 
 export const state = {
