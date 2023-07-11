@@ -2,7 +2,7 @@ import { createApp } from "vue";
 
 import "./index.css";
 
-import App from "./App.vue";
+import VueAuthApp from "./VueAuthApp.vue";
 
 import { loadFonts } from "./plugins/webfontloader";
 
@@ -39,7 +39,7 @@ const vuetifyMemberAuthAppMount = (el) => {
             }
         })
     
-        const app = createApp(App).use(vuetify)
+        const app = createApp(VueAuthApp).use(vuetify)
         app.use(authenticationModule).use(router)
         app.mount(el)
     })
