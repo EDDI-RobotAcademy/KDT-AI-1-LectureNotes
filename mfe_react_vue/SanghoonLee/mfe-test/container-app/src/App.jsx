@@ -9,6 +9,7 @@ import {Button} from "@mui/material";
 import VueEventInstantRemoteApp from "./router/vueEventBusTestApp/VueEventInstantRemoteApp";
 import VueModuleAppRouter from "./router/vueModuleApp/VueModuleAppRouter";
 import VueNavigationBarApp from "./router/vueNavigationApp/VueNavigationBarApp";
+import VueCounterContainerRemoteApp from "./router/vueCounterContainerApp/VueCounterContainerRemoteApp";
 
 const eventBus = mitt();
 
@@ -63,11 +64,15 @@ const App = () => {
                 <Button component={Link} to="/vue-board-app" variant="contained">
                     Vue 게시판
                 </Button>
+                <Button component={Link} to="/vue-counter-container-app" variant="contained">
+                    Vue remotes in Vue remotes
+                </Button>
                 <Routes>
                     <Route exact path="/" element={<Home/>} />
                     <Route exact path="/vue-event-bus-test" element={<VueEventBusRemoteApp/>} />
                     <Route exact path="/event-instant" element={<VueEventInstantRemoteApp/>} />
                     <Route exact path="/vue-board-app/*" element={<VueModuleAppRouter/>} />
+                    <Route exact path="/vue-counter-container-app" element={<VueCounterContainerRemoteApp/>} />
                 </Routes>
             </div>
         </BrowserRouter>

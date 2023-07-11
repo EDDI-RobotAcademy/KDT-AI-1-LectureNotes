@@ -13,7 +13,9 @@
       "vuetify-tailwind-board-app",
       "react-query-zustand-mui-typescript-board-app",
       "vue-event-bus-test-app",
-      "vue-auth-app"
+      "vue-auth-app",
+      "vue-counter-app",
+      "vue-counter-container-app"
     ]
   },
   "scripts": {

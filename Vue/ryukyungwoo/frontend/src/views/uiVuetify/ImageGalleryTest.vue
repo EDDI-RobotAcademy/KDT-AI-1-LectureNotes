@@ -11,7 +11,7 @@
                 </v-img>
             </v-col>
         </v-row>
-
+        
         <v-img :src="require(`@/assets/downloadImg/${imageName}`)"
                 aspect-ratio="1" class="grey lighten-2"/>
     </v-container>
