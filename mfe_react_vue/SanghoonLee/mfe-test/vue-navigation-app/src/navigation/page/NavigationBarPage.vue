@@ -61,7 +61,7 @@ export default {
         console.log('Navigation onMounted: ' + this.eventBus);
         this.eventBus.on("sign-in", (data) => {
             console.log("Received data in Vue:", data);
-            router.push(data)
+            // router.push(data)
         });
     },
     methods: {
@@ -78,6 +78,7 @@ export default {
             // 이 버튼 클릭하는 것을 감지해서 Event Issuing 하고
             // 해당 Event가 발행되면 Container가 응답하도록 구성하는게 더 좋을듯하다.
             this.isLogin = true
+            this.eventBus.emit('sign-in', 'signIn() 요청 완료')
             alert('로그인')
         },
         signOut () {
