@@ -94,3 +94,23 @@ describe('requestDeleteBoardToSpring', () => {
     await expect(storeMock.actions.requestDeleteBoardToSpring({boardId})).toStrictEqual(true)
   })
 })
+
+
+describe('requestBoardModifyToSpring', () => {
+  test('Spring에 게시물 수정 요청 검증', async () => {
+    const storeMock = createBoardStoreMocks()
+    const boardId = 1
+    const title = "change"
+    const content = "change"
+
+    let board = new Object()
+    board.boardId = 1
+    board.title = "change"
+    board.writer = "writer"
+    board.content = "change"
+    board.createDate = new Date('2023-07-11')
+
+    await expect(storeMock.actions.requestBoardModifyToSpring({ title, content, boardId })).toStrictEqual([board])
+  })
+})
+
