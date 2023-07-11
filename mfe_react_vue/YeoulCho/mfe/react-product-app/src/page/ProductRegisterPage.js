@@ -9,7 +9,7 @@ const ProductRegisterPage = () => {
         try{
             const response = await axiosClient.registerProduct(productName, price)
             alert("상품 등록 성공!")
-            navigate("/read/"+response.data.productId)
+            navigate("/react-product-app/read/"+response.data.productId)
         } catch(e) {
             throw e
         }

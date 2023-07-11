@@ -15,7 +15,7 @@ module.exports = (_, argv) => ({
   target: 'web',
   entry: path.resolve(__dirname, './src/index'),
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3002/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"],
@@ -83,9 +83,9 @@ module.exports = (_, argv) => ({
       shared: {
         vuetify: {
           singleton: true,
-          requiredVersion: "^3.3.5"
-        }
-      }
+          requiredVersion: "^3.3.3",
+        },
+      },
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './public/index.html'),

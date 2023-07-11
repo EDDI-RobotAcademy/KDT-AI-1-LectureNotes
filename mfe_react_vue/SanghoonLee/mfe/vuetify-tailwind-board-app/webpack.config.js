@@ -79,6 +79,10 @@ module.exports = (_, argv) => ({
       exposes: {
         './vuetifyBoardBootstrap': './src/bootstrap',
         './vuetifyBoardModuleStore': './src/store/board/boardModule',
+        './boardRegisterBootstrap': './src/bootstrapper/boardRegisterBootstrap',
+        './boardReadBootstrap': './src/bootstrapper/boardReadBootstrap',
+        './boardModifyBootstrap': './src/bootstrapper/boardModifyBootstrap',
+        './boardListBootstrap': './src/bootstrapper/boardListBootstrap',
       },
       shared: require("./package.json").dependencies,
       shared: {

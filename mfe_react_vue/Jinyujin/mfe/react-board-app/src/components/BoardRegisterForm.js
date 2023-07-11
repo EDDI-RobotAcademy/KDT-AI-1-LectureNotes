@@ -65,7 +65,7 @@ const BoardRegisterFrom = ({ onRegister }) => {
             등록하고 readPage로 가도록 
             쌤은 등록하고 스프링 터미널에 잘 등록되었는지 확인 한번 하심 나도 그러자!
           */}
-          <Link to="/">취소</Link>
+          <Link to="/react-board-app">취소</Link>
         </div>
       </form>
     </div>

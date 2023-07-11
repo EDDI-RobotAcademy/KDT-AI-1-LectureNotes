@@ -80,8 +80,18 @@ module.exports = (_, argv) => ({
         // bootstrap에 있는 mount 계열들 전달하기
         './vuetifyBoardBootstrap': './src/bootstrap',
         './vuetifyBoardModuleStore': './src/store/board/boardModule',
+        './boardListBootstrap': './src/bootstrapper/boardListBootstrap',
+        './boardModifyBootstrap': './src/bootstrapper/boardModifyBootstrap',
+        './boardReadBootstrap': './src/bootstrapper/boardReadBootstrap',
+        './boardRegisterBootstrap': './src/bootstrapper/boardRegisterBootstrap',
       },
       shared: require("./package.json").dependencies,
+      shared: {
+        vuetify: {
+          singleton: true,
+          requiredVersion: "^3.3.3"
+        }
+      }
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
@@ -94,6 +104,7 @@ module.exports = (_, argv) => ({
     },
     compress: true,
     port: 3008,
+    historyApiFallback: true,
     hot: true,
     headers: {
       'Access-Control-Allow-Origin': '*',

@@ -21,6 +21,9 @@ import FileTestRoutes from './file'
 import foodSetRoutes from './food'
 import ReFirstProblem from '@/views/reProblem/ReFirstProblem.vue'
 import ReSecondProblem from '@/views/reProblem/ReSecondProblem.vue'
+import fastApiTestRoutes from './fastapi'
+import accountTestRoutes from './account'
+import authenticationTestRoutes from './authentication'
 Vue.use(VueRouter)
 
 const routes = [
@@ -88,8 +91,10 @@ const routes = [
  ...defaultRoutes,
  ...PlotTestRoutes,
  ...FileTestRoutes,
- ...foodSetRoutes
-
+ ...foodSetRoutes,
+ ...fastApiTestRoutes,
+ ...accountTestRoutes,
+ ...authenticationTestRoutes,
 ]
 const router = new VueRouter({
   mode: 'history',

@@ -14,7 +14,7 @@ module.exports = (_, argv) => ({
   target: 'web',
   entry: path.resolve(__dirname, './src/index.js'),
   output: {
-    publicPath: 'auto',
+    publicPath: 'http://localhost:3001/',
   },
   resolve: {
     extensions: [".vue", ".js", ".json"],
@@ -60,6 +60,10 @@ module.exports = (_, argv) => ({
       exposes: { // 여기있는 Sample을 react한테 보내서 보여줌
         './Sample': './src/bootstrap',
         './Store': './src/store/board/BoardModule', // 여기에 계속 추가시켜야 하는 것 같음
+        './boardRegisterBootstrap': './src/domain/board/bootstrapper/boardRegisterBootstrap',
+        './boardReadBootstrap': './src/domain/board/bootstrapper/boardReadBootstrap',
+        './boardModifyBootstrap': './src/domain/board/bootstrapper/boardModifyBootstrap',
+        './boardListBootstrap': './src/domain/board/bootstrapper/boardListBootstrap',
       },
       shared: require("./package.json").dependencies
     }),
@@ -75,6 +79,7 @@ module.exports = (_, argv) => ({
     },
     compress: true,
     port: 3001,
+    historyApiFallback: true,
     hot: true,
     headers: {
       'Access-Control-Allow-Origin': '*',

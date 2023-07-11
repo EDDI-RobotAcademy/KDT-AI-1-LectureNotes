@@ -37,9 +37,9 @@ const BoardReadForm = ({ boardId, board, isLoading, onRemove }) => {
             </tbody>
           </table>
 
-          <Link to={`/modify/${boardId}`}>수정</Link>
+          <Link to={`/react-board-app/modify/${boardId}`}>수정</Link>
           <button onClick={onRemove}>삭제</button>
-          <Link to="/">돌아가기</Link>
+          <Link to="/react-board-app">돌아가기</Link>
         </>
       )}  
     </div>

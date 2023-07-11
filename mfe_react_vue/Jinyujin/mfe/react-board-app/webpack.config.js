@@ -7,7 +7,7 @@ module.exports = (_, argv) => ({
   mode: 'development',
   entry: './src/index',
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3004/",
   },
 
   resolve: {
@@ -55,6 +55,10 @@ module.exports = (_, argv) => ({
       exposes: { 
         './ReactBoard': './src/bootstrap.js',
         './BoardApp': './src/BoardApp.jsx',
+        './BoardListPage': './src/page/BoardListPage.js',
+        './BoardReadPage': './src/page/BoardReadPage.js',
+        './BoardRegisterPage': './src/page/BoardRegisterPage.js',
+        './BoardModifyPage': './src/page/BoardModifyPage.js',
       },
       shared: {
         ...deps,
@@ -69,6 +73,10 @@ module.exports = (_, argv) => ({
         "react-router-dom": {
           singleton: true,
           requiredVersion: deps["react-router-dom"]
+        },
+        vuetify: {
+          singleton: true,
+          requiredVersion: "^3.3.3"
         }
       },
     }),

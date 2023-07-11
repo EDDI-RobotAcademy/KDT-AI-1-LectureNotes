@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react' //rafce
-import { useNavigate, useParams } from 'react-router-dom' //imrr
+import React, { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import * as axiosClient from "../api/board"
 import BoardModifyForm from '../components/BoardModifyForm'
 
-const BoardModifyPage = () => {
+const BoardModifyPage = ({ match, history }) => {
   const { boardId } = useParams()
 
   const [board, setBoard] = useState(null)
@@ -15,7 +15,7 @@ const BoardModifyPage = () => {
     try {
       await axiosClient.modifyBoard(boardId, title, content, writer)
       alert('게시물이 성공적으로 수정되었습니다!')
-      navigate("/read/" + boardId)
+      navigate("/react-board-app/read/" + boardId)
     } catch (e) {
       console.log(e)
     }
@@ -34,7 +34,7 @@ const BoardModifyPage = () => {
   }
 
   useEffect(() => {
-    readBoard(boardId) 
+    readBoard(boardId)
   }, [boardId])
 
   return (

@@ -25,7 +25,7 @@ const ProductReadPage = () => {
         try{
             await axiosClient.removeProduct(productId)
             alert("상품이 삭제 되었습니다.")
-            navigate("/")
+            navigate("/react-product-app")
         } catch(e){
             throw e
         }

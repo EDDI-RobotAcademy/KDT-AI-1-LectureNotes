@@ -49,7 +49,7 @@ const ProductModifyForm = ({product, isLoading, onModify}) => {
           </table>
           <div>
             <button type="submit">수정</button>
-            <Link to={`/read/${product.productId}`}>취소</Link>
+            <Link to={`/react-product-app/read/${product.productId}`}>취소</Link>
           </div>
         </form>
         </>

@@ -15,7 +15,7 @@ module.exports = (_, argv) => ({
   target: 'web',
   entry: path.resolve(__dirname, './src/index'),
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3008/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"],
@@ -77,10 +77,20 @@ module.exports = (_, argv) => ({
       name: "vuetifyTailwindBoardApp",
       filename: "remoteEntry.js",
       exposes: {
-        './VuetifyBoardBootstrap': './src/bootstrap',
-        './VuetifyBoardModuleStore': './src/store/board/boardModule'
+        './vuetifyBoardBootstrap': './src/bootstrap',
+        './VuetifyBoardModuleStore': './src/store/board/boardModule',
+        './boardRegisterBootstrap': './src/bootstrapper/boardRegisterBootstrap',
+        './boardReadBootstrap': './src/bootstrapper/boardReadBootstrap',
+        './boardModifyBootstrap': './src/bootstrapper/boardModifyBootstrap',
+        './boardListBootstrap': './src/bootstrapper/boardListBootstrap',
       },
       shared: require("./package.json").dependencies,
+      shared: {
+        vuetify: {
+          singleton: true,
+          requiredVersion: "^3.3.3",
+        }
+      }
     }),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
