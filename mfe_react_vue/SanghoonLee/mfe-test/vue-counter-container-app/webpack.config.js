@@ -51,7 +51,9 @@ module.exports = (_, argv) => ({
       remotes: {
         vueCounterApp: 'vueCounterApp@http://localhost:3011/remoteEntry.js',
       },
-      exposes: {},
+      exposes: {
+        './VueCounterContainer': './src/bootloader',
+      },
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({

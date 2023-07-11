@@ -1,11 +1,11 @@
 <script setup>
-import {inject, onMounted, ref} from 'vue';
+import {inject, onMounted} from 'vue';
+import CounterApp from './CounterApp.vue'
 
-const count = ref(0);
 const eventBus = inject('eventBus');
 
 onMounted(() => {
-    console.log('onMounted: ' + eventBus + ', count: ' + count.value);
+    console.log('onMounted: ' + eventBus);
     eventBus.on("routing-event", (data) => {
         console.log("Received data in Vue:", data);
         // router.push(data)
@@ -20,8 +20,5 @@ onMounted(() => {
 </script>
 
 <template>
-    <p>나는 Vue Counter App</p>
-    <button title="clickTest" @click="count++">
-        빨리 버튼 눌러봐 {{ count }} 번 눌럿어
-    </button>
+    <CounterApp/>
 </template>

@@ -7,7 +7,7 @@ import App from "./App.vue";
 let app = null
 
 const mountCounterContainer = (el, eventBus) => {
-    console.log('vue-counter-app bootstrap으로 EventBus 전달!')
+    console.log('vue-counter-container app bootstrap')
     app = createApp({
         render: () => h(App, { eventBus })
     })

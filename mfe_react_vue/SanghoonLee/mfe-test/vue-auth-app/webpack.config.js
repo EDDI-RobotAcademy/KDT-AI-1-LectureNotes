@@ -151,9 +151,11 @@ module.exports = (_, argv) => ({
     }),
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "vue_member_app",
+      name: "vueAuthApp",
       filename: "remoteEntry.js",
-      exposes: {},
+      exposes: {
+        './VueAuth': './src/bootstrap',
+      },
       shared: require("./package.json").dependencies,
       shared: {
         vuetify: {
