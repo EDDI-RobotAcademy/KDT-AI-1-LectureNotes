@@ -75,6 +75,19 @@ export const actions = {
         if (board[0].boardId == boardId) {
             return true
         }
+    }),
+
+    requestBoardModifyToSpring: jest.fn ((payload) => {
+        const { title, content, boardId } = payload
+
+        let board = getters.getBoard()
+
+        if (board[0].boardId === boardId) {
+            board[0].title = title
+            board[0].content = content
+        }
+
+        return board
     })
 }
 
