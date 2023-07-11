@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Hello Spring Boot!!!</h1>
+    <!-- 앞서 Spring Controller에서 model.addAttribute()로 전달 받은 ServerTime을
+         아래와 같은 형식으로 사용하는 모습을 확인 할 수 있습니다 -->
+    <p th:text="${serverTime}">Server Time: ${serverTime}</p>
+</body>
+</html>

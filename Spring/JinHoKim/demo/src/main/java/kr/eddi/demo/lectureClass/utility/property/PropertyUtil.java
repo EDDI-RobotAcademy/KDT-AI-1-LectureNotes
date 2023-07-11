@@ -7,7 +7,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @RequiredArgsConstructor
-@PropertySource(value = {"classpath:github.properties", "classpath:redis.properties"})
+@PropertySource(value = {"classpath:github.properties", "classpath:redis.properties", "cors.properties"})
 public class PropertyUtil {
 
     final private Environment environment;
