@@ -62,7 +62,7 @@ describe('requestBoardListToSpring',()=>{
     test('Spring에 게시물 리스트 요청 검증', async()=>{
         const storeMock = createBoardStoreMocks()
 
-        await expect(storeMock.actions.requestBoardListToSpring().length)
+        await expect(storeMock.actions.requestBoardListToSpring().length).toStrictEqual(3)
     })
 })
 
@@ -79,7 +79,17 @@ describe('requestBoardToSpring',()=>{
         board.content = "content"
         board.createDate = new Date('2023-07-11')
         
-        await expect(storeMock.actions.requestBoardListToSpring().length)
+        await expect(storeMock.actions.requestBoardToSpring({ boardId})).toStrictEqual([board])
+    })
+})
+
+
+describe('requestDeleteBoardToSpring',()=>{
+    test('Spring에 게시물 삭제 요청 검증', async()=>{
+        const storeMock = createBoardStoreMocks()
+        const boardId = 1
+
+        await expect(storeMock.actions.requestDeleteBoardToSpring({ boardId })).toStrictEqual(true)
     })
 })
 

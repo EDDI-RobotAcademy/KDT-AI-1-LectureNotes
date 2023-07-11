@@ -68,7 +68,17 @@ export const actions = {
     requestBoardToSpring: jest.fn ((payload)=>{
         const {boardId} = payload
 
-        return getters.board()
+        return getters.getBoard()
+    }),
+
+    requestDeleteBoardToSpring: jest.fn ((payload) => {
+        const { boardId } = payload
+
+        let board = getters.getBoard()
+
+        if (board[0].boardId == boardId) {
+            return true
+        }
     })
 
 }
