@@ -39,23 +39,23 @@ describe('BoardReadForm.vue',()=>{
     })
 })
 
-// describe('requestCreateBoardToSpring', () => {
-//     test('Spring에 게시물 작성 요청 검증', async () => {
-//       const storeMock = createBoardStoreMocks()
+describe('requestCreateBoardToSpring', () => {
+    test('Spring에 게시물 작성 요청 검증', async () => {
+      const storeMock = createBoardStoreMocks()
   
-//       const title = "title"
-//       const writer = "writer"
-//       const content = "content"
+      const title = "title"
+      const writer = "writer"
+      const content = "content"
   
-//       let board = new Object()
-//       board.id = 1
-//       board.title = "title"
-//       board.writer = "writer"
-//       board.content = "content"
+      let board = new Object()
+      board.id = 1
+      board.title = "title"
+      board.writer = "writer"
+      board.content = "content"
   
-//       await expect(storeMock.actions.requestCreateBoardToSpring({ title, writer, content })).toStrictEqual(board)
-//     })
-//   })
+      await expect(storeMock.actions.requestCreateBoardToSpring({ title, writer, content })).toStrictEqual(board)
+    })
+  })
 
 
 // describe('requestBoardToSpring',()=>{
