@@ -6,10 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
@@ -24,6 +21,7 @@ import java.util.Date;
 @NoArgsConstructor
 // Entity 어노테이션이 붙으면 기본 생성자가 필수이기에 추가해줘야 함
 // why? Jpa가 Entity 객체 생성 시 기본 생성자를 사용하기 때문
+@EqualsAndHashCode
 public class JpaBoard {
     // JpaBoard라는 Entity를 만들어줌
 
