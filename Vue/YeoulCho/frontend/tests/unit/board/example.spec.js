@@ -58,10 +58,10 @@ describe('requestCreateBoardToSpring', () => {
   })
 
 
-// describe('requestBoardToSpring',()=>{
-//     test('Spring에 게시물 읽기 요청 검증', async()=>{
-//         const storeMock = createBoardStoreMocks()
+describe('requestBoardToSpring',()=>{
+    test('Spring에 게시물 읽기 요청 검증', async()=>{
+        const storeMock = createBoardStoreMocks()
 
-//         await expect(storeMock.actions.requestBoardListToSpring().length)
-//     })
-// })
+        await expect(storeMock.actions.requestBoardListToSpring().length)
+    })
+})
