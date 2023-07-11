@@ -13,7 +13,17 @@ export const mutations = {
 }
 
 export const actions = {
-    
+    requestCreateBoardToSpring: jest.fn((payload) => {
+        const { title, writer, content } = payload
+
+        let board = new Object()
+        board.id = 1
+        board.title = title
+        board.writer = writer
+        board.content = content
+
+        return board
+    })
 }
 
 export const state = {
