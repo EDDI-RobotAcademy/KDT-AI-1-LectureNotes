@@ -1,0 +1,29 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "container-app",
+      "vue-module-app",
+      "vue-navigation-app",
+      "react-module-app",
+      "react-board-app",
+      "react-zustand-todo-app",
+      "react-query-test-app",
+      "vuetify-tailwind-board-app",
+      "react-query-zustand-mui-typescript-board-app",
+      "vue-event-bus-test-app",
+      "vue-auth-app",
+      "vue-counter-app",
+      "vue-counter-container-app"
+    ]
+  },
+  "scripts": {
+    "start": "lerna run --parallel start",
+    "build": "lerna run build"
+  },
+  "devDependencies": {
+    "external-remotes-plugin": "^1.0.0",
+    "lerna": "^7.0.1"
+  }
+}

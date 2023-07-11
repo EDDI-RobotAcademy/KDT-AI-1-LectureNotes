@@ -1,0 +1,53 @@
+{
+  "name": "vue-navigation-app",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "start": "webpack-dev-server --open --mode development",
+    "start:live": "webpack-dev-server --open --mode development --live-reload"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Jack Herrington",
+    "email": "jherr@pobox.com"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-typescript": "^7.22.5",
+    "@mdi/font": "^7.2.96",
+    "@types/webfontloader": "^1.6.35",
+    "@vue/compiler-sfc": "^3.2.19",
+    "autoprefixer": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.7.6",
+    "mitt": "^3.0.1",
+    "postcss": "^8.2.1",
+    "postcss-loader": "^4.1.0",
+    "roboto-fontface": "^0.10.0",
+    "sass": "^1.63.4",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.0",
+    "tailwindcss": "^2.0.2",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.1.3",
+    "vue-cli-plugin-vuetify": "^2.5.8",
+    "vue-loader": "^16.8.1",
+    "vue-style-loader": "^4.1.3",
+    "vue-svg-inline-loader": "^2.1.5",
+    "vue-template-compiler": "^2.6.14",
+    "webfontloader": "^1.6.28",
+    "webpack": "^5.57.1",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1",
+    "webpack-plugin-vuetify": "^2.0.1"
+  },
+  "dependencies": {
+    "vue": "^3.2.19",
+    "vuetify": "^3.3.3"
+  }
+}
