@@ -73,7 +73,10 @@ export default {
         },
         signIn () {
             // Container App -> Navigation App -> Auth App
-            // Navigation App에서 Auth App을 remotes로 등록해야함
+            // Navigation App에서 Auth App을 remotes로 등록해야함 (앞서 Counter App으로 컨셉 검증 완료)
+            // 근데 이렇게 만들 필요가 있나 ?
+            // 이 버튼 클릭하는 것을 감지해서 Event Issuing 하고
+            // 해당 Event가 발행되면 Container가 응답하도록 구성하는게 더 좋을듯하다.
             this.isLogin = true
             alert('로그인')
         },

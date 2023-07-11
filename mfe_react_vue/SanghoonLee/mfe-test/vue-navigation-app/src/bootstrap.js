@@ -2,7 +2,7 @@ import { createApp, h } from "vue";
 
 import "../public/index.scss";
 
-import App from "./App.vue";
+import VueNavigationBarApp from "./VueNavigationBarApp.vue";
 
 import { loadFonts } from "./plugin/webfontloader";
 
@@ -21,7 +21,7 @@ const navigationMount = (el, eventBus) => {
     })
 
     app = createApp({
-        render: () => h(App, { eventBus })
+        render: () => h(VueNavigationBarApp, { eventBus })
     })
 
     app.use(vuetify)

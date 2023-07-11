@@ -52,7 +52,7 @@ module.exports = (_, argv) => ({
         vueCounterApp: 'vueCounterApp@http://localhost:3011/remoteEntry.js',
       },
       exposes: {
-        './VueCounterContainer': './src/bootloader',
+        './VueCounterContainer': './src/bootstrap',
       },
       shared: require("./package.json").dependencies,
     }),
