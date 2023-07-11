@@ -5,7 +5,29 @@ import axiosInst from '@/utility/axiosInst'
 Vue.use(Vuex)
 
 export const getters = {
-
+    getBoards: jest.fn().mockReturnValue([
+        {
+            boardId: 1,
+            title: "go",
+            writer: "go",
+            content: "go",
+            createDate: new Date('2023-07-11'),
+        },
+        {
+            boardId: 2,
+            title: "go",
+            writer: "go",
+            content: "go",
+            createDate: new Date('2023-07-11'),
+        },
+        {
+            boardId: 3,
+            title: "go",
+            writer: "go",
+            content: "go",
+            createDate: new Date('2023-07-11'),
+        }
+    ])
 }
 
 export const mutations = {
@@ -23,6 +45,9 @@ export const actions = {
         board.content = content
 
         return board
+    }),
+    requestBoardListToSpring: jest.fn(() => {
+        return getters.getBoards()
     })
 }
 

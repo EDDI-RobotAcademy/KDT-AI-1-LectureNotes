@@ -61,3 +61,11 @@ describe('requestCreateBoardToSpring', () => {
     await expect(storeMock.actions.requestCreateBoardToSpring({title, writer, content})).toStrictEqual(board)
   })
 })
+
+describe('requestBoardListToSpring', () => {
+  test('Spring에 게시물 리스트 요청 검증', async() => {
+    const storeMock = createBoardStoreMocks()
+    
+    await expect(storeMock.actions.requestBoardListToSpring().length).toStrictEqual(3)
+  })
+})
