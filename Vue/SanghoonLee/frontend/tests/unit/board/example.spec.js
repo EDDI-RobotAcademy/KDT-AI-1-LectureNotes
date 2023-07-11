@@ -83,3 +83,12 @@ describe('requestBoardToSpring', () => {
     await expect(storeMock.actions.requestBoardToSpring({ boardId })).toStrictEqual([board])
   })
 })
+
+describe('requestDeleteBoardToSpring', () => {
+  test('Spring에 게시물 삭제 요청 검증', async () => {
+    const storeMock = createBoardStoreMocks()
+    const boardId = 1
+
+    await expect(storeMock.actions.requestDeleteBoardToSpring({ boardId })).toStrictEqual(true)
+  })
+})
