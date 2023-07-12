@@ -59,10 +59,10 @@ export default {
     inject: ['eventBus', 'count'],
     mounted () {
         console.log('Navigation onMounted: ' + this.eventBus);
-        this.eventBus.on("sign-in", (data) => {
-            console.log("Received data in Vue:", data);
-            // router.push(data)
-        });
+        // this.eventBus.on("sign-in", (data) => {
+        //     console.log("Received data in Vue:", data);
+        //     // router.push(data)
+        // });
     },
     methods: {
         clickToggle () {

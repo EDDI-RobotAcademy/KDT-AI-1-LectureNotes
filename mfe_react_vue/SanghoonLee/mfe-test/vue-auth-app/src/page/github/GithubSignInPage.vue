@@ -4,14 +4,14 @@
             <v-row justify="center">
                 <v-col cols="auto" style="padding-bottom: 90px">
                     <router-link to="/">
-                        <v-img src="/src/assets/logo.svg" width="120" class="mx-auto mb-6"/>
+                        <v-img src="http://localhost:3010/src/assets/logo.svg" width="120" class="mx-auto mb-6"/>
                     </router-link>
                     <v-card width="460">
                         <v-card-text class="text-center px-12 py-16">
-                            <v-form @submit.prevent="onSubmit" ref="form">
+                            <v-form @submit.prevent.stop="onSubmit" ref="form">
                                 <div class="text-h4 font-weight-black mb-10">Github Oauth 로그인</div>
                                 <div class="d-flex">
-                                    <v-img src="/src/assets/icon-github.svg" width="120" class="mx-auto mb-6"/>
+                                    <v-img src="http://localhost:3010/src/assets/icon-github.svg" width="120" class="mx-auto mb-6"/>
                                 </div>
                                 
                                 <v-btn type="submit" block x-large rounded
@@ -42,11 +42,35 @@ const authenticationModule = 'authenticationModule'
 export default {
     components: {
     },
+    data () {
+        return {
+            isLoading: false
+        }
+    },
     methods: {
-        ...mapActions(authenticationModule, ['requestGithubLoginToSpring']),
+        ...mapActions(authenticationModule, [
+            'requestGithubLoginToSpring', 'requestAuthroizeToGithub'
+        ]),
         async onSubmit () {
+            if (this.isLoading) {
+                return;
+            }
+            this.isLoading = true;
+
             console.log('Sign In Request to Spring!')
-            window.location.href = await this.requestGithubLoginToSpring()
+
+            try {
+                //window.location.href = await this.requestGithubLoginToSpring()
+                const authorizeUrl = await this.requestGithubLoginToSpring()
+                console.log('authorizeUrl: ' + authorizeUrl)
+                const authorizedUrl = await this.requestAuthroizeToGithub(authorizeUrl)
+                console.log('authorizedUrl: ' + JSON.stringify(authorizedUrl))
+                //window.location.href = authorizeUrl
+            } catch (error) {
+                console.log(error)
+            } finally {
+                this.isLoading = false
+            }
         }
     }
 }
