@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import GithubSignInPage from '../page/github/GithubSignInPage.vue'
 import GithubGetAccessToken from '../components/GithubGetAccessToken.vue'
+import AfterGithubAuthorizeRequest from "../components/AfterGithubAuthorizeRequest.vue";
+import BoardReadPage from "vue-module-app/src/domain/board/page/BoardReadPage.vue";
 
 const routes = [
   {
@@ -25,6 +27,14 @@ const routes = [
     props: (route) => ({
       code: route.query.code
     })
+  },
+  {
+    path: '/after-github-authorize-request',
+    name: 'AfterGithubAuthorizeRequest',
+    component: AfterGithubAuthorizeRequest,
+    components: { default: AfterGithubAuthorizeRequest },
+    props: { default: true },
+    meta: { hideUrlParams: true },
   },
 ]
 

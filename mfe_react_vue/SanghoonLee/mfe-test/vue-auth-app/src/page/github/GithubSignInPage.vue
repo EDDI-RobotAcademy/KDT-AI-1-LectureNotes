@@ -13,6 +13,8 @@
                                 <div class="d-flex">
                                     <v-img src="http://localhost:3010/src/assets/icon-github.svg" width="120" class="mx-auto mb-6"/>
                                 </div>
+
+<!--                                <div v-html="authorizeRequestHtml"></div>-->
                                 
                                 <v-btn type="submit" block x-large rounded
                                         color="gray lighten-1" class="mt-6"
@@ -44,7 +46,8 @@ export default {
     },
     data () {
         return {
-            isLoading: false
+            isLoading: false,
+            authorizeRequestHtml: '',
         }
     },
     methods: {
@@ -62,10 +65,17 @@ export default {
             try {
                 //window.location.href = await this.requestGithubLoginToSpring()
                 const authorizeUrl = await this.requestGithubLoginToSpring()
-                console.log('authorizeUrl: ' + authorizeUrl)
-                const authorizedUrl = await this.requestAuthroizeToGithub(authorizeUrl)
-                console.log('authorizedUrl: ' + JSON.stringify(authorizedUrl))
-                //window.location.href = authorizeUrl
+                //console.log('authorizeUrl: ' + authorizeUrl)
+                const authorizeRequestHtml = await this.requestAuthroizeToGithub(authorizeUrl)
+                // console.log('authorizedUrl: ' + JSON.stringify(authroizeRequestHtml))
+                this.authorizeRequestHtml = authorizeRequestHtml.data
+                //console.log('this.authorizeRequestHtml: ' + this.authorizeRequestHtml)
+                window.location.href = authorizeUrl
+                // AfterGithubAuthorizeRequest
+                // this.$router.push({
+                //     name: 'AfterGithubAuthorizeRequest',
+                //     params: { authorizeRequestHtml: authorizeRequestHtml.data }
+                // })
             } catch (error) {
                 console.log(error)
             } finally {
