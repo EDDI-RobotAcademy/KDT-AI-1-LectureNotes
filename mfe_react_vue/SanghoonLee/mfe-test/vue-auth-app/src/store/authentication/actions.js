@@ -3,9 +3,29 @@ import {
 } from './mutation-types'
 
 import axiosInst from '../../utility/axiosInst'
+import axios from 'axios'
+
+const getParam = (payload, name) => {
+    let curr_url = payload
+    let svalue = new Array()
+
+    curr_url = curr_url.split("&");
+    console.log("curr_url: " + curr_url)
+    for (let i = 0; i < curr_url.length; i++)
+    {
+        let temp = curr_url[i].split("=");
+        console.log("temp: " + temp[0] + ", " + temp[1])
+        console.log("[temp[0]]: " + [temp[0]])
+        svalue.push(temp[1])
+        console.log("svalue: " + svalue)
+    }
+    return svalue;
+}
 
 export default {
     requestGithubLoginToSpring ({ }) {
+        console.log('requestGithubLoginToSpring()')
+
         return axiosInst.springAxiosInst.get('/authentication/github/login')
             .then((res) => {
                 return res.data
@@ -13,6 +33,26 @@ export default {
             .catch((res) => {
                 alert("문제 발생!")
             })
+    },
+    requestAuthroizeToGithub ({ }, payload) {
+        console.log('requestAuthroizeToGithub() - payload: ' + payload)
+        // return axios.get(payload)
+        // const qs = new URLSearchParams(payload);
+        //console.log('URLSearchParams: ' + qs.get("client_id") + ", " + qs.get("scope"))
+        const parameterArray = getParam(payload, "client_id")
+        console.log("client_id: " + parameterArray[0] + ", scope: " + parameterArray[1])
+        // const axiosCorsInst = axios.create({
+        //     baseURL: payload
+        // })
+
+        // axiosCorsInst.interceptors.request.use(
+        //     (config) => {
+        //         config.headers['Access-Control-Allow-Origin'] = '*';
+        //         return config;
+        //     }
+        // )
+
+        return axios.get('/api', { client_id: parameterArray[0], scope: parameterArray[1] })
     },
     getAccessTokenFromSpringRedirection ({ commit }, payload) {
         console.log('getAccessTokenFromSpringRedirection()')

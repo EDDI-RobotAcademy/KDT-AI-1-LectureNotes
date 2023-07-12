@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import ReactDOM from 'react-dom'
 import EventBus from 'event-bus';
 import mitt from "mitt";
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Link, Route, Routes, useNavigate} from "react-router-dom";
 import Home from "./router/containerApp/Home";
 import VueEventBusRemoteApp from "./router/vueEventBusTestApp/VueEventBusRemoteApp";
 import {Button} from "@mui/material";
@@ -10,6 +10,7 @@ import VueEventInstantRemoteApp from "./router/vueEventBusTestApp/VueEventInstan
 import VueModuleAppRouter from "./router/vueModuleApp/VueModuleAppRouter";
 import VueNavigationBarApp from "./router/vueNavigationApp/VueNavigationBarApp";
 import VueCounterContainerRemoteApp from "./router/vueCounterContainerApp/VueCounterContainerRemoteApp";
+import VueAuthRemoteApp from "./router/vueAuthApp/VueAuthRemoteApp";
 
 const eventBus = mitt();
 
@@ -44,35 +45,61 @@ const App = () => {
     //     mountVueComponent();
     // }, []);
 
+    // const [renderAuthApp, setRenderAuthApp] = useState(false);
+    // const navigate = useNavigate()
+
+    // useEffect(() => {
+    //     eventBus.on('sign-in', () => {
+    //         console.log('received sign-in event')
+    //         setRenderAuthApp(true);
+    //         navigate('/vue-auth-app/sign-in')
+    //     });
+
+    //     return () => {
+    //         eventBus.off('sign-in');
+    //     };
+    // }, []);
+
+    const [renderAuthApp, setRenderAuthApp] = useState(false);
+
     return (
         <BrowserRouter>
-            <VueNavigationBarApp/>
+            <VueNavigationBarApp eventBus={eventBus} renderAuthApp={renderAuthApp}/>
             <div>
-                <h1>React Container App</h1>
-                <Button component={Link} to="/" variant="contained">
-                    홈
-                </Button>
-                <Button component={Link} to="/vue-event-bus-test" variant="contained">
-                    Vue Event Bus
-                </Button>
-                <Button component={Link} to="/event-instant" variant="contained">
-                    즉시 반응(Event Bus)
-                </Button>
-                <Button component={Link} to="/event-instant" variant="contained">
-                    즉시 반응(Event Bus)
-                </Button>
-                <Button component={Link} to="/vue-board-app" variant="contained">
-                    Vue 게시판
-                </Button>
-                <Button component={Link} to="/vue-counter-container-app" variant="contained">
-                    Vue remotes in Vue remotes
-                </Button>
+                {/* {renderAuthApp ? (
+                    <Routes>
+                        <Route path="/vue-auth-app/sign-in" element={<VueAuthRemoteApp eventBus={eventBus}/>} />
+                    </Routes>
+                ) : ( */}
+                    <div>
+                        <h1>React Container App</h1>
+                        <Button component={Link} to="/" variant="contained">
+                            홈
+                        </Button>
+                        <Button component={Link} to="/vue-event-bus-test" variant="contained">
+                            Vue Event Bus
+                        </Button>
+                        <Button component={Link} to="/event-instant" variant="contained">
+                            즉시 반응(Event Bus)
+                        </Button>
+                        <Button component={Link} to="/event-instant" variant="contained">
+                            즉시 반응(Event Bus)
+                        </Button>
+                        <Button component={Link} to="/vue-board-app" variant="contained">
+                            Vue 게시판
+                        </Button>
+                        <Button component={Link} to="/vue-counter-container-app" variant="contained">
+                            Vue remotes in Vue remotes
+                        </Button>
+                    </div>
+                {/* )} */}
                 <Routes>
                     <Route exact path="/" element={<Home/>} />
                     <Route exact path="/vue-event-bus-test" element={<VueEventBusRemoteApp/>} />
                     <Route exact path="/event-instant" element={<VueEventInstantRemoteApp/>} />
                     <Route exact path="/vue-board-app/*" element={<VueModuleAppRouter/>} />
                     <Route exact path="/vue-counter-container-app" element={<VueCounterContainerRemoteApp/>} />
+                    <Route path="/vue-auth-app/sign-in" element={<VueAuthRemoteApp eventBus={eventBus}/>} />
                 </Routes>
             </div>
         </BrowserRouter>

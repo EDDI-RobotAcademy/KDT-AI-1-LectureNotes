@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import mitt from "mitt";
 import {useLocation, useNavigate} from "react-router-dom";
 
-const eventBus = mitt();
+// const eventBus = mitt();
 
-const VueNavigationBarApp = () => {
+const VueNavigationBarApp = ({ eventBus, renderAuthApp }) => {
 
   const location = useLocation()
   const isMountedRef = useRef(false);
@@ -15,27 +15,41 @@ const VueNavigationBarApp = () => {
     //navigationMount(vuetifyNavigationRef.current)
 
     if (!isMountedRef.current) {
-        const loadRemoteComponent = async () => {
-          const {navigationMount } = await import('vueNavigationApp/VueNavigation')
-          navigationMount (vuetifyNavigationRef.current, eventBus);
-          isMountedRef.current = true;
-        }
-  
-        loadRemoteComponent()
+      const loadRemoteComponent = async () => {
+        const {navigationMount } = await import('vueNavigationApp/VueNavigation')
+        navigationMount (vuetifyNavigationRef.current, eventBus);
+        isMountedRef.current = true;
       }
   
-      return () => {
-        eventBus.off('routing-event');
-      };
+      loadRemoteComponent()
+    }
+
+    return () => {
+      eventBus.off('routing-event');
+    };
   }, [])
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+      eventBus.on('sign-in', () => {
+          console.log('received sign-in event')
+          renderAuthApp = true;
+          navigate('/vue-auth-app/sign-in')
+      });
+
+      return () => {
+          eventBus.off('sign-in');
+      };
+  }, []);
 
   useEffect(() => {
     console.log('라우터 위치 바꿨어: ' + location.pathname)
     const handleNavigation = () => {
       console.log('handleNavigation()')
       if (location.pathname === "/vue-auth-app/sign-in") {
-        console.log('라우터 변경')
-        eventBus.emit('sign-in', '/vue-auth-app/sign-in');
+        console.log('로그인 라우팅')
+        //eventBus.emit('sign-in', '/vue-auth-app/sign-in');
         // eventBus.emit("module-unmount")
         // 다른 경로로 이동한 경우에만 eventBus의 구독 해제 등 정리 작업 수행
         // eventBus.off("dataReceived");

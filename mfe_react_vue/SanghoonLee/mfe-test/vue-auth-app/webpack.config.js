@@ -35,7 +35,16 @@ module.exports = (_, argv) => ({
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
       'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authroization',
-    }
+    },
+    proxy: {
+      '/api': {
+        target: 'https://github.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '',  // 프록시 경로를 재작성할 필요가 없으므로 빈 문자열로 설정
+        },
+      },
+    },
   },
 
   module: {

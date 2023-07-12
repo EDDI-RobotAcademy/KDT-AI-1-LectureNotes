@@ -78,6 +78,7 @@ module.exports = (_, argv) => ({
         vuetifyTailwindBoardApp: 'vuetifyTailwindBoardApp@http://localhost:3007/remoteEntry.js',
         reactQueryZustandMuiTypescriptBoardApp: 'reactQueryZustandMuiTypescriptBoardApp@http://localhost:3008/remoteEntry.js',
         vueEventBusTestApp: 'vueEventBusTestApp@http://localhost:3009/remoteEntry.js',
+        vueAuthApp: 'vueAuthApp@http://localhost:3010/remoteEntry.js',
         vueCounterContainerApp: 'vueCounterContainerApp@http://localhost:3012/remoteEntry.js',
       },
       shared: {
