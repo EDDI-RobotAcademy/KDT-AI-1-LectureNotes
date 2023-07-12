@@ -63,14 +63,10 @@ export default {
             console.log('Sign In Request to Spring!')
 
             try {
-                //window.location.href = await this.requestGithubLoginToSpring()
-                const authorizeUrl = await this.requestGithubLoginToSpring()
-                //console.log('authorizeUrl: ' + authorizeUrl)
-                const authorizeRequestHtml = await this.requestAuthroizeToGithub(authorizeUrl)
-                // console.log('authorizedUrl: ' + JSON.stringify(authroizeRequestHtml))
-                this.authorizeRequestHtml = authorizeRequestHtml.data
-                //console.log('this.authorizeRequestHtml: ' + this.authorizeRequestHtml)
-                window.location.href = authorizeUrl
+                window.location.href = await this.requestGithubLoginToSpring()
+                // const authorizeUrl = await this.requestGithubLoginToSpring()
+                // const authorizeRequestHtml = await this.requestAuthroizeToGithub(authorizeUrl)
+                // this.authorizeRequestHtml = authorizeRequestHtml.data
                 // AfterGithubAuthorizeRequest
                 // this.$router.push({
                 //     name: 'AfterGithubAuthorizeRequest',

@@ -36,23 +36,10 @@ export default {
     },
     requestAuthroizeToGithub ({ }, payload) {
         console.log('requestAuthroizeToGithub() - payload: ' + payload)
-        // return axios.get(payload)
-        // const qs = new URLSearchParams(payload);
-        //console.log('URLSearchParams: ' + qs.get("client_id") + ", " + qs.get("scope"))
-        const parameterArray = getParam(payload, "client_id")
-        console.log("client_id: " + parameterArray[0] + ", scope: " + parameterArray[1])
-        // const axiosCorsInst = axios.create({
-        //     baseURL: payload
-        // })
-
-        // axiosCorsInst.interceptors.request.use(
-        //     (config) => {
-        //         config.headers['Access-Control-Allow-Origin'] = '*';
-        //         return config;
-        //     }
-        // )
-
-        return axios.get('/api', { client_id: parameterArray[0], scope: parameterArray[1] })
+        return axios.get(payload)
+        // const parameterArray = getParam(payload, "client_id")
+        // console.log("client_id: " + parameterArray[0] + ", scope: " + parameterArray[1])
+        // return axios.get('/api', { client_id: parameterArray[0], scope: parameterArray[1] })
     },
     getAccessTokenFromSpringRedirection ({ commit }, payload) {
         console.log('getAccessTokenFromSpringRedirection()')
