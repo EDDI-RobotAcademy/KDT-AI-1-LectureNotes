@@ -164,7 +164,8 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       exposes: {
         './VueAuth': './src/bootstrap',
-        './VueAuthApp': './src/VueAuthApp.vue'
+        './VueAuthApp': './src/VueAuthApp.vue',
+        './AuthEventBus': './src/utility/ipc/authEventBus.js',
       },
       shared: require("./package.json").dependencies,
       shared: {

@@ -56,13 +56,12 @@ export default {
             ]
         }
     },
-    inject: ['eventBus', 'count'],
+    inject: ['eventBus', 'authEventBus'],
     mounted () {
         console.log('Navigation onMounted: ' + this.eventBus);
-        // this.eventBus.on("sign-in", (data) => {
-        //     console.log("Received data in Vue:", data);
-        //     // router.push(data)
-        // });
+        this.authEventBus.on("login-complete", (data) => {
+            console.log('로그인 완료 - 전달된 토큰: ' + data)
+        })
     },
     methods: {
         clickToggle () {
@@ -77,7 +76,9 @@ export default {
             // 근데 이렇게 만들 필요가 있나 ?
             // 이 버튼 클릭하는 것을 감지해서 Event Issuing 하고
             // 해당 Event가 발행되면 Container가 응답하도록 구성하는게 더 좋을듯하다.
-            this.isLogin = true
+            
+            //this.isLogin = true
+            // 이 부분을 AuthApp의 getters를 사용해서 참 거짓 여부 판정하게 만든다.
             this.eventBus.emit('sign-in', 'signIn() 요청 완료')
             alert('로그인')
         },

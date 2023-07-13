@@ -19,6 +19,7 @@ import router from './router'
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/dist/vuetify.min.css'
 import 'vuetify/styles'
+import authEventBus from "./utility/ipc/authEventBus";
 
 router.beforeEach((to, from, next) => {
     // 네비게이션 가드 로직
@@ -45,13 +46,17 @@ const vuetifyMemberAuthAppMount = (el, eventBus) => {
             render: () => h(VueAuthApp, { eventBus })
         })
     
-        app.use(vuetify).provide("eventBus", eventBus);
+        app.use(vuetify).provide("eventBus", eventBus)
+        app.provide("authEventBus", authEventBus)
+        console.log('Navigation Bar App - authEventBus: ' + authEventBus)
 
         app.use(authenticationModule).use(router)
         app.mount(el)
     })
 };
 
+// TODO: Remotes Auth App에 저장된 localStorage 정보를 Container가 볼 수 있어야함
+// 가만 보니까 구지 ? 그냥 여기 localStorage가 가지고 있으면 여기서 처리하고 이벤트 발행하는게 더 낫지 않나 ?
 const eventBus = {
     listeners: {},
 
