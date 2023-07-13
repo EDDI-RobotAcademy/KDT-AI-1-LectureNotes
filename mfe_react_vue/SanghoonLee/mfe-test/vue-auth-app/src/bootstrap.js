@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, h } from "vue";
 
 import "./index.css";
 
@@ -26,7 +26,7 @@ router.beforeEach((to, from, next) => {
     next()
   })
 
-const vuetifyMemberAuthAppMount = (el) => {
+const vuetifyMemberAuthAppMount = (el, eventBus) => {
     console.log('always mount here')
     loadFonts().then(() => {
         const vuetify = createVuetify({
@@ -39,14 +39,59 @@ const vuetifyMemberAuthAppMount = (el) => {
             }
         })
     
-        const app = createApp(VueAuthApp).use(vuetify)
+        //const app = createApp(VueAuthApp).use(vuetify)
+
+        const app = createApp({
+            render: () => h(VueAuthApp, { eventBus })
+        })
+    
+        app.use(vuetify).provide("eventBus", eventBus);
+
         app.use(authenticationModule).use(router)
         app.mount(el)
     })
 };
 
+const eventBus = {
+    listeners: {},
+
+    on(eventName, callback) {
+        console.log("일단 꼼수다 - 그냥 여기서도 리다이렉션으로 Container 갖다 박어!")
+        // if (!this.listeners[eventName]) {
+        //     this.listeners[eventName] = [];
+        // }
+        // this.listeners[eventName].push(callback);
+        window.location.href = "http://localhost:3000/"
+    },
+
+    off(eventName, callback) {
+        if (!this.listeners[eventName]) {
+            return;
+        }
+        const index = this.listeners[eventName].indexOf(callback);
+        if (index !== -1) {
+            this.listeners[eventName].splice(index, 1);
+        }
+    },
+
+    emit(eventName, data) {
+        // check!
+        // 실제로 Container에서 받아온 EventBus가 사용되어야 하는데
+        // 단독으로 동작할 때 사용하는 EventBus가 사용되어 Container에 Event Issuing이 안되고 있음
+        console.log('리다이렉션 때문에 니가 실행되니 ?')
+        if (!this.listeners[eventName]) {
+            return;
+        }
+        this.listeners[eventName].forEach((callback) => {
+            callback(data);
+        });
+    },
+};
+
 const root = document.querySelector('#vue-auth-app')
 
-if (root) { vuetifyMemberAuthAppMount(root) }
+// AuthApp은 단독으로 동작할 때도 EventBus를 React Container 것을 사용하도록 보장해줘야함
+// 차라리 EventBus 전용 서비스를 별개로 구성하는 것도 나쁘지 않을 것임
+if (root) { vuetifyMemberAuthAppMount(root, eventBus) }
 
 export { vuetifyMemberAuthAppMount }
