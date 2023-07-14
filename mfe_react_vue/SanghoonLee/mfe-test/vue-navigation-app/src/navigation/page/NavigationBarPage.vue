@@ -42,6 +42,7 @@
 
 <script>
 import 'vuetify/dist/vuetify.min.css'
+import { mapGetters, useStore } from 'vuex';
 
 export default {
     data () {
@@ -56,14 +57,29 @@ export default {
             ]
         }
     },
+    computed: {
+        ...mapGetters('authenticationModule', {
+            getAccessToken: 'getAccessToken',
+        }),
+    },
     inject: ['eventBus', 'authEventBus'],
     mounted () {
-        console.log('Navigation onMounted: ' + this.eventBus);
+        console.log('Navigation onMounted: ' + this.authEventBus);
+        const authStore = useStore()
+        console.log('authStore: ' + authStore)
+        console.log('accessToken: ' + this.getAccessToken)
+        console.log('authStore.state.authenticationModule: ' + authStore.state.authenticationModule)
+
         this.authEventBus.on("login-complete", (data) => {
             console.log('로그인 완료 - 전달된 토큰: ' + data)
         })
+        // this.acquireAccessToken();
     },
     methods: {
+        // acquireAccessToken() {
+        //     const accessToken = this.getAccessToken;
+        //     console.log('accessToken 값:', accessToken);
+        // },
         clickToggle () {
             alert('토글')
         },

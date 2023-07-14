@@ -166,6 +166,7 @@ module.exports = (_, argv) => ({
         './VueAuth': './src/bootstrap',
         './VueAuthApp': './src/VueAuthApp.vue',
         './AuthEventBus': './src/utility/ipc/authEventBus.js',
+        './AuthStore': './src/store/authentication/AuthenticationModule.js'
       },
       shared: require("./package.json").dependencies,
       shared: {

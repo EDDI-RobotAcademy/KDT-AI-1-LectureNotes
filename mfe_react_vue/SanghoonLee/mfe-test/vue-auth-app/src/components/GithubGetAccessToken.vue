@@ -3,35 +3,23 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 //import router from '@/router';
 
 const authenticationModule = 'authenticationModule'
 
 export default {
     inject: ['eventBus', 'authEventBus'],
+    computed: {
+        ...mapGetters(authenticationModule, ['getAccessToken'])
+    },
     methods: {
         ...mapActions(authenticationModule, ['getAccessTokenFromSpringRedirection']),
         async setRedirectData () {
             const code = this.$route.query.code
             await this.getAccessTokenFromSpringRedirection({ code })
             console.log('finish to send access token')
-            const userToken = localStorage.getItem('userToken')
-            this.authEventBus.emit("login-complete", userToken)
-            //window.parent.postMessage(userToken, 'http://localhost:3002')
-            // const navigationBarAppUrl = 'http://localhost:3002'
-
-            // fetch(`${navigationBarAppUrl}/user-token`, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ userToken })
-            // })
-
-            //router.push('/')
-            // 여기서 event 발행하여 Container Home으로 이동
-            //this.eventBus.emit('go-to-home', 'Container Home으로 이동 Event Issue')
+            console.log(this.getAccessToken)
         },
         monitorEvent () {
             this.eventBus.on("go-to-home", (data) => {

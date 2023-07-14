@@ -1,5 +1,6 @@
 import {
     GITHUB_LOGIN_COMPLETE,
+    SAVE_USER_TOKEN,
 } from './mutation-types'
 
 import axiosInst from '../../utility/axiosInst'
@@ -41,15 +42,17 @@ export default {
         // console.log("client_id: " + parameterArray[0] + ", scope: " + parameterArray[1])
         // return axios.get('/api', { client_id: parameterArray[0], scope: parameterArray[1] })
     },
-    getAccessTokenFromSpringRedirection ({ commit }, payload) {
+    async getAccessTokenFromSpringRedirection ({ commit }, payload) {
         console.log('getAccessTokenFromSpringRedirection()')
         const { code } = payload
 
-        axiosInst.springAxiosInst.get(`/authentication/github/oauth-code?code=${code}`)
+        await axiosInst.springAxiosInst.get(`/authentication/github/oauth-code?code=${code}`)
             .then((res) => {
                 //alert("res: " + JSON.stringify(res.data))
                 localStorage.setItem("userToken", res.data)
-                commit(GITHUB_LOGIN_COMPLETE, true)
+                commit(SAVE_USER_TOKEN, res.data)
+                console.log('res.data: ' + res.data)
+                //commit(GITHUB_LOGIN_COMPLETE, true)
             })
             .catch((res) => {
                 alert('문제 발생!')

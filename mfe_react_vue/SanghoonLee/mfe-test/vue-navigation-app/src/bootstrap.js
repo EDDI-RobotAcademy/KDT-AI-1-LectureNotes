@@ -11,6 +11,8 @@ import * as directives from 'vuetify/directives';
 import { createVuetify } from "vuetify";
 import authEventBus from "vueAuthApp/AuthEventBus";
 
+import store from "./store";
+
 let app = null
 
 const navigationMount = (el, eventBus) => {
@@ -25,6 +27,7 @@ const navigationMount = (el, eventBus) => {
         render: () => h(VueNavigationBarApp, { eventBus })
     })
 
+    app.use(store)
     app.use(vuetify)
     app.provide('eventBus', eventBus);
     app.provide('authEventBus', authEventBus)
