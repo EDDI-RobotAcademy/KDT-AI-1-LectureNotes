@@ -80,6 +80,7 @@ module.exports = (_, argv) => ({
         vueEventBusTestApp: 'vueEventBusTestApp@http://localhost:3009/remoteEntry.js',
         vueAuthApp: 'vueAuthApp@http://localhost:3010/remoteEntry.js',
         vueCounterContainerApp: 'vueCounterContainerApp@http://localhost:3012/remoteEntry.js',
+        nuxtBasicApp: 'nuxtBasicApp@http://localhost:3020/remoteEntry.js',
       },
       shared: {
         ...deps,
