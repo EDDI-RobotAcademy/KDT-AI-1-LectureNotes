@@ -3,22 +3,40 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import router from '@/router';
+import { mapActions, mapGetters } from 'vuex';
+//import router from '@/router';
 
 const authenticationModule = 'authenticationModule'
 
 export default {
+    inject: ['eventBus', 'authEventBus'],
+    computed: {
+        ...mapGetters(authenticationModule, ['getAccessToken'])
+    },
     methods: {
         ...mapActions(authenticationModule, ['getAccessTokenFromSpringRedirection']),
         async setRedirectData () {
             const code = this.$route.query.code
             await this.getAccessTokenFromSpringRedirection({ code })
             console.log('finish to send access token')
-            router.push('/')
+            console.log(this.getAccessToken)
+        },
+        monitorEvent () {
+            this.eventBus.on("go-to-home", (data) => {
+                console.log("이건 임시 방편:", data);
+            });
+        },
+        authEventMonitor () {
+            console.log('모니터링!')
+            this.authEventBus.on("login-complete", (data) => {
+                console.log('로그인 완료 - 전달된 토큰: ' + data)
+            })
         }
     },
-    created () {
+    mounted () {
+        // Auth EventBus에 토큰 전달 잘 되고 있음
+        //this.monitorEvent()
+        //this.authEventMonitor()
         console.log('do redirect - from auth app')
         this.setRedirectData()
     }

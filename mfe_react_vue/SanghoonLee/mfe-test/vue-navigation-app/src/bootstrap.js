@@ -9,6 +9,9 @@ import { loadFonts } from "./plugin/webfontloader";
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import { createVuetify } from "vuetify";
+import authEventBus from "vueAuthApp/AuthEventBus";
+
+import store from "./store";
 
 let app = null
 
@@ -24,9 +27,18 @@ const navigationMount = (el, eventBus) => {
         render: () => h(VueNavigationBarApp, { eventBus })
     })
 
+    app.use(store)
     app.use(vuetify)
     app.provide('eventBus', eventBus);
+    app.provide('authEventBus', authEventBus)
     app.mount(el)
+
+    window.addEventListener('user-token', event => {
+        if (event.origin === 'http://localhost:3010') {
+            const userToken = event.data
+            console.log('userToken: ' + userToken)
+        }
+    })
 };
 
 const root = document.querySelector('#vue-navigation')
