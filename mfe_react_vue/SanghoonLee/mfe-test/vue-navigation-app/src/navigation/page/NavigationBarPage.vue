@@ -64,15 +64,25 @@ export default {
     },
     inject: ['eventBus', 'authEventBus'],
     mounted () {
-        console.log('Navigation onMounted: ' + this.authEventBus);
-        const authStore = useStore()
-        console.log('authStore: ' + authStore)
-        console.log('accessToken: ' + this.getAccessToken)
-        console.log('authStore.state.authenticationModule: ' + authStore.state.authenticationModule)
+        // console.log('Navigation onMounted: ' + this.authEventBus);
+        // const authStore = useStore()
+        // console.log('authStore: ' + authStore)
+        // console.log('accessToken: ' + this.getAccessToken)
+        // console.log('authStore.state.authenticationModule: ' + authStore.state.authenticationModule)
 
-        this.authEventBus.on("login-complete", (data) => {
+        this.eventBus.on("login-complete", (data) => {
             console.log('로그인 완료 - 전달된 토큰: ' + data)
+            localStorage.setItem("userInfo", data)
+            this.isLogin = true
+
+            this.gotoHome()
         })
+
+        const userInfoExist = localStorage.getItem("userInfo")
+        if (userInfoExist) {
+            this.isLogin = true
+        }
+
         // this.acquireAccessToken();
     },
     methods: {
@@ -99,10 +109,14 @@ export default {
             alert('로그인')
         },
         signOut () {
-            this.isLogin = false
+            this.isLogin = 
+            // 'sign-out' event 미구현 -> Container에서 Auth App으로 event 보내고
+            // Auth App에서 Spring에 연결한 정보들 끊도록 구성해야함
+            this.eventBus.emit('sign-out')
             alert('로그아웃')
         },
         gotoHome () {
+            this.eventBus.emit('goto-home')
             alert('고 홈')
         }
     }

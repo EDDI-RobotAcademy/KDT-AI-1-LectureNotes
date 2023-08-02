@@ -15,7 +15,8 @@
       "vue-event-bus-test-app",
       "vue-auth-app",
       "vue-counter-app",
-      "vue-counter-container-app"
+      "vue-counter-container-app",
+      "nuxt3-basic-app"
     ]
   },
   "scripts": {

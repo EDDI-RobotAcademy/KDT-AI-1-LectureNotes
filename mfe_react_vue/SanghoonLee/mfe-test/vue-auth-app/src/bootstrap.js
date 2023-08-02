@@ -21,11 +21,11 @@ import 'vuetify/dist/vuetify.min.css'
 import 'vuetify/styles'
 import authEventBus from "./utility/ipc/authEventBus";
 
-router.beforeEach((to, from, next) => {
-    // 네비게이션 가드 로직
-    console.log('Global navigation guard')
-    next()
-  })
+// router.beforeEach((to, from, next) => {
+//     // 네비게이션 가드 로직
+//     console.log('Global navigation guard')
+//     next()
+//   })
 
 const vuetifyMemberAuthAppMount = (el, eventBus) => {
     console.log('always mount here')

@@ -44,6 +44,18 @@ const VueNavigationBarApp = ({ eventBus, renderAuthApp }) => {
   }, []);
 
   useEffect(() => {
+    eventBus.on('goto-home', () => {
+        console.log('received goto-home event')
+        renderAuthApp = true;
+        navigate('/')
+    });
+
+    return () => {
+        eventBus.off('sign-in');
+    };
+}, []);
+
+  useEffect(() => {
     console.log('라우터 위치 바꿨어: ' + location.pathname)
     const handleNavigation = () => {
       console.log('handleNavigation()')

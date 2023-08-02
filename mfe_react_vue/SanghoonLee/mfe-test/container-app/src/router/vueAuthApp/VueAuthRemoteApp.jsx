@@ -44,7 +44,7 @@ const VueAuthRemoteApp = ({ eventBus }) => {
   }, []);
   
     useEffect(() => {
-      console.log('여긴 Counter Container - 라우터 위치 바꿨어: ' + location.pathname)
+      console.log('여긴 Vue AUth Remote App - 라우터 위치 바꿨어: ' + location.pathname)
       const handleNavigation = () => {
         console.log('handleNavigation()')
         if (location.pathname === "/vue-auth-app") {

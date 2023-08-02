@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import CrossStorageClient from 'cross-storage';
 import { mapActions, mapGetters } from 'vuex';
 //import router from '@/router';
 
@@ -20,6 +21,11 @@ export default {
             await this.getAccessTokenFromSpringRedirection({ code })
             console.log('finish to send access token')
             console.log(this.getAccessToken)
+
+            localStorage.setItem("userInfo", this.getAccessToken)
+
+            const dataToSend = { message: this.getAccessToken }
+            window.opener.postMessage(dataToSend, 'http://localhost:3000')
         },
         monitorEvent () {
             this.eventBus.on("go-to-home", (data) => {
