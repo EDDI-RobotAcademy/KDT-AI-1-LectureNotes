@@ -32,13 +32,6 @@ const navigationMount = (el, eventBus) => {
     app.provide('eventBus', eventBus);
     app.provide('authEventBus', authEventBus)
     app.mount(el)
-
-    window.addEventListener('user-token', event => {
-        if (event.origin === 'http://localhost:3010') {
-            const userToken = event.data
-            console.log('userToken: ' + userToken)
-        }
-    })
 };
 
 const root = document.querySelector('#vue-navigation')

@@ -48,8 +48,10 @@ export default {
         return {
             isLoading: false,
             authorizeRequestHtml: '',
+            popupWindowRef: null,
         }
     },
+    inject: ['eventBus', 'authEventBus'],
     methods: {
         ...mapActions(authenticationModule, [
             'requestGithubLoginToSpring', 'requestAuthroizeToGithub'
@@ -65,21 +67,28 @@ export default {
             try {
                 //window.location.href = await this.requestGithubLoginToSpring()
                 const requestAuthorizeToGithub = await this.requestGithubLoginToSpring()
-                window.location.href = requestAuthorizeToGithub
-                // const authorizeRequestHtml = await this.requestAuthroizeToGithub(authorizeUrl)
-                // this.authorizeRequestHtml = authorizeRequestHtml.data
-                // AfterGithubAuthorizeRequest
-                // this.$router.push({
-                //     name: 'AfterGithubAuthorizeRequest',
-                //     params: { authorizeRequestHtml: authorizeRequestHtml.data }
-                // })
+                //window.location.href = requestAuthorizeToGithub
+                this.popupWindowRef = window.open(requestAuthorizeToGithub, "Github Authorize", "width=500,height=600")
+
+                window.addEventListener('message', (event) => {
+                    if (event.origin === 'http://localhost:3010') {
+                        const receivedData = event.data
+                        console.log('Received data from popup: ', receivedData)
+                        event.source.close()
+
+                        this.eventBus.emit('login-complete', receivedData.message)
+                    }
+                })
             } catch (error) {
                 console.log(error)
             } finally {
                 this.isLoading = false
             }
         }
-    }
+    },
+    created () {
+        console.log('is it executed ? (GithubSignInPage)')
+    },
 }
 
 </script>
