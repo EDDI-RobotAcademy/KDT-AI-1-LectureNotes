@@ -9,7 +9,7 @@ import { loadFonts } from "./plugin/webfontloader";
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import { createVuetify } from "vuetify";
-import authEventBus from "vueAuthApp/AuthEventBus";
+// import authEventBus from "vueAuthApp/AuthEventBus";
 
 import store from "./store";
 
@@ -30,7 +30,7 @@ const navigationMount = (el, eventBus) => {
     app.use(store)
     app.use(vuetify)
     app.provide('eventBus', eventBus);
-    app.provide('authEventBus', authEventBus)
+    //app.provide('authEventBus', authEventBus)
     app.mount(el)
 };
 

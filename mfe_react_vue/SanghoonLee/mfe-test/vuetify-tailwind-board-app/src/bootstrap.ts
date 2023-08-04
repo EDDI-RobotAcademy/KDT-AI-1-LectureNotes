@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, h, onUnmounted } from "vue";
 
 import "./index.scss";
 
@@ -17,7 +17,9 @@ import boardModule from './store/index'
 
 import router from './router'
 
-const vuetifyTailwindBoardAppMount = (el: string | Element) => {
+let app: typeof App
+
+const vuetifyTailwindBoardAppMount = (el: string | Element, eventBus: any) => {
     loadFonts().then(() => {
         const vuetify = createVuetify({
             components: {
@@ -29,13 +31,59 @@ const vuetifyTailwindBoardAppMount = (el: string | Element) => {
             }
         })
     
-        const app = createApp(App).use(vuetify).use(boardModule).use(router)
+        app = createApp({
+            render: () => h(App, { eventBus })
+        })
+        app.use(vuetify).use(boardModule).use(router)
+        app.provide('eventBus', eventBus);
         app.mount(el)
+
+        onUnmounted(() => {
+            app.unmount();
+            app = null;
+        });
     })
 };
 
+interface EventBus {
+    listeners: { [eventName: string]: Function[] };
+    on(eventName: string, callback: Function): void;
+    off(eventName: string, callback: Function): void;
+    emit(eventName: string, data: any): void;
+}
+
+const eventBus: EventBus = {
+    listeners: {},
+
+    on(eventName, callback) {
+        if (!this.listeners[eventName]) {
+            this.listeners[eventName] = [];
+        }
+        this.listeners[eventName].push(callback);
+    },
+
+    off(eventName, callback) {
+        if (!this.listeners[eventName]) {
+            return;
+        }
+        const index = this.listeners[eventName].indexOf(callback);
+        if (index !== -1) {
+            this.listeners[eventName].splice(index, 1);
+        }
+    },
+
+    emit(eventName, data) {
+        if (!this.listeners[eventName]) {
+            return;
+        }
+        this.listeners[eventName].forEach((callback) => {
+            callback(data);
+        });
+    },
+}
+
 const root = document.querySelector('#vuetify-tailwind-board-app')
 
-if (root) { vuetifyTailwindBoardAppMount(root) }
+if (root) { vuetifyTailwindBoardAppMount(root, eventBus) }
 
 export { vuetifyTailwindBoardAppMount }

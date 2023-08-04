@@ -77,7 +77,7 @@ module.exports = (_, argv) => ({
       name: "vueNavigationApp",
       filename: "remoteEntry.js",
       remotes: {
-        vueAuthApp: 'vueAuthApp@http://localhost:3010/remoteEntry.js',
+        
       },
       exposes: {
         './VueNavigation': './src/bootstrap',

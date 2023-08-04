@@ -1,7 +1,7 @@
 <template lang="">
     <v-app-bar color="primary" app dark height="64">
-        <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer"/>
-        <v-btn @click="goHome">
+        <!-- <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer"/> -->
+        <v-btn @click="gotoHome">
             <v-toolbar-title class="text-uppercase text--darken-4">
                 <span>EDDI</span>
             </v-toolbar-title>
@@ -15,18 +15,19 @@
                 </v-btn>
             </template>
             <v-list>
-                <v-list-item v-for="(item, index) in items" :key="index" :value="index">
+                <v-list-item v-for="(item, index) in items" 
+                        :key="index" :value="index" @click="item.action">
                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item>
             </v-list>
         </v-menu>
 
-        <v-btn text @click="clickToggle">
-            <span>클릭 토글</span>
+        <v-btn text @click="callVuetifyBoard">
+            <span>Vuetify 게시판</span>
             <v-icon right>mdi-hand-back-left-outline</v-icon>
         </v-btn>
-        <v-btn v-if="!isLogin" text @click="signUp">
-            <span>회원가입</span>
+        <v-btn v-if="isLogin" text @click="myPage">
+            <span>마이페이지</span>
             <v-icon right>mdi-account-plus-outline</v-icon>
         </v-btn>
         <v-btn v-if="!isLogin" text @click="signIn">
@@ -50,10 +51,9 @@ export default {
             navigation_drawer: false,
             isLogin: false,
             items: [
-                { title: '클릭해봐!' },
-                { title: '클릭하지마!' },
-                { title: '이렇게 나오지' },
-                { title: '요로코롬' },
+                { title: '클릭해봐!', action: this.clickHandler },
+                { title: '클릭하지마!', action: this.dontClickHandler },
+                { title: 'React Query + Zustand + MUI 게시판', action: this.callReactMuiBoard },
             ]
         }
     },
@@ -90,26 +90,22 @@ export default {
         //     const accessToken = this.getAccessToken;
         //     console.log('accessToken 값:', accessToken);
         // },
-        clickToggle () {
-            alert('토글')
+        callVuetifyBoard () {
+            this.eventBus.emit('call-vuetify-board', 'callVuetifyBoard() 요청 완료')
+            alert('Vuetify Board')
         },
-        signUp () {
-            alert('회원 가입')
+        myPage () {
+            alert('마이 페이지')
         },
         signIn () {
             // Container App -> Navigation App -> Auth App
             // Navigation App에서 Auth App을 remotes로 등록해야함 (앞서 Counter App으로 컨셉 검증 완료)
-            // 근데 이렇게 만들 필요가 있나 ?
-            // 이 버튼 클릭하는 것을 감지해서 Event Issuing 하고
-            // 해당 Event가 발행되면 Container가 응답하도록 구성하는게 더 좋을듯하다.
-            
-            //this.isLogin = true
-            // 이 부분을 AuthApp의 getters를 사용해서 참 거짓 여부 판정하게 만든다.
             this.eventBus.emit('sign-in', 'signIn() 요청 완료')
             alert('로그인')
         },
         signOut () {
-            this.isLogin = 
+            this.isLogin = false
+            localStorage.removeItem("userInfo")
             // 'sign-out' event 미구현 -> Container에서 Auth App으로 event 보내고
             // Auth App에서 Spring에 연결한 정보들 끊도록 구성해야함
             this.eventBus.emit('sign-out')
@@ -118,6 +114,16 @@ export default {
         gotoHome () {
             this.eventBus.emit('goto-home')
             alert('고 홈')
+        },
+        clickHandler () {
+            alert('클릭했네 ?')
+        },
+        dontClickHandler () {
+            alert('클릭하지 말라니까 ?')
+        },
+        callReactMuiBoard () {
+            this.eventBus.emit('call-react-mui-board', 'react mui 게시판 요청')
+            alert('React Query + Zustand + MUI Board')
         }
     }
 }
