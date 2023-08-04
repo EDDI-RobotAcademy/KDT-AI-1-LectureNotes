@@ -44,6 +44,30 @@ const VueNavigationBarApp = ({ eventBus, renderAuthApp }) => {
   }, []);
 
   useEffect(() => {
+    eventBus.on('call-vuetify-board', () => {
+        console.log('received call-vuetify-board event')
+        navigate('/vuetify-typescript-board-app/')
+        eventBus.emit('vuetify-board-routing-event', '/');
+    });
+
+    return () => {
+        eventBus.off('sign-in');
+    };
+  }, []);
+
+  useEffect(() => {
+    eventBus.on('call-react-mui-board', () => {
+        console.log('received call-react-mui-board event')
+        navigate('/react-query-zustand-mui-typescript-board-app/')
+        eventBus.emit('react-mui-board-routing-event', '/');
+    });
+
+    return () => {
+        eventBus.off('sign-in');
+    };
+  }, []);
+
+  useEffect(() => {
     eventBus.on('goto-home', () => {
         console.log('received goto-home event')
         renderAuthApp = true;
@@ -53,7 +77,7 @@ const VueNavigationBarApp = ({ eventBus, renderAuthApp }) => {
     return () => {
         eventBus.off('sign-in');
     };
-}, []);
+  }, []);
 
   useEffect(() => {
     console.log('라우터 위치 바꿨어: ' + location.pathname)

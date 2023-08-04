@@ -11,6 +11,9 @@ import VueModuleAppRouter from "./router/vueModuleApp/VueModuleAppRouter";
 import VueNavigationBarApp from "./router/vueNavigationApp/VueNavigationBarApp";
 import VueCounterContainerRemoteApp from "./router/vueCounterContainerApp/VueCounterContainerRemoteApp";
 import VueAuthRemoteApp from "./router/vueAuthApp/VueAuthRemoteApp";
+import VuetifyTypeScriptBoardApp from "./router/vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardApp";
+
+import ReactTypescriptMuiBoardRoutes from './router/muiTypescriptBoardApp/ReactTypescriptMuiBoardRoutes';
 
 const eventBus = mitt();
 
@@ -100,7 +103,9 @@ const App = () => {
                     <Route exact path="/vue-board-app/*" element={<VueModuleAppRouter/>} />
                     <Route exact path="/vue-counter-container-app" element={<VueCounterContainerRemoteApp/>} />
                     <Route path="/vue-auth-app/sign-in" element={<VueAuthRemoteApp eventBus={eventBus}/>} />
+                    <Route path="/vuetify-typescript-board-app/*" element={<VuetifyTypeScriptBoardApp eventBus={eventBus}/>} />
                 </Routes>
+                <ReactTypescriptMuiBoardRoutes/>
             </div>
         </BrowserRouter>
     );

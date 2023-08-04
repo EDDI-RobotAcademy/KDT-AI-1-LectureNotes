@@ -13,6 +13,7 @@ import { defineComponent } from 'vue'
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/dist/vuetify.min.css'
 import 'vuetify/styles'
+import router from './router'
 
 export default defineComponent({
   name: 'App',
@@ -25,5 +26,12 @@ export default defineComponent({
       //
     }
   },
+  inject: ['eventBus'],
+  mounted () {
+    this.eventBus.on("vuetify-board-routing-event", (data) => {
+        console.log("vuetify-board-routing-event 발생:", data);
+        router.push(data)
+    });
+  }
 })
 </script>
